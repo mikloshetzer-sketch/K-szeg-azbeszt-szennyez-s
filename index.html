@@ -394,12 +394,8 @@
       return '📰 HÍR';
     }
 
-    function renderNews(items, mode) {
-      currentNews = items;
-
-      const list = document.getElementById('newsList');
-
-      list.innerHTML = items.slice(0, 20).map((n, index) => {
+    function buildNewsHtml(items, mode = '') {
+      return items.map((n, index) => {
         const breaking = index < 2
           ? '<div style="position:absolute;top:8px;right:8px;background:#dc2626;color:white;padding:3px 7px;border-radius:999px;font-size:10px;font-weight:800;">TOP</div>'
           : '';
@@ -410,13 +406,32 @@
             <div style="font-size:10px;color:#cbd5e1;margin-bottom:6px;font-weight:700;letter-spacing:.3px;">${sourceBadge(n.source)}</div>
             <a href="${n.url}" target="_blank" rel="noopener">${n.title}</a>
             <div class="meta">${n.source || 'Forrás'} · ${n.date || ''}</div>
-            <span class="tag">${mode}</span>
+            ${mode ? `<span class="tag">${mode}</span>` : ''}
           </article>
         `;
       }).join('');
+    }
+
+    function sourceBadge(source) {
+      const s = (source || '').toLowerCase();
+
+      if (s.includes('telex')) return '🟦 TELEX';
+      if (s.includes('hvg')) return '🟩 HVG';
+      if (s.includes('444')) return '⬛ 444';
+      if (s.includes('vaol')) return '🟨 VAOL';
+
+      return '📰 HÍR';
+    }
+
+    function renderNews(items, mode) {
+      currentNews = items;
+
+      const list = document.getElementById('newsList');
+      list.innerHTML = buildNewsHtml(items.slice(0, 20), mode);
 
       const generated = new Date().toLocaleString('hu-HU');
       document.getElementById('lastUpdate').textContent = 'Hírek: ' + generated;
+    }
         renderNews(articles, data.mode === 'automatic' ? 'automatikus JSON' : 'kézi tartalék JSON');
       } catch(e) {
         console.warn('A news.json betöltése nem sikerült, helyi tartalék lista jön:', e);
@@ -445,21 +460,7 @@
       });
 
       const list = document.getElementById('newsList');
-
-      list.innerHTML = filtered.map((n, index) => {
-        const breaking = index < 2
-          ? '<div style="position:absolute;top:8px;right:8px;background:#dc2626;color:white;padding:3px 7px;border-radius:999px;font-size:10px;font-weight:800;">TOP</div>'
-          : '';
-
-        return `
-          <article class="news-item" data-source="${(n.source || '').toLowerCase()}">
-            ${breaking}
-            <div style="font-size:10px;color:#cbd5e1;margin-bottom:6px;font-weight:700;letter-spacing:.3px;">${sourceBadge(n.source)}</div>
-            <a href="${n.url}" target="_blank" rel="noopener">${n.title}</a>
-            <div class="meta">${n.source || 'Forrás'} · ${n.date || ''}</div>
-          </article>
-        `;
-      }).join('');
+      list.innerH
       }
     }
 
