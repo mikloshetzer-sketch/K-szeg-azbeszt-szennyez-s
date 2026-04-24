@@ -50,12 +50,11 @@
     .news-head h2 { margin: 0; font-size: 18px; }
     .refresh { background: #374151; color: #f3f4f6; border-radius: 10px; padding: 8px 10px; }
     .refresh:hover { background: #4b5563; }
-    .news-item { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.09); border-radius: 14px; padding: 11px; margin-bottom: 10px; }
-    .news-item a { color: #93c5fd; text-decoration: none; font-weight: 800; line-height: 1.25; }
-    .news-item a:hover { text-decoration: underline; }
-    .meta { color: #9ca3af; font-size: 11px; margin-top: 7px; }
-    .tag { display: inline-block; margin-top: 8px; background: rgba(37,99,235,.18); color: #bfdbfe; border: 1px solid rgba(37,99,235,.34); border-radius: 999px; padding: 4px 7px; font-size: 11px; }
-    .timeline { border-left: 3px solid rgba(148,163,184,.45); padding-left: 11px; }
+    .news-item { background: rgba(255,255,255,.055); border: 1px solid rgba(255,255,255,.085); border-radius: 12px; padding: 9px 10px; margin-bottom: 8px; }.news-item a { color: #93c5fd; text-decoration: none; font-weight: 800; line-height: 1.22; font-size: 14px; }
+    .news-item a:hoverhover { text-decoration: underline; }
+    .meta { color: #9ca3af; font-size: 10.5px; margin-top: 5px; }
+  .tag { display: inline-block; margin-top: 6px; background: rgba(37,99,235,.18); color: #bfdbfe; border: 1px solid rgba(37,99,235,.34); border-radius: 999px; padding: 3px 6px; font-size: 10px; }
+    .timelinene { border-left: 3px solid rgba(148,163,184,.45); padding-left: 11px; }
     .timeline-item { margin: 0 0 12px; }
     .timeline-date { color: #f9fafb; font-weight: 900; font-size: 12px; }
     .timeline-text { color: #cbd5e1; font-size: 12px; line-height: 1.35; }
@@ -144,7 +143,7 @@
         </div>
         <section class="card" id="summaryCard">
           <h2>AI sajtóösszefoglaló</h2>
-          <p class="muted" id="aiSummary">Összefoglaló betöltése...</p>
+          <p class="muted" id="aiSummary">AI összefoglaló betöltése vagy generálása folyamatban. Ha nincs API-kulcs beállítva, itt a kézi tartalék összefoglaló jelenik meg.</p>
         </section>
         <div id="newsList"></div>
 
@@ -233,7 +232,21 @@
       { title: 'VAOL – Helyi tudósítás az azbesztügyről', source: 'VAOL', date: '2026-04', url: 'https://www.vaol.hu/helyi-kozelet/2026/04/azbeszt-ugy-bozsok-koszeg' }
     ];
 
-    const roadStyle = { color: '#ef4444', weight: 7, opacity: .95 };
+    const roadStyle = {
+      color: '#dc2626',
+      weight: 4,
+      opacity: .78,
+      lineCap: 'round',
+      lineJoin: 'round'
+    };
+
+    const roadGlowStyle = {
+      color: '#7f1d1d',
+      weight: 9,
+      opacity: .22,
+      lineCap: 'round',
+      lineJoin: 'round'
+    };
     const statusEl = document.getElementById('status');
 
     function normalizeName(name) {
@@ -293,6 +306,7 @@
         if (latlngs.length < 2) continue;
 
         if (isInSet(name, affectedStreetNames)) {
+          L.polyline(latlngs, roadGlowStyle).addTo(layers.affected);
           L.polyline(latlngs, roadStyle)
             .bindPopup(`<b>${name}</b><br>Érintett út / utca / útszakasz`)
             .addTo(layers.affected);
@@ -301,7 +315,7 @@
       }
 
       if (layers.affected.getLayers().length) {
-        map.fitBounds(layers.affected.getBounds(), { padding: [35, 35] });
+        map.fitBounds(layers.affected.getBounds(), { padding: [60, 60], maxZoom: 14 });
       }
 
       document.getElementById('statRoads').textContent = matched;
@@ -321,7 +335,14 @@
         try {
           const latlng = await geocode(p.query);
           if (latlng) {
-            L.circleMarker(latlng, { radius: 8, color: '#111', fillColor: '#111', fillOpacity: .92 })
+            L.marker(latlng, {
+              icon: L.divIcon({
+                className: 'parking-marker',
+                html: '<div style="width:26px;height:26px;border-radius:50%;background:#111827;border:3px solid #f59e0b;color:#fbbf24;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:14px;box-shadow:0 3px 10px rgba(0,0,0,.45);">P</div>',
+                iconSize: [26, 26],
+                iconAnchor: [13, 13]
+              })
+            })
               .bindPopup(`<b>${p.name}</b><br>Lezárt parkoló / parkolási érintettség`)
               .addTo(layers.parking);
             count++;
@@ -375,7 +396,7 @@
           throw new Error('A news.json nem tartalmaz híreket');
         }
 
-        document.getElementById('aiSummary').textContent = data.summary || 'Nincs elérhető összefoglaló.';
+        document.getElementById('aiSummary').textContent = data.summary || 'A friss hír-adatbázis elérhető, de AI összefoglaló még nem készült.';
 
         const generated = data.generated_at
           ? new Date(data.generated_at).toLocaleString('hu-HU')
@@ -385,7 +406,7 @@
         renderNews(articles, data.mode === 'automatic' ? 'automatikus JSON' : 'kézi tartalék JSON');
       } catch(e) {
         console.warn('A news.json betöltése nem sikerült, helyi tartalék lista jön:', e);
-        document.getElementById('aiSummary').textContent = 'A frissített hír-adatbázis jelenleg nem érhető el. A rendszer tartalék, kézzel rögzített hírlistát mutat.';
+        document.getElementById('aiSummary').textContent = 'A frissített hír-adatbázis jelenleg nem érhető el. A rendszer tartalék, kézzel rögzített hírlistát mutat. Az automatikus frissítéshez ellenőrizd a GitHub Actions futását és a data/news.json fájlt.';
         renderNews(manualNews, 'helyi tartalék');
       }
     }
