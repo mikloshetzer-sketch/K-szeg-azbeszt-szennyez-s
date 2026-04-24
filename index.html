@@ -142,6 +142,10 @@
           </div>
           <button class="refresh" onclick="loadNews(true)">Frissítés</button>
         </div>
+        <section class="card" id="summaryCard">
+          <h2>AI sajtóösszefoglaló</h2>
+          <p class="muted" id="aiSummary">Összefoglaló betöltése...</p>
+        </section>
         <div id="newsList"></div>
 
         <section class="card">
@@ -223,11 +227,10 @@
     ];
 
     const manualNews = [
-      { title: 'Telex – Azbesztügy Kőszegen: intézkedések és érintett területek', source: 'Telex', date: '2026. április 24.', url: 'https://telex.hu/belfold/2026/04/24/azbeszt-koszeg-banya-intezkedesek' },
-      { title: 'HVG – Kőszegre is kerülhetett az azbeszttartalmú kőzúzalékból', source: 'HVG', date: '2026. április 24.', url: 'https://hvg.hu/zhvg/20260424_koszeg-azbeszt-tartalom-kozuzalek-bozsok-szombathely' },
-      { title: '444 – Szombathely és Bozsok mellett Kőszeg is érintett lehet', source: '444', date: '2026. április 24.', url: 'https://444.hu/2026/04/24/szombathely-es-bozsok-mellett-koszegre-is-juthatott-abbol-az-azbeszttel-szennyezett-kozuzalekbol' },
-      { title: 'VAOL – Helyi tudósítás az azbesztügyről', source: 'VAOL', date: '2026. április', url: 'https://www.vaol.hu/helyi-kozelet/2026/04/azbeszt-ugy-bozsok-koszeg' },
-      { title: 'Telex / Greenpeace – Osztrák kőbánya, feljelentés, magyarországi szennyezés', source: 'Telex', date: '2026. április 22.', url: 'https://telex.hu/belfold/2026/04/22/greenpeace-ausztria-feljelentes-pilgersdorfi-kobanya-azbesztszennyezes-magyarorszag-szombathely' }
+      { title: 'Telex – Azbesztügy Kőszegen: intézkedések és érintett területek', source: 'Telex', date: '2026-04-24', url: 'https://telex.hu/belfold/2026/04/24/azbeszt-koszeg-banya-intezkedesek' },
+      { title: 'HVG – Kőszegre is kerülhetett az azbeszttartalmú kőzúzalékból', source: 'HVG', date: '2026-04-24', url: 'https://hvg.hu/zhvg/20260424_koszeg-azbeszt-tartalom-kozuzalek-bozsok-szombathely' },
+      { title: '444 – Szombathely és Bozsok mellett Kőszeg is érintett lehet', source: '444', date: '2026-04-24', url: 'https://444.hu/2026/04/24/szombathely-es-bozsok-mellett-koszegre-is-juthatott-abbol-az-azbeszttel-szennyezett-kozuzalekbol' },
+      { title: 'VAOL – Helyi tudósítás az azbesztügyről', source: 'VAOL', date: '2026-04', url: 'https://www.vaol.hu/helyi-kozelet/2026/04/azbeszt-ugy-bozsok-koszeg' }
     ];
 
     const roadStyle = { color: '#ef4444', weight: 7, opacity: .95 };
@@ -357,40 +360,33 @@
     }
 
     async function loadNews(force = false) {
-      const cacheKey = 'koszegAzbesztNewsCache';
-      const cached = localStorage.getItem(cacheKey);
-
-      if (!force && cached) {
-        try {
-          const parsed = JSON.parse(cached);
-          if (Date.now() - parsed.time < 6 * 60 * 60 * 1000) {
-            renderNews(parsed.items, 'automatikus / cache');
-            return;
-          }
-        } catch(e) {}
-      }
-
       try {
-        const query = encodeURIComponent('("Kőszeg" OR "Koszeg" OR "Bozsok" OR "Szombathely") (azbeszt OR aszbeszt OR azbesztszennyezés OR kőzúzalék)');
-        const url = `https://api.gdeltproject.org/api/v2/doc/doc?query=${query}&mode=ArtList&format=json&maxrecords=12&sort=HybridRel`;
-        const r = await fetch(url);
-        if (!r.ok) throw new Error('Hír API hiba');
-        const d = await r.json();
-        const items = (d.articles || [])
-          .map(a => ({
-            title: a.title,
-            url: a.url,
-            source: a.domain || a.sourceCountry || 'GDELT',
-            date: a.seendate ? a.seendate.slice(0,4)+'-'+a.seendate.slice(4,6)+'-'+a.seendate.slice(6,8) : ''
-          }))
-          .filter(x => x.title && x.url);
+        const cacheBust = force ? '?t=' + Date.now() : '';
+        const response = await fetch('data/news.json' + cacheBust);
 
-        if (!items.length) throw new Error('Nincs automatikus találat');
-        localStorage.setItem(cacheKey, JSON.stringify({ time: Date.now(), items }));
-        renderNews(items, 'automatikus');
+        if (!response.ok) {
+          throw new Error('A data/news.json nem érhető el');
+        }
+
+        const data = await response.json();
+        const articles = Array.isArray(data.articles) ? data.articles : [];
+
+        if (!articles.length) {
+          throw new Error('A news.json nem tartalmaz híreket');
+        }
+
+        document.getElementById('aiSummary').textContent = data.summary || 'Nincs elérhető összefoglaló.';
+
+        const generated = data.generated_at
+          ? new Date(data.generated_at).toLocaleString('hu-HU')
+          : new Date().toLocaleString('hu-HU');
+
+        document.getElementById('lastUpdate').textContent = 'Hírek: ' + generated;
+        renderNews(articles, data.mode === 'automatic' ? 'automatikus JSON' : 'kézi tartalék JSON');
       } catch(e) {
-        console.warn('Automatikus hírek nem elérhetők, tartalék lista jön:', e);
-        renderNews(manualNews, 'kézi tartalék');
+        console.warn('A news.json betöltése nem sikerült, helyi tartalék lista jön:', e);
+        document.getElementById('aiSummary').textContent = 'A frissített hír-adatbázis jelenleg nem érhető el. A rendszer tartalék, kézzel rögzített hírlistát mutat.';
+        renderNews(manualNews, 'helyi tartalék');
       }
     }
 
@@ -413,4 +409,3 @@
   </script>
 </body>
 </html>
-
