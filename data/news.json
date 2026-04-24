@@ -1,33 +1,37 @@
 {
-  "generated_at": "2026-04-24T20:20:47.097147+00:00",
+  "generated_at": "2026-04-24T20:27:23.423846+00:00",
   "refresh_hours": 6,
   "query": "(\"Kőszeg\" OR \"Koszeg\" OR \"Bozsok\" OR \"Szombathely\") (azbeszt OR aszbeszt OR azbesztszennyezés OR kőzúzalék)",
   "mode": "manual_fallback",
-  "summary": "AI-összefoglaló nem készült.",
+  "summary": "Kőszeg környékén az azbeszt-tartalmú kőzúzalék jelenléte vált ismertté, több forrás szerint a szomszédos Szombathely és Bozsok mellett Kőszeg is érintett lehet az ügyben. A helyi hatóságok intézkedéseket tettek az érintett területeken, a lakosság tájékoztatását és a további vizsgálatokat folytatják. A különböző médiák beszámolói szerint a helyzet tisztázása folyamatban van, anélkül, hogy részletes laboreredményeket vagy szakhatósági döntéseket közöltek volna. Az esemény kapcsán a helyiek biztonsága és az esetleges egészségügyi következmények mérlegelése zajlik.\n\n- Azbeszt-tartalmú kőzúzalék került Kőszeg és környékére.\n- Érintettek Kőszeg, Szombathely és Bozsok térsége.\n- A lakosság figyelje a hivatalos tájékoztatókat és a hatósági intézkedéseket.",
   "articles": [
     {
       "title": "Telex – Azbesztügy Kőszegen: intézkedések és érintett területek",
       "source": "Telex",
       "date": "2026-04-24",
-      "url": "https://telex.hu/belfold/2026/04/24/azbeszt-koszeg-banya-intezkedesek"
+      "url": "https://telex.hu/belfold/2026/04/24/azbeszt-koszeg-banya-intezkedesek",
+      "type": "manual"
     },
     {
       "title": "HVG – Kőszegre is kerülhetett az azbeszttartalmú kőzúzalékból",
       "source": "HVG",
       "date": "2026-04-24",
-      "url": "https://hvg.hu/zhvg/20260424_koszeg-azbeszt-tartalom-kozuzalek-bozsok-szombathely"
+      "url": "https://hvg.hu/zhvg/20260424_koszeg-azbeszt-tartalom-kozuzalek-bozsok-szombathely",
+      "type": "manual"
     },
     {
       "title": "444 – Szombathely és Bozsok mellett Kőszeg is érintett lehet",
       "source": "444",
       "date": "2026-04-24",
-      "url": "https://444.hu/2026/04/24/szombathely-es-bozsok-mellett-koszegre-is-juthatott-abbol-az-azbeszttel-szennyezett-kozuzalekbol"
+      "url": "https://444.hu/2026/04/24/szombathely-es-bozsok-mellett-koszegre-is-juthatott-abbol-az-azbeszttel-szennyezett-kozuzalekbol",
+      "type": "manual"
     },
     {
       "title": "VAOL – Helyi tudósítás az azbesztügyről",
       "source": "VAOL",
       "date": "2026-04",
-      "url": "https://www.vaol.hu/helyi-kozelet/2026/04/azbeszt-ugy-bozsok-koszeg"
+      "url": "https://www.vaol.hu/helyi-kozelet/2026/04/azbeszt-ugy-bozsok-koszeg",
+      "type": "manual"
     }
   ]
 }
