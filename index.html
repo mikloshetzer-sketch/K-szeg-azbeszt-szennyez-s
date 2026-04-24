@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kőszeg – érintett utcák és lezárt parkolók</title>
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: Arial, sans-serif;
+    }
+
+    #map {
+      width: 100%;
+      height: 100vh;
+    }
+
+    .panel {
+      position: absolute;
+      z-index: 1000;
+      top: 12px;
+      left: 12px;
+      background: white;
+      padding: 14px 16px;
+      border-radius: 12px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.25);
+      max-width: 360px;
+      font-size: 14px;
+    }
+
+    .panel h2 {
+      margin: 0 0 8px 0;
+      font-size: 18px;
+    }
+
+    .panel p {
+      margin: 6px 0;
+    }
+
+    .status {
+      margin-top: 8px;
+      font-weight: bold;
+    }
+
+    .legend {
+      background: white;
+      padding: 12px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+      line-height: 1.7;
+      font-size: 14px;
+    }
+
+    .legend-line {
+      display: inline-block;
+      width: 28px;
+      height: 5px;
+      margin-right: 8px;
+      vertical-align: middle;
+      border-radius: 4px;
+    }
+
+    .legend-dot {
+      display: inline-block;
+      width: 13px;
+      height: 13px;
+      margin-right: 8px;
+      border-radius: 50%;
+      vertical-align: middle;
+    }
+
+    .btn-row {
+      margin-top: 10px;
+    }
+
+    button {
+      background: #1f6feb;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 8px 10px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    button:hover {
+      background: #174ea6;
+    }
+
+    .small {
+      font-size: 12px;
+      color: #444;
+    }
+  </style>
+</head>
+<body>
+  <div id="map"></div>
+
+  <div class="panel">
+    <h2>Kőszeg – érintett utcák</h2>
+    <p>Az oldal az OpenStreetMap adataiból tölti le Kőszeg úthálózatát, majd a megadott utcanevek alapján kiemeli az érintett szakaszokat.</p>
+    <p class="small">Internetkapcsolat szükséges. Betöltés után a térkép nagyítható, mozgatható, nyomtatható.</p>
+    <div id="status" class="status">Adatok betöltése...</div>
+    <div class="btn-row">
+      <button onclick="window.print()">Nyomtatás / PDF mentés</button>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <script>
+    const map = L.map('map').setView([47.3895, 16.5410], 13);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+
+    const affectedStreetNames = new Set([
+      'Borostyánkő utca',
+      'Lékai út',
+      'Malomárok utca',
+      'Meskó utca',
+      'Kálvária utca',
+      'Bechtold utca',
+      'Királyvölgyi utca',
+      'Erdő utca',
+      'Mélyút utca',
+      'Arborétum utca',
+      'Freh Alfonz utca',
+      'Szent Anna utca',
+      'Hadik utca',
+      'Óház utca',
+      'Bersek József utca',
+      'Kórház utca',
+      'Szent György utca',
+      'József Forrás utca',
+      'Csőszház utca',
+      'Szelestey László utca',
+      'Hermina utca',
+      'Fehér Sáfrány utca',
+      'Dr. Ambró Gyula utca',
+      'Kenyérhegyi út',
+      'Zrínyi utca',
+      'Sörgyár utca',
+      'Vízmű utca',
+      'Lóránt Gyula utca',
+      'Posztógyár utca',
+      'Forintos Mátyás utca',
+      'Napsugár utca'
+    ]);
+
+    const restrictedStreetNames = new Set([
+      'Kankalin utca',
+      'Tüskevár utca',
+      'Napsugár utca',
+      'Faludi utca'
+    ]);
+
+    const approximateAreas = [
+      'Hidegvölgy útjai',
+      'Pocichter / Libaszőlő utcák',
+      'Királyvölgy – Madársétány',
+      'Szőlőskert utcai bekötő',
+      'Hosszú nemes dűlő',
+      'Hosszú Lövészárok dűlő útjai',
+      'Köböl dűlő',
+      'Hatházakhoz, zsiliphez vezető út',
+      'Dózsa 17. melletti bekötőút',
+      'Sáncárok utcai lakótömb belső úthálózat',
+      'régi temető hátsó bejáró, parkoló'
+    ];
+
+    const parkingSearches = [
+      { name: 'Dózsa György utca – Szociális Gondozóközpont előtti parkoló', query: 'Dózsa György utca Kőszeg' },
+      { name: 'Koronaőrző bunker parkoló', query: 'Kálvária utca Kőszeg' },
+      { name: 'Bajcsy-Zsilinszky utca óvoda parkoló', query: 'Bajcsy-Zsilinszky utca Kőszeg' },
+      { name: 'Látogatóközpont – Chernel-kert parkolója', query: 'Chernel kert Kőszeg' },
+      { name: 'Bersek iskola belső parkoló', query: 'Bersek József utca Kőszeg' },
+      { name: 'Strand sétány parkoló', query: 'Strand sétány Kőszeg' },
+      { name: 'Bersek József utca parkoló', query: 'Bersek József utca Kőszeg Vaihingen utca' },
+      { name: 'Liszt Ferenc utca – Bersek iskola közötti szakasz', query: 'Liszt Ferenc utca Kőszeg' },
+      { name: 'Gimnázium – Kollégium parkoló', query: 'Kőszeg gimnázium kollégium' },
+      { name: 'Károlyi Mihály utca vége parkoló', query: 'Károlyi Mihály utca Kőszeg' }
+    ];
+
+    const statusEl = document.getElementById('status');
+
+    const normalStyle = {
+      color: '#e00000',
+      weight: 7,
+      opacity: 0.92
+    };
+
+    const restrictedStyle = {
+      color: '#ff9800',
+      weight: 8,
+      opacity: 0.95,
+      dashArray: '8 8'
+    };
+
+    const boundaryStyle = {
+      color: '#1d4ed8',
+      weight: 3,
+      opacity: 0.85,
+      fillOpacity: 0.03
+    };
+
+    function normalizeName(name) {
+      return (name || '')
+        .toLowerCase()
+        .replace(/\./g, '')
+        .replace(/útja$/g, 'út')
+        .replace(/utca$/g, 'utca')
+        .replace(/\s+/g, ' ')
+        .trim();
+    }
+
+    function isInSet(name, set) {
+      const n = normalizeName(name);
+      for (const s of set) {
+        if (n === normalizeName(s)) return true;
+      }
+      return false;
+    }
+
+    function overpassUrl(query) {
+      return 'https://overpass-api.de/api/interpreter?data=' + encodeURIComponent(query);
+    }
+
+    async function fetchOverpass(query) {
+      const response = await fetch(overpassUrl(query));
+      if (!response.ok) throw new Error('Overpass API hiba');
+      return await response.json();
+    }
+
+    function nodesToMap(elements) {
+      const mapNodes = new Map();
+      for (const el of elements) {
+        if (el.type === 'node') mapNodes.set(el.id, [el.lat, el.lon]);
+      }
+      return mapNodes;
+    }
+
+    function wayToLatLngs(way, nodeMap) {
+      return way.nodes
+        .map(id => nodeMap.get(id))
+        .filter(Boolean);
+    }
+
+    async function loadRoads() {
+      const roadQuery = `
+        [out:json][timeout:40];
+        area["name"="Kőszeg"]["boundary"="administrative"]->.searchArea;
+        (
+          way(area.searchArea)["highway"]["name"];
+        );
+        out body;
+        >;
+        out skel qt;
+      `;
+
+      const data = await fetchOverpass(roadQuery);
+      const nodeMap = nodesToMap(data.elements);
+      let matched = 0;
+      const group = L.featureGroup().addTo(map);
+
+      for (const el of data.elements) {
+        if (el.type !== 'way' || !el.tags || !el.tags.name) continue;
+
+        const name = el.tags.name;
+        const latlngs = wayToLatLngs(el, nodeMap);
+        if (latlngs.length < 2) continue;
+
+        if (isInSet(name, restrictedStreetNames)) {
+          L.polyline(latlngs, restrictedStyle)
+            .bindPopup(`<b>${name}</b><br>Forgalomkorlátozott / 10 km/h vagy áthajtási korlátozás`)
+            .addTo(group);
+          matched++;
+        } else if (isInSet(name, affectedStreetNames)) {
+          L.polyline(latlngs, normalStyle)
+            .bindPopup(`<b>${name}</b><br>Érintett utca / útszakasz`)
+            .addTo(group);
+          matched++;
+        }
+      }
+
+      if (group.getLayers().length > 0) {
+        map.fitBounds(group.getBounds(), { padding: [40, 40] });
+      }
+
+      return matched;
+    }
+
+    async function loadBoundary() {
+      const boundaryQuery = `
+        [out:json][timeout:40];
+        area["name"="Kőszeg"]["boundary"="administrative"]->.searchArea;
+        relation(area.searchArea)["name"="Kőszeg"]["boundary"="administrative"];
+        out geom;
+      `;
+
+      try {
+        const data = await fetchOverpass(boundaryQuery);
+        for (const rel of data.elements) {
+          if (!rel.members) continue;
+          for (const m of rel.members) {
+            if (m.geometry) {
+              const latlngs = m.geometry.map(p => [p.lat, p.lon]);
+              L.polyline(latlngs, boundaryStyle)
+                .bindPopup('Kőszeg közigazgatási határa')
+                .addTo(map);
+            }
+          }
+        }
+      } catch (e) {
+        console.warn('Határ betöltési hiba:', e);
+      }
+    }
+
+    async function geocode(query) {
+      const url = `https://nominatim.openstreetmap.org/search?format=json&limit=1&q=${encodeURIComponent(query)}`;
+      const response = await fetch(url);
+      const data = await response.json();
+      if (!data || data.length === 0) return null;
+      return [parseFloat(data[0].lat), parseFloat(data[0].lon)];
+    }
+
+    async function loadParkings() {
+      let count = 0;
+      for (const p of parkingSearches) {
+        try {
+          const latlng = await geocode(p.query);
+          if (latlng) {
+            L.circleMarker(latlng, {
+              radius: 8,
+              color: '#000',
+              fillColor: '#000',
+              fillOpacity: 0.9
+            })
+              .bindPopup(`<b>${p.name}</b><br>Lezárt parkoló / parkolási érintettség`)
+              .addTo(map);
+            count++;
+          }
+          await new Promise(resolve => setTimeout(resolve, 700));
+        } catch (e) {
+          console.warn('Parkoló geokódolási hiba:', p.name, e);
+        }
+      }
+      return count;
+    }
+
+    function addApproximateAreasBox() {
+      const html = `
+        <b>Csak szövegesen szereplő / részben beazonosítható területek:</b><br>
+        ${approximateAreas.map(x => `• ${x}`).join('<br>')}<br><br>
+        Ezeknél a pontos útszakaszhoz helyi ellenőrzés vagy kézi rajzolás szükséges.
+      `;
+
+      L.marker([47.3895, 16.5410], {
+        opacity: 0.001
+      })
+        .addTo(map)
+        .bindPopup(html);
+    }
+
+    const legend = L.control({ position: 'bottomright' });
+    legend.onAdd = function () {
+      const div = L.DomUtil.create('div', 'legend');
+      div.innerHTML = `
+        <h4>Jelmagyarázat</h4>
+        <div><span class="legend-line" style="background:#e00000"></span> Érintett utcák</div>
+        <div><span class="legend-line" style="background:#ff9800"></span> Sebesség / forgalomkorlátozás</div>
+        <div><span class="legend-dot" style="background:#000"></span> Lezárt parkolók</div>
+        <div><span class="legend-line" style="background:#1d4ed8"></span> Kőszeg határa</div>
+      `;
+      return div;
+    };
+    legend.addTo(map);
+
+    async function init() {
+      try {
+        statusEl.textContent = 'Kőszeg határának betöltése...';
+        await loadBoundary();
+
+        statusEl.textContent = 'Utcavonalak betöltése és színezése...';
+        const roads = await loadRoads();
+
+        statusEl.textContent = 'Parkolók jelölése...';
+        const parks = await loadParkings();
+
+        addApproximateAreasBox();
+
+        statusEl.textContent = `Kész: ${roads} útszakasz kiemelve, ${parks} parkoló jelölve.`;
+      } catch (e) {
+        console.error(e);
+        statusEl.textContent = 'Hiba történt az adatok betöltésekor. Próbáld újratölteni az oldalt.';
+      }
+    }
+
+    init();
+  </script>
+</body>
+</html>
