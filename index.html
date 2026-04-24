@@ -50,11 +50,13 @@
     .news-head h2 { margin: 0; font-size: 18px; }
     .refresh { background: #374151; color: #f3f4f6; border-radius: 10px; padding: 8px 10px; }
     .refresh:hover { background: #4b5563; }
-    .news-item { background: rgba(255,255,255,.055); border: 1px solid rgba(255,255,255,.085); border-radius: 12px; padding: 9px 10px; margin-bottom: 8px; }.news-item a { color: #93c5fd; text-decoration: none; font-weight: 800; line-height: 1.22; font-size: 14px; }
-    .news-item a:hoverhover { text-decoration: underline; }
+    .news-item {
+      position: relative; background: rgba(255,255,255,.055); border: 1px solid rgba(255,255,255,.085); border-radius: 12px; padding: 9px 10px; margin-bottom: 8px; }
+    .news-item a { color: #93c5fd; text-decoration: none; font-weight: 800; line-height: 1.22; font-size: 14px; }
+    .news-item a:hover { text-decoration: underline; }
     .meta { color: #9ca3af; font-size: 10.5px; margin-top: 5px; }
-  .tag { display: inline-block; margin-top: 6px; background: rgba(37,99,235,.18); color: #bfdbfe; border: 1px solid rgba(37,99,235,.34); border-radius: 999px; padding: 3px 6px; font-size: 10px; }
-    .timelinene { border-left: 3px solid rgba(148,163,184,.45); padding-left: 11px; }
+    .tag { display: inline-block; margin-top: 6px; background: rgba(37,99,235,.18); color: #bfdbfe; border: 1px solid rgba(37,99,235,.34); border-radius: 999px; padding: 3px 6px; font-size: 10px; }
+    .timeline { border-left: 3px solid rgba(148,163,184,.45); padding-left: 11px; }
     .timeline-item { margin: 0 0 12px; }
     .timeline-date { color: #f9fafb; font-weight: 900; font-size: 12px; }
     .timeline-text { color: #cbd5e1; font-size: 12px; line-height: 1.35; }
@@ -134,6 +136,17 @@
       </section>
 
       <aside class="newsbar">
+        <div style="display:flex;gap:8px;margin-bottom:10px;flex-wrap:wrap;">
+          <input id="newsSearch" type="text" placeholder="Hír keresése..." oninput="filterNews()" style="flex:1;min-width:180px;background:#0f172a;border:1px solid rgba(255,255,255,.12);color:#f3f4f6;padding:10px 12px;border-radius:12px;outline:none;">
+          <select id="newsFilter" onchange="filterNews()" style="background:#0f172a;border:1px solid rgba(255,255,255,.12);color:#f3f4f6;padding:10px 12px;border-radius:12px;outline:none;">
+            <option value="all">Minden forrás</option>
+            <option value="telex">Telex</option>
+            <option value="hvg">HVG</option>
+            <option value="444">444</option>
+            <option value="vaol">VAOL</option>
+          </select>
+        </div>
+
         <div class="news-head">
           <div>
             <h2>Top hírek</h2>
@@ -368,46 +381,85 @@
       }
     }
 
-    function renderNews(items, mode) {
-      const list = document.getElementById('newsList');
-      list.innerHTML = items.slice(0, 9).map(n => `
-        <article class="news-item">
-          <a href="${n.url}" target="_blank" rel="noopener">${n.title}</a>
-          <div class="meta">${n.source || 'Forrás'} · ${n.date || ''}</div>
-          <span class="tag">${mode}</span>
-        </article>
-      `).join('');
-      document.getElementById('lastUpdate').textContent = 'Hírek: ' + new Date().toLocaleString('hu-HU');
+    let currentNews = [];
+
+    function sourceBadge(source) {
+      const s = (source || '').toLowerCase();
+
+      if (s.includes('telex')) return '🟦 TELEX';
+      if (s.includes('hvg')) return '🟩 HVG';
+      if (s.includes('444')) return '⬛ 444';
+      if (s.includes('vaol')) return '🟨 VAOL';
+
+      return '📰 HÍR';
     }
 
-    async function loadNews(force = false) {
-      try {
-        const cacheBust = force ? '?t=' + Date.now() : '';
-        const response = await fetch('data/news.json' + cacheBust);
+    function renderNews(items, mode) {
+      currentNews = items;
 
-        if (!response.ok) {
-          throw new Error('A data/news.json nem érhető el');
-        }
+      const list = document.getElementById('newsList');
 
-        const data = await response.json();
-        const articles = Array.isArray(data.articles) ? data.articles : [];
+      list.innerHTML = items.slice(0, 20).map((n, index) => {
+        const breaking = index < 2
+          ? '<div style="position:absolute;top:8px;right:8px;background:#dc2626;color:white;padding:3px 7px;border-radius:999px;font-size:10px;font-weight:800;">TOP</div>'
+          : '';
 
-        if (!articles.length) {
-          throw new Error('A news.json nem tartalmaz híreket');
-        }
+        return `
+          <article class="news-item" data-source="${(n.source || '').toLowerCase()}">
+            ${breaking}
+            <div style="font-size:10px;color:#cbd5e1;margin-bottom:6px;font-weight:700;letter-spacing:.3px;">${sourceBadge(n.source)}</div>
+            <a href="${n.url}" target="_blank" rel="noopener">${n.title}</a>
+            <div class="meta">${n.source || 'Forrás'} · ${n.date || ''}</div>
+            <span class="tag">${mode}</span>
+          </article>
+        `;
+      }).join('');
 
-        document.getElementById('aiSummary').textContent = data.summary || 'A friss hír-adatbázis elérhető, de AI összefoglaló még nem készült.';
-
-        const generated = data.generated_at
-          ? new Date(data.generated_at).toLocaleString('hu-HU')
-          : new Date().toLocaleString('hu-HU');
-
-        document.getElementById('lastUpdate').textContent = 'Hírek: ' + generated;
+      const generated = new Date().toLocaleString('hu-HU');
+      document.getElementById('lastUpdate').textContent = 'Hírek: ' + generated;
         renderNews(articles, data.mode === 'automatic' ? 'automatikus JSON' : 'kézi tartalék JSON');
       } catch(e) {
         console.warn('A news.json betöltése nem sikerült, helyi tartalék lista jön:', e);
         document.getElementById('aiSummary').textContent = 'A frissített hír-adatbázis jelenleg nem érhető el. A rendszer tartalék, kézzel rögzített hírlistát mutat. Az automatikus frissítéshez ellenőrizd a GitHub Actions futását és a data/news.json fájlt.';
         renderNews(manualNews, 'helyi tartalék');
+      }
+    }
+
+    function filterNews() {
+      const text = document.getElementById('newsSearch').value.toLowerCase();
+      const source = document.getElementById('newsFilter').value;
+
+      const filtered = currentNews.filter(item => {
+        const haystack = (
+          (item.title || '') + ' ' +
+          (item.source || '')
+        ).toLowerCase();
+
+        const textMatch = haystack.includes(text);
+
+        const sourceMatch = source === 'all'
+          ? true
+          : (item.source || '').toLowerCase().includes(source);
+
+        return textMatch && sourceMatch;
+      });
+
+      const list = document.getElementById('newsList');
+
+      list.innerHTML = filtered.map((n, index) => {
+        const breaking = index < 2
+          ? '<div style="position:absolute;top:8px;right:8px;background:#dc2626;color:white;padding:3px 7px;border-radius:999px;font-size:10px;font-weight:800;">TOP</div>'
+          : '';
+
+        return `
+          <article class="news-item" data-source="${(n.source || '').toLowerCase()}">
+            ${breaking}
+            <div style="font-size:10px;color:#cbd5e1;margin-bottom:6px;font-weight:700;letter-spacing:.3px;">${sourceBadge(n.source)}</div>
+            <a href="${n.url}" target="_blank" rel="noopener">${n.title}</a>
+            <div class="meta">${n.source || 'Forrás'} · ${n.date || ''}</div>
+          </article>
+        `;
+      }).join('');
       }
     }
 
