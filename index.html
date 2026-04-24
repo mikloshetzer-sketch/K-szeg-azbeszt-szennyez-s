@@ -3,402 +3,171 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kőszeg – azbesztszennyezéssel érintett utcák</title>
-
+  <title>Kőszeg Azbeszt Monitor</title>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-
   <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      font-family: Arial, sans-serif;
-      background: #f3f4f6;
-    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; height: 100%; font-family: Inter, Arial, sans-serif; background: #0f172a; color: #e5e7eb; }
+    body { overflow: hidden; }
 
-    #map {
-      width: 100%;
-      height: 100vh;
-    }
+    .app { display: grid; grid-template-rows: 64px 1fr; height: 100vh; }
+    .topbar { display: flex; align-items: center; justify-content: space-between; padding: 0 18px; background: #111827; border-bottom: 1px solid rgba(255,255,255,.08); }
+    .brand { display: flex; flex-direction: column; gap: 2px; }
+    .brand-title { font-size: 20px; font-weight: 800; letter-spacing: .2px; }
+    .brand-sub { color: #9ca3af; font-size: 12px; }
+    .top-actions { display: flex; gap: 8px; align-items: center; }
+    .pill { border: 1px solid rgba(255,255,255,.14); background: rgba(255,255,255,.06); color: #d1d5db; border-radius: 999px; padding: 7px 10px; font-size: 12px; }
+    button { border: 0; cursor: pointer; font-weight: 700; }
+    .primary { background: #2563eb; color: white; border-radius: 10px; padding: 9px 12px; }
+    .primary:hover { background: #1d4ed8; }
 
-    .left-panel,
-    .right-panel {
-      position: absolute;
-      z-index: 1000;
-      background: rgba(255,255,255,0.96);
-      border-radius: 14px;
-      box-shadow: 0 4px 18px rgba(0,0,0,0.25);
-      font-size: 14px;
-      backdrop-filter: blur(4px);
-    }
+    .layout { display: grid; grid-template-columns: 330px minmax(300px, 1fr) 390px; min-height: 0; }
+    .sidebar, .newsbar { overflow-y: auto; padding: 14px; background: #111827; }
+    .sidebar { border-right: 1px solid rgba(255,255,255,.08); }
+    .newsbar { border-left: 1px solid rgba(255,255,255,.08); }
+    .mapwrap { position: relative; min-width: 0; }
+    #map { width: 100%; height: 100%; background: #1f2937; }
 
-    .left-panel {
-      top: 12px;
-      left: 12px;
-      width: 360px;
-      max-width: calc(100vw - 24px);
-      padding: 15px 17px;
-    }
+    .card { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.09); border-radius: 16px; padding: 14px; margin-bottom: 12px; box-shadow: 0 8px 22px rgba(0,0,0,.18); }
+    .card h2 { margin: 0 0 9px; font-size: 16px; }
+    .card h3 { margin: 0 0 8px; font-size: 14px; color: #f9fafb; }
+    .muted { color: #9ca3af; font-size: 12px; line-height: 1.45; }
+    .warn { background: rgba(245,158,11,.12); border-color: rgba(245,158,11,.35); }
+    .source { background: rgba(37,99,235,.11); border-color: rgba(37,99,235,.35); }
 
-    .right-panel {
-      top: 12px;
-      right: 12px;
-      width: 370px;
-      max-width: calc(100vw - 24px);
-      max-height: calc(100vh - 34px);
-      overflow-y: auto;
-      padding: 15px 17px;
-    }
+    .statgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .stat { background: rgba(0,0,0,.18); border-radius: 13px; padding: 10px; }
+    .stat-num { font-size: 22px; font-weight: 900; }
+    .stat-label { font-size: 11px; color: #9ca3af; }
 
-    h1, h2, h3 {
-      margin-top: 0;
-    }
+    .filters { display: grid; gap: 8px; }
+    .filter { display: flex; justify-content: space-between; align-items: center; background: rgba(0,0,0,.18); border: 1px solid rgba(255,255,255,.08); border-radius: 12px; padding: 9px 10px; color: #e5e7eb; }
+    .filter.active { outline: 2px solid rgba(96,165,250,.55); }
+    .dot { width: 12px; height: 12px; display: inline-block; border-radius: 99px; margin-right: 7px; }
+    .line { width: 26px; height: 5px; display: inline-block; border-radius: 99px; margin-right: 7px; vertical-align: middle; }
 
-    h1 {
-      font-size: 20px;
-      margin-bottom: 8px;
-      color: #111827;
-    }
+    .news-head { display: flex; align-items: start; justify-content: space-between; gap: 8px; margin-bottom: 10px; }
+    .news-head h2 { margin: 0; font-size: 18px; }
+    .refresh { background: #374151; color: #f3f4f6; border-radius: 10px; padding: 8px 10px; }
+    .refresh:hover { background: #4b5563; }
+    .news-item { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.09); border-radius: 14px; padding: 11px; margin-bottom: 10px; }
+    .news-item a { color: #93c5fd; text-decoration: none; font-weight: 800; line-height: 1.25; }
+    .news-item a:hover { text-decoration: underline; }
+    .meta { color: #9ca3af; font-size: 11px; margin-top: 7px; }
+    .tag { display: inline-block; margin-top: 8px; background: rgba(37,99,235,.18); color: #bfdbfe; border: 1px solid rgba(37,99,235,.34); border-radius: 999px; padding: 4px 7px; font-size: 11px; }
+    .timeline { border-left: 3px solid rgba(148,163,184,.45); padding-left: 11px; }
+    .timeline-item { margin: 0 0 12px; }
+    .timeline-date { color: #f9fafb; font-weight: 900; font-size: 12px; }
+    .timeline-text { color: #cbd5e1; font-size: 12px; line-height: 1.35; }
 
-    h2 {
-      font-size: 18px;
-      margin-bottom: 10px;
-      color: #111827;
-    }
+    .map-note { position: absolute; left: 14px; bottom: 14px; z-index: 500; background: rgba(17,24,39,.9); border: 1px solid rgba(255,255,255,.12); border-radius: 14px; padding: 10px 12px; max-width: 360px; font-size: 12px; color: #d1d5db; backdrop-filter: blur(4px); }
+    .leaflet-popup-content-wrapper, .leaflet-popup-tip { background: #111827; color: #f3f4f6; }
 
-    h3 {
-      font-size: 15px;
-      margin: 14px 0 7px;
-      color: #111827;
-    }
-
-    p {
-      margin: 7px 0;
-      line-height: 1.35;
-    }
-
-    .small {
-      font-size: 12px;
-      color: #4b5563;
-    }
-
-    .status {
-      margin-top: 9px;
-      font-weight: bold;
-      color: #111827;
-    }
-
-    .warning {
-      border-left: 5px solid #f59e0b;
-      background: #fff7ed;
-      padding: 9px 10px;
-      margin-top: 10px;
-      border-radius: 8px;
-      font-size: 13px;
-    }
-
-    .source-box {
-      border-left: 5px solid #2563eb;
-      background: #eff6ff;
-      padding: 9px 10px;
-      margin-top: 10px;
-      border-radius: 8px;
-      font-size: 13px;
-    }
-
-    .filter-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 7px;
-      margin-top: 10px;
-    }
-
-    .filter-btn,
-    .main-btn {
-      border: none;
-      border-radius: 9px;
-      padding: 8px 10px;
-      cursor: pointer;
-      font-weight: bold;
-      font-size: 13px;
-    }
-
-    .filter-btn {
-      background: #e5e7eb;
-      color: #111827;
-    }
-
-    .filter-btn.active {
-      background: #111827;
-      color: white;
-    }
-
-    .main-btn {
-      background: #1f6feb;
-      color: white;
-      margin-top: 10px;
-    }
-
-    .main-btn:hover {
-      background: #174ea6;
-    }
-
-    .news-card {
-      border: 1px solid #e5e7eb;
-      border-radius: 11px;
-      padding: 10px 11px;
-      margin-bottom: 9px;
-      background: white;
-    }
-
-    .news-card a {
-      color: #0f3d8a;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    .news-card a:hover {
-      text-decoration: underline;
-    }
-
-    .news-meta {
-      color: #6b7280;
-      font-size: 12px;
-      margin-top: 5px;
-    }
-
-    .timeline-item {
-      border-left: 3px solid #9ca3af;
-      padding-left: 9px;
-      margin-bottom: 9px;
-      font-size: 13px;
-    }
-
-    .timeline-date {
-      font-weight: bold;
-      color: #111827;
-    }
-
-    .legend {
-      background: white;
-      padding: 12px;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.25);
-      line-height: 1.7;
-      font-size: 14px;
-    }
-
-    .legend-line {
-      display: inline-block;
-      width: 28px;
-      height: 5px;
-      margin-right: 8px;
-      vertical-align: middle;
-      border-radius: 4px;
-    }
-
-    .legend-dot {
-      display: inline-block;
-      width: 13px;
-      height: 13px;
-      margin-right: 8px;
-      border-radius: 50%;
-      vertical-align: middle;
+    @media (max-width: 1100px) {
+      body { overflow: auto; }
+      .app { height: auto; min-height: 100vh; }
+      .layout { grid-template-columns: 1fr; }
+      .sidebar, .newsbar { border: 0; }
+      .mapwrap { height: 70vh; min-height: 480px; }
+      .topbar { height: auto; min-height: 64px; gap: 8px; align-items: flex-start; padding: 12px; flex-direction: column; }
+      .map-note { position: static; margin: 8px; }
     }
 
     @media print {
-      .left-panel,
-      .right-panel,
-      .leaflet-control-attribution,
-      .leaflet-control-zoom {
-        box-shadow: none !important;
-      }
-    }
-
-    @media (max-width: 900px) {
-      .left-panel,
-      .right-panel {
-        position: relative;
-        top: auto;
-        left: auto;
-        right: auto;
-        width: auto;
-        max-width: none;
-        max-height: none;
-        margin: 8px;
-      }
-
-      #map {
-        height: 68vh;
-      }
+      body { overflow: visible; background: white; color: black; }
+      .topbar, .sidebar, .newsbar, .map-note { display: none; }
+      .app, .layout, .mapwrap, #map { display: block; height: 100vh; width: 100%; }
     }
   </style>
 </head>
 <body>
-  <div id="map"></div>
+  <div class="app">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-title">Kőszeg Azbeszt Monitor</div>
+        <div class="brand-sub">Érintett utcák · lezárt parkolók · sajtófigyelő · lakossági tájékoztató térkép</div>
+      </div>
+      <div class="top-actions">
+        <span class="pill" id="lastUpdate">Hírek: betöltés alatt</span>
+        <button class="primary" onclick="window.print()">PDF / nyomtatás</button>
+      </div>
+    </header>
 
-  <div class="left-panel">
-    <h1>Kőszeg – azbesztszennyezéssel érintett utcák</h1>
-    <p>Tájékoztató térkép az érintett utcákról, forgalomkorlátozott szakaszokról és lezárt parkolókról.</p>
+    <main class="layout">
+      <aside class="sidebar">
+        <section class="card warn">
+          <h2>Figyelmeztetés</h2>
+          <p class="muted">A térkép tájékoztató jellegű. A pontos és hivatalos információkat az önkormányzati, hatósági és katasztrófavédelmi közlemények tartalmazzák.</p>
+        </section>
 
-    <div class="warning">
-      <strong>Fontos:</strong> a térkép tájékoztató jellegű. A pontos és hivatalos információkat az önkormányzati, hatósági és katasztrófavédelmi közlemények tartalmazzák.
-    </div>
+        <section class="card source">
+          <h2>Források</h2>
+          <p class="muted">Érintett utcák listája, OpenStreetMap, országos és helyi sajtóhírek. Az automatikus hírlista a GDELT nyilvános híradatbázisából próbál friss találatokat lekérni.</p>
+        </section>
 
-    <div class="source-box">
-      <strong>Források:</strong><br>
-      Érintett utcák listája, OpenStreetMap, sajtóhírek.
-    </div>
+        <section class="card">
+          <h2>Áttekintés</h2>
+          <div class="statgrid">
+            <div class="stat"><div class="stat-num" id="statRoads">–</div><div class="stat-label">kiemelt útszakasz</div></div>
+            <div class="stat"><div class="stat-num" id="statParks">–</div><div class="stat-label">jelölt parkoló</div></div>
+            <div class="stat"><div class="stat-num">4</div><div class="stat-label">térképréteg</div></div>
+            <div class="stat"><div class="stat-num">6h</div><div class="stat-label">hírfrissítési ciklus</div></div>
+          </div>
+        </section>
 
-    <h3>Rétegek</h3>
-    <div class="filter-row">
-      <button id="btnAffected" class="filter-btn active" onclick="toggleLayer('affected')">Érintett utcák</button>
-      <button id="btnRestricted" class="filter-btn active" onclick="toggleLayer('restricted')">Korlátozás</button>
-      <button id="btnParking" class="filter-btn active" onclick="toggleLayer('parking')">Parkolók</button>
-      <button id="btnBoundary" class="filter-btn active" onclick="toggleLayer('boundary')">Városhatár</button>
-    </div>
+        <section class="card">
+          <h2>Rétegek</h2>
+          <div class="filters">
+            <button id="btnAffected" class="filter active" onclick="toggleLayer('affected')"><span><span class="line" style="background:#ef4444"></span>Érintett utcák</span><span>be</span></button>
+            <button id="btnRestricted" class="filter active" onclick="toggleLayer('restricted')"><span><span class="line" style="background:#f59e0b"></span>Korlátozott utcák</span><span>be</span></button>
+            <button id="btnParking" class="filter active" onclick="toggleLayer('parking')"><span><span class="dot" style="background:#111"></span>Lezárt parkolók</span><span>be</span></button>
+            <button id="btnBoundary" class="filter active" onclick="toggleLayer('boundary')"><span><span class="line" style="background:#60a5fa"></span>Kőszeg határa</span><span>be</span></button>
+          </div>
+        </section>
 
-    <button class="main-btn" onclick="window.print()">Nyomtatás / PDF mentés</button>
+        <section class="card">
+          <h2>Lakossági óvatosság</h2>
+          <p class="muted">Kerüld a por felverését, ne söpörd szárazon a gyanús port, szeles időben légy óvatosabb, és kövesd a hivatalos közleményeket. Ez nem egészségügyi tanácsadás.</p>
+        </section>
+      </aside>
 
-    <div id="status" class="status">Adatok betöltése...</div>
-    <p class="small">Internetkapcsolat szükséges, mert a térkép az OpenStreetMap adataiból tölti be az utcavonalakat.</p>
-  </div>
+      <section class="mapwrap">
+        <div id="map"></div>
+        <div class="map-note" id="status">Térképadatok betöltése...</div>
+      </section>
 
-  <div class="right-panel">
-    <h2>Top hírek és források</h2>
+      <aside class="newsbar">
+        <div class="news-head">
+          <div>
+            <h2>Top hírek</h2>
+            <div class="muted">Automatikus keresés + tartalék kézi forráslista</div>
+          </div>
+          <button class="refresh" onclick="loadNews(true)">Frissítés</button>
+        </div>
+        <div id="newsList"></div>
 
-    <div class="news-card">
-      <a href="https://telex.hu/belfold/2026/04/24/azbeszt-koszeg-banya-intezkedesek" target="_blank" rel="noopener">Telex – Azbesztügy Kőszegen: intézkedések és érintett területek</a>
-      <div class="news-meta">Telex · 2026. április 24.</div>
-    </div>
-
-    <div class="news-card">
-      <a href="https://hvg.hu/zhvg/20260424_koszeg-azbeszt-tartalom-kozuzalek-bozsok-szombathely" target="_blank" rel="noopener">HVG – Kőszegre is kerülhetett az azbeszttartalmú kőzúzalékból</a>
-      <div class="news-meta">HVG · 2026. április 24.</div>
-    </div>
-
-    <div class="news-card">
-      <a href="https://444.hu/2026/04/24/szombathely-es-bozsok-mellett-koszegre-is-juthatott-abbol-az-azbeszttel-szennyezett-kozuzalekbol" target="_blank" rel="noopener">444 – Szombathely és Bozsok mellett Kőszeg is érintett lehet</a>
-      <div class="news-meta">444 · 2026. április 24.</div>
-    </div>
-
-    <div class="news-card">
-      <a href="https://www.vaol.hu/helyi-kozelet/2026/04/azbeszt-ugy-bozsok-koszeg" target="_blank" rel="noopener">VAOL – Helyi tudósítás az azbesztügyről</a>
-      <div class="news-meta">VAOL · 2026. április</div>
-    </div>
-
-    <div class="news-card">
-      <a href="https://telex.hu/belfold/2026/04/22/greenpeace-ausztria-feljelentes-pilgersdorfi-kobanya-azbesztszennyezes-magyarorszag-szombathely" target="_blank" rel="noopener">Greenpeace / Telex – Osztrák kőbánya, feljelentés, magyarországi szennyezés</a>
-      <div class="news-meta">Telex · 2026. április 22.</div>
-    </div>
-
-    <h2>Rövid idővonal</h2>
-
-    <div class="timeline-item">
-      <div class="timeline-date">2026. április közepe</div>
-      <div>Országos figyelem irányul az azbeszttel szennyezett kőzúzalék ügyére.</div>
-    </div>
-
-    <div class="timeline-item">
-      <div class="timeline-date">2026. április 22.</div>
-      <div>Greenpeace-vonatkozású hír és osztrák kapcsolat jelenik meg a sajtóban.</div>
-    </div>
-
-    <div class="timeline-item">
-      <div class="timeline-date">2026. április 24.</div>
-      <div>Kőszeg érintettsége több országos és helyi médiában is megjelenik.</div>
-    </div>
-
-    <h2>Lakossági óvatossági javaslatok</h2>
-    <p class="small">Nem egészségügyi tanácsadás, csak általános óvatossági lista.</p>
-    <ul>
-      <li>Kerüld a por felverését az érintett útszakaszokon.</li>
-      <li>Szeles időben fokozott óvatosság indokolt.</li>
-      <li>Gyermekeket és háziállatokat ne engedj poros, érintett területen játszani.</li>
-      <li>Ne söpörd szárazon a gyanús port; hivatalos tájékoztatás alapján járj el.</li>
-      <li>Kövesd az önkormányzati és hatósági közleményeket.</li>
-    </ul>
+        <section class="card">
+          <h2>Rövid idővonal</h2>
+          <div class="timeline">
+            <div class="timeline-item"><div class="timeline-date">2026. április közepe</div><div class="timeline-text">Országos figyelem irányul az azbeszttel szennyezett kőzúzalék ügyére.</div></div>
+            <div class="timeline-item"><div class="timeline-date">2026. április 22.</div><div class="timeline-text">Greenpeace-vonatkozású és osztrák kapcsolatot említő hírek jelennek meg.</div></div>
+            <div class="timeline-item"><div class="timeline-date">2026. április 24.</div><div class="timeline-text">Kőszeg érintettsége országos és helyi médiában is megjelenik.</div></div>
+          </div>
+        </section>
+      </aside>
+    </main>
   </div>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-
   <script>
     const map = L.map('map').setView([47.3895, 16.5410], 13);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19, attribution: '&copy; OpenStreetMap contributors' }).addTo(map);
 
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      maxZoom: 19,
-      attribution: '&copy; OpenStreetMap contributors'
-    }).addTo(map);
+    const layers = { affected: L.featureGroup().addTo(map), restricted: L.featureGroup().addTo(map), parking: L.featureGroup().addTo(map), boundary: L.featureGroup().addTo(map) };
+    const layerState = { affected: true, restricted: true, parking: true, boundary: true };
 
-    const layers = {
-      affected: L.featureGroup().addTo(map),
-      restricted: L.featureGroup().addTo(map),
-      parking: L.featureGroup().addTo(map),
-      boundary: L.featureGroup().addTo(map)
-    };
-
-    const layerState = {
-      affected: true,
-      restricted: true,
-      parking: true,
-      boundary: true
-    };
-
-    const affectedStreetNames = new Set([
-      'Borostyánkő utca',
-      'Lékai út',
-      'Malomárok utca',
-      'Meskó utca',
-      'Kálvária utca',
-      'Bechtold utca',
-      'Királyvölgyi utca',
-      'Erdő utca',
-      'Mélyút utca',
-      'Arborétum utca',
-      'Freh Alfonz utca',
-      'Szent Anna utca',
-      'Hadik utca',
-      'Óház utca',
-      'Bersek József utca',
-      'Kórház utca',
-      'Szent György utca',
-      'József Forrás utca',
-      'Csőszház utca',
-      'Szelestey László utca',
-      'Hermina utca',
-      'Fehér Sáfrány utca',
-      'Dr. Ambró Gyula utca',
-      'Kenyérhegyi út',
-      'Zrínyi utca',
-      'Sörgyár utca',
-      'Vízmű utca',
-      'Lóránt Gyula utca',
-      'Posztógyár utca',
-      'Forintos Mátyás utca',
-      'Napsugár utca'
-    ]);
-
-    const restrictedStreetNames = new Set([
-      'Kankalin utca',
-      'Tüskevár utca',
-      'Napsugár utca',
-      'Faludi utca'
-    ]);
-
-    const approximateAreas = [
-      'Hidegvölgy útjai',
-      'Pocichter / Libaszőlő utcák',
-      'Királyvölgy – Madársétány',
-      'Szőlőskert utcai bekötő',
-      'Hosszú nemes dűlő',
-      'Hosszú Lövészárok dűlő útjai',
-      'Köböl dűlő',
-      'Hatházakhoz, zsiliphez vezető út',
-      'Dózsa 17. melletti bekötőút',
-      'Sáncárok utcai lakótömb belső úthálózat',
-      'régi temető hátsó bejáró, parkoló'
-    ];
-
+    const affectedStreetNames = new Set(['Borostyánkő utca','Lékai út','Malomárok utca','Meskó utca','Kálvária utca','Bechtold utca','Királyvölgyi utca','Erdő utca','Mélyút utca','Arborétum utca','Freh Alfonz utca','Szent Anna utca','Hadik utca','Óház utca','Bersek József utca','Kórház utca','Szent György utca','József Forrás utca','Csőszház utca','Szelestey László utca','Hermina utca','Fehér Sáfrány utca','Dr. Ambró Gyula utca','Kenyérhegyi út','Zrínyi utca','Sörgyár utca','Vízmű utca','Lóránt Gyula utca','Posztógyár utca','Forintos Mátyás utca','Napsugár utca']);
+    const restrictedStreetNames = new Set(['Kankalin utca','Tüskevár utca','Napsugár utca','Faludi utca']);
     const parkingSearches = [
       { name: 'Dózsa György utca – Szociális Gondozóközpont előtti parkoló', query: 'Dózsa György utca Kőszeg' },
       { name: 'Koronaőrző bunker parkoló', query: 'Kálvária utca Kőszeg' },
@@ -412,236 +181,97 @@
       { name: 'Károlyi Mihály utca vége parkoló', query: 'Károlyi Mihály utca Kőszeg' }
     ];
 
+    const manualNews = [
+      { title: 'Telex – Azbesztügy Kőszegen: intézkedések és érintett területek', source: 'Telex', date: '2026. április 24.', url: 'https://telex.hu/belfold/2026/04/24/azbeszt-koszeg-banya-intezkedesek' },
+      { title: 'HVG – Kőszegre is kerülhetett az azbeszttartalmú kőzúzalékból', source: 'HVG', date: '2026. április 24.', url: 'https://hvg.hu/zhvg/20260424_koszeg-azbeszt-tartalom-kozuzalek-bozsok-szombathely' },
+      { title: '444 – Szombathely és Bozsok mellett Kőszeg is érintett lehet', source: '444', date: '2026. április 24.', url: 'https://444.hu/2026/04/24/szombathely-es-bozsok-mellett-koszegre-is-juthatott-abbol-az-azbeszttel-szennyezett-kozuzalekbol' },
+      { title: 'VAOL – Helyi tudósítás az azbesztügyről', source: 'VAOL', date: '2026. április', url: 'https://www.vaol.hu/helyi-kozelet/2026/04/azbeszt-ugy-bozsok-koszeg' },
+      { title: 'Telex / Greenpeace – Osztrák kőbánya, feljelentés, magyarországi szennyezés', source: 'Telex', date: '2026. április 22.', url: 'https://telex.hu/belfold/2026/04/22/greenpeace-ausztria-feljelentes-pilgersdorfi-kobanya-azbesztszennyezes-magyarorszag-szombathely' }
+    ];
+
+    const normalStyle = { color: '#ef4444', weight: 7, opacity: .95 };
+    const restrictedStyle = { color: '#f59e0b', weight: 8, opacity: .95, dashArray: '8 8' };
+    const boundaryStyle = { color: '#60a5fa', weight: 3, opacity: .9 };
     const statusEl = document.getElementById('status');
 
-    const normalStyle = {
-      color: '#e00000',
-      weight: 7,
-      opacity: 0.92
-    };
-
-    const restrictedStyle = {
-      color: '#ff9800',
-      weight: 8,
-      opacity: 0.95,
-      dashArray: '8 8'
-    };
-
-    const boundaryStyle = {
-      color: '#1d4ed8',
-      weight: 3,
-      opacity: 0.85,
-      fillOpacity: 0.03
-    };
-
-    function normalizeName(name) {
-      return (name || '')
-        .toLowerCase()
-        .replace(/\./g, '')
-        .replace(/útja$/g, 'út')
-        .replace(/\s+/g, ' ')
-        .trim();
-    }
-
-    function isInSet(name, set) {
-      const n = normalizeName(name);
-      for (const s of set) {
-        if (n === normalizeName(s)) return true;
-      }
-      return false;
-    }
-
-    function overpassUrl(query) {
-      return 'https://overpass-api.de/api/interpreter?data=' + encodeURIComponent(query);
-    }
-
-    async function fetchOverpass(query) {
-      const response = await fetch(overpassUrl(query));
-      if (!response.ok) throw new Error('Overpass API hiba');
-      return await response.json();
-    }
-
-    function nodesToMap(elements) {
-      const mapNodes = new Map();
-      for (const el of elements) {
-        if (el.type === 'node') mapNodes.set(el.id, [el.lat, el.lon]);
-      }
-      return mapNodes;
-    }
-
-    function wayToLatLngs(way, nodeMap) {
-      return way.nodes
-        .map(id => nodeMap.get(id))
-        .filter(Boolean);
-    }
+    function normalizeName(name) { return (name || '').toLowerCase().replace(/\./g, '').replace(/útja$/g, 'út').replace(/\s+/g, ' ').trim(); }
+    function isInSet(name, set) { const n = normalizeName(name); for (const s of set) if (n === normalizeName(s)) return true; return false; }
+    function overpassUrl(query) { return 'https://overpass-api.de/api/interpreter?data=' + encodeURIComponent(query); }
+    async function fetchOverpass(query) { const r = await fetch(overpassUrl(query)); if (!r.ok) throw new Error('Overpass API hiba'); return await r.json(); }
+    function nodesToMap(elements) { const m = new Map(); for (const el of elements) if (el.type === 'node') m.set(el.id, [el.lat, el.lon]); return m; }
+    function wayToLatLngs(way, nodeMap) { return way.nodes.map(id => nodeMap.get(id)).filter(Boolean); }
 
     async function loadRoads() {
-      const roadQuery = `
-        [out:json][timeout:40];
-        area["name"="Kőszeg"]["boundary"="administrative"]->.searchArea;
-        (
-          way(area.searchArea)["highway"]["name"];
-        );
-        out body;
-        >;
-        out skel qt;
-      `;
-
-      const data = await fetchOverpass(roadQuery);
-      const nodeMap = nodesToMap(data.elements);
-      let matched = 0;
-
+      const q = `[out:json][timeout:40];area["name"="Kőszeg"]["boundary"="administrative"]->.a;(way(area.a)["highway"]["name"];);out body;>;out skel qt;`;
+      const data = await fetchOverpass(q); const nodeMap = nodesToMap(data.elements); let matched = 0;
       for (const el of data.elements) {
         if (el.type !== 'way' || !el.tags || !el.tags.name) continue;
-
-        const name = el.tags.name;
-        const latlngs = wayToLatLngs(el, nodeMap);
-        if (latlngs.length < 2) continue;
-
-        if (isInSet(name, restrictedStreetNames)) {
-          L.polyline(latlngs, restrictedStyle)
-            .bindPopup(`<b>${name}</b><br>Forgalomkorlátozott / 10 km/h vagy áthajtási korlátozás`)
-            .addTo(layers.restricted);
-          matched++;
-        } else if (isInSet(name, affectedStreetNames)) {
-          L.polyline(latlngs, normalStyle)
-            .bindPopup(`<b>${name}</b><br>Érintett utca / útszakasz`)
-            .addTo(layers.affected);
-          matched++;
-        }
+        const name = el.tags.name; const latlngs = wayToLatLngs(el, nodeMap); if (latlngs.length < 2) continue;
+        if (isInSet(name, restrictedStreetNames)) { L.polyline(latlngs, restrictedStyle).bindPopup(`<b>${name}</b><br>Forgalomkorlátozott / 10 km/h vagy áthajtási korlátozás`).addTo(layers.restricted); matched++; }
+        else if (isInSet(name, affectedStreetNames)) { L.polyline(latlngs, normalStyle).bindPopup(`<b>${name}</b><br>Érintett utca / útszakasz`).addTo(layers.affected); matched++; }
       }
-
-      const allRoads = L.featureGroup([
-        ...layers.affected.getLayers(),
-        ...layers.restricted.getLayers()
-      ]);
-
-      if (allRoads.getLayers().length > 0) {
-        map.fitBounds(allRoads.getBounds(), { padding: [40, 40] });
-      }
-
+      const all = L.featureGroup([...layers.affected.getLayers(), ...layers.restricted.getLayers()]);
+      if (all.getLayers().length) map.fitBounds(all.getBounds(), { padding: [35, 35] });
+      document.getElementById('statRoads').textContent = matched;
       return matched;
     }
 
     async function loadBoundary() {
-      const boundaryQuery = `
-        [out:json][timeout:40];
-        area["name"="Kőszeg"]["boundary"="administrative"]->.searchArea;
-        relation(area.searchArea)["name"="Kőszeg"]["boundary"="administrative"];
-        out geom;
-      `;
-
-      try {
-        const data = await fetchOverpass(boundaryQuery);
-        for (const rel of data.elements) {
-          if (!rel.members) continue;
-          for (const m of rel.members) {
-            if (m.geometry) {
-              const latlngs = m.geometry.map(p => [p.lat, p.lon]);
-              L.polyline(latlngs, boundaryStyle)
-                .bindPopup('Kőszeg közigazgatási határa')
-                .addTo(layers.boundary);
-            }
-          }
-        }
-      } catch (e) {
-        console.warn('Határ betöltési hiba:', e);
-      }
+      const q = `[out:json][timeout:40];area["name"="Kőszeg"]["boundary"="administrative"]->.a;relation(area.a)["name"="Kőszeg"]["boundary"="administrative"];out geom;`;
+      try { const data = await fetchOverpass(q); for (const rel of data.elements) if (rel.members) for (const m of rel.members) if (m.geometry) L.polyline(m.geometry.map(p => [p.lat, p.lon]), boundaryStyle).bindPopup('Kőszeg közigazgatási határa').addTo(layers.boundary); } catch(e) { console.warn(e); }
     }
 
-    async function geocode(query) {
-      const url = `https://nominatim.openstreetmap.org/search?format=json&limit=1&q=${encodeURIComponent(query)}`;
-      const response = await fetch(url);
-      const data = await response.json();
-      if (!data || data.length === 0) return null;
-      return [parseFloat(data[0].lat), parseFloat(data[0].lon)];
-    }
-
-    async function loadParkings() {
-      let count = 0;
-      for (const p of parkingSearches) {
-        try {
-          const latlng = await geocode(p.query);
-          if (latlng) {
-            L.circleMarker(latlng, {
-              radius: 8,
-              color: '#000',
-              fillColor: '#000',
-              fillOpacity: 0.9
-            })
-              .bindPopup(`<b>${p.name}</b><br>Lezárt parkoló / parkolási érintettség`)
-              .addTo(layers.parking);
-            count++;
-          }
-          await new Promise(resolve => setTimeout(resolve, 700));
-        } catch (e) {
-          console.warn('Parkoló geokódolási hiba:', p.name, e);
-        }
-      }
-      return count;
-    }
-
-    function addApproximateAreasBox() {
-      const html = `
-        <b>Csak szövegesen szereplő / részben beazonosítható területek:</b><br>
-        ${approximateAreas.map(x => `• ${x}`).join('<br>')}<br><br>
-        Ezeknél a pontos útszakaszhoz helyi ellenőrzés vagy kézi rajzolás szükséges.
-      `;
-
-      L.marker([47.3895, 16.5410], { opacity: 0.001 })
-        .addTo(map)
-        .bindPopup(html);
-    }
+    async function geocode(query) { const r = await fetch(`https://nominatim.openstreetmap.org/search?format=json&limit=1&q=${encodeURIComponent(query)}`); const d = await r.json(); if (!d || !d.length) return null; return [parseFloat(d[0].lat), parseFloat(d[0].lon)]; }
+    async function loadParkings() { let count = 0; for (const p of parkingSearches) { try { const latlng = await geocode(p.query); if (latlng) { L.circleMarker(latlng, { radius: 8, color: '#111', fillColor: '#111', fillOpacity: .92 }).bindPopup(`<b>${p.name}</b><br>Lezárt parkoló / parkolási érintettség`).addTo(layers.parking); count++; } await new Promise(res => setTimeout(res, 650)); } catch(e) { console.warn(e); } } document.getElementById('statParks').textContent = count; return count; }
 
     function toggleLayer(layerName) {
       layerState[layerName] = !layerState[layerName];
       const btn = document.getElementById('btn' + layerName.charAt(0).toUpperCase() + layerName.slice(1));
-
-      if (layerState[layerName]) {
-        layers[layerName].addTo(map);
-        btn.classList.add('active');
-      } else {
-        map.removeLayer(layers[layerName]);
-        btn.classList.remove('active');
-      }
+      if (layerState[layerName]) { layers[layerName].addTo(map); btn.classList.add('active'); btn.querySelector('span:last-child').textContent = 'be'; }
+      else { map.removeLayer(layers[layerName]); btn.classList.remove('active'); btn.querySelector('span:last-child').textContent = 'ki'; }
     }
 
-    const legend = L.control({ position: 'bottomright' });
-    legend.onAdd = function () {
-      const div = L.DomUtil.create('div', 'legend');
-      div.innerHTML = `
-        <h4>Jelmagyarázat</h4>
-        <div><span class="legend-line" style="background:#e00000"></span> Érintett utcák</div>
-        <div><span class="legend-line" style="background:#ff9800"></span> Sebesség / forgalomkorlátozás</div>
-        <div><span class="legend-dot" style="background:#000"></span> Lezárt parkolók</div>
-        <div><span class="legend-line" style="background:#1d4ed8"></span> Kőszeg határa</div>
-      `;
-      return div;
-    };
-    legend.addTo(map);
+    function renderNews(items, mode) {
+      const list = document.getElementById('newsList');
+      list.innerHTML = items.slice(0, 9).map(n => `<article class="news-item"><a href="${n.url}" target="_blank" rel="noopener">${n.title}</a><div class="meta">${n.source || 'Forrás'} · ${n.date || ''}</div><span class="tag">${mode}</span></article>`).join('');
+      document.getElementById('lastUpdate').textContent = 'Hírek: ' + new Date().toLocaleString('hu-HU');
+    }
+
+    async function loadNews(force = false) {
+      const cacheKey = 'koszegAzbesztNewsCache';
+      const cached = localStorage.getItem(cacheKey);
+      if (!force && cached) {
+        try { const parsed = JSON.parse(cached); if (Date.now() - parsed.time < 6 * 60 * 60 * 1000) { renderNews(parsed.items, 'automatikus / cache'); return; } } catch(e) {}
+      }
+      try {
+        const query = encodeURIComponent('("Kőszeg" OR "Koszeg") azbeszt OR aszbeszt');
+        const url = `https://api.gdeltproject.org/api/v2/doc/doc?query=${query}&mode=ArtList&format=json&maxrecords=12&sort=HybridRel&format=json`;
+        const r = await fetch(url);
+        if (!r.ok) throw new Error('Hír API hiba');
+        const d = await r.json();
+        const items = (d.articles || []).map(a => ({ title: a.title, url: a.url, source: a.sourceCountry || a.domain || 'GDELT', date: a.seendate ? a.seendate.slice(0,4)+'-'+a.seendate.slice(4,6)+'-'+a.seendate.slice(6,8) : '' })).filter(x => x.title && x.url);
+        if (!items.length) throw new Error('Nincs automatikus találat');
+        localStorage.setItem(cacheKey, JSON.stringify({ time: Date.now(), items }));
+        renderNews(items, 'automatikus');
+      } catch(e) {
+        console.warn('Automatikus hírek nem elérhetők, tartalék lista jön:', e);
+        renderNews(manualNews, 'kézi tartalék');
+      }
+    }
 
     async function init() {
       try {
-        statusEl.textContent = 'Kőszeg határának betöltése...';
-        await loadBoundary();
-
-        statusEl.textContent = 'Utcavonalak betöltése és színezése...';
-        const roads = await loadRoads();
-
-        statusEl.textContent = 'Parkolók jelölése...';
-        const parks = await loadParkings();
-
-        addApproximateAreasBox();
-
-        statusEl.textContent = `Kész: ${roads} útszakasz kiemelve, ${parks} parkoló jelölve.`;
-      } catch (e) {
-        console.error(e);
-        statusEl.textContent = 'Hiba történt az adatok betöltésekor. Próbáld újratölteni az oldalt.';
-      }
+        statusEl.textContent = 'Kőszeg határának betöltése...'; await loadBoundary();
+        statusEl.textContent = 'Utcavonalak betöltése és színezése...'; const roads = await loadRoads();
+        statusEl.textContent = 'Parkolók jelölése...'; const parks = await loadParkings();
+        statusEl.textContent = `Kész: ${roads} útszakasz kiemelve, ${parks} parkoló jelölve. Egyes területi megnevezések kézi pontosítást igényelhetnek.`;
+      } catch(e) { console.error(e); statusEl.textContent = 'Hiba történt a térképadatok betöltésekor. Próbáld újratölteni az oldalt.'; }
     }
 
     init();
+    loadNews();
+    setInterval(() => loadNews(true), 6 * 60 * 60 * 1000);
   </script>
 </body>
-</html
+</html>
 
