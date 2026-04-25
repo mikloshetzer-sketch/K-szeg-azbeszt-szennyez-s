@@ -1,0 +1,50 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Kőszeg – érintett utak gyűjtőpont",
+        "status": "vizsgálat alatt",
+        "source": "Önkormányzati lista / sajtófigyelés",
+        "date": "2026-04",
+        "note": "Ez induló mintaelem. A pontos útszakaszok kézi GeoJSON-rajzolással pontosíthatók.",
+        "url": "https://koszeg.hu/hu/aktualis/hirek/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [16.5410, 47.3895]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Bozsok – osztrák kapcsolat figyelési pont",
+        "status": "vizsgálat alatt",
+        "source": "Greenpeace / sajtófigyelés",
+        "date": "2026-04",
+        "note": "Induló figyelési pont Bozsok térségére.",
+        "url": "https://www.greenpeace.org/hungary/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [16.4910, 47.3250]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Szombathely – regionális ügykapcsolat",
+        "status": "vizsgálat alatt",
+        "source": "Sajtó / Greenpeace",
+        "date": "2026-04",
+        "note": "Regionális kapcsolódási pont a szombathelyi azbesztügyhöz.",
+        "url": "https://www.greenpeace.org/hungary/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [16.6218, 47.2307]
+      }
+    }
+  ]
+}
