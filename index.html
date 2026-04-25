@@ -114,20 +114,9 @@
 
     <main class="layout">
       <aside class="sidebar">
-        <section class="card warn">
-          <h2>Figyelmeztetés</h2>
-          <p class="muted">A térkép tájékoztató jellegű. Nem hivatalos hatósági térkép. A pontos információkat az önkormányzati, hatósági és katasztrófavédelmi közlemények tartalmazzák.</p>
-        </section>
-
-        <section class="card source">
-          <h2>Források</h2>
-          <p class="muted">A hírek a <code>data/news.json</code>, az események a <code>data/events.json</code>, a pontosított utcaszakaszok pedig a <code>data/streets.geojson</code> fájlból töltődnek be.</p>
-        </section>
-
-        <section class="card green-card">
-          <h2>Greenpeace / civil források</h2>
-          <p class="muted">A rendszer külön kiemeli a Greenpeace-hez kapcsolódó híreket és közleményeket. Közvetlen, nyilvános térképes Greenpeace-adatot jelenleg nem használ.</p>
-        </section>
+        <section class="card warn"><h2>Figyelmeztetés</h2><p class="muted">A térkép tájékoztató jellegű. Nem hivatalos hatósági térkép. A pontos információkat az önkormányzati, hatósági és katasztrófavédelmi közlemények tartalmazzák.</p></section>
+        <section class="card source"><h2>Források</h2><p class="muted">A hírek a <code>data/news.json</code>, az események a <code>data/events.json</code>, a pontosított utcaszakaszok pedig a <code>data/streets.geojson</code> fájlból töltődnek be.</p></section>
+        <section class="card green-card"><h2>Greenpeace / civil források</h2><p class="muted">A rendszer külön kiemeli a Greenpeace-hez kapcsolódó híreket és közleményeket. Közvetlen, nyilvános térképes Greenpeace-adatot jelenleg nem használ.</p></section>
 
         <section class="card">
           <h2>Áttekintés</h2>
@@ -150,16 +139,10 @@
           </div>
         </section>
 
-        <section class="card">
-          <h2>Lakossági óvatosság</h2>
-          <p class="muted">Kerüld a por felverését, ne söpörd szárazon a gyanús port, szeles időben légy óvatosabb, és kövesd a hivatalos közleményeket. Ez nem egészségügyi tanácsadás.</p>
-        </section>
+        <section class="card"><h2>Lakossági óvatosság</h2><p class="muted">Kerüld a por felverését, ne söpörd szárazon a gyanús port, szeles időben légy óvatosabb, és kövesd a hivatalos közleményeket. Ez nem egészségügyi tanácsadás.</p></section>
       </aside>
 
-      <section class="mapwrap">
-        <div id="map"></div>
-        <div class="map-note" id="status">Térképadatok betöltése...</div>
-      </section>
+      <section class="mapwrap"><div id="map"></div><div class="map-note" id="status">Térképadatok betöltése...</div></section>
 
       <aside class="newsbar">
         <div class="news-tools">
@@ -177,28 +160,9 @@
           </select>
         </div>
 
-        <div class="news-head">
-          <div>
-            <h2>Top hírek</h2>
-            <div class="muted">Automatikus JSON + kézi tartaléklista</div>
-          </div>
-          <button class="refresh" onclick="loadNews(true)">Frissítés</button>
-        </div>
-
-        <section class="card" id="summaryCard">
-          <h2>AI sajtóösszefoglaló</h2>
-          <p class="muted" id="aiSummary">Összefoglaló betöltése...</p>
-        </section>
-
-        <section class="card">
-          <h2>Élő idővonal</h2>
-          <div class="timeline" id="eventTimeline">
-            <div class="timeline-item">
-              <div class="timeline-date">Betöltés...</div>
-              <div class="timeline-text">Eseménynapló betöltése.</div>
-            </div>
-          </div>
-        </section>
+        <div class="news-head"><div><h2>Top hírek</h2><div class="muted">Automatikus JSON + kézi tartaléklista</div></div><button class="refresh" onclick="loadNews(true)">Frissítés</button></div>
+        <section class="card" id="summaryCard"><h2>AI sajtóösszefoglaló</h2><p class="muted" id="aiSummary">Összefoglaló betöltése...</p></section>
+        <section class="card"><h2>Élő idővonal</h2><div class="timeline" id="eventTimeline"><div class="timeline-item"><div class="timeline-date">Betöltés...</div><div class="timeline-text">Eseménynapló betöltése.</div></div></div></section>
 
         <div id="newsList">
           <div id="officialNews" class="news-group"></div>
@@ -228,9 +192,7 @@
       { date: 'Folyamatos', title: 'A dashboard külön kezeli a hivatalos, civil, magyar média és osztrák/burgenlandi forrásokat.', source: 'Monitoring rendszer', type: 'system', url: '' }
     ];
 
-    const affectedStreetNames = new Set([
-      'Borostyánkő utca','Lékai út','Malomárok utca','Meskó utca','Kálvária utca','Bechtold utca','Királyvölgyi utca','Erdő utca','Mélyút utca','Arborétum utca','Freh Alfonz utca','Szent Anna utca','Hadik utca','Óház utca','Bersek József utca','Kórház utca','Szent György utca','József Forrás utca','Csőszház utca','Szelestey László utca','Hermina utca','Fehér Sáfrány utca','Dr. Ambró Gyula utca','Kenyérhegyi út','Zrínyi utca','Sörgyár utca','Vízmű utca','Lóránt Gyula utca','Posztógyár utca','Forintos Mátyás utca','Napsugár utca','Kankalin utca','Tüskevár utca','Faludi utca','Hunyadi utca'
-    ]);
+    const affectedStreetNames = new Set(['Borostyánkő utca','Lékai út','Malomárok utca','Meskó utca','Kálvária utca','Bechtold utca','Királyvölgyi utca','Erdő utca','Mélyút utca','Arborétum utca','Freh Alfonz utca','Szent Anna utca','Hadik utca','Óház utca','Bersek József utca','Kórház utca','Szent György utca','József Forrás utca','Csőszház utca','Szelestey László utca','Hermina utca','Fehér Sáfrány utca','Dr. Ambró Gyula utca','Kenyérhegyi út','Zrínyi utca','Sörgyár utca','Vízmű utca','Lóránt Gyula utca','Posztógyár utca','Forintos Mátyás utca','Napsugár utca','Kankalin utca','Tüskevár utca','Faludi utca','Hunyadi utca']);
 
     const parkingSearches = [
       { name: 'Dózsa György utca – Szociális Gondozóközpont előtti parkoló', query: 'Dózsa György utca Kőszeg' },
@@ -246,67 +208,32 @@
     ];
 
     let map;
+    let layers;
     let currentNews = [];
     let currentEvents = [];
-    let layerVisible = { affected: true, parking: true, geojson: true };
-    let layers;
     let lastSummary = '';
+    const layerVisible = { affected: true, geojson: true, parking: true };
 
     function initMap() {
       map = L.map('map').setView([47.3895, 16.5410], 13);
-      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        maxZoom: 19,
-        attribution: '&copy; OpenStreetMap contributors'
-      }).addTo(map);
-
-      layers = {
-        affected: L.featureGroup().addTo(map),
-        parking: L.featureGroup().addTo(map),
-        geojson: L.featureGroup().addTo(map)
-      };
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19, attribution: '&copy; OpenStreetMap contributors' }).addTo(map);
+      layers = { affected: L.featureGroup().addTo(map), geojson: L.featureGroup().addTo(map), parking: L.featureGroup().addTo(map) };
     }
 
-    function normalizeName(name) {
-      return (name || '').toLowerCase().replace(/\./g, '').replace(/útja$/g, 'út').replace(/\s+/g, ' ').trim();
-    }
-
-    function isAffectedStreet(name) {
-      const normalized = normalizeName(name);
-      for (const street of affectedStreetNames) {
-        if (normalized === normalizeName(street)) return true;
-      }
-      return false;
-    }
-
-    function overpassUrl(query) {
-      return 'https://overpass-api.de/api/interpreter?data=' + encodeURIComponent(query);
-    }
-
-    async function fetchOverpass(query) {
-      const response = await fetch(overpassUrl(query));
-      if (!response.ok) throw new Error('Overpass API hiba');
-      return await response.json();
-    }
-
-    function nodesToMap(elements) {
-      const result = new Map();
-      for (const item of elements) if (item.type === 'node') result.set(item.id, [item.lat, item.lon]);
-      return result;
-    }
-
-    function wayToLatLngs(way, nodeMap) {
-      return way.nodes.map(id => nodeMap.get(id)).filter(Boolean);
-    }
+    function normalizeName(name) { return (name || '').toLowerCase().replace(/\./g, '').replace(/útja$/g, 'út').replace(/\s+/g, ' ').trim(); }
+    function isAffectedStreet(name) { const normalized = normalizeName(name); for (const street of affectedStreetNames) { if (normalized === normalizeName(street)) return true; } return false; }
+    function overpassUrl(query) { return 'https://overpass-api.de/api/interpreter?data=' + encodeURIComponent(query); }
+    async function fetchOverpass(query) { const response = await fetch(overpassUrl(query)); if (!response.ok) throw new Error('Overpass API hiba'); return await response.json(); }
+    function nodesToMap(elements) { const result = new Map(); for (const item of elements) if (item.type === 'node') result.set(item.id, [item.lat, item.lon]); return result; }
+    function wayToLatLngs(way, nodeMap) { return way.nodes.map(id => nodeMap.get(id)).filter(Boolean); }
 
     async function loadRoads() {
       const query = `[out:json][timeout:40];(way(47.340,16.470,47.450,16.640)["highway"]["name"];);out body;>;out skel qt;`;
       const roadStyle = { color: '#dc2626', weight: 4, opacity: .78, lineCap: 'round', lineJoin: 'round' };
       const glowStyle = { color: '#7f1d1d', weight: 9, opacity: .22, lineCap: 'round', lineJoin: 'round' };
-
       const data = await fetchOverpass(query);
       const nodeMap = nodesToMap(data.elements);
       let count = 0;
-
       for (const item of data.elements) {
         if (item.type !== 'way' || !item.tags || !item.tags.name || !item.nodes) continue;
         if (!isAffectedStreet(item.tags.name)) continue;
@@ -316,7 +243,6 @@
         L.polyline(latlngs, roadStyle).bindPopup(`<b>${item.tags.name}</b><br>Érintett út / utca / útszakasz`).addTo(layers.affected);
         count++;
       }
-
       document.getElementById('statRoads').textContent = count;
       if (layers.affected.getLayers().length > 0) map.fitBounds(layers.affected.getBounds(), { padding: [60, 60], maxZoom: 14 });
       return count;
@@ -328,10 +254,9 @@
         if (!response.ok) throw new Error('streets.geojson nem érhető el');
         const data = await response.json();
         let count = 0;
-
         const layer = L.geoJSON(data, {
           style: feature => {
-            const status = (feature.properties && feature.properties.status || '').toLowerCase();
+            const status = ((feature.properties && feature.properties.status) || '').toLowerCase();
             const color = status.includes('megerősített') ? '#f97316' : status.includes('vizsgálat') ? '#facc15' : '#fb7185';
             return { color, weight: 6, opacity: .9, lineCap: 'round', lineJoin: 'round' };
           },
@@ -346,7 +271,6 @@
             layer.bindPopup(`<b>${title}</b><br>Státusz: ${status}<br>Forrás: ${source}<br>${date ? 'Dátum: ' + date + '<br>' : ''}${url}`);
           }
         });
-
         layer.addTo(layers.geojson);
         document.getElementById('statGeojson').textContent = count;
         return count;
@@ -358,8 +282,7 @@
     }
 
     async function geocode(query) {
-      const url = `https://nominatim.openstreetmap.org/search?format=json&limit=1&q=${encodeURIComponent(query)}`;
-      const response = await fetch(url);
+      const response = await fetch(`https://nominatim.openstreetmap.org/search?format=json&limit=1&q=${encodeURIComponent(query)}`);
       const data = await response.json();
       if (!data || data.length === 0) return null;
       return [parseFloat(data[0].lat), parseFloat(data[0].lon)];
@@ -367,24 +290,14 @@
 
     async function loadParkings() {
       let count = 0;
-      const icon = L.divIcon({
-        className: 'parking-marker',
-        html: '<div style="width:26px;height:26px;border-radius:50%;background:#111827;border:3px solid #f59e0b;color:#fbbf24;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:14px;box-shadow:0 3px 10px rgba(0,0,0,.45);">P</div>',
-        iconSize: [26, 26],
-        iconAnchor: [13, 13]
-      });
-
+      const icon = L.divIcon({ className: 'parking-marker', html: '<div style="width:26px;height:26px;border-radius:50%;background:#111827;border:3px solid #f59e0b;color:#fbbf24;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:14px;box-shadow:0 3px 10px rgba(0,0,0,.45);">P</div>', iconSize: [26, 26], iconAnchor: [13, 13] });
       for (const parking of parkingSearches) {
         try {
           const latlng = await geocode(parking.query);
-          if (latlng) {
-            L.marker(latlng, { icon }).bindPopup(`<b>${parking.name}</b><br>Lezárt parkoló / parkolási érintettség`).addTo(layers.parking);
-            count++;
-          }
+          if (latlng) { L.marker(latlng, { icon }).bindPopup(`<b>${parking.name}</b><br>Lezárt parkoló / parkolási érintettség`).addTo(layers.parking); count++; }
           await new Promise(resolve => setTimeout(resolve, 650));
         } catch (error) { console.warn('Parkoló geokódolási hiba:', parking.name, error); }
       }
-
       document.getElementById('statParks').textContent = count;
       return count;
     }
@@ -393,21 +306,11 @@
       layerVisible[layerName] = !layerVisible[layerName];
       const button = document.getElementById('btn' + layerName.charAt(0).toUpperCase() + layerName.slice(1));
       const label = document.getElementById('state' + layerName.charAt(0).toUpperCase() + layerName.slice(1));
-      if (layerVisible[layerName]) {
-        layers[layerName].addTo(map);
-        button.classList.add('active');
-        label.textContent = 'be';
-      } else {
-        map.removeLayer(layers[layerName]);
-        button.classList.remove('active');
-        label.textContent = 'ki';
-      }
+      if (layerVisible[layerName]) { layers[layerName].addTo(map); button.classList.add('active'); label.textContent = 'be'; }
+      else { map.removeLayer(layers[layerName]); button.classList.remove('active'); label.textContent = 'ki'; }
     }
 
-    function isGreenpeaceItem(item) {
-      const text = `${item.title || ''} ${item.source || ''} ${item.url || ''}`.toLowerCase();
-      return text.includes('greenpeace');
-    }
+    function isGreenpeaceItem(item) { return `${item.title || ''} ${item.source || ''} ${item.url || ''}`.toLowerCase().includes('greenpeace'); }
 
     function sourceBadge(item) {
       const source = (item.source || '').toLowerCase();
@@ -513,10 +416,7 @@
       currentEvents = events || [];
       document.getElementById('statEvents').textContent = currentEvents.length;
       const target = document.getElementById('eventTimeline');
-      if (!currentEvents.length) {
-        target.innerHTML = '<div class="timeline-item"><div class="timeline-date">Nincs adat</div><div class="timeline-text">Az eseményfájl még nem tartalmaz bejegyzést.</div></div>';
-        return;
-      }
+      if (!currentEvents.length) { target.innerHTML = '<div class="timeline-item"><div class="timeline-date">Nincs adat</div><div class="timeline-text">Az eseményfájl még nem tartalmaz bejegyzést.</div></div>'; return; }
       target.innerHTML = currentEvents.map(event => {
         const url = event.url ? `<div class="timeline-source"><a href="${event.url}" target="_blank" rel="noopener" style="color:#93c5fd;">Forrás megnyitása</a></div>` : '';
         return `<div class="timeline-item"><div class="timeline-date">${event.date || ''}</div><div class="timeline-text">${event.title || event.text || ''}</div><div class="timeline-source">${event.source || ''}</div><span class="timeline-type">${event.type || 'event'}</span>${url}</div>`;
@@ -528,28 +428,25 @@
         const response = await fetch('data/events.json?t=' + Date.now());
         if (!response.ok) throw new Error('events.json nem érhető el');
         const data = await response.json();
-        const events = Array.isArray(data) ? data : data.events || [];
-        renderEvents(events);
-      } catch (error) {
-        console.warn('Events betöltési hiba:', error);
-        renderEvents(fallbackEvents);
-      }
+        renderEvents(Array.isArray(data) ? data : data.events || []);
+      } catch (error) { console.warn('Events betöltési hiba:', error); renderEvents(fallbackEvents); }
     }
 
     function openReportWindow() {
       const topNews = currentNews.slice(0, 10).map(n => `<li><strong>${n.source || ''}</strong>: <a href="${n.url}">${n.title}</a> <em>${n.date || ''}</em></li>`).join('');
       const eventList = currentEvents.slice(0, 10).map(e => `<li><strong>${e.date || ''}</strong>: ${e.title || e.text || ''} <em>${e.source || ''}</em></li>`).join('');
       const report = window.open('', '_blank');
-      report.document.write(`<!DOCTYPE html><html lang="hu"><head><meta charset="utf-8"><title>Kőszeg Azbeszt Monitor – Jelentés</title><style>body{font-family:Arial,sans-serif;margin:34px;line-height:1.5;color:#111}h1{font-size:24px}h2{margin-top:28px;border-bottom:1px solid #ddd;padding-bottom:6px}a{color:#0645ad}.note{background:#fff7ed;border-left:5px solid #f59e0b;padding:10px}</style></head><body><h1>Kőszeg és környéke – Azbeszt Monitor jelentés</h1><p><strong>Készült:</strong> ${new Date().toLocaleString('hu-HU')}</p><div class="note">Tájékoztató jellegű automatikus jelentés. Nem hivatalos hatósági dokumentum.</div><h2>AI összefoglaló</h2><p>${lastSummary || 'Nincs elérhető összefoglaló.'}</p><h2>Esemény-idővonal</h2><ul>${eventList || '<li>Nincs eseményadat.</li>'}</ul><h2>Top hírek</h2><ul>${topNews || '<li>Nincs hír.</li>'}</ul><p style="margin-top:30px;font-size:12px;color:#666">Forrás: data/news.json, data/events.json, OpenStreetMap, GitHub Actions monitoring.</p><script>window.print();</script></body></html>`);
+      report.document.open();
+      report.document.write(`<!DOCTYPE html><html lang="hu"><head><meta charset="utf-8"><title>Kőszeg Azbeszt Monitor – Jelentés</title><style>body{font-family:Arial,sans-serif;margin:34px;line-height:1.5;color:#111}h1{font-size:24px}h2{margin-top:28px;border-bottom:1px solid #ddd;padding-bottom:6px}a{color:#0645ad}.note{background:#fff7ed;border-left:5px solid #f59e0b;padding:10px}</style></head><body><h1>Kőszeg és környéke – Azbeszt Monitor jelentés</h1><p><strong>Készült:</strong> ${new Date().toLocaleString('hu-HU')}</p><div class="note">Tájékoztató jellegű automatikus jelentés. Nem hivatalos hatósági dokumentum.</div><h2>AI összefoglaló</h2><p>${lastSummary || 'Nincs elérhető összefoglaló.'}</p><h2>Esemény-idővonal</h2><ul>${eventList || '<li>Nincs eseményadat.</li>'}</ul><h2>Top hírek</h2><ul>${topNews || '<li>Nincs hír.</li>'}</ul><p style="margin-top:30px;font-size:12px;color:#666">Forrás: data/news.json, data/events.json, OpenStreetMap, GitHub Actions monitoring.</p></body></html>`);
       report.document.close();
+      setTimeout(() => report.print(), 500);
     }
 
     async function start() {
-      initMap();
-      loadNews();
-      loadEvents();
-
       try {
+        initMap();
+        loadNews();
+        loadEvents();
         document.getElementById('status').textContent = 'Utcavonalak betöltése Kőszeg és környéke térségéből...';
         const roads = await loadRoads();
         document.getElementById('status').textContent = 'Pontosított GeoJSON-réteg betöltése...';
@@ -558,8 +455,8 @@
         const parks = await loadParkings();
         document.getElementById('status').textContent = `Kész: ${roads} OSM útszakasz, ${geojson} GeoJSON elem, ${parks} parkoló jelölve. Egyes részszakaszok kézi pontosítást igényelhetnek.`;
       } catch (error) {
-        console.error('Térkép betöltési hiba:', error);
-        document.getElementById('status').textContent = 'Hiba történt a térképadatok betöltésekor. Próbáld újratölteni az oldalt.';
+        console.error('Oldal betöltési hiba:', error);
+        document.getElementById('status').textContent = 'Hiba történt az oldal betöltésekor. Ellenőrizd a böngésző konzolt vagy töltsd újra az oldalt.';
       }
     }
 
