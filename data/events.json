@@ -1,0 +1,39 @@
+{
+  "events": [
+    {
+      "date": "2026-04-22",
+      "title": "Greenpeace-vonatkozású és osztrák kapcsolatot említő hírek jelennek meg.",
+      "source": "Greenpeace / sajtó",
+      "type": "civil",
+      "url": "https://www.greenpeace.org/hungary/"
+    },
+    {
+      "date": "2026-04-24",
+      "title": "Kőszeg és környéke érintettsége országos és helyi médiában is megjelenik.",
+      "source": "Telex / HVG / 444 / VAOL",
+      "type": "media",
+      "url": ""
+    },
+    {
+      "date": "2026-04",
+      "title": "Kőszeg Önkormányzata lakossági tájékoztatót tesz közzé az ausztriai bányákból származó kőzúzalék azbeszttartalmával kapcsolatban.",
+      "source": "Kőszeg Önkormányzat",
+      "type": "official",
+      "url": "https://koszeg.hu/hu/aktualis/hirek/"
+    },
+    {
+      "date": "2026-04",
+      "title": "A Vas Vármegyei Kormányhivatal hatósági tájékoztatói és fórumhírei bekerülnek a monitoring rendszerbe.",
+      "source": "Vas Vármegyei Kormányhivatal",
+      "type": "official",
+      "url": "https://kormanyhivatalok.hu/kormanyhivatalok/vas/megye/hirek"
+    },
+    {
+      "date": "Folyamatos",
+      "title": "A rendszer külön kezeli a hivatalos, civil, magyar média és osztrák/burgenlandi forrásokat.",
+      "source": "Monitoring dashboard",
+      "type": "system",
+      "url": ""
+    }
+  ]
+}
