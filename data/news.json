@@ -1,25 +1,44 @@
 {
-  "generated_at": "2026-04-25T17:40:28.831353+00:00",
+  "generated_at": "2026-04-25T17:48:08.796884+00:00",
   "refresh_hours": 6,
-  "query": "\n(\n  \"Kőszeg\" OR \"Koszeg\" OR \"Bozsok\" OR \"Szombathely\"\n  OR \"Pilgersdorf\" OR \"Burgenland\" OR \"Vas vármegye\"\n)\n(\n  azbeszt OR aszbeszt OR azbesztszennyezés OR kőzúzalék OR kőbánya\n  OR Asbest OR Asbestbelastung OR Asbestverschmutzung\n  OR Steinbruch OR Schotter OR Gestein OR Verunreinigung\n)\n(\n  Greenpeace OR \"Greenpeace Magyarország\" OR \"Greenpeace Austria\"\n  OR Behörde OR Behörden OR Amt OR Gemeinde\n  OR Anzeige OR Untersuchung\n)\n",
-  "mode": "rss_html_gdelt",
-  "summary": "Automatikus többforrású monitoring rendszer.",
+  "query": "\n(\"Kőszeg\" OR \"Koszeg\" OR \"Bozsok\" OR \"Szombathely\" OR \"Pilgersdorf\" OR \"Burgenland\")\n(azbeszt OR aszbeszt OR kőzúzalék OR kőbánya OR Asbest OR Steinbruch OR Schotter OR Greenpeace)\n",
+  "mode": "rss_html_gdelt_ai",
+  "source_counts": {
+    "Kőszeg Önkormányzat": 1,
+    "Vas Vármegyei Kormányhivatal": 3,
+    "Greenpeace": 2,
+    "Kurier Burgenland": 3,
+    "vol.at": 1,
+    "Greenpeace Austria": 51,
+    "Telex": 1,
+    "HVG": 1,
+    "MeinBezirk Burgenland": 1,
+    "atv.hu": 3,
+    "Nyugat.hu": 1,
+    "hirado.hu": 1,
+    "blikk.hu": 2,
+    "444": 1,
+    "VAOL": 1,
+    "divany.hu": 1,
+    "index.hu": 1,
+    "penzcentrum.hu": 1
+  },
+  "source_type_counts": {
+    "official": 4,
+    "civil": 53,
+    "austrian": 8,
+    "media": 5,
+    "gdelt": 6
+  },
+  "summary": "Az elmúlt időszakban az ausztriai bányákból származó kőzúzalék azbeszttartalma miatt Kőszeg és környéke, valamint Szombathely és az Oladi Plató területe érintett az azbesztszennyezéssel kapcsolatos vizsgálatokban és intézkedésekben. Kőszeg önkormányzata és a Vas Vármegyei Kormányhivatal hivatalos tájékoztatást adott ki az ügyben, ahol hangsúlyozzák a lakosság egészségének védelmét és azonnali beavatkozások szükségességét. Szombathelyen lakossági fórumot tartottak a helyzet tisztázására, emellett hatósági és rendőrségi eljárás is indult. Greenpeace Magyarország civil szervezetként súlyos veszélyre figyelmeztet, sürgetve a gyors cselekvést. Ausztriában, Burgenland térségében is hasonló aggodalmak vannak, amit az osztrák Greenpeace és a helyi média is ismertetett, ám a burgenlandi hatóságok részéről hiányoznak az intézkedések egyes vélemények szerint.\n\n- Mi történt: Azbesztszennyezés miatt vizsgálatok, tájékoztatások és jogi eljárások folynak Kőszeg és Szombathely környékén.\n- Hivatalos forrás van-e: Igen, Kőszeg Önkormányzat és Vas Vármegyei Kormányhivatal is kiadott tájékoztatást.\n- Osztrák kapcsolat: Az azbesztszennyezés burgenlandi bányákból érkezett kőzúzalék révén kapcsolódik Ausztriához; osztrák Greenpeace és helyi média is foglalkozik az üggyel.\n- Mire figyeljen a lakosság: Kövesse a hivatalos tájékoztatásokat és előírásokat, vegyen részt lakossági fórumokon, és kerülje az érintett anyagokkal való közvetlen érintkezést.",
   "articles": [
     {
-      "title": "LAKOSSÁGI TÁJÉKOZTATÓ - Ausztriai bányákból származó „bernsteini” kőzúzalék veszélyes azbeszt tartalma miatt hozott intézkedésekről",
+      "title": "Kőszeg Önkormányzat – Lakossági tájékoztató az ausztriai bányákból származó kőzúzalék azbeszttartalma miatt hozott intézkedésekről",
       "source": "Kőszeg Önkormányzat",
       "source_type": "official",
-      "date": "",
-      "url": "https://koszeg.hu/hu/onkormanyzat/hirek/content.php?id=15404",
-      "type": "html"
-    },
-    {
-      "title": "LAKOSSÁGI TÁJÉKOZTATÓ Az ausztriai bányákból származó szerpentinít kőzúzalék azbeszt tartalmára vonatkozóan",
-      "source": "Kőszeg Önkormányzat",
-      "source_type": "official",
-      "date": "",
-      "url": "https://koszeg.hu/hu/onkormanyzat/hirek/content.php?id=15398",
-      "type": "html"
+      "date": "2026-04",
+      "url": "https://koszeg.hu/hu/aktualis/hirek/",
+      "type": "manual"
     },
     {
       "title": "Azbesztszennyezés – A legfontosabb lakossági információk 2026. április 21. 09:06 Az alábbiakban a témával kapcsolatos legfontosabb információkról, fejleményekről, lakossági felhívásokról, illetve teendőkről tájékozódhatnak. Az oldalon található információkat folyamatosan frissítjük. Részletek",
@@ -46,6 +65,14 @@
       "type": "html"
     },
     {
+      "title": "Greenpeace Magyarország – Súlyos azbesztveszély Szombathelyen",
+      "source": "Greenpeace",
+      "source_type": "civil",
+      "date": "2026-04",
+      "url": "https://www.greenpeace.org/hungary/sajtokozlemeny/13530/greenpeace-sulyos-azbesztveszely-szombathelyen-a-lakossag-biztonsaganak-erdekeben-azonnali-intezkezdesre-van-szukseg/",
+      "type": "manual"
+    },
+    {
       "title": "Asbest-Check von Greenpeace: Nur ein Bundesland handelt Greenpeace kritisiert fehlende Maßnahmen im Burgenland und in der Steiermark, Niederösterreich hatbereits reagiert. Zweite Messreihe startet demnächst.",
       "source": "Kurier Burgenland",
       "source_type": "austrian",
@@ -54,36 +81,316 @@
       "type": "html"
     },
     {
-      "title": "Asbest im Gestein: Land sieht \"Regelungslücke\" bei Ministerium",
-      "source": "Kurier Burgenland",
+      "title": "Greenpeace Reports New Asbestos Findings in Burgenland and Styria",
+      "source": "vol.at",
       "source_type": "austrian",
-      "date": "",
-      "url": "https://kurier.at/chronik/burgenland/asbest-burgenland-niederoesterreich-steinbrueche-gesetzgebung-oesterreich-grenzwert/403153071",
-      "type": "html"
+      "date": "2026-02-13",
+      "url": "https://www.vol.at/greenpeace-reports-new-asbestos-findings-in-burgenland-and-styria/9988865",
+      "type": "gdelt"
     },
     {
-      "title": "11 Kommentare",
-      "source": "Kurier Burgenland",
-      "source_type": "austrian",
-      "date": "",
-      "url": "https://kurier.at/chronik/burgenland/asbest-burgenland-niederoesterreich-steinbrueche-gesetzgebung-oesterreich-grenzwert/403153071#comments",
-      "type": "html"
-    },
-    {
-      "title": "Landtagssitzung Burgenland Landwirtschaft, Asbest, Pensionen - das diskutiert der Landtag",
-      "source": "MeinBezirk Burgenland",
-      "source_type": "austrian",
-      "date": "",
-      "url": "https://www.meinbezirk.at/burgenland/c-politik/landwirtschaft-asbest-pensionen-das-diskutiert-der-landtag_a8601575",
-      "type": "html"
-    },
-    {
-      "title": "Greenpeace Magyarország – Feljelentés az osztrák kőbányákkal kapcsolatban",
-      "source": "Greenpeace",
+      "title": "Greenpeace logo",
+      "source": "Greenpeace Austria",
       "source_type": "civil",
-      "date": "2026-04",
-      "url": "https://www.greenpeace.org/hungary/sajtokozlemeny/13601/a-greenpeace-ausztria-feljelentest-tett-a-vas-varmegyeben-is-azbesztszennyezest-okozo-osztrak-kobanyakkal-kapcsolatban/",
-      "type": "manual"
+      "date": "",
+      "url": "https://greenpeace.at/",
+      "type": "html"
+    },
+    {
+      "title": "Über Uns",
+      "source": "Greenpeace Austria",
+      "source_type": "civil",
+      "date": "",
+      "url": "https://greenpeace.at/presse/ueber-uns/",
+      "type": "html"
+    },
+    {
+      "title": "Arbeitsweise",
+      "source": "Greenpeace Austria",
+      "source_type": "civil",
+      "date": "",
+      "url": "https://greenpeace.at/presse/ueber-uns/arbeitsweise/",
+      "type": "html"
+    },
+    {
+      "title": "Jahresbericht",
+      "source": "Greenpeace Austria",
+      "source_type": "civil",
+      "date": "",
+      "url": "https://greenpeace.at/presse/ueber-uns/jahresbericht/",
+      "type": "html"
+    },
+    {
+      "title": "Kontakt und Impressum",
+      "source": "Greenpeace Austria",
+      "source_type": "civil",
+      "date": "",
+      "url": "https://greenpeace.at/presse/ueber-uns/kontakt/",
+      "type": "html"
+    },
+    {
+      "title": "Klimaschutz",
+      "source": "Greenpeace Austria",
+      "source_type": "civil",
+      "date": "",
+      "url": "https://greenpeace.at/presse/themen/klimaschutz/",
+      "type": "html"
+    },
+    {
+      "title": "Plastik & Müll",
+      "source": "Greenpeace Austria",
+      "source_type": "civil",
+      "date": "",
+      "url": "https://greenpeace.at/presse/themen/plastik-muell/",
+      "type": "html"
+    },
+    {
+      "title": "Meeresschutz",
+      "source": "Greenpeace Austria",
+      "source_type": "civil",
+      "date": "",
+      "url": "https://greenpeace.at/presse/themen/bedrohungen-der-meere/",
+      "type": "html"
+    },
+    {
+      "title": "Biodiversität",
+      "source": "Greenpeace Austria",
+      "source_type": "civil",
+      "date": "",
+      "url": "https://greenpeace.at/presse/themen/biodiversitaet-schuetzen/",
+      "type": "html"
+    },
+    {
+      "title": "Konsum & Verschwendung",
+      "source": "Greenpeace Austria",
+      "source_type": "civil",
+      "date": "",
+      "url": "https://greenpeace.at/presse/themen/konsum-verschwendung/",
+      "type": "html"
+    },
+    {
+      "title": "Landwirtschaft & Lebensmittel",
+      "source": "Greenpeace Austria",
+      "source_type": "civil",
+      "date": "",
+      "url": "https://greenpeace.at/presse/themen/landwirtschaft-lebensmittel/",
+      "type": "html"
+    },
+    {
+      "title": "Umweltgifte",
+      "source": "Greenpeace Austria",
+      "source_type": "civil",
+      "date": "",
+      "url": "https://greenpeace.at/presse/themen/umweltgifte/",
+      "type": "html"
+    },
+    {
+      "title": "Demokratie",
+      "source": "Greenpeace Austria",
+      "source_type": "civil",
+      "date": "",
+      "url": "https://greenpeace.at/presse/themen/demokratie/",
+      "type": "html"
+    },
+    {
+      "title": "Übers Spenden",
+      "source": "Greenpeace Austria",
+      "source_type": "civil",
+      "date": "",
+      "url": "https://greenpeace.at/presse/spenden/",
+      "type": "html"
+    },
+    {
+      "title": "Jetzt online spenden",
+      "source": "Greenpeace Austria",
+      "source_type": "civil",
+      "date": "",
+      "url": "https://greenpeace.at/presse/spenden/jetzt-spenden/",
+      "type": "html"
+    },
+    {
+      "title": "Spendenmöglichkeiten",
+      "source": "Greenpeace Austria",
+      "source_type": "civil",
+      "date": "",
+      "url": "https://greenpeace.at/presse/spenden/spendenmoeglichkeiten/",
+      "type": "html"
+    },
+    {
+      "title": "Spende schenken",
+      "source": "Greenpeace Austria",
+      "source_type": "civil",
+      "date": "",
+      "url": "https://greenpeace.at/presse/spenden/spenden-schenken/",
+      "type": "html"
+    },
+    {
+      "title": "Spende im Testament",
+      "source": "Greenpeace Austria",
+      "source_type": "civil",
+      "date": "",
+      "url": "https://greenpeace.at/presse/spenden/rdtestamentsspenden/",
+      "type": "html"
+    },
+    {
+      "title": "Großspenden",
+      "source": "Greenpeace Austria",
+      "source_type": "civil",
+      "date": "",
+      "url": "https://greenpeace.at/presse/spenden/rdgrossspenden/",
+      "type": "html"
+    },
+    {
+      "title": "Spendenabsetzbarkeit",
+      "source": "Greenpeace Austria",
+      "source_type": "civil",
+      "date": "",
+      "url": "https://greenpeace.at/presse/spenden/rdspendenabsetzbarkeit/",
+      "type": "html"
+    },
+    {
+      "title": "Mitmachen",
+      "source": "Greenpeace Austria",
+      "source_type": "civil",
+      "date": "",
+      "url": "https://greenpeace.at/presse/mitmachen/",
+      "type": "html"
+    },
+    {
+      "title": "Petitionen",
+      "source": "Greenpeace Austria",
+      "source_type": "civil",
+      "date": "",
+      "url": "https://greenpeace.at/presse/petitionen-mitmachen/",
+      "type": "html"
+    },
+    {
+      "title": "Umfragen",
+      "source": "Greenpeace Austria",
+      "source_type": "civil",
+      "date": "",
+      "url": "https://greenpeace.at/presse/umfragen/",
+      "type": "html"
+    },
+    {
+      "title": "Ehrenamt",
+      "source": "Greenpeace Austria",
+      "source_type": "civil",
+      "date": "",
+      "url": "https://greenpeace.at/presse/ehrenamt/",
+      "type": "html"
+    },
+    {
+      "title": "Ratgeber",
+      "source": "Greenpeace Austria",
+      "source_type": "civil",
+      "date": "",
+      "url": "https://greenpeace.at/presse/ratgeber/",
+      "type": "html"
+    },
+    {
+      "title": "Jobs & Praktika",
+      "source": "Greenpeace Austria",
+      "source_type": "civil",
+      "date": "",
+      "url": "https://greenpeace.at/presse/jobs-praktikum/",
+      "type": "html"
+    },
+    {
+      "title": "Missstand melden",
+      "source": "Greenpeace Austria",
+      "source_type": "civil",
+      "date": "",
+      "url": "https://greenpeace.at/presse/missstand-melden/",
+      "type": "html"
+    },
+    {
+      "title": "Aktuelles",
+      "source": "Greenpeace Austria",
+      "source_type": "civil",
+      "date": "",
+      "url": "https://greenpeace.at/presse/aktuelles/",
+      "type": "html"
+    },
+    {
+      "title": "Publikationen",
+      "source": "Greenpeace Austria",
+      "source_type": "civil",
+      "date": "",
+      "url": "https://greenpeace.at/presse/publikationen/",
+      "type": "html"
+    },
+    {
+      "title": "Podcasts",
+      "source": "Greenpeace Austria",
+      "source_type": "civil",
+      "date": "",
+      "url": "https://greenpeace.at/presse/podcast/",
+      "type": "html"
+    },
+    {
+      "title": "Marktcheck",
+      "source": "Greenpeace Austria",
+      "source_type": "civil",
+      "date": "",
+      "url": "https://greenpeace.at/presse/marktcheck/",
+      "type": "html"
+    },
+    {
+      "title": "ACT-Magazin",
+      "source": "Greenpeace Austria",
+      "source_type": "civil",
+      "date": "",
+      "url": "https://greenpeace.at/presse/act-magazin/",
+      "type": "html"
+    },
+    {
+      "title": "Jahresberichte",
+      "source": "Greenpeace Austria",
+      "source_type": "civil",
+      "date": "",
+      "url": "https://greenpeace.at/presse/jahresberichte/",
+      "type": "html"
+    },
+    {
+      "title": "Green Journal",
+      "source": "Greenpeace Austria",
+      "source_type": "civil",
+      "date": "",
+      "url": "https://greenpeace.at/presse/greenjournal/",
+      "type": "html"
+    },
+    {
+      "title": "Petitionen",
+      "source": "Greenpeace Austria",
+      "source_type": "civil",
+      "date": "",
+      "url": "https://greenpeace.at/presse/petitionen/",
+      "type": "html"
+    },
+    {
+      "title": "Jetzt spenden",
+      "source": "Greenpeace Austria",
+      "source_type": "civil",
+      "date": "",
+      "url": "https://greenpeace.at/presse/spenden/jetzt-spenden/?version=wdbt",
+      "type": "html"
+    },
+    {
+      "title": "presse@greenpeace.at",
+      "source": "Greenpeace Austria",
+      "source_type": "civil",
+      "date": "",
+      "url": "mailto:presse@greenpeace.at",
+      "type": "html"
+    },
+    {
+      "title": "APA Originaltextservice OTS",
+      "source": "Greenpeace Austria",
+      "source_type": "civil",
+      "date": "",
+      "url": "https://www.ots.at/pressemappe/99/greenpeace",
+      "type": "html"
     }
   ]
 }
