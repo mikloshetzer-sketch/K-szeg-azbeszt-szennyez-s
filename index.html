@@ -30,6 +30,7 @@
     .muted { color: #9ca3af; font-size: 12px; line-height: 1.45; }
     .warn { background: rgba(245,158,11,.12); border-color: rgba(245,158,11,.35); }
     .source { background: rgba(37,99,235,.11); border-color: rgba(37,99,235,.35); }
+    .green-card { background: rgba(34,197,94,.10); border-color: rgba(34,197,94,.35); }
 
     .statgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
     .stat { background: rgba(0,0,0,.18); border-radius: 13px; padding: 10px; }
@@ -51,10 +52,13 @@
     .news-head h2 { margin: 0; font-size: 18px; }
     .refresh { border: 0; background: #374151; color: #f3f4f6; border-radius: 10px; padding: 8px 10px; cursor: pointer; font-weight: 700; }
     .news-item { position: relative; background: rgba(255,255,255,.055); border: 1px solid rgba(255,255,255,.085); border-radius: 12px; padding: 9px 10px; margin-bottom: 8px; }
+    .news-item.greenpeace-item { background: rgba(34,197,94,.09); border-color: rgba(34,197,94,.32); }
     .news-item a { color: #93c5fd; text-decoration: none; font-weight: 800; line-height: 1.22; font-size: 14px; }
+    .news-item.greenpeace-item a { color: #86efac; }
     .news-item a:hover { text-decoration: underline; }
     .meta { color: #9ca3af; font-size: 10.5px; margin-top: 5px; }
     .tag { display: inline-block; margin-top: 6px; background: rgba(37,99,235,.18); color: #bfdbfe; border: 1px solid rgba(37,99,235,.34); border-radius: 999px; padding: 3px 6px; font-size: 10px; }
+    .green-tag { background: rgba(34,197,94,.18); color: #bbf7d0; border-color: rgba(34,197,94,.38); }
     .top-badge { position: absolute; top: 8px; right: 8px; background: #dc2626; color: white; padding: 3px 7px; border-radius: 999px; font-size: 10px; font-weight: 800; }
     .source-badge { font-size: 10px; color: #cbd5e1; margin-bottom: 6px; font-weight: 700; letter-spacing: .3px; }
 
@@ -87,7 +91,7 @@
     <header class="topbar">
       <div>
         <div class="brand-title">Kőszeg és környéke – Azbeszt Monitor</div>
-        <div class="brand-sub">Érintett utak · lezárt parkolók · sajtófigyelő · tájékoztató térkép</div>
+        <div class="brand-sub">Érintett utak · lezárt parkolók · sajtófigyelő · Greenpeace-források · tájékoztató térkép</div>
       </div>
       <div class="top-actions">
         <span class="pill" id="lastUpdate">Hírek: betöltés alatt</span>
@@ -104,7 +108,12 @@
 
         <section class="card source">
           <h2>Források</h2>
-          <p class="muted">Érintett utcák és parkolók listája, OpenStreetMap, valamint országos és helyi sajtóhírek. A hírek a <code>data/news.json</code> fájlból töltődnek be.</p>
+          <p class="muted">Érintett utcák és parkolók listája, OpenStreetMap, országos és helyi sajtóhírek. A hírek a <code>data/news.json</code> fájlból töltődnek be, amelyet GitHub Actions frissít.</p>
+        </section>
+
+        <section class="card green-card">
+          <h2>Greenpeace / civil források</h2>
+          <p class="muted">A rendszer külön kiemeli a Greenpeace-hez kapcsolódó híreket és közleményeket. Közvetlen, nyilvános térképes Greenpeace-adatot jelenleg nem használ, ezért zöld térképréteg nincs hozzáadva.</p>
         </section>
 
         <section class="card">
@@ -112,8 +121,8 @@
           <div class="statgrid">
             <div class="stat"><div class="stat-num" id="statRoads">–</div><div class="stat-label">kiemelt útszakasz</div></div>
             <div class="stat"><div class="stat-num" id="statParks">–</div><div class="stat-label">jelölt parkoló</div></div>
-            <div class="stat"><div class="stat-num">2</div><div class="stat-label">térképréteg</div></div>
-            <div class="stat"><div class="stat-num">6h</div><div class="stat-label">hírfrissítési ciklus</div></div>
+            <div class="stat"><div class="stat-num" id="statNews">–</div><div class="stat-label">hírforrás</div></div>
+            <div class="stat"><div class="stat-num" id="statGreenpeace">–</div><div class="stat-label">Greenpeace találat</div></div>
           </div>
         </section>
 
@@ -141,6 +150,7 @@
           <input id="newsSearch" type="text" placeholder="Hír keresése..." oninput="filterNews()">
           <select id="newsFilter" onchange="filterNews()">
             <option value="all">Minden forrás</option>
+            <option value="greenpeace">Greenpeace</option>
             <option value="telex">Telex</option>
             <option value="hvg">HVG</option>
             <option value="444">444</option>
@@ -163,6 +173,11 @@
 
         <div id="newsList"></div>
 
+        <section class="card green-card">
+          <h2>Greenpeace fókusz</h2>
+          <p class="muted">A zölddel jelölt hírek Greenpeace-közlemények vagy Greenpeace-re hivatkozó sajtóanyagok. Ezek civil szervezeti forrásként értelmezendők, nem hatósági döntésként.</p>
+        </section>
+
         <section class="card">
           <h2>Rövid idővonal</h2>
           <div class="timeline">
@@ -178,6 +193,8 @@
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script>
     const fallbackNews = [
+      { title: 'Greenpeace Magyarország – Feljelentés az osztrák kőbányákkal kapcsolatban', source: 'Greenpeace', date: '2026-04', url: 'https://www.greenpeace.org/hungary/sajtokozlemeny/13601/a-greenpeace-ausztria-feljelentest-tett-a-vas-varmegyeben-is-azbesztszennyezest-okozo-osztrak-kobanyakkal-kapcsolatban/' },
+      { title: 'Greenpeace Magyarország – Súlyos azbesztveszély Szombathelyen', source: 'Greenpeace', date: '2026-04', url: 'https://www.greenpeace.org/hungary/sajtokozlemeny/13530/greenpeace-sulyos-azbesztveszely-szombathelyen-a-lakossag-biztonsaganak-erdekeben-azonnali-intezkezdesre-van-szukseg/' },
       { title: 'Telex – Azbesztügy Kőszegen: intézkedések és érintett területek', source: 'Telex', date: '2026-04-24', url: 'https://telex.hu/belfold/2026/04/24/azbeszt-koszeg-banya-intezkedesek' },
       { title: 'HVG – Kőszegre is kerülhetett az azbeszttartalmú kőzúzalékból', source: 'HVG', date: '2026-04-24', url: 'https://hvg.hu/zhvg/20260424_koszeg-azbeszt-tartalom-kozuzalek-bozsok-szombathely' },
       { title: '444 – Szombathely és Bozsok mellett Kőszeg is érintett lehet', source: '444', date: '2026-04-24', url: 'https://444.hu/2026/04/24/szombathely-es-bozsok-mellett-koszegre-is-juthatott-abbol-az-azbeszttel-szennyezett-kozuzalekbol' },
@@ -351,30 +368,51 @@
       }
     }
 
-    function sourceBadge(source) {
-      const s = (source || '').toLowerCase();
-      if (s.includes('telex')) return '🟦 TELEX';
-      if (s.includes('hvg')) return '🟩 HVG';
-      if (s.includes('444')) return '⬛ 444';
-      if (s.includes('vaol')) return '🟨 VAOL';
+    function isGreenpeaceItem(item) {
+      const text = `${item.title || ''} ${item.source || ''} ${item.url || ''}`.toLowerCase();
+      return text.includes('greenpeace');
+    }
+
+    function sourceBadge(item) {
+      const source = (item.source || '').toLowerCase();
+      const text = `${item.title || ''} ${item.url || ''}`.toLowerCase();
+
+      if (source.includes('greenpeace') || text.includes('greenpeace')) return '🟢 GREENPEACE';
+      if (source.includes('telex')) return '🟦 TELEX';
+      if (source.includes('hvg')) return '🟩 HVG';
+      if (source.includes('444')) return '⬛ 444';
+      if (source.includes('vaol')) return '🟨 VAOL';
       return '📰 HÍR';
     }
 
     function newsHtml(items, mode) {
-      return items.map((item, index) => `
-        <article class="news-item">
-          ${index < 2 ? '<div class="top-badge">TOP</div>' : ''}
-          <div class="source-badge">${sourceBadge(item.source)}</div>
-          <a href="${item.url}" target="_blank" rel="noopener">${item.title}</a>
-          <div class="meta">${item.source || 'Forrás'} · ${item.date || ''}</div>
-          ${mode ? `<span class="tag">${mode}</span>` : ''}
-        </article>
-      `).join('');
+      return items.map((item, index) => {
+        const green = isGreenpeaceItem(item);
+        return `
+          <article class="news-item ${green ? 'greenpeace-item' : ''}">
+            ${index < 2 ? '<div class="top-badge">TOP</div>' : ''}
+            <div class="source-badge">${sourceBadge(item)}</div>
+            <a href="${item.url}" target="_blank" rel="noopener">${item.title}</a>
+            <div class="meta">${item.source || 'Forrás'} · ${item.date || ''}</div>
+            ${green ? '<span class="tag green-tag">civil / Greenpeace</span>' : ''}
+            ${mode ? `<span class="tag">${mode}</span>` : ''}
+          </article>
+        `;
+      }).join('');
+    }
+
+    function updateNewsStats(items) {
+      const newsCount = Array.isArray(items) ? items.length : 0;
+      const greenCount = Array.isArray(items) ? items.filter(isGreenpeaceItem).length : 0;
+
+      document.getElementById('statNews').textContent = newsCount;
+      document.getElementById('statGreenpeace').textContent = greenCount;
     }
 
     function renderNews(items, mode) {
       currentNews = items || [];
-      document.getElementById('newsList').innerHTML = newsHtml(currentNews.slice(0, 20), mode);
+      updateNewsStats(currentNews);
+      document.getElementById('newsList').innerHTML = newsHtml(currentNews.slice(0, 25), mode);
     }
 
     function filterNews() {
@@ -382,9 +420,14 @@
       const source = document.getElementById('newsFilter').value;
 
       const filtered = currentNews.filter(item => {
-        const haystack = `${item.title || ''} ${item.source || ''}`.toLowerCase();
+        const haystack = `${item.title || ''} ${item.source || ''} ${item.url || ''}`.toLowerCase();
         const textOk = haystack.includes(text);
-        const sourceOk = source === 'all' || (item.source || '').toLowerCase().includes(source);
+        const sourceOk = source === 'all'
+          ? true
+          : source === 'greenpeace'
+            ? isGreenpeaceItem(item)
+            : haystack.includes(source);
+
         return textOk && sourceOk;
       });
 
