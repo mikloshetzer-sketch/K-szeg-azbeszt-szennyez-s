@@ -1,10 +1,24 @@
 {
-  "generated_at": "2026-04-25T01:18:06.477346+00:00",
+  "generated_at": "2026-04-25T05:52:39.731743+00:00",
   "refresh_hours": 6,
-  "query": "(\"Kőszeg\" OR \"Koszeg\" OR \"Bozsok\" OR \"Szombathely\") (azbeszt OR aszbeszt OR azbesztszennyezés OR kőzúzalék)",
+  "query": "\n(\n  \"Kőszeg\"\n  OR \"Koszeg\"\n  OR \"Bozsok\"\n  OR \"Szombathely\"\n  OR \"Pilgersdorf\"\n  OR \"Vas vármegye\"\n)\n(\n  azbeszt\n  OR aszbeszt\n  OR azbesztszennyezés\n  OR kőzúzalék\n  OR kőbánya\n)\n(\n  Greenpeace\n  OR \"Greenpeace Magyarország\"\n  OR \"Greenpeace Austria\"\n  OR hatóság\n  OR feljelentés\n)\n",
   "mode": "manual_fallback",
-  "summary": "Az elmúlt napokban több forrás is beszámolt arról, hogy Kőszeg és környéke érintett lehet egy azbeszttartalmú kőzúzalék terjedésében, amelyhez Szombathely és Bozsok is kapcsolódik. A helyi hatóságok eddig intézkedéseket hoztak az érintett területeken, részletek azonban a rendelkezésre álló hírek szerint még kidolgozás alatt vannak. A sajtóban megjelent anyagok kiemelik, hogy az ügy kapcsán vizsgálatok folynak, és a helyi lakosság figyelmeztetése folyamatban van. Az érintett településeken lakók számára fontos a körültekintő tájékozódás és az esetleges hatósági utasítások betartása.\n\n- Mi történt: azbeszttartalmú kőzúzalék kerülhetett Kőszeg és környékére.\n- Kik érintettek: Kőszeg, valamint Szombathely és Bozsok települések környezetében élők.\n- Mire figyeljen a lakosság: a hivatalos tájékoztatásokat és hatósági intézkedéseket.",
+  "summary": "Több forrás szerint az ausztriai kőbányákból származó, azbeszttartalmú kőzúzalék került a Vas megyei Kőszeg és környéke területeire, érintve Bozsokot és Szombathelyt is. A Greenpeace Magyarország feljelentést tett az osztrák bányákkal kapcsolatban, és súlyos azbesztveszélyről beszél Szombathelyen, azonnali intézkedéseket sürgetve a lakosság védelmében. A helyi és országos médiumok (Telex, HVG, 444, VAOL) beszámoltak a helyzetről, az intézkedések megkezdéséről és a potenciális kockázatokról, de egyelőre nem áll rendelkezésre hivatalos laboreredmény vagy hatósági egészségügyi állásfoglalás. A Greenpeace nyilvános közlései hangsúlyozzák az azbeszt szennyezés környezet- és egészségügyi veszélyeit, és a problémát nemzetközi összefüggésben kezelik.\n\n- Mi történt: azbeszttartalmú kőzúzalék került Kőszeg és környéke területeire, feljelentést tettek az osztrák bányák miatt.  \n- Kik érintettek: elsősorban Kőszeg, Szombathely, Bozsok lakossága és környezetük.  \n- Mire figyeljen a lakosság: a hivatalos tájékoztatókra, az azbeszttel kapcsolatos veszélyekre, és az esetleges hatósági intézkedésekre.",
   "articles": [
+    {
+      "title": "Greenpeace Magyarország – Feljelentés az osztrák kőbányákkal kapcsolatban",
+      "source": "Greenpeace",
+      "date": "2026-04",
+      "url": "https://www.greenpeace.org/hungary/sajtokozlemeny/13601/a-greenpeace-ausztria-feljelentest-tett-a-vas-varmegyeben-is-azbesztszennyezest-okozo-osztrak-kobanyakkal-kapcsolatban/",
+      "type": "manual"
+    },
+    {
+      "title": "Greenpeace Magyarország – Súlyos azbesztveszély Szombathelyen",
+      "source": "Greenpeace",
+      "date": "2026-04",
+      "url": "https://www.greenpeace.org/hungary/sajtokozlemeny/13530/greenpeace-sulyos-azbesztveszely-szombathelyen-a-lakossag-biztonsaganak-erdekeben-azonnali-intezkezdesre-van-szukseg/",
+      "type": "manual"
+    },
     {
       "title": "Telex – Azbesztügy Kőszegen: intézkedések és érintett területek",
       "source": "Telex",
