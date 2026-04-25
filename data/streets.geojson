@@ -4,46 +4,121 @@
     {
       "type": "Feature",
       "properties": {
-        "name": "Kőszeg – érintett utak gyűjtőpont",
+        "name": "Borostyánkő utca",
         "status": "vizsgálat alatt",
-        "source": "Önkormányzati lista / sajtófigyelés",
+        "source": "Önkormányzati lista",
         "date": "2026-04",
-        "note": "Ez induló mintaelem. A pontos útszakaszok kézi GeoJSON-rajzolással pontosíthatók.",
+        "note": "Teljes utca vagy érintett szakasz pontosítása szükséges.",
         "url": "https://koszeg.hu/hu/aktualis/hirek/"
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [16.5410, 47.3895]
+        "coordinates": [16.541, 47.3895]
       }
     },
     {
       "type": "Feature",
       "properties": {
-        "name": "Bozsok – osztrák kapcsolat figyelési pont",
-        "status": "vizsgálat alatt",
-        "source": "Greenpeace / sajtófigyelés",
+        "name": "Lékai út eleje – pénzváltó / leállósáv",
+        "status": "részszakasz pontosítandó",
+        "source": "Önkormányzati lista",
         "date": "2026-04",
-        "note": "Induló figyelési pont Bozsok térségére.",
-        "url": "https://www.greenpeace.org/hungary/"
+        "note": "A Lékai út elején, a pénzváltó környékén lévő leállósáv érintettként jelölt szakasz.",
+        "url": "https://koszeg.hu/hu/aktualis/hirek/"
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [16.4910, 47.3250]
+        "coordinates": [16.5405, 47.3889]
       }
     },
     {
       "type": "Feature",
       "properties": {
-        "name": "Szombathely – regionális ügykapcsolat",
-        "status": "vizsgálat alatt",
-        "source": "Sajtó / Greenpeace",
+        "name": "Malomárok utca – Auguszt J. utca és Felső Gyöngyös híd között",
+        "status": "részszakasz pontosítandó",
+        "source": "Önkormányzati lista",
         "date": "2026-04",
-        "note": "Regionális kapcsolódási pont a szombathelyi azbesztügyhöz.",
-        "url": "https://www.greenpeace.org/hungary/"
+        "note": "Csak az Auguszt J. utca és a Felső Gyöngyös híd közötti szakasz jelölendő.",
+        "url": "https://koszeg.hu/hu/aktualis/hirek/"
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [16.6218, 47.2307]
+        "coordinates": [16.542, 47.3902]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Meskó utca",
+        "status": "vizsgálat alatt",
+        "source": "Önkormányzati lista",
+        "date": "2026-04",
+        "note": "Teljes utca vagy érintett szakasz pontosítása szükséges.",
+        "url": "https://koszeg.hu/hu/aktualis/hirek/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [16.543, 47.389]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Kálvária utca – Koronaőrzőtől a villáig",
+        "status": "részszakasz pontosítandó",
+        "source": "Önkormányzati lista",
+        "date": "2026-04",
+        "note": "A Koronaőrző környékétől a villáig tartó szakasz.",
+        "url": "https://koszeg.hu/hu/aktualis/hirek/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [16.5368, 47.3908]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Bechtold utca",
+        "status": "vizsgálat alatt",
+        "source": "Önkormányzati lista",
+        "date": "2026-04",
+        "note": "Teljes utca vagy érintett szakasz pontosítása szükséges.",
+        "url": "https://koszeg.hu/hu/aktualis/hirek/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [16.5388, 47.3915]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Hidegvölgy útjai",
+        "status": "területi megjelölés",
+        "source": "Önkormányzati lista",
+        "date": "2026-04",
+        "note": "Nem egyetlen utca, hanem területi útmegjelölés. Kézi térképi pontosítás szükséges.",
+        "url": "https://koszeg.hu/hu/aktualis/hirek/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [16.515, 47.397]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Pocichter / Libaszőlő utcák",
+        "status": "területi megjelölés",
+        "source": "Önkormányzati lista",
+        "date": "2026-04",
+        "note": "Több kisebb utca vagy dűlőút lehet érintett. Pontos szakaszok kézi rajzolása szükséges.",
+        "url": "https://koszeg.hu/hu/aktualis/hirek/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [16.522, 47.386]
       }
     }
   ]
