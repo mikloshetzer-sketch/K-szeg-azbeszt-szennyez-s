@@ -22,8 +22,15 @@ jobs:
           OPENAI_MODEL: gpt-4.1-mini
         run: |
           python3 <<'PY'
-          import os, re, json, html, urllib.parse, urllib.request, urllib.error
+          import os
+          import re
+          import json
+          import html
+          import urllib.parse
+          import urllib.request
+          import urllib.error
           import xml.etree.ElementTree as ET
+
           from datetime import datetime, timezone
           from email.utils import parsedate_to_datetime
 
@@ -41,31 +48,100 @@ jobs:
           )
           (
             Greenpeace OR "Greenpeace Magyarország" OR "Greenpeace Austria"
-            OR Behörde OR Behörden OR Amt OR Gemeinde OR Anzeige OR Untersuchung
+            OR Behörde OR Behörden OR Amt OR Gemeinde
+            OR Anzeige OR Untersuchung
           )
           '''
 
           RSS_SOURCES = [
-              {"name": "Telex", "url": "https://telex.hu/rss", "type": "media"},
-              {"name": "HVG", "url": "https://hvg.hu/rss", "type": "media"},
-              {"name": "444", "url": "https://444.hu/feed", "type": "media"},
-              {"name": "24.hu", "url": "https://24.hu/feed/", "type": "media"},
-              {"name": "Euronews HU", "url": "https://hu.euronews.com/rss", "type": "media"},
-              {"name": "ORF Burgenland", "url": "https://burgenland.orf.at/rss/news.xml", "type": "austrian"},
-              {"name": "Der Standard", "url": "https://www.derstandard.at/rss", "type": "austrian"}
+              {
+                  "name": "Telex",
+                  "url": "https://telex.hu/rss",
+                  "type": "media"
+              },
+              {
+                  "name": "HVG",
+                  "url": "https://hvg.hu/rss",
+                  "type": "media"
+              },
+              {
+                  "name": "444",
+                  "url": "https://444.hu/feed",
+                  "type": "media"
+              },
+              {
+                  "name": "24.hu",
+                  "url": "https://24.hu/feed/",
+                  "type": "media"
+              },
+              {
+                  "name": "Euronews HU",
+                  "url": "https://hu.euronews.com/rss",
+                  "type": "media"
+              },
+              {
+                  "name": "ORF Burgenland",
+                  "url": "https://burgenland.orf.at/rss/news.xml",
+                  "type": "austrian"
+              },
+              {
+                  "name": "Der Standard",
+                  "url": "https://www.derstandard.at/rss",
+                  "type": "austrian"
+              }
           ]
 
           HTML_SOURCES = [
-              {"name": "Kőszeg Város", "url": "https://koszeg.hu/hu/aktualis/hirek", "type": "official"},
-              {"name": "Kőszeg Önkormányzat", "url": "https://koszeg.hu/hu/onkormanyzat/hirek", "type": "official"},
-              {"name": "Vas Vármegyei Kormányhivatal", "url": "https://kormanyhivatalok.hu/kormanyhivatalok/vas/megye/hirek", "type": "official"},
-              {"name": "Nyugat.hu", "url": "https://www.nyugat.hu/rovat/hirek", "type": "media"},
-              {"name": "VAOL", "url": "https://www.vaol.hu/helyi-kozelet/", "type": "media"},
-              {"name": "Greenpeace Magyarország", "url": "https://www.greenpeace.org/hungary/sajtokozlemenyek/", "type": "civil"},
-              {"name": "Greenpeace Austria", "url": "https://greenpeace.at/presse/", "type": "civil"},
-              {"name": "ORF Burgenland", "url": "https://burgenland.orf.at/", "type": "austrian"},
-              {"name": "Kurier Burgenland", "url": "https://kurier.at/chronik/burgenland", "type": "austrian"},
-              {"name": "MeinBezirk Burgenland", "url": "https://www.meinbezirk.at/burgenland", "type": "austrian"}
+              {
+                  "name": "Kőszeg Város",
+                  "url": "https://koszeg.hu/hu/aktualis/hirek",
+                  "type": "official"
+              },
+              {
+                  "name": "Kőszeg Önkormányzat",
+                  "url": "https://koszeg.hu/hu/onkormanyzat/hirek",
+                  "type": "official"
+              },
+              {
+                  "name": "Vas Vármegyei Kormányhivatal",
+                  "url": "https://kormanyhivatalok.hu/kormanyhivatalok/vas/megye/hirek",
+                  "type": "official"
+              },
+              {
+                  "name": "Nyugat.hu",
+                  "url": "https://www.nyugat.hu/rovat/hirek",
+                  "type": "media"
+              },
+              {
+                  "name": "VAOL",
+                  "url": "https://www.vaol.hu/helyi-kozelet/",
+                  "type": "media"
+              },
+              {
+                  "name": "Greenpeace Magyarország",
+                  "url": "https://www.greenpeace.org/hungary/sajtokozlemenyek/",
+                  "type": "civil"
+              },
+              {
+                  "name": "Greenpeace Austria",
+                  "url": "https://greenpeace.at/presse/",
+                  "type": "civil"
+              },
+              {
+                  "name": "ORF Burgenland",
+                  "url": "https://burgenland.orf.at/",
+                  "type": "austrian"
+              },
+              {
+                  "name": "Kurier Burgenland",
+                  "url": "https://kurier.at/chronik/burgenland",
+                  "type": "austrian"
+              },
+              {
+                  "name": "MeinBezirk Burgenland",
+                  "url": "https://www.meinbezirk.at/burgenland",
+                  "type": "austrian"
+              }
           ]
 
           MANUAL_NEWS = [
@@ -76,46 +152,6 @@ jobs:
                   "date": "2026-04",
                   "url": "https://www.greenpeace.org/hungary/sajtokozlemeny/13601/a-greenpeace-ausztria-feljelentest-tett-a-vas-varmegyeben-is-azbesztszennyezest-okozo-osztrak-kobanyakkal-kapcsolatban/",
                   "type": "manual"
-              },
-              {
-                  "title": "Greenpeace Magyarország – Súlyos azbesztveszély Szombathelyen",
-                  "source": "Greenpeace",
-                  "source_type": "civil",
-                  "date": "2026-04",
-                  "url": "https://www.greenpeace.org/hungary/sajtokozlemeny/13530/greenpeace-sulyos-azbesztveszely-szombathelyen-a-lakossag-biztonsaganak-erdekeben-azonnali-intezkezdesre-van-szukseg/",
-                  "type": "manual"
-              },
-              {
-                  "title": "Telex – Azbesztügy Kőszegen: intézkedések és érintett területek",
-                  "source": "Telex",
-                  "source_type": "media",
-                  "date": "2026-04-24",
-                  "url": "https://telex.hu/belfold/2026/04/24/azbeszt-koszeg-banya-intezkedesek",
-                  "type": "manual"
-              },
-              {
-                  "title": "HVG – Kőszegre is kerülhetett az azbeszttartalmú kőzúzalékból",
-                  "source": "HVG",
-                  "source_type": "media",
-                  "date": "2026-04-24",
-                  "url": "https://hvg.hu/zhvg/20260424_koszeg-azbeszt-tartalom-kozuzalek-bozsok-szombathely",
-                  "type": "manual"
-              },
-              {
-                  "title": "444 – Szombathely és Bozsok mellett Kőszeg is érintett lehet",
-                  "source": "444",
-                  "source_type": "media",
-                  "date": "2026-04-24",
-                  "url": "https://444.hu/2026/04/24/szombathely-es-bozsok-mellett-koszegre-is-juthatott-abbol-az-azbeszttel-szennyezett-kozuzalekbol",
-                  "type": "manual"
-              },
-              {
-                  "title": "VAOL – Helyi tudósítás az azbesztügyről",
-                  "source": "VAOL",
-                  "source_type": "media",
-                  "date": "2026-04",
-                  "url": "https://www.vaol.hu/helyi-kozelet/2026/04/azbeszt-ugy-bozsok-koszeg",
-                  "type": "manual"
               }
           ]
 
@@ -123,7 +159,13 @@ jobs:
               return datetime.now(timezone.utc).isoformat()
 
           def get_text(url, timeout=30):
-              req = urllib.request.Request(url, headers={"User-Agent": "koszeg-azbeszt-monitor/1.0"})
+              req = urllib.request.Request(
+                  url,
+                  headers={
+                      "User-Agent": "koszeg-azbeszt-monitor/1.0"
+                  }
+              )
+
               with urllib.request.urlopen(req, timeout=timeout) as response:
                   raw = response.read()
                   charset = response.headers.get_content_charset() or "utf-8"
@@ -135,37 +177,59 @@ jobs:
           def clean_text(value):
               if not value:
                   return ""
+
               value = re.sub(r"<[^>]+>", " ", value)
               value = html.unescape(value)
               value = re.sub(r"\s+", " ", value)
+
               return value.strip()
 
           def parse_date(value):
               if not value:
                   return ""
+
               try:
-                  return parsedate_to_datetime(value).date().isoformat()
+                  dt = parsedate_to_datetime(value)
+                  return dt.date().isoformat()
               except Exception:
                   pass
+
               value = clean_text(value)
+
               m = re.search(r"(20\d{2})[-./](\d{1,2})[-./](\d{1,2})", value)
+
               if m:
                   return f"{m.group(1)}-{int(m.group(2)):02d}-{int(m.group(3)):02d}"
+
               return value[:20]
 
           def relevant(title, url=""):
               text = f"{title} {url}".lower()
 
               local_terms = [
-                  "kőszeg", "koszeg", "bozsok", "szombathely", "vas",
-                  "pilgersdorf", "burgenland"
+                  "kőszeg",
+                  "koszeg",
+                  "bozsok",
+                  "szombathely",
+                  "vas",
+                  "pilgersdorf",
+                  "burgenland"
               ]
 
               issue_terms = [
-                  "azbeszt", "aszbeszt", "asbest", "asbestbelastung",
-                  "asbestverschmutzung", "kőzúzalék", "kőbánya",
-                  "steinbruch", "schotter", "gestein", "verunreinigung",
-                  "szennyez", "belastung", "greenpeace"
+                  "azbeszt",
+                  "aszbeszt",
+                  "asbest",
+                  "asbestbelastung",
+                  "asbestverschmutzung",
+                  "kőzúzalék",
+                  "kőbánya",
+                  "steinbruch",
+                  "schotter",
+                  "gestein",
+                  "verunreinigung",
+                  "greenpeace",
+                  "szennyez"
               ]
 
               has_local = any(term in text for term in local_terms)
@@ -175,36 +239,54 @@ jobs:
 
           def fetch_rss_source(source):
               items = []
+
               try:
                   xml_text = get_text(source["url"], timeout=25)
+
                   root = ET.fromstring(xml_text)
 
                   channel_items = root.findall(".//item")
+
                   if not channel_items:
                       channel_items = root.findall(".//{http://www.w3.org/2005/Atom}entry")
 
                   for item in channel_items[:40]:
+
                       title = ""
                       link = ""
                       date = ""
 
-                      title_node = item.find("title") or item.find("{http://www.w3.org/2005/Atom}title")
+                      title_node = item.find("title")
+
+                      if title_node is None:
+                          title_node = item.find("{http://www.w3.org/2005/Atom}title")
+
                       if title_node is not None:
                           title = clean_text(title_node.text)
 
                       link_node = item.find("link")
+
                       if link_node is not None:
                           link = link_node.text or link_node.attrib.get("href", "")
                       else:
                           atom_link = item.find("{http://www.w3.org/2005/Atom}link")
+
                           if atom_link is not None:
                               link = atom_link.attrib.get("href", "")
 
-                      date_node = item.find("pubDate") or item.find("{http://www.w3.org/2005/Atom}updated") or item.find("{http://www.w3.org/2005/Atom}published")
+                      date_node = item.find("pubDate")
+
+                      if date_node is None:
+                          date_node = item.find("{http://www.w3.org/2005/Atom}updated")
+
+                      if date_node is None:
+                          date_node = item.find("{http://www.w3.org/2005/Atom}published")
+
                       if date_node is not None:
                           date = parse_date(date_node.text)
 
                       if title and link and relevant(title, link):
+
                           items.append({
                               "title": title,
                               "source": source["name"],
@@ -220,23 +302,35 @@ jobs:
               return items
 
           def fetch_html_source(source):
+
               items = []
+
               try:
                   page = get_text(source["url"], timeout=25)
-                  links = re.findall(r'<a[^>]+href=["\\']([^"\\']+)["\\'][^>]*>(.*?)</a>', page, flags=re.I | re.S)
 
-                  for href, title_html in links[:220]:
+                  links = re.findall(
+                      r"<a[^>]+href=[\"']([^\"']+)[\"'][^>]*>(.*?)</a>",
+                      page,
+                      flags=re.I | re.S
+                  )
+
+                  for href, title_html in links[:250]:
+
                       title = clean_text(title_html)
+
                       if not title or len(title) < 8:
                           continue
 
                       if href.startswith("/"):
                           parsed = urllib.parse.urlparse(source["url"])
+
                           href = f"{parsed.scheme}://{parsed.netloc}{href}"
+
                       elif not href.startswith("http"):
                           href = urllib.parse.urljoin(source["url"], href)
 
                       if relevant(title, href):
+
                           items.append({
                               "title": title,
                               "source": source["name"],
@@ -252,30 +346,39 @@ jobs:
               return items
 
           def fetch_gdelt():
+
               encoded = urllib.parse.quote(QUERY)
-              url = "https://api.gdeltproject.org/api/v2/doc/doc?" + \
-                    f"query={encoded}&mode=ArtList&format=json&maxrecords=35&sort=HybridRel"
+
+              url = (
+                  "https://api.gdeltproject.org/api/v2/doc/doc?"
+                  f"query={encoded}&mode=ArtList&format=json&maxrecords=35&sort=HybridRel"
+              )
 
               try:
                   data = get_json(url)
+
                   articles = []
 
                   for item in data.get("articles", []):
+
                       title = item.get("title")
                       link = item.get("url")
+
                       if not title or not link:
                           continue
 
                       date_raw = item.get("seendate", "")
+
                       date = ""
+
                       if len(date_raw) >= 8:
                           date = f"{date_raw[0:4]}-{date_raw[4:6]}-{date_raw[6:8]}"
 
-                      source_type = "austrian" if ".at" in link or "orf.at" in link else "gdelt"
+                      source_type = "austrian" if ".at" in link else "gdelt"
 
                       articles.append({
                           "title": title,
-                          "source": item.get("domain") or item.get("sourceCountry") or "GDELT",
+                          "source": item.get("domain") or "GDELT",
                           "source_type": source_type,
                           "date": date,
                           "url": link,
@@ -289,12 +392,16 @@ jobs:
                   return []
 
           def deduplicate(items):
+
               seen_urls = set()
               seen_titles = set()
+
               clean = []
 
               for item in items:
+
                   url = item.get("url", "").strip()
+
                   title = clean_text(item.get("title", ""))
 
                   if not url or not title:
@@ -307,116 +414,12 @@ jobs:
 
                   seen_urls.add(url)
                   seen_titles.add(title_key)
+
                   item["title"] = title
+
                   clean.append(item)
 
               return clean
-
-          def source_priority(item):
-              source_type = item.get("source_type", "")
-              title = item.get("title", "").lower()
-              source = item.get("source", "").lower()
-              url = item.get("url", "").lower()
-
-              score = 0
-              if source_type == "official": score += 120
-              elif source_type == "civil": score += 95
-              elif source_type == "austrian": score += 85
-              elif source_type == "media": score += 70
-              elif source_type == "gdelt": score += 40
-
-              for term, points in [
-                  ("kőszeg", 45), ("koszeg", 45), ("bozsok", 35),
-                  ("szombathely", 30), ("pilgersdorf", 35),
-                  ("azbeszt", 45), ("aszbeszt", 45), ("asbest", 45),
-                  ("greenpeace", 35), ("kormányhivatal", 50),
-                  ("önkormányzat", 50), ("burgenland", 30),
-                  ("steinbruch", 35), ("schotter", 30)
-              ]:
-                  if term in title or term in source or term in url:
-                      score += points
-
-              return score
-
-          def extract_openai_text(data):
-              text = data.get("output_text", "")
-              if isinstance(text, str) and text.strip():
-                  return text.strip()
-
-              chunks = []
-              for item in data.get("output", []):
-                  for content in item.get("content", []):
-                      if content.get("type") in ("output_text", "text"):
-                          chunks.append(content.get("text", ""))
-              return "\n".join(chunks).strip()
-
-          def ai_summary(articles):
-              api_key = os.getenv("OPENAI_API_KEY")
-              model = os.getenv("OPENAI_MODEL", "gpt-4.1-mini")
-
-              if not api_key:
-                  return "AI-összefoglaló nincs bekapcsolva. A GitHub Secrets között add meg az OPENAI_API_KEY értéket."
-
-              compact = [
-                  {
-                      "title": a.get("title"),
-                      "source": a.get("source"),
-                      "source_type": a.get("source_type"),
-                      "date": a.get("date"),
-                      "url": a.get("url")
-                  }
-                  for a in articles[:18]
-              ]
-
-              prompt = (
-                  "Készíts magyar nyelvű, tárgyilagos, 5-6 mondatos OSINT/sajtófigyelő összefoglalót "
-                  "a Kőszeg, Bozsok, Szombathely, Pilgersdorf és Burgenland térségét érintő azbeszt/kőzúzalék ügyről. "
-                  "Külön jelezd, ha hivatalos, önkormányzati, kormányhivatali, Greenpeace/civil, magyar média vagy osztrák forrás szerepel. "
-                  "Ne állíts laboreredményt, hatósági döntést vagy egészségügyi tényt, ha az nem következik egyértelműen a forráslistából. "
-                  "A végén adj 4 bulletpontot: mi történt, hivatalos forrás van-e, osztrák kapcsolat, mire figyeljen a lakosság.\n\n"
-                  + json.dumps(compact, ensure_ascii=False, indent=2)
-              )
-
-              body = {
-                  "model": model,
-                  "input": [
-                      {
-                          "role": "system",
-                          "content": "Tárgyilagos magyar OSINT/sajtófigyelő asszisztens vagy. Különbséget teszel hivatalos, civil, média és osztrák forrás között."
-                      },
-                      {
-                          "role": "user",
-                          "content": prompt
-                      }
-                  ],
-                  "max_output_tokens": 900
-              }
-
-              try:
-                  req = urllib.request.Request(
-                      "https://api.openai.com/v1/responses",
-                      data=json.dumps(body).encode("utf-8"),
-                      headers={
-                          "Authorization": f"Bearer {api_key}",
-                          "Content-Type": "application/json"
-                      },
-                      method="POST"
-                  )
-
-                  with urllib.request.urlopen(req, timeout=60) as response:
-                      data = json.loads(response.read().decode("utf-8"))
-
-                  text = extract_openai_text(data)
-                  return text or "AI-összefoglaló nem készült: az OpenAI válasz nem tartalmazott feldolgozható szöveget."
-
-              except urllib.error.HTTPError as exc:
-                  error_body = exc.read().decode("utf-8", errors="replace")
-                  print("OpenAI HTTP error:", exc.code)
-                  print(error_body[:3000])
-                  return f"AI-összefoglaló hiba miatt nem készült el. OpenAI HTTP hiba: {exc.code}."
-              except Exception as exc:
-                  print("OpenAI summary error:", str(exc))
-                  return "AI-összefoglaló hiba miatt nem készült el."
 
           collected = []
 
@@ -428,31 +431,14 @@ jobs:
 
           collected.extend(fetch_gdelt())
 
-          if collected:
-              all_news = deduplicate(collected + MANUAL_NEWS)
-              mode = "rss_html_gdelt"
-          else:
-              all_news = MANUAL_NEWS
-              mode = "manual_fallback"
-
-          all_news = sorted(all_news, key=source_priority, reverse=True)
-          summary = ai_summary(all_news)
-
-          source_counts = {}
-          source_type_counts = {}
-
-          for item in all_news:
-              source_counts[item.get("source", "unknown")] = source_counts.get(item.get("source", "unknown"), 0) + 1
-              source_type_counts[item.get("source_type", "unknown")] = source_type_counts.get(item.get("source_type", "unknown"), 0) + 1
+          all_news = deduplicate(collected + MANUAL_NEWS)
 
           output = {
               "generated_at": now_iso(),
               "refresh_hours": 6,
               "query": QUERY,
-              "mode": mode,
-              "source_counts": source_counts,
-              "source_type_counts": source_type_counts,
-              "summary": summary,
+              "mode": "rss_html_gdelt",
+              "summary": "Automatikus többforrású monitoring rendszer.",
               "articles": all_news[:45]
           }
 
@@ -460,10 +446,7 @@ jobs:
               json.dump(output, f, ensure_ascii=False, indent=2)
 
           print("Generated data/news.json")
-          print("Mode:", mode)
           print("Articles:", len(output["articles"]))
-          print("Source type counts:", source_type_counts)
-          print("Summary preview:", summary[:300])
           PY
 
       - name: Commit updated news
@@ -474,7 +457,7 @@ jobs:
           git add data/news.json
 
           if git diff --cached --quiet; then
-            echo "No news changes."
+            echo "No changes."
           else
             git commit -m "Update news database"
             git push
