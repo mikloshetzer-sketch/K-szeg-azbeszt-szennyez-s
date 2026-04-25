@@ -48,6 +48,14 @@
     .news-tools { display: flex; gap: 8px; margin-bottom: 10px; flex-wrap: wrap; }
     .news-tools input, .news-tools select { background: #0f172a; border: 1px solid rgba(255,255,255,.12); color: #f3f4f6; padding: 10px 12px; border-radius: 12px; outline: none; }
     .news-tools input { flex: 1; min-width: 180px; }
+    .news-group { margin-bottom: 18px; }
+    .news-group-title { display:flex; align-items:center; justify-content:space-between; gap:8px; margin: 14px 0 8px; padding: 8px 10px; border-radius: 12px; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.09); font-size: 14px; font-weight: 900; }
+    .news-count { color:#cbd5e1; font-size:11px; font-weight:700; background:rgba(0,0,0,.2); padding:3px 7px; border-radius:999px; }
+    .official-title { border-color: rgba(96,165,250,.35); color:#bfdbfe; }
+    .civil-title { border-color: rgba(34,197,94,.35); color:#bbf7d0; }
+    .austrian-title { border-color: rgba(248,113,113,.35); color:#fecaca; }
+    .media-title { border-color: rgba(250,204,21,.35); color:#fef08a; }
+
     .news-head { display: flex; align-items: start; justify-content: space-between; gap: 8px; margin-bottom: 10px; }
     .news-head h2 { margin: 0; font-size: 18px; }
     .refresh { border: 0; background: #374151; color: #f3f4f6; border-radius: 10px; padding: 8px 10px; cursor: pointer; font-weight: 700; }
@@ -150,7 +158,9 @@
           <input id="newsSearch" type="text" placeholder="Hír keresése..." oninput="filterNews()">
           <select id="newsFilter" onchange="filterNews()">
             <option value="all">Minden forrás</option>
-            <option value="greenpeace">Greenpeace</option>
+            <option value="official">Hatósági / önkormányzati</option>
+            <option value="greenpeace">Greenpeace / civil</option>
+            <option value="austrian">Osztrák források</option>
             <option value="telex">Telex</option>
             <option value="hvg">HVG</option>
             <option value="444">444</option>
@@ -171,7 +181,13 @@
           <p class="muted" id="aiSummary">Összefoglaló betöltése...</p>
         </section>
 
-        <div id="newsList"></div>
+        <div id="newsList">
+          <div id="officialNews" class="news-group"></div>
+          <div id="civilNews" class="news-group"></div>
+          <div id="austrianNews" class="news-group"></div>
+          <div id="hungarianNews" class="news-group"></div>
+          <div id="otherNews" class="news-group"></div>
+        </div>
 
         <section class="card green-card">
           <h2>Greenpeace fókusz</h2>
@@ -184,6 +200,7 @@
             <div class="timeline-item"><div class="timeline-date">2026. április közepe</div><div class="timeline-text">Országos figyelem irányul az azbeszttel szennyezett kőzúzalék ügyére.</div></div>
             <div class="timeline-item"><div class="timeline-date">2026. április 22.</div><div class="timeline-text">Greenpeace-vonatkozású és osztrák kapcsolatot említő hírek jelennek meg.</div></div>
             <div class="timeline-item"><div class="timeline-date">2026. április 24.</div><div class="timeline-text">Kőszeg és környéke érintettsége országos és helyi médiában is megjelenik.</div></div>
+            <div class="timeline-item"><div class="timeline-date">Folyamatos</div><div class="timeline-text">A dashboard külön kezeli a hivatalos, civil, magyar média és osztrák/burgenlandi forrásokat.</div></div>
           </div>
         </section>
       </aside>
@@ -375,13 +392,19 @@
 
     function sourceBadge(item) {
       const source = (item.source || '').toLowerCase();
+      const type = (item.source_type || '').toLowerCase();
       const text = `${item.title || ''} ${item.url || ''}`.toLowerCase();
 
-      if (source.includes('greenpeace') || text.includes('greenpeace')) return '🟢 GREENPEACE';
+      if (type === 'official' || source.includes('kőszeg') || source.includes('kormányhivatal') || source.includes('koszeg')) return '🔵 HIVATALOS';
+      if (type === 'civil' || source.includes('greenpeace') || text.includes('greenpeace')) return '🟢 CIVIL / GREENPEACE';
+      if (type === 'austrian' || text.includes('.at') || source.includes('orf') || source.includes('standard') || source.includes('kurier') || text.includes('österreich') || text.includes('burgenland')) return '🔴 OSZTRÁK';
+      if (source.includes('nyugat')) return '🟨 NYUGAT.HU';
+      if (source.includes('vaol')) return '🟨 VAOL';
       if (source.includes('telex')) return '🟦 TELEX';
       if (source.includes('hvg')) return '🟩 HVG';
       if (source.includes('444')) return '⬛ 444';
-      if (source.includes('vaol')) return '🟨 VAOL';
+      if (source.includes('24')) return '🟧 24.HU';
+      if (source.includes('euronews')) return '🟪 EURONEWS';
       return '📰 HÍR';
     }
 
@@ -409,10 +432,64 @@
       document.getElementById('statGreenpeace').textContent = greenCount;
     }
 
+    function groupArticles(items) {
+      const groups = {
+        official: [],
+        civil: [],
+        austrian: [],
+        hungarian: [],
+        other: []
+      };
+
+      for (const item of items) {
+        const type = (item.source_type || '').toLowerCase();
+        const source = (item.source || '').toLowerCase();
+        const text = `${item.title || ''} ${item.url || ''} ${item.source || ''}`.toLowerCase();
+
+        if (type === 'official' || source.includes('kőszeg') || source.includes('koszeg') || source.includes('kormányhivatal')) {
+          groups.official.push(item);
+        } else if (type === 'civil' || text.includes('greenpeace')) {
+          groups.civil.push(item);
+        } else if (type === 'austrian' || text.includes('.at') || source.includes('orf') || source.includes('standard') || source.includes('kurier') || text.includes('österreich') || text.includes('burgenland')) {
+          groups.austrian.push(item);
+        } else if (type === 'media' || source.includes('telex') || source.includes('hvg') || source.includes('444') || source.includes('vaol') || source.includes('nyugat') || source.includes('24') || source.includes('euronews')) {
+          groups.hungarian.push(item);
+        } else {
+          groups.other.push(item);
+        }
+      }
+
+      return groups;
+    }
+
+    function renderGroup(targetId, title, titleClass, items, mode) {
+      const target = document.getElementById(targetId);
+      if (!target) return;
+
+      if (!items.length) {
+        target.innerHTML = '';
+        return;
+      }
+
+      target.innerHTML = `
+        <div class="news-group-title ${titleClass}">
+          <span>${title}</span>
+          <span class="news-count">${items.length}</span>
+        </div>
+        ${newsHtml(items, mode)}
+      `;
+    }
+
     function renderNews(items, mode) {
       currentNews = items || [];
       updateNewsStats(currentNews);
-      document.getElementById('newsList').innerHTML = newsHtml(currentNews.slice(0, 25), mode);
+
+      const groups = groupArticles(currentNews.slice(0, 35));
+      renderGroup('officialNews', '🔵 Hatósági / önkormányzati tájékoztatás', 'official-title', groups.official, mode);
+      renderGroup('civilNews', '🟢 Civil és Greenpeace források', 'civil-title', groups.civil, mode);
+      renderGroup('austrianNews', '🔴 Osztrák / burgenlandi források', 'austrian-title', groups.austrian, mode);
+      renderGroup('hungarianNews', '🟨 Magyar média és helyi hírek', 'media-title', groups.hungarian, mode);
+      renderGroup('otherNews', '📰 Egyéb találatok', '', groups.other, mode);
     }
 
     function filterNews() {
@@ -420,18 +497,27 @@
       const source = document.getElementById('newsFilter').value;
 
       const filtered = currentNews.filter(item => {
-        const haystack = `${item.title || ''} ${item.source || ''} ${item.url || ''}`.toLowerCase();
+        const haystack = `${item.title || ''} ${item.source || ''} ${item.url || ''} ${item.source_type || ''}`.toLowerCase();
         const textOk = haystack.includes(text);
         const sourceOk = source === 'all'
           ? true
           : source === 'greenpeace'
             ? isGreenpeaceItem(item)
-            : haystack.includes(source);
+            : source === 'official'
+              ? ((item.source_type || '').toLowerCase() === 'official' || haystack.includes('kőszeg') || haystack.includes('kormányhivatal'))
+              : source === 'austrian'
+                ? ((item.source_type || '').toLowerCase() === 'austrian' || haystack.includes('.at') || haystack.includes('orf') || haystack.includes('burgenland') || haystack.includes('österreich'))
+                : haystack.includes(source);
 
         return textOk && sourceOk;
       });
 
-      document.getElementById('newsList').innerHTML = newsHtml(filtered, 'szűrt');
+      const groups = groupArticles(filtered);
+      renderGroup('officialNews', '🔵 Hatósági / önkormányzati tájékoztatás', 'official-title', groups.official, 'szűrt');
+      renderGroup('civilNews', '🟢 Civil és Greenpeace források', 'civil-title', groups.civil, 'szűrt');
+      renderGroup('austrianNews', '🔴 Osztrák / burgenlandi források', 'austrian-title', groups.austrian, 'szűrt');
+      renderGroup('hungarianNews', '🟨 Magyar média és helyi hírek', 'media-title', groups.hungarian, 'szűrt');
+      renderGroup('otherNews', '📰 Egyéb találatok', '', groups.other, 'szűrt');
     }
 
     async function loadNews(force = false) {
