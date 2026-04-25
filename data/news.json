@@ -1,36 +1,34 @@
 {
-  "generated_at": "2026-04-25T17:48:08.796884+00:00",
+  "generated_at": "2026-04-25T18:03:00.330843+00:00",
   "refresh_hours": 6,
-  "query": "\n(\"Kőszeg\" OR \"Koszeg\" OR \"Bozsok\" OR \"Szombathely\" OR \"Pilgersdorf\" OR \"Burgenland\")\n(azbeszt OR aszbeszt OR kőzúzalék OR kőbánya OR Asbest OR Steinbruch OR Schotter OR Greenpeace)\n",
-  "mode": "rss_html_gdelt_ai",
+  "query": "\n(\"Kőszeg\" OR \"Koszeg\" OR \"Bozsok\" OR \"Szombathely\" OR \"Pilgersdorf\" OR \"Burgenland\" OR \"Bernstein\")\n(azbeszt OR aszbeszt OR kőzúzalék OR kőbánya OR serpentinit OR Asbest OR Steinbruch OR Schotter OR Greenpeace)\n",
+  "mode": "rss_html_gdelt_ai_filtered",
   "source_counts": {
     "Kőszeg Önkormányzat": 1,
     "Vas Vármegyei Kormányhivatal": 3,
+    "HVG": 1,
+    "444": 1,
     "Greenpeace": 2,
     "Kurier Burgenland": 3,
     "vol.at": 1,
-    "Greenpeace Austria": 51,
     "Telex": 1,
-    "HVG": 1,
-    "MeinBezirk Burgenland": 1,
-    "atv.hu": 3,
-    "Nyugat.hu": 1,
-    "hirado.hu": 1,
-    "blikk.hu": 2,
-    "444": 1,
     "VAOL": 1,
+    "MeinBezirk Burgenland": 1,
     "divany.hu": 1,
+    "atv.hu": 2,
     "index.hu": 1,
-    "penzcentrum.hu": 1
+    "hirado.hu": 1,
+    "penzcentrum.hu": 1,
+    "blikk.hu": 2
   },
   "source_type_counts": {
     "official": 4,
-    "civil": 53,
-    "austrian": 8,
-    "media": 5,
+    "media": 4,
+    "civil": 2,
+    "austrian": 7,
     "gdelt": 6
   },
-  "summary": "Az elmúlt időszakban az ausztriai bányákból származó kőzúzalék azbeszttartalma miatt Kőszeg és környéke, valamint Szombathely és az Oladi Plató területe érintett az azbesztszennyezéssel kapcsolatos vizsgálatokban és intézkedésekben. Kőszeg önkormányzata és a Vas Vármegyei Kormányhivatal hivatalos tájékoztatást adott ki az ügyben, ahol hangsúlyozzák a lakosság egészségének védelmét és azonnali beavatkozások szükségességét. Szombathelyen lakossági fórumot tartottak a helyzet tisztázására, emellett hatósági és rendőrségi eljárás is indult. Greenpeace Magyarország civil szervezetként súlyos veszélyre figyelmeztet, sürgetve a gyors cselekvést. Ausztriában, Burgenland térségében is hasonló aggodalmak vannak, amit az osztrák Greenpeace és a helyi média is ismertetett, ám a burgenlandi hatóságok részéről hiányoznak az intézkedések egyes vélemények szerint.\n\n- Mi történt: Azbesztszennyezés miatt vizsgálatok, tájékoztatások és jogi eljárások folynak Kőszeg és Szombathely környékén.\n- Hivatalos forrás van-e: Igen, Kőszeg Önkormányzat és Vas Vármegyei Kormányhivatal is kiadott tájékoztatást.\n- Osztrák kapcsolat: Az azbesztszennyezés burgenlandi bányákból érkezett kőzúzalék révén kapcsolódik Ausztriához; osztrák Greenpeace és helyi média is foglalkozik az üggyel.\n- Mire figyeljen a lakosság: Kövesse a hivatalos tájékoztatásokat és előírásokat, vegyen részt lakossági fórumokon, és kerülje az érintett anyagokkal való közvetlen érintkezést.",
+  "summary": "Az ausztriai bányákból származó kőzúzalék azbeszttartalmával kapcsolatban Kőszeg, Bozsok, Szombathely és környéke érintett – ezt a Kőszeg Önkormányzat (hivatalos forrás) és több magyar hírportál, köztük a HVG és a 444 is megerősítik. Szombathelyen az Oladi Platón történt azbesztszennyezés miatt lakossági fórumot és hatósági, rendőrségi eljárást tartottak, erről a Vas Vármegyei Kormányhivatal adott hivatalos tájékoztatást. A Greenpeace Magyarország civil szervezet súlyos azbesztveszélyről számol be, és feljelentést tett az osztrák kőbányák ügyében. Ausztriában a Burgenland tartományban is találtak újabb azbesztet, és ott a helyi sajtó (Kurier Burgenland) a szabályozási hiányosságokról, illetve politikai vitákról számol be az ügy kapcsán. A magyar hatóságok folyamatosan frissítik a lakossági tájékoztatást, és több helyen maszkok osztását is megkezdték.\n\nÖsszefoglaló pontok:\n- Mi történt: Ausztriai bányákból származó kőzúzalék szennyeződött azbeszttel, érintve Kőszeg, Bozsok, Szombathely térségét és Burgenlandet.\n- Hivatalos forrás van-e: Igen, Kőszeg Önkormányzata és Vas Vármegyei Kormányhivatal adtak hivatalos tájékoztatást.\n- Osztrák kapcsolat: Az azbeszt Magyarországra az osztrák bányákból került, Burgenlandban is kimutattak újabb szennyeződést, politikai és jogi vita folyik.\n- Mire figyeljen a lakosság: Kövesse a helyi hatóságok és önkormányzatok tájékoztatásait, vegye igénybe az ajánlott egészségvédelmi eszközöket (pl. maszk), és vegyen részt a lakossági fórumokon.",
   "articles": [
     {
       "title": "Kőszeg Önkormányzat – Lakossági tájékoztató az ausztriai bányákból származó kőzúzalék azbeszttartalma miatt hozott intézkedésekről",
@@ -39,14 +37,6 @@
       "date": "2026-04",
       "url": "https://koszeg.hu/hu/aktualis/hirek/",
       "type": "manual"
-    },
-    {
-      "title": "Azbesztszennyezés – A legfontosabb lakossági információk 2026. április 21. 09:06 Az alábbiakban a témával kapcsolatos legfontosabb információkról, fejleményekről, lakossági felhívásokról, illetve teendőkről tájékozódhatnak. Az oldalon található információkat folyamatosan frissítjük. Részletek",
-      "source": "Vas Vármegyei Kormányhivatal",
-      "source_type": "official",
-      "date": "",
-      "url": "https://kormanyhivatalok.hu/kormanyhivatalok/vas/megye/hirek/hir/azbesztszennyezes-legfontosabb-lakossagi-informaciok",
-      "type": "html"
     },
     {
       "title": "Azbeszthelyzet Szombathelyen: lakossági fórumot tartottak a Városházán 2026. április 21. 08:55 Lakossági fórumot tartottak a szombathelyi Városházán az Oladi Platót érintő azbeszthelyzetről. Részletekbe menően ismertették a kialakult helyzetet, tájékoztattak a legújabb fejleményekről, majd a lakosok ragadtak mikrofont. A város, a hatóságok és a szakemberek egybehangzóan a probléma mielőbbi, megnyugtató rendezését, a lakosság egészségének biztonságát határozták meg elsődleges, közös céljukként. Részletek",
@@ -65,12 +55,36 @@
       "type": "html"
     },
     {
+      "title": "HVG – Kőszegre is kerülhetett az azbeszttartalmú kőzúzalékból",
+      "source": "HVG",
+      "source_type": "media",
+      "date": "2026-04-24",
+      "url": "https://hvg.hu/zhvg/20260424_koszeg-azbeszt-tartalom-kozuzalek-bozsok-szombathely",
+      "type": "manual"
+    },
+    {
+      "title": "444 – Szombathely és Bozsok mellett Kőszeg is érintett lehet",
+      "source": "444",
+      "source_type": "media",
+      "date": "2026-04-24",
+      "url": "https://444.hu/2026/04/24/szombathely-es-bozsok-mellett-koszegre-is-juthatott-abbol-az-azbeszttel-szennyezett-kozuzalekbol",
+      "type": "manual"
+    },
+    {
       "title": "Greenpeace Magyarország – Súlyos azbesztveszély Szombathelyen",
       "source": "Greenpeace",
       "source_type": "civil",
       "date": "2026-04",
       "url": "https://www.greenpeace.org/hungary/sajtokozlemeny/13530/greenpeace-sulyos-azbesztveszely-szombathelyen-a-lakossag-biztonsaganak-erdekeben-azonnali-intezkezdesre-van-szukseg/",
       "type": "manual"
+    },
+    {
+      "title": "Azbesztszennyezés – A legfontosabb lakossági információk 2026. április 21. 09:06 Az alábbiakban a témával kapcsolatos legfontosabb információkról, fejleményekről, lakossági felhívásokról, illetve teendőkről tájékozódhatnak. Az oldalon található információkat folyamatosan frissítjük. Részletek",
+      "source": "Vas Vármegyei Kormányhivatal",
+      "source_type": "official",
+      "date": "",
+      "url": "https://kormanyhivatalok.hu/kormanyhivatalok/vas/megye/hirek/hir/azbesztszennyezes-legfontosabb-lakossagi-informaciok",
+      "type": "html"
     },
     {
       "title": "Asbest-Check von Greenpeace: Nur ein Bundesland handelt Greenpeace kritisiert fehlende Maßnahmen im Burgenland und in der Steiermark, Niederösterreich hatbereits reagiert. Zweite Messreihe startet demnächst.",
@@ -89,308 +103,116 @@
       "type": "gdelt"
     },
     {
-      "title": "Greenpeace logo",
-      "source": "Greenpeace Austria",
+      "title": "Greenpeace Magyarország – Feljelentés az osztrák kőbányákkal kapcsolatban",
+      "source": "Greenpeace",
       "source_type": "civil",
+      "date": "2026-04",
+      "url": "https://www.greenpeace.org/hungary/sajtokozlemeny/13601/a-greenpeace-ausztria-feljelentest-tett-a-vas-varmegyeben-is-azbesztszennyezest-okozo-osztrak-kobanyakkal-kapcsolatban/",
+      "type": "manual"
+    },
+    {
+      "title": "Telex – Azbesztügy Kőszegen: intézkedések és érintett területek",
+      "source": "Telex",
+      "source_type": "media",
+      "date": "2026-04-24",
+      "url": "https://telex.hu/belfold/2026/04/24/azbeszt-koszeg-banya-intezkedesek",
+      "type": "manual"
+    },
+    {
+      "title": "VAOL – Helyi tudósítás az azbesztügyről",
+      "source": "VAOL",
+      "source_type": "media",
+      "date": "2026-04",
+      "url": "https://www.vaol.hu/helyi-kozelet/2026/04/azbeszt-ugy-bozsok-koszeg",
+      "type": "manual"
+    },
+    {
+      "title": "Asbest im Gestein: Land sieht \"Regelungslücke\" bei Ministerium",
+      "source": "Kurier Burgenland",
+      "source_type": "austrian",
       "date": "",
-      "url": "https://greenpeace.at/",
+      "url": "https://kurier.at/chronik/burgenland/asbest-burgenland-niederoesterreich-steinbrueche-gesetzgebung-oesterreich-grenzwert/403153071",
       "type": "html"
     },
     {
-      "title": "Über Uns",
-      "source": "Greenpeace Austria",
-      "source_type": "civil",
+      "title": "11 Kommentare",
+      "source": "Kurier Burgenland",
+      "source_type": "austrian",
       "date": "",
-      "url": "https://greenpeace.at/presse/ueber-uns/",
+      "url": "https://kurier.at/chronik/burgenland/asbest-burgenland-niederoesterreich-steinbrueche-gesetzgebung-oesterreich-grenzwert/403153071#comments",
       "type": "html"
     },
     {
-      "title": "Arbeitsweise",
-      "source": "Greenpeace Austria",
-      "source_type": "civil",
+      "title": "Landtagssitzung Burgenland Landwirtschaft, Asbest, Pensionen - das diskutiert der Landtag",
+      "source": "MeinBezirk Burgenland",
+      "source_type": "austrian",
       "date": "",
-      "url": "https://greenpeace.at/presse/ueber-uns/arbeitsweise/",
+      "url": "https://www.meinbezirk.at/burgenland/c-politik/landwirtschaft-asbest-pensionen-das-diskutiert-der-landtag_a8601575",
       "type": "html"
     },
     {
-      "title": "Jahresbericht",
-      "source": "Greenpeace Austria",
-      "source_type": "civil",
-      "date": "",
-      "url": "https://greenpeace.at/presse/ueber-uns/jahresbericht/",
-      "type": "html"
+      "title": "Újabb magyar városban lehet azbesztszennyezés : maszkot osztanak a helyieknek",
+      "source": "divany.hu",
+      "source_type": "gdelt",
+      "date": "2026-04-25",
+      "url": "https://divany.hu/eletem/azbesztszennyezes-magyar-varos-maszkosztas-egeszsegugyi-kockazat-koszeg-sporon-szombathely-bozsok/",
+      "type": "gdelt"
     },
     {
-      "title": "Kontakt und Impressum",
-      "source": "Greenpeace Austria",
-      "source_type": "civil",
-      "date": "",
-      "url": "https://greenpeace.at/presse/ueber-uns/kontakt/",
-      "type": "html"
+      "title": "Súlyos azbesztszennyezés Szombathelyen , ausztriai bányákból származik a rákkeltő anyag",
+      "source": "atv.hu",
+      "source_type": "austrian",
+      "date": "2026-04-15",
+      "url": "https://www.atv.hu/belfold/20260415/sulyos-azbesztszennyezes-szombathely/",
+      "type": "gdelt"
     },
     {
-      "title": "Klimaschutz",
-      "source": "Greenpeace Austria",
-      "source_type": "civil",
-      "date": "",
-      "url": "https://greenpeace.at/presse/themen/klimaschutz/",
-      "type": "html"
+      "title": "Egyre aggasztóbb a szombathelyi azbesztszennyezés , gyerekek egészségét kockáztatták az osztrák bányában",
+      "source": "atv.hu",
+      "source_type": "austrian",
+      "date": "2026-04-23",
+      "url": "https://www.atv.hu/belfold/20260423/szombathely-azbeszt-szennyezes/",
+      "type": "gdelt"
     },
     {
-      "title": "Plastik & Müll",
-      "source": "Greenpeace Austria",
-      "source_type": "civil",
-      "date": "",
-      "url": "https://greenpeace.at/presse/themen/plastik-muell/",
-      "type": "html"
+      "title": "Index - Belföld - Ha száll a por , a gyerekek nem mehetnek ki játszani – példátlan azbeszt - botrány Szombathelyen",
+      "source": "index.hu",
+      "source_type": "gdelt",
+      "date": "2026-04-24",
+      "url": "https://index.hu/belfold/2026/04/24/szombathely-vas-varmegye-azbeszt-egeszsegugy-azbeszt-szennyezes-nemeny-andras-greenpeace-ausztria-veszelyhelyzet/",
+      "type": "gdelt"
     },
     {
-      "title": "Meeresschutz",
-      "source": "Greenpeace Austria",
-      "source_type": "civil",
-      "date": "",
-      "url": "https://greenpeace.at/presse/themen/bedrohungen-der-meere/",
-      "type": "html"
+      "title": "Feljelentést tett a Greenpeace a Vas vármegyében is azbesztszennyezést okozó osztrák kőbányák miatt",
+      "source": "hirado.hu",
+      "source_type": "gdelt",
+      "date": "2026-04-23",
+      "url": "https://hirado.hu/belfold/cikk/2026/04/23/feljelentest-tett-a-greenpeace-a-vas-varmegyeben-is-azbesztszennyezest-okozo-osztrak-kobanyak-miatt",
+      "type": "gdelt"
     },
     {
-      "title": "Biodiversität",
-      "source": "Greenpeace Austria",
-      "source_type": "civil",
-      "date": "",
-      "url": "https://greenpeace.at/presse/themen/biodiversitaet-schuetzen/",
-      "type": "html"
+      "title": "Durvul a helyzet Szombathelyen : védőmaszkokat osztanak a rákkeltő azbeszt - szennyezés miatt",
+      "source": "penzcentrum.hu",
+      "source_type": "gdelt",
+      "date": "2026-04-17",
+      "url": "https://www.penzcentrum.hu/hellovidek/20260417/durvul-a-helyzet-szombathelyen-vedomaszkokat-osztanak-a-rakkelto-azbeszt-szennyezes-miatt-1197107",
+      "type": "gdelt"
     },
     {
-      "title": "Konsum & Verschwendung",
-      "source": "Greenpeace Austria",
-      "source_type": "civil",
-      "date": "",
-      "url": "https://greenpeace.at/presse/themen/konsum-verschwendung/",
-      "type": "html"
+      "title": "Feljelentést tett az osztrák Greenpeace az azbeszt miatt",
+      "source": "blikk.hu",
+      "source_type": "gdelt",
+      "date": "2026-04-22",
+      "url": "https://www.blikk.hu/aktualis/kulfold/greenpeace-ausztria-feljelentes-azbeszt/pfzgz1d",
+      "type": "gdelt"
     },
     {
-      "title": "Landwirtschaft & Lebensmittel",
-      "source": "Greenpeace Austria",
-      "source_type": "civil",
-      "date": "",
-      "url": "https://greenpeace.at/presse/themen/landwirtschaft-lebensmittel/",
-      "type": "html"
-    },
-    {
-      "title": "Umweltgifte",
-      "source": "Greenpeace Austria",
-      "source_type": "civil",
-      "date": "",
-      "url": "https://greenpeace.at/presse/themen/umweltgifte/",
-      "type": "html"
-    },
-    {
-      "title": "Demokratie",
-      "source": "Greenpeace Austria",
-      "source_type": "civil",
-      "date": "",
-      "url": "https://greenpeace.at/presse/themen/demokratie/",
-      "type": "html"
-    },
-    {
-      "title": "Übers Spenden",
-      "source": "Greenpeace Austria",
-      "source_type": "civil",
-      "date": "",
-      "url": "https://greenpeace.at/presse/spenden/",
-      "type": "html"
-    },
-    {
-      "title": "Jetzt online spenden",
-      "source": "Greenpeace Austria",
-      "source_type": "civil",
-      "date": "",
-      "url": "https://greenpeace.at/presse/spenden/jetzt-spenden/",
-      "type": "html"
-    },
-    {
-      "title": "Spendenmöglichkeiten",
-      "source": "Greenpeace Austria",
-      "source_type": "civil",
-      "date": "",
-      "url": "https://greenpeace.at/presse/spenden/spendenmoeglichkeiten/",
-      "type": "html"
-    },
-    {
-      "title": "Spende schenken",
-      "source": "Greenpeace Austria",
-      "source_type": "civil",
-      "date": "",
-      "url": "https://greenpeace.at/presse/spenden/spenden-schenken/",
-      "type": "html"
-    },
-    {
-      "title": "Spende im Testament",
-      "source": "Greenpeace Austria",
-      "source_type": "civil",
-      "date": "",
-      "url": "https://greenpeace.at/presse/spenden/rdtestamentsspenden/",
-      "type": "html"
-    },
-    {
-      "title": "Großspenden",
-      "source": "Greenpeace Austria",
-      "source_type": "civil",
-      "date": "",
-      "url": "https://greenpeace.at/presse/spenden/rdgrossspenden/",
-      "type": "html"
-    },
-    {
-      "title": "Spendenabsetzbarkeit",
-      "source": "Greenpeace Austria",
-      "source_type": "civil",
-      "date": "",
-      "url": "https://greenpeace.at/presse/spenden/rdspendenabsetzbarkeit/",
-      "type": "html"
-    },
-    {
-      "title": "Mitmachen",
-      "source": "Greenpeace Austria",
-      "source_type": "civil",
-      "date": "",
-      "url": "https://greenpeace.at/presse/mitmachen/",
-      "type": "html"
-    },
-    {
-      "title": "Petitionen",
-      "source": "Greenpeace Austria",
-      "source_type": "civil",
-      "date": "",
-      "url": "https://greenpeace.at/presse/petitionen-mitmachen/",
-      "type": "html"
-    },
-    {
-      "title": "Umfragen",
-      "source": "Greenpeace Austria",
-      "source_type": "civil",
-      "date": "",
-      "url": "https://greenpeace.at/presse/umfragen/",
-      "type": "html"
-    },
-    {
-      "title": "Ehrenamt",
-      "source": "Greenpeace Austria",
-      "source_type": "civil",
-      "date": "",
-      "url": "https://greenpeace.at/presse/ehrenamt/",
-      "type": "html"
-    },
-    {
-      "title": "Ratgeber",
-      "source": "Greenpeace Austria",
-      "source_type": "civil",
-      "date": "",
-      "url": "https://greenpeace.at/presse/ratgeber/",
-      "type": "html"
-    },
-    {
-      "title": "Jobs & Praktika",
-      "source": "Greenpeace Austria",
-      "source_type": "civil",
-      "date": "",
-      "url": "https://greenpeace.at/presse/jobs-praktikum/",
-      "type": "html"
-    },
-    {
-      "title": "Missstand melden",
-      "source": "Greenpeace Austria",
-      "source_type": "civil",
-      "date": "",
-      "url": "https://greenpeace.at/presse/missstand-melden/",
-      "type": "html"
-    },
-    {
-      "title": "Aktuelles",
-      "source": "Greenpeace Austria",
-      "source_type": "civil",
-      "date": "",
-      "url": "https://greenpeace.at/presse/aktuelles/",
-      "type": "html"
-    },
-    {
-      "title": "Publikationen",
-      "source": "Greenpeace Austria",
-      "source_type": "civil",
-      "date": "",
-      "url": "https://greenpeace.at/presse/publikationen/",
-      "type": "html"
-    },
-    {
-      "title": "Podcasts",
-      "source": "Greenpeace Austria",
-      "source_type": "civil",
-      "date": "",
-      "url": "https://greenpeace.at/presse/podcast/",
-      "type": "html"
-    },
-    {
-      "title": "Marktcheck",
-      "source": "Greenpeace Austria",
-      "source_type": "civil",
-      "date": "",
-      "url": "https://greenpeace.at/presse/marktcheck/",
-      "type": "html"
-    },
-    {
-      "title": "ACT-Magazin",
-      "source": "Greenpeace Austria",
-      "source_type": "civil",
-      "date": "",
-      "url": "https://greenpeace.at/presse/act-magazin/",
-      "type": "html"
-    },
-    {
-      "title": "Jahresberichte",
-      "source": "Greenpeace Austria",
-      "source_type": "civil",
-      "date": "",
-      "url": "https://greenpeace.at/presse/jahresberichte/",
-      "type": "html"
-    },
-    {
-      "title": "Green Journal",
-      "source": "Greenpeace Austria",
-      "source_type": "civil",
-      "date": "",
-      "url": "https://greenpeace.at/presse/greenjournal/",
-      "type": "html"
-    },
-    {
-      "title": "Petitionen",
-      "source": "Greenpeace Austria",
-      "source_type": "civil",
-      "date": "",
-      "url": "https://greenpeace.at/presse/petitionen/",
-      "type": "html"
-    },
-    {
-      "title": "Jetzt spenden",
-      "source": "Greenpeace Austria",
-      "source_type": "civil",
-      "date": "",
-      "url": "https://greenpeace.at/presse/spenden/jetzt-spenden/?version=wdbt",
-      "type": "html"
-    },
-    {
-      "title": "presse@greenpeace.at",
-      "source": "Greenpeace Austria",
-      "source_type": "civil",
-      "date": "",
-      "url": "mailto:presse@greenpeace.at",
-      "type": "html"
-    },
-    {
-      "title": "APA Originaltextservice OTS",
-      "source": "Greenpeace Austria",
-      "source_type": "civil",
-      "date": "",
-      "url": "https://www.ots.at/pressemappe/99/greenpeace",
-      "type": "html"
+      "title": "Egészségügyi veszélyhelyzet Szombathelyen : Használj szájmaszkot !",
+      "source": "blikk.hu",
+      "source_type": "gdelt",
+      "date": "2026-04-24",
+      "url": "https://www.blikk.hu/aktualis/veszhelyzet/azbeszt-szombathely-szennyezes-korlatozas/9mnv9bl",
+      "type": "gdelt"
     }
   ]
 }
