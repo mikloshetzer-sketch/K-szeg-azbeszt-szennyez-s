@@ -200,6 +200,9 @@
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script>
+    const OFFICIAL_STREET_COUNT = 46;
+    const OFFICIAL_PARKING_COUNT = 10;
+
     const fallbackNews = [
       { title: 'Kőszeg Önkormányzat – Lakossági tájékoztató az ausztriai bányákból származó kőzúzalék azbeszttartalma miatt hozott intézkedésekről', source: 'Kőszeg Önkormányzat', source_type: 'official', date: '2026-04', url: 'https://koszeg.hu/hu/aktualis/hirek/' },
       { title: 'Greenpeace Magyarország – Feljelentés az osztrák kőbányákkal kapcsolatban', source: 'Greenpeace', source_type: 'civil', date: '2026-04', url: 'https://www.greenpeace.org/hungary/sajtokozlemeny/13601/a-greenpeace-ausztria-feljelentest-tett-a-vas-varmegyeben-is-azbesztszennyezest-okozo-osztrak-kobanyakkal-kapcsolatban/' },
@@ -325,7 +328,7 @@
         L.polyline(latlngs, roadStyle).bindPopup(`<b>${item.tags.name}</b><br>Érintett út / utca / útszakasz`).addTo(layers.affected);
         count++;
       }
-      document.getElementById('statRoads').textContent = count;
+      document.getElementById('statRoads').textContent = OFFICIAL_STREET_COUNT;
       if (layers.affected.getLayers().length > 0) map.fitBounds(layers.affected.getBounds(), { padding: [60, 60], maxZoom: 14 });
       return count;
     }
@@ -380,7 +383,7 @@
           await new Promise(resolve => setTimeout(resolve, 650));
         } catch (error) { console.warn('Parkoló geokódolási hiba:', parking.name, error); }
       }
-      document.getElementById('statParks').textContent = count;
+      document.getElementById('statParks').textContent = OFFICIAL_PARKING_COUNT;
       return count;
     }
 
@@ -536,7 +539,7 @@
         const geojson = await loadGeojsonStreets();
         document.getElementById('status').textContent = 'Parkolók jelölése...';
         const parks = await loadParkings();
-        document.getElementById('status').textContent = `Kész: ${roads} OSM útszakasz, ${geojson} GeoJSON elem, ${parks} parkoló jelölve. Egyes részszakaszok kézi pontosítást igényelhetnek.`;
+        document.getElementById('status').textContent = `Kész: hivatalosan ${OFFICIAL_STREET_COUNT} utca és ${OFFICIAL_PARKING_COUNT} parkoló érintett. A térképi vonalak tájékoztató jellegű OSM-szakaszok; a rendszer ${roads} OSM-vonalelemet, ${geojson} GeoJSON-elemet és ${parks} geokódolt parkolójelölést töltött be.`;
       } catch (error) {
         console.error('Oldal betöltési hiba:', error);
         document.getElementById('status').textContent = 'Hiba történt az oldal betöltésekor. Ellenőrizd a böngésző konzolt vagy töltsd újra az oldalt.';
