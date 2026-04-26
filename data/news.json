@@ -1,39 +1,33 @@
 {
-  "generated_at": "2026-04-26T18:23:59.103798+00:00",
+  "generated_at": "2026-04-26T18:44:02.156901+00:00",
   "refresh_hours": 6,
-  "query": "\n(\"Kőszeg\" OR \"Koszeg\" OR \"Bozsok\" OR \"Szombathely\" OR \"Pilgersdorf\" OR \"Burgenland\" OR \"Bernstein\" OR \"Rumpersdorf\" OR \"Badersdorf\")\n(azbeszt OR aszbeszt OR azbesztszennyezés OR kőzúzalék OR kőbánya OR serpentinit OR Asbest OR Asbestbelastung OR Asbestverschmutzung OR Steinbruch OR Schotter OR Gestein OR Verunreinigung OR Greenpeace)\n",
-  "mode": "broad_monitoring_with_austrian_report",
+  "query": "\n(\"Kőszeg\" OR \"Koszeg\" OR \"Bozsok\" OR \"Szombathely\" OR \"Pilgersdorf\" OR \"Burgenland\" OR \"Bernstein\")\n(azbeszt OR aszbeszt OR kőzúzalék OR kőbánya OR serpentinit OR Asbest OR Steinbruch OR Schotter OR Greenpeace)\n",
+  "mode": "rss_html_gdelt_ai_filtered_nyugat_targeted_readable",
   "source_counts": {
-    "Kőszeg Önkormányzat": 107,
-    "Nyugat.hu": 34,
-    "Vas Vármegyei Kormányhivatal": 26,
-    "HVG": 2,
-    "444": 1,
-    "Greenpeace Magyarország": 93,
-    "Telex": 5,
-    "Kurier Burgenland": 24,
-    "Greenpeace Austria": 36,
-    "ORF Burgenland": 25,
-    "MeinBezirk Burgenland": 52,
-    "VAOL": 32,
-    "24.hu": 2
+    "Nyugat.hu": 4,
+    "Vas Vármegyei Kormányhivatal": 3,
+    "Kőszeg Önkormányzat": 1,
+    "Greenpeace Magyarország": 5,
+    "divany.hu": 1,
+    "vol.at": 1,
+    "Kurier Burgenland": 2,
+    "atv.hu": 2,
+    "Greenpeace": 1,
+    "index.hu": 1,
+    "penzcentrum.hu": 1,
+    "blikk.hu": 2,
+    "VAOL": 1,
+    "hirado.hu": 1
   },
   "source_type_counts": {
-    "official": 133,
-    "media": 76,
-    "civil": 129,
-    "austrian": 101
+    "media": 5,
+    "official": 4,
+    "civil": 6,
+    "gdelt": 6,
+    "austrian": 5
   },
-  "summary": "Az elmúlt időszakban a Kőszeg és környéki településeken, valamint az ausztriai Burgenland térségében (például Pilgersdorf és Bozsok környékén) az azbeszt és kőzúzalék ügyében több fontos híradás jelent meg. A következőkben összefoglaljuk a különböző forrásokból elérhető információkat, ügyelve arra, hogy világosan elkülönítsük a hivatalos, önkormányzati, kormányzati, civil, magyar média és osztrák forrásokat.\n\n**Hivatalos és önkormányzati források (Kőszeg Önkormányzat, kormányhivatalok):**  \nA Kőszeg Önkormányzat áprilisi tájékoztatása szerint az ausztriai bányákból származó kőzúzalék esetében felmerült az azbeszttartalom gyanúja, ezért a helyi hatóságok az érintett közterületek vizsgálatát elindították és intézkedéseket hoztak a lakosság védelmében. Az önkormányzat honlapján folyamatosan frissítik az információkat, és lakossági tájékoztató kampányt indítottak, amely keretében például maszkokat osztanak a helyieknek. Emellett a Kőszeghez közeli települések — mint Bozsok és Szombathely — hatósági együttműködésben vizsgálják a helyzetet, bár ezekről az önkormányzati honlapokon kevesebb részlet áll rendelkezésre.\n\nA hivatalos tájékoztatások hangsúlyozzák, hogy a helyzet folyamatos ellenőrzés alatt áll, és a kormányhivatal a további szakértői vizsgálatokat irányítja. Az eddig ismertetett intézkedések elsősorban megelőző jellegűek, egészségügyi szakvélemény vagy végleges hatósági döntés még nem került nyilvánosságra.\n\n**Magyar média (például Nyugat.hu):**  \nA magyar sajtó — például a Nyugat.hu — beszámolt az azbesztgyanúról Kőszegen, kiemelve a lakossági aggályokat, a maszkosztást, valamint a közterületek környezetvédelmi felmérését. A cikkek alapvetően a hivatalos forrásokra hivatkoznak, ugyanakkor beszámolnak az érintett közösségek reakcióiról és a helyi lakosok véleményéről is. A média tudósításai nem közölnek még laboreredményeket vagy egészségügyi szakvéleményeket, inkább a jelenlegi helyzet és a hatósági lépések ismertetésére szorítkoznak.\n\n**Osztrák források:**  \nAz elérhető adatok alapján az osztrák hivatalok Burgenland térségében a környezeti kockázatok feltérképezésén dolgoznak, különösen a Pilgersdorf környéki bányák tekintetében. Az osztrák hatóságok közleményei óvatos, tényeken alapuló tájékoztatást adnak, és hangsúlyozzák a tényleges mintavételek, vizsgálatok és a továbbra is zajló adatgyűjtés fontosságát. Veszélyjelzés vagy pánikkeltés az osztrák részen nem jelent meg a rendelkezésre álló hivatalos anyagokban.\n\n**Civil szervezetek, helyi közösségek:**  \nA civil szféra és helyi aktivisták elsősorban a lakosság tájékoztatását és a környezetvédelmi ellenőrzések következetes elvégzését szorgalmazzák. Néhány civil kezdeményezés a környezet egészségi állapotának monitorozását és a lakosok részvételét támogatja a döntéshozatalban. Ezek a csoportok a hivatalos információkra alapoznak, ugyanakkor a nyilvánosság figyelmének fenntartását is fontosnak tartják.\n\n---\n\n### Röviden:  \n- Kőszeg és környéke, valamint Burgenland térsége azbeszt-tartalmú kőzúzalék miatt a hatóságok vizsgálata alatt áll.  \n- Az önkormányzatok és kormányhivatalok megelőző intézkedéseket tettek, de egészségügyi szakvélemény vagy végleges hatósági döntés még nem született.",
+  "summary": "A Kőszeg, Bozsok, Szombathely, Pilgersdorf és Burgenland térségében kibontakozó azbeszt- és kőzúzalék-ügy több érintett településen tavaly óta is figyelmet kap a közéletben, miközben a helyzet folyamatosan alakul.\n\n**Hivatalos és önkormányzati álláspontok, intézkedések:**\n\nSzombathelyen a Vas Vármegyei Kormányhivatal több alkalommal is tájékoztatta a lakosságot, például áprilisban lakossági fórumot tartottak az Oladi Platót érintő azbeszthelyzetről, ahol a város, a hatóságok és szakemberek egységesen a helyzet mielőbbi rendezését, a lakosság egészségének védelmét jelölték meg elsődleges célként (kormanyhivatalok.hu, 2026). A Szombathely Megyei Jogú Város polgármestere és a kormányhivatal vezetője rendkívüli sajtótájékoztatón ismertették a fejleményeket, jelezve, hogy hatósági és rendőrségi eljárások is folynak az ügyben. A kormányhivatal folyamatosan frissíti a lakossági információkat, hivatalos felhívásokkal segítve a tájékozódást. Kőszeg Önkormányzata online tájékoztatót tett közzé az ausztriai bányákból származó kőzúzalék ügyével kapcsolatban, és a helyi lakosoknak maszkosztást is szerveztek a megelőzés érdekében (koszeg.hu, Nyugat.hu).\n\nAz említett térség más részein, így Bozsokban és Pilgersdorfban, az osztrák hatóságok és helyi önkormányzatok is foglalkoznak az üggyel. Burgenland tartományban az osztrák sajtó – így a Kurier Burgenland – foglalkozik azzal, hogy a jelenlegi szabályozásban „szabályozási rés” van a kőbányákra vonatkozóan, ami az azbeszt kezelését érinti. A sajtóbeszámolók szerint a területen további vizsgálatok folynak, és a törvényi háttér pontosítása folyamatban van (kurier.at).\n\n**Civil szervezetek álláspontja és aggályai:**\n\nA Greenpeace Magyarország és Greenpeace Ausztria is aktív szereplőként emlékezik meg a helyzetről. Magyarországi sajtóközleményeikben súlyosnak nevezik az azbesztveszélyt, és azonnali, határozott beavatkozást sürgetnek Szombathelyen és a környéken, kiemelve a lakosság, különösen a gyermekek egészségének védelmét. Ausztriai oldalon a Greenpeace feljelentést tett az érintett bányák ügyében, a környezeti és egészségügyi kockázatok miatt (greenpeace.org, vol.at). Ezek a civil szervezetek élesen bírálják a szabályozási hiányosságokat, és figyelmeztetnek a folyamatban lévő igazságügyi eljárások fontosságára.\n\n**Magyar és osztrák média tükrében:**\n\nMagyar média (pl. Nyugat.hu, ATV.hu, divany.hu) részletes riportokat közölt az ügyről, amelyek ismertetik a helyi lakosság és önkormányzatok aggodalmait, a maszkosztásokat, rendkívüli közgyűléseket, illetve a politikai támogatás ígéretét is, amelyet például Rápli Róbert, egy helyi képviselő említett. A sajtó ugyanakkor igyekszik mértéktartóan tálalni a témát, hangsúlyozva a szakhatóságok vizsgálatait és az egészségügyi kockázat pontos felmérésének szükségességét. Az osztrák médiumok (Kurier Burgenland, vol.at) a szabályozási környezetet és a bányászati tevékenységek hatásait elemzik, felhívva a figyelmet a határmenti környezeti szennyezések kérdésére.\n\nÖsszességében a térségben az azbeszt és a kőzúzalék körüli kérdések aktív téma, melyben a hivatalos szervek, önkormányzatok, civil szervez",
   "articles": [
-    {
-      "title": "Kőszeg Önkormányzat – Lakossági tájékoztató az ausztriai bányákból származó kőzúzalék azbeszttartalma miatt hozott intézkedésekről",
-      "source": "Kőszeg Önkormányzat",
-      "source_type": "official",
-      "date": "2026-04",
-      "url": "https://koszeg.hu/hu/aktualis/hirek/",
-      "type": "manual"
-    },
     {
       "title": "Azbesztgyanú Kőszegen: maszkot osztanak, vizsgálják a közterületeket",
       "source": "Nyugat.hu",
@@ -43,468 +37,204 @@
       "type": "html_targeted"
     },
     {
-      "title": "Ugrás a fő tartalomhoz",
-      "source": "Kőszeg Önkormányzat",
+      "title": "Azbeszthelyzet Szombathelyen: lakossági fórumot tartottak a Városházán 2026. április 21. 08:55 Lakossági fórumot tartottak a szombathelyi Városházán az Oladi Platót érintő azbeszthelyzetről. Részletekbe menően ismertették a kialakult helyzetet, tájékoztattak a legújabb fejleményekről, majd a lakosok ragadtak mikrofont. A város, a hatóságok és a szakemberek egybehangzóan a probléma mielőbbi, megnyugtató rendezését, a lakosság egészségének biztonságát határozták meg elsődleges, közös céljukként. Részletek",
+      "source": "Vas Vármegyei Kormányhivatal",
       "source_type": "official",
       "date": "",
-      "url": "https://koszeg.hu/hu/aktualis/hirek#maincontent",
+      "url": "https://kormanyhivatalok.hu/kormanyhivatalok/vas/megye/hirek/hir/azbeszthelyzet-szombathelyen-lakossagi-forumot-tartottak",
       "type": "html"
     },
     {
-      "title": "Kőszeg",
-      "source": "Kőszeg Önkormányzat",
+      "title": "Azbesztszennyezés Szombathelyen, az Oladi Platón - Hatósági és rendőrségi eljárás is indult 2026. április 13. 18:25 A részleteket dr. Nemény András, Szombathely Megyei Jogú Város polgármestere és dr. Orbán István, a kormányhivatal főigazgatója rendkívüli sajtótájékoztató keretében ismertette. A tájékoztatón dr. Király Ildikó, vármegyei tisztifőorvos és Jelinek Endre, a Szombathely-Olad Plató Víziközmű Társulat elnöke is jelen volt. Részletek",
+      "source": "Vas Vármegyei Kormányhivatal",
       "source_type": "official",
       "date": "",
-      "url": "https://koszeg.hu/hu/index2.php",
+      "url": "https://kormanyhivatalok.hu/kormanyhivatalok/vas/megye/hirek/hir/azbesztszennyezes-szombathelyen-az-oladi-platon-hatosagi-es",
       "type": "html"
     },
     {
-      "title": "Turizmus",
+      "title": "Kőszeg Önkormányzat – Lakossági tájékoztató az ausztriai bányákból származó kőzúzalék ügyében",
       "source": "Kőszeg Önkormányzat",
       "source_type": "official",
+      "date": "2026-04",
+      "url": "https://koszeg.hu/hu/aktualis/hirek/",
+      "type": "manual"
+    },
+    {
+      "title": "Greenpeace: Súlyos azbesztveszély Szombathelyen, a lakosság biztonságának érdekében azonnali intézkezdésre van szükség",
+      "source": "Greenpeace Magyarország",
+      "source_type": "civil",
       "date": "",
-      "url": "https://koszeg.hu/hu/",
+      "url": "https://www.greenpeace.org/hungary/sajtokozlemeny/13530/greenpeace-sulyos-azbesztveszely-szombathelyen-a-lakossag-biztonsaganak-erdekeben-azonnali-intezkezdesre-van-szukseg/",
       "type": "html"
     },
     {
-      "title": "Befektetés",
-      "source": "Kőszeg Önkormányzat",
+      "title": "Azbesztszennyezés – A legfontosabb lakossági információk 2026. április 21. 09:06 Az alábbiakban a témával kapcsolatos legfontosabb információkról, fejleményekről, lakossági felhívásokról, illetve teendőkről tájékozódhatnak. Az oldalon található információkat folyamatosan frissítjük. Részletek",
+      "source": "Vas Vármegyei Kormányhivatal",
       "source_type": "official",
       "date": "",
-      "url": "https://befektetes.koszeg.hu",
+      "url": "https://kormanyhivatalok.hu/kormanyhivatalok/vas/megye/hirek/hir/azbesztszennyezes-legfontosabb-lakossagi-informaciok",
       "type": "html"
     },
     {
-      "title": "Aktuális",
-      "source": "Kőszeg Önkormányzat",
-      "source_type": "official",
+      "title": "Azbesztes utak, évtizedes perek és egy félkész városrész: így lett az Oladi Plató Szombathely legfurcsább negyede",
+      "source": "Nyugat.hu",
+      "source_type": "media",
       "date": "",
-      "url": "https://koszeg.hu/hu/aktualis/",
+      "url": "https://www.nyugat.hu/cikk/azbesztes_utak_evtizedes_perek_es_egy_felkesz_igy",
+      "type": "html_targeted"
+    },
+    {
+      "title": "Rápli Róbert: az új kormány minden segítséget megad Szombathelynek az azbesztszennyezés ügyében",
+      "source": "Nyugat.hu",
+      "source_type": "media",
+      "date": "",
+      "url": "https://www.nyugat.hu/cikk/rapli_robert_a_kormanyvaltas_utan_minden_megadunk",
+      "type": "html_targeted"
+    },
+    {
+      "title": "Rendkívüli közgyűlést hívtak össze azbeszt-ügyben Szombathelyen",
+      "source": "Nyugat.hu",
+      "source_type": "media",
+      "date": "",
+      "url": "https://www.nyugat.hu/cikk/rendkivuli_kozgyulest_hivtak_ossze_azbesztugyben",
+      "type": "html_targeted"
+    },
+    {
+      "title": "Újabb magyar városban lehet azbesztszennyezés : maszkot osztanak a helyieknek",
+      "source": "divany.hu",
+      "source_type": "gdelt",
+      "date": "2026-04-25",
+      "url": "https://divany.hu/eletem/azbesztszennyezes-magyar-varos-maszkosztas-egeszsegugyi-kockazat-koszeg-sporon-szombathely-bozsok/",
+      "type": "gdelt"
+    },
+    {
+      "title": "Greenpeace Reports New Asbestos Findings in Burgenland and Styria",
+      "source": "vol.at",
+      "source_type": "austrian",
+      "date": "2026-02-13",
+      "url": "https://www.vol.at/greenpeace-reports-new-asbestos-findings-in-burgenland-and-styria/9988865",
+      "type": "gdelt"
+    },
+    {
+      "title": "A Greenpeace Ausztria feljelentést tett a Vas vármegyében is azbesztszennyezést okozó osztrák kőbányákkal kapcsolatban",
+      "source": "Greenpeace Magyarország",
+      "source_type": "civil",
+      "date": "",
+      "url": "https://www.greenpeace.org/hungary/sajtokozlemeny/13601/a-greenpeace-ausztria-feljelentest-tett-a-vas-varmegyeben-is-azbesztszennyezest-okozo-osztrak-kobanyakkal-kapcsolatban/",
       "type": "html"
     },
     {
-      "title": "Önkormányzat",
-      "source": "Kőszeg Önkormányzat",
-      "source_type": "official",
+      "title": "Asbest im Gestein: Land sieht \"Regelungslücke\" bei Ministerium",
+      "source": "Kurier Burgenland",
+      "source_type": "austrian",
       "date": "",
-      "url": "https://koszeg.hu/hu/onkormanyzat/",
+      "url": "https://kurier.at/chronik/burgenland/asbest-burgenland-niederoesterreich-steinbrueche-gesetzgebung-oesterreich-grenzwert/403153071",
       "type": "html"
     },
     {
-      "title": "Infópont",
-      "source": "Kőszeg Önkormányzat",
-      "source_type": "official",
+      "title": "11 Kommentare",
+      "source": "Kurier Burgenland",
+      "source_type": "austrian",
       "date": "",
-      "url": "https://koszeg.hu/hu/infopont/",
+      "url": "https://kurier.at/chronik/burgenland/asbest-burgenland-niederoesterreich-steinbrueche-gesetzgebung-oesterreich-grenzwert/403153071#comments",
       "type": "html"
     },
     {
-      "title": "Gyógyító Klima",
-      "source": "Kőszeg Önkormányzat",
-      "source_type": "official",
+      "title": "Súlyos azbesztszennyezés Szombathelyen , ausztriai bányákból származik a rákkeltő anyag",
+      "source": "atv.hu",
+      "source_type": "austrian",
+      "date": "2026-04-15",
+      "url": "https://www.atv.hu/belfold/20260415/sulyos-azbesztszennyezes-szombathely/",
+      "type": "gdelt"
+    },
+    {
+      "title": "Egyre aggasztóbb a szombathelyi azbesztszennyezés , gyerekek egészségét kockáztatták az osztrák bányában",
+      "source": "atv.hu",
+      "source_type": "austrian",
+      "date": "2026-04-23",
+      "url": "https://www.atv.hu/belfold/20260423/szombathely-azbeszt-szennyezes/",
+      "type": "gdelt"
+    },
+    {
+      "title": "itt olvashatsz bővebben",
+      "source": "Greenpeace Magyarország",
+      "source_type": "civil",
       "date": "",
-      "url": "https://koszeg.hu/hu/aktualis/hirek",
+      "url": "https://www.greenpeace.org/hungary/adatkezeles/kerdesek-es-valaszok-a-sutikrol/",
       "type": "html"
     },
     {
-      "title": "Projektösszefoglaló",
-      "source": "Kőszeg Önkormányzat",
-      "source_type": "official",
+      "title": "Szennyezés",
+      "source": "Greenpeace Magyarország",
+      "source_type": "civil",
       "date": "",
-      "url": "https://koszeg.hu/hu/gyogyitoklima/projektosszefoglalo-13017.html",
+      "url": "https://www.greenpeace.org/hungary/tag/szennyezes/",
       "type": "html"
     },
     {
-      "title": "Programok",
-      "source": "Kőszeg Önkormányzat",
-      "source_type": "official",
+      "title": "Nem találtunk jelentős szennyezést a gödi, komáromi és sóskuti akkumulátorgyárak környezetében végzett vizsgálat során",
+      "source": "Greenpeace Magyarország",
+      "source_type": "civil",
       "date": "",
-      "url": "https://koszeg.hu/hu/gyogyitoklima/programok-13018.html",
+      "url": "https://www.greenpeace.org/hungary/blog/13545/nem-talaltunk-jelentos-szennyezest-az-akkumulatorgyarak-kornyezeteben-vegzett-orszagos-vizsgalat-soran/",
       "type": "html"
     },
     {
-      "title": "Fotóalbumok",
-      "source": "Kőszeg Önkormányzat",
-      "source_type": "official",
+      "title": "Greenpeace Magyarország – Feljelentés az osztrák kőbányákkal kapcsolatban",
+      "source": "Greenpeace",
+      "source_type": "civil",
+      "date": "2026-04",
+      "url": "https://www.greenpeace.org/hungary/",
+      "type": "manual"
+    },
+    {
+      "title": "Index - Belföld - Ha száll a por , a gyerekek nem mehetnek ki játszani – példátlan azbeszt - botrány Szombathelyen",
+      "source": "index.hu",
+      "source_type": "gdelt",
+      "date": "2026-04-24",
+      "url": "https://index.hu/belfold/2026/04/24/szombathely-vas-varmegye-azbeszt-egeszsegugy-azbeszt-szennyezes-nemeny-andras-greenpeace-ausztria-veszelyhelyzet/",
+      "type": "gdelt"
+    },
+    {
+      "title": "Durvul a helyzet Szombathelyen : védőmaszkokat osztanak a rákkeltő azbeszt - szennyezés miatt",
+      "source": "penzcentrum.hu",
+      "source_type": "gdelt",
+      "date": "2026-04-17",
+      "url": "https://www.penzcentrum.hu/hellovidek/20260417/durvul-a-helyzet-szombathelyen-vedomaszkokat-osztanak-a-rakkelto-azbeszt-szennyezes-miatt-1197107",
+      "type": "gdelt"
+    },
+    {
+      "title": "Egészségügyi veszélyhelyzet Szombathelyen : Használj szájmaszkot !",
+      "source": "blikk.hu",
+      "source_type": "gdelt",
+      "date": "2026-04-24",
+      "url": "https://www.blikk.hu/aktualis/veszhelyzet/azbeszt-szombathely-szennyezes-korlatozas/9mnv9bl",
+      "type": "gdelt"
+    },
+    {
+      "title": "Három haláleset borzolta a kedélyeket - Mi történik Vas vármegyében?",
+      "source": "VAOL",
+      "source_type": "media",
       "date": "",
-      "url": "https://koszeg.hu/hu/gyogyitoklima/fotoalbumok-13020.html",
+      "url": "https://www.vaol.hu/helyi-kozelet/2026/04/halaleset-vas-varmegye-azbeszt-ugy-hirosszefoglalo",
       "type": "html"
     },
     {
-      "title": "Letöltések",
-      "source": "Kőszeg Önkormányzat",
-      "source_type": "official",
-      "date": "",
-      "url": "https://koszeg.hu/hu/gyogyitoklima/letoltesek-13021.html",
-      "type": "html"
+      "title": "Feljelentést tett a Greenpeace a Vas vármegyében is azbesztszennyezést okozó osztrák kőbányák miatt",
+      "source": "hirado.hu",
+      "source_type": "gdelt",
+      "date": "2026-04-23",
+      "url": "https://hirado.hu/belfold/cikk/2026/04/23/feljelentest-tett-a-greenpeace-a-vas-varmegyeben-is-azbesztszennyezest-okozo-osztrak-kobanyak-miatt",
+      "type": "gdelt"
     },
     {
-      "title": "Klímastratégia",
-      "source": "Kőszeg Önkormányzat",
-      "source_type": "official",
-      "date": "",
-      "url": "https://koszeg.hu/hu/gyogyitoklima/klimastrategia-13085.html",
-      "type": "html"
-    },
-    {
-      "title": "Klímabarát fűtés, tiszta fűtés",
-      "source": "Kőszeg Önkormányzat",
-      "source_type": "official",
-      "date": "",
-      "url": "https://koszeg.hu/hu/gyogyitoklima/klimabarat-futes-tiszta-futes-13187.html",
-      "type": "html"
-    },
-    {
-      "title": "Interaktív",
-      "source": "Kőszeg Önkormányzat",
-      "source_type": "official",
-      "date": "",
-      "url": "https://koszeg.hu/hu/interaktiv/",
-      "type": "html"
-    },
-    {
-      "title": "új Kirándulástervező",
-      "source": "Kőszeg Önkormányzat",
-      "source_type": "official",
-      "date": "",
-      "url": "https://kirandulastervezo.koszeg.hu",
-      "type": "html"
-    },
-    {
-      "title": "Hírlevél",
-      "source": "Kőszeg Önkormányzat",
-      "source_type": "official",
-      "date": "",
-      "url": "https://koszeg.hu/hirlevel-feliratkozas.html",
-      "type": "html"
-    },
-    {
-      "title": "Kapcsolat",
-      "source": "Kőszeg Önkormányzat",
-      "source_type": "official",
-      "date": "",
-      "url": "https://koszeg.hu/hu/kapcsolat/",
-      "type": "html"
-    },
-    {
-      "title": "Helyieknek",
-      "source": "Kőszeg Önkormányzat",
-      "source_type": "official",
-      "date": "",
-      "url": "https://koszeg.hu/hu/index_helyi.php",
-      "type": "html"
-    },
-    {
-      "title": "következő",
-      "source": "Kőszeg Önkormányzat",
-      "source_type": "official",
-      "date": "",
-      "url": "https://koszeg.hu/hu/aktualis/hirek?o=2",
-      "type": "html"
-    },
-    {
-      "title": "IX. Kézműves-Sör-Majális",
-      "source": "Kőszeg Önkormányzat",
-      "source_type": "official",
-      "date": "",
-      "url": "https://koszeg.hu/hu/aktualis/hirek/ix-kezmuves-sor-majalis-15403.html",
-      "type": "html"
-    },
-    {
-      "title": "Vas Vármegyei és Nemzetközi Borverseny",
-      "source": "Kőszeg Önkormányzat",
-      "source_type": "official",
-      "date": "",
-      "url": "https://koszeg.hu/hu/aktualis/hirek/vas-varmegyei-es-nemzetkozi-borverseny-15402.html",
-      "type": "html"
-    },
-    {
-      "title": "Jubileumi hangverseny – 160 év kedvencei egy színpadon",
-      "source": "Kőszeg Önkormányzat",
-      "source_type": "official",
-      "date": "",
-      "url": "https://koszeg.hu/hu/aktualis/hirek/jubileumi-hangverseny-160-ev-kedvencei-egy-szinpadon-15396.html",
-      "type": "html"
-    },
-    {
-      "title": "Folkkocsma",
-      "source": "Kőszeg Önkormányzat",
-      "source_type": "official",
-      "date": "",
-      "url": "https://koszeg.hu/hu/aktualis/hirek/folkkocsma-15399.html",
-      "type": "html"
-    },
-    {
-      "title": "Tavaszköszöntő táncház",
-      "source": "Kőszeg Önkormányzat",
-      "source_type": "official",
-      "date": "",
-      "url": "https://koszeg.hu/hu/aktualis/hirek/tavaszkoszonto-tanchaz-15401.html",
-      "type": "html"
-    },
-    {
-      "title": "Óriások a fűszálak közöt",
-      "source": "Kőszeg Önkormányzat",
-      "source_type": "official",
-      "date": "",
-      "url": "https://koszeg.hu/hu/aktualis/hirek/oriasok-a-fuszalak-kozot-15400.html",
-      "type": "html"
-    },
-    {
-      "title": "Bilkei Irén: Régi idők asszonyai",
-      "source": "Kőszeg Önkormányzat",
-      "source_type": "official",
-      "date": "",
-      "url": "https://koszeg.hu/hu/aktualis/hirek/bilkei-iren-regi-idok-asszonyai-15397.html",
-      "type": "html"
-    },
-    {
-      "title": "V. Kőszegi Gyermek és Ifjúsági Néptáncfesztivál",
-      "source": "Kőszeg Önkormányzat",
-      "source_type": "official",
-      "date": "",
-      "url": "https://koszeg.hu/hu/aktualis/hirek/v-koszegi-gyermek-es-ifjusagi-neptancfesztival-15392.html",
-      "type": "html"
-    },
-    {
-      "title": "Hagyományőrző mulatság",
-      "source": "Kőszeg Önkormányzat",
-      "source_type": "official",
-      "date": "",
-      "url": "https://koszeg.hu/hu/aktualis/hirek/hagyomanyorzo-mulatsag-15395.html",
-      "type": "html"
-    },
-    {
-      "title": "Gyermekszínházi bérlet",
-      "source": "Kőszeg Önkormányzat",
-      "source_type": "official",
-      "date": "",
-      "url": "https://koszeg.hu/hu/aktualis/hirek/gyermekszinhazi-berlet-15393.html",
-      "type": "html"
-    },
-    {
-      "title": "Hol születik a nemes?",
-      "source": "Kőszeg Önkormányzat",
-      "source_type": "official",
-      "date": "",
-      "url": "https://koszeg.hu/hu/aktualis/hirek/hol-szuletik-a-nemes-15391.html",
-      "type": "html"
-    },
-    {
-      "title": "Vas Vármegyei Zeneiskolák és Művészeti Iskolák Találkozója",
-      "source": "Kőszeg Önkormányzat",
-      "source_type": "official",
-      "date": "",
-      "url": "https://koszeg.hu/hu/aktualis/hirek/vas-varmegyei-zeneiskolak-es-muveszeti-iskolak-talalkozoja-15394.html",
-      "type": "html"
-    },
-    {
-      "title": "Szőlő Jövésnek Könyve programsorozat",
-      "source": "Kőszeg Önkormányzat",
-      "source_type": "official",
-      "date": "",
-      "url": "https://koszeg.hu/hu/aktualis/hirek/szolo-jovesnek-konyve-programsorozat-15390.html",
-      "type": "html"
-    },
-    {
-      "title": ",,Összeér\" Szép Renáta és Varga Bence zenés irodalmi estje",
-      "source": "Kőszeg Önkormányzat",
-      "source_type": "official",
-      "date": "",
-      "url": "https://koszeg.hu/hu/aktualis/hirek/osszeerquot-szep-renata-es-varga-bence-zenes-irodalmi-estje-15389.html",
-      "type": "html"
-    },
-    {
-      "title": "Határtalan harmóniák",
-      "source": "Kőszeg Önkormányzat",
-      "source_type": "official",
-      "date": "",
-      "url": "https://koszeg.hu/hu/aktualis/hirek/hatartalan-harmoniak-15380.html",
-      "type": "html"
-    },
-    {
-      "title": "Mese-habbal - kiállításmegnyitó",
-      "source": "Kőszeg Önkormányzat",
-      "source_type": "official",
-      "date": "",
-      "url": "https://koszeg.hu/hu/aktualis/hirek/mese-habbal-kiallitasmegnyito-15383.html",
-      "type": "html"
-    },
-    {
-      "title": "Kézműves foglalkozás gyerekeknek",
-      "source": "Kőszeg Önkormányzat",
-      "source_type": "official",
-      "date": "",
-      "url": "https://koszeg.hu/hu/aktualis/hirek/kezmuves-foglalkozas-gyerekeknek-15371.html",
-      "type": "html"
-    },
-    {
-      "title": "Vas Vármegyei és Nemzetközi Borverseny - FELHÍVÁS",
-      "source": "Kőszeg Önkormányzat",
-      "source_type": "official",
-      "date": "",
-      "url": "https://koszeg.hu/hu/aktualis/hirek/vas-varmegyei-es-nemzetkozi-borverseny-felhivas-15366.html",
-      "type": "html"
-    },
-    {
-      "title": "Polcok mentén",
-      "source": "Kőszeg Önkormányzat",
-      "source_type": "official",
-      "date": "",
-      "url": "https://koszeg.hu/hu/aktualis/hirek/polcok-menten-15379.html",
-      "type": "html"
-    },
-    {
-      "title": "Budai Lotti: A történelemírás áldozatai avagy megrágalmazott nők a történelemben",
-      "source": "Kőszeg Önkormányzat",
-      "source_type": "official",
-      "date": "",
-      "url": "https://koszeg.hu/hu/aktualis/hirek/budai-lotti-a-tortenelemiras-aldozatai-avagy-megragalmazott-nok-a-tortenelemben-15381.html",
-      "type": "html"
-    },
-    {
-      "title": "Író-, és költőóriások árnyékában",
-      "source": "Kőszeg Önkormányzat",
-      "source_type": "official",
-      "date": "",
-      "url": "https://koszeg.hu/hu/aktualis/hirek/iro-es-koltooriasok-arnyekaban-15378.html",
-      "type": "html"
-    },
-    {
-      "title": "Húsvéti kézműves foglalkozás",
-      "source": "Kőszeg Önkormányzat",
-      "source_type": "official",
-      "date": "",
-      "url": "https://koszeg.hu/hu/aktualis/hirek/husveti-kezmuves-foglalkozas-15377.html",
-      "type": "html"
-    },
-    {
-      "title": "Városi Véradás",
-      "source": "Kőszeg Önkormányzat",
-      "source_type": "official",
-      "date": "",
-      "url": "https://koszeg.hu/hu/aktualis/hirek/varosi-veradas-15373.html",
-      "type": "html"
-    },
-    {
-      "title": "A Szent Korona nyomában",
-      "source": "Kőszeg Önkormányzat",
-      "source_type": "official",
-      "date": "",
-      "url": "https://koszeg.hu/hu/aktualis/hirek/a-szent-korona-nyomaban-15369.html",
-      "type": "html"
-    },
-    {
-      "title": "Geröly Brass Mood",
-      "source": "Kőszeg Önkormányzat",
-      "source_type": "official",
-      "date": "",
-      "url": "https://koszeg.hu/hu/aktualis/hirek/geroly-brass-mood-15372.html",
-      "type": "html"
-    },
-    {
-      "title": "Helló Kőszeg! - Tavaszköszöntő koncert",
-      "source": "Kőszeg Önkormányzat",
-      "source_type": "official",
-      "date": "",
-      "url": "https://koszeg.hu/hu/aktualis/hirek/hello-koszeg-tavaszkoszonto-koncert-15374.html",
-      "type": "html"
-    },
-    {
-      "title": "HANAMI",
-      "source": "Kőszeg Önkormányzat",
-      "source_type": "official",
-      "date": "",
-      "url": "https://koszeg.hu/hu/aktualis/hirek/hanami-15358.html",
-      "type": "html"
-    },
-    {
-      "title": "Stefan Vögel: EGY APRÓ KÉRÉS...",
-      "source": "Kőszeg Önkormányzat",
-      "source_type": "official",
-      "date": "",
-      "url": "https://koszeg.hu/hu/aktualis/hirek/stefan-vogel-egy-apro-keres-15360.html",
-      "type": "html"
-    },
-    {
-      "title": "Söptei Imre: Kőszeg szőlőgazdasága a 18. században",
-      "source": "Kőszeg Önkormányzat",
-      "source_type": "official",
-      "date": "",
-      "url": "https://koszeg.hu/hu/aktualis/hirek/soptei-imre-koszeg-szologazdasaga-a-18-szazadban-15359.html",
-      "type": "html"
-    },
-    {
-      "title": "Bújj, Bújj, zöld ág...",
-      "source": "Kőszeg Önkormányzat",
-      "source_type": "official",
-      "date": "",
-      "url": "https://koszeg.hu/hu/aktualis/hirek/bujj-bujj-zold-ag-15362.html",
-      "type": "html"
-    },
-    {
-      "title": "Kitüntetettek a Nemzeti Ünnep alkalmából",
-      "source": "Kőszeg Önkormányzat",
-      "source_type": "official",
-      "date": "",
-      "url": "https://koszeg.hu/hu/aktualis/hirek/kituntetettek-a-nemzeti-unnep-alkalmabol-15356.html",
-      "type": "html"
-    },
-    {
-      "title": "SEJTÉSEK ÉS LÉTEZÉSEK",
-      "source": "Kőszeg Önkormányzat",
-      "source_type": "official",
-      "date": "",
-      "url": "https://koszeg.hu/hu/aktualis/hirek/sejtesek-es-letezesek-15355.html",
-      "type": "html"
-    },
-    {
-      "title": "“Női lélek - Női egészség”",
-      "source": "Kőszeg Önkormányzat",
-      "source_type": "official",
-      "date": "",
-      "url": "https://koszeg.hu/hu/aktualis/hirek/noi-lelek-noi-egeszseg-15363.html",
-      "type": "html"
-    },
-    {
-      "title": "Munkaszolgálatos megemlékezés",
-      "source": "Kőszeg Önkormányzat",
-      "source_type": "official",
-      "date": "",
-      "url": "https://koszeg.hu/hu/aktualis/hirek/munkaszolgalatos-megemlekezes-15368.html",
-      "type": "html"
-    },
-    {
-      "title": "„Nyugat-feleségek” - Tüzes cipő(k)ben",
-      "source": "Kőszeg Önkormányzat",
-      "source_type": "official",
-      "date": "",
-      "url": "https://koszeg.hu/hu/aktualis/hirek/nyugat-felesegek-tuzes-cipokben-15361.html",
-      "type": "html"
-    },
-    {
-      "title": "Erwin Birnmeyer 100 - Lépcsők",
-      "source": "Kőszeg Önkormányzat",
-      "source_type": "official",
-      "date": "",
-      "url": "https://koszeg.hu/hu/aktualis/hirek/erwin-birnmeyer-100-lepcsok-15345.html",
-      "type": "html"
-    },
-    {
-      "title": "Művészeti Szemle EREDMÉNYEK",
-      "source": "Kőszeg Önkormányzat",
-      "source_type": "official",
-      "date": "",
-      "url": "https://koszeg.hu/hu/aktualis/hirek/muveszeti-szemle-eredmenyek-15354.html",
-      "type": "html"
-    },
-    {
-      "title": "ORSZÁGOS HÓFUTÓ VERSENY",
-      "source": "Kőszeg Önkormányzat",
-      "source_type": "official",
-      "date": "",
-      "url": "https://koszeg.hu/hu/aktualis/hirek/orszagos-hofuto-verseny-15353.html",
-      "type": "html"
+      "title": "Feljelentést tett az osztrák Greenpeace az azbeszt miatt",
+      "source": "blikk.hu",
+      "source_type": "gdelt",
+      "date": "2026-04-22",
+      "url": "https://www.blikk.hu/aktualis/kulfold/greenpeace-ausztria-feljelentes-azbeszt/pfzgz1d",
+      "type": "gdelt"
     }
   ]
 }

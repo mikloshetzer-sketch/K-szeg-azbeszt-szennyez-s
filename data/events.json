@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-04-26T18:23:59.103803+00:00",
+  "generated_at": "2026-04-26T18:44:02.156907+00:00",
   "mode": "milestones_from_news",
   "events": [
     {
-      "date": "2026-04",
+      "date": "Dátum nélkül",
       "title": "Hivatalos / önkormányzati tájékoztató szerepel a monitoringban.",
-      "source": "Kőszeg Önkormányzat",
+      "source": "Vas Vármegyei Kormányhivatal",
       "type": "official_notice",
-      "url": "https://koszeg.hu/hu/aktualis/hirek/"
+      "url": "https://kormanyhivatalok.hu/kormanyhivatalok/vas/megye/hirek/hir/azbeszthelyzet-szombathelyen-lakossagi-forumot-tartottak"
     },
     {
       "date": "Dátum nélkül",
@@ -17,22 +17,22 @@
       "url": "https://www.greenpeace.org/hungary/sajtokozlemeny/13530/greenpeace-sulyos-azbesztveszely-szombathelyen-a-lakossag-biztonsaganak-erdekeben-azonnali-intezkezdesre-van-szukseg/"
     },
     {
-      "date": "Dátum nélkül",
+      "date": "2026-02-13",
       "title": "Osztrák vagy burgenlandi forrás is kapcsolódik az ügyhöz.",
-      "source": "Kurier Burgenland",
+      "source": "vol.at",
       "type": "austrian_context",
-      "url": "https://kurier.at/chronik/burgenland/asbest-burgenland-niederoesterreich-steinbrueche-gesetzgebung-oesterreich-grenzwert/403153071"
+      "url": "https://www.vol.at/greenpeace-reports-new-asbestos-findings-in-burgenland-and-styria/9988865"
     },
     {
       "date": "Folyamatos",
-      "title": "Jelentős magyar médiafigyelem: legalább 76 releváns magyar médiatalálat szerepel a rendszerben.",
+      "title": "Jelentős magyar médiafigyelem: legalább 5 releváns magyar médiatalálat szerepel a rendszerben.",
       "source": "Magyar médiafigyelés",
       "type": "media_wave",
       "url": ""
     },
     {
       "date": "Folyamatos",
-      "title": "A rendszer jelenleg 133 hivatalos, 129 civil, 101 osztrák/burgenlandi, 76 magyar média és 0 egyéb/GDELT találatot különít el.",
+      "title": "A rendszer jelenleg 4 hivatalos, 6 civil, 5 osztrák/burgenlandi és 5 magyar médiatalálatot különít el.",
       "source": "Automatikus monitoring",
       "type": "system_summary",
       "url": ""
