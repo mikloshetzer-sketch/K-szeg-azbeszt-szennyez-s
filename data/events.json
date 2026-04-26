@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-26T11:02:02.448373+00:00",
+  "generated_at": "2026-04-26T11:12:36.263206+00:00",
   "mode": "milestones_from_news",
   "events": [
     {
@@ -25,14 +25,14 @@
     },
     {
       "date": "Folyamatos",
-      "title": "Jelentős magyar médiafigyelem: legalább 4 releváns magyar médiatalálat szerepel a rendszerben.",
+      "title": "Jelentős magyar médiafigyelem: legalább 8 releváns magyar médiatalálat szerepel a rendszerben.",
       "source": "Magyar médiafigyelés",
       "type": "media_wave",
       "url": ""
     },
     {
       "date": "Folyamatos",
-      "title": "A rendszer jelenleg 4 hivatalos, 2 civil, 6 osztrák/burgenlandi és 4 magyar médiatalálatot különít el.",
+      "title": "A rendszer jelenleg 4 hivatalos, 2 civil, 6 osztrák/burgenlandi és 8 magyar médiatalálatot különít el.",
       "source": "Automatikus monitoring",
       "type": "system_summary",
       "url": ""
