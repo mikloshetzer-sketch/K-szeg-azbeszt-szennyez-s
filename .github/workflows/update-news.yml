@@ -133,35 +133,35 @@ jobs:
               return any(term in text for term in BLOCKLIST)
 
           def relevant(title, url=""):
-    text = f"{title} {url}".lower()
+              text = f"{title} {url}".lower()
 
-    if is_blocked(title, url):
-        return False
+          if is_blocked(title, url):
+              return False
 
-    local_terms = [
-        "kőszeg", "koszeg", "bozsok", "szombathely",
-        "pilgersdorf", "burgenland", "bernstein",
-        "rumpersdorf", "badersdorf", "oberwart"
+          local_terms = [
+            "kőszeg", "koszeg", "bozsok", "szombathely",
+            "pilgersdorf", "burgenland", "bernstein",
+            "rumpersdorf", "badersdorf", "oberwart"
     ]
 
-    issue_terms = [
-        "azbeszt", "aszbeszt", "asbest",
-        "asbestbelastung", "asbestverschmutzung",
-        "kőzúzalék", "kőbánya",
-        "steinbruch", "schotter",
-        "serpentinit", "greenpeace",
-        "verunreinigung", "szennyez"
+          issue_terms = [
+            "azbeszt", "aszbeszt", "asbest",
+            "asbestbelastung", "asbestverschmutzung",
+            "kőzúzalék", "kőbánya",
+            "steinbruch", "schotter",
+            "serpentinit", "greenpeace",
+            "verunreinigung", "szennyez"
     ]
 
-    has_local = any(term in text for term in local_terms)
-    has_issue = any(term in text for term in issue_terms)
+      has_local = any(term in text for term in local_terms)
+      has_issue = any(term in text for term in issue_terms)
 
-    # legerősebb találat
-    if has_local and has_issue:
+      # legerősebb találat
+        if has_local and has_issue:
         return True
 
-    # osztrák domainek lazább kezelése
-    if (
+      # osztrák domainek lazább kezelése
+        if (
         ".at" in text
         or "orf.at" in text
         or "burgenland" in text
@@ -171,15 +171,15 @@ jobs:
     ) and has_issue:
         return True
 
-    # Greenpeace külön
-    if "greenpeace" in text:
+      # Greenpeace külön
+      if "greenpeace" in text:
         return True
 
-    # GDELT / egyéb források lazább átengedése
-    if has_local:
+      # GDELT / egyéb források lazább átengedése
+      if has_local:
         return True
 
-    return False
+      return False
 
               issue_terms = [
                   "azbeszt", "aszbeszt", "asbest", "asbestbelastung",
