@@ -53,13 +53,23 @@ jobs:
           HTML_SOURCES = [
               {"name": "Kőszeg Önkormányzat", "url": "https://koszeg.hu/hu/aktualis/hirek", "type": "official"},
               {"name": "Vas Vármegyei Kormányhivatal", "url": "https://kormanyhivatalok.hu/kormanyhivatalok/vas/megye/hirek", "type": "official"},
-              {"name": "Nyugat.hu", "url": "https://www.nyugat.hu/rovat/hirek", "type": "media"},
               {"name": "VAOL", "url": "https://www.vaol.hu/helyi-kozelet/", "type": "media"},
               {"name": "Greenpeace Magyarország", "url": "https://www.greenpeace.org/hungary/sajtokozlemenyek/", "type": "civil"},
               {"name": "Greenpeace Austria", "url": "https://greenpeace.at/presse/", "type": "civil"},
               {"name": "ORF Burgenland", "url": "https://burgenland.orf.at/", "type": "austrian"},
               {"name": "Kurier Burgenland", "url": "https://kurier.at/chronik/burgenland", "type": "austrian"},
               {"name": "MeinBezirk Burgenland", "url": "https://www.meinbezirk.at/burgenland", "type": "austrian"}
+          ]
+
+          NYUGAT_URLS = [
+              "https://www.nyugat.hu/",
+              "https://www.nyugat.hu/rovat/hirek",
+              "https://www.nyugat.hu/rovat/szombathely",
+              "https://www.nyugat.hu/kereses?text=K%C5%91szeg",
+              "https://www.nyugat.hu/kereses?text=azbeszt",
+              "https://www.nyugat.hu/kereses?text=k%C5%91z%C3%BAzal%C3%A9k",
+              "https://www.nyugat.hu/kereses?text=Bozsok",
+              "https://www.nyugat.hu/kereses?text=Szombathely"
           ]
 
           MANUAL_NEWS = [
@@ -125,7 +135,7 @@ jobs:
               "spenden", "spendenabsetzbarkeit", "grossspenden", "großspenden",
               "mitmachen", "petition", "petitionen", "umfragen", "ehrenamt",
               "newsletter", "jobs", "karriere", "shop", "donate", "membership",
-              "volunteer"
+              "volunteer", "advert", "reklam"
           ]
 
           def now_iso():
@@ -134,7 +144,10 @@ jobs:
           def get_text(url, timeout=30):
               req = urllib.request.Request(
                   url,
-                  headers={"User-Agent": "koszeg-azbeszt-monitor/1.0"}
+                  headers={
+                      "User-Agent": "koszeg-azbeszt-monitor/1.0",
+                      "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+                  }
               )
               with urllib.request.urlopen(req, timeout=timeout) as response:
                   raw = response.read()
@@ -147,6 +160,8 @@ jobs:
           def clean_text(value):
               if not value:
                   return ""
+              value = re.sub(r"<script[\s\S]*?</script>", " ", value, flags=re.I)
+              value = re.sub(r"<style[\s\S]*?</style>", " ", value, flags=re.I)
               value = re.sub(r"<[^>]+>", " ", value)
               value = html.unescape(value)
               value = re.sub(r"\s+", " ", value)
@@ -185,7 +200,8 @@ jobs:
                   "azbeszt", "aszbeszt", "asbest", "asbestbelastung",
                   "asbestverschmutzung", "kőzúzalék", "kőbánya",
                   "steinbruch", "schotter", "gestein", "verunreinigung",
-                  "serpentinit", "bernsztein", "bernstein", "szennyez"
+                  "serpentinit", "bernsztein", "bernstein", "szennyez",
+                  "maszk", "közterület"
               ]
 
               has_local = any(term in text for term in local_terms)
@@ -250,30 +266,35 @@ jobs:
 
               return items
 
+          def extract_links_from_html(page, base_url):
+              links = []
+
+              for href, title_html in re.findall(
+                  r"<a[^>]+href=[\"']([^\"']+)[\"'][^>]*>(.*?)</a>",
+                  page,
+                  flags=re.I | re.S
+              ):
+                  title = clean_text(title_html)
+                  if not title or len(title) < 6:
+                      continue
+
+                  if href.startswith("/"):
+                      parsed = urllib.parse.urlparse(base_url)
+                      href = f"{parsed.scheme}://{parsed.netloc}{href}"
+                  elif not href.startswith("http"):
+                      href = urllib.parse.urljoin(base_url, href)
+
+                  links.append((title, href))
+
+              return links
+
           def fetch_html_source(source):
               items = []
               try:
                   page = get_text(source["url"], timeout=25)
 
-                  links = re.findall(
-                      r"<a[^>]+href=[\"']([^\"']+)[\"'][^>]*>(.*?)</a>",
-                      page,
-                      flags=re.I | re.S
-                  )
-
-                  for href, title_html in links[:250]:
-                      title = clean_text(title_html)
-
-                      if not title or len(title) < 8:
-                          continue
-
-                      if href.startswith("/"):
-                          parsed = urllib.parse.urlparse(source["url"])
-                          href = f"{parsed.scheme}://{parsed.netloc}{href}"
-                      elif not href.startswith("http"):
-                          href = urllib.parse.urljoin(source["url"], href)
-
-                      if title and href and relevant(title, href):
+                  for title, href in extract_links_from_html(page, source["url"])[:250]:
+                      if relevant(title, href):
                           items.append({
                               "title": title,
                               "source": source["name"],
@@ -286,6 +307,48 @@ jobs:
               except Exception as exc:
                   print(f"HTML source error for {source['name']}:", str(exc))
 
+              return items
+
+          def fetch_nyugat_targeted():
+              items = []
+              seen = set()
+
+              for url in NYUGAT_URLS:
+                  try:
+                      page = get_text(url, timeout=25)
+                      candidates = extract_links_from_html(page, url)
+
+                      # Nyugat.hu cikklinkek: /cikk/... vagy teljes https://www.nyugat.hu/cikk/...
+                      for title, href in candidates[:350]:
+                          parsed = urllib.parse.urlparse(href)
+
+                          if "nyugat.hu" not in parsed.netloc:
+                              continue
+
+                          if "/cikk/" not in parsed.path:
+                              continue
+
+                          if not relevant(title, href):
+                              continue
+
+                          if href in seen:
+                              continue
+
+                          seen.add(href)
+
+                          items.append({
+                              "title": title,
+                              "source": "Nyugat.hu",
+                              "source_type": "media",
+                              "date": "",
+                              "url": href,
+                              "type": "html_targeted"
+                          })
+
+                  except Exception as exc:
+                      print("Nyugat targeted error:", url, str(exc))
+
+              print("Nyugat targeted items:", len(items))
               return items
 
           def fetch_gdelt():
@@ -377,11 +440,14 @@ jobs:
               else:
                   score += 40
 
+              if "nyugat" in source or "nyugat.hu" in url:
+                  score += 45
+
               for term in [
                   "kőszeg", "koszeg", "bozsok", "szombathely",
                   "azbeszt", "aszbeszt", "asbest", "greenpeace",
                   "kormányhivatal", "önkormányzat", "pilgersdorf",
-                  "burgenland", "steinbruch", "schotter"
+                  "burgenland", "steinbruch", "schotter", "maszk"
               ]:
                   if term in title or term in source or term in url:
                       score += 25
@@ -470,9 +536,6 @@ jobs:
               except Exception as exc:
                   print("OpenAI summary error:", str(exc))
                   return "AI-összefoglaló hiba miatt nem készült el."
-
-          def has_type(articles, source_type):
-              return any(item.get("source_type") == source_type for item in articles)
 
           def first_article(articles, source_type):
               for item in articles:
@@ -570,6 +633,7 @@ jobs:
           for source in HTML_SOURCES:
               collected.extend(fetch_html_source(source))
 
+          collected.extend(fetch_nyugat_targeted())
           collected.extend(fetch_gdelt())
 
           all_news = deduplicate(collected + MANUAL_NEWS)
@@ -592,7 +656,7 @@ jobs:
               "generated_at": now_iso(),
               "refresh_hours": 6,
               "query": QUERY,
-              "mode": "rss_html_gdelt_ai_filtered",
+              "mode": "rss_html_gdelt_ai_filtered_nyugat_targeted",
               "source_counts": source_counts,
               "source_type_counts": source_type_counts,
               "summary": summary,
