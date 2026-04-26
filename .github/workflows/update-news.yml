@@ -220,7 +220,6 @@ jobs:
                   flags=re.I | re.S
               ):
                   title = clean_text(title_html)
-
                   if not title or len(title) < 6:
                       continue
 
@@ -237,7 +236,6 @@ jobs:
               items = []
               try:
                   page = get_text(source["url"], timeout=25)
-
                   for title, href in extract_links_from_html(page, source["url"])[:300]:
                       if relevant(title, href):
                           items.append({
@@ -248,7 +246,6 @@ jobs:
                               "url": href,
                               "type": "html"
                           })
-
               except Exception as exc:
                   print(f"HTML source error for {source['name']}:", str(exc))
               return items
@@ -396,12 +393,10 @@ jobs:
 
           def extract_openai_text(data):
               text = data.get("output_text", "")
-
               if isinstance(text, str) and text.strip():
                   return text.strip()
 
               chunks = []
-
               for item in data.get("output", []):
                   for content in item.get("content", []):
                       if content.get("type") in ("output_text", "text"):
@@ -466,22 +461,18 @@ jobs:
               prompt = (
                   "Írj magyar nyelvű, olvasmányos, tárgyilagos sajtófigyelő összefoglalót "
                   "a Kőszeg, Bozsok, Szombathely, Pilgersdorf és Burgenland térségét érintő "
-                  "azbeszt/kőzúzalék ügyről. "
-                  "A szöveg legyen gördülékeny, közérthető és mértéktartó. "
-                  "Különbséget kell tenni hivatalos, önkormányzati, kormányhivatali, civil, "
-                  "magyar média és osztrák forrás között. "
-                  "Ne legyen pánikkeltő, ne állítson laboreredményt, hatósági döntést vagy "
-                  "egészségügyi következtetést, ha az nem következik egyértelműen a megadott "
-                  "forráslistából. "
+                  "azbeszt/kőzúzalék ügyről. A szöveg legyen gördülékeny, közérthető és mértéktartó. "
+                  "Különbséget kell tenni hivatalos, önkormányzati, kormányhivatali, civil, magyar média "
+                  "és osztrák forrás között. Ne legyen pánikkeltő, ne állítson laboreredményt, hatósági döntést "
+                  "vagy egészségügyi következtetést, ha az nem következik egyértelműen a megadott forráslistából. "
                   "A végén legyen egy külön 'Röviden:' rész három rövid mondattal.\n\n"
                   + json.dumps(compact, ensure_ascii=False, indent=2)
               )
 
               system_message = (
                   "Tárgyilagos, jól fogalmazó magyar sajtófigyelő és közéleti elemző vagy. "
-                  "Olvasmányos, pontos és mértéktartó helyzetképet írsz. "
-                  "Nem dramatizálsz, nem találgatsz, és világosan elkülöníted a hivatalos, "
-                  "civil, média- és osztrák forrásokat."
+                  "Olvasmányos, pontos és mértéktartó helyzetképet írsz. Nem dramatizálsz, "
+                  "nem találgatsz, és világosan elkülöníted a hivatalos, civil, média- és osztrák forrásokat."
               )
 
               return call_openai(prompt, system_message, 1100)
@@ -517,22 +508,20 @@ jobs:
 
               prompt = (
                   "Készíts magyar nyelvű, olvasmányos, külön jelentésként használható összefoglalót "
-                  "az osztrák és burgenlandi források alapján. "
-                  "A téma a Kőszeg, Bozsok, Szombathely, Pilgersdorf, Bernstein és Burgenland térségét "
-                  "érintő azbeszt/kőzúzalék ügy. "
+                  "az osztrák és burgenlandi források alapján. A téma a Kőszeg, Bozsok, Szombathely, "
+                  "Pilgersdorf, Bernstein és Burgenland térségét érintő azbeszt/kőzúzalék ügy. "
                   "Ne fordítsd szó szerint a címeket, hanem foglald össze, mit lehet ezekből az osztrák "
-                  "forrásokból óvatosan megállapítani. "
-                  "Térj ki arra, hogy milyen szerepe van az osztrák forrásoknak, milyen települések vagy "
-                  "térségek jelennek meg, és miért fontos a határon átnyúló hírfigyelés. "
-                  "Ne állíts laboreredményt vagy hatósági döntést, ha azt a forráslista nem támasztja alá. "
-                  "A végén adj egy 'Figyelendő pontok' című rövid részt 3 ponttal.\n\n"
+                  "forrásokból óvatosan megállapítani. Térj ki arra, hogy milyen szerepe van az osztrák "
+                  "forrásoknak, milyen települések vagy térségek jelennek meg, és miért fontos a határon "
+                  "átnyúló hírfigyelés. Ne állíts laboreredményt vagy hatósági döntést, ha azt a forráslista "
+                  "nem támasztja alá. A végén adj egy 'Figyelendő pontok' című rövid részt 3 ponttal.\n\n"
                   + json.dumps(compact, ensure_ascii=False, indent=2)
               )
 
               system_message = (
-                  "Magyar nyelvű regionális OSINT-elemző vagy. "
-                  "Osztrák és burgenlandi hírforrásokból készítesz közérthető, tárgyilagos magyar összefoglalót. "
-                  "Nem dramatizálsz, nem találgatsz, és egyértelműen jelzed a bizonytalanságokat."
+                  "Magyar nyelvű regionális OSINT-elemző vagy. Osztrák és burgenlandi hírforrásokból "
+                  "készítesz közérthető, tárgyilagos magyar összefoglalót. Nem dramatizálsz, nem találgatsz, "
+                  "és egyértelműen jelzed a bizonytalanságokat."
               )
 
               summary = call_openai(prompt, system_message, 1200)
@@ -543,6 +532,120 @@ jobs:
                   "summary": summary,
                   "articles": austrian_articles[:15]
               }
+
+          def html_escape(value):
+              return html.escape(str(value or ""), quote=True)
+
+          def build_austrian_html(austrian_summary):
+              articles = austrian_summary.get("articles", [])
+              html_articles = ""
+
+              for item in articles:
+                  source = html_escape(item.get("source", "Osztrák forrás"))
+                  title = html_escape(item.get("title", "Cím nélkül"))
+                  url = html_escape(item.get("url", "#"))
+                  date = html_escape(item.get("date", ""))
+
+                  html_articles += f"""
+                  <li>
+                    <strong>{source}</strong>:
+                    <a href="{url}" target="_blank" rel="noopener">{title}</a>
+                    <em>{date}</em>
+                  </li>
+                  """
+
+              summary_html = html_escape(austrian_summary.get("summary", "Nincs elérhető összefoglaló.")).replace("\n", "<br>")
+
+              return f"""<!DOCTYPE html>
+          <html lang="hu">
+          <head>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Osztrák és burgenlandi hírösszefoglaló</title>
+            <style>
+              body {{
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 34px;
+                line-height: 1.6;
+                color: #111827;
+                background: #f8fafc;
+              }}
+              .box {{
+                background: white;
+                border: 1px solid #d0d9e2;
+                border-left: 6px solid #2563eb;
+                border-radius: 10px;
+                padding: 24px;
+                max-width: 980px;
+                margin: auto;
+                box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+              }}
+              h1 {{ margin-top: 0; }}
+              h2 {{
+                margin-top: 28px;
+                border-bottom: 1px solid #ddd;
+                padding-bottom: 6px;
+              }}
+              a {{ color: #0645ad; }}
+              li {{ margin-bottom: 10px; }}
+              .warning {{
+                background: #fff7ed;
+                border-left: 5px solid #f59e0b;
+                padding: 12px;
+                margin: 18px 0;
+              }}
+              .meta {{
+                color: #4b5563;
+                font-size: 14px;
+              }}
+              .actions {{
+                margin-top: 24px;
+              }}
+              button {{
+                background: #2563eb;
+                color: white;
+                border: 0;
+                border-radius: 8px;
+                padding: 10px 14px;
+                font-weight: 700;
+                cursor: pointer;
+              }}
+              @media print {{
+                .actions {{ display: none; }}
+                body {{ background: white; padding: 0; }}
+                .box {{ box-shadow: none; border: 0; }}
+              }}
+            </style>
+          </head>
+          <body>
+            <div class="box">
+              <h1>Osztrák és burgenlandi hírösszefoglaló</h1>
+
+              <p class="meta">
+                Készült: {html_escape(austrian_summary.get("generated_at", ""))}<br>
+                Források száma: {html_escape(austrian_summary.get("count", 0))}
+              </p>
+
+              <div class="warning">
+                Tájékoztató jellegű automatikus összefoglaló. Nem hivatalos hatósági dokumentum, és nem helyettesíti az osztrák vagy magyar hivatalos közleményeket.
+              </div>
+
+              <h2>Magyar nyelvű összefoglaló</h2>
+              <p>{summary_html}</p>
+
+              <h2>Felhasznált osztrák / burgenlandi források</h2>
+              <ul>
+                {html_articles if html_articles else "<li>Nincs elérhető forrás.</li>"}
+              </ul>
+
+              <div class="actions">
+                <button onclick="window.print()">PDF / nyomtatás</button>
+              </div>
+            </div>
+          </body>
+          </html>
+          """
 
           def first_article(articles, source_type):
               for item in articles:
@@ -577,58 +680,22 @@ jobs:
               civil_count = sum(1 for item in articles if item.get("source_type") == "civil")
 
               if official:
-                  add_event(
-                      official.get("date", ""),
-                      "Hivatalos / önkormányzati tájékoztató szerepel a monitoringban.",
-                      official.get("source", "Hivatalos forrás"),
-                      "official_notice",
-                      official.get("url", "")
-                  )
+                  add_event(official.get("date", ""), "Hivatalos / önkormányzati tájékoztató szerepel a monitoringban.", official.get("source", "Hivatalos forrás"), "official_notice", official.get("url", ""))
 
               if civil:
-                  add_event(
-                      civil.get("date", ""),
-                      "Greenpeace vagy más civil forrás is megjelent az ügyben.",
-                      civil.get("source", "Civil forrás"),
-                      "civil_action",
-                      civil.get("url", "")
-                  )
+                  add_event(civil.get("date", ""), "Greenpeace vagy más civil forrás is megjelent az ügyben.", civil.get("source", "Civil forrás"), "civil_action", civil.get("url", ""))
 
               if austrian:
-                  add_event(
-                      austrian.get("date", ""),
-                      "Osztrák vagy burgenlandi forrás is kapcsolódik az ügyhöz.",
-                      austrian.get("source", "Osztrák forrás"),
-                      "austrian_context",
-                      austrian.get("url", "")
-                  )
+                  add_event(austrian.get("date", ""), "Osztrák vagy burgenlandi forrás is kapcsolódik az ügyhöz.", austrian.get("source", "Osztrák forrás"), "austrian_context", austrian.get("url", ""))
 
               if media_count >= 3:
-                  add_event(
-                      "Folyamatos",
-                      f"Jelentős magyar médiafigyelem: legalább {media_count} releváns magyar médiatalálat szerepel a rendszerben.",
-                      "Magyar médiafigyelés",
-                      "media_wave",
-                      ""
-                  )
+                  add_event("Folyamatos", f"Jelentős magyar médiafigyelem: legalább {media_count} releváns magyar médiatalálat szerepel a rendszerben.", "Magyar médiafigyelés", "media_wave", "")
 
               if official_count or civil_count or austrian_count or media_count:
-                  add_event(
-                      "Folyamatos",
-                      f"A rendszer jelenleg {official_count} hivatalos, {civil_count} civil, {austrian_count} osztrák/burgenlandi és {media_count} magyar médiatalálatot különít el.",
-                      "Automatikus monitoring",
-                      "system_summary",
-                      ""
-                  )
+                  add_event("Folyamatos", f"A rendszer jelenleg {official_count} hivatalos, {civil_count} civil, {austrian_count} osztrák/burgenlandi és {media_count} magyar médiatalálatot különít el.", "Automatikus monitoring", "system_summary", "")
 
               if not events:
-                  add_event(
-                      "Folyamatos",
-                      "A monitoring rendszer fut, de új, kiemelt mérföldkő nem azonosítható.",
-                      "Automatikus monitoring",
-                      "system",
-                      ""
-                  )
+                  add_event("Folyamatos", "A monitoring rendszer fut, de új, kiemelt mérföldkő nem azonosítható.", "Automatikus monitoring", "system", "")
 
               return events[:8]
 
@@ -658,6 +725,7 @@ jobs:
           summary = ai_summary(all_news)
           events = milestone_events(all_news)
           austrian_summary = ai_austrian_summary(all_news)
+          austrian_html = build_austrian_html(austrian_summary)
 
           news_output = {
               "generated_at": now_iso(),
@@ -685,9 +753,13 @@ jobs:
           with open("data/austrian-summary.json", "w", encoding="utf-8") as f:
               json.dump(austrian_summary, f, ensure_ascii=False, indent=2)
 
+          with open("data/austrian-summary.html", "w", encoding="utf-8") as f:
+              f.write(austrian_html)
+
           print("Generated data/news.json")
           print("Generated data/events.json")
           print("Generated data/austrian-summary.json")
+          print("Generated data/austrian-summary.html")
           print("Articles:", len(news_output["articles"]))
           print("Austrian articles:", austrian_summary.get("count", 0))
           print("Milestone events:", len(events_output["events"]))
@@ -699,7 +771,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-          git add data/news.json data/events.json data/austrian-summary.json
+          git add data/news.json data/events.json data/austrian-summary.json data/austrian-summary.html
 
           if git diff --cached --quiet; then
             echo "No changes."
