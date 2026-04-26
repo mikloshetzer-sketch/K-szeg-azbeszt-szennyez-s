@@ -1,18 +1,18 @@
 {
-  "generated_at": "2026-04-26T12:43:17.399591+00:00",
+  "generated_at": "2026-04-26T16:06:44.444143+00:00",
   "mode": "milestones_from_news",
   "events": [
     {
-      "date": "2026-04",
+      "date": "Dátum nélkül",
       "title": "Hivatalos / önkormányzati tájékoztató szerepel a monitoringban.",
-      "source": "Kőszeg Önkormányzat",
+      "source": "Vas Vármegyei Kormányhivatal",
       "type": "official_notice",
-      "url": "https://koszeg.hu/hu/aktualis/hirek/"
+      "url": "https://kormanyhivatalok.hu/kormanyhivatalok/vas/megye/hirek/hir/azbeszthelyzet-szombathelyen-lakossagi-forumot-tartottak"
     },
     {
-      "date": "2026-04",
+      "date": "Dátum nélkül",
       "title": "Greenpeace vagy más civil forrás is megjelent az ügyben.",
-      "source": "Greenpeace",
+      "source": "Greenpeace Magyarország",
       "type": "civil_action",
       "url": "https://www.greenpeace.org/hungary/sajtokozlemeny/13530/greenpeace-sulyos-azbesztveszely-szombathelyen-a-lakossag-biztonsaganak-erdekeben-azonnali-intezkezdesre-van-szukseg/"
     },
@@ -25,14 +25,14 @@
     },
     {
       "date": "Folyamatos",
-      "title": "Jelentős magyar médiafigyelem: legalább 8 releváns magyar médiatalálat szerepel a rendszerben.",
+      "title": "Jelentős magyar médiafigyelem: legalább 4 releváns magyar médiatalálat szerepel a rendszerben.",
       "source": "Magyar médiafigyelés",
       "type": "media_wave",
       "url": ""
     },
     {
       "date": "Folyamatos",
-      "title": "A rendszer jelenleg 4 hivatalos, 2 civil, 5 osztrák/burgenlandi és 8 magyar médiatalálatot különít el.",
+      "title": "A rendszer jelenleg 4 hivatalos, 6 civil, 5 osztrák/burgenlandi és 4 magyar médiatalálatot különít el.",
       "source": "Automatikus monitoring",
       "type": "system_summary",
       "url": ""
