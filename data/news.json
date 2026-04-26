@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-26T11:27:32.056746+00:00",
+  "generated_at": "2026-04-26T12:43:17.399573+00:00",
   "refresh_hours": 6,
   "query": "\n(\"Kőszeg\" OR \"Koszeg\" OR \"Bozsok\" OR \"Szombathely\" OR \"Pilgersdorf\" OR \"Burgenland\" OR \"Bernstein\")\n(azbeszt OR aszbeszt OR kőzúzalék OR kőbánya OR serpentinit OR Asbest OR Steinbruch OR Schotter OR Greenpeace)\n",
   "mode": "rss_html_gdelt_ai_filtered_nyugat_targeted",
@@ -15,7 +15,6 @@
     "Telex": 1,
     "VAOL": 1,
     "Kurier Burgenland": 2,
-    "MeinBezirk Burgenland": 1,
     "atv.hu": 2,
     "index.hu": 1,
     "penzcentrum.hu": 1,
@@ -27,9 +26,9 @@
     "media": 8,
     "civil": 2,
     "gdelt": 6,
-    "austrian": 6
+    "austrian": 5
   },
-  "summary": "Azbeszttartalmú kőzúzalék szennyezésére derült fény Kőszeg, Bozsok, Szombathely térségében, melynek kapcsán Kőszeg önkormányzata lakossági tájékoztatót és maszkosztást kezdeményezett (Kőszeg Önkormányzat – hivatalos). Szombathelyen az Oladi Platón azbesztszennyezést azonosítottak, ahol lakossági fórumot tartottak, továbbá hatósági és rendőrségi eljárás is folyamatban van, az egészségügyi biztonság elsődleges szempontként szerepel (Vas Vármegyei Kormányhivatal – hivatalos). A Greenpeace Magyarország civileként súlyos kockázatot lát Szombathelyen, és feljelentést tett az osztrák bányák ügyében, amelyekből a kőzúzalék származik (Greenpeace – civil). Több magyar médiában is megjelent, hogy a probléma nemcsak magyar területet érint, hanem a Burgenland és Stájerország osztrák térségeiben is kimutatták azbesztszennyezést, ahol a szabályozási hiányosságok is vitatottak (Kurier Burgenland, vol.at – osztrák).\n\n- Mi történt: Azbeszttartalmú kőzúzalék került a Kőszeg, Bozsok, Szombathely környéki területekre és további vizsgálatokat, valamint intézkedéseket rendeltek el.  \n- Hivatalos forrás van-e: Igen, Kőszeg önkormányzata és a Vas Vármegyei Kormányhivatal is tájékoztatott, hatósági eljárás is folyik.  \n- Osztrák kapcsolat: Az azbeszt a környező osztrák bányákból származhat, a Greenpeace feljelentést tett ezzel kapcsolatban, és osztrák lapok is beszámoltak a témáról.  \n- Mire figyeljen a lakosság: A helyi hatóságok szerint fontos a szakszerű tájékozódás, az esetleges maszkviselés, és a szabályozott intézkedések követése a szennyezett területeken.",
+  "summary": "Azbesztszennyezés gyanúja merült fel Kőszeg, Bozsok és Szombathely térségében, mely nyomán több hatósági intézkedést hoztak az érintett területeken. Kőszeg önkormányzata hivatalos tájékoztatót adott ki az ausztriai bányákból származó kőzúzalék azbeszttartalom miatti lépésekről, miközben a szombathelyi Oladi Platón lakossági fórumokat és hatósági vizsgálatokat tartottak, aminek célja a helyzet minél előbbi megnyugtató rendezése (Kőszeg Önkormányzat, Vas Vármegyei Kormányhivatal – hivatalos források). Magyar sajtóorgánumok több ízben beszámoltak a fejleményekről és a maszkosztásról a lakosság körében (Nyugat.hu, HVG, 444 – média források). Greenpeace Magyarország civil szervezet súlyos veszélynek minősítette a helyzetet, és feljelentést tett az osztrák kőbányákkal kapcsolatban, melyek azbesztszennyezést okozhatnak a határ menti településeken (Greenpeace – civil forrás). Az ügy osztrák oldalról is visszhangra talált, mivel Burgenland tartományban a témával kapcsolatos szabályozási hiányosságokat tárgyalták az osztrák sajtóban (Kurier Burgenland, vol.at – osztrák források).\n\n- Mi történt: Ausztriából származó azbeszttartalmú kőzúzalék miatt több magyarországi településen intézkedéseket vezettek be, folynak vizsgálatok, és lakossági tájékoztatásokat tartanak.  \n- Hivatalos forrás van-e: Igen, Kőszeg Önkormányzata és a Vas Vármegyei Kormányhivatal adott ki hivatalos tájékoztatókat.  \n- Osztrák kapcsolat: Az azbesztes kőzúzalék forrása osztrák bányák lehetnek, Ausztriában is felmerült a kérdés szabályozási szabadság és szennyezés kapcsán.  \n- Mire figyeljen a lakosság: A szennyezett területeken fokozott egészségügyi figyelmet kell fordítani, javasolt a hatóságok útmutatásainak követése, például maszkviselés és elkerülni a kitétel érzékeny helyeken való tartózkodást.",
   "articles": [
     {
       "title": "Kőszeg Önkormányzat – Lakossági tájékoztató az ausztriai bányákból származó kőzúzalék azbeszttartalma miatt hozott intézkedésekről",
@@ -173,14 +172,6 @@
       "source_type": "austrian",
       "date": "",
       "url": "https://kurier.at/chronik/burgenland/asbest-burgenland-niederoesterreich-steinbrueche-gesetzgebung-oesterreich-grenzwert/403153071#comments",
-      "type": "html"
-    },
-    {
-      "title": "Landtagssitzung Burgenland Landwirtschaft, Asbest, Pensionen - das diskutiert der Landtag",
-      "source": "MeinBezirk Burgenland",
-      "source_type": "austrian",
-      "date": "",
-      "url": "https://www.meinbezirk.at/burgenland/c-politik/landwirtschaft-asbest-pensionen-das-diskutiert-der-landtag_a8601575",
       "type": "html"
     },
     {
