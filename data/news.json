@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-26T07:15:39.312317+00:00",
+  "generated_at": "2026-04-26T11:02:02.448351+00:00",
   "refresh_hours": 6,
   "query": "\n(\"Kőszeg\" OR \"Koszeg\" OR \"Bozsok\" OR \"Szombathely\" OR \"Pilgersdorf\" OR \"Burgenland\" OR \"Bernstein\")\n(azbeszt OR aszbeszt OR kőzúzalék OR kőbánya OR serpentinit OR Asbest OR Steinbruch OR Schotter OR Greenpeace)\n",
   "mode": "rss_html_gdelt_ai_filtered",
@@ -9,10 +9,10 @@
     "HVG": 1,
     "444": 1,
     "Greenpeace": 2,
-    "Kurier Burgenland": 3,
     "vol.at": 1,
     "Telex": 1,
     "VAOL": 1,
+    "Kurier Burgenland": 2,
     "MeinBezirk Burgenland": 1,
     "divany.hu": 1,
     "atv.hu": 2,
@@ -25,10 +25,10 @@
     "official": 4,
     "media": 4,
     "civil": 2,
-    "austrian": 7,
+    "austrian": 6,
     "gdelt": 6
   },
-  "summary": "Az ausztriai bányákból származó kőzúzalék azbeszttartalma miatt Kőszeg és Bozsok mellett Szombathely több területén is azbesztszennyezésről számolnak be (Kőszeg Önkormányzat – hivatalos, HVG – magyar média, 444 – magyar média). A Vas Vármegyei Kormányhivatal több lakossági fórumot és sajtótájékoztatót tartott, ahol a helyzetet részletesen ismertették, és hangsúlyozták a probléma sürgős, közös megoldásának szükségességét az egészség védelmében (hivatalos). Greenpeace Magyarország civil szervezetként azonnali intézkedéseket sürget, továbbá feljelentést tett az osztrák kőbányák ügye miatt (civil). Az osztrák médiában és szervezeteknél is foglalkoznak az üggyel, a Burgenland és környékén mérési sorozatok zajlanak, és hiányosságokat vélnek felfedezni a törvényi szabályozásban (osztrák). A helyi lakosság részére maszkosztást és folyamatos tájékoztatást biztosítanak, a további ügyintézés és a környezeti kockázatok kezelése folyamatban van.\n\n- Mi történt: Azbesztszennyezés az ausztriai bányákból származó kőzúzalék miatt Kőszeg, Bozsok, Szombathely területén.\n- Hivatalos forrás van-e: Igen, több önkormányzati és kormányhivatali tájékoztatás elérhető.\n- Osztrák kapcsolat: Azbeszt eredete és az üggyel kapcsolatos bányák Ausztriában, burgenlandi hatósági vizsgálatok.\n- Mire figyeljen a lakosság: Figyelmes tájékoztatás, maszkhasználat, a hatóságok utasításainak követése, a továbbterjedés megakadályozása.",
+  "summary": "Azbeszttartalmú kőzúzalékból eredő szennyezés jelent meg a Kőszeg, Bozsok és Szombathely környékén, amely az oladi plató környékén különösen súlyos helyzetet idézett elő. A Vas Vármegyei Kormányhivatal többször is tájékoztatta a lakosságot, valamint lakossági fórumokat tartottak a probléma megoldására, miközben hatósági és rendőrségi eljárások is indultak (hivatalos források). Kőszeg önkormányzata is közleményt adott ki, mely szerint az érintett területeken már megtették a szükséges intézkedéseket. Civil oldalról a Greenpeace Magyarország felhívást tett közzé, és feljelentést is benyújtott az osztrák bányák miatt, amelyekből az azbesztes kőzúzalék származhat (civil forrás). Az osztrák médiában és helyi politikában is téma, hogy Burgenland és Stájerország osztrák bányáiban hasonló azbesztszennyezés fordul elő (osztrák források).\n\n- Mi történt: Kőszeg, Bozsok, Szombathely térségében azbeszttartalmú kőzúzalékból eredő szennyezés jelent meg, hatósági eljárások indultak, lakossági fórumokat tartottak.\n- Hivatalos forrás van: Igen, Vas Vármegyei Kormányhivatal és Kőszeg Önkormányzata több tájékoztatást adott.\n- Osztrák kapcsolat: Az azbesztes kőzúzalék osztrák bányákból származhat, osztrák média és politikai források is tárgyalják az ügyet.\n- Lakosság figyelme: A por és szennyeződés minimalizálása, lakossági tájékoztatások és fórumok követése, egészségi kockázatok tudatosítása és az illetékes hatóságok utasításainak betartása szükséges.",
   "articles": [
     {
       "title": "Kőszeg Önkormányzat – Lakossági tájékoztató az ausztriai bányákból származó kőzúzalék azbeszttartalma miatt hozott intézkedésekről",
@@ -84,14 +84,6 @@
       "source_type": "official",
       "date": "",
       "url": "https://kormanyhivatalok.hu/kormanyhivatalok/vas/megye/hirek/hir/azbesztszennyezes-legfontosabb-lakossagi-informaciok",
-      "type": "html"
-    },
-    {
-      "title": "Asbest-Check von Greenpeace: Nur ein Bundesland handelt Greenpeace kritisiert fehlende Maßnahmen im Burgenland und in der Steiermark, Niederösterreich hatbereits reagiert. Zweite Messreihe startet demnächst.",
-      "source": "Kurier Burgenland",
-      "source_type": "austrian",
-      "date": "",
-      "url": "https://kurier.at/chronik/burgenland/greenpeace-asbest-burgenland-steiermark-niederoesterreich-massnahmen-gesundheit/403153112",
       "type": "html"
     },
     {

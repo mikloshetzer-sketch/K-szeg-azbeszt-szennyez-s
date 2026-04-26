@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-26T07:15:39.312339+00:00",
+  "generated_at": "2026-04-26T11:02:02.448373+00:00",
   "mode": "milestones_from_news",
   "events": [
     {
@@ -17,11 +17,11 @@
       "url": "https://www.greenpeace.org/hungary/sajtokozlemeny/13530/greenpeace-sulyos-azbesztveszely-szombathelyen-a-lakossag-biztonsaganak-erdekeben-azonnali-intezkezdesre-van-szukseg/"
     },
     {
-      "date": "Dátum nélkül",
+      "date": "2026-02-13",
       "title": "Osztrák vagy burgenlandi forrás is kapcsolódik az ügyhöz.",
-      "source": "Kurier Burgenland",
+      "source": "vol.at",
       "type": "austrian_context",
-      "url": "https://kurier.at/chronik/burgenland/greenpeace-asbest-burgenland-steiermark-niederoesterreich-massnahmen-gesundheit/403153112"
+      "url": "https://www.vol.at/greenpeace-reports-new-asbestos-findings-in-burgenland-and-styria/9988865"
     },
     {
       "date": "Folyamatos",
@@ -32,7 +32,7 @@
     },
     {
       "date": "Folyamatos",
-      "title": "A rendszer jelenleg 4 hivatalos, 2 civil, 7 osztrák/burgenlandi és 4 magyar médiatalálatot különít el.",
+      "title": "A rendszer jelenleg 4 hivatalos, 2 civil, 6 osztrák/burgenlandi és 4 magyar médiatalálatot különít el.",
       "source": "Automatikus monitoring",
       "type": "system_summary",
       "url": ""
