@@ -529,16 +529,13 @@
     }
 
     function escapeHtml(value) {
-      return String(value || '')
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;')
-        .replace(/"/g, '&quot;')
-        .replace(/'/g, '&#039;');
+      const div = document.createElement('div');
+      div.textContent = value || '';
+      return div.innerHTML;
     }
 
     async function openAustrianSummaryReport() {
-      let data;
+      let data = null;
 
       try {
         const response = await fetch('data/austrian-summary.json?t=' + Date.now());
@@ -549,26 +546,63 @@
         data = {
           generated_at: new Date().toISOString(),
           count: 0,
-          summary: 'Az osztrák / burgenlandi hírösszefoglaló jelenleg nem érhető el. Futtasd le a GitHub Actions workflow-t, majd próbáld újra.',
+          summary: 'Az osztrák és burgenlandi hírösszefoglaló jelenleg nem érhető el. Futtasd le a GitHub Actions workflow-t, majd próbáld újra.',
           articles: []
         };
       }
 
       const generated = data.generated_at ? new Date(data.generated_at).toLocaleString('hu-HU') : new Date().toLocaleString('hu-HU');
-      const summaryText = escapeHtml(data.summary || 'Nincs elérhető osztrák összefoglaló.').replace(/
-/g, '<br>');
       const count = data.count || 0;
+      const summary = escapeHtml(data.summary || 'Nincs elérhető osztrák összefoglaló.').replace(/
+/g, '<br>');
       const articles = Array.isArray(data.articles) ? data.articles : [];
 
-      const articleList = articles.length
-        ? articles.map(item => `<li><strong>${escapeHtml(item.source || 'Osztrák forrás')}</strong>: <a href="${escapeHtml(item.url || '#')}" target="_blank" rel="noopener">${escapeHtml(item.title || 'Cím nélkül')}</a> <em>${escapeHtml(item.date || '')}</em></li>`).join('')
-        : '<li>Nincs elérhető osztrák vagy burgenlandi hírforrás a külön jelentéshez.</li>';
+      let articleList = '<li>Nincs elérhető osztrák vagy burgenlandi hírforrás a külön jelentéshez.</li>';
+
+      if (articles.length) {
+        articleList = articles.map(function(item) {
+          const source = escapeHtml(item.source || 'Osztrák forrás');
+          const title = escapeHtml(item.title || 'Cím nélkül');
+          const date = escapeHtml(item.date || '');
+          const url = escapeHtml(item.url || '#');
+          return '<li><strong>' + source + '</strong>: <a href="' + url + '" target="_blank" rel="noopener">' + title + '</a> <em>' + date + '</em></li>';
+        }).join('');
+      }
+
+      const html = '<!DOCTYPE html>' +
+        '<html lang="hu">' +
+        '<head>' +
+        '<meta charset="utf-8">' +
+        '<title>Osztrák forrásösszefoglaló – Kőszeg Azbeszt Monitor</title>' +
+        '<style>' +
+        'body{font-family:Arial,sans-serif;margin:34px;line-height:1.55;color:#111}' +
+        'h1{font-size:24px;margin-bottom:8px}' +
+        'h2{margin-top:28px;border-bottom:1px solid #ddd;padding-bottom:6px}' +
+        'a{color:#0645ad}' +
+        '.warn{background:#fff7ed;border-left:5px solid #f59e0b;padding:12px;margin:18px 0}' +
+        '.summary{font-size:15px}' +
+        '.meta{color:#555;font-size:13px}' +
+        '</style>' +
+        '</head>' +
+        '<body>' +
+        '<h1>Osztrák és burgenlandi hírösszefoglaló</h1>' +
+        '<p class="meta"><strong>Készült:</strong> ' + generated + ' · <strong>Források száma:</strong> ' + count + '</p>' +
+        '<div class="warn">Tájékoztató jellegű automatikus összefoglaló. Nem hivatalos hatósági dokumentum, és nem helyettesíti az osztrák vagy magyar hivatalos közleményeket.</div>' +
+        '<h2>Magyar nyelvű összefoglaló</h2>' +
+        '<div class="summary">' + summary + '</div>' +
+        '<h2>Felhasznált osztrák / burgenlandi források</h2>' +
+        '<ul>' + articleList + '</ul>' +
+        '<p style="margin-top:30px;font-size:12px;color:#666">Forrás: data/austrian-summary.json, data/news.json, GitHub Actions monitoring.</p>' +
+        '</body>' +
+        '</html>';
 
       const report = window.open('', '_blank');
+      if (!report) return;
+
       report.document.open();
-      report.document.write(`<!DOCTYPE html><html lang="hu"><head><meta charset="utf-8"><title>Osztrák forrásösszefoglaló – Kőszeg Azbeszt Monitor</title><style>body{font-family:Arial,sans-serif;margin:34px;line-height:1.55;color:#111}h1{font-size:24px;margin-bottom:8px}h2{margin-top:28px;border-bottom:1px solid #ddd;padding-bottom:6px}a{color:#0645ad}.note{background:#eef3f7;border-left:5px solid #2563eb;padding:12px;margin:18px 0}.warn{background:#fff7ed;border-left:5px solid #f59e0b;padding:12px;margin:18px 0}.summary{white-space:normal;font-size:15px}.meta{color:#555;font-size:13px}</style></head><body><h1>Osztrák és burgenlandi hírösszefoglaló</h1><p class="meta"><strong>Készült:</strong> ${generated} · <strong>Források száma:</strong> ${count}</p><div class="warn">Tájékoztató jellegű automatikus összefoglaló. Nem hivatalos hatósági dokumentum, és nem helyettesíti az osztrák vagy magyar hivatalos közleményeket.</div><h2>Magyar nyelvű összefoglaló</h2><div class="summary">${summaryText}</div><h2>Felhasznált osztrák / burgenlandi források</h2><ul>${articleList}</ul><p style="margin-top:30px;font-size:12px;color:#666">Forrás: data/austrian-summary.json, data/news.json, GitHub Actions monitoring.</p></body></html>`);
+      report.document.write(html);
       report.document.close();
-      setTimeout(() => report.print(), 500);
+      setTimeout(function() { report.print(); }, 500);
     }
 
     async function start() {
