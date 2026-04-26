@@ -16,19 +16,13 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Generate news and milestone events JSON
+      - name: Generate news and reports
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           OPENAI_MODEL: gpt-4.1-mini
         run: |
           python3 <<'PY'
-          import os
-          import re
-          import json
-          import html
-          import urllib.parse
-          import urllib.request
-          import urllib.error
+          import os, re, json, html, urllib.parse, urllib.request, urllib.error
           import xml.etree.ElementTree as ET
           from datetime import datetime, timezone
           from email.utils import parsedate_to_datetime
@@ -132,7 +126,6 @@ jobs:
               match = re.search(r"(20\d{2})[-./](\d{1,2})[-./](\d{1,2})", value)
               if match:
                   return f"{match.group(1)}-{int(match.group(2)):02d}-{int(match.group(3)):02d}"
-
               return ""
 
           def is_blocked(title, url=""):
@@ -164,15 +157,12 @@ jobs:
 
               if has_local and has_issue:
                   return True
-
               if has_greenpeace and (has_local or has_issue):
                   return True
-
               return False
 
           def fetch_rss_source(source):
               items = []
-
               try:
                   xml_text = get_text(source["url"], timeout=25)
                   root = ET.fromstring(xml_text)
@@ -220,12 +210,10 @@ jobs:
 
               except Exception as exc:
                   print(f"RSS error for {source['name']}:", str(exc))
-
               return items
 
           def extract_links_from_html(page, base_url):
               links = []
-
               for href, title_html in re.findall(
                   r"<a[^>]+href=[\"']([^\"']+)[\"'][^>]*>(.*?)</a>",
                   page,
@@ -243,12 +231,10 @@ jobs:
                       href = urllib.parse.urljoin(base_url, href)
 
                   links.append((title, href))
-
               return links
 
           def fetch_html_source(source):
               items = []
-
               try:
                   page = get_text(source["url"], timeout=25)
 
@@ -265,7 +251,6 @@ jobs:
 
               except Exception as exc:
                   print(f"HTML source error for {source['name']}:", str(exc))
-
               return items
 
           def fetch_nyugat_targeted():
@@ -282,13 +267,10 @@ jobs:
 
                           if "nyugat.hu" not in parsed.netloc:
                               continue
-
                           if "/cikk/" not in parsed.path:
                               continue
-
                           if not relevant(title, href):
                               continue
-
                           if href in seen:
                               continue
 
@@ -326,7 +308,6 @@ jobs:
 
                       if not title or not link:
                           continue
-
                       if not relevant(title, link):
                           continue
 
@@ -364,7 +345,6 @@ jobs:
 
                   if not url or not title:
                       continue
-
                   if is_blocked(title, url):
                       continue
 
@@ -429,61 +409,20 @@ jobs:
 
               return "\n".join(chunks).strip()
 
-          def ai_summary(articles):
+          def call_openai(prompt, system_message, max_tokens=1100):
               api_key = os.getenv("OPENAI_API_KEY")
               model = os.getenv("OPENAI_MODEL", "gpt-4.1-mini")
 
               if not api_key:
                   return "AI-összefoglaló nincs bekapcsolva. A GitHub Secrets között add meg az OPENAI_API_KEY értéket."
 
-              compact = [
-                  {
-                      "title": a.get("title"),
-                      "source": a.get("source"),
-                      "source_type": a.get("source_type"),
-                      "date": a.get("date"),
-                      "url": a.get("url")
-                  }
-                  for a in articles[:18]
-              ]
-
-              prompt = (
-                  "Írj magyar nyelvű, olvasmányos, tárgyilagos sajtófigyelő összefoglalót "
-                  "a Kőszeg, Bozsok, Szombathely, Pilgersdorf és Burgenland térségét érintő "
-                  "azbeszt/kőzúzalék ügyről. "
-                  "A szöveg legyen gördülékeny, közérthető és mértéktartó, mintha egy helyi "
-                  "közéleti blog vagy regionális monitoring oldal bevezető helyzetképe lenne. "
-                  "Különbséget kell tenni hivatalos, önkormányzati, kormányhivatali, civil, "
-                  "magyar média és osztrák forrás között. "
-                  "Ne legyen pánikkeltő, ne állítson laboreredményt, hatósági döntést vagy "
-                  "egészségügyi következtetést, ha az nem következik egyértelműen a megadott "
-                  "forráslistából. "
-                  "Kerülje a túl technikai megfogalmazást és a sablonos bulletpontokat. "
-                  "A végén legyen egy külön 'Röviden:' rész három rövid mondattal arról, "
-                  "mi látszik most, milyen forrástípusok jelentek meg, és mire érdemes "
-                  "figyelni a következő napokban.\n\n"
-                  + json.dumps(compact, ensure_ascii=False, indent=2)
-              )
-
               body = {
                   "model": model,
                   "input": [
-                      {
-                          "role": "system",
-                          "content": (
-                              "Tárgyilagos, jól fogalmazó magyar sajtófigyelő és közéleti "
-                              "elemző vagy. Feladatod, hogy a forráslistából olvasmányos, "
-                              "pontos és mértéktartó helyzetképet írj. "
-                              "Nem dramatizálsz, nem találgatsz, és világosan elkülöníted "
-                              "a hivatalos, civil, média- és osztrák forrásokat."
-                          )
-                      },
-                      {
-                          "role": "user",
-                          "content": prompt
-                      }
+                      {"role": "system", "content": system_message},
+                      {"role": "user", "content": prompt}
                   ],
-                  "max_output_tokens": 1100
+                  "max_output_tokens": max_tokens
               }
 
               try:
@@ -512,6 +451,99 @@ jobs:
                   print("OpenAI summary error:", str(exc))
                   return "AI-összefoglaló hiba miatt nem készült el."
 
+          def ai_summary(articles):
+              compact = [
+                  {
+                      "title": a.get("title"),
+                      "source": a.get("source"),
+                      "source_type": a.get("source_type"),
+                      "date": a.get("date"),
+                      "url": a.get("url")
+                  }
+                  for a in articles[:18]
+              ]
+
+              prompt = (
+                  "Írj magyar nyelvű, olvasmányos, tárgyilagos sajtófigyelő összefoglalót "
+                  "a Kőszeg, Bozsok, Szombathely, Pilgersdorf és Burgenland térségét érintő "
+                  "azbeszt/kőzúzalék ügyről. "
+                  "A szöveg legyen gördülékeny, közérthető és mértéktartó. "
+                  "Különbséget kell tenni hivatalos, önkormányzati, kormányhivatali, civil, "
+                  "magyar média és osztrák forrás között. "
+                  "Ne legyen pánikkeltő, ne állítson laboreredményt, hatósági döntést vagy "
+                  "egészségügyi következtetést, ha az nem következik egyértelműen a megadott "
+                  "forráslistából. "
+                  "A végén legyen egy külön 'Röviden:' rész három rövid mondattal.\n\n"
+                  + json.dumps(compact, ensure_ascii=False, indent=2)
+              )
+
+              system_message = (
+                  "Tárgyilagos, jól fogalmazó magyar sajtófigyelő és közéleti elemző vagy. "
+                  "Olvasmányos, pontos és mértéktartó helyzetképet írsz. "
+                  "Nem dramatizálsz, nem találgatsz, és világosan elkülöníted a hivatalos, "
+                  "civil, média- és osztrák forrásokat."
+              )
+
+              return call_openai(prompt, system_message, 1100)
+
+          def ai_austrian_summary(articles):
+              austrian_articles = [
+                  a for a in articles
+                  if a.get("source_type") == "austrian"
+                  or ".at" in a.get("url", "")
+                  or "ORF" in a.get("source", "")
+                  or "Kurier" in a.get("source", "")
+                  or "MeinBezirk" in a.get("source", "")
+                  or "Der Standard" in a.get("source", "")
+              ]
+
+              compact = [
+                  {
+                      "title": a.get("title"),
+                      "source": a.get("source"),
+                      "date": a.get("date"),
+                      "url": a.get("url")
+                  }
+                  for a in austrian_articles[:15]
+              ]
+
+              if not compact:
+                  return {
+                      "generated_at": now_iso(),
+                      "count": 0,
+                      "summary": "Jelenleg nincs külön osztrák vagy burgenlandi hírtalálat a rendszerben.",
+                      "articles": []
+                  }
+
+              prompt = (
+                  "Készíts magyar nyelvű, olvasmányos, külön jelentésként használható összefoglalót "
+                  "az osztrák és burgenlandi források alapján. "
+                  "A téma a Kőszeg, Bozsok, Szombathely, Pilgersdorf, Bernstein és Burgenland térségét "
+                  "érintő azbeszt/kőzúzalék ügy. "
+                  "Ne fordítsd szó szerint a címeket, hanem foglald össze, mit lehet ezekből az osztrák "
+                  "forrásokból óvatosan megállapítani. "
+                  "Térj ki arra, hogy milyen szerepe van az osztrák forrásoknak, milyen települések vagy "
+                  "térségek jelennek meg, és miért fontos a határon átnyúló hírfigyelés. "
+                  "Ne állíts laboreredményt vagy hatósági döntést, ha azt a forráslista nem támasztja alá. "
+                  "A végén adj egy 'Figyelendő pontok' című rövid részt 3 ponttal.\n\n"
+                  + json.dumps(compact, ensure_ascii=False, indent=2)
+              )
+
+              system_message = (
+                  "Magyar nyelvű regionális OSINT-elemző vagy. "
+                  "Osztrák és burgenlandi hírforrásokból készítesz közérthető, tárgyilagos magyar összefoglalót. "
+                  "Nem dramatizálsz, nem találgatsz, és egyértelműen jelzed a bizonytalanságokat."
+              )
+
+              summary = call_openai(prompt, system_message, 1200)
+
+              return {
+                  "generated_at": now_iso(),
+                  "count": len(austrian_articles),
+                  "summary": summary,
+                  "articles": austrian_articles[:15]
+              }
+
           def first_article(articles, source_type):
               for item in articles:
                   if item.get("source_type") == source_type:
@@ -526,9 +558,7 @@ jobs:
                   key = re.sub(r"\W+", "", f"{date}{title}{source}".lower())[:120]
                   if key in seen:
                       return
-
                   seen.add(key)
-
                   events.append({
                       "date": date or "Dátum nélkül",
                       "title": title,
@@ -622,12 +652,12 @@ jobs:
           for item in all_news:
               source = item.get("source", "unknown")
               source_type = item.get("source_type", "unknown")
-
               source_counts[source] = source_counts.get(source, 0) + 1
               source_type_counts[source_type] = source_type_counts.get(source_type, 0) + 1
 
           summary = ai_summary(all_news)
           events = milestone_events(all_news)
+          austrian_summary = ai_austrian_summary(all_news)
 
           news_output = {
               "generated_at": now_iso(),
@@ -652,9 +682,14 @@ jobs:
           with open("data/events.json", "w", encoding="utf-8") as f:
               json.dump(events_output, f, ensure_ascii=False, indent=2)
 
+          with open("data/austrian-summary.json", "w", encoding="utf-8") as f:
+              json.dump(austrian_summary, f, ensure_ascii=False, indent=2)
+
           print("Generated data/news.json")
           print("Generated data/events.json")
+          print("Generated data/austrian-summary.json")
           print("Articles:", len(news_output["articles"]))
+          print("Austrian articles:", austrian_summary.get("count", 0))
           print("Milestone events:", len(events_output["events"]))
           print("Source types:", source_type_counts)
           PY
@@ -664,11 +699,11 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-          git add data/news.json data/events.json
+          git add data/news.json data/events.json data/austrian-summary.json
 
           if git diff --cached --quiet; then
             echo "No changes."
           else
-            git commit -m "Update news and milestone events database"
+            git commit -m "Update news, events and Austrian summary"
             git push
           fi
