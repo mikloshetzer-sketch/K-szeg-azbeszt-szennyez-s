@@ -1,0 +1,33 @@
+name: Kőszeg dokumentum crawler
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "scripts/crawl-koszeg-docs.js"
+      - ".github/workflows/crawl-koszeg-docs.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  crawl:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Repo letöltése
+        uses: actions/checkout@v4
+
+      - name: Node.js beállítása
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Crawler futtatása
+        run: node scripts/crawl-koszeg-docs.js
+
+      - name: Eredmények commitolása
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Frissített Kőszeg dokumentum crawler eredmények"
+          file_pattern: data/research/koszeg-doc-search-results.json
