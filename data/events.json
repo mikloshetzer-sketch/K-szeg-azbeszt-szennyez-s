@@ -1,12 +1,41 @@
 {
-  "generated_at": "2026-04-28T12:06:33.103385+00:00",
+  "generated_at": "2026-04-28T12:24:25.360452+00:00",
   "mode": "milestones_from_news",
   "events": [
     {
+      "date": "Dátum nélkül",
+      "title": "Hivatalos / önkormányzati tájékoztató szerepel a monitoringban.",
+      "source": "Vas Vármegyei Kormányhivatal",
+      "type": "official_notice",
+      "url": "https://kormanyhivatalok.hu/kormanyhivatalok/vas/megye/hirek/hir/azbeszthelyzet-szombathelyen-lakossagi-forumot-tartottak"
+    },
+    {
+      "date": "Dátum nélkül",
+      "title": "Greenpeace vagy más civil forrás is megjelent az ügyben.",
+      "source": "Greenpeace Magyarország",
+      "type": "civil_action",
+      "url": "https://www.greenpeace.org/hungary/sajtokozlemeny/13530/greenpeace-sulyos-azbesztveszely-szombathelyen-a-lakossag-biztonsaganak-erdekeben-azonnali-intezkezdesre-van-szukseg"
+    },
+    {
+      "date": "Dátum nélkül",
+      "title": "Osztrák vagy burgenlandi forrás is kapcsolódik az ügyhöz.",
+      "source": "ORF Burgenland",
+      "type": "austrian_context",
+      "url": "https://burgenland.orf.at/stories/3351817"
+    },
+    {
       "date": "Folyamatos",
-      "title": "A rendszer jelenleg 3 hivatalos, 14 civil, 2 osztrák/burgenlandi és 26 magyar médiatalálatot kezel.",
+      "title": "Jelentős magyar médiafigyelem: legalább 29 releváns magyar médiatalálat szerepel a rendszerben.",
+      "source": "Magyar médiafigyelés",
+      "type": "media_wave",
+      "url": ""
+    },
+    {
+      "date": "Folyamatos",
+      "title": "A rendszer jelenleg 5 hivatalos, 2 civil, 2 osztrák/burgenlandi, 29 magyar média és 0 egyéb GDELT-találatot különít el.",
       "source": "Automatikus monitoring",
-      "type": "system"
+      "type": "system_summary",
+      "url": ""
     }
   ]
 }
