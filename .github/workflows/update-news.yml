@@ -969,3 +969,4 @@ jobs:
             git commit -m "Update news, events and Austrian summary"
             git push
           fi
+
