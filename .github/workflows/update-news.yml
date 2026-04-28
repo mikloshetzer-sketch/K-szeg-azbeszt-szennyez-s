@@ -267,47 +267,35 @@ jobs:
               domain = domain_of(url)
               return "greenpeace.org" in domain or "greenpeace.at" in domain
 
-          def is_austrian_url(url):
-              domain = domain_of(url)
-              return (
-                  domain.endswith(".at")
-                  or "orf.at" in domain
-                  or "burgenland.orf.at" in domain
-                  or "kurier.at" in domain
-                  or "meinbezirk.at" in domain
-                  or "derstandard.at" in domain
-              )
-
-          def classify_source_type(url, fallback="gdelt"):
-              domain = domain_of(url)
-
-              for media_domain in HUNGARIAN_MEDIA_DOMAINS:
-                  if domain == media_domain or domain.endswith("." + media_domain):
-                      return "media"
-
-              if "greenpeace.org" in domain or "greenpeace.at" in domain:
-                  return "civil"
-
-              if is_austrian_url(url):
-                  return "austrian"
-
-              if domain.endswith(".hu"):
-                  return "media"
-
-              return fallback
-
           def classify_source_name(url, fallback="GDELT"):
               domain = domain_of(url)
+
               for media_domain, media_name in HUNGARIAN_MEDIA_DOMAINS.items():
                   if domain == media_domain or domain.endswith("." + media_domain):
                       return media_name
 
               if "greenpeace.org" in domain:
                   return "Greenpeace Magyarország"
+
               if "greenpeace.at" in domain:
                   return "Greenpeace Austria"
 
               return fallback
+
+          def classify_gdelt_source_type(link):
+              domain = domain_of(link)
+
+              if ".at" in link or "orf.at" in link:
+                  return "austrian"
+
+              for media_domain in HUNGARIAN_MEDIA_DOMAINS:
+                  if domain == media_domain or domain.endswith("." + media_domain):
+                      return "media"
+
+              if domain.endswith(".hu"):
+                  return "media"
+
+              return "gdelt"
 
           def is_blocked(title, url=""):
               text = f"{title} {url}".lower()
@@ -358,7 +346,7 @@ jobs:
                   if not channel_items:
                       channel_items = root.findall(".//{http://www.w3.org/2005/Atom}entry")
 
-                  for item in channel_items[:80]:
+                  for item in channel_items[:150]:
                       title = ""
                       link = ""
                       date = ""
@@ -397,6 +385,7 @@ jobs:
 
               except Exception as exc:
                   print(f"RSS error for {source['name']}:", str(exc))
+
               return items
 
           def extract_links_from_html(page, base_url):
@@ -417,13 +406,14 @@ jobs:
                       href = urllib.parse.urljoin(base_url, href)
 
                   links.append((title, href))
+
               return links
 
           def fetch_html_source(source):
               items = []
               try:
                   page = get_text(source["url"], timeout=25)
-                  for title, href in extract_links_from_html(page, source["url"])[:300]:
+                  for title, href in extract_links_from_html(page, source["url"])[:500]:
                       if relevant(title, href):
                           items.append({
                               "title": title,
@@ -433,8 +423,10 @@ jobs:
                               "url": href,
                               "type": "html"
                           })
+
               except Exception as exc:
                   print(f"HTML source error for {source['name']}:", str(exc))
+
               return items
 
           def fetch_nyugat_targeted():
@@ -446,19 +438,22 @@ jobs:
                       page = get_text(url, timeout=25)
                       candidates = extract_links_from_html(page, url)
 
-                      for title, href in candidates[:400]:
+                      for title, href in candidates[:800]:
                           parsed = urllib.parse.urlparse(href)
 
                           if "nyugat.hu" not in parsed.netloc:
                               continue
+
                           if "/cikk/" not in parsed.path:
                               continue
+
                           if not relevant(title, href):
                               continue
 
                           key = normalized_url(href)
                           if key in seen:
                               continue
+
                           seen.add(key)
 
                           items.append({
@@ -475,6 +470,7 @@ jobs:
 
               print("Nyugat targeted items:", len(items))
               return items
+
           def fetch_targeted_hungarian_media():
               items = []
               seen = set()
@@ -488,7 +484,7 @@ jobs:
                           page = get_text(url, timeout=25)
                           candidates = extract_links_from_html(page, url)
 
-                          for title, href in candidates[:500]:
+                          for title, href in candidates[:700]:
                               parsed = urllib.parse.urlparse(href)
                               netloc = parsed.netloc.lower().replace("www.", "")
 
@@ -531,7 +527,7 @@ jobs:
               encoded = urllib.parse.quote(QUERY)
               url = (
                   "https://api.gdeltproject.org/api/v2/doc/doc?"
-                  f"query={encoded}&mode=ArtList&format=json&maxrecords=60&sort=HybridRel"
+                  f"query={encoded}&mode=ArtList&format=json&maxrecords=80&sort=HybridRel"
               )
 
               try:
@@ -544,6 +540,7 @@ jobs:
 
                       if not title or not link:
                           continue
+
                       if not relevant(title, link):
                           continue
 
@@ -553,8 +550,8 @@ jobs:
                       if len(date_raw) >= 8:
                           date = f"{date_raw[0:4]}-{date_raw[4:6]}-{date_raw[6:8]}"
 
+                      source_type = classify_gdelt_source_type(link)
                       source_name = classify_source_name(link, item.get("domain") or "GDELT")
-                      source_type = classify_source_type(link, "gdelt")
 
                       articles.append({
                           "title": title,
@@ -582,7 +579,11 @@ jobs:
 
                   if not url or not title:
                       continue
+
                   if is_blocked(title, url):
+                      continue
+
+                  if is_greenpeace_url(url) and not greenpeace_relevant(title, url):
                       continue
 
                   url_key = normalized_url(url)
@@ -615,12 +616,12 @@ jobs:
               elif source_type == "austrian":
                   score += 90
               elif source_type == "media":
-                  score += 75
+                  score += 70
               else:
                   score += 40
 
               if "nyugat" in source or "nyugat.hu" in url:
-                  score += 20
+                  score += 45
 
               for national in ["telex", "hvg", "444", "portfolio"]:
                   if national in source or national in url:
@@ -1005,7 +1006,7 @@ jobs:
               all_news,
               key=lambda item: item.get("date", ""),
               reverse=True
-          )[:6]
+          )[:8]
 
           source_counts = {}
           source_type_counts = {}
@@ -1026,12 +1027,12 @@ jobs:
               "generated_at": now_iso(),
               "refresh_hours": 6,
               "query": QUERY,
-              "mode": "rss_html_gdelt_ai_filtered_nyugat_targeted_national_media_austrian_restored",
+              "mode": "rss_html_gdelt_ai_filtered_original_austrian_nyugat_priority_restored",
               "source_counts": source_counts,
               "source_type_counts": source_type_counts,
               "summary": summary,
               "latest_articles": latest_news,
-              "articles": all_news[:60]
+              "articles": all_news[:120]
           }
 
           events_output = {
