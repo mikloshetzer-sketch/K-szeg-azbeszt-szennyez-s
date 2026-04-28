@@ -30,7 +30,7 @@ const KEYWORDS = [
   "tonna"
 ];
 
-const MAX_PAGES = 80;
+const MAX_PAGES = 160;
 
 function normalizeUrl(href, baseUrl) {
   try {
@@ -42,6 +42,27 @@ function normalizeUrl(href, baseUrl) {
 
 function isKoszegUrl(url) {
   return url.startsWith("https://koszeg.hu/");
+}
+
+function isDocumentLink(url) {
+  const lower = url.toLowerCase();
+
+  return (
+    lower.endsWith(".pdf") ||
+    lower.includes("download.php") ||
+    lower.includes("eloterjesztes.php")
+  );
+}
+
+function shouldFollowLink(url) {
+  return (
+    url.includes("/hirek/") ||
+    url.includes("/ulesek/") ||
+    url.includes("/projektek/") ||
+    url.includes("content.php") ||
+    url.includes("ules.php") ||
+    url.includes("index.php?ev=")
+  );
 }
 
 function findKeywordMatches(text) {
@@ -86,7 +107,7 @@ async function crawl() {
   const visited = new Set();
   const queue = [...START_URLS];
   const results = [];
-  const pdfLinks = new Set();
+  const documentLinks = new Set();
 
   while (queue.length > 0 && visited.size < MAX_PAGES) {
     const url = queue.shift();
@@ -102,17 +123,12 @@ async function crawl() {
       const links = extractLinks(html, url);
 
       for (const link of links) {
-        if (link.toLowerCase().endsWith(".pdf")) {
-          pdfLinks.add(link);
-        } else if (
-          !visited.has(link) &&
-          (
-            link.includes("/hirek/") ||
-            link.includes("/ulesek/") ||
-            link.includes("/projektek/") ||
-            link.includes("/downloadmanager/")
-          )
-        ) {
+        if (isDocumentLink(link)) {
+          documentLinks.add(link);
+          continue;
+        }
+
+        if (!visited.has(link) && shouldFollowLink(link)) {
           queue.push(link);
         }
       }
@@ -137,14 +153,14 @@ async function crawl() {
     }
   }
 
-  for (const pdfUrl of pdfLinks) {
+  for (const docUrl of documentLinks) {
     results.push({
-      type: "pdf_link",
-      url: pdfUrl,
+      type: "document_link",
+      url: docUrl,
       checked_at: new Date().toISOString(),
       matched_keywords: [],
       has_relevant_match: false,
-      note: "PDF-link kigyűjtve, tartalmi elemzés következő lépésben."
+      note: "Dokumentumlink kigyűjtve, tartalmi elemzés későbbi lépésben."
     });
   }
 
@@ -158,7 +174,7 @@ async function crawl() {
 
   console.log(`Kész: ${OUTPUT_FILE}`);
   console.log(`Bejárt oldalak: ${visited.size}`);
-  console.log(`Talált PDF-ek: ${pdfLinks.size}`);
+  console.log(`Talált dokumentumlinkek: ${documentLinks.size}`);
 }
 
 crawl();
