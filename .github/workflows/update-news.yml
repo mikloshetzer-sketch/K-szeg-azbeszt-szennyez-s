@@ -338,7 +338,10 @@ jobs:
                       "maszk",
                       "lezárt",
                       "bezárt",
-                      "óvintézkedés"
+                      "óvintézkedés",
+                      "újranyitnák",
+                      "burgelandi",
+                      "bányákat"
                   ]
 
                   if any(term in text for term in nyugat_terms):
