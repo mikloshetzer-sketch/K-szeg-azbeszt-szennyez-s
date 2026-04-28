@@ -1,0 +1,29 @@
+[
+  {
+    "source": "Kőszeg hivatalos oldal",
+    "url": "https://koszeg.hu/hu/onkormanyzat/hirek/",
+    "checked_at": "2026-04-28T20:57:26.637Z",
+    "matched_keywords": [
+      "azbeszt",
+      "zúzalék",
+      "Bernstein"
+    ],
+    "has_relevant_match": true
+  },
+  {
+    "source": "Kőszeg hivatalos oldal",
+    "url": "https://koszeg.hu/hu/onkormanyzat/testulet/ulesek/",
+    "checked_at": "2026-04-28T20:57:26.814Z",
+    "matched_keywords": [],
+    "has_relevant_match": false
+  },
+  {
+    "source": "Kőszeg hivatalos oldal",
+    "url": "https://koszeg.hu/hu/onkormanyzat/projektek/",
+    "checked_at": "2026-04-28T20:57:26.986Z",
+    "matched_keywords": [
+      "csapadékvíz"
+    ],
+    "has_relevant_match": true
+  }
+]
