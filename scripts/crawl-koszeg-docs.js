@@ -2,12 +2,33 @@ const fs = require("fs");
 const path = require("path");
 
 const OUTPUT_DIR = path.join(__dirname, "..", "data", "research");
-const OUTPUT_FILE = path.join(OUTPUT_DIR, "koszeg-doc-search-results.json");
+const OUTPUT_FILE = path.join(
+  OUTPUT_DIR,
+  "koszeg-doc-search-results.json"
+);
+
+const YEARS = [
+  2015,
+  2016,
+  2017,
+  2018,
+  2019,
+  2020,
+  2021,
+  2022,
+  2023,
+  2024,
+  2025,
+  2026
+];
 
 const START_URLS = [
   "https://koszeg.hu/hu/onkormanyzat/hirek/",
-  "https://koszeg.hu/hu/onkormanyzat/testulet/ulesek/",
-  "https://koszeg.hu/hu/onkormanyzat/projektek/"
+  "https://koszeg.hu/hu/onkormanyzat/projektek/",
+  ...YEARS.map(
+    (year) =>
+      `https://koszeg.hu/hu/onkormanyzat/testulet/ulesek/index.php?ev=${year}`
+  )
 ];
 
 const KEYWORDS = [
@@ -30,7 +51,7 @@ const KEYWORDS = [
   "tonna"
 ];
 
-const MAX_PAGES = 160;
+const MAX_PAGES = 300;
 
 function normalizeUrl(href, baseUrl) {
   try {
@@ -75,9 +96,12 @@ function findKeywordMatches(text) {
 
 function extractLinks(html, baseUrl) {
   const links = [];
-  const regex = /<a\s+(?:[^>]*?\s+)?href=["']([^"']+)["']/gi;
+
+  const regex =
+    /<a\s+(?:[^>]*?\s+)?href=["']([^"']+)["']/gi;
 
   let match;
+
   while ((match = regex.exec(html)) !== null) {
     const url = normalizeUrl(match[1], baseUrl);
 
@@ -106,20 +130,29 @@ async function fetchText(url) {
 async function crawl() {
   const visited = new Set();
   const queue = [...START_URLS];
+
   const results = [];
   const documentLinks = new Set();
 
-  while (queue.length > 0 && visited.size < MAX_PAGES) {
+  while (
+    queue.length > 0 &&
+    visited.size < MAX_PAGES
+  ) {
     const url = queue.shift();
 
-    if (visited.has(url)) continue;
+    if (visited.has(url)) {
+      continue;
+    }
+
     visited.add(url);
 
     console.log(`Ellenőrzés: ${url}`);
 
     try {
       const html = await fetchText(url);
+
       const matches = findKeywordMatches(html);
+
       const links = extractLinks(html, url);
 
       for (const link of links) {
@@ -128,7 +161,10 @@ async function crawl() {
           continue;
         }
 
-        if (!visited.has(link) && shouldFollowLink(link)) {
+        if (
+          !visited.has(link) &&
+          shouldFollowLink(link)
+        ) {
           queue.push(link);
         }
       }
@@ -138,7 +174,8 @@ async function crawl() {
         url,
         checked_at: new Date().toISOString(),
         matched_keywords: matches,
-        has_relevant_match: matches.length > 0,
+        has_relevant_match:
+          matches.length > 0,
         discovered_links: links.length
       });
     } catch (error) {
@@ -160,11 +197,14 @@ async function crawl() {
       checked_at: new Date().toISOString(),
       matched_keywords: [],
       has_relevant_match: false,
-      note: "Dokumentumlink kigyűjtve, tartalmi elemzés későbbi lépésben."
+      note:
+        "Dokumentumlink kigyűjtve, tartalmi elemzés későbbi lépésben."
     });
   }
 
-  fs.mkdirSync(OUTPUT_DIR, { recursive: true });
+  fs.mkdirSync(OUTPUT_DIR, {
+    recursive: true
+  });
 
   fs.writeFileSync(
     OUTPUT_FILE,
@@ -172,9 +212,17 @@ async function crawl() {
     "utf8"
   );
 
-  console.log(`Kész: ${OUTPUT_FILE}`);
-  console.log(`Bejárt oldalak: ${visited.size}`);
-  console.log(`Talált dokumentumlinkek: ${documentLinks.size}`);
+  console.log(
+    `Kész: ${OUTPUT_FILE}`
+  );
+
+  console.log(
+    `Bejárt oldalak: ${visited.size}`
+  );
+
+  console.log(
+    `Talált dokumentumlinkek: ${documentLinks.size}`
+  );
 }
 
 crawl();
