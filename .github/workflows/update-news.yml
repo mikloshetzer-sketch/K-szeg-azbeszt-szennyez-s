@@ -458,7 +458,8 @@ jobs:
 
               print("Nyugat targeted items:", len(items))
               return items
-                        def fetch_targeted_hungarian_media():
+              
+          def fetch_targeted_hungarian_media():
               items = []
               seen = set()
 
