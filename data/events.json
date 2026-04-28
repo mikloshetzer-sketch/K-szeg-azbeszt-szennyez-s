@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-28T10:15:12.161661+00:00",
+  "generated_at": "2026-04-28T11:30:43.377280+00:00",
   "mode": "milestones_from_news",
   "events": [
     {
@@ -17,22 +17,22 @@
       "url": "https://www.greenpeace.org/hungary/sajtokozlemeny/13530/greenpeace-sulyos-azbesztveszely-szombathelyen-a-lakossag-biztonsaganak-erdekeben-azonnali-intezkezdesre-van-szukseg"
     },
     {
-      "date": "2026-04-27",
+      "date": "Dátum nélkül",
       "title": "Osztrák vagy burgenlandi forrás is kapcsolódik az ügyhöz.",
-      "source": "Der Standard",
+      "source": "ORF Burgenland",
       "type": "austrian_context",
-      "url": "https://www.derstandard.at/story/3000000318472/asbest-im-burgenland-steinbruch-betreiber-kontern-kritik?ref=rss"
+      "url": "https://burgenland.orf.at/stories/3351817"
     },
     {
       "date": "Folyamatos",
-      "title": "Jelentős magyar médiafigyelem: legalább 38 releváns magyar médiatalálat szerepel a rendszerben.",
+      "title": "Jelentős magyar médiafigyelem: legalább 29 releváns magyar médiatalálat szerepel a rendszerben.",
       "source": "Magyar médiafigyelés",
       "type": "media_wave",
       "url": ""
     },
     {
       "date": "Folyamatos",
-      "title": "A rendszer jelenleg 3 hivatalos, 124 civil, 4 osztrák/burgenlandi, 38 magyar média és 0 egyéb GDELT-találatot különít el.",
+      "title": "A rendszer jelenleg 3 hivatalos, 124 civil, 2 osztrák/burgenlandi, 29 magyar média és 0 egyéb GDELT-találatot különít el.",
       "source": "Automatikus monitoring",
       "type": "system_summary",
       "url": ""
