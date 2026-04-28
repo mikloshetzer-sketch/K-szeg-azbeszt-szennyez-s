@@ -34,6 +34,28 @@ jobs:
           (azbeszt OR aszbeszt OR kőzúzalék OR kőbánya OR serpentinit OR Asbest OR Steinbruch OR Schotter OR Greenpeace)
           '''
 
+          RSS_SOURCES = [
+              {"name": "Telex", "url": "https://telex.hu/rss", "type": "media"},
+              {"name": "HVG", "url": "https://hvg.hu/rss", "type": "media"},
+              {"name": "444", "url": "https://444.hu/feed", "type": "media"},
+              {"name": "24.hu", "url": "https://24.hu/feed/", "type": "media"},
+              {"name": "Portfolio", "url": "https://www.portfolio.hu/rss", "type": "media"},
+              {"name": "Portfolio gazdaság", "url": "https://www.portfolio.hu/rss/gazdasag.xml", "type": "media"},
+              {"name": "Euronews HU", "url": "https://hu.euronews.com/rss", "type": "media"},
+              {"name": "Der Standard", "url": "https://www.derstandard.at/rss", "type": "austrian"}
+          ]
+
+          HTML_SOURCES = [
+              {"name": "Kőszeg Önkormányzat", "url": "https://koszeg.hu/hu/aktualis/hirek", "type": "official"},
+              {"name": "Vas Vármegyei Kormányhivatal", "url": "https://kormanyhivatalok.hu/kormanyhivatalok/vas/megye/hirek", "type": "official"},
+              {"name": "VAOL", "url": "https://www.vaol.hu/", "type": "media"},
+              {"name": "Greenpeace Magyarország", "url": "https://www.greenpeace.org/hungary/", "type": "civil"},
+              {"name": "Greenpeace Austria", "url": "https://greenpeace.at/presse/", "type": "civil"},
+              {"name": "ORF Burgenland", "url": "https://burgenland.orf.at/", "type": "austrian"},
+              {"name": "Kurier Burgenland", "url": "https://kurier.at/chronik/burgenland", "type": "austrian"},
+              {"name": "MeinBezirk Burgenland", "url": "https://www.meinbezirk.at/burgenland", "type": "austrian"}
+          ]
+
           TARGETED_HUNGARIAN_MEDIA = [
               {
                   "name": "Telex",
@@ -97,28 +119,6 @@ jobs:
               }
           ]
 
-          RSS_SOURCES = [
-              {"name": "Telex", "url": "https://telex.hu/rss", "type": "media"},
-              {"name": "HVG", "url": "https://hvg.hu/rss", "type": "media"},
-              {"name": "444", "url": "https://444.hu/feed", "type": "media"},
-              {"name": "24.hu", "url": "https://24.hu/feed/", "type": "media"},
-              {"name": "Portfolio", "url": "https://www.portfolio.hu/rss", "type": "media"},
-              {"name": "Portfolio gazdaság", "url": "https://www.portfolio.hu/rss/gazdasag.xml", "type": "media"},
-              {"name": "Euronews HU", "url": "https://hu.euronews.com/rss", "type": "media"},
-              {"name": "Der Standard", "url": "https://www.derstandard.at/rss", "type": "austrian"}
-          ]
-
-          HTML_SOURCES = [
-              {"name": "Kőszeg Önkormányzat", "url": "https://koszeg.hu/hu/aktualis/hirek", "type": "official"},
-              {"name": "Vas Vármegyei Kormányhivatal", "url": "https://kormanyhivatalok.hu/kormanyhivatalok/vas/megye/hirek", "type": "official"},
-              {"name": "VAOL", "url": "https://www.vaol.hu/", "type": "media"},
-              {"name": "Greenpeace Magyarország", "url": "https://www.greenpeace.org/hungary/", "type": "civil"},
-              {"name": "Greenpeace Austria", "url": "https://greenpeace.at/presse/", "type": "civil"},
-              {"name": "ORF Burgenland", "url": "https://burgenland.orf.at/", "type": "austrian"},
-              {"name": "Kurier Burgenland", "url": "https://kurier.at/chronik/burgenland", "type": "austrian"},
-              {"name": "MeinBezirk Burgenland", "url": "https://www.meinbezirk.at/burgenland", "type": "austrian"}
-          ]
-
           NYUGAT_URLS = [
               "https://www.nyugat.hu/",
               "https://www.nyugat.hu/rovat/hirek"
@@ -149,7 +149,7 @@ jobs:
               "newsletter", "jobs", "karriere", "shop", "donate", "membership",
               "volunteer", "advert", "reklam", "impressum", "adatvedelem",
               "privacy", "cookie", "login", "belepes", "belépés", "előfizetés",
-              "elofizetes", "podcast", "videó", "video"
+              "elofizetes"
           ]
 
           GREENPEACE_HARD_BLOCKLIST = [
@@ -157,19 +157,34 @@ jobs:
               "petition", "peticio", "petíció", "newsletter", "hirlevel", "hírlevél",
               "jobs", "karriere", "campaign", "kampany", "kampány", "mitmachen",
               "volunteer", "onkentes", "önkéntes", "shop", "impressum", "privacy",
-              "adatvedelem", "cookie"
+              "adatvedelem", "cookie", "csapathír", "csapatunk", "természet & környezet",
+              "ember & társadalom", "személyes", "hírek és média"
           ]
 
           LOCAL_TERMS = [
-              "kőszeg", "koszeg", "bozsok", "szombathely", "vas vármegye", "vas megye",
+              "kőszeg", "koszeg", "bozsok", "szombathely", "vas",
               "pilgersdorf", "burgenland", "bernstein", "borostyánkő"
           ]
 
           ISSUE_TERMS = [
-              "azbeszt", "aszbeszt", "asbest", "asbestbelastung", "asbestverschmutzung",
-              "kőzúzalék", "kozuzalek", "kőbánya", "kobanya", "steinbruch", "schotter",
-              "gestein", "verunreinigung", "serpentinit", "szennyez", "maszk", "közterület",
-              "kozterulet"
+              "azbeszt", "aszbeszt", "asbest", "asbestbelastung",
+              "asbestverschmutzung", "kőzúzalék", "kozuzalek", "kőbánya",
+              "kobanya", "steinbruch", "schotter", "gestein", "verunreinigung",
+              "serpentinit", "bernsztein", "bernstein", "szennyez",
+              "maszk", "közterület", "kozterulet"
+          ]
+
+          GREENPEACE_LOCAL_TERMS = [
+              "kőszeg", "koszeg", "bozsok", "szombathely",
+              "pilgersdorf", "burgenland", "bernstein", "borostyánkő"
+          ]
+
+          GREENPEACE_ISSUE_TERMS = [
+              "azbeszt", "aszbeszt", "asbest",
+              "kőzúzalék", "kozuzalek",
+              "kőbánya", "kobanya",
+              "steinbruch", "schotter",
+              "serpentinit"
           ]
 
           HUNGARIAN_MEDIA_DOMAINS = {
@@ -182,10 +197,6 @@ jobs:
               "nyugat.hu": "Nyugat.hu",
               "hu.euronews.com": "Euronews HU"
           }
-
-          AUSTRIAN_DOMAINS = [
-              ".at", "orf.at", "derstandard.at", "kurier.at", "meinbezirk.at", "burgenland.orf.at"
-          ]
 
           def now_iso():
               return datetime.now(timezone.utc).isoformat()
@@ -256,6 +267,17 @@ jobs:
               domain = domain_of(url)
               return "greenpeace.org" in domain or "greenpeace.at" in domain
 
+          def is_austrian_url(url):
+              domain = domain_of(url)
+              return (
+                  domain.endswith(".at")
+                  or "orf.at" in domain
+                  or "burgenland.orf.at" in domain
+                  or "kurier.at" in domain
+                  or "meinbezirk.at" in domain
+                  or "derstandard.at" in domain
+              )
+
           def classify_source_type(url, fallback="gdelt"):
               domain = domain_of(url)
 
@@ -266,7 +288,7 @@ jobs:
               if "greenpeace.org" in domain or "greenpeace.at" in domain:
                   return "civil"
 
-              if domain.endswith(".at") or any(marker in domain for marker in AUSTRIAN_DOMAINS if not marker.startswith(".")):
+              if is_austrian_url(url):
                   return "austrian"
 
               if domain.endswith(".hu"):
@@ -279,10 +301,12 @@ jobs:
               for media_domain, media_name in HUNGARIAN_MEDIA_DOMAINS.items():
                   if domain == media_domain or domain.endswith("." + media_domain):
                       return media_name
+
               if "greenpeace.org" in domain:
                   return "Greenpeace Magyarország"
               if "greenpeace.at" in domain:
                   return "Greenpeace Austria"
+
               return fallback
 
           def is_blocked(title, url=""):
@@ -305,17 +329,10 @@ jobs:
               if is_greenpeace_blocked(title, url):
                   return False
 
-              if has_local_and_issue(text):
-                  return True
+              has_local = any(term in text for term in GREENPEACE_LOCAL_TERMS)
+              has_issue = any(term in text for term in GREENPEACE_ISSUE_TERMS)
 
-              try:
-                  page = get_text(url, timeout=20)
-                  page_text = clean_text(page).lower()
-                  combined = f"{text} {page_text[:12000]}"
-                  return has_local_and_issue(combined)
-              except Exception as exc:
-                  print("Greenpeace article check error:", url, str(exc))
-                  return False
+              return has_local and has_issue
 
           def relevant(title, url=""):
               text = f"{title} {url}".lower()
@@ -458,8 +475,7 @@ jobs:
 
               print("Nyugat targeted items:", len(items))
               return items
-              
-          def fetch_targeted_hungarian_media():
+                    def fetch_targeted_hungarian_media():
               items = []
               seen = set()
 
@@ -491,7 +507,6 @@ jobs:
                                   continue
 
                               key = normalized_url(href)
-
                               if key in seen:
                                   continue
 
@@ -514,7 +529,6 @@ jobs:
 
           def fetch_gdelt():
               encoded = urllib.parse.quote(QUERY)
-
               url = (
                   "https://api.gdeltproject.org/api/v2/doc/doc?"
                   f"query={encoded}&mode=ArtList&format=json&maxrecords=60&sort=HybridRel"
@@ -530,7 +544,6 @@ jobs:
 
                       if not title or not link:
                           continue
-
                       if not relevant(title, link):
                           continue
 
@@ -540,11 +553,7 @@ jobs:
                       if len(date_raw) >= 8:
                           date = f"{date_raw[0:4]}-{date_raw[4:6]}-{date_raw[6:8]}"
 
-                      source_name = classify_source_name(
-                          link,
-                          item.get("domain") or "GDELT"
-                      )
-
+                      source_name = classify_source_name(link, item.get("domain") or "GDELT")
                       source_type = classify_source_type(link, "gdelt")
 
                       articles.append({
@@ -565,7 +574,6 @@ jobs:
           def deduplicate(items):
               seen_urls = set()
               seen_titles = set()
-
               clean = []
 
               for item in items:
@@ -574,7 +582,6 @@ jobs:
 
                   if not url or not title:
                       continue
-
                   if is_blocked(title, url):
                       continue
 
@@ -589,7 +596,6 @@ jobs:
 
                   item["title"] = title
                   item["url"] = url_key or url
-
                   clean.append(item)
 
               return clean
@@ -633,12 +639,10 @@ jobs:
 
           def extract_openai_text(data):
               text = data.get("output_text", "")
-
               if isinstance(text, str) and text.strip():
                   return text.strip()
 
               chunks = []
-
               for item in data.get("output", []):
                   for content in item.get("content", []):
                       if content.get("type") in ("output_text", "text"):
@@ -651,7 +655,7 @@ jobs:
               model = os.getenv("OPENAI_MODEL", "gpt-4.1-mini")
 
               if not api_key:
-                  return "AI-összefoglaló nincs bekapcsolva."
+                  return "AI-összefoglaló nincs bekapcsolva. A GitHub Secrets között add meg az OPENAI_API_KEY értéket."
 
               body = {
                   "model": model,
@@ -678,6 +682,12 @@ jobs:
 
                   return extract_openai_text(data) or "AI-összefoglaló nem készült."
 
+              except urllib.error.HTTPError as exc:
+                  error_body = exc.read().decode("utf-8", errors="replace")
+                  print("OpenAI HTTP error:", exc.code)
+                  print(error_body[:3000])
+                  return f"AI-összefoglaló hiba miatt nem készült el. OpenAI HTTP hiba: {exc.code}."
+
               except Exception as exc:
                   print("OpenAI summary error:", str(exc))
                   return "AI-összefoglaló hiba miatt nem készült el."
@@ -697,51 +707,282 @@ jobs:
               prompt = (
                   "Írj magyar nyelvű, olvasmányos, tárgyilagos sajtófigyelő összefoglalót "
                   "a Kőszeg, Bozsok, Szombathely, Pilgersdorf és Burgenland térségét érintő "
-                  "azbeszt/kőzúzalék ügyről.\n\n"
+                  "azbeszt/kőzúzalék ügyről. A szöveg legyen gördülékeny, közérthető és mértéktartó. "
+                  "Különbséget kell tenni hivatalos, önkormányzati, kormányhivatali, civil, magyar média "
+                  "és osztrák forrás között. Ne legyen pánikkeltő, ne állítson laboreredményt, hatósági döntést "
+                  "vagy egészségügyi következtetést, ha az nem következik egyértelműen a megadott forráslistából. "
+                  "A végén legyen egy külön 'Röviden:' rész három rövid mondattal.\n\n"
                   + json.dumps(compact, ensure_ascii=False, indent=2)
               )
 
               system_message = (
-                  "Tárgyilagos magyar sajtófigyelő és regionális elemző vagy."
+                  "Tárgyilagos, jól fogalmazó magyar sajtófigyelő és közéleti elemző vagy. "
+                  "Olvasmányos, pontos és mértéktartó helyzetképet írsz. Nem dramatizálsz, "
+                  "nem találgatsz, és világosan elkülöníted a hivatalos, civil, média- és osztrák forrásokat."
               )
 
               return call_openai(prompt, system_message, 1100)
 
+          def ai_austrian_summary(articles):
+              austrian_articles = [
+                  a for a in articles
+                  if a.get("source_type") == "austrian"
+                  or ".at" in a.get("url", "")
+                  or "ORF" in a.get("source", "")
+                  or "Kurier" in a.get("source", "")
+                  or "MeinBezirk" in a.get("source", "")
+                  or "Der Standard" in a.get("source", "")
+              ]
+
+              compact = [
+                  {
+                      "title": a.get("title"),
+                      "source": a.get("source"),
+                      "date": a.get("date"),
+                      "url": a.get("url")
+                  }
+                  for a in austrian_articles[:15]
+              ]
+
+              if not compact:
+                  return {
+                      "generated_at": now_iso(),
+                      "count": 0,
+                      "summary": "Jelenleg nincs külön osztrák vagy burgenlandi hírtalálat a rendszerben.",
+                      "articles": []
+                  }
+
+              prompt = (
+                  "Készíts magyar nyelvű, olvasmányos, külön jelentésként használható összefoglalót "
+                  "az osztrák és burgenlandi források alapján. A téma a Kőszeg, Bozsok, Szombathely, "
+                  "Pilgersdorf, Bernstein és Burgenland térségét érintő azbeszt/kőzúzalék ügy. "
+                  "Ne fordítsd szó szerint a címeket, hanem foglald össze, mit lehet ezekből az osztrák "
+                  "forrásokból óvatosan megállapítani. Térj ki arra, hogy milyen szerepe van az osztrák "
+                  "forrásoknak, milyen települések vagy térségek jelennek meg, és miért fontos a határon "
+                  "átnyúló hírfigyelés. Ne állíts laboreredményt vagy hatósági döntést, ha azt a forráslista "
+                  "nem támasztja alá. A végén adj egy 'Figyelendő pontok' című rövid részt 3 ponttal.\n\n"
+                  + json.dumps(compact, ensure_ascii=False, indent=2)
+              )
+
+              system_message = (
+                  "Magyar nyelvű regionális OSINT-elemző vagy. Osztrák és burgenlandi hírforrásokból "
+                  "készítesz közérthető, tárgyilagos magyar összefoglalót. Nem dramatizálsz, nem találgatsz, "
+                  "és egyértelműen jelzed a bizonytalanságokat."
+              )
+
+              summary = call_openai(prompt, system_message, 1200)
+
+              return {
+                  "generated_at": now_iso(),
+                  "count": len(austrian_articles),
+                  "summary": summary,
+                  "articles": austrian_articles[:15]
+              }
+
+          def html_escape(value):
+              return html.escape(str(value or ""), quote=True)
+
+          def build_austrian_html(austrian_summary):
+              articles = austrian_summary.get("articles", [])
+              html_articles = ""
+
+              for item in articles:
+                  source = html_escape(item.get("source", "Osztrák forrás"))
+                  title = html_escape(item.get("title", "Cím nélkül"))
+                  url = html_escape(item.get("url", "#"))
+                  date = html_escape(item.get("date", ""))
+
+                  html_articles += f"""
+                  <li>
+                    <strong>{source}</strong>:
+                    <a href="{url}" target="_blank" rel="noopener">{title}</a>
+                    <em>{date}</em>
+                  </li>
+                  """
+
+              summary_html = html_escape(
+                  austrian_summary.get("summary", "Nincs elérhető összefoglaló.")
+              ).replace("\n", "<br>")
+
+              return f"""<!DOCTYPE html>
+          <html lang="hu">
+          <head>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Osztrák és burgenlandi hírösszefoglaló</title>
+            <style>
+              body {{
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 34px;
+                line-height: 1.6;
+                color: #111827;
+                background: #f8fafc;
+              }}
+              .box {{
+                background: white;
+                border: 1px solid #d0d9e2;
+                border-left: 6px solid #2563eb;
+                border-radius: 10px;
+                padding: 24px;
+                max-width: 980px;
+                margin: auto;
+                box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+              }}
+              h1 {{ margin-top: 0; }}
+              h2 {{
+                margin-top: 28px;
+                border-bottom: 1px solid #ddd;
+                padding-bottom: 6px;
+              }}
+              a {{ color: #0645ad; }}
+              li {{ margin-bottom: 10px; }}
+              .warning {{
+                background: #fff7ed;
+                border-left: 5px solid #f59e0b;
+                padding: 12px;
+                margin: 18px 0;
+              }}
+              .meta {{
+                color: #4b5563;
+                font-size: 14px;
+              }}
+              .actions {{
+                margin-top: 24px;
+              }}
+              button {{
+                background: #2563eb;
+                color: white;
+                border: 0;
+                border-radius: 8px;
+                padding: 10px 14px;
+                font-weight: 700;
+                cursor: pointer;
+              }}
+              @media print {{
+                .actions {{ display: none; }}
+                body {{ background: white; padding: 0; }}
+                .box {{ box-shadow: none; border: 0; }}
+              }}
+            </style>
+          </head>
+          <body>
+            <div class="box">
+              <h1>Osztrák és burgenlandi hírösszefoglaló</h1>
+
+              <p class="meta">
+                Készült: {html_escape(austrian_summary.get("generated_at", ""))}<br>
+                Források száma: {html_escape(austrian_summary.get("count", 0))}
+              </p>
+
+              <div class="warning">
+                Tájékoztató jellegű automatikus összefoglaló. Nem hivatalos hatósági dokumentum, és nem helyettesíti az osztrák vagy magyar hivatalos közleményeket.
+              </div>
+
+              <h2>Magyar nyelvű összefoglaló</h2>
+              <p>{summary_html}</p>
+
+              <h2>Felhasznált osztrák / burgenlandi források</h2>
+              <ul>
+                {html_articles if html_articles else "<li>Nincs elérhető forrás.</li>"}
+              </ul>
+
+              <div class="actions">
+                <button onclick="window.print()">PDF / nyomtatás</button>
+              </div>
+            </div>
+          </body>
+          </html>
+          """
+
+          def first_article(articles, source_type):
+              for item in articles:
+                  if item.get("source_type") == source_type:
+                      return item
+              return None
+
           def milestone_events(articles):
               events = []
+              seen = set()
 
-              media_count = sum(
-                  1 for item in articles
-                  if item.get("source_type") == "media"
-              )
+              def add_event(date, title, source, event_type, url=""):
+                  key = re.sub(r"\W+", "", f"{date}{title}{source}".lower())[:120]
+                  if key in seen:
+                      return
 
-              austrian_count = sum(
-                  1 for item in articles
-                  if item.get("source_type") == "austrian"
-              )
+                  seen.add(key)
 
-              official_count = sum(
-                  1 for item in articles
-                  if item.get("source_type") == "official"
-              )
+                  events.append({
+                      "date": date or "Dátum nélkül",
+                      "title": title,
+                      "source": source,
+                      "type": event_type,
+                      "url": url
+                  })
 
-              civil_count = sum(
-                  1 for item in articles
-                  if item.get("source_type") == "civil"
-              )
+              official = first_article(articles, "official")
+              civil = first_article(articles, "civil")
+              austrian = first_article(articles, "austrian")
 
-              events.append({
-                  "date": "Folyamatos",
-                  "title": (
-                      f"A rendszer jelenleg "
-                      f"{official_count} hivatalos, "
-                      f"{civil_count} civil, "
-                      f"{austrian_count} osztrák/burgenlandi és "
-                      f"{media_count} magyar médiatalálatot kezel."
-                  ),
-                  "source": "Automatikus monitoring",
-                  "type": "system"
-              })
+              media_count = sum(1 for item in articles if item.get("source_type") == "media")
+              austrian_count = sum(1 for item in articles if item.get("source_type") == "austrian")
+              official_count = sum(1 for item in articles if item.get("source_type") == "official")
+              civil_count = sum(1 for item in articles if item.get("source_type") == "civil")
+              gdelt_count = sum(1 for item in articles if item.get("source_type") == "gdelt")
+
+              if official:
+                  add_event(
+                      official.get("date", ""),
+                      "Hivatalos / önkormányzati tájékoztató szerepel a monitoringban.",
+                      official.get("source", "Hivatalos forrás"),
+                      "official_notice",
+                      official.get("url", "")
+                  )
+
+              if civil:
+                  add_event(
+                      civil.get("date", ""),
+                      "Greenpeace vagy más civil forrás is megjelent az ügyben.",
+                      civil.get("source", "Civil forrás"),
+                      "civil_action",
+                      civil.get("url", "")
+                  )
+
+              if austrian:
+                  add_event(
+                      austrian.get("date", ""),
+                      "Osztrák vagy burgenlandi forrás is kapcsolódik az ügyhöz.",
+                      austrian.get("source", "Osztrák forrás"),
+                      "austrian_context",
+                      austrian.get("url", "")
+                  )
+
+              if media_count >= 3:
+                  add_event(
+                      "Folyamatos",
+                      f"Jelentős magyar médiafigyelem: legalább {media_count} releváns magyar médiatalálat szerepel a rendszerben.",
+                      "Magyar médiafigyelés",
+                      "media_wave",
+                      ""
+                  )
+
+              if official_count or civil_count or austrian_count or media_count or gdelt_count:
+                  add_event(
+                      "Folyamatos",
+                      f"A rendszer jelenleg {official_count} hivatalos, {civil_count} civil, {austrian_count} osztrák/burgenlandi, {media_count} magyar média és {gdelt_count} egyéb GDELT-találatot különít el.",
+                      "Automatikus monitoring",
+                      "system_summary",
+                      ""
+                  )
+
+              if not events:
+                  add_event(
+                      "Folyamatos",
+                      "A monitoring rendszer fut, de új, kiemelt mérföldkő nem azonosítható.",
+                      "Automatikus monitoring",
+                      "system",
+                      ""
+                  )
 
               return events[:8]
 
@@ -758,16 +999,11 @@ jobs:
           collected.extend(fetch_gdelt())
 
           all_news = deduplicate(collected + MANUAL_NEWS)
-
-          all_news = sorted(
-              all_news,
-              key=priority,
-              reverse=True
-          )
+          all_news = sorted(all_news, key=priority, reverse=True)
 
           latest_news = sorted(
               all_news,
-              key=lambda x: x.get("date", ""),
+              key=lambda item: item.get("date", ""),
               reverse=True
           )[:6]
 
@@ -783,12 +1019,14 @@ jobs:
 
           summary = ai_summary(all_news)
           events = milestone_events(all_news)
+          austrian_summary = ai_austrian_summary(all_news)
+          austrian_html = build_austrian_html(austrian_summary)
 
           news_output = {
               "generated_at": now_iso(),
               "refresh_hours": 6,
               "query": QUERY,
-              "mode": "rss_html_gdelt_ai_filtered_full",
+              "mode": "rss_html_gdelt_ai_filtered_nyugat_targeted_national_media_austrian_restored",
               "source_counts": source_counts,
               "source_type_counts": source_type_counts,
               "summary": summary,
@@ -808,10 +1046,20 @@ jobs:
           with open("data/events.json", "w", encoding="utf-8") as f:
               json.dump(events_output, f, ensure_ascii=False, indent=2)
 
+          with open("data/austrian-summary.json", "w", encoding="utf-8") as f:
+              json.dump(austrian_summary, f, ensure_ascii=False, indent=2)
+
+          with open("data/austrian-summary.html", "w", encoding="utf-8") as f:
+              f.write(austrian_html)
+
           print("Generated data/news.json")
           print("Generated data/events.json")
+          print("Generated data/austrian-summary.json")
+          print("Generated data/austrian-summary.html")
           print("Articles:", len(news_output["articles"]))
           print("Latest:", len(news_output["latest_articles"]))
+          print("Austrian articles:", austrian_summary.get("count", 0))
+          print("Milestone events:", len(events_output["events"]))
           print("Source counts:", source_counts)
           print("Source types:", source_type_counts)
 
@@ -822,11 +1070,11 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-          git add data/news.json data/events.json
+          git add data/news.json data/events.json data/austrian-summary.json data/austrian-summary.html
 
           if git diff --cached --quiet; then
             echo "No changes."
           else
-            git commit -m "Update news database"
+            git commit -m "Update news, events and Austrian summary"
             git push
           fi
