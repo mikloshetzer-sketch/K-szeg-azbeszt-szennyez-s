@@ -34,11 +34,79 @@ jobs:
           (azbeszt OR aszbeszt OR kőzúzalék OR kőbánya OR serpentinit OR Asbest OR Steinbruch OR Schotter OR Greenpeace)
           '''
 
+          # Ezeket célzott HTML-vadászattal is nézzük, nem csak RSS-ből.
+          # Így nem csak akkor kerülnek be, ha épp az RSS elején vannak.
+          TARGETED_HUNGARIAN_MEDIA = [
+              {
+                  "name": "Telex",
+                  "domain": "telex.hu",
+                  "urls": [
+                      "https://telex.hu/",
+                      "https://telex.hu/belfold",
+                      "https://telex.hu/cimke/koszeg",
+                      "https://telex.hu/cimke/koszeg",
+                      "https://telex.hu/cimke/azbeszt"
+                  ]
+              },
+              {
+                  "name": "HVG",
+                  "domain": "hvg.hu",
+                  "urls": [
+                      "https://hvg.hu/",
+                      "https://hvg.hu/itthon",
+                      "https://hvg.hu/cimke/K%C5%91szeg",
+                      "https://hvg.hu/cimke/azbeszt"
+                  ]
+              },
+              {
+                  "name": "444",
+                  "domain": "444.hu",
+                  "urls": [
+                      "https://444.hu/",
+                      "https://444.hu/belfold",
+                      "https://444.hu/tag/koszeg",
+                      "https://444.hu/tag/azbeszt"
+                  ]
+              },
+              {
+                  "name": "Portfolio",
+                  "domain": "portfolio.hu",
+                  "urls": [
+                      "https://www.portfolio.hu/",
+                      "https://www.portfolio.hu/gazdasag",
+                      "https://www.portfolio.hu/cimke/k%C5%91szeg",
+                      "https://www.portfolio.hu/cimke/azbeszt"
+                  ]
+              },
+              {
+                  "name": "24.hu",
+                  "domain": "24.hu",
+                  "urls": [
+                      "https://24.hu/",
+                      "https://24.hu/belfold/",
+                      "https://24.hu/tag/koszeg/",
+                      "https://24.hu/tag/azbeszt/"
+                  ]
+              },
+              {
+                  "name": "VAOL",
+                  "domain": "vaol.hu",
+                  "urls": [
+                      "https://www.vaol.hu/",
+                      "https://www.vaol.hu/helyi-kozelet/",
+                      "https://www.vaol.hu/cimke/koszeg",
+                      "https://www.vaol.hu/cimke/azbeszt"
+                  ]
+              }
+          ]
+
           RSS_SOURCES = [
               {"name": "Telex", "url": "https://telex.hu/rss", "type": "media"},
               {"name": "HVG", "url": "https://hvg.hu/rss", "type": "media"},
               {"name": "444", "url": "https://444.hu/feed", "type": "media"},
               {"name": "24.hu", "url": "https://24.hu/feed/", "type": "media"},
+              {"name": "Portfolio", "url": "https://www.portfolio.hu/rss", "type": "media"},
+              {"name": "Portfolio gazdaság", "url": "https://www.portfolio.hu/rss/gazdasag.xml", "type": "media"},
               {"name": "Euronews HU", "url": "https://hu.euronews.com/rss", "type": "media"},
               {"name": "Der Standard", "url": "https://www.derstandard.at/rss", "type": "austrian"}
           ]
@@ -82,7 +150,23 @@ jobs:
               "spenden", "spendenabsetzbarkeit", "grossspenden", "großspenden",
               "mitmachen", "petition", "petitionen", "umfragen", "ehrenamt",
               "newsletter", "jobs", "karriere", "shop", "donate", "membership",
-              "volunteer", "advert", "reklam"
+              "volunteer", "advert", "reklam", "impressum", "adatvedelem",
+              "privacy", "cookie", "login", "belepes", "előfizetés", "elofizetes"
+          ]
+
+          HUNGARIAN_MEDIA_DOMAINS = {
+              "telex.hu": "Telex",
+              "hvg.hu": "HVG",
+              "444.hu": "444",
+              "portfolio.hu": "Portfolio",
+              "24.hu": "24.hu",
+              "vaol.hu": "VAOL",
+              "nyugat.hu": "Nyugat.hu",
+              "hu.euronews.com": "Euronews HU"
+          }
+
+          AUSTRIAN_DOMAINS = [
+              ".at", "orf.at", "derstandard.at", "kurier.at", "meinbezirk.at", "burgenland.orf.at"
           ]
 
           def now_iso():
@@ -92,8 +176,8 @@ jobs:
               req = urllib.request.Request(
                   url,
                   headers={
-                      "User-Agent": "koszeg-azbeszt-monitor/1.0",
-                      "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+                      "User-Agent": "Mozilla/5.0 (compatible; koszeg-azbeszt-monitor/1.0; +https://github.com/)",
+                      "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,application/rss+xml;q=0.9,*/*;q=0.8"
                   }
               )
               with urllib.request.urlopen(req, timeout=timeout) as response:
@@ -128,6 +212,50 @@ jobs:
                   return f"{match.group(1)}-{int(match.group(2)):02d}-{int(match.group(3)):02d}"
               return ""
 
+          def normalized_url(url):
+              url = (url or "").strip()
+              try:
+                  parsed = urllib.parse.urlparse(url)
+                  query = urllib.parse.parse_qsl(parsed.query, keep_blank_values=True)
+                  filtered = [(k, v) for k, v in query if not k.lower().startswith("utm_") and k.lower() not in ("fbclid", "gclid")]
+                  new_query = urllib.parse.urlencode(filtered)
+                  return urllib.parse.urlunparse((parsed.scheme, parsed.netloc.lower(), parsed.path.rstrip("/"), "", new_query, ""))
+              except Exception:
+                  return url
+
+          def domain_of(url):
+              try:
+                  return urllib.parse.urlparse(url).netloc.lower().replace("www.", "")
+              except Exception:
+                  return ""
+
+          def classify_source_type(url, fallback="gdelt"):
+              domain = domain_of(url)
+
+              for media_domain in HUNGARIAN_MEDIA_DOMAINS:
+                  if domain == media_domain or domain.endswith("." + media_domain):
+                      return "media"
+
+              if any(marker in domain for marker in ["greenpeace.org", "greenpeace.at"]):
+                  return "civil"
+
+              if any(domain.endswith(marker.replace(".", "", 1)) for marker in AUSTRIAN_DOMAINS if marker.startswith(".")):
+                  return "austrian"
+              if any(marker in domain for marker in AUSTRIAN_DOMAINS if not marker.startswith(".")):
+                  return "austrian"
+
+              if domain.endswith(".hu"):
+                  return "media"
+
+              return fallback
+
+          def classify_source_name(url, fallback="GDELT"):
+              domain = domain_of(url)
+              for media_domain, media_name in HUNGARIAN_MEDIA_DOMAINS.items():
+                  if domain == media_domain or domain.endswith("." + media_domain):
+                      return media_name
+              return fallback
+
           def is_blocked(title, url=""):
               text = f"{title} {url}".lower()
               return any(term in text for term in BLOCKLIST)
@@ -139,16 +267,16 @@ jobs:
                   return False
 
               local_terms = [
-                  "kőszeg", "koszeg", "bozsok", "szombathely", "vas",
-                  "pilgersdorf", "burgenland", "bernstein"
+                  "kőszeg", "koszeg", "bozsok", "szombathely", "vas vármegye", "vas megye",
+                  "pilgersdorf", "burgenland", "bernstein", "borostyánkő"
               ]
 
               issue_terms = [
                   "azbeszt", "aszbeszt", "asbest", "asbestbelastung",
-                  "asbestverschmutzung", "kőzúzalék", "kőbánya",
-                  "steinbruch", "schotter", "gestein", "verunreinigung",
+                  "asbestverschmutzung", "kőzúzalék", "kozuzalek", "kőbánya",
+                  "kobanya", "steinbruch", "schotter", "gestein", "verunreinigung",
                   "serpentinit", "bernsztein", "bernstein", "szennyez",
-                  "maszk", "közterület"
+                  "maszk", "közterület", "kozterulet", "greenpeace"
               ]
 
               has_local = any(term in text for term in local_terms)
@@ -171,7 +299,7 @@ jobs:
                   if not channel_items:
                       channel_items = root.findall(".//{http://www.w3.org/2005/Atom}entry")
 
-                  for item in channel_items[:50]:
+                  for item in channel_items[:80]:
                       title = ""
                       link = ""
                       date = ""
@@ -268,10 +396,11 @@ jobs:
                               continue
                           if not relevant(title, href):
                               continue
-                          if href in seen:
-                              continue
 
-                          seen.add(href)
+                          key = normalized_url(href)
+                          if key in seen:
+                              continue
+                          seen.add(key)
 
                           items.append({
                               "title": title,
@@ -288,11 +417,60 @@ jobs:
               print("Nyugat targeted items:", len(items))
               return items
 
+          def fetch_targeted_hungarian_media():
+              items = []
+              seen = set()
+
+              for source in TARGETED_HUNGARIAN_MEDIA:
+                  source_name = source["name"]
+                  domain = source["domain"]
+
+                  for url in source["urls"]:
+                      try:
+                          page = get_text(url, timeout=25)
+                          candidates = extract_links_from_html(page, url)
+
+                          for title, href in candidates[:500]:
+                              parsed = urllib.parse.urlparse(href)
+                              netloc = parsed.netloc.lower().replace("www.", "")
+
+                              if domain not in netloc:
+                                  continue
+
+                              # A túl általános rovat/tag oldalak ne kerüljenek cikként a listába.
+                              if parsed.path in ("", "/"):
+                                  continue
+                              if any(part in parsed.path.lower() for part in ["/tag/", "/cimke/"]) and len(parsed.path.strip("/").split("/")) <= 2:
+                                  continue
+
+                              if not relevant(title, href):
+                                  continue
+
+                              key = normalized_url(href)
+                              if key in seen:
+                                  continue
+                              seen.add(key)
+
+                              items.append({
+                                  "title": title,
+                                  "source": source_name,
+                                  "source_type": "media",
+                                  "date": "",
+                                  "url": href,
+                                  "type": "html_targeted"
+                              })
+
+                      except Exception as exc:
+                          print(f"Targeted Hungarian media error for {source_name} / {url}:", str(exc))
+
+              print("Targeted Hungarian media items:", len(items))
+              return items
+
           def fetch_gdelt():
               encoded = urllib.parse.quote(QUERY)
               url = (
                   "https://api.gdeltproject.org/api/v2/doc/doc?"
-                  f"query={encoded}&mode=ArtList&format=json&maxrecords=35&sort=HybridRel"
+                  f"query={encoded}&mode=ArtList&format=json&maxrecords=60&sort=HybridRel"
               )
 
               try:
@@ -314,11 +492,12 @@ jobs:
                       if len(date_raw) >= 8:
                           date = f"{date_raw[0:4]}-{date_raw[4:6]}-{date_raw[6:8]}"
 
-                      source_type = "austrian" if ".at" in link or "orf.at" in link else "gdelt"
+                      source_name = classify_source_name(link, item.get("domain") or "GDELT")
+                      source_type = classify_source_type(link, "gdelt")
 
                       articles.append({
                           "title": title,
-                          "source": item.get("domain") or "GDELT",
+                          "source": source_name,
                           "source_type": source_type,
                           "date": date,
                           "url": link,
@@ -345,15 +524,17 @@ jobs:
                   if is_blocked(title, url):
                       continue
 
+                  url_key = normalized_url(url)
                   title_key = re.sub(r"\W+", "", title.lower())[:100]
 
-                  if url in seen_urls or title_key in seen_titles:
+                  if url_key in seen_urls or title_key in seen_titles:
                       continue
 
-                  seen_urls.add(url)
+                  seen_urls.add(url_key)
                   seen_titles.add(title_key)
 
                   item["title"] = title
+                  item["url"] = url_key or url
                   clean.append(item)
 
               return clean
@@ -373,12 +554,18 @@ jobs:
               elif source_type == "austrian":
                   score += 90
               elif source_type == "media":
-                  score += 70
+                  score += 75
               else:
                   score += 40
 
+              # A Nyugat továbbra is fontos helyi forrás, de már nem kap aránytalan előnyt.
               if "nyugat" in source or "nyugat.hu" in url:
-                  score += 45
+                  score += 20
+
+              # Országos magyar médiumok láthatóbbak legyenek, ha relevánsak.
+              for national in ["telex", "hvg", "444", "portfolio"]:
+                  if national in source or national in url:
+                      score += 22
 
               for term in [
                   "kőszeg", "koszeg", "bozsok", "szombathely",
@@ -462,8 +649,8 @@ jobs:
                   "Írj magyar nyelvű, olvasmányos, tárgyilagos sajtófigyelő összefoglalót "
                   "a Kőszeg, Bozsok, Szombathely, Pilgersdorf és Burgenland térségét érintő "
                   "azbeszt/kőzúzalék ügyről. A szöveg legyen gördülékeny, közérthető és mértéktartó. "
-                  "Különbséget kell tenni hivatalos, önkormányzati, kormányhivatali, civil, magyar média "
-                  "és osztrák forrás között. Ne legyen pánikkeltő, ne állítson laboreredményt, hatósági döntést "
+                  "Különbséget kell tenni hivatalos, önkormányzati, kormányhivatali, civil, magyar média, "
+                  "országos magyar média és osztrák forrás között. Ne legyen pánikkeltő, ne állítson laboreredményt, hatósági döntést "
                   "vagy egészségügyi következtetést, ha az nem következik egyértelműen a megadott forráslistából. "
                   "A végén legyen egy külön 'Röviden:' rész három rövid mondattal.\n\n"
                   + json.dumps(compact, ensure_ascii=False, indent=2)
@@ -678,6 +865,7 @@ jobs:
               austrian_count = sum(1 for item in articles if item.get("source_type") == "austrian")
               official_count = sum(1 for item in articles if item.get("source_type") == "official")
               civil_count = sum(1 for item in articles if item.get("source_type") == "civil")
+              gdelt_other_count = sum(1 for item in articles if item.get("source_type") == "gdelt")
 
               if official:
                   add_event(official.get("date", ""), "Hivatalos / önkormányzati tájékoztató szerepel a monitoringban.", official.get("source", "Hivatalos forrás"), "official_notice", official.get("url", ""))
@@ -691,8 +879,8 @@ jobs:
               if media_count >= 3:
                   add_event("Folyamatos", f"Jelentős magyar médiafigyelem: legalább {media_count} releváns magyar médiatalálat szerepel a rendszerben.", "Magyar médiafigyelés", "media_wave", "")
 
-              if official_count or civil_count or austrian_count or media_count:
-                  add_event("Folyamatos", f"A rendszer jelenleg {official_count} hivatalos, {civil_count} civil, {austrian_count} osztrák/burgenlandi és {media_count} magyar médiatalálatot különít el.", "Automatikus monitoring", "system_summary", "")
+              if official_count or civil_count or austrian_count or media_count or gdelt_other_count:
+                  add_event("Folyamatos", f"A rendszer jelenleg {official_count} hivatalos, {civil_count} civil, {austrian_count} osztrák/burgenlandi, {media_count} magyar média és {gdelt_other_count} egyéb GDELT-találatot különít el.", "Automatikus monitoring", "system_summary", "")
 
               if not events:
                   add_event("Folyamatos", "A monitoring rendszer fut, de új, kiemelt mérföldkő nem azonosítható.", "Automatikus monitoring", "system", "")
@@ -708,6 +896,7 @@ jobs:
               collected.extend(fetch_html_source(source))
 
           collected.extend(fetch_nyugat_targeted())
+          collected.extend(fetch_targeted_hungarian_media())
           collected.extend(fetch_gdelt())
 
           all_news = deduplicate(collected + MANUAL_NEWS)
@@ -731,11 +920,11 @@ jobs:
               "generated_at": now_iso(),
               "refresh_hours": 6,
               "query": QUERY,
-              "mode": "rss_html_gdelt_ai_filtered_nyugat_targeted_readable",
+              "mode": "rss_html_gdelt_ai_filtered_nyugat_and_national_media_targeted_readable",
               "source_counts": source_counts,
               "source_type_counts": source_type_counts,
               "summary": summary,
-              "articles": all_news[:45]
+              "articles": all_news[:60]
           }
 
           events_output = {
@@ -763,6 +952,7 @@ jobs:
           print("Articles:", len(news_output["articles"]))
           print("Austrian articles:", austrian_summary.get("count", 0))
           print("Milestone events:", len(events_output["events"]))
+          print("Source counts:", source_counts)
           print("Source types:", source_type_counts)
           PY
 
