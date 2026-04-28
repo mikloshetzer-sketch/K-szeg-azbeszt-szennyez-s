@@ -327,6 +327,22 @@ jobs:
 
               if is_blocked(title, url):
                   return False
+              if "nyugat.hu" in url.lower():
+                  nyugat_terms = [
+                      "azbeszt",
+                      "aszbeszt",
+                      "azbesztveszély",
+                      "kőzúzalék",
+                      "kőbánya",
+                      "szennyez",
+                      "maszk",
+                      "lezárt",
+                      "bezárt",
+                      "óvintézkedés"
+                  ]
+
+                  if any(term in text for term in nyugat_terms):
+                      return True
 
               if is_greenpeace_url(url):
                   return greenpeace_relevant(title, url)
