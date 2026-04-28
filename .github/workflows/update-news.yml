@@ -198,8 +198,13 @@ jobs:
               "hu.euronews.com": "Euronews HU"
           }
 
+          ARTICLE_DATE_CACHE = {}
+
           def now_iso():
               return datetime.now(timezone.utc).isoformat()
+
+          def today_iso_date():
+              return datetime.now(timezone.utc).date().isoformat()
 
           def get_text(url, timeout=30):
               req = urllib.request.Request(
@@ -236,10 +241,80 @@ jobs:
                   pass
 
               value = clean_text(value)
+
               match = re.search(r"(20\d{2})[-./](\d{1,2})[-./](\d{1,2})", value)
               if match:
                   return f"{match.group(1)}-{int(match.group(2)):02d}-{int(match.group(3)):02d}"
+
+              match = re.search(r"(20\d{2})\s*[.]\s*(január|február|március|április|május|június|július|augusztus|szeptember|október|november|december)\s+(\d{1,2})", value, flags=re.I)
+              if match:
+                  months = {
+                      "január": 1, "február": 2, "március": 3, "április": 4,
+                      "május": 5, "június": 6, "július": 7, "augusztus": 8,
+                      "szeptember": 9, "október": 10, "november": 11, "december": 12
+                  }
+                  month = months.get(match.group(2).lower())
+                  if month:
+                      return f"{match.group(1)}-{month:02d}-{int(match.group(3)):02d}"
+
               return ""
+
+          def extract_article_date_from_html(page):
+              if not page:
+                  return ""
+
+              patterns = [
+                  r'<meta[^>]+property=["\']article:published_time["\'][^>]+content=["\']([^"\']+)["\']',
+                  r'<meta[^>]+content=["\']([^"\']+)["\'][^>]+property=["\']article:published_time["\']',
+                  r'<meta[^>]+name=["\']pubdate["\'][^>]+content=["\']([^"\']+)["\']',
+                  r'<meta[^>]+name=["\']date["\'][^>]+content=["\']([^"\']+)["\']',
+                  r'<meta[^>]+itemprop=["\']datePublished["\'][^>]+content=["\']([^"\']+)["\']',
+                  r'<time[^>]+datetime=["\']([^"\']+)["\']',
+                  r'"datePublished"\s*:\s*"([^"]+)"',
+                  r'"dateCreated"\s*:\s*"([^"]+)"',
+                  r'"uploadDate"\s*:\s*"([^"]+)"'
+              ]
+
+              for pattern in patterns:
+                  match = re.search(pattern, page, flags=re.I | re.S)
+                  if match:
+                      parsed = parse_date(match.group(1))
+                      if parsed:
+                          return parsed
+
+              text = clean_text(page[:50000])
+              parsed = parse_date(text)
+              if parsed:
+                  return parsed
+
+              return ""
+
+          def date_from_url(url):
+              text = url or ""
+              match = re.search(r"/(20\d{2})/(\d{1,2})/(\d{1,2})(?:/|$)", text)
+              if match:
+                  return f"{match.group(1)}-{int(match.group(2)):02d}-{int(match.group(3)):02d}"
+              return ""
+
+          def fetch_article_date(url):
+              key = normalized_url(url)
+              if key in ARTICLE_DATE_CACHE:
+                  return ARTICLE_DATE_CACHE[key]
+
+              from_url = date_from_url(url)
+              if from_url:
+                  ARTICLE_DATE_CACHE[key] = from_url
+                  return from_url
+
+              try:
+                  page = get_text(url, timeout=15)
+                  parsed = extract_article_date_from_html(page)
+                  ARTICLE_DATE_CACHE[key] = parsed
+                  return parsed
+              except Exception as exc:
+                  print("Article date fetch error:", url, str(exc))
+                  ARTICLE_DATE_CACHE[key] = ""
+                  return ""
 
           def normalized_url(url):
               url = (url or "").strip()
@@ -340,7 +415,7 @@ jobs:
                       "bezárt",
                       "óvintézkedés",
                       "újranyitnák",
-                      "burgelandi",
+                      "burgenlandi",
                       "bányákat"
                   ]
 
@@ -393,6 +468,8 @@ jobs:
                           date = parse_date(date_node.text)
 
                       if title and link and relevant(title, link):
+                          if not date:
+                              date = fetch_article_date(link)
                           items.append({
                               "title": title,
                               "source": source["name"],
@@ -434,11 +511,12 @@ jobs:
                   page = get_text(source["url"], timeout=25)
                   for title, href in extract_links_from_html(page, source["url"])[:500]:
                       if relevant(title, href):
+                          date = fetch_article_date(href)
                           items.append({
                               "title": title,
                               "source": source["name"],
                               "source_type": source["type"],
-                              "date": "",
+                              "date": date,
                               "url": href,
                               "type": "html"
                           })
@@ -474,12 +552,13 @@ jobs:
                               continue
 
                           seen.add(key)
+                          date = fetch_article_date(href)
 
                           items.append({
                               "title": title,
                               "source": "Nyugat.hu",
                               "source_type": "media",
-                              "date": "",
+                              "date": date,
                               "url": href,
                               "type": "html_targeted"
                           })
@@ -526,12 +605,13 @@ jobs:
                                   continue
 
                               seen.add(key)
+                              date = fetch_article_date(href)
 
                               items.append({
                                   "title": title,
                                   "source": source_name,
                                   "source_type": "media",
-                                  "date": "",
+                                  "date": date,
                                   "url": href,
                                   "type": "html_targeted"
                               })
@@ -568,6 +648,9 @@ jobs:
 
                       if len(date_raw) >= 8:
                           date = f"{date_raw[0:4]}-{date_raw[4:6]}-{date_raw[6:8]}"
+
+                      if not date:
+                          date = fetch_article_date(link)
 
                       source_type = classify_gdelt_source_type(link)
                       source_name = classify_source_name(link, item.get("domain") or "GDELT")
@@ -656,6 +739,14 @@ jobs:
                       score += 25
 
               return score
+
+          def sort_date_key(item):
+              date = item.get("date", "")
+              if re.match(r"^20\d{2}-\d{2}-\d{2}$", date):
+                  return date
+              if re.match(r"^20\d{2}-\d{2}$", date):
+                  return date + "-00"
+              return "0000-00-00"
 
           def extract_openai_text(data):
               text = data.get("output_text", "")
@@ -1023,9 +1114,9 @@ jobs:
 
           latest_news = sorted(
               all_news,
-              key=lambda item: item.get("date", ""),
+              key=sort_date_key,
               reverse=True
-          )[:8]
+          )[:12]
 
           source_counts = {}
           source_type_counts = {}
@@ -1046,7 +1137,7 @@ jobs:
               "generated_at": now_iso(),
               "refresh_hours": 6,
               "query": QUERY,
-              "mode": "rss_html_gdelt_ai_filtered_original_austrian_nyugat_priority_restored",
+              "mode": "rss_html_gdelt_ai_filtered_with_article_date_extraction",
               "source_counts": source_counts,
               "source_type_counts": source_type_counts,
               "summary": summary,
