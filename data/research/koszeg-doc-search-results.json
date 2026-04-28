@@ -1,29 +1,685 @@
 [
   {
-    "source": "Kőszeg hivatalos oldal",
+    "type": "html_page",
     "url": "https://koszeg.hu/hu/onkormanyzat/hirek/",
-    "checked_at": "2026-04-28T20:58:49.284Z",
+    "checked_at": "2026-04-28T21:00:58.920Z",
     "matched_keywords": [
       "azbeszt",
       "zúzalék",
       "Bernstein"
     ],
-    "has_relevant_match": true
+    "has_relevant_match": true,
+    "discovered_links": 120
   },
   {
-    "source": "Kőszeg hivatalos oldal",
+    "type": "html_page",
     "url": "https://koszeg.hu/hu/onkormanyzat/testulet/ulesek/",
-    "checked_at": "2026-04-28T20:58:49.479Z",
+    "checked_at": "2026-04-28T21:00:59.142Z",
     "matched_keywords": [],
-    "has_relevant_match": false
+    "has_relevant_match": false,
+    "discovered_links": 76
   },
   {
-    "source": "Kőszeg hivatalos oldal",
+    "type": "html_page",
     "url": "https://koszeg.hu/hu/onkormanyzat/projektek/",
-    "checked_at": "2026-04-28T20:58:49.671Z",
+    "checked_at": "2026-04-28T21:00:59.352Z",
     "matched_keywords": [
       "csapadékvíz"
     ],
-    "has_relevant_match": true
+    "has_relevant_match": true,
+    "discovered_links": 66
+  },
+  {
+    "type": "html_page",
+    "url": "https://koszeg.hu/hu/onkormanyzat/hirek/content.php?id=15410",
+    "checked_at": "2026-04-28T21:00:59.566Z",
+    "matched_keywords": [
+      "azbeszt",
+      "zúzalék"
+    ],
+    "has_relevant_match": true,
+    "discovered_links": 56
+  },
+  {
+    "type": "html_page",
+    "url": "https://koszeg.hu/hu/onkormanyzat/hirek/content.php?id=15404",
+    "checked_at": "2026-04-28T21:00:59.785Z",
+    "matched_keywords": [
+      "azbeszt",
+      "zúzalék",
+      "Bernstein"
+    ],
+    "has_relevant_match": true,
+    "discovered_links": 57
+  },
+  {
+    "type": "html_page",
+    "url": "https://koszeg.hu/hu/onkormanyzat/hirek/content.php?id=14958",
+    "checked_at": "2026-04-28T21:01:00.008Z",
+    "matched_keywords": [],
+    "has_relevant_match": false,
+    "discovered_links": 68
+  },
+  {
+    "type": "html_page",
+    "url": "https://koszeg.hu/hu/onkormanyzat/hirek/content.php?id=15398",
+    "checked_at": "2026-04-28T21:01:00.224Z",
+    "matched_keywords": [
+      "azbeszt",
+      "zúzottkő",
+      "zúzalék",
+      "útalap",
+      "szerpentinit",
+      "Bernstein",
+      "Pilgersdorf",
+      "Rumpersdorf",
+      "csapadékvíz"
+    ],
+    "has_relevant_match": true,
+    "discovered_links": 57
+  },
+  {
+    "type": "html_page",
+    "url": "https://koszeg.hu/hu/onkormanyzat/hirek/content.php?id=15328",
+    "checked_at": "2026-04-28T21:01:00.432Z",
+    "matched_keywords": [],
+    "has_relevant_match": false,
+    "discovered_links": 56
+  },
+  {
+    "type": "html_page",
+    "url": "https://koszeg.hu/hu/onkormanyzat/hirek/content.php?id=15385",
+    "checked_at": "2026-04-28T21:01:00.640Z",
+    "matched_keywords": [],
+    "has_relevant_match": false,
+    "discovered_links": 56
+  },
+  {
+    "type": "html_page",
+    "url": "https://koszeg.hu/hu/onkormanyzat/hirek/content.php?id=15384",
+    "checked_at": "2026-04-28T21:01:00.848Z",
+    "matched_keywords": [],
+    "has_relevant_match": false,
+    "discovered_links": 56
+  },
+  {
+    "type": "html_page",
+    "url": "https://koszeg.hu/hu/onkormanyzat/hirek/content.php?id=13313",
+    "checked_at": "2026-04-28T21:01:01.071Z",
+    "matched_keywords": [],
+    "has_relevant_match": false,
+    "discovered_links": 56
+  },
+  {
+    "type": "html_page",
+    "url": "https://koszeg.hu/hu/onkormanyzat/hirek/content.php?id=15352",
+    "checked_at": "2026-04-28T21:01:01.284Z",
+    "matched_keywords": [],
+    "has_relevant_match": false,
+    "discovered_links": 56
+  },
+  {
+    "type": "html_page",
+    "url": "https://koszeg.hu/hu/onkormanyzat/hirek/content.php?id=13673",
+    "checked_at": "2026-04-28T21:01:01.501Z",
+    "matched_keywords": [],
+    "has_relevant_match": false,
+    "discovered_links": 57
+  },
+  {
+    "type": "html_page",
+    "url": "https://koszeg.hu/hu/onkormanyzat/hirek/content.php?id=15364",
+    "checked_at": "2026-04-28T21:01:01.720Z",
+    "matched_keywords": [],
+    "has_relevant_match": false,
+    "discovered_links": 58
+  },
+  {
+    "type": "html_page",
+    "url": "https://koszeg.hu/hu/onkormanyzat/hirek/content.php?id=13540",
+    "checked_at": "2026-04-28T21:01:01.929Z",
+    "matched_keywords": [],
+    "has_relevant_match": false,
+    "discovered_links": 56
+  },
+  {
+    "type": "html_page",
+    "url": "https://koszeg.hu/hu/onkormanyzat/hirek/content.php?id=15348",
+    "checked_at": "2026-04-28T21:01:02.145Z",
+    "matched_keywords": [],
+    "has_relevant_match": false,
+    "discovered_links": 58
+  },
+  {
+    "type": "html_page",
+    "url": "https://koszeg.hu/hu/onkormanyzat/hirek/content.php?id=15347",
+    "checked_at": "2026-04-28T21:01:02.360Z",
+    "matched_keywords": [],
+    "has_relevant_match": false,
+    "discovered_links": 57
+  },
+  {
+    "type": "html_page",
+    "url": "https://koszeg.hu/hu/onkormanyzat/hirek/content.php?id=10013",
+    "checked_at": "2026-04-28T21:01:02.658Z",
+    "matched_keywords": [],
+    "has_relevant_match": false,
+    "discovered_links": 263
+  },
+  {
+    "type": "html_page",
+    "url": "https://koszeg.hu/hu/onkormanyzat/hirek/content.php?id=15367",
+    "checked_at": "2026-04-28T21:01:02.864Z",
+    "matched_keywords": [],
+    "has_relevant_match": false,
+    "discovered_links": 56
+  },
+  {
+    "type": "html_page",
+    "url": "https://koszeg.hu/hu/onkormanyzat/hirek/content.php?id=15327",
+    "checked_at": "2026-04-28T21:01:03.082Z",
+    "matched_keywords": [],
+    "has_relevant_match": false,
+    "discovered_links": 60
+  },
+  {
+    "type": "html_page",
+    "url": "https://koszeg.hu/hu/onkormanyzat/hirek/content.php?id=14779",
+    "checked_at": "2026-04-28T21:01:03.292Z",
+    "matched_keywords": [],
+    "has_relevant_match": false,
+    "discovered_links": 56
+  },
+  {
+    "type": "html_page",
+    "url": "https://koszeg.hu/hu/onkormanyzat/hirek/content.php?id=13344",
+    "checked_at": "2026-04-28T21:01:03.501Z",
+    "matched_keywords": [],
+    "has_relevant_match": false,
+    "discovered_links": 56
+  },
+  {
+    "type": "html_page",
+    "url": "https://koszeg.hu/hu/onkormanyzat/hirek/content.php?id=15308",
+    "checked_at": "2026-04-28T21:01:03.713Z",
+    "matched_keywords": [],
+    "has_relevant_match": false,
+    "discovered_links": 56
+  },
+  {
+    "type": "html_page",
+    "url": "https://koszeg.hu/hu/onkormanyzat/hirek/content.php?id=15307",
+    "checked_at": "2026-04-28T21:01:03.920Z",
+    "matched_keywords": [
+      "tonna"
+    ],
+    "has_relevant_match": true,
+    "discovered_links": 56
+  },
+  {
+    "type": "html_page",
+    "url": "https://koszeg.hu/hu/onkormanyzat/hirek/content.php?id=15301",
+    "checked_at": "2026-04-28T21:01:04.129Z",
+    "matched_keywords": [],
+    "has_relevant_match": false,
+    "discovered_links": 56
+  },
+  {
+    "type": "html_page",
+    "url": "https://koszeg.hu/hu/onkormanyzat/hirek/content.php?id=15300",
+    "checked_at": "2026-04-28T21:01:04.343Z",
+    "matched_keywords": [],
+    "has_relevant_match": false,
+    "discovered_links": 57
+  },
+  {
+    "type": "html_page",
+    "url": "https://koszeg.hu/hu/onkormanyzat/hirek/content.php?id=15290",
+    "checked_at": "2026-04-28T21:01:04.551Z",
+    "matched_keywords": [],
+    "has_relevant_match": false,
+    "discovered_links": 56
+  },
+  {
+    "type": "html_page",
+    "url": "https://koszeg.hu/hu/onkormanyzat/hirek/content.php?id=15213",
+    "checked_at": "2026-04-28T21:01:04.765Z",
+    "matched_keywords": [],
+    "has_relevant_match": false,
+    "discovered_links": 57
+  },
+  {
+    "type": "html_page",
+    "url": "https://koszeg.hu/hu/onkormanyzat/hirek/content.php?id=15034",
+    "checked_at": "2026-04-28T21:01:04.975Z",
+    "matched_keywords": [],
+    "has_relevant_match": false,
+    "discovered_links": 56
+  },
+  {
+    "type": "html_page",
+    "url": "https://koszeg.hu/hu/onkormanyzat/hirek/content.php?id=15171",
+    "checked_at": "2026-04-28T21:01:05.188Z",
+    "matched_keywords": [],
+    "has_relevant_match": false,
+    "discovered_links": 57
+  },
+  {
+    "type": "html_page",
+    "url": "https://koszeg.hu/hu/onkormanyzat/hirek/content.php?id=15154",
+    "checked_at": "2026-04-28T21:01:05.401Z",
+    "matched_keywords": [],
+    "has_relevant_match": false,
+    "discovered_links": 57
+  },
+  {
+    "type": "html_page",
+    "url": "https://koszeg.hu/hu/onkormanyzat/hirek/content.php?id=14649",
+    "checked_at": "2026-04-28T21:01:05.615Z",
+    "matched_keywords": [],
+    "has_relevant_match": false,
+    "discovered_links": 57
+  },
+  {
+    "type": "html_page",
+    "url": "https://koszeg.hu/hu/onkormanyzat/hirek/content.php?id=14983",
+    "checked_at": "2026-04-28T21:01:05.830Z",
+    "matched_keywords": [],
+    "has_relevant_match": false,
+    "discovered_links": 57
+  },
+  {
+    "type": "html_page",
+    "url": "https://koszeg.hu/hu/onkormanyzat/hirek/content.php?id=14974",
+    "checked_at": "2026-04-28T21:01:06.044Z",
+    "matched_keywords": [],
+    "has_relevant_match": false,
+    "discovered_links": 56
+  },
+  {
+    "type": "html_page",
+    "url": "https://koszeg.hu/hu/onkormanyzat/hirek/content.php?id=14883",
+    "checked_at": "2026-04-28T21:01:06.258Z",
+    "matched_keywords": [],
+    "has_relevant_match": false,
+    "discovered_links": 56
+  },
+  {
+    "type": "html_page",
+    "url": "https://koszeg.hu/hu/onkormanyzat/hirek/content.php?id=14903",
+    "checked_at": "2026-04-28T21:01:06.476Z",
+    "matched_keywords": [],
+    "has_relevant_match": false,
+    "discovered_links": 57
+  },
+  {
+    "type": "html_page",
+    "url": "https://koszeg.hu/hu/onkormanyzat/hirek/content.php?id=14897",
+    "checked_at": "2026-04-28T21:01:06.692Z",
+    "matched_keywords": [],
+    "has_relevant_match": false,
+    "discovered_links": 57
+  },
+  {
+    "type": "html_page",
+    "url": "https://koszeg.hu/hu/onkormanyzat/hirek/content.php?id=14890",
+    "checked_at": "2026-04-28T21:01:06.903Z",
+    "matched_keywords": [],
+    "has_relevant_match": false,
+    "discovered_links": 56
+  },
+  {
+    "type": "html_page",
+    "url": "https://koszeg.hu/hu/onkormanyzat/hirek/content.php?id=14880",
+    "checked_at": "2026-04-28T21:01:07.119Z",
+    "matched_keywords": [],
+    "has_relevant_match": false,
+    "discovered_links": 57
+  },
+  {
+    "type": "html_page",
+    "url": "https://koszeg.hu/hu/onkormanyzat/hirek/content.php?id=14849",
+    "checked_at": "2026-04-28T21:01:07.329Z",
+    "matched_keywords": [],
+    "has_relevant_match": false,
+    "discovered_links": 29
+  },
+  {
+    "type": "html_page",
+    "url": "https://koszeg.hu/hu/onkormanyzat/hirek/content.php?id=14844",
+    "checked_at": "2026-04-28T21:01:07.537Z",
+    "matched_keywords": [],
+    "has_relevant_match": false,
+    "discovered_links": 56
+  },
+  {
+    "type": "html_page",
+    "url": "https://koszeg.hu/hu/onkormanyzat/hirek/content.php?id=14796",
+    "checked_at": "2026-04-28T21:01:07.750Z",
+    "matched_keywords": [],
+    "has_relevant_match": false,
+    "discovered_links": 70
+  },
+  {
+    "type": "html_page",
+    "url": "https://koszeg.hu/hu/onkormanyzat/hirek/content.php?id=14791",
+    "checked_at": "2026-04-28T21:01:07.966Z",
+    "matched_keywords": [],
+    "has_relevant_match": false,
+    "discovered_links": 60
+  },
+  {
+    "type": "html_page",
+    "url": "https://koszeg.hu/hu/onkormanyzat/hirek/content.php?id=14778",
+    "checked_at": "2026-04-28T21:01:08.180Z",
+    "matched_keywords": [],
+    "has_relevant_match": false,
+    "discovered_links": 57
+  },
+  {
+    "type": "html_page",
+    "url": "https://koszeg.hu/hu/onkormanyzat/hirek/content.php?id=14776",
+    "checked_at": "2026-04-28T21:01:08.394Z",
+    "matched_keywords": [],
+    "has_relevant_match": false,
+    "discovered_links": 57
+  },
+  {
+    "type": "html_page",
+    "url": "https://koszeg.hu/hu/onkormanyzat/hirek/content.php?id=13027",
+    "checked_at": "2026-04-28T21:01:08.608Z",
+    "matched_keywords": [],
+    "has_relevant_match": false,
+    "discovered_links": 57
+  },
+  {
+    "type": "html_page",
+    "url": "https://koszeg.hu/hu/onkormanyzat/hirek/content.php?id=14622",
+    "checked_at": "2026-04-28T21:01:08.822Z",
+    "matched_keywords": [],
+    "has_relevant_match": false,
+    "discovered_links": 57
+  },
+  {
+    "type": "html_page",
+    "url": "https://koszeg.hu/hu/onkormanyzat/hirek/content.php?id=12349",
+    "checked_at": "2026-04-28T21:01:09.037Z",
+    "matched_keywords": [],
+    "has_relevant_match": false,
+    "discovered_links": 58
+  },
+  {
+    "type": "html_page",
+    "url": "https://koszeg.hu/hu/onkormanyzat/hirek/content.php?id=14446",
+    "checked_at": "2026-04-28T21:01:09.257Z",
+    "matched_keywords": [
+      "zúzalék",
+      "csapadékvíz",
+      "m3"
+    ],
+    "has_relevant_match": true,
+    "discovered_links": 57
+  },
+  {
+    "type": "html_page",
+    "url": "https://koszeg.hu/hu/onkormanyzat/hirek/content.php?id=14333",
+    "checked_at": "2026-04-28T21:01:09.473Z",
+    "matched_keywords": [],
+    "has_relevant_match": false,
+    "discovered_links": 57
+  },
+  {
+    "type": "html_page",
+    "url": "https://koszeg.hu/hu/onkormanyzat/hirek/content.php?id=14284",
+    "checked_at": "2026-04-28T21:01:09.687Z",
+    "matched_keywords": [],
+    "has_relevant_match": false,
+    "discovered_links": 57
+  },
+  {
+    "type": "html_page",
+    "url": "https://koszeg.hu/hu/onkormanyzat/hirek/content.php?id=14241",
+    "checked_at": "2026-04-28T21:01:09.914Z",
+    "matched_keywords": [],
+    "has_relevant_match": false,
+    "discovered_links": 57
+  },
+  {
+    "type": "html_page",
+    "url": "https://koszeg.hu/hu/onkormanyzat/hirek/content.php?id=14240",
+    "checked_at": "2026-04-28T21:01:10.126Z",
+    "matched_keywords": [],
+    "has_relevant_match": false,
+    "discovered_links": 57
+  },
+  {
+    "type": "html_page",
+    "url": "https://koszeg.hu/hu/onkormanyzat/hirek/content.php?id=14239",
+    "checked_at": "2026-04-28T21:01:10.340Z",
+    "matched_keywords": [],
+    "has_relevant_match": false,
+    "discovered_links": 57
+  },
+  {
+    "type": "html_page",
+    "url": "https://koszeg.hu/hu/onkormanyzat/hirek/content.php?id=14225",
+    "checked_at": "2026-04-28T21:01:10.554Z",
+    "matched_keywords": [],
+    "has_relevant_match": false,
+    "discovered_links": 57
+  },
+  {
+    "type": "html_page",
+    "url": "https://koszeg.hu/hu/onkormanyzat/hirek/content.php?id=14137",
+    "checked_at": "2026-04-28T21:01:10.767Z",
+    "matched_keywords": [],
+    "has_relevant_match": false,
+    "discovered_links": 58
+  },
+  {
+    "type": "html_page",
+    "url": "https://koszeg.hu/hu/onkormanyzat/hirek/content.php?id=14053",
+    "checked_at": "2026-04-28T21:01:10.974Z",
+    "matched_keywords": [],
+    "has_relevant_match": false,
+    "discovered_links": 56
+  },
+  {
+    "type": "html_page",
+    "url": "https://koszeg.hu/hu/onkormanyzat/hirek/content.php?id=14042",
+    "checked_at": "2026-04-28T21:01:11.188Z",
+    "matched_keywords": [],
+    "has_relevant_match": false,
+    "discovered_links": 57
+  },
+  {
+    "type": "html_page",
+    "url": "https://koszeg.hu/hu/onkormanyzat/hirek/content.php?id=14095",
+    "checked_at": "2026-04-28T21:01:11.403Z",
+    "matched_keywords": [],
+    "has_relevant_match": false,
+    "discovered_links": 59
+  },
+  {
+    "type": "html_page",
+    "url": "https://koszeg.hu/hu/onkormanyzat/hirek/content.php?id=14054",
+    "checked_at": "2026-04-28T21:01:11.619Z",
+    "matched_keywords": [],
+    "has_relevant_match": false,
+    "discovered_links": 58
+  },
+  {
+    "type": "html_page",
+    "url": "https://koszeg.hu/hu/onkormanyzat/hirek/content.php?id=13947",
+    "checked_at": "2026-04-28T21:01:11.839Z",
+    "matched_keywords": [],
+    "has_relevant_match": false,
+    "discovered_links": 57
+  },
+  {
+    "type": "html_page",
+    "url": "https://koszeg.hu/hu/onkormanyzat/hirek/content.php?id=13894",
+    "checked_at": "2026-04-28T21:01:12.054Z",
+    "matched_keywords": [],
+    "has_relevant_match": false,
+    "discovered_links": 58
+  },
+  {
+    "type": "html_page",
+    "url": "https://koszeg.hu/hu/onkormanyzat/hirek/content.php?id=13462",
+    "checked_at": "2026-04-28T21:01:12.273Z",
+    "matched_keywords": [],
+    "has_relevant_match": false,
+    "discovered_links": 61
+  },
+  {
+    "type": "html_page",
+    "url": "https://koszeg.hu/hu/onkormanyzat/hirek/content.php?id=13568",
+    "checked_at": "2026-04-28T21:01:12.487Z",
+    "matched_keywords": [],
+    "has_relevant_match": false,
+    "discovered_links": 57
+  },
+  {
+    "type": "html_page",
+    "url": "https://koszeg.hu/hu/onkormanyzat/hirek/content.php?id=13567",
+    "checked_at": "2026-04-28T21:01:12.701Z",
+    "matched_keywords": [],
+    "has_relevant_match": false,
+    "discovered_links": 57
+  },
+  {
+    "type": "html_page",
+    "url": "https://koszeg.hu/hu/onkormanyzat/hirek/content.php?id=13264",
+    "checked_at": "2026-04-28T21:01:12.909Z",
+    "matched_keywords": [],
+    "has_relevant_match": false,
+    "discovered_links": 57
+  },
+  {
+    "type": "html_page",
+    "url": "https://koszeg.hu/hu/onkormanyzat/hirek/content.php?id=12061",
+    "checked_at": "2026-04-28T21:01:13.125Z",
+    "matched_keywords": [
+      "tonna"
+    ],
+    "has_relevant_match": true,
+    "discovered_links": 57
+  },
+  {
+    "type": "html_page",
+    "url": "https://koszeg.hu/hu/onkormanyzat/hirek/index.php?id=111",
+    "checked_at": "2026-04-28T21:01:13.338Z",
+    "matched_keywords": [
+      "azbeszt",
+      "zúzalék",
+      "Bernstein"
+    ],
+    "has_relevant_match": true,
+    "discovered_links": 109
+  },
+  {
+    "type": "html_page",
+    "url": "https://koszeg.hu/hu/onkormanyzat/hirek/index.php?id=387",
+    "checked_at": "2026-04-28T21:01:13.546Z",
+    "matched_keywords": [],
+    "has_relevant_match": false,
+    "discovered_links": 56
+  },
+  {
+    "type": "html_page",
+    "url": "https://koszeg.hu/hu/onkormanyzat/hirek/index.php?id=113",
+    "checked_at": "2026-04-28T21:01:13.755Z",
+    "matched_keywords": [],
+    "has_relevant_match": false,
+    "discovered_links": 58
+  },
+  {
+    "type": "html_page",
+    "url": "https://koszeg.hu/hu/onkormanyzat/hirek/index.php?id=115",
+    "checked_at": "2026-04-28T21:01:13.960Z",
+    "matched_keywords": [],
+    "has_relevant_match": false,
+    "discovered_links": 61
+  },
+  {
+    "type": "html_page",
+    "url": "https://koszeg.hu/hu/onkormanyzat/hirek/index.php?id=128",
+    "checked_at": "2026-04-28T21:01:14.172Z",
+    "matched_keywords": [],
+    "has_relevant_match": false,
+    "discovered_links": 62
+  },
+  {
+    "type": "html_page",
+    "url": "https://koszeg.hu/hu/onkormanyzat/hirek/index.php?id=129",
+    "checked_at": "2026-04-28T21:01:14.382Z",
+    "matched_keywords": [],
+    "has_relevant_match": false,
+    "discovered_links": 61
+  },
+  {
+    "type": "html_page",
+    "url": "https://koszeg.hu/hu/onkormanyzat/hirek/index.php?id=149",
+    "checked_at": "2026-04-28T21:01:14.590Z",
+    "matched_keywords": [],
+    "has_relevant_match": false,
+    "discovered_links": 65
+  },
+  {
+    "type": "html_page",
+    "url": "https://koszeg.hu/hu/onkormanyzat/hirek/index.php?id=150",
+    "checked_at": "2026-04-28T21:01:14.797Z",
+    "matched_keywords": [],
+    "has_relevant_match": false,
+    "discovered_links": 56
+  },
+  {
+    "type": "html_page",
+    "url": "https://koszeg.hu/hu/onkormanyzat/hirek/index.php?id=236",
+    "checked_at": "2026-04-28T21:01:15.004Z",
+    "matched_keywords": [],
+    "has_relevant_match": false,
+    "discovered_links": 56
+  },
+  {
+    "type": "html_page",
+    "url": "https://koszeg.hu/hu/onkormanyzat/testulet/ulesek/ules.php?id=453",
+    "checked_at": "2026-04-28T21:01:15.214Z",
+    "matched_keywords": [],
+    "has_relevant_match": false,
+    "discovered_links": 63
+  },
+  {
+    "type": "html_page",
+    "url": "https://koszeg.hu/hu/onkormanyzat/testulet/ulesek/index.php?ev=2026",
+    "checked_at": "2026-04-28T21:01:15.423Z",
+    "matched_keywords": [],
+    "has_relevant_match": false,
+    "discovered_links": 75
+  },
+  {
+    "type": "html_page",
+    "url": "https://koszeg.hu/hu/onkormanyzat/testulet/ulesek/index.php?ev=2025",
+    "checked_at": "2026-04-28T21:01:15.639Z",
+    "matched_keywords": [],
+    "has_relevant_match": false,
+    "discovered_links": 87
+  },
+  {
+    "type": "html_page",
+    "url": "https://koszeg.hu/hu/onkormanyzat/testulet/ulesek/index.php?ev=2024",
+    "checked_at": "2026-04-28T21:01:15.849Z",
+    "matched_keywords": [],
+    "has_relevant_match": false,
+    "discovered_links": 86
+  },
+  {
+    "type": "pdf_link",
+    "url": "https://koszeg.hu/images/2021/koszeg_adatkezelesi_tajekoztato_honlap_GDPR_2021.pdf",
+    "checked_at": "2026-04-28T21:01:15.849Z",
+    "matched_keywords": [],
+    "has_relevant_match": false,
+    "note": "PDF-link kigyűjtve, tartalmi elemzés következő lépésben."
   }
 ]
