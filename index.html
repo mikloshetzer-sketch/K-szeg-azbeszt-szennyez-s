@@ -98,6 +98,68 @@
     .tag { display: inline-block; margin-top: 6px; background: rgba(37,99,235,.18); color: #bfdbfe; border: 1px solid rgba(37,99,235,.34); border-radius: 999px; padding: 3px 6px; font-size: 10px; }
     .green-tag { background: rgba(34,197,94,.18); color: #bbf7d0; border-color: rgba(34,197,94,.38); }
     .top-badge { position: absolute; top: 8px; right: 8px; background: #dc2626; color: white; padding: 3px 7px; border-radius: 999px; font-size: 10px; font-weight: 800; }
+    .breaking-badge {
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      background: #ef4444;
+      color: white;
+      padding: 4px 8px;
+      border-radius: 999px;
+      font-size: 10px;
+      font-weight: 900;
+      animation: pulseBadge 1.6s infinite;
+      box-shadow: 0 0 12px rgba(239,68,68,.55);
+      z-index: 3;
+    }
+
+    .live-indicator {
+      display:inline-flex;
+      align-items:center;
+      gap:7px;
+      background: rgba(34,197,94,.15);
+      border:1px solid rgba(34,197,94,.35);
+      color:#bbf7d0;
+      padding:7px 12px;
+      border-radius:999px;
+      font-size:12px;
+      font-weight:800;
+    }
+
+    .live-dot {
+      width:10px;
+      height:10px;
+      border-radius:50%;
+      background:#22c55e;
+      animation:pulseBadge 1.5s infinite;
+    }
+
+    .toast {
+      position: fixed;
+      top: 18px;
+      right: 18px;
+      background: rgba(17,24,39,.96);
+      color: white;
+      border: 1px solid rgba(255,255,255,.14);
+      border-left: 5px solid #22c55e;
+      padding: 14px 18px;
+      border-radius: 14px;
+      z-index: 99999;
+      font-weight: 700;
+      box-shadow: 0 10px 28px rgba(0,0,0,.35);
+      animation: toastIn .35s ease;
+    }
+
+    @keyframes pulseBadge {
+      0% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.08); opacity: .82; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    @keyframes toastIn {
+      from { transform: translateY(-10px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
     .source-badge { font-size: 10px; color: #cbd5e1; margin-bottom: 6px; font-weight: 700; letter-spacing: .3px; }
 
     .timeline { border-left: 3px solid rgba(148,163,184,.45); padding-left: 11px; }
@@ -137,6 +199,7 @@
         <div class="brand-sub">Érintett utak · GeoJSON réteg · esemény-idővonal · sajtófigyelő · AI összefoglaló</div>
       </div>
       <div class="top-actions">
+        <div class="live-indicator"><span class="live-dot"></span>Élő monitoring</div>
         <span class="pill" id="lastUpdate">Hírek: betöltés alatt</span>
         <button class="primary secondary" onclick="openReportWindow()">Jelentés</button>
         <a class="primary secondary" href="data/austrian-summary.html" target="_blank" rel="noopener" style="text-decoration:none;">Osztrák összefoglaló</a>
@@ -466,14 +529,22 @@
     }
 
     function newsHtml(items, mode) {
+      const today = new Date().toISOString().slice(0,10);
+
       return items.map((item, index) => {
         const green = isGreenpeaceItem(item);
-        const title = escapeHtml(item.title || 'Cím nélkül');
-        const source = escapeHtml(item.source || 'Forrás');
-        const date = escapeHtml(item.date || '');
-        const url = escapeHtml(item.url || '#');
-        const modeText = escapeHtml(mode || '');
-        return `<article class="news-item ${green ? 'greenpeace-item' : ''}">${index < 2 ? '<div class="top-badge">TOP</div>' : ''}<div class="source-badge">${sourceBadge(item)}</div><a href="${url}" target="_blank" rel="noopener">${title}</a><div class="meta">${source} · ${date}</div>${green ? '<span class="tag green-tag">civil / Greenpeace</span>' : ''}${modeText ? `<span class="tag">${modeText}</span>` : ''}</article>`;
+        const itemDate = (item.date || '').slice(0,10);
+        const isFresh = itemDate === today;
+
+        return `<article class="news-item ${green ? 'greenpeace-item' : ''}">
+          ${isFresh ? '<div class="breaking-badge">ÚJ</div>' : ''}
+          ${index < 2 ? '<div class="top-badge">TOP</div>' : ''}
+          <div class="source-badge">${sourceBadge(item)}</div>
+          <a href="${item.url}" target="_blank" rel="noopener">${item.title}</a>
+          <div class="meta">${item.source || 'Forrás'} · ${item.date || ''}</div>
+          ${green ? '<span class="tag green-tag">civil / Greenpeace</span>' : ''}
+          ${mode ? `<span class="tag">${mode}</span>` : ''}
+        </article>`;
       }).join('');
     }
 
@@ -589,24 +660,40 @@
     }
 
     async function loadNews(force = false) {
-      const button = document.getElementById('refreshNewsBtn');
-      const originalText = button ? button.textContent : '';
-
-      if (button) {
-        button.disabled = true;
-        button.textContent = 'Frissítés...';
-      }
-
       try {
+        const oldCount = currentNews.length;
+
         const response = await fetch('data/news.json' + (force ? '?t=' + Date.now() : ''));
         if (!response.ok) throw new Error('data/news.json nem elérhető');
+
         const data = await response.json();
         const articles = Array.isArray(data.articles) ? data.articles : [];
+
         if (!articles.length) throw new Error('Nincs cikk a JSON fájlban');
-        setSummary(data.summary || 'A hír-adatbázis elérhető, de összefoglaló nincs benne.');
-        const generated = data.generated_at ? new Date(data.generated_at).toLocaleString('hu-HU') : new Date().toLocaleString('hu-HU');
+
+        lastSummary = data.summary || 'A hír-adatbázis elérhető, de összefoglaló nincs benne.';
+        document.getElementById('aiSummary').textContent = lastSummary;
+
+        const generated = data.generated_at
+          ? new Date(data.generated_at).toLocaleString('hu-HU')
+          : new Date().toLocaleString('hu-HU');
+
         document.getElementById('lastUpdate').textContent = 'Hírek: ' + generated;
+
         renderNews(articles, data.mode || 'JSON');
+
+        if (oldCount && articles.length > oldCount) {
+          showToast(`${articles.length - oldCount} új hír érkezett`);
+        }
+
+      } catch (error) {
+        console.warn('News JSON hiba:', error);
+        lastSummary = 'A data/news.json jelenleg nem érhető el, ezért a rendszer kézi tartalék hírlistát mutat.';
+        document.getElementById('aiSummary').textContent = lastSummary;
+        document.getElementById('lastUpdate').textContent = 'Hírek: tartalék lista';
+        renderNews(fallbackNews, 'helyi tartalék');
+      }
+    }
       } catch (error) {
         console.warn('News JSON hiba:', error);
         setSummary('A data/news.json jelenleg nem érhető el, ezért a rendszer kézi tartalék hírlistát mutat.');
@@ -641,6 +728,18 @@
         const data = await response.json();
         renderEvents(Array.isArray(data) ? data : data.events || []);
       } catch (error) { console.warn('Events betöltési hiba:', error); renderEvents(fallbackEvents); }
+    }
+
+    function showToast(message) {
+      const toast = document.createElement('div');
+      toast.className = 'toast';
+      toast.textContent = message;
+
+      document.body.appendChild(toast);
+
+      setTimeout(() => {
+        toast.remove();
+      }, 4500);
     }
 
     function openReportWindow() {
