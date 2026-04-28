@@ -452,7 +452,7 @@
     function renderNews(items, mode) {
       currentNews = items || [];
       updateNewsStats(currentNews);
-      const groups = groupArticles(currentNews.slice(0, 45));
+      const groups = groupArticles(currentNews.slice(0, 150));
       renderGroup('officialNews', '🔵 Hatósági / önkormányzati tájékoztatás', 'official-title', groups.official, mode);
       renderGroup('civilNews', '🟢 Civil és Greenpeace források', 'civil-title', groups.civil, mode);
       renderGroup('austrianNews', '🔴 Osztrák / burgenlandi források', 'austrian-title', groups.austrian, mode);
