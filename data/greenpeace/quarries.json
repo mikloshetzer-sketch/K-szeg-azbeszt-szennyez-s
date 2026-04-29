@@ -1,0 +1,68 @@
+[
+  {
+    "id": "bernstein",
+    "name": "Steinbruch Bernstein",
+    "country": "Austria",
+    "region": "Burgenland",
+    "material_type": "Serpentinit",
+    "asbestos_risk": true,
+    "operator": "Hermann Mayer GesmbH Steinbruch Bernstein",
+    "known_asbestos_reference_year": 2006,
+    "estimated_2024_extraction_tons": null,
+    "related_quarries": [
+      "Pilgersdorf"
+    ],
+    "confidence": "high",
+    "source": {
+      "type": "Greenpeace factsheet",
+      "file": "greenpeace-factsheet.pdf"
+    },
+    "notes": [
+      "Geological study from 2006 reported asbestos fibers in the quarry area.",
+      "Mentioned as a serpentinite quarry in Burgenland."
+    ]
+  },
+  {
+    "id": "pilgersdorf",
+    "name": "Steinbruch Pilgersdorf",
+    "country": "Austria",
+    "region": "Burgenland",
+    "material_type": "Serpentinit",
+    "asbestos_risk": true,
+    "operator": "Hans Zöchling GmbH",
+    "known_asbestos_reference_year": null,
+    "estimated_2024_extraction_tons": 690107,
+    "related_quarries": [
+      "Bernstein"
+    ],
+    "confidence": "medium",
+    "source": {
+      "type": "Greenpeace factsheet",
+      "file": "greenpeace-factsheet.pdf"
+    },
+    "notes": [
+      "Located in the same geological zone as Bernstein.",
+      "Mentioned in connection with serpentinite extraction in Burgenland."
+    ]
+  },
+  {
+    "id": "rumpersdorf",
+    "name": "Steinbruch Rumpersdorf",
+    "country": "Austria",
+    "region": "Burgenland",
+    "material_type": "Serpentinit",
+    "asbestos_risk": true,
+    "operator": null,
+    "known_asbestos_reference_year": null,
+    "estimated_2024_extraction_tons": null,
+    "related_quarries": [],
+    "confidence": "medium",
+    "source": {
+      "type": "Greenpeace factsheet",
+      "file": "greenpeace-factsheet.pdf"
+    },
+    "notes": [
+      "Referenced in the Greenpeace report among asbestos-related quarry locations."
+    ]
+  }
+]
