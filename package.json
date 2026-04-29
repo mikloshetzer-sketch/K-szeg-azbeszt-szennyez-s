@@ -1,0 +1,14 @@
+{
+  "name": "asbestos-quarry-research",
+  "version": "1.0.0",
+  "description": "Austrian asbestos quarry and infrastructure research tools",
+  "main": "index.js",
+  "scripts": {
+    "crawl": "node scripts/crawl-koszeg-docs.js",
+    "summary": "node scripts/build-research-summary.js",
+    "greenpeace": "node scripts/parse-greenpeace-report.js"
+  },
+  "dependencies": {
+    "pdf-parse": "^1.1.1"
+  }
+}
