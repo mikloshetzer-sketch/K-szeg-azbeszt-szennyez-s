@@ -23,28 +23,51 @@ const OUTPUT_FILE = path.join(
 );
 
 const KEYWORDS = [
-  "azbeszt",
+  "Asbest",
   "asbestos",
-  "szerpentinit",
+  "Asbestbelastung",
+  "Asbestalarm",
+  "Asbestfasern",
+  "Serpentinit",
   "serpentinite",
+  "Serpentingestein",
   "Bernstein",
   "Pilgersdorf",
   "Rumpersdorf",
   "Burgenland",
-  "Magyarország",
+  "Steinbruch",
+  "Steinbrüche",
+  "Schotter",
+  "Splitt",
+  "Kies",
+  "Export",
+  "Ungarn",
   "Hungary",
-  "kőbánya",
-  "quarry",
-  "zúzottkő",
-  "zúzalék",
-  "útalap",
-  "export"
+  "Österreich",
+  "Austria",
+  "Probe",
+  "Proben",
+  "Messung",
+  "Messungen",
+  "Labor",
+  "Fasern",
+  "Luftmessung",
+  "Materialprobe",
+  "Grenzwert",
+  "Gesundheitsgefahr"
+];
+
+const QUARRIES = [
+  "Bernstein",
+  "Pilgersdorf",
+  "Rumpersdorf"
 ];
 
 function extractSentences(text) {
   return text
     .replace(/\r/g, " ")
     .replace(/\n/g, " ")
+    .replace(/\s+/g, " ")
     .split(/(?<=[.!?])\s+/)
     .map((s) => s.trim())
     .filter((s) => s.length > 20);
@@ -83,11 +106,23 @@ function buildKeywordStats(matches) {
   );
 }
 
+function buildQuarryMentions(matches) {
+  return QUARRIES.map((quarry) => {
+    const relatedMatches = matches.filter((match) =>
+      match.text.toLowerCase().includes(quarry.toLowerCase())
+    );
+
+    return {
+      quarry,
+      mention_count: relatedMatches.length,
+      related_sentences: relatedMatches.slice(0, 20)
+    };
+  });
+}
+
 async function main() {
   if (!fs.existsSync(INPUT_FILE)) {
-    throw new Error(
-      `Nem találom a PDF fájlt: ${INPUT_FILE}`
-    );
+    throw new Error(`Nem találom a PDF fájlt: ${INPUT_FILE}`);
   }
 
   const pdfBuffer = fs.readFileSync(INPUT_FILE);
@@ -104,18 +139,13 @@ async function main() {
 
   const summary = {
     generated_at: new Date().toISOString(),
-
     source_file: path.basename(INPUT_FILE),
-
     total_pages: data.numpages,
-
     total_sentences: sentences.length,
-
     total_matches: matches.length,
-
     keyword_stats: buildKeywordStats(matches),
-
-    important_matches: matches.slice(0, 300)
+    quarry_mentions: buildQuarryMentions(matches),
+    important_matches: matches.slice(0, 500)
   };
 
   fs.mkdirSync(OUTPUT_DIR, {
@@ -129,11 +159,8 @@ async function main() {
   );
 
   console.log(`Kész: ${OUTPUT_FILE}`);
-
   console.log(`Oldalak: ${data.numpages}`);
-
   console.log(`Mondatok: ${sentences.length}`);
-
   console.log(`Találatok: ${matches.length}`);
 }
 
