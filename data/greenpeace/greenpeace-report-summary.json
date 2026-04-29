@@ -1,193 +1,968 @@
 {
-  "generated_at": "2026-04-29T06:40:36.495Z",
+  "generated_at": "2026-04-29T06:43:34.565Z",
   "source_file": "greenpeace-factsheet.pdf",
   "total_pages": 10,
   "total_sentences": 149,
-  "total_matches": 29,
+  "total_matches": 112,
   "keyword_stats": {
+    "Asbest": 85,
+    "Steinbrüche": 24,
     "Burgenland": 21,
+    "Probe": 16,
+    "Serpentinit": 16,
+    "Proben": 15,
+    "Steinbruch": 14,
+    "Asbestbelastung": 11,
+    "Asbestalarm": 11,
+    "Schotter": 11,
+    "Splitt": 8,
+    "Fasern": 7,
     "asbestos": 5,
+    "Asbestfasern": 5,
+    "Österreich": 5,
+    "Labor": 4,
     "Rumpersdorf": 4,
     "Bernstein": 3,
-    "Pilgersdorf": 1
+    "Materialprobe": 2,
+    "Messung": 2,
+    "Messungen": 2,
+    "Ungarn": 1,
+    "Kies": 1,
+    "Pilgersdorf": 1,
+    "Gesundheitsgefahr": 1,
+    "Luftmessung": 1
   },
+  "quarry_mentions": [
+    {
+      "quarry": "Bernstein",
+      "mention_count": 3,
+      "related_sentences": [
+        {
+          "text": "Die größten Steinbrüche, die als Serpentinitsteinbrüche geführt werden oder in Serpentinitzonen liegen, sind: ● Burgenland (Abbau von 690.107 Tonnen 2024): ○ Steinbruch Pilgersdorf; Betreiberfirma: Hans Zöchling GmbH, liegt in der gleichen geologischen Zone wie der Steinbruch Bernstein.",
+          "keywords": [
+            "Serpentinit",
+            "Bernstein",
+            "Pilgersdorf",
+            "Burgenland",
+            "Steinbruch",
+            "Steinbrüche"
+          ]
+        },
+        {
+          "text": "○ Steinbruch Bernstein; Betreiberfirma: Hermann Mayer GesmbH Steinbruch Bernstein.",
+          "keywords": [
+            "Bernstein",
+            "Steinbruch"
+          ]
+        },
+        {
+          "text": "9 ● Geologische Studie 2006: Eine geologische Studie aus dem Jahr 2006 beschreibt das Asbestvorkommen in drei der vier betroffenen Serpentinit-Steinbrüchen 10 : Steinbruch Bernstein: „Im gesamten Steinbruchareal finden sich Asbestfasern.“ (S.",
+          "keywords": [
+            "Asbest",
+            "Asbestfasern",
+            "Serpentinit",
+            "Bernstein",
+            "Steinbruch",
+            "Steinbrüche",
+            "Fasern"
+          ]
+        }
+      ]
+    },
+    {
+      "quarry": "Pilgersdorf",
+      "mention_count": 1,
+      "related_sentences": [
+        {
+          "text": "Die größten Steinbrüche, die als Serpentinitsteinbrüche geführt werden oder in Serpentinitzonen liegen, sind: ● Burgenland (Abbau von 690.107 Tonnen 2024): ○ Steinbruch Pilgersdorf; Betreiberfirma: Hans Zöchling GmbH, liegt in der gleichen geologischen Zone wie der Steinbruch Bernstein.",
+          "keywords": [
+            "Serpentinit",
+            "Bernstein",
+            "Pilgersdorf",
+            "Burgenland",
+            "Steinbruch",
+            "Steinbrüche"
+          ]
+        }
+      ]
+    },
+    {
+      "quarry": "Rumpersdorf",
+      "mention_count": 4,
+      "related_sentences": [
+        {
+          "text": "130 2 Abfrage bei Kartendienst Land Burgenland Asbestalarm im Burgenland 6 Greenpeace in Zentral- und Osteuropa Wiedner Hauptstraße 120 - 124, 1050 Wien Telefon: +43 (0)1 545 45 80 E-Mail: service@greenpeace.at www.greenpeace.at ○ Steinbruch Rumpersdorf (auch als Steinbruch bei Glashütten bei Schlaining bezeichnet); Betreiberfirma: Klöcher Baugesellschaft m.b.H.; Behördlich gesperrt.",
+          "keywords": [
+            "Asbest",
+            "Asbestalarm",
+            "Rumpersdorf",
+            "Burgenland",
+            "Steinbruch"
+          ]
+        },
+        {
+          "text": "164 6 Abrufbar unter: https://pure.unileoben.ac.at/de/publications/die-geologie-des-kraubather-ultramafitkomplexes-zwischen-wintergr/ Asbestalarm im Burgenland 7 Greenpeace in Zentral- und Osteuropa Wiedner Hauptstraße 120 - 124, 1050 Wien Telefon: +43 (0)1 545 45 80 E-Mail: service@greenpeace.at www.greenpeace.at Rumpersdorf vorgelegt, die Chrysotil-Asbest (Weißasbest) enthalten.",
+          "keywords": [
+            "Asbest",
+            "Asbestalarm",
+            "Rumpersdorf",
+            "Burgenland"
+          ]
+        },
+        {
+          "text": "50 Fußnote 1) Steinbruch Rumpersdorf: „Das dunkelgrüne Gestein ist häufig stark durchädert, in Mobilisationsgängen finden sich Tremolit, Asbest, Chalcedon, Karbonat und Talk.“ (S.",
+          "keywords": [
+            "Asbest",
+            "Rumpersdorf",
+            "Steinbruch"
+          ]
+        },
+        {
+          "text": "Der betroffene Streusplitt wurde im Steinbruch Rumpersdorf (Postmann), einem der mittlerweile geschlossenen Steinbrüche, abgebaut.",
+          "keywords": [
+            "Rumpersdorf",
+            "Steinbruch",
+            "Steinbrüche",
+            "Splitt"
+          ]
+        }
+      ]
+    }
+  ],
   "important_matches": [
     {
-      "text": "Greenpeace in Zentral- und Osteuropa  Wiedner Hauptstraße 120 - 124, 1050 Wien  Telefon: +43 (0)1 545 45 80  E-Mail: service@greenpeace.at  www.greenpeace.at        Asbestalarm im  Burgenland    Greenpeace hat im Burgenland an neun Stellen eine gefährlich  hohe Asbestbelastung aufgedeckt – unter anderem vor der  Klinik Oberwart, in einem Skatepark und einer  Einfamilienhaussiedlung.",
+      "text": "Greenpeace in Zentral- und Osteuropa Wiedner Hauptstraße 120 - 124, 1050 Wien Telefon: +43 (0)1 545 45 80 E-Mail: service@greenpeace.at www.greenpeace.at Asbestalarm im Burgenland Greenpeace hat im Burgenland an neun Stellen eine gefährlich hohe Asbestbelastung aufgedeckt – unter anderem vor der Klinik Oberwart, in einem Skatepark und einer Einfamilienhaussiedlung.",
       "keywords": [
+        "Asbest",
+        "Asbestbelastung",
+        "Asbestalarm",
         "Burgenland"
       ]
     },
     {
-      "text": "Inhaltsverzeichnis  Zusammenfassung 2  Einleitung 3  Greenpeace Asbestanalyse 4  Ausmaß des Asbestabbaus und mögliche betroffene Steinbrüche 6  Asbestvorkommen seit Jahrzehnten bekannt 7  Gefährlichkeit von Asbest 8  Forderungen 9      Asbestalarm im Burgenland  1   Greenpeace in Zentral- und Osteuropa  Wiedner Hauptstraße 120 - 124, 1050 Wien  Telefon: +43 (0)1 545 45 80  E-Mail: service@greenpeace.at  www.greenpeace.at      Zusammenfassung  ● Greenpeace hat im Burgenland neun Materialproben gezogen und positiv auf Asbest  getestet: Alle Proben sind mit einem Anteil von teils über 50 Prozent extrem stark mit  Asbest belastet.",
+      "text": "Die Quelle sind Steinbrüche der Region, wo über Jahrzehnte asbesthaltiges Gestein abgebaut und verkauft wurde.",
       "keywords": [
+        "Asbest",
+        "Steinbrüche"
+      ]
+    },
+    {
+      "text": "Inhaltsverzeichnis Zusammenfassung 2 Einleitung 3 Greenpeace Asbestanalyse 4 Ausmaß des Asbestabbaus und mögliche betroffene Steinbrüche 6 Asbestvorkommen seit Jahrzehnten bekannt 7 Gefährlichkeit von Asbest 8 Forderungen 9 Asbestalarm im Burgenland 1 Greenpeace in Zentral- und Osteuropa Wiedner Hauptstraße 120 - 124, 1050 Wien Telefon: +43 (0)1 545 45 80 E-Mail: service@greenpeace.at www.greenpeace.at Zusammenfassung ● Greenpeace hat im Burgenland neun Materialproben gezogen und positiv auf Asbest getestet: Alle Proben sind mit einem Anteil von teils über 50 Prozent extrem stark mit Asbest belastet.",
+      "keywords": [
+        "Asbest",
+        "Asbestalarm",
+        "Burgenland",
+        "Steinbrüche",
+        "Probe",
+        "Proben",
+        "Materialprobe"
+      ]
+    },
+    {
+      "text": "Dabei gilt Material bereits mit mehr als 0,1 Prozent Asbestanteil als gefährlicher Abfall, der unter strengen Sicherheitsauflagen geborgen und in Asbestdeponien entsorgt werden muss.",
+      "keywords": [
+        "Asbest"
+      ]
+    },
+    {
+      "text": "● Asbest vor Krankenhaus, Spielplatz und Einfamilienhäusern: Proben vor der Klinik Oberwart sowie Material von der Baustelle hinter dem Krankenhaus zeigen eine Belastung von 20 bis zu 50 Prozent Asbest.",
+      "keywords": [
+        "Asbest",
+        "Probe",
+        "Proben"
+      ]
+    },
+    {
+      "text": "In Neumarkt im Tauchental wurden vor einer neu gebauten Einfamilienhaussiedlung nahezu reine Asbestbrocken auf der Schotterstraße mit mehr als 50 Prozent Asbestanteil nachgewiesen.",
+      "keywords": [
+        "Asbest",
+        "Schotter"
+      ]
+    },
+    {
+      "text": "Im Asphalt vor der Rettungseinfahrt in Rechnitz finden sich unzählige Asbesteinschlüsse mit Gehalten von mehr als 50 Prozent.",
+      "keywords": [
+        "Asbest"
+      ]
+    },
+    {
+      "text": "● Großflächige Belastung: Das asbesthaltige Material wurde über Jahrzehnte in Steinbrüchen abgebaut und als Streusplitt, Schotter, Sand und Asphalt in Umlauf gebracht.",
+      "keywords": [
+        "Asbest",
+        "Steinbrüche",
+        "Schotter",
+        "Splitt"
+      ]
+    },
+    {
+      "text": "Man kann davon ausgehen, dass weite Teile der Straßen, Bankette und Feldwege sowie unzählige Schotterfundamente im Umkreis hochgradig mit Asbest verseucht sind.",
+      "keywords": [
+        "Asbest",
+        "Schotter"
+      ]
+    },
+    {
+      "text": "Das Material wurde bis nach Salzburg und sogar Ungarn transportiert.",
+      "keywords": [
+        "Ungarn"
+      ]
+    },
+    {
+      "text": "● Bergungs- und Entsorgungskosten in Milliardenhöhe: Alleine im Burgenland wurde von den wegen Asbest gesperrten Steinbrüchen pro Jahr rund 700.000 Tonnen potentiell asbestbelasteter Serpentinit abgebaut.",
+      "keywords": [
+        "Asbest",
+        "Serpentinit",
+        "Burgenland",
+        "Steinbrüche"
+      ]
+    },
+    {
+      "text": "Die Entsorgung von einer Tonne asbesthaltigem Abfall kostet zwischen 100 und 150 Euro.",
+      "keywords": [
+        "Asbest"
+      ]
+    },
+    {
+      "text": "● Jahrzehntelange Untätigkeit der Behörden: Die Asbestbelastung des Gesteins und die Gefahr durch Asbest sind seit 100 Jahren bekannt und durch Studien und Bescheide mehrfach belegt.",
+      "keywords": [
+        "Asbest",
+        "Asbestbelastung"
+      ]
+    },
+    {
+      "text": "● Sofortige Sperrungen: Greenpeace fordert angesichts der akuten Gefährdung, dass besonders beanspruchte asbestbelastete Bereiche wie der Skatepark in Rechnitz sofort behördlich gesperrt werden.",
+      "keywords": [
+        "Asbest"
+      ]
+    },
+    {
+      "text": "Zusätzlich müssen die Behörden sofort und umfassend erheben, wo asbesthaltiges Gestein eingesetzt worden ist und Maßnahmen setzen.",
+      "keywords": [
+        "Asbest"
+      ]
+    },
+    {
+      "text": "Asbestalarm im Burgenland 2 Greenpeace in Zentral- und Osteuropa Wiedner Hauptstraße 120 - 124, 1050 Wien Telefon: +43 (0)1 545 45 80 E-Mail: service@greenpeace.at www.greenpeace.at Einleitung Asbest ist für Mensch, Tier und Umwelt extrem gefährlich – und das schon in geringen Mengen.",
+      "keywords": [
+        "Asbest",
+        "Asbestalarm",
         "Burgenland"
       ]
     },
     {
-      "text": "● Bergungs- und Entsorgungskosten in Milliardenhöhe: Alleine im Burgenland wurde von  den wegen Asbest gesperrten Steinbrüchen pro Jahr rund 700.000 Tonnen potentiell  asbestbelasteter Serpentinit abgebaut.",
+      "text": "Asbestfasern sind winzig und scharf, können beim Einatmen in die Lunge eindringen, dort chronische Entzündungen und Vernarbungen (Asbestose) verursachen und das Risiko für tödliche Krebsarten massiv erhöhen.",
       "keywords": [
+        "Asbest",
+        "asbestos",
+        "Asbestfasern",
+        "Fasern"
+      ]
+    },
+    {
+      "text": "Asbest ist in Österreich seit 1990 verboten.",
+      "keywords": [
+        "Asbest",
+        "Österreich"
+      ]
+    },
+    {
+      "text": "Seine Gefährlichkeit schlägt sich auch in der strengen Gesetzgebung nieder – vor allem bei der Entsorgung von Asbestabfällen und dem Verbot von Inverkehrbringung von asbestbelastetem Material.",
+      "keywords": [
+        "Asbest"
+      ]
+    },
+    {
+      "text": "Materialien, die einen Asbestanteil von mehr als 0,1 Prozent aufweisen, sind als gefährliche Abfälle eingestuft.",
+      "keywords": [
+        "Asbest"
+      ]
+    },
+    {
+      "text": "Trotz der bekannten Gefahren wurde im Burgenland über Jahrzehnte teils stark asbesthaltiges Gestein (Serpentinit) in mehreren Steinbrüchen abgebaut.",
+      "keywords": [
+        "Asbest",
+        "Serpentinit",
+        "Burgenland",
+        "Steinbrüche"
+      ]
+    },
+    {
+      "text": "Das asbesthaltige Material wurde unter anderem als Schotter, Bausand, Asphaltbeimischung, Sand und Streusplitt in Umlauf gebracht.",
+      "keywords": [
+        "Asbest",
+        "Schotter",
+        "Splitt"
+      ]
+    },
+    {
+      "text": "Januar 2026 wurden vier Steinbrüche wegen „Gefahr in Verzug“ gesperrt – 36 Jahre nach Inkrafttreten des Asbestverbots.",
+      "keywords": [
+        "Asbest",
+        "Steinbrüche"
+      ]
+    },
+    {
+      "text": "Aktuelle Materialproben aus den Steinbrüchen, die im Zuge einer EU-Richtlinie von den Behörden veranlasst wurden, belegen die gravierende Asbestbelastung in den Gesteinsprodukten.",
+      "keywords": [
+        "Asbest",
+        "Asbestbelastung",
+        "Steinbrüche",
+        "Probe",
+        "Proben",
+        "Materialprobe"
+      ]
+    },
+    {
+      "text": "Greenpeace hat bei einem Lokalaugenschein mehrere Baustellen und Asphalte im Bezirk Oberwart beprobt und auf Asbest untersuchen lassen.",
+      "keywords": [
+        "Asbest"
+      ]
+    },
+    {
+      "text": "Die Ergebnisse sind alarmierend: In allen Proben wurde Asbest mit einem Massegehalt von mindestens 20 bis über 50 Prozent gemessen.",
+      "keywords": [
+        "Asbest",
+        "Probe",
+        "Proben"
+      ]
+    },
+    {
+      "text": "Zum Vergleich: Ältere Eternitplatten, die für Asbestbelastung bekannt sind und vor denen immer wieder im großen Stil gewarnt wurde, haben einen Asbestanteil von etwa zehn bis 15 Prozent.",
+      "keywords": [
+        "Asbest",
+        "Asbestbelastung"
+      ]
+    },
+    {
+      "text": "Nun finden sich offen neben Kinderspielplätzen, auf Schotterstraßen, auf Baustellen und vor Krankenhäusern nahezu reine Asbestbrocken.",
+      "keywords": [
+        "Asbest",
+        "Schotter"
+      ]
+    },
+    {
+      "text": "Asbestalarm im Burgenland 3 Greenpeace in Zentral- und Osteuropa Wiedner Hauptstraße 120 - 124, 1050 Wien Telefon: +43 (0)1 545 45 80 E-Mail: service@greenpeace.at www.greenpeace.at Greenpeace Asbestanalyse Greenpeace hat im Burgenland stichprobenartig mehrere Orte und Baustellen auf asbesthaltiges Material untersucht.",
+      "keywords": [
+        "Asbest",
+        "Asbestalarm",
+        "Burgenland",
+        "Probe",
+        "Proben"
+      ]
+    },
+    {
+      "text": "Diese Stellen wurden beprobt und folgende Ergebnisse gemessen: Probe Ort Art der Probe Analyseergebnis 1 Rechnitz: Asphalt des Pumptrack Freizeitpark Abschabung der Asphaltoberfläche Asbestgehalt: Über 50 Prozent Asbestmineralien: Amphibolasbest (Tremolit) 2 Rechnitz: Asphalt des Parkplatzes zwischen Rettungsausfahrt und Bauhof Abschabung der Asphaltoberfläche Asbestgehalt: Über 50 Prozent Asbestmineralien: Amphibolasbest (Tremolit) 3 Neumarkt im Tauchental: Neu gebaute Einfamilienhäuser und Schotterstraße Schotterbrocken von Schotterhaufen Asbestgehalt: Über 50 Prozent Asbestmineralien: Amphibolasbest (Tremolit) 4 Neumarkt im Tauchental: Neu gebaute Einfamilienhäuser und Schotterstraße Schotterbrocken von der Schotterstraße neben Kinderspielplatz Asbestgehalt: Über 50 Prozent Asbestmineralien: Amphibolasbest (Tremolit) 5 Oberwart: Baustelle des Gewerbepark 47 Schotterbrocken von der planierten und geschotterten Baustelle Asbestgehalt: Über 50 Prozent Asbestmineralien: Amphibolasbest (Tremolit) 6 Oberwart: Baustelle Klinik Oberwart (Sauerbruchstraße) Sand-, Kies Schottergemisch von der Baustelle Asbestgehalt: 20 - 50 Prozent Asbestmineralien: Amphibolasbest (Tremolit) Chrysotilasbest 7 Oberwart: Zwischen Klinik Oberwart und Dornburggasse Sand-, Kies- Schottergemisch aus Straßenbankett Asbestgehalt: 20-50 Prozent Asbestmineralien: Amphibolasbest (Tremolit) Chrysotilasbest 8 Oberwart: vor der Klinik Oberwart auf Dornburggasse Streusplitt Asbestgehalt Über 50 Prozent Asbestmineralien: Amphibolasbest (Tremolit) 9 Oberwart: Asphaltoberfläche vor dem Rathaus Abschabung der Asphaltoberfläche Asbestgehalt Über 50 Prozent Asbestmineralien: Amphibolasbest (Tremolit) Asbestalarm im Burgenland 4 Greenpeace in Zentral- und Osteuropa Wiedner Hauptstraße 120 - 124, 1050 Wien Telefon: +43 (0)1 545 45 80 E-Mail: service@greenpeace.at www.greenpeace.at Hinweise zur Analyse Das Labor hat die Proben mit einem Rasterelektronenmikroskop untersucht.",
+      "keywords": [
+        "Asbest",
+        "Asbestalarm",
+        "Burgenland",
+        "Schotter",
+        "Splitt",
+        "Kies",
+        "Probe",
+        "Proben",
+        "Labor"
+      ]
+    },
+    {
+      "text": "Wenn bei Asbest der Massegehalt (Anteil an Asbest) bestimmt wird und die Asbestgehalte so hoch sind wie in den von Greenpeace gezogenen Proben, dann wird der Anteil zum Schutz der Labormitarbeiter:innen lediglich geschätzt.",
+      "keywords": [
+        "Asbest",
+        "Probe",
+        "Proben",
+        "Labor"
+      ]
+    },
+    {
+      "text": "Nahezu reine Asbesteinschlüsse im Asphalt Sowohl bei der Pumptrack-Bahn als auch bei der Rettungseinfahrt in Rechnitz und vor dem Rathaus in Oberwart wurden zahlreiche Asbesteinschlüsse im Asphalt entdeckt und beprobt.",
+      "keywords": [
+        "Asbest"
+      ]
+    },
+    {
+      "text": "Die Analyse im Labor zeigt eine Asbestbelastung von über 50 Prozent.",
+      "keywords": [
+        "Asbest",
+        "Asbestbelastung",
+        "Labor"
+      ]
+    },
+    {
+      "text": "Das nächstgelegene Asphaltmischwerk ist das Asphaltwerk im Tauchental, zu dem bereits 1999 ein Bescheid bezüglich Asbestbelastung erfolgt ist.",
+      "keywords": [
+        "Asbest",
+        "Asbestbelastung"
+      ]
+    },
+    {
+      "text": "Dort wird auch Material aus den kürzlich geschlossenen Serpentinit-Steinbrüchen zu Asphalt verarbeitet.",
+      "keywords": [
+        "Serpentinit",
+        "Steinbrüche"
+      ]
+    },
+    {
+      "text": "Da der Abbau in manchen Steinbrüchen – trotz Asbestverbot – seit 1990 läuft, sind Unmengen an asbesthaltigem Material in Umlauf gebracht und in Asphalt eingemischt worden.",
+      "keywords": [
+        "Asbest",
+        "Steinbrüche"
+      ]
+    },
+    {
+      "text": "Nahezu reine Asbestbrocken im Schotter Greenpeace hat mehrere Schotterproben von Baustellen analysiert – in allen wurde ein sehr hoher Asbest-Anteil nachgewiesen.",
+      "keywords": [
+        "Asbest",
+        "Schotter",
+        "Probe",
+        "Proben"
+      ]
+    },
+    {
+      "text": "In Neumarkt im Tauchental wurden eine Schotterstraße und die Schotterhaufen vor neu gebauten Einfamilienhäusern beprobt.",
+      "keywords": [
+        "Schotter"
+      ]
+    },
+    {
+      "text": "Es fanden sich unzählige Asbestbrocken im Schotter.",
+      "keywords": [
+        "Asbest",
+        "Schotter"
+      ]
+    },
+    {
+      "text": "Trotz Schneelage waren im Schottermaterial die charakteristischen weiß-grauen Asbest-Einschlüsse gut sichtbar.",
+      "keywords": [
+        "Asbest",
+        "Schotter"
+      ]
+    },
+    {
+      "text": "Im Labor wurde eine Asbestbelastung der Proben von über 50 Prozent gemessen.",
+      "keywords": [
+        "Asbest",
+        "Asbestbelastung",
+        "Probe",
+        "Proben",
+        "Labor"
+      ]
+    },
+    {
+      "text": "Nahezu reine Asbeststücke im Streusplitt Vor dem Krankenhaus Oberwart stieß das Greenpeace-Investigativteam auf auffällige weiße, faserige Asbeststücke im Streusplitt.",
+      "keywords": [
+        "Asbest",
+        "Splitt"
+      ]
+    },
+    {
+      "text": "Auch hier zeigte die Analyse der Probe einen Asbestanteil von mehr als 50 Prozent.",
+      "keywords": [
+        "Asbest",
+        "Probe"
+      ]
+    },
+    {
+      "text": "1 Liste der burgenländischen Asphaltmischwerke sind hier aufgeführt: https://firmen.wko.at/asphalt/burgenland/ Asbestalarm im Burgenland 5 Greenpeace in Zentral- und Osteuropa Wiedner Hauptstraße 120 - 124, 1050 Wien Telefon: +43 (0)1 545 45 80 E-Mail: service@greenpeace.at www.greenpeace.at Abb.",
+      "keywords": [
+        "Asbest",
+        "Asbestalarm",
         "Burgenland"
       ]
     },
     {
-      "text": "Asbestalarm im Burgenland  2   Greenpeace in Zentral- und Osteuropa  Wiedner Hauptstraße 120 - 124, 1050 Wien  Telefon: +43 (0)1 545 45 80  E-Mail: service@greenpeace.at  www.greenpeace.at    Einleitung  Asbest ist für Mensch, Tier und Umwelt extrem gefährlich – und das schon in geringen Mengen.",
+      "text": "1: Die betroffenen Steinbrüche bauen allesamt Serpentinit-Gestein ab.",
       "keywords": [
-        "Burgenland"
+        "Serpentinit",
+        "Steinbrüche"
       ]
     },
     {
-      "text": "Asbestfasern sind winzig und scharf, können beim Einatmen in die Lunge eindringen, dort  chronische Entzündungen und Vernarbungen (Asbestose) verursachen und das Risiko für tödliche  Krebsarten massiv erhöhen.",
+      "text": "Serpentinit kann einfach an seiner charakteristischen grünen Farbe erkannt werden.",
       "keywords": [
-        "asbestos"
+        "Serpentinit"
       ]
     },
     {
-      "text": "Trotz der bekannten Gefahren wurde im Burgenland über Jahrzehnte teils stark asbesthaltiges  Gestein (Serpentinit) in mehreren Steinbrüchen abgebaut.",
+      "text": "2: Asbest kommt im Gestein als weiß-gräuliche Einschlüsse, Überzüge oder Gänge – ähnlich wie Quarz – vor.",
       "keywords": [
-        "Burgenland"
+        "Asbest"
       ]
     },
     {
-      "text": "Asbestalarm im Burgenland  3   Greenpeace in Zentral- und Osteuropa  Wiedner Hauptstraße 120 - 124, 1050 Wien  Telefon: +43 (0)1 545 45 80  E-Mail: service@greenpeace.at  www.greenpeace.at    Greenpeace Asbestanalyse  Greenpeace hat im Burgenland stichprobenartig mehrere Orte und Baustellen auf asbesthaltiges  Material untersucht.",
+      "text": "Asbest ist auch mit freiem Auge als „fasrig\" zu erkennen.",
       "keywords": [
-        "Burgenland"
+        "Asbest"
       ]
     },
     {
-      "text": "Diese Stellen wurden beprobt und folgende Ergebnisse gemessen:    Probe Ort Art der Probe Analyseergebnis  1 Rechnitz:  Asphalt des Pumptrack  Freizeitpark  Abschabung der  Asphaltoberfläche   Asbestgehalt:  Über 50 Prozent    Asbestmineralien:  Amphibolasbest (Tremolit)  2 Rechnitz:   Asphalt des Parkplatzes zwischen  Rettungsausfahrt und Bauhof  Abschabung der  Asphaltoberfläche  Asbestgehalt:  Über 50 Prozent    Asbestmineralien:  Amphibolasbest (Tremolit)  3 Neumarkt im Tauchental: Neu  gebaute Einfamilienhäuser und  Schotterstraße   Schotterbrocken von  Schotterhaufen  Asbestgehalt:  Über 50 Prozent    Asbestmineralien:  Amphibolasbest (Tremolit)  4 Neumarkt im Tauchental:  Neu gebaute Einfamilienhäuser  und Schotterstraße  Schotterbrocken von  der Schotterstraße  neben Kinderspielplatz  Asbestgehalt:  Über 50 Prozent    Asbestmineralien:  Amphibolasbest (Tremolit)  5 Oberwart:   Baustelle des Gewerbepark 47  Schotterbrocken von  der planierten und  geschotterten  Baustelle  Asbestgehalt:  Über 50 Prozent    Asbestmineralien:  Amphibolasbest (Tremolit)  6 Oberwart:   Baustelle Klinik Oberwart  (Sauerbruchstraße)  Sand-, Kies  Schottergemisch von  der Baustelle   Asbestgehalt:  20 - 50 Prozent    Asbestmineralien:  Amphibolasbest (Tremolit)  Chrysotilasbest  7 Oberwart:   Zwischen Klinik Oberwart und  Dornburggasse   Sand-, Kies-  Schottergemisch aus  Straßenbankett  Asbestgehalt:   20-50 Prozent    Asbestmineralien:  Amphibolasbest (Tremolit)  Chrysotilasbest  8 Oberwart:   vor der Klinik Oberwart auf  Dornburggasse  Streusplitt Asbestgehalt   Über 50 Prozent    Asbestmineralien:  Amphibolasbest (Tremolit)  9 Oberwart: Asphaltoberfläche vor  dem Rathaus  Abschabung der  Asphaltoberfläche  Asbestgehalt  Über 50 Prozent    Asbestmineralien:  Amphibolasbest (Tremolit)  Asbestalarm im Burgenland  4   Greenpeace in Zentral- und Osteuropa  Wiedner Hauptstraße 120 - 124, 1050 Wien  Telefon: +43 (0)1 545 45 80  E-Mail: service@greenpeace.at  www.greenpeace.at      Hinweise zur Analyse  Das Labor hat die Proben mit einem Rasterelektronenmikroskop untersucht.",
+      "text": "3: Ist die Oberfläche mit weißen Einschlüssen durchzogen und lässt sich mit einem Metallgegenstand ohne viel Druck eindrücken, handelt es sich mit hoher Sicherheit um Asbest.",
       "keywords": [
-        "Burgenland"
+        "Asbest"
       ]
     },
     {
-      "text": "1  Liste der burgenländischen Asphaltmischwerke sind hier aufgeführt:  https://firmen.wko.at/asphalt/burgenland/  Asbestalarm im Burgenland  5   Greenpeace in Zentral- und Osteuropa  Wiedner Hauptstraße 120 - 124, 1050 Wien  Telefon: +43 (0)1 545 45 80  E-Mail: service@greenpeace.at  www.greenpeace.at        Abb.",
+      "text": "Ausmaß des Asbestabbaus und mögliche betroffene Steinbrüche Die gesperrten Steinbrüche liegen allesamt laut den geologischen Karten des Landes Burgenland 2 in Serpentinit-Zonen.",
       "keywords": [
-        "Burgenland"
+        "Asbest",
+        "Serpentinit",
+        "Burgenland",
+        "Steinbrüche"
       ]
     },
     {
-      "text": "Ausmaß des Asbestabbaus und  mögliche betroffene Steinbrüche  Die gesperrten Steinbrüche liegen allesamt laut den geologischen Karten des Landes Burgenland 2   in Serpentinit-Zonen.",
+      "text": "Alle betroffenen Steinbrüche bauen Serpentinit ab.",
       "keywords": [
-        "Burgenland"
+        "Serpentinit",
+        "Steinbrüche"
       ]
     },
     {
-      "text": "Die größten Steinbrüche, die als Serpentinitsteinbrüche geführt werden oder in  Serpentinitzonen liegen, sind:    ● Burgenland (Abbau von 690.107 Tonnen 2024):  ○  Steinbruch Pilgersdorf; Betreiberfirma: Hans Zöchling GmbH, liegt in der gleichen  geologischen Zone wie der Steinbruch Bernstein.",
+      "text": "Asbest-Arten wie Chryosit und Amphibol sind natürliche Bestandteile des Gesteins Serpentinit.",
       "keywords": [
+        "Asbest",
+        "Serpentinit"
+      ]
+    },
+    {
+      "text": "4 Geschätzt wurden seit 1990 knapp 50 Millionen Tonnen potentiell asbesthaltiges Gestein abgebaut.",
+      "keywords": [
+        "Asbest"
+      ]
+    },
+    {
+      "text": "Wenn der Asbest-Anteil bei – vorsichtig und konservativ geschätzt – einem Prozent liegt, wären seit 1990 500.000 Tonnen Asbest durch den Abbau in Steinbrüchen freigesetzt und verbaut worden.",
+      "keywords": [
+        "Asbest",
+        "Steinbrüche"
+      ]
+    },
+    {
+      "text": "Die größten Steinbrüche, die als Serpentinitsteinbrüche geführt werden oder in Serpentinitzonen liegen, sind: ● Burgenland (Abbau von 690.107 Tonnen 2024): ○ Steinbruch Pilgersdorf; Betreiberfirma: Hans Zöchling GmbH, liegt in der gleichen geologischen Zone wie der Steinbruch Bernstein.",
+      "keywords": [
+        "Serpentinit",
         "Bernstein",
         "Pilgersdorf",
+        "Burgenland",
+        "Steinbruch",
+        "Steinbrüche"
+      ]
+    },
+    {
+      "text": "○ Steinbruch Bernstein; Betreiberfirma: Hermann Mayer GesmbH Steinbruch Bernstein.",
+      "keywords": [
+        "Bernstein",
+        "Steinbruch"
+      ]
+    },
+    {
+      "text": "5 Der Steinbruch wird im Montanhandbuch unter dem Abbau von „Lockergestein“ geführt und zählt nicht zum Serpentinitabbau.",
+      "keywords": [
+        "Serpentinit",
+        "Steinbruch"
+      ]
+    },
+    {
+      "text": "Der Steinbruch wurde am 02.01.2026 wegen Asbestbelastung gesperrt und liegt geologisch in der Serpentinit-Zone.",
+      "keywords": [
+        "Asbest",
+        "Asbestbelastung",
+        "Serpentinit",
+        "Steinbruch"
+      ]
+    },
+    {
+      "text": "Es wurden vier Proben der Produkte gezogen und die Asbestgehalte lagen zwischen 5 und 50 Prozent.",
+      "keywords": [
+        "Asbest",
+        "Probe",
+        "Proben"
+      ]
+    },
+    {
+      "text": "Hier online abrufbar: https://www.bmf.gv.at/dam/jcr:955c2263-f864-44ef-8cbc-ff19d3d1050e/MHB_2025%20Barrierefrei.pdf 3 Reinhard Exel: Die Mineralien und Erzlagerstätten Österreichs, Wien 1993, S.",
+      "keywords": [
+        "Österreich"
+      ]
+    },
+    {
+      "text": "130 2 Abfrage bei Kartendienst Land Burgenland Asbestalarm im Burgenland 6 Greenpeace in Zentral- und Osteuropa Wiedner Hauptstraße 120 - 124, 1050 Wien Telefon: +43 (0)1 545 45 80 E-Mail: service@greenpeace.at www.greenpeace.at ○ Steinbruch Rumpersdorf (auch als Steinbruch bei Glashütten bei Schlaining bezeichnet); Betreiberfirma: Klöcher Baugesellschaft m.b.H.; Behördlich gesperrt.",
+      "keywords": [
+        "Asbest",
+        "Asbestalarm",
+        "Rumpersdorf",
+        "Burgenland",
+        "Steinbruch"
+      ]
+    },
+    {
+      "text": "○ Steinbruch Badersdorf; Betreiberfirma: bis 2025 Rohrdorfer, danach Klöcher Baugesellschaft m.b.H.; Behördlich gesperrt.",
+      "keywords": [
+        "Steinbruch"
+      ]
+    },
+    {
+      "text": "● Steiermark (Abbau von 542.255 Tonnen Serpentinit 2024): Es gibt eine Masterarbeit, die Asbestvorkommen in der geologischen Zone der Steinbrüche beschreibt.",
+      "keywords": [
+        "Asbest",
+        "Serpentinit",
+        "Steinbrüche"
+      ]
+    },
+    {
+      "text": "6 ○ Steinbruch Hinterlobming (auch nur als Lobming bezeichnet) Betreiberfirma: Magnolithe GmbH ○ Steinbruch Pronat Preg; Betreiberfirma: PORR (PRONAT Steinbruch Preg GmbH) Asbestvorkommen seit Jahrzehnten bekannt Bereits 1928 wurde mit Asbestabbau in der Region Rechnitz begonnen und bis 1945 in Steinbrüchen abgebaut.",
+      "keywords": [
+        "Asbest",
+        "Steinbruch",
+        "Steinbrüche"
+      ]
+    },
+    {
+      "text": "7 Es ist aus geologischer und wissenschaftlicher Sicht eindeutig belegt und gut dokumentiert, dass Asbest-Arten wie Chryosit und Amphibol in Serpentinit enthalten sind (Rechnitzer Fenster).",
+      "keywords": [
+        "Asbest",
+        "Serpentinit"
+      ]
+    },
+    {
+      "text": "8 Es ist schlicht unmöglich, dass die Betreiberfirmen der Steinbrüche nichts von der Asbestbelastung gewusst haben.",
+      "keywords": [
+        "Asbest",
+        "Asbestbelastung",
+        "Steinbrüche"
+      ]
+    },
+    {
+      "text": "Steinbrüche werden regelmäßig geprüft und von Wissenschaftler:innen und Mineraliensammler:innen aufgesucht.",
+      "keywords": [
+        "Steinbrüche"
+      ]
+    },
+    {
+      "text": "Fachleute erkennen Asbestgänge auf einen Blick.",
+      "keywords": [
+        "Asbest"
+      ]
+    },
+    {
+      "text": "Das Asbestgestein ist gut mit freiem Auge erkennbar.",
+      "keywords": [
+        "Asbest"
+      ]
+    },
+    {
+      "text": "Zudem hat das Arbeitsinspektorat strenge Auflagen für die Steinbrüche erlassen und wiederholt Messungen in Luft und Gestein durchgeführt, die eine Asbestbelastung aufzeigen.",
+      "keywords": [
+        "Asbest",
+        "Asbestbelastung",
+        "Steinbrüche",
+        "Messung",
+        "Messungen"
+      ]
+    },
+    {
+      "text": "Folgende Belege für das Wissen um die Asbestbelastung in den Steinbrüchen und der Asphaltmischanlage in Tauchental liegen Greenpeace vor: ● Urteil des Verwaltungsgerichtshofs 1999: 1999 hob der Verwaltungsgerichtshof einen Bescheid des Burgenlandes zur Bewilligung der Asphaltmischanlage Tauchental (nahe des Dorfes Neumarkt im Tauchental) auf.",
+      "keywords": [
+        "Asbest",
+        "Asbestbelastung",
+        "Burgenland",
+        "Steinbrüche"
+      ]
+    },
+    {
+      "text": "In der Begründung wird das eingesetzte Material als „asbesthaltig“ beschrieben.",
+      "keywords": [
+        "Asbest"
+      ]
+    },
+    {
+      "text": "Ebenso wurden Gesteinsproben aus dem Steinbruch 8 Vgl.",
+      "keywords": [
+        "Steinbruch",
+        "Probe",
+        "Proben"
+      ]
+    },
+    {
+      "text": "Herwig Holzer, Die Vorkommen von Erzen, Steinen und Erden im Burgenland Burgenland Burgenländische Heimatblätter, Jahrgang 22, Heft Nr.",
+      "keywords": [
         "Burgenland"
       ]
     },
     {
-      "text": "○  Steinbruch Bernstein; Betreiberfirma: Hermann Mayer GesmbH Steinbruch  Bernstein.",
+      "text": "164 Martin Fleischanderl, Metamorphite im Burgenland: Vorkommen - Abbau - Verwendung , Archiv für Lagerstättenforschung der geologischen Bundesanstalt, Wien 2006 Reinhard Exel: Die Mineralien und Erzlagerstätten Österreichs, Wien 1993, S.",
       "keywords": [
-        "Bernstein"
+        "Burgenland",
+        "Österreich"
       ]
     },
     {
-      "text": "130   2  Abfrage bei  Kartendienst Land Burgenland   Asbestalarm im Burgenland  6   Greenpeace in Zentral- und Osteuropa  Wiedner Hauptstraße 120 - 124, 1050 Wien  Telefon: +43 (0)1 545 45 80  E-Mail: service@greenpeace.at  www.greenpeace.at    ○  Steinbruch Rumpersdorf (auch als Steinbruch bei Glashütten bei Schlaining  bezeichnet); Betreiberfirma: Klöcher Baugesellschaft m.b.H.; Behördlich gesperrt.",
+      "text": "Herwig Holzer, Die Vorkommen von Erzen, Steinen und Erden im Burgenland Burgenland Burgenländische Heimatblätter, Jahrgang 22, Heft Nr.",
       "keywords": [
+        "Burgenland"
+      ]
+    },
+    {
+      "text": "164 6 Abrufbar unter: https://pure.unileoben.ac.at/de/publications/die-geologie-des-kraubather-ultramafitkomplexes-zwischen-wintergr/ Asbestalarm im Burgenland 7 Greenpeace in Zentral- und Osteuropa Wiedner Hauptstraße 120 - 124, 1050 Wien Telefon: +43 (0)1 545 45 80 E-Mail: service@greenpeace.at www.greenpeace.at Rumpersdorf vorgelegt, die Chrysotil-Asbest (Weißasbest) enthalten.",
+      "keywords": [
+        "Asbest",
+        "Asbestalarm",
         "Rumpersdorf",
         "Burgenland"
       ]
     },
     {
-      "text": "Folgende Belege für das Wissen um die Asbestbelastung in den Steinbrüchen und der  Asphaltmischanlage in Tauchental liegen Greenpeace vor:    ● Urteil des Verwaltungsgerichtshofs 1999: 1999 hob der Verwaltungsgerichtshof einen  Bescheid des Burgenlandes zur Bewilligung der Asphaltmischanlage Tauchental (nahe des  Dorfes Neumarkt im Tauchental) auf.",
+      "text": "9 ● Geologische Studie 2006: Eine geologische Studie aus dem Jahr 2006 beschreibt das Asbestvorkommen in drei der vier betroffenen Serpentinit-Steinbrüchen 10 : Steinbruch Bernstein: „Im gesamten Steinbruchareal finden sich Asbestfasern.“ (S.",
       "keywords": [
-        "Burgenland"
+        "Asbest",
+        "Asbestfasern",
+        "Serpentinit",
+        "Bernstein",
+        "Steinbruch",
+        "Steinbrüche",
+        "Fasern"
       ]
     },
     {
-      "text": "Herwig Holzer,  Die Vorkommen von Erzen, Steinen und Erden im Burgenland Burgenland Burgenländische  Heimatblätter, Jahrgang 22, Heft Nr.",
+      "text": "50 Fußnote 1) Steinbruch Rumpersdorf: „Das dunkelgrüne Gestein ist häufig stark durchädert, in Mobilisationsgängen finden sich Tremolit, Asbest, Chalcedon, Karbonat und Talk.“ (S.",
       "keywords": [
-        "Burgenland"
+        "Asbest",
+        "Rumpersdorf",
+        "Steinbruch"
       ]
     },
     {
-      "text": "164  Martin Fleischanderl,  Metamorphite im Burgenland: Vorkommen - Abbau - Verwendung , Archiv für Lagerstättenforschung  der geologischen Bundesanstalt, Wien 2006   Reinhard Exel: Die Mineralien und Erzlagerstätten Österreichs, Wien 1993, S.",
+      "text": "51 Fußnote 1) Steinbruch Badersdorf: „An den Kluftflächen finden sich Asbest, Opal und Karbonat.“ (S.",
       "keywords": [
-        "Burgenland"
+        "Asbest",
+        "Steinbruch"
       ]
     },
     {
-      "text": "Herwig Holzer,  Die Vorkommen von Erzen, Steinen und Erden im Burgenland Burgenland  Burgenländische  Heimatblätter, Jahrgang 22, Heft Nr.",
+      "text": "52 Fußnote 1) ● Bescheid des Bundesministeriums 2008: Im Jahr 2008 erging ein Bescheid des Bundesministers für soziale Sicherheit, Generationen und Konsumentenschutz zur Rücknahme von 25 Kilogramm-Säcken asbesthaltigen Streu- und Pflastersplitts.",
       "keywords": [
-        "Burgenland"
+        "Asbest",
+        "Splitt"
       ]
     },
     {
-      "text": "164  6  Abrufbar unter:  https://pure.unileoben.ac.at/de/publications/die-geologie-des-kraubather-ultramafitkomplexes-zwischen-wintergr/  Asbestalarm im Burgenland  7   Greenpeace in Zentral- und Osteuropa  Wiedner Hauptstraße 120 - 124, 1050 Wien  Telefon: +43 (0)1 545 45 80  E-Mail: service@greenpeace.at  www.greenpeace.at    Rumpersdorf vorgelegt, die Chrysotil-Asbest (Weißasbest) enthalten.",
+      "text": "Der betroffene Streusplitt wurde im Steinbruch Rumpersdorf (Postmann), einem der mittlerweile geschlossenen Steinbrüche, abgebaut.",
       "keywords": [
         "Rumpersdorf",
-        "Burgenland"
+        "Steinbruch",
+        "Steinbrüche",
+        "Splitt"
       ]
     },
     {
-      "text": "9      ● Geologische Studie 2006: Eine geologische Studie aus dem Jahr 2006 beschreibt das  Asbestvorkommen in drei der vier betroffenen Serpentinit-Steinbrüchen 10 :  Steinbruch Bernstein: „Im gesamten Steinbruchareal finden sich Asbestfasern.“ (S.",
+      "text": "Die Bezirkshauptmannschaft Oberwart legte eine Stellungnahme zum Fall vor, die besagte, dass der betroffene Steinbruch am 15.",
       "keywords": [
-        "Bernstein"
+        "Steinbruch"
       ]
     },
     {
-      "text": "50  Fußnote 1)  Steinbruch Rumpersdorf: „Das dunkelgrüne Gestein ist häufig stark durchädert, in  Mobilisationsgängen finden sich Tremolit, Asbest, Chalcedon, Karbonat und Talk.“ (S.",
+      "text": "September 2008 durch einen Sachverständigen für Tagebau-, Steinbruch- und Sprengtechnik begutachtet worden wäre.",
       "keywords": [
-        "Rumpersdorf"
+        "Steinbruch"
       ]
     },
     {
-      "text": "Der  betroffene Streusplitt wurde im Steinbruch Rumpersdorf (Postmann), einem der  mittlerweile geschlossenen Steinbrüche, abgebaut.",
+      "text": "Das Ergebnis: die Bildung von Amphibolasbest bzw.",
       "keywords": [
-        "Rumpersdorf"
+        "Asbest"
       ]
     },
     {
-      "text": "Association between mesothelioma and non-occupational  asbestos exposure: systematic review and meta-analysis.",
+      "text": "Das widerspricht allen analysierten Greenpeace-Proben und der gängigen geologischen Literatur.",
       "keywords": [
+        "Probe",
+        "Proben"
+      ]
+    },
+    {
+      "text": "Gefährlichkeit von Asbest Aus umweltmedizinischer Sicht zählt Asbest zu den am besten belegten Gesundheitsgefahren.",
+      "keywords": [
+        "Asbest",
+        "Gesundheitsgefahr"
+      ]
+    },
+    {
+      "text": "12 Asbestfasern sind winzig und scharf, können beim Einatmen in die Lunge eindringen, dort 12 Vgl.",
+      "keywords": [
+        "Asbest",
+        "Asbestfasern",
+        "Fasern"
+      ]
+    },
+    {
+      "text": "Association between mesothelioma and non-occupational asbestos exposure: systematic review and meta-analysis.",
+      "keywords": [
+        "Asbest",
         "asbestos"
       ]
     },
     {
       "text": "Asbestos burden in lung tissue from the general population: a systematic review.",
       "keywords": [
+        "Asbest",
         "asbestos"
       ]
     },
     {
       "text": "Naturally occurring asbestos: a global health concern?",
       "keywords": [
+        "Asbest",
         "asbestos"
       ]
     },
     {
-      "text": "Urteil des Verwaltungssenats 2008  https://www.ris.bka.gv.at/JudikaturEntscheidung.wxe?Abfrage=Uvs&Dokumentnummer=JUR_ST_20101117_40304001_08_01   10  Martin Fleischanderl,  Metamorphite im Burgenland: Vorkommen - Abbau - Verwendung , Archiv für  Lagerstättenforschung der geologischen Bundesanstalt, Wien 2006   9  Vgl.",
+      "text": "Urteil des Verwaltungssenats 2008 https://www.ris.bka.gv.at/JudikaturEntscheidung.wxe?Abfrage=Uvs&Dokumentnummer=JUR_ST_20101117_40304001_08_01 10 Martin Fleischanderl, Metamorphite im Burgenland: Vorkommen - Abbau - Verwendung , Archiv für Lagerstättenforschung der geologischen Bundesanstalt, Wien 2006 9 Vgl.",
       "keywords": [
         "Burgenland"
       ]
     },
     {
-      "text": "Erkenntnis des Verwaltungsgerichtshof, online abrufbar:  https://www.ris.bka.gv.at/Dokumente/Vwgh/JWT_1998050044_19990831X00/JWT_1998050044_19990831X00.html  Asbestalarm im Burgenland  8   Greenpeace in Zentral- und Osteuropa  Wiedner Hauptstraße 120 - 124, 1050 Wien  Telefon: +43 (0)1 545 45 80  E-Mail: service@greenpeace.at  www.greenpeace.at    chronische Entzündungen und Vernarbungen (Asbestose) verursachen und das Risiko für tödliche  Krebsarten (Lunge, Mesotheliom, Gastrointestinaltrakt) massiv erhöhen.",
+      "text": "Erkenntnis des Verwaltungsgerichtshof, online abrufbar: https://www.ris.bka.gv.at/Dokumente/Vwgh/JWT_1998050044_19990831X00/JWT_1998050044_19990831X00.html Asbestalarm im Burgenland 8 Greenpeace in Zentral- und Osteuropa Wiedner Hauptstraße 120 - 124, 1050 Wien Telefon: +43 (0)1 545 45 80 E-Mail: service@greenpeace.at www.greenpeace.at chronische Entzündungen und Vernarbungen (Asbestose) verursachen und das Risiko für tödliche Krebsarten (Lunge, Mesotheliom, Gastrointestinaltrakt) massiv erhöhen.",
       "keywords": [
+        "Asbest",
         "asbestos",
+        "Asbestalarm",
         "Burgenland"
       ]
     },
     {
-      "text": "Im Detail fordert Greenpeace von den zuständigen Behörden im Burgenland  (Amt der burgenländischen Landesregierung, Bezirksbehörden, Gemeinden):    ● Sofortige behördliche Sperre der asbestbelasteten Bereiche von besonders kritischen  Orten wie z.B.",
+      "text": "Als biologisch besonders relevant gelten faserförmige Asbestpartikel mit einer Länge von mehr als fünf μm, einem Durchmesser unter drei μm und einem Längen-Durchmesser-Verhältnis über 3:1.",
       "keywords": [
+        "Asbest"
+      ]
+    },
+    {
+      "text": "Diese sogenannte kritische Fasergeometrie begünstigt, dass die Fasern tief in die Lunge eindringen und sich in den Lungenbläschen ablagern.",
+      "keywords": [
+        "Fasern"
+      ]
+    },
+    {
+      "text": "Gefährlichkeit der gefundenen Asbestfasern Die in den vorliegenden Proben mittels Rasterelektronenmikroskopie nachgewiesenen Asbestminerale gehören überwiegend zur Gruppe der Amphibolasbeste, konkret Tremolit, in zwei Fällen kombiniert mit Chrysotilasbest.",
+      "keywords": [
+        "Asbest",
+        "Asbestfasern",
+        "Probe",
+        "Proben",
+        "Fasern"
+      ]
+    },
+    {
+      "text": "Amphibolasbestfasern sind gerade und steif und dringen darum besonders leicht in die Lunge ein.",
+      "keywords": [
+        "Asbest",
+        "Asbestfasern",
+        "Fasern"
+      ]
+    },
+    {
+      "text": "Darum gilt diese Asbest-Art als besonders gefährlich und krebserregend – insbesondere das Risiko für bösartige Tumore im Brustfell (Mesotheliom) ist bei Amphibolasbesten sehr hoch.",
+      "keywords": [
+        "Asbest"
+      ]
+    },
+    {
+      "text": "Der hohe Asbestanteil in den Proben ist ein weiterer Risikofaktor: Je mehr Asbest in Gesteinsbrocken vorhanden ist, desto mehr Fasern können freigesetzt werden – insbesondere bei mechanischer Beanspruchung wie Abrieb, Zerkleinerung, Verkehrsbelastung oder Bautätigkeiten.",
+      "keywords": [
+        "Asbest",
+        "Probe",
+        "Proben",
+        "Fasern"
+      ]
+    },
+    {
+      "text": "Für Asbest gilt nach aktuellem wissenschaftlichem Kenntnisstand kein sicherer Schwellenwert, gesundheitliche Risiken sind dosisabhängig, kumulativ und können sich auch erst Jahrzehnte nach der Aussetzung auf die Gesundheit auswirken.",
+      "keywords": [
+        "Asbest"
+      ]
+    },
+    {
+      "text": "Im Detail fordert Greenpeace von den zuständigen Behörden im Burgenland (Amt der burgenländischen Landesregierung, Bezirksbehörden, Gemeinden): ● Sofortige behördliche Sperre der asbestbelasteten Bereiche von besonders kritischen Orten wie z.B.",
+      "keywords": [
+        "Asbest",
         "Burgenland"
       ]
     },
     {
-      "text": "Asbestalarm im Burgenland  9   Greenpeace in Zentral- und Osteuropa  Wiedner Hauptstraße 120 - 124, 1050 Wien  Telefon: +43 (0)1 545 45 80  E-Mail: service@greenpeace.at  www.greenpeace.at    ● Sofortiger Stopp der weiteren Verbreitung von asbestbelastetem Material  (Lagerbestände), allen voran Streusplitt, Schotter und Asphalt.",
+      "text": "● Sofortiger Baustopp aller betroffenen Baustellen, solange eine Verwendung des Materials aus den Serpentinit-Steinbrüchen nicht behördlich ausgeschlossen werden kann.",
       "keywords": [
-        "Burgenland"
+        "Serpentinit",
+        "Steinbrüche"
       ]
     },
     {
-      "text": "Asbestalarm im Burgenland  10",
+      "text": "Die bekannten Baustellen beim Krankenhaus Oberwart, dem Gewerbepark 47 Oberwart und der Einfamilienhaussiedlung Neumarkt im Tauchental sind jedenfalls sofort zu schließen, das asbesthaltige Material umgehend zu entfernen und ordnungsgemäß zu entsorgen.",
       "keywords": [
+        "Asbest"
+      ]
+    },
+    {
+      "text": "Asbestalarm im Burgenland 9 Greenpeace in Zentral- und Osteuropa Wiedner Hauptstraße 120 - 124, 1050 Wien Telefon: +43 (0)1 545 45 80 E-Mail: service@greenpeace.at www.greenpeace.at ● Sofortiger Stopp der weiteren Verbreitung von asbestbelastetem Material (Lagerbestände), allen voran Streusplitt, Schotter und Asphalt.",
+      "keywords": [
+        "Asbest",
+        "Asbestalarm",
+        "Burgenland",
+        "Schotter",
+        "Splitt"
+      ]
+    },
+    {
+      "text": "Asphaltmischanlage Tauchen) müssen auf asbesthaltiges Material untersucht und bei Verdacht sofort stillgelegt werden.",
+      "keywords": [
+        "Asbest"
+      ]
+    },
+    {
+      "text": "● Eine umfassende Erhebung, wo überall asbesthaltiges Gestein eingesetzt worden ist, beginnend mit besonders kritischen Plätzen wie Spielplätzen, Freizeitparks, Kindergärten, Schulen, Krankeneinrichtungen etc., und die betroffenen Stellen umgehend sperren.",
+      "keywords": [
+        "Asbest"
+      ]
+    },
+    {
+      "text": "● Schutzvorkehrungen für maßgeblich betroffene Arbeitsgruppen wie Landwirt:innen (bei staubbildenden Arbeiten wie Pflügen, Eggen, usw.), Baustellenarbeiter:innen (direkter Kontakt mit Material), Mitarbeiter:innen von Asphaltmischanlagen und Gemeindemitarbeiter:innen (Ausbringen oder Zusammenkehren von Streusplitt), z.B.",
+      "keywords": [
+        "Splitt"
+      ]
+    },
+    {
+      "text": "● Großflächige Boden- und Gewässerproben rund um die Steinbrüche müssen durch die Behörden veranlasst werden.",
+      "keywords": [
+        "Steinbrüche",
+        "Probe",
+        "Proben"
+      ]
+    },
+    {
+      "text": "Ebenso müssen flächendeckend Luftmessungen auf Asbest vor stark frequentierten Orten wie Schulen, Kindergärten, Krankenhäusern, Arztpraxen und Supermärkten erfolgen.",
+      "keywords": [
+        "Asbest",
+        "Messung",
+        "Messungen",
+        "Luftmessung"
+      ]
+    },
+    {
+      "text": "● Von der österreichischen Bundesregierung bzw.",
+      "keywords": [
+        "Österreich"
+      ]
+    },
+    {
+      "text": "dem Parlament fordert Greenpeace ein dauerhaftes Verbot des Serpentinitabbaus in ganz Österreich nach Schweizer Vorbild.",
+      "keywords": [
+        "Serpentinit",
+        "Österreich"
+      ]
+    },
+    {
+      "text": "Asbestalarm im Burgenland 10",
+      "keywords": [
+        "Asbest",
+        "Asbestalarm",
         "Burgenland"
       ]
     }
