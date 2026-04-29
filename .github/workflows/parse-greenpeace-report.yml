@@ -1,0 +1,38 @@
+name: Greenpeace PDF feldolgozás
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "scripts/parse-greenpeace-report.js"
+      - "data/greenpeace/**"
+      - "package.json"
+      - ".github/workflows/parse-greenpeace-report.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  parse-report:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Repo letöltése
+        uses: actions/checkout@v4
+
+      - name: Node.js beállítása
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Dependency telepítés
+        run: npm install
+
+      - name: Greenpeace PDF feldolgozás
+        run: node scripts/parse-greenpeace-report.js
+
+      - name: JSON mentése
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Frissített Greenpeace jelentés feldolgozás"
+          file_pattern: data/greenpeace/greenpeace-report-summary.json
