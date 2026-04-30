@@ -1,337 +1,293 @@
-/**
- * Kőszeg Azbeszt – Hírindex / Ügyindex diagram
- *
- * Ez a fájl a data/news_scores.json alapján:
- * - betölti a hírek pontozott adatait,
- * - napi összesítést készít,
- * - kumulált ügyindexet számol,
- * - Chart.js segítségével diagramot rajzol.
- *
- * Fontos:
- * Az index nem hangulatelemzés, hanem esemény-alapú ügyindex.
- */
+const fs = require("fs");
+const path = require("path");
 
-let newsScoreChartInstance = null;
+const INPUT_FILE = path.join(__dirname, "data", "news.json");
+const OUTPUT_FILE = path.join(__dirname, "data", "news_scores.json");
 
-async function loadNewsScores() {
-  const response = await fetch("data/news_scores.json?t=" + Date.now());
+const SOURCE_WEIGHTS = {
+  official: 1.35,
+  civil: 1.2,
+  media: 1.0,
+  austrian: 1.0,
+  other: 0.8
+};
 
-  if (!response.ok) {
-    throw new Error("Nem sikerült betölteni a data/news_scores.json fájlt.");
+const NEGATIVE_RULES = [
+  {
+    category: "egeszsegugyi_kockazat",
+    score: -5,
+    keywords: ["azbesztveszely", "egeszsegugyi veszely", "rakkelto", "veszelyes por", "sulyos veszely"]
+  },
+  {
+    category: "szennyezes_vagy_gyanu",
+    score: -4,
+    keywords: ["szennyezes", "azbesztszennyezes", "szennyezett", "azbeszttel szennyezett", "azbeszttartalmu"]
+  },
+  {
+    category: "uj_erintett_terulet",
+    score: -4,
+    keywords: ["koszegre is", "bozsok", "erintett lehet", "tovabbi utcak", "kerulhetett", "juthatott"]
+  },
+  {
+    category: "korlatozas",
+    score: -2,
+    keywords: ["lezarjak", "lezaras", "korlatozas", "10 km/h", "behajtas", "parkolo", "leallitjak"]
+  },
+  {
+    category: "bizonytalansag_vita",
+    score: -3,
+    keywords: ["nincs is szennyezes", "vitatja", "bizonytalan", "ujranyitnanak", "forras nincs"]
+  }
+];
+
+const POSITIVE_RULES = [
+  {
+    category: "hatosagi_intezkedes",
+    score: 3,
+    keywords: ["hatosagi eljaras", "rendorsegi eljaras", "vizsgalat indult", "intezkedes", "intezkedesek"]
+  },
+  {
+    category: "jogi_lepes",
+    score: 2,
+    keywords: ["feljelentest tett", "feljelentes", "jogi lepes"]
+  },
+  {
+    category: "lakossagi_tajekoztatas",
+    score: 2,
+    keywords: ["lakossagi forum", "tajekoztato", "lakossagi informaciok", "kozlemeny"]
+  },
+  {
+    category: "karelhartas_megoldas",
+    score: 5,
+    keywords: ["karelharitas", "tisztitas", "mentesites", "megoldas", "elszallitas", "artalmatlanitas"]
+  },
+  {
+    category: "monitoring_vizsgalat",
+    score: 2,
+    keywords: ["mintavetel", "laborvizsgalat", "meres", "ellenorzes", "vizsgalat"]
+  }
+];
+
+function readJson(filePath) {
+  if (!fs.existsSync(filePath)) {
+    throw new Error(`Nem található a bemeneti fájl: ${filePath}`);
   }
 
-  return await response.json();
+  const raw = fs.readFileSync(filePath, "utf8");
+  return JSON.parse(raw);
 }
 
-function groupScoresByDate(items) {
-  const grouped = {};
-
-  items.forEach((item) => {
-    if (!item.date || typeof item.final_score !== "number") {
-      return;
-    }
-
-    if (!grouped[item.date]) {
-      grouped[item.date] = {
-        date: item.date,
-        daily_score: 0,
-        items: []
-      };
-    }
-
-    grouped[item.date].daily_score += item.final_score;
-    grouped[item.date].items.push(item);
-  });
-
-  return Object.values(grouped).sort((a, b) => {
-    return new Date(a.date) - new Date(b.date);
-  });
+function writeJson(filePath, data) {
+  fs.writeFileSync(filePath, JSON.stringify(data, null, 2) + "\n", "utf8");
 }
 
-function addCumulativeScores(dailyData) {
-  let cumulative = 0;
-
-  return dailyData.map((day) => {
-    cumulative += day.daily_score;
-
-    return {
-      ...day,
-      daily_score: Number(day.daily_score.toFixed(2)),
-      cumulative_score: Number(cumulative.toFixed(2))
-    };
-  });
+function normalizeText(value) {
+  return String(value || "")
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[–—]/g, "-")
+    .replace(/\s+/g, " ")
+    .trim();
 }
 
-function formatScore(score) {
-  if (score > 0) {
-    return "+" + score;
+function detectSourceType(article) {
+  const source = normalizeText(article.source);
+  const url = normalizeText(article.url);
+  const existingType = normalizeText(article.source_type);
+
+  if (existingType) {
+    return existingType;
   }
 
-  return String(score);
+  if (
+    source.includes("kormanyhivatal") ||
+    source.includes("onkormanyzat") ||
+    source.includes("koszeg") ||
+    url.includes("kormanyhivatalok.hu") ||
+    url.includes("koszeg.hu")
+  ) {
+    return "official";
+  }
+
+  if (source.includes("greenpeace") || url.includes("greenpeace")) {
+    return "civil";
+  }
+
+  if (
+    source.includes("telex") ||
+    source.includes("hvg") ||
+    source.includes("444") ||
+    source.includes("nyugat") ||
+    source.includes("vaol") ||
+    source.includes("24.hu") ||
+    source.includes("euronews")
+  ) {
+    return "media";
+  }
+
+  if (
+    source.includes("orf") ||
+    source.includes("kurier") ||
+    source.includes("standard") ||
+    source.includes("burgenland") ||
+    url.includes(".at")
+  ) {
+    return "austrian";
+  }
+
+  return "other";
 }
 
-function getBarColor(value) {
-  if (value > 0) {
-    return "rgba(34, 197, 94, 0.75)";
-  }
+function collectMatches(article, rules) {
+  const combinedText = normalizeText(
+    `${article.title || ""} ${article.source || ""} ${article.summary || ""} ${article.url || ""}`
+  );
 
-  if (value < 0) {
-    return "rgba(239, 68, 68, 0.75)";
-  }
+  const matched = [];
+  let score = 0;
 
-  return "rgba(148, 163, 184, 0.65)";
-}
+  for (const rule of rules) {
+    const keywords = rule.keywords.filter((keyword) => {
+      return combinedText.includes(normalizeText(keyword));
+    });
 
-function getBarBorderColor(value) {
-  if (value > 0) {
-    return "rgba(134, 239, 172, 1)";
-  }
+    if (keywords.length > 0) {
+      matched.push({
+        category: rule.category,
+        score: rule.score,
+        keywords: keywords
+      });
 
-  if (value < 0) {
-    return "rgba(252, 165, 165, 1)";
-  }
-
-  return "rgba(203, 213, 225, 1)";
-}
-
-function createTooltipLines(day) {
-  const lines = [];
-
-  lines.push("Napi index: " + formatScore(day.daily_score));
-  lines.push("Kumulált index: " + formatScore(day.cumulative_score));
-  lines.push("");
-
-  day.items.forEach((item) => {
-    const score = formatScore(item.final_score);
-    const source = item.source ? " / " + item.source : "";
-    lines.push(score + " – " + item.title + source);
-  });
-
-  return lines;
-}
-
-function createScoreSummary(processedData) {
-  const target = document.getElementById("newsScoreSummary");
-
-  if (!target || !processedData.length) {
-    return;
-  }
-
-  const latest = processedData[processedData.length - 1];
-  const worst = processedData.reduce((a, b) => {
-    return a.daily_score < b.daily_score ? a : b;
-  });
-
-  const best = processedData.reduce((a, b) => {
-    return a.daily_score > b.daily_score ? a : b;
-  });
-
-  const trendText = latest.cumulative_score < 0
-    ? "A kumulált index jelenleg negatív tartományban van, vagyis a hírek összhatása inkább kockázati irányba mutat."
-    : latest.cumulative_score > 0
-      ? "A kumulált index jelenleg pozitív tartományban van, vagyis az intézkedések és előremutató események erősebbek."
-      : "A kumulált index jelenleg semleges.";
-
-  target.innerHTML = `
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px;">
-      <div style="background:rgba(0,0,0,.18);border-radius:12px;padding:9px;">
-        <div style="font-size:11px;color:#9ca3af;">Aktuális kumulált index</div>
-        <div style="font-size:22px;font-weight:900;color:${latest.cumulative_score < 0 ? "#fca5a5" : latest.cumulative_score > 0 ? "#86efac" : "#cbd5e1"};">
-          ${formatScore(latest.cumulative_score)}
-        </div>
-      </div>
-      <div style="background:rgba(0,0,0,.18);border-radius:12px;padding:9px;">
-        <div style="font-size:11px;color:#9ca3af;">Legutóbbi napi index</div>
-        <div style="font-size:22px;font-weight:900;color:${latest.daily_score < 0 ? "#fca5a5" : latest.daily_score > 0 ? "#86efac" : "#cbd5e1"};">
-          ${formatScore(latest.daily_score)}
-        </div>
-      </div>
-    </div>
-    <p style="margin:9px 0 0;color:#cbd5e1;font-size:11.5px;line-height:1.45;">${trendText}</p>
-    <p style="margin:7px 0 0;color:#9ca3af;font-size:11px;line-height:1.45;">
-      Legnegatívabb nap: <strong>${worst.date}</strong> (${formatScore(worst.daily_score)}).
-      Legpozitívabb nap: <strong>${best.date}</strong> (${formatScore(best.daily_score)}).
-    </p>
-  `;
-}
-
-function renderNewsScoreChart(processedData) {
-  const canvas = document.getElementById("newsScoreChart");
-
-  if (!canvas) {
-    console.warn("A newsScoreChart azonosítójú canvas nem található.");
-    return;
-  }
-
-  if (newsScoreChartInstance) {
-    newsScoreChartInstance.destroy();
-  }
-
-  const labels = processedData.map((day) => day.date);
-  const dailyScores = processedData.map((day) => day.daily_score);
-  const cumulativeScores = processedData.map((day) => day.cumulative_score);
-
-  const barColors = dailyScores.map(getBarColor);
-  const barBorderColors = dailyScores.map(getBarBorderColor);
-
-  newsScoreChartInstance = new Chart(canvas, {
-    type: "bar",
-    data: {
-      labels: labels,
-      datasets: [
-        {
-          type: "bar",
-          label: "Napi hírindex",
-          data: dailyScores,
-          yAxisID: "y",
-          backgroundColor: barColors,
-          borderColor: barBorderColors,
-          borderWidth: 1,
-          borderRadius: 6
-        },
-        {
-          type: "line",
-          label: "Kumulált ügyindex",
-          data: cumulativeScores,
-          yAxisID: "y",
-          borderColor: "rgba(147, 197, 253, 1)",
-          backgroundColor: "rgba(147, 197, 253, 0.18)",
-          tension: 0.25,
-          borderWidth: 2,
-          pointRadius: 4,
-          pointHoverRadius: 6,
-          pointBackgroundColor: "rgba(191, 219, 254, 1)",
-          pointBorderColor: "rgba(30, 64, 175, 1)"
-        }
-      ]
-    },
-    options: {
-      responsive: true,
-      maintainAspectRatio: false,
-      interaction: {
-        mode: "index",
-        intersect: false
-      },
-      plugins: {
-        title: {
-          display: false
-        },
-        subtitle: {
-          display: false
-        },
-        legend: {
-          display: true,
-          labels: {
-            color: "#e5e7eb",
-            boxWidth: 12,
-            font: {
-              size: 11
-            }
-          }
-        },
-        tooltip: {
-          backgroundColor: "rgba(15, 23, 42, 0.96)",
-          titleColor: "#f9fafb",
-          bodyColor: "#e5e7eb",
-          borderColor: "rgba(255,255,255,.18)",
-          borderWidth: 1,
-          padding: 10,
-          displayColors: true,
-          callbacks: {
-            title: function (context) {
-              const index = context[0].dataIndex;
-              return processedData[index].date;
-            },
-            afterBody: function (context) {
-              const index = context[0].dataIndex;
-              const day = processedData[index];
-              return createTooltipLines(day);
-            }
-          }
-        }
-      },
-      scales: {
-        x: {
-          ticks: {
-            color: "#cbd5e1",
-            maxRotation: 45,
-            minRotation: 0,
-            font: {
-              size: 10
-            }
-          },
-          grid: {
-            color: "rgba(148, 163, 184, 0.12)"
-          },
-          title: {
-            display: true,
-            text: "Dátum",
-            color: "#9ca3af"
-          }
-        },
-        y: {
-          ticks: {
-            color: "#cbd5e1",
-            font: {
-              size: 10
-            }
-          },
-          grid: {
-            color: function (context) {
-              if (context.tick.value === 0) {
-                return "rgba(248, 250, 252, 0.45)";
-              }
-
-              return "rgba(148, 163, 184, 0.14)";
-            },
-            lineWidth: function (context) {
-              if (context.tick.value === 0) {
-                return 2;
-              }
-
-              return 1;
-            }
-          },
-          title: {
-            display: true,
-            text: "Indexérték",
-            color: "#9ca3af"
-          }
-        }
-      }
-    }
-  });
-
-  createScoreSummary(processedData);
-}
-
-async function initNewsScoreChart() {
-  try {
-    const rawData = await loadNewsScores();
-
-    if (!rawData.items || !Array.isArray(rawData.items)) {
-      throw new Error("A news_scores.json nem tartalmaz érvényes items tömböt.");
-    }
-
-    const dailyData = groupScoresByDate(rawData.items);
-    const processedData = addCumulativeScores(dailyData);
-
-    renderNewsScoreChart(processedData);
-  } catch (error) {
-    console.error("Hiba az ügyindex diagram betöltésekor:", error);
-
-    const container = document.getElementById("newsScoreChartContainer");
-
-    if (container) {
-      container.innerHTML = `
-        <h2>Azbeszt Ügyindex</h2>
-        <p style="color:#fca5a5;font-weight:700;font-size:12px;line-height:1.45;">
-          Nem sikerült betölteni az Azbeszt Ügyindex diagramot.
-          Ellenőrizd, hogy létezik-e a <code>data/news_scores.json</code> fájl.
-        </p>
-      `;
+      score += rule.score;
     }
   }
+
+  return {
+    score,
+    matched
+  };
 }
 
-document.addEventListener("DOMContentLoaded", initNewsScoreChart);
+function chooseMainCategory(negativeResult, positiveResult, finalBaseScore) {
+  if (finalBaseScore > 0 && positiveResult.matched.length > 0) {
+    return positiveResult.matched[0].category;
+  }
+
+  if (finalBaseScore < 0 && negativeResult.matched.length > 0) {
+    return negativeResult.matched[0].category;
+  }
+
+  if (positiveResult.matched.length > 0 && negativeResult.matched.length > 0) {
+    return "vegyes_hatasu_esemeny";
+  }
+
+  return "altalanos_media_megjelenes";
+}
+
+function calculateConfidence(negativeMatches, positiveMatches) {
+  const total =
+    negativeMatches.reduce((sum, item) => sum + item.keywords.length, 0) +
+    positiveMatches.reduce((sum, item) => sum + item.keywords.length, 0);
+
+  if (total === 0) return 0.7;
+  if (total === 1) return 0.85;
+  return 1.0;
+}
+
+function roundScore(value) {
+  return Math.round(value * 100) / 100;
+}
+
+function calculateBaseScore(article) {
+  const negativeResult = collectMatches(article, NEGATIVE_RULES);
+  const positiveResult = collectMatches(article, POSITIVE_RULES);
+
+  let baseScore = negativeResult.score + positiveResult.score;
+
+  if (baseScore === 0 && negativeResult.matched.length === 0 && positiveResult.matched.length === 0) {
+    baseScore = -1;
+  }
+
+  if (baseScore > 5) baseScore = 5;
+  if (baseScore < -5) baseScore = -5;
+
+  const category = chooseMainCategory(negativeResult, positiveResult, baseScore);
+
+  return {
+    baseScore,
+    category,
+    negativeResult,
+    positiveResult
+  };
+}
+
+function articleToScoreItem(article) {
+  const sourceType = detectSourceType(article);
+  const scoreData = calculateBaseScore(article);
+  const sourceWeight = SOURCE_WEIGHTS[sourceType] || SOURCE_WEIGHTS.other;
+  const confidence = calculateConfidence(
+    scoreData.negativeResult.matched,
+    scoreData.positiveResult.matched
+  );
+
+  const finalScore = roundScore(scoreData.baseScore * sourceWeight * confidence);
+
+  return {
+    date: article.date || "ismeretlen",
+    title: article.title || "Cím nélkül",
+    source: article.source || "Ismeretlen forrás",
+    source_type: sourceType,
+    category: scoreData.category,
+    base_score: scoreData.baseScore,
+    source_weight: sourceWeight,
+    confidence: confidence,
+    final_score: finalScore,
+    matched_negative_rules: scoreData.negativeResult.matched,
+    matched_positive_rules: scoreData.positiveResult.matched,
+    url: article.url || ""
+  };
+}
+
+function sortItems(items) {
+  return items.sort((a, b) => {
+    const dateA = new Date(a.date);
+    const dateB = new Date(b.date);
+
+    if (Number.isNaN(dateA.getTime())) return 1;
+    if (Number.isNaN(dateB.getTime())) return -1;
+
+    return dateA - dateB;
+  });
+}
+
+function main() {
+  const newsData = readJson(INPUT_FILE);
+  const articles = Array.isArray(newsData.articles) ? newsData.articles : [];
+
+  if (!articles.length) {
+    throw new Error("A data/news.json nem tartalmaz articles tömböt vagy az üres.");
+  }
+
+  const items = sortItems(articles.map(articleToScoreItem));
+
+  const output = {
+    generated_at: new Date().toISOString(),
+    method: "balanced_keyword_rule_based_event_scoring_v2",
+    description:
+      "Automatikusan generált Kőszeg–azbeszt ügyindex a data/news.json alapján. A rendszer külön számolja a kockázati és az intézkedési kulcsszavakat.",
+    scoring_note:
+      "Ez nem klasszikus hangulatelemzés. A negatív pont kockázatot vagy romló fejleményt, a pozitív pont intézkedést, tájékoztatást vagy megoldás felé mutató eseményt jelent.",
+    source_weights: SOURCE_WEIGHTS,
+    negative_rules: NEGATIVE_RULES,
+    positive_rules: POSITIVE_RULES,
+    items: items
+  };
+
+  writeJson(OUTPUT_FILE, output);
+
+  console.log(`Kész: ${OUTPUT_FILE}`);
+  console.log(`Pontozott hírek száma: ${items.length}`);
+}
+
+main();
