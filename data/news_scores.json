@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-30T18:46:12.248Z",
+  "generated_at": "2026-04-30T18:54:22.947Z",
   "method": "keyword_rule_based_event_scoring_v1",
   "description": "Automatikusan generált Kőszeg–azbeszt ügyindex a data/news.json alapján. Negatív érték: kockázat, romló helyzet, új probléma. Pozitív érték: intézkedés, tájékoztatás, kárelhárítás vagy megoldás felé mutató esemény.",
   "scoring_note": "Ez nem klasszikus hangulatelemzés, hanem kulcsszavas, eseményalapú pontozás. Az eredményt érdemes emberileg ellenőrizni.",
