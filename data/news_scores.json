@@ -1,0 +1,163 @@
+{
+  "generated_at": "2026-04-30",
+  "method": "manual_event_scoring_v1",
+  "description": "Kőszeg–Szombathely azbesztügy híralapú napi ügyindex. Negatív érték: kockázat, romló helyzet, új probléma. Pozitív érték: intézkedés, tájékoztatás, kárelhárítás, megoldás felé mutató esemény.",
+  "items": [
+    {
+      "date": "2026-01-29",
+      "title": "Súlyos azbesztszennyezésre bukkant a Greenpeace a magyar–osztrák határ mentén",
+      "source": "Telex",
+      "source_type": "media",
+      "category": "uj_szennyezes_gyanu",
+      "base_score": -5,
+      "source_weight": 1.0,
+      "confidence": 1.0,
+      "final_score": -5.0,
+      "url": "https://telex.hu/belfold/2026/01/29/azbeszt-burgenland-magyar-osztrak-hatar-greenpeace"
+    },
+    {
+      "date": "2026-04-13",
+      "title": "Azbesztszennyezés Szombathelyen, az Oladi Platón - Hatósági és rendőrségi eljárás is indult",
+      "source": "Vas Vármegyei Kormányhivatal",
+      "source_type": "official",
+      "category": "hatosagi_eljaras",
+      "base_score": 2,
+      "source_weight": 1.5,
+      "confidence": 1.0,
+      "final_score": 3.0,
+      "url": "https://kormanyhivatalok.hu/kormanyhivatalok/vas/megye/hirek/hir/azbesztszennyezes-szombathelyen-az-oladi-platon-hatosagi-es"
+    },
+    {
+      "date": "2026-04-16",
+      "title": "Greenpeace: Súlyos azbesztveszély Szombathelyen, azonnali intézkedésre van szükség",
+      "source": "Greenpeace Magyarország",
+      "source_type": "civil",
+      "category": "egeszsegugyi_kockazat",
+      "base_score": -5,
+      "source_weight": 1.2,
+      "confidence": 1.0,
+      "final_score": -6.0,
+      "url": "https://www.greenpeace.org/hungary/sajtokozlemeny/13530/greenpeace-sulyos-azbesztveszely-szombathelyen-a-lakossag-biztonsaganak-erdekeben-azonnali-intezkezdesre-van-szukseg"
+    },
+    {
+      "date": "2026-04-21",
+      "title": "Azbeszthelyzet Szombathelyen: lakossági fórumot tartottak a Városházán",
+      "source": "Vas Vármegyei Kormányhivatal",
+      "source_type": "official",
+      "category": "lakossagi_tajekoztatas",
+      "base_score": 1,
+      "source_weight": 1.5,
+      "confidence": 1.0,
+      "final_score": 1.5,
+      "url": "https://kormanyhivatalok.hu/kormanyhivatalok/vas/megye/hirek/hir/azbeszthelyzet-szombathelyen-lakossagi-forumot-tartottak"
+    },
+    {
+      "date": "2026-04-22",
+      "title": "A Greenpeace feljelentést tett az azbesztes osztrák kőbányák miatt",
+      "source": "Telex",
+      "source_type": "media",
+      "category": "civil_jogi_lepes",
+      "base_score": -2,
+      "source_weight": 1.0,
+      "confidence": 1.0,
+      "final_score": -2.0,
+      "url": "https://telex.hu/belfold/2026/04/22/greenpeace-ausztria-feljelentes-pilgersdorfi-kobanya-azbesztszennyezes-magyarorszag-szombathely"
+    },
+    {
+      "date": "2026-04-24",
+      "title": "Szombathely és Bozsok mellett Kőszegre is juthatott az azbeszttel szennyezett kőzúzalékból",
+      "source": "444",
+      "source_type": "media",
+      "category": "uj_telepules_erintett",
+      "base_score": -4,
+      "source_weight": 1.0,
+      "confidence": 1.0,
+      "final_score": -4.0,
+      "url": "https://444.hu/2026/04/24/szombathely-es-bozsok-mellett-koszegre-is-juthatott-abbol-az-azbeszttel-szennyezett-kozuzalekbol"
+    },
+    {
+      "date": "2026-04-24",
+      "title": "Kőszegre is kerülhetett az azbeszttartalmú kőzúzalékból, 46 utcában csak 10 km/h-s sebességgel lehet autózni",
+      "source": "HVG",
+      "source_type": "media",
+      "category": "forgalomkorlatozas_kockazatcsokkentes",
+      "base_score": -2,
+      "source_weight": 1.0,
+      "confidence": 1.0,
+      "final_score": -2.0,
+      "url": "https://hvg.hu/zhvg/20260424_koszeg-azbeszt-tartalom-kozuzalek-bozsok-szombathely"
+    },
+    {
+      "date": "2026-04-24",
+      "title": "Kőszeg Önkormányzat – Lakossági tájékoztató az ausztriai bányákból származó kőzúzalék ügyében",
+      "source": "Kőszeg Önkormányzat",
+      "source_type": "official",
+      "category": "onkormanyzati_tajekoztatas",
+      "base_score": 1,
+      "source_weight": 1.5,
+      "confidence": 0.9,
+      "final_score": 1.35,
+      "url": "https://koszeg.hu/hu/aktualis/hirek"
+    },
+    {
+      "date": "2026-04-27",
+      "title": "Újranyitnának a Szombathelyt azbesztkrízisbe lökő burgenlandi kőfejtők, szerintük nincs is szennyezés",
+      "source": "444",
+      "source_type": "media",
+      "category": "bizonytalansag_vita",
+      "base_score": -3,
+      "source_weight": 1.0,
+      "confidence": 1.0,
+      "final_score": -3.0,
+      "url": "https://444.hu/2026/04/27/ujranyitnanak-a-szombathelyt-azbesztkrizisbe-loko-burgenlandi-kofejtok-szerintuk-nincs-is-szennyezes"
+    },
+    {
+      "date": "2026-04-28",
+      "title": "Azbesztszennyezés – A legfontosabb lakossági információk",
+      "source": "Vas Vármegyei Kormányhivatal",
+      "source_type": "official",
+      "category": "folyamatos_hatosagi_tajekoztatas",
+      "base_score": 2,
+      "source_weight": 1.5,
+      "confidence": 1.0,
+      "final_score": 3.0,
+      "url": "https://kormanyhivatalok.hu/kormanyhivatalok/vas/megye/hirek/hir/azbesztszennyezes-legfontosabb-lakossagi-informaciok"
+    },
+    {
+      "date": "2026-04-29",
+      "title": "Az összes Vas megyei temetőben leállítják az autós behajtást az azbesztügy miatt",
+      "source": "Nyugat.hu",
+      "source_type": "media",
+      "category": "korlatozas_kockazatkezeles",
+      "base_score": -2,
+      "source_weight": 0.9,
+      "confidence": 1.0,
+      "final_score": -1.8,
+      "url": "https://www.nyugat.hu/cikk/az_osszes_vas_megyei_temetoben_leallitjak_az_autos"
+    },
+    {
+      "date": "2026-04-30",
+      "title": "Szombathelyi azbeszt-ügy: nem minden műszaki megoldás jöhet szóba a polgármester szerint",
+      "source": "Telex",
+      "source_type": "media",
+      "category": "megoldasi_bizonytalansag",
+      "base_score": -2,
+      "source_weight": 1.0,
+      "confidence": 1.0,
+      "final_score": -2.0,
+      "url": "https://telex.hu/belfold/2026/04/30/szombathely-azbeszt-ugy-onkormanyzat-muszaki-megoldasok"
+    },
+    {
+      "date": "2026-04-30",
+      "title": "Forrás nincs, de a megoldás körvonalazódik a szombathelyi azbeszt-ügyre",
+      "source": "Nyugat.hu",
+      "source_type": "media",
+      "category": "reszleges_elorelepes",
+      "base_score": 1,
+      "source_weight": 0.9,
+      "confidence": 1.0,
+      "final_score": 0.9,
+      "url": "https://www.nyugat.hu/cikk/forras_nincs_de_a_megodas_korvonalazodik_azbeszt"
+    }
+  ]
+}
