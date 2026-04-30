@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-30T13:26:49.266154+00:00",
+  "generated_at": "2026-04-30T19:10:12.929545+00:00",
   "mode": "milestones_from_news",
   "events": [
     {
@@ -25,14 +25,14 @@
     },
     {
       "date": "Folyamatos",
-      "title": "Jelentős magyar médiafigyelem: legalább 35 releváns magyar médiatalálat szerepel a rendszerben.",
+      "title": "Jelentős magyar médiafigyelem: legalább 41 releváns magyar médiatalálat szerepel a rendszerben.",
       "source": "Magyar médiafigyelés",
       "type": "media_wave",
       "url": ""
     },
     {
       "date": "Folyamatos",
-      "title": "A rendszer jelenleg 5 hivatalos, 1 civil, 5 osztrák/burgenlandi, 35 magyar média és 0 egyéb GDELT-találatot különít el.",
+      "title": "A rendszer jelenleg 5 hivatalos, 1 civil, 7 osztrák/burgenlandi, 41 magyar média és 0 egyéb GDELT-találatot különít el.",
       "source": "Automatikus monitoring",
       "type": "system_summary",
       "url": ""
