@@ -36,6 +36,10 @@
     .source { background: rgba(37,99,235,.11); border-color: rgba(37,99,235,.35); }
     .green-card { background: rgba(34,197,94,.10); border-color: rgba(34,197,94,.35); }
 
+    .score-card { background: rgba(99,102,241,.10); border-color: rgba(129,140,248,.34); }
+    .score-chart-wrap { position: relative; width: 100%; height: 280px; margin-top: 10px; }
+    .score-note { margin-top: 8px; color: #a5b4fc; font-size: 11px; line-height: 1.35; }
+
     .summary-card { padding: 0; overflow: hidden; }
     .summary-toggle { width: 100%; border: 0; background: transparent; color: #e5e7eb; padding: 14px; cursor: pointer; text-align: left; display: flex; align-items: center; justify-content: space-between; gap: 10px; }
     .summary-toggle:hover { background: rgba(255,255,255,.04); }
@@ -155,7 +159,7 @@
     <header class="topbar">
       <div>
         <div class="brand-title">Kőszeg és környéke – Azbeszt Monitor</div>
-        <div class="brand-sub">Érintett utak · GeoJSON réteg · esemény-idővonal · sajtófigyelő · AI összefoglaló</div>
+        <div class="brand-sub">Érintett utak · GeoJSON réteg · esemény-idővonal · sajtófigyelő · ügyindex · AI összefoglaló</div>
       </div>
       <div class="top-actions">
         <span class="live-indicator"><span class="live-dot"></span>Élő monitoring</span>
@@ -169,7 +173,7 @@
     <main class="layout">
       <aside class="sidebar">
         <section class="card warn"><h2>Figyelmeztetés</h2><p class="muted">A térkép tájékoztató jellegű. Nem hivatalos hatósági térkép. A pontos információkat az önkormányzati, hatósági és katasztrófavédelmi közlemények tartalmazzák.</p></section>
-        <section class="card source"><h2>Források</h2><p class="muted">A hírek a <code>data/news.json</code>, az események a <code>data/events.json</code>, a pontosított utcaszakaszok pedig a <code>data/streets.geojson</code> fájlból töltődnek be.</p></section>
+        <section class="card source"><h2>Források</h2><p class="muted">A hírek a <code>data/news.json</code>, a pontozott ügyindex a <code>data/news_scores.json</code>, az események a <code>data/events.json</code>, a pontosított utcaszakaszok pedig a <code>data/streets.geojson</code> fájlból töltődnek be.</p></section>
         <section class="card green-card"><h2>Greenpeace / civil források</h2><p class="muted">A rendszer külön kiemeli a Greenpeace-hez kapcsolódó híreket és közleményeket. Közvetlen, nyilvános térképes Greenpeace-adatot jelenleg nem használ.</p></section>
 
         <section class="card">
@@ -250,6 +254,15 @@
           <div class="latest-list" id="todayLatestList"><p class="latest-empty">Mai hírek betöltése...</p></div>
         </section>
 
+        <section class="card score-card" id="newsScoreChartContainer">
+          <h2>Azbeszt Ügyindex</h2>
+          <p class="muted">Napi, híralapú pontozás: negatív érték = kockázatos vagy romló fejlemény, pozitív érték = intézkedés, tájékoztatás vagy megoldás felé mutató esemény.</p>
+          <div class="score-chart-wrap">
+            <canvas id="newsScoreChart"></canvas>
+          </div>
+          <div class="score-note">Forrás: <code>data/news_scores.json</code>. A módszer kézi, eseményalapú pontozásra épül, nem automatikus hangulatelemzésre.</div>
+        </section>
+
         <section class="card"><h2>Élő idővonal</h2><div class="timeline" id="eventTimeline"><div class="timeline-item"><div class="timeline-date">Betöltés...</div><div class="timeline-text">Eseménynapló betöltése.</div></div></div></section>
 
         <div id="newsList">
@@ -264,6 +277,7 @@
   </div>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script>
     const OFFICIAL_STREET_COUNT = 46;
     const OFFICIAL_PARKING_COUNT = 10;
@@ -731,7 +745,7 @@
       const eventList = currentEvents.slice(0, 10).map(e => `<li><strong>${escapeHtml(e.date || '')}</strong>: ${escapeHtml(e.title || e.text || '')} <em>${escapeHtml(e.source || '')}</em></li>`).join('');
       const report = window.open('', '_blank');
       report.document.open();
-      report.document.write(`<!DOCTYPE html><html lang="hu"><head><meta charset="utf-8"><title>Kőszeg Azbeszt Monitor – Jelentés</title><style>body{font-family:Arial,sans-serif;margin:34px;line-height:1.5;color:#111}h1{font-size:24px}h2{margin-top:28px;border-bottom:1px solid #ddd;padding-bottom:6px}a{color:#0645ad}.note{background:#fff7ed;border-left:5px solid #f59e0b;padding:10px}</style></head><body><h1>Kőszeg és környéke – Azbeszt Monitor jelentés</h1><p><strong>Készült:</strong> ${new Date().toLocaleString('hu-HU')}</p><div class="note">Tájékoztató jellegű automatikus jelentés. Nem hivatalos hatósági dokumentum.</div><h2>AI összefoglaló</h2><p>${escapeHtml(lastSummary || 'Nincs elérhető összefoglaló.')}</p><h2>Esemény-idővonal</h2><ul>${eventList || '<li>Nincs eseményadat.</li>'}</ul><h2>Top hírek</h2><ul>${topNews || '<li>Nincs hír.</li>'}</ul><p style="margin-top:30px;font-size:12px;color:#666">Forrás: data/news.json, data/events.json, OpenStreetMap, GitHub Actions monitoring.</p></body></html>`);
+      report.document.write(`<!DOCTYPE html><html lang="hu"><head><meta charset="utf-8"><title>Kőszeg Azbeszt Monitor – Jelentés</title><style>body{font-family:Arial,sans-serif;margin:34px;line-height:1.5;color:#111}h1{font-size:24px}h2{margin-top:28px;border-bottom:1px solid #ddd;padding-bottom:6px}a{color:#0645ad}.note{background:#fff7ed;border-left:5px solid #f59e0b;padding:10px}</style></head><body><h1>Kőszeg és környéke – Azbeszt Monitor jelentés</h1><p><strong>Készült:</strong> ${new Date().toLocaleString('hu-HU')}</p><div class="note">Tájékoztató jellegű automatikus jelentés. Nem hivatalos hatósági dokumentum.</div><h2>AI összefoglaló</h2><p>${escapeHtml(lastSummary || 'Nincs elérhető összefoglaló.')}</p><h2>Esemény-idővonal</h2><ul>${eventList || '<li>Nincs eseményadat.</li>'}</ul><h2>Top hírek</h2><ul>${topNews || '<li>Nincs hír.</li>'}</ul><p style="margin-top:30px;font-size:12px;color:#666">Forrás: data/news.json, data/events.json, data/news_scores.json, OpenStreetMap, GitHub Actions monitoring.</p></body></html>`);
       report.document.close();
       setTimeout(() => report.print(), 500);
     }
@@ -757,5 +771,6 @@
 
     document.addEventListener('DOMContentLoaded', start);
   </script>
+  <script src="js/news-score-chart.js"></script>
 </body>
 </html>
