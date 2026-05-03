@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-02T07:08:40.011Z",
+  "generated_at": "2026-05-03T07:27:01.568Z",
   "method": "balanced_keyword_rule_based_event_scoring_v3",
   "description": "Automatikusan generált Kőszeg–azbeszt ügyindex a data/news.json alapján. A rendszer külön számolja a negatív kockázati és a pozitív intézkedési kulcsszavakat.",
   "scoring_note": "Ez nem klasszikus hangulatelemzés. A negatív pont kockázatot vagy romló fejleményt, a pozitív pont intézkedést, tájékoztatást, monitoringot vagy megoldás felé mutató eseményt jelent.",
@@ -974,28 +974,6 @@
     },
     {
       "date": "2026-04-28",
-      "title": "Kisebb teremben, nagy kérdésekkel: újabb lakossági fórumot tartottak Szombathelyen az azbesztről",
-      "source": "Nyugat.hu",
-      "source_type": "media",
-      "category": "lakossagi_tajekoztatas",
-      "base_score": 2,
-      "source_weight": 1,
-      "confidence": 0.85,
-      "final_score": 1.7,
-      "matched_negative_rules": [],
-      "matched_positive_rules": [
-        {
-          "category": "lakossagi_tajekoztatas",
-          "score": 2,
-          "keywords": [
-            "lakossagi forum"
-          ]
-        }
-      ],
-      "url": "https://www.nyugat.hu/cikk/kisebb_teremben_nagy_kerdesekkel_ujabb_lakossagi"
-    },
-    {
-      "date": "2026-04-28",
       "title": "Azbesztveszély Kőszegen: folyamatosan locsolják az utakat",
       "source": "VAOL",
       "source_type": "media",
@@ -1331,28 +1309,6 @@
       "url": "https://www.nyugat.hu/cikk/szovaltasba_keveredett_apjaval_a_ferfi_bezarta_a"
     },
     {
-      "date": "2026-04-30",
-      "title": "Azbesztszennyezés Vasban: Itt a kormányhatározat!",
-      "source": "VAOL",
-      "source_type": "media",
-      "category": "szennyezes_vagy_gyanu",
-      "base_score": -4,
-      "source_weight": 1,
-      "confidence": 0.85,
-      "final_score": -3.4,
-      "matched_negative_rules": [
-        {
-          "category": "szennyezes_vagy_gyanu",
-          "score": -4,
-          "keywords": [
-            "azbesztszennyezes"
-          ]
-        }
-      ],
-      "matched_positive_rules": [],
-      "url": "https://www.vaol.hu/helyi-kozelet/2026/04/azbesztszennyezes-vasban-kormanyhatarozat"
-    },
-    {
       "date": "2026-05-01",
       "title": "Szigorítja a közterület-foglalás szabályait a szombathelyi önkormányzat",
       "source": "Nyugat.hu",
@@ -1393,6 +1349,103 @@
       "matched_negative_rules": [],
       "matched_positive_rules": [],
       "url": "https://www.vaol.hu/helyi-kozelet/2026/05/azbeszt-ugy-taplanszentkereszt-ujabb-vasi-telepules"
+    },
+    {
+      "date": "2026-05-02",
+      "title": "Szombathely polgármestere az azbesztszennyezésről: Egész Nyugat-Magyarország érintett lesz ebben",
+      "source": "Telex",
+      "source_type": "media",
+      "category": "szennyezes_vagy_gyanu",
+      "base_score": -4,
+      "source_weight": 1,
+      "confidence": 0.85,
+      "final_score": -3.4,
+      "matched_negative_rules": [
+        {
+          "category": "szennyezes_vagy_gyanu",
+          "score": -4,
+          "keywords": [
+            "azbesztszennyezes"
+          ]
+        }
+      ],
+      "matched_positive_rules": [],
+      "url": "https://telex.hu/belfold/2026/05/02/nemeny-andras-szombathelyi-polgarmester-azbesztszennyezet-nyugat-magyarorszag"
+    },
+    {
+      "date": "2026-05-02",
+      "title": "Szombathely polgármestere: Akár egész Nyugat-Magyarországon lehetnek azbesztszennyezéssel érintett települések",
+      "source": "HVG",
+      "source_type": "media",
+      "category": "szennyezes_vagy_gyanu",
+      "base_score": -4,
+      "source_weight": 1,
+      "confidence": 0.85,
+      "final_score": -3.4,
+      "matched_negative_rules": [
+        {
+          "category": "szennyezes_vagy_gyanu",
+          "score": -4,
+          "keywords": [
+            "azbesztszennyezes"
+          ]
+        }
+      ],
+      "matched_positive_rules": [],
+      "url": "https://hvg.hu/zhvg/20260502_azbesztszennyezes-nyugat-magyarorszag-szombathely-polgarmester"
+    },
+    {
+      "date": "2026-05-02",
+      "title": "Akár egész Nyugat-Magyarországot is sújthatja az osztrák bányákból „importált” azbesztszennyezés Az osztrák bányákból a szombathelyi polgármester szerint a tágabb régió több városába is szállíthattak követ. Bódog Bálint belföld 2026. május 2. 21:00",
+      "source": "444",
+      "source_type": "media",
+      "category": "szennyezes_vagy_gyanu",
+      "base_score": -4,
+      "source_weight": 1,
+      "confidence": 0.85,
+      "final_score": -3.4,
+      "matched_negative_rules": [
+        {
+          "category": "szennyezes_vagy_gyanu",
+          "score": -4,
+          "keywords": [
+            "azbesztszennyezes"
+          ]
+        }
+      ],
+      "matched_positive_rules": [],
+      "url": "https://444.hu/2026/05/02/akar-egesz-nyugat-magyarorszagot-is-sujthatja-az-osztrak-banyakbol-importalt-azbesztszennyezes"
+    },
+    {
+      "date": "2026-05-02",
+      "title": "Nyitnának az osztrák bányák: néhány napon belül elkészülnek a friss mérési eredmények",
+      "source": "VAOL",
+      "source_type": "media",
+      "category": "szennyezes_vagy_gyanu",
+      "base_score": -2,
+      "source_weight": 1,
+      "confidence": 1,
+      "final_score": -2,
+      "matched_negative_rules": [
+        {
+          "category": "szennyezes_vagy_gyanu",
+          "score": -4,
+          "keywords": [
+            "azbesztszennyezes"
+          ]
+        }
+      ],
+      "matched_positive_rules": [
+        {
+          "category": "monitoring_vizsgalat",
+          "score": 2,
+          "keywords": [
+            "meres",
+            "eredmenyek"
+          ]
+        }
+      ],
+      "url": "https://www.vaol.hu/helyi-kozelet/2026/05/azbesztszennyezes-szombathely-banya"
     }
   ]
 }
