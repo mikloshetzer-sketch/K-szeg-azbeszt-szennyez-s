@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-04T08:03:51.710Z",
+  "generated_at": "2026-05-05T07:27:27.220Z",
   "method": "balanced_keyword_rule_based_event_scoring_v3",
   "description": "Automatikusan generált Kőszeg–azbeszt ügyindex a data/news.json alapján. A rendszer külön számolja a negatív kockázati és a pozitív intézkedési kulcsszavakat.",
   "scoring_note": "Ez nem klasszikus hangulatelemzés. A negatív pont kockázatot vagy romló fejleményt, a pozitív pont intézkedést, tájékoztatást, monitoringot vagy megoldás felé mutató eseményt jelent.",
@@ -884,20 +884,6 @@
       "url": "https://telex.hu/techtud/2026/04/27/azbeszt-szombathely-olad-plato-weiszburg-tamas"
     },
     {
-      "date": "2026-04-27",
-      "title": "Asbest: Steinbrüche wollen wieder aufsperren",
-      "source": "Kurier Burgenland",
-      "source_type": "austrian",
-      "category": "altalanos_media_megjelenes",
-      "base_score": -1,
-      "source_weight": 1,
-      "confidence": 0.7,
-      "final_score": -0.7,
-      "matched_negative_rules": [],
-      "matched_positive_rules": [],
-      "url": "https://kurier.at/chronik/burgenland/asbest-steinbrueche-wollen-wieder-aufsperren/403154642"
-    },
-    {
       "date": "2026-04-28",
       "title": "Azbesztszennyezés – A legfontosabb lakossági információk 2026. április 30. 07:19 Az alábbiakban a témával kapcsolatos legfontosabb információkról, fejleményekről, lakossági felhívásokról, illetve teendőkről tájékozódhatnak. Az oldalon található információkat folyamatosan frissítjük. Részletek",
       "source": "Vas Vármegyei Kormányhivatal",
@@ -989,58 +975,6 @@
     },
     {
       "date": "2026-04-28",
-      "title": "Az azbesztszennyezésre hivatkozva hatóságilag bezárt négy osztrák kőfejtő üzemeltetői hétfőn élesen bírálták a burgenlandi tartományi vezetést és a Greenpeace-t. Ismert, kimutatták az azbeszt jelenlétét több vasi településen is.",
-      "source": "VAOL",
-      "source_type": "media",
-      "category": "szennyezes_vagy_gyanu",
-      "base_score": -1,
-      "source_weight": 1,
-      "confidence": 1,
-      "final_score": -1,
-      "matched_negative_rules": [
-        {
-          "category": "szennyezes_vagy_gyanu",
-          "score": -4,
-          "keywords": [
-            "azbesztszennyezes"
-          ]
-        }
-      ],
-      "matched_positive_rules": [
-        {
-          "category": "hatosagi_intezkedes",
-          "score": 3,
-          "keywords": [
-            "hatosagilag bezart"
-          ]
-        }
-      ],
-      "url": "https://www.vaol.hu/helyi-kozelet/2026/04/azbeszt-osztrak-banya"
-    },
-    {
-      "date": "2026-04-28",
-      "title": "Asbest-Messungen: Ergebnisse stehen bevor",
-      "source": "Kurier Burgenland",
-      "source_type": "austrian",
-      "category": "monitoring_vizsgalat",
-      "base_score": 2,
-      "source_weight": 1,
-      "confidence": 0.85,
-      "final_score": 1.7,
-      "matched_negative_rules": [],
-      "matched_positive_rules": [
-        {
-          "category": "monitoring_vizsgalat",
-          "score": 2,
-          "keywords": [
-            "asbest-messungen"
-          ]
-        }
-      ],
-      "url": "https://kurier.at/chronik/burgenland/asbest-burgenland-steinbrueche-messungen-oberpullendorf-oberwart/403154918"
-    },
-    {
-      "date": "2026-04-28",
       "title": "Majthényi László, a Vas Vármegyei Közgyűlés elnöke a csernobili katasztrófa 40. évfordulója alkalmából új megvilágításba helyezte az oladi plató azbesztszennyezését.",
       "source": "VAOL",
       "source_type": "media",
@@ -1100,28 +1034,6 @@
     },
     {
       "date": "2026-04-29",
-      "title": "Azbesztgyanú miatt lezárják az autósforgalom elől a herényi temetőt",
-      "source": "Nyugat.hu",
-      "source_type": "media",
-      "category": "korlatozas",
-      "base_score": -2,
-      "source_weight": 1,
-      "confidence": 0.85,
-      "final_score": -1.7,
-      "matched_negative_rules": [
-        {
-          "category": "korlatozas",
-          "score": -2,
-          "keywords": [
-            "lezarjak"
-          ]
-        }
-      ],
-      "matched_positive_rules": [],
-      "url": "https://www.nyugat.hu/cikk/azbesztgyanu_miatt_lezarjak_az_autosforgalom_elol"
-    },
-    {
-      "date": "2026-04-29",
       "title": "Észak-Vas vármegye országgyűlési képviselője az azbeszt-üggyel kapcsolatban tett közzé közleményt.",
       "source": "VAOL",
       "source_type": "media",
@@ -1155,36 +1067,6 @@
       "matched_negative_rules": [],
       "matched_positive_rules": [],
       "url": "https://www.nyugat.hu/cikk/azbeszt_ugy_sok_emnber_felelotlen_magatartasa_az"
-    },
-    {
-      "date": "2026-04-30",
-      "title": "Forrás nincs, de a megoldás körvonalazódik a szombathelyi azbeszt-ügyre",
-      "source": "Nyugat.hu",
-      "source_type": "media",
-      "category": "karelhartas_megoldas",
-      "base_score": 2,
-      "source_weight": 1,
-      "confidence": 1,
-      "final_score": 2,
-      "matched_negative_rules": [
-        {
-          "category": "bizonytalansag_vita",
-          "score": -3,
-          "keywords": [
-            "forras nincs"
-          ]
-        }
-      ],
-      "matched_positive_rules": [
-        {
-          "category": "karelhartas_megoldas",
-          "score": 5,
-          "keywords": [
-            "megoldas"
-          ]
-        }
-      ],
-      "url": "https://www.nyugat.hu/cikk/forras_nincs_de_a_megodas_korvonalazodik_azbeszt"
     },
     {
       "date": "2026-04-30",
@@ -1397,35 +1279,6 @@
     },
     {
       "date": "2026-05-03",
-      "title": "Azbesztszennyezés: egyre több helyről érkeznek jelentések, egész Nyugat-Magyarország érintett lehet",
-      "source": "24.hu",
-      "source_type": "media",
-      "category": "szennyezes_vagy_gyanu",
-      "base_score": -5,
-      "source_weight": 1,
-      "confidence": 1,
-      "final_score": -5,
-      "matched_negative_rules": [
-        {
-          "category": "szennyezes_vagy_gyanu",
-          "score": -4,
-          "keywords": [
-            "azbesztszennyezes"
-          ]
-        },
-        {
-          "category": "uj_erintett_terulet",
-          "score": -4,
-          "keywords": [
-            "erintett lehet"
-          ]
-        }
-      ],
-      "matched_positive_rules": [],
-      "url": "https://24.hu/belfold/2026/05/03/azbeszt-szennyezes-nyugat-magyarorszag-szombathely-banya-ausztria"
-    },
-    {
-      "date": "2026-05-03",
       "title": "Index - Belföld - Akár egész Nyugat - Magyarország érintett lehet a rendkívül veszélyes azbesztszennyezésben",
       "source": "index.hu",
       "source_type": "media",
@@ -1454,10 +1307,10 @@
       "url": "https://index.hu/belfold/2026/05/03/azbeszt-szennyezes-veszely-szombathely-vas-varmegye-ausztria-magyar-kozlony"
     },
     {
-      "date": "2026-05-03",
-      "title": "50 Jahre ÖKB Bernstein Kameradschaftsbundtreffen lockte 1000 Gäste in die Friedensgemeinde",
-      "source": "MeinBezirk Burgenland",
-      "source_type": "austrian",
+      "date": "2026-05-04",
+      "title": "Civil kezdeményezést indítottak azbesztvizsgálatra a szombathelyi Szentkirályon, de közben már zajlik a vizsgálat",
+      "source": "Nyugat.hu",
+      "source_type": "media",
       "category": "altalanos_media_megjelenes",
       "base_score": -1,
       "source_weight": 1,
@@ -1465,7 +1318,21 @@
       "final_score": -0.7,
       "matched_negative_rules": [],
       "matched_positive_rules": [],
-      "url": "https://www.meinbezirk.at/oberwart/c-lokales/kameradschaftsbundtreffen-lockte-1000-gaeste-in-die-friedensgemeinde_a8619932"
+      "url": "https://www.nyugat.hu/cikk/civil_kezemenyezest_inditottak_azbesztvizsgalatra"
+    },
+    {
+      "date": "2026-05-04",
+      "title": "Százezer védőmaszk érkezik Szombathelyre az azbeszthelyzet miatt",
+      "source": "VAOL",
+      "source_type": "media",
+      "category": "altalanos_media_megjelenes",
+      "base_score": -1,
+      "source_weight": 1,
+      "confidence": 0.7,
+      "final_score": -0.7,
+      "matched_negative_rules": [],
+      "matched_positive_rules": [],
+      "url": "https://www.vaol.hu/helyi-kozelet/2026/05/azbeszthelyzet-vedomaszk-erkezik-szombathelyre"
     }
   ]
 }
