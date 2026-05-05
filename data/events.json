@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-05T07:59:18.207417+00:00",
+  "generated_at": "2026-05-05T13:22:22.770816+00:00",
   "mode": "milestones_from_news",
   "events": [
     {
@@ -10,29 +10,22 @@
       "url": "https://kormanyhivatalok.hu/kormanyhivatalok/vas/megye/hirek/hir/azbeszthelyzet-szombathelyen-lakossagi-forumot-tartottak"
     },
     {
-      "date": "2026-04-16",
-      "title": "Greenpeace vagy más civil forrás is megjelent az ügyben.",
-      "source": "Greenpeace Magyarország",
-      "type": "civil_action",
-      "url": "https://www.greenpeace.org/hungary/sajtokozlemeny/13530/greenpeace-sulyos-azbesztveszely-szombathelyen-a-lakossag-biztonsaganak-erdekeben-azonnali-intezkezdesre-van-szukseg"
-    },
-    {
       "date": "2026-05-05",
       "title": "Osztrák vagy burgenlandi forrás is kapcsolódik az ügyhöz.",
-      "source": "Der Standard",
+      "source": "Kurier Burgenland",
       "type": "austrian_context",
-      "url": "https://www.derstandard.at/story/3000000319414/asbestskandal-in-ungarn-wegen-schotter-aus-dem-burgenland?ref=rss"
+      "url": "https://kurier.at/chronik/burgenland/schotter-burgenland-asbest-ungarn-strassenbau-wohnbau/403156777"
     },
     {
       "date": "Folyamatos",
-      "title": "Jelentős magyar médiafigyelem: legalább 35 releváns magyar médiatalálat szerepel a rendszerben.",
+      "title": "Jelentős magyar médiafigyelem: legalább 34 releváns magyar médiatalálat szerepel a rendszerben.",
       "source": "Magyar médiafigyelés",
       "type": "media_wave",
       "url": ""
     },
     {
       "date": "Folyamatos",
-      "title": "A rendszer jelenleg 5 hivatalos, 1 civil, 3 osztrák/burgenlandi, 35 magyar média és 0 egyéb GDELT-találatot különít el.",
+      "title": "A rendszer jelenleg 5 hivatalos, 0 civil, 1 osztrák/burgenlandi, 34 magyar média és 0 egyéb GDELT-találatot különít el.",
       "source": "Automatikus monitoring",
       "type": "system_summary",
       "url": ""
