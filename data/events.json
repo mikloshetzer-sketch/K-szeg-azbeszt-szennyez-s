@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-09T07:48:18.564707+00:00",
+  "generated_at": "2026-05-09T13:00:28.445155+00:00",
   "mode": "milestones_from_news",
   "events": [
     {
@@ -10,22 +10,22 @@
       "url": "https://kormanyhivatalok.hu/kormanyhivatalok/vas/megye/hirek/hir/azbeszthelyzet-szombathelyen-lakossagi-forumot-tartottak"
     },
     {
-      "date": "2026-05-05",
+      "date": "2026-05-09",
       "title": "Osztrák vagy burgenlandi forrás is kapcsolódik az ügyhöz.",
-      "source": "Kurier Burgenland",
+      "source": "ORF Burgenland",
       "type": "austrian_context",
-      "url": "https://kurier.at/chronik/burgenland/schotter-burgenland-asbest-ungarn-strassenbau-wohnbau/403156777"
+      "url": "https://burgenland.orf.at/stories/3353417"
     },
     {
       "date": "Folyamatos",
-      "title": "Jelentős magyar médiafigyelem: legalább 37 releváns magyar médiatalálat szerepel a rendszerben.",
+      "title": "Jelentős magyar médiafigyelem: legalább 30 releváns magyar médiatalálat szerepel a rendszerben.",
       "source": "Magyar médiafigyelés",
       "type": "media_wave",
       "url": ""
     },
     {
       "date": "Folyamatos",
-      "title": "A rendszer jelenleg 5 hivatalos, 0 civil, 2 osztrák/burgenlandi, 37 magyar média és 0 egyéb GDELT-találatot különít el.",
+      "title": "A rendszer jelenleg 5 hivatalos, 0 civil, 2 osztrák/burgenlandi, 30 magyar média és 0 egyéb GDELT-találatot különít el.",
       "source": "Automatikus monitoring",
       "type": "system_summary",
       "url": ""
