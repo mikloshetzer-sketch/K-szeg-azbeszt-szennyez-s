@@ -1,27 +1,42 @@
 {
-  "generated_at": "2026-05-15T02:30:34.787578+00:00",
+  "generated_at": "2026-05-15T08:42:30.776491+00:00",
   "refresh_hours": 6,
   "query": "\n(\"Kőszeg\" OR \"Koszeg\" OR \"Bozsok\" OR \"Szombathely\" OR \"Pilgersdorf\" OR \"Burgenland\" OR \"Bernstein\")\n(azbeszt OR aszbeszt OR kőzúzalék OR kőbánya OR serpentinit OR Asbest OR Steinbruch OR Schotter OR Greenpeace)\n",
   "mode": "rss_html_gdelt_ai_filtered_with_article_date_extraction",
   "source_counts": {
     "444": 7,
-    "HVG": 6,
+    "HVG": 5,
     "Vas Vármegyei Kormányhivatal": 4,
+    "divany.hu": 2,
     "Kőszeg Önkormányzat": 1,
     "Telex": 7,
-    "Kurier Burgenland": 2,
-    "Nyugat.hu": 13,
+    "Kurier Burgenland": 1,
+    "Nyugat.hu": 12,
     "MeinBezirk Burgenland": 1,
-    "24.hu": 6,
-    "VAOL": 12
+    "24.hu": 7,
+    "VAOL": 10,
+    "index.hu": 3,
+    "penzcentrum.hu": 1,
+    "blikk.hu": 2,
+    "atv.hu": 2,
+    "hirado.hu": 2,
+    "infogyor.hu": 1
   },
   "source_type_counts": {
-    "media": 51,
+    "media": 59,
     "official": 5,
-    "austrian": 3
+    "austrian": 4
   },
-  "summary": "Azbesztszennyezés a Kőszeg, Bozsok, Szombathely, Pilgersdorf és a Burgenland térségében – helyzetkép\n\nAz utóbbi hetekben jelentős médiafigyelmet kapott az azbeszttel szennyezett kőzúzalék ügye, amely érinti a Nyugat-Dunántúl és a szomszédos osztrák területeket, különösen Kőszeg környékét, Bozsokot, Szombathelyt, valamint az osztrák Pilgersdorf és Burgenland környékét.\n\nHivatalos és önkormányzati források szerint a szennyezett kőzúzalék az ausztriai Pilgersdorfi bányából származhat, onnan került be az érintett magyar településekre az elmúlt évek során. Több város és község önkormányzata – így Kőszegé is – lakossági tájékoztatókat tett közzé, melyekben részletes információkat adtak a helyzetről, valamint intézkedéseik elsődleges céljaként a lakosság egészségének megóvását határozták meg. Kőszegen például több utcában és parkolóhelyen vezettek be korlátozásokat, illetve szabtak meg alacsony sebességhatárokat az autós forgalom számára.\n\nA Vas Vármegyei Kormányhivatal több alkalommal is lakossági fórumokat szervezett Szombathelyen, különösen az Oladi Plató térségében. Ezeken a szakemberek részletes, közérthető tájékoztatást nyújtottak a kialakult helyzetről, és válaszoltak a lakosok kérdéseire. A fórumokon hangsúlyozták, hogy a probléma mielőbbi rendezése, valamint a közegészségügyi biztonság biztosítása áll az első helyen. Ezzel együtt a hatósági és rendőrségi eljárások is megindultak a szennyezés ügyében.\n\nA magyar médiában – így a 444, HVG, Telex, Nyugat.hu oldalain – rendszeresen megjelennek friss hírek és helyzetjelentések. Ezekből kiderül, hogy a szennyezett kőzúzalék több településen is megjelent, és a nyilvánosságot érintő intézkedések – például közterületek lezárása, tájékoztató kampányok, szájmaszkos védőeszközök biztosítása – folyamatosan zajlanak. A média ugyanakkor megemlíti a pánikkeltés veszélyét is, és igyekszik óvatosan kezelni a helyzetet, nem állítanak meg nem erősített laboreredményeket vagy egészségügyi következtetéseket.\n\nAz osztrák oldalról, így a Burgenland tartományi médiából (Kurier Burgenland, MeinBezirk Burgenland) szintén érkeznek beszámolók. Ezek hangsúlyozzák, hogy Ausztriában a hatóságok bezárták a gyanús pilgersdorfi bányákat, miközben a Greenpeace környezetvédelmi szervezet vészharangot kongat és azonnali intézkedéseket sürget. Ugyanakkor van olyan osztrák bányatulajdonosi vélemény is, amely vitatja a szennyezést, és a Greenpeace-t bűnbakká próbálja tenni. Az osztrák források felhívják a figyelmet, hogy míg Magyarországon és Alsó-Ausztriában már történtek lépések, addig Burgenlandban a cselekvés lassabbnak tűnik.\n\nCivil szervezetek, például a Greenpeace Magyarországon, feljelentést tett az ausztriai bányák miatt, és további lépéseket várnak el mind magyar, mind osztrák oldalon.\n\nÖsszességében a helyzet komplex, többoldalú együttműködést és körültekintő tájékoztatást igényel. Magyar oldalon a kormányhivatalok, önkormányzatok, helyi közösségek és szakemberek egyaránt aktívan dolgoznak a probléma kezelésén, az érintett települések lakóinak biztonságának megóvásán.\n\nRöviden:\n- Az azbeszttel szennyezett kőzúzalék több Nyugat-Dunántúli településre, köztük Kőszegre, Bozsokra és Szombathelyre is eljutott.\n- Hivatalos fórum",
+  "summary": "Az utóbbi időszakban a Kőszeg, Bozsok, Szombathely és a közeli osztrák Pilgersdorf térségét érintő kőzúzalék szennyezettsége került a figyelem középpontjába, elsősorban az azbeszt tartalmú anyag jelenléte miatt. Az érintett kőzúzalék egy burgenlandi bányából, a Pilgersdorfi kőbányából származik, ahol Ausztriában hatósági intézkedések mellett ma is folynak viták a bányák újranyitásáról.\n\n**Hivatalos források** – többek között a Vas Vármegyei Kormányhivatal – részletes tájékoztatást nyújtottak a helyzet alakulásáról, lakossági fórumokat tartottak Szombathelyen az Oladi Platón és környékén, hogy pontos információkat adjanak az érintetteknek. A hivatalos szervek hangsúlyozzák az egészségvédelmi szempontok fontosságát, valamint a helyzet mielőbbi rendezésének igényét. Több közterület korlátozása és forgalmi szabályozás történt például Kőszegen, ahol 50 utcában és több parkolóban azbesztveszély áll fenn, emiatt sebességkorlátozások bevezetésére is sor került. A naprakész információkat a kormányhivatal felületén folyamatosan frissítik.\n\n**Önkormányzati közlések** – Kőszeg város polgármestere és önkormányzata hivatalos lakossági tájékoztatókat adott ki, amelyek legfőbb célja a helyi lakosság biztonságának fenntartása és az esetleges kockázatok csökkentése. Az önkormányzat kérte és támogatja a lakosság együttműködését az intézkedések során.\n\n**Civil és környezetvédelmi szervezetek**, például a Greenpeace, régóta foglalkoznak a burgenlandi bányákból származó anyagok problémájával. A Greenpeace feljelentést tett Ausztria ellen az azbesztszennyezés miatt, valamint sürgeti a bányák aszbesztlerakóként való kezelését. Álláspontjuk szerint a burgenlandi hatóságok nem kezelik megfelelően a problémát, amit az osztrák média is tárgyal: több cikk foglalkozik azzal, hogy az érintett bányák újranyitását szorgalmazó lobbi tevékenység és a környezetvédelmi aggályok ezzel szemben állnak.\n\n**Magyar és osztrák média** egyaránt beszámolt a helyzet elmúlt hetei fejleményeiről. Magyar lapok részletesen közvetítették a kormányhivatal tájékoztatóit és az intézkedéseket, de igyekeztek megőrizni az információk hitelességét és mértékletességét, bár a híradások egyes esetekben utaltak a szociális és ingatlanpiaci hatásokra (pl. áresések Szombathelyen). Az osztrák médiumok elsősorban a helyi politikai vitákra és a környezetvédelmi vitákra fókuszálnak.\n\nÖsszességében a térség önkormányzatai, hatóságai és civil szervezetei is foglalkoznak a helyzettel, amely komoly kihívást jelent az adott települések és térségük számára. Az intézkedések és kommunikáció célja a lakosság egészségének védelme, a tájékozottság biztosítása és a kockázatok minimalizálása.\n\n---\n\n**Röviden:**\n- Pilgersdorfi osztrák bányából származó azbeszttel szennyezett kőzúzalék került a Kőszeg, Bozsok és Szombathely környékére.\n- Hivatalos fórumokon és tájékoztatásokon kezelik a témát, forgalmi korlátozások és további intézkedések folynak.\n- A Greenpeace feljelentést tett, míg Ausztriában viták zajlanak a bányák újranyitásáról és az egészségügyi kockázatokról.",
   "latest_articles": [
+    {
+      "title": "„Védjük meg a lakosság egészségét, és tudjuk meg, kik a felelősök” – azbesztszemlén jártunk Gajdos Lászlóval",
+      "source": "24.hu",
+      "source_type": "media",
+      "date": "2026-05-15",
+      "url": "https://24.hu/belfold/2026/05/15/gajdos-laszlo-azbeszt-szombathely-video",
+      "type": "rss"
+    },
     {
       "title": "Kőszegen 50 utcában és 20 parkolóban van azbesztveszély",
       "source": "Nyugat.hu",
@@ -60,15 +75,7 @@
       "source_type": "media",
       "date": "2026-05-14",
       "url": "https://telex.hu/belfold/2026/05/14/gajdos-laszlo-szombathely-azbeszt-szennyezes-latogatas",
-      "type": "rss"
-    },
-    {
-      "title": "Gajdos László a kormány elé viszi az azbesztszennyezés ügyét",
-      "source": "HVG",
-      "source_type": "media",
-      "date": "2026-05-14",
-      "url": "https://hvg.hu/itthon/20260514_azbesztszennyezes-szombathely-gajdos-laszlo-elo-kornyezetert-felelos-miniszter",
-      "type": "rss"
+      "type": "html_targeted"
     },
     {
       "title": "Szentgotthárdon is találtak azbeszttel szennyezett zúzottkövet",
@@ -95,14 +102,6 @@
       "type": "html_targeted"
     },
     {
-      "title": "Básthy Béla, Kőszeg polgármestere is Gajdos László miniszter segítségét kérte.",
-      "source": "VAOL",
-      "source_type": "media",
-      "date": "2026-05-14",
-      "url": "https://www.vaol.hu/helyi-kozelet/2026/05/azbesztszennyezes-allami-segitsegre-van-szukseg",
-      "type": "html_targeted"
-    },
-    {
       "title": "Újabb vasi városban találtak azbeszttel szennyezett zúzottköveket",
       "source": "24.hu",
       "source_type": "media",
@@ -111,11 +110,19 @@
       "type": "html_targeted"
     },
     {
-      "title": "Greenpeace warnt und fordert: Steinbrüche als Asbest-Deponien Die Umweltschutzorganisation fordert Sofortmaßnahmen des Landes. Während in Ungarn und NÖ bereits reagiert werde, bleibe das Burgenland untätig.",
+      "title": "Greenpeace warnt und fordert: Steinbrüche als Asbest-Deponien",
       "source": "Kurier Burgenland",
       "source_type": "austrian",
       "date": "2026-05-13",
       "url": "https://kurier.at/chronik/burgenland/asbest-burgenland-greenpeace-schotter-steinbrueche-luftmessungen-gesundheitsgefahr/403159329",
+      "type": "html"
+    },
+    {
+      "title": "Azbesztszennyezés – A legfontosabb lakossági információk 2026. május 13. 07:19 Az alábbiakban a témával kapcsolatos legfontosabb információkról, fejleményekről, lakossági felhívásokról, illetve teendőkről tájékozódhatnak. Az oldalon található információkat folyamatosan frissítjük. Részletek",
+      "source": "Vas Vármegyei Kormányhivatal",
+      "source_type": "official",
+      "date": "2026-05-13",
+      "url": "https://kormanyhivatalok.hu/kormanyhivatalok/vas/megye/hirek/hir/azbesztszennyezes-legfontosabb-lakossagi-informaciok",
       "type": "html"
     }
   ],
@@ -153,6 +160,14 @@
       "type": "html"
     },
     {
+      "title": "Újabb magyar városban lehet azbesztszennyezés : maszkot osztanak a helyieknek",
+      "source": "divany.hu",
+      "source_type": "media",
+      "date": "2026-04-25",
+      "url": "https://divany.hu/eletem/azbesztszennyezes-magyar-varos-maszkosztas-egeszsegugyi-kockazat-koszeg-sporon-szombathely-bozsok",
+      "type": "gdelt"
+    },
+    {
       "title": "Kőszeg Önkormányzat – Lakossági tájékoztató az ausztriai bányákból származó kőzúzalék ügyében",
       "source": "Kőszeg Önkormányzat",
       "source_type": "official",
@@ -177,7 +192,7 @@
       "type": "html_targeted"
     },
     {
-      "title": "Greenpeace warnt und fordert: Steinbrüche als Asbest-Deponien Die Umweltschutzorganisation fordert Sofortmaßnahmen des Landes. Während in Ungarn und NÖ bereits reagiert werde, bleibe das Burgenland untätig.",
+      "title": "Greenpeace warnt und fordert: Steinbrüche als Asbest-Deponien",
       "source": "Kurier Burgenland",
       "source_type": "austrian",
       "date": "2026-05-13",
@@ -249,6 +264,14 @@
       "type": "html_targeted"
     },
     {
+      "title": "Azbesztveszély - A szombathelyi Síp utca egy hosszú szakaszán megoldották a problémát - Frissítve",
+      "source": "Nyugat.hu",
+      "source_type": "media",
+      "date": "2026-05-12",
+      "url": "https://www.nyugat.hu/cikk/azbesztveszely_szombathelyi_sip_utca_megoldas_bitumen",
+      "type": "html_targeted"
+    },
+    {
       "title": "Parkolófoglaló autósok - Önkényesen megnyitották az azbesztveszély miatt lezárt szombathelyi parkolót",
       "source": "Nyugat.hu",
       "source_type": "media",
@@ -265,14 +288,6 @@
       "type": "html_targeted"
     },
     {
-      "title": "Azbesztveszély - A szombathelyi Síp utca egy hosszú szakaszán megoldották a problémát - Frissítve",
-      "source": "Nyugat.hu",
-      "source_type": "media",
-      "date": "2026-05-12",
-      "url": "https://www.nyugat.hu/cikk/azbesztveszely_szombathelyi_sip_utca_megoldas_bitumen",
-      "type": "html_targeted"
-    },
-    {
       "title": "20 éve azbesztes köveken parkolhatnak a szombathelyiek, most arról kérdezik őket, lezárják-e a parkolót",
       "source": "Nyugat.hu",
       "source_type": "media",
@@ -286,14 +301,6 @@
       "source_type": "media",
       "date": "2026-05-12",
       "url": "https://www.nyugat.hu/cikk/utak_nagy_reszeben_talaltak_azbesztet_oladi_plato_szombathely",
-      "type": "html_targeted"
-    },
-    {
-      "title": "Megérkeztek az azbeszt-vizsgálatok hivatalos eredményei: Szombathely több pontján is kimutatható szennyezettség",
-      "source": "Nyugat.hu",
-      "source_type": "media",
-      "date": "2026-05-12",
-      "url": "https://www.nyugat.hu/cikk/megerkeztek_azbeszt_vizsgalatok_hivatalos_eredmenyei_szombathely",
       "type": "html_targeted"
     },
     {
@@ -329,20 +336,36 @@
       "type": "html_targeted"
     },
     {
+      "title": "Index - Belföld - Ha száll a por , a gyerekek nem mehetnek ki játszani – példátlan azbeszt - botrány Szombathelyen",
+      "source": "index.hu",
+      "source_type": "media",
+      "date": "2026-04-24",
+      "url": "https://index.hu/belfold/2026/04/24/szombathely-vas-varmegye-azbeszt-egeszsegugy-azbeszt-szennyezes-nemeny-andras-greenpeace-ausztria-veszelyhelyzet",
+      "type": "gdelt"
+    },
+    {
+      "title": "Durvul a helyzet Szombathelyen : védőmaszkokat osztanak a rákkeltő azbeszt - szennyezés miatt",
+      "source": "penzcentrum.hu",
+      "source_type": "media",
+      "date": "2026-04-17",
+      "url": "https://www.penzcentrum.hu/hellovidek/20260417/durvul-a-helyzet-szombathelyen-vedomaszkokat-osztanak-a-rakkelto-azbeszt-szennyezes-miatt-1197107",
+      "type": "gdelt"
+    },
+    {
+      "title": "Egészségügyi veszélyhelyzet Szombathelyen : Használj szájmaszkot !",
+      "source": "blikk.hu",
+      "source_type": "media",
+      "date": "2026-04-24",
+      "url": "https://www.blikk.hu/aktualis/veszhelyzet/azbeszt-szombathely-szennyezes-korlatozas/9mnv9bl",
+      "type": "gdelt"
+    },
+    {
       "title": "Gajdos László: Hétfőn a kormány elé viszem az azbesztszennyezés ügyét",
       "source": "Telex",
       "source_type": "media",
       "date": "2026-05-14",
       "url": "https://telex.hu/belfold/2026/05/14/gajdos-laszlo-szombathely-azbeszt-szennyezes-latogatas",
-      "type": "rss"
-    },
-    {
-      "title": "Gajdos László a kormány elé viszi az azbesztszennyezés ügyét",
-      "source": "HVG",
-      "source_type": "media",
-      "date": "2026-05-14",
-      "url": "https://hvg.hu/itthon/20260514_azbesztszennyezes-szombathely-gajdos-laszlo-elo-kornyezetert-felelos-miniszter",
-      "type": "rss"
+      "type": "html_targeted"
     },
     {
       "title": "Gajdos László a szombathelyi azbesztszennyezés helyszínére látogat",
@@ -433,12 +456,12 @@
       "type": "html_targeted"
     },
     {
-      "title": "Asbest in Steinbrüchen? Das zeigen die neuen Analysen",
-      "source": "Kurier Burgenland",
-      "source_type": "austrian",
-      "date": "2026-05-08",
-      "url": "https://kurier.at/chronik/burgenland/asbest-steinbrueche-montanuniversitaet-leoben-gutachten-produktproben-behoerdenverfahren/403157923",
-      "type": "html"
+      "title": "A Dozmati víztározó és a lukácsházi Abért-tó is azbeszttel szennyezett",
+      "source": "Nyugat.hu",
+      "source_type": "media",
+      "date": "2026-05-13",
+      "url": "https://www.nyugat.hu/cikk/ujabb_vasi_varosban_vizsgaljak_kozuzalek_azbeszt",
+      "type": "html_targeted"
     },
     {
       "title": "Szentgotthárdon is találtak azbeszttel szennyezett zúzottkövet",
@@ -446,14 +469,6 @@
       "source_type": "media",
       "date": "2026-05-14",
       "url": "https://www.nyugat.hu/cikk/szentgotthardon_is_talaltak_azbeszttel_szennyezett",
-      "type": "html_targeted"
-    },
-    {
-      "title": "A Dozmati víztározó és a lukácsházi Abért-tó is azbeszttel szennyezett",
-      "source": "Nyugat.hu",
-      "source_type": "media",
-      "date": "2026-05-13",
-      "url": "https://www.nyugat.hu/cikk/ujabb_vasi_varosban_vizsgaljak_kozuzalek_azbeszt",
       "type": "html_targeted"
     },
     {
@@ -473,19 +488,35 @@
       "type": "html_targeted"
     },
     {
+      "title": "Súlyos azbesztszennyezés Szombathelyen , ausztriai bányákból származik a rákkeltő anyag",
+      "source": "atv.hu",
+      "source_type": "austrian",
+      "date": "2026-04-15",
+      "url": "https://www.atv.hu/belfold/20260415/sulyos-azbesztszennyezes-szombathely",
+      "type": "gdelt"
+    },
+    {
+      "title": "Egyre aggasztóbb a szombathelyi azbesztszennyezés , gyerekek egészségét kockáztatták az osztrák bányában",
+      "source": "atv.hu",
+      "source_type": "austrian",
+      "date": "2026-04-23",
+      "url": "https://www.atv.hu/belfold/20260423/szombathely-azbeszt-szennyezes",
+      "type": "gdelt"
+    },
+    {
+      "title": "„Védjük meg a lakosság egészségét, és tudjuk meg, kik a felelősök” – azbesztszemlén jártunk Gajdos Lászlóval",
+      "source": "24.hu",
+      "source_type": "media",
+      "date": "2026-05-15",
+      "url": "https://24.hu/belfold/2026/05/15/gajdos-laszlo-azbeszt-szombathely-video",
+      "type": "rss"
+    },
+    {
       "title": "A konkrétumokra még várni kell - Hétfőn a kormány elé kerül a vasi azbeszt-ügy",
       "source": "VAOL",
       "source_type": "media",
       "date": "2026-05-14",
       "url": "https://www.vaol.hu/helyi-kozelet/2026/05/azbeszt-ugy-szombathely-miniszter-latogatas",
-      "type": "html"
-    },
-    {
-      "title": "Azbesztszennyezés: csütörtökön miniszteri vizit Szombathelyen",
-      "source": "VAOL",
-      "source_type": "media",
-      "date": "2026-05-13",
-      "url": "https://www.vaol.hu/helyi-kozelet/2026/05/azbeszt-csutortokon-miniszteri-vizit-szombathelyen",
       "type": "html"
     },
     {
@@ -510,14 +541,6 @@
       "source_type": "media",
       "date": "2026-04-16",
       "url": "https://24.hu/otthon/2026/04/16/szombathely-azbeszt-szennyezes-lakok-menekules",
-      "type": "html_targeted"
-    },
-    {
-      "title": "Básthy Béla, Kőszeg polgármestere is Gajdos László miniszter segítségét kérte.",
-      "source": "VAOL",
-      "source_type": "media",
-      "date": "2026-05-14",
-      "url": "https://www.vaol.hu/helyi-kozelet/2026/05/azbesztszennyezes-allami-segitsegre-van-szukseg",
       "type": "html_targeted"
     },
     {
@@ -551,6 +574,62 @@
       "date": "2026-05-07",
       "url": "https://www.vaol.hu/helyi-kozelet/2026/05/azbeszt-ugy-veszelyben-a-kisallatok-az-oladi-platon",
       "type": "html_targeted"
+    },
+    {
+      "title": "Feljelentést tett a Greenpeace a Vas vármegyében is azbesztszennyezést okozó osztrák kőbányák miatt",
+      "source": "hirado.hu",
+      "source_type": "media",
+      "date": "2026-04-23",
+      "url": "https://hirado.hu/belfold/cikk/2026/04/23/feljelentest-tett-a-greenpeace-a-vas-varmegyeben-is-azbesztszennyezest-okozo-osztrak-kobanyak-miatt",
+      "type": "gdelt"
+    },
+    {
+      "title": "Index - Belföld - Akár egész Nyugat - Magyarország érintett lehet a rendkívül veszélyes azbesztszennyezésben",
+      "source": "index.hu",
+      "source_type": "media",
+      "date": "2026-05-03",
+      "url": "https://index.hu/belfold/2026/05/03/azbeszt-szennyezes-veszely-szombathely-vas-varmegye-ausztria-magyar-kozlony",
+      "type": "gdelt"
+    },
+    {
+      "title": "Térképen mutatjuk , hogy áll most az azbesztszennyezés elleni küzdelem",
+      "source": "divany.hu",
+      "source_type": "media",
+      "date": "2026-05-12",
+      "url": "https://divany.hu/szuloseg/azbesztmentesites-helyzete-magyarorszag-szombathely-terkep-2026",
+      "type": "gdelt"
+    },
+    {
+      "title": "Megkezdődött az azbeszttel szennyeződött utcák bitumenes zárása Szombathelyen",
+      "source": "hirado.hu",
+      "source_type": "media",
+      "date": "2026-05-11",
+      "url": "https://hirado.hu/belfold/cikk/2026/05/11/megkezdodott-az-azbeszttel-szennyezodott-utcak-bitumenes-zarasa-szombathelyen",
+      "type": "gdelt"
+    },
+    {
+      "title": "Azbesztszennyezés - Megkezdődött az azbeszttel szennyeződött utcák bitumenes zárása Szombathely oladi városrészében",
+      "source": "infogyor.hu",
+      "source_type": "media",
+      "date": "2026-05-12",
+      "url": "https://www.infogyor.hu/hirek/olvas/azbesztszennyezes-megkezdodott-az-azbeszttel-szennyezodott-utcak-bitumenes-zarasa-szombathely-oladi-varosreszeben-2026-05-12-100000",
+      "type": "gdelt"
+    },
+    {
+      "title": "Ott jártunk Szombathelyen , az azbeszttel szennyezett utcákon – videó",
+      "source": "blikk.hu",
+      "source_type": "media",
+      "date": "2026-05-13",
+      "url": "https://www.blikk.hu/aktualis/belfold/azbesztbotrany-szombathely-riport/8edbsvw",
+      "type": "gdelt"
+    },
+    {
+      "title": "Index - Belföld - Folytatódik az azbesztbotrány , több város is bajban lehet , lépett a leköszönő kormány",
+      "source": "index.hu",
+      "source_type": "media",
+      "date": "2026-05-07",
+      "url": "https://index.hu/belfold/2026/05/07/szombathely-azbeszt-azbesztszennyezes-nemeny-andras-kormanyrendelet-feljelentes-vas-varmegye",
+      "type": "gdelt"
     },
     {
       "title": "Negyven település van már, ahova juthatott az azbesztes kőből",
