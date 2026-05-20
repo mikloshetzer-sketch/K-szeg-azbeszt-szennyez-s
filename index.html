@@ -3,120 +3,703 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Kőszeg és környéke – Azbeszt Monitor</title>
+
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
   <style>
     * { box-sizing: border-box; }
-    html, body { margin: 0; height: 100%; font-family: Arial, sans-serif; background: #0f172a; color: #e5e7eb; }
+
+    html, body {
+      margin: 0;
+      height: 100%;
+      font-family: Arial, sans-serif;
+      background: #0f172a;
+      color: #e5e7eb;
+    }
+
     body { overflow: hidden; }
 
-    .app { display: grid; grid-template-rows: 64px 1fr; height: 100vh; }
-    .topbar { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 0 18px; background: #111827; border-bottom: 1px solid rgba(255,255,255,.08); }
-    .brand-title { font-size: 20px; font-weight: 800; }
-    .brand-sub { color: #9ca3af; font-size: 12px; margin-top: 3px; }
-    .top-actions { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
-    .pill { border: 1px solid rgba(255,255,255,.14); background: rgba(255,255,255,.06); color: #d1d5db; border-radius: 999px; padding: 7px 10px; font-size: 12px; white-space: nowrap; }
-    .live-indicator { display: inline-flex; align-items: center; gap: 7px; border: 1px solid rgba(34,197,94,.35); background: rgba(34,197,94,.13); color: #bbf7d0; border-radius: 999px; padding: 7px 10px; font-size: 12px; font-weight: 900; white-space: nowrap; }
-    .live-dot { width: 9px; height: 9px; border-radius: 50%; background: #22c55e; box-shadow: 0 0 0 rgba(34,197,94,.65); animation: livePulse 1.7s infinite; }
-    .primary { border: 0; background: #2563eb; color: white; border-radius: 10px; padding: 9px 12px; cursor: pointer; font-weight: 700; white-space: nowrap; }
+    .app {
+      display: grid;
+      grid-template-rows: 64px 1fr;
+      height: 100vh;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 0 18px;
+      background: #111827;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+
+    .brand-title {
+      font-size: 20px;
+      font-weight: 800;
+    }
+
+    .brand-sub {
+      color: #9ca3af;
+      font-size: 12px;
+      margin-top: 3px;
+    }
+
+    .top-actions {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .pill {
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      color: #d1d5db;
+      border-radius: 999px;
+      padding: 7px 10px;
+      font-size: 12px;
+      white-space: nowrap;
+    }
+
+    .live-indicator {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      border: 1px solid rgba(34,197,94,.35);
+      background: rgba(34,197,94,.13);
+      color: #bbf7d0;
+      border-radius: 999px;
+      padding: 7px 10px;
+      font-size: 12px;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .live-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: #22c55e;
+      box-shadow: 0 0 0 rgba(34,197,94,.65);
+      animation: livePulse 1.7s infinite;
+    }
+
+    .primary {
+      border: 0;
+      background: #2563eb;
+      color: white;
+      border-radius: 10px;
+      padding: 9px 12px;
+      cursor: pointer;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
     .primary.secondary { background:#374151; }
+
     .primary:hover { filter: brightness(1.08); }
 
-    .layout { display: grid; grid-template-columns: 330px minmax(300px, 1fr) 410px; min-height: 0; }
-    .sidebar, .newsbar { overflow-y: auto; padding: 14px; background: #111827; }
-    .sidebar { border-right: 1px solid rgba(255,255,255,.08); }
-    .newsbar { border-left: 1px solid rgba(255,255,255,.08); }
-    .mapwrap { position: relative; min-width: 0; }
-    #map { width: 100%; height: 100%; background: #1f2937; }
+    .layout {
+      display: grid;
+      grid-template-columns: 330px minmax(300px, 1fr) 410px;
+      min-height: 0;
+    }
 
-    .card { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.09); border-radius: 16px; padding: 14px; margin-bottom: 12px; box-shadow: 0 8px 22px rgba(0,0,0,.18); }
-    .card h2 { margin: 0 0 9px; font-size: 16px; }
-    .muted { color: #9ca3af; font-size: 12px; line-height: 1.45; }
-    .warn { background: rgba(245,158,11,.12); border-color: rgba(245,158,11,.35); }
-    .source { background: rgba(37,99,235,.11); border-color: rgba(37,99,235,.35); }
-    .green-card { background: rgba(34,197,94,.10); border-color: rgba(34,197,94,.35); }
+    .sidebar,
+    .newsbar {
+      overflow-y: auto;
+      padding: 14px;
+      background: #111827;
+    }
 
-    .score-card { background: rgba(99,102,241,.10); border-color: rgba(129,140,248,.34); }
-    .score-chart-wrap { position: relative; width: 100%; height: 280px; margin-top: 10px; }
-    .score-note { margin-top: 8px; color: #a5b4fc; font-size: 11px; line-height: 1.35; }
+    .sidebar {
+      border-right: 1px solid rgba(255,255,255,.08);
+    }
 
-    .summary-card { padding: 0; overflow: hidden; }
-    .summary-toggle { width: 100%; border: 0; background: transparent; color: #e5e7eb; padding: 14px; cursor: pointer; text-align: left; display: flex; align-items: center; justify-content: space-between; gap: 10px; }
-    .summary-toggle:hover { background: rgba(255,255,255,.04); }
-    .summary-title { font-size: 16px; font-weight: 900; }
-    .summary-state { font-size: 11px; color: #bfdbfe; background: rgba(37,99,235,.18); border: 1px solid rgba(37,99,235,.35); border-radius: 999px; padding: 4px 8px; white-space: nowrap; }
-    .summary-preview { padding: 0 14px 12px; color: #9ca3af; font-size: 12px; line-height: 1.45; }
-    .summary-body { display: none; padding: 0 14px 14px; }
+    .newsbar {
+      border-left: 1px solid rgba(255,255,255,.08);
+    }
+
+    .mapwrap {
+      position: relative;
+      min-width: 0;
+    }
+
+    #map {
+      width: 100%;
+      height: 100%;
+      background: #1f2937;
+    }
+
+    .card {
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.09);
+      border-radius: 16px;
+      padding: 14px;
+      margin-bottom: 12px;
+      box-shadow: 0 8px 22px rgba(0,0,0,.18);
+    }
+
+    .card h2 {
+      margin: 0 0 9px;
+      font-size: 16px;
+    }
+
+    .muted {
+      color: #9ca3af;
+      font-size: 12px;
+      line-height: 1.45;
+    }
+
+    .warn {
+      background: rgba(245,158,11,.12);
+      border-color: rgba(245,158,11,.35);
+    }
+
+    .source {
+      background: rgba(37,99,235,.11);
+      border-color: rgba(37,99,235,.35);
+    }
+
+    .green-card {
+      background: rgba(34,197,94,.10);
+      border-color: rgba(34,197,94,.35);
+    }
+
+    .official-card {
+      background: rgba(139,92,246,.11);
+      border-color: rgba(139,92,246,.38);
+    }
+
+    .score-card {
+      background: rgba(99,102,241,.10);
+      border-color: rgba(129,140,248,.34);
+    }
+
+    .score-chart-wrap {
+      position: relative;
+      width: 100%;
+      height: 280px;
+      margin-top: 10px;
+    }
+
+    .score-note {
+      margin-top: 8px;
+      color: #a5b4fc;
+      font-size: 11px;
+      line-height: 1.35;
+    }
+
+    .summary-card {
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .summary-toggle {
+      width: 100%;
+      border: 0;
+      background: transparent;
+      color: #e5e7eb;
+      padding: 14px;
+      cursor: pointer;
+      text-align: left;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .summary-toggle:hover {
+      background: rgba(255,255,255,.04);
+    }
+
+    .summary-title {
+      font-size: 16px;
+      font-weight: 900;
+    }
+
+    .summary-state {
+      font-size: 11px;
+      color: #bfdbfe;
+      background: rgba(37,99,235,.18);
+      border: 1px solid rgba(37,99,235,.35);
+      border-radius: 999px;
+      padding: 4px 8px;
+      white-space: nowrap;
+    }
+
+    .summary-preview {
+      padding: 0 14px 12px;
+      color: #9ca3af;
+      font-size: 12px;
+      line-height: 1.45;
+    }
+
+    .summary-body {
+      display: none;
+      padding: 0 14px 14px;
+    }
+
     .summary-body.open { display: block; }
-    .summary-body p { margin: 0; color: #cbd5e1; font-size: 12px; line-height: 1.55; white-space: pre-line; }
 
-    .latest-card { background: rgba(14,165,233,.10); border-color: rgba(14,165,233,.35); }
-    .latest-card h2 { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
-    .latest-sub { color: #bae6fd; font-size: 11px; font-weight: 700; background: rgba(14,165,233,.16); border: 1px solid rgba(14,165,233,.30); border-radius: 999px; padding: 3px 7px; }
-    .latest-list { display: grid; gap: 8px; margin-top: 10px; }
-    .latest-item { background: rgba(0,0,0,.18); border: 1px solid rgba(255,255,255,.08); border-radius: 12px; padding: 9px 10px; position: relative; }
-    .latest-item a { color: #7dd3fc; text-decoration: none; font-weight: 900; line-height: 1.25; font-size: 13px; }
+    .summary-body p {
+      margin: 0;
+      color: #cbd5e1;
+      font-size: 12px;
+      line-height: 1.55;
+      white-space: pre-line;
+    }
+
+    .latest-card {
+      background: rgba(14,165,233,.10);
+      border-color: rgba(14,165,233,.35);
+    }
+
+    .latest-card h2 {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .latest-sub {
+      color: #bae6fd;
+      font-size: 11px;
+      font-weight: 700;
+      background: rgba(14,165,233,.16);
+      border: 1px solid rgba(14,165,233,.30);
+      border-radius: 999px;
+      padding: 3px 7px;
+    }
+
+    .latest-list {
+      display: grid;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .latest-item {
+      background: rgba(0,0,0,.18);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 12px;
+      padding: 9px 10px;
+      position: relative;
+    }
+
+    .latest-item a {
+      color: #7dd3fc;
+      text-decoration: none;
+      font-weight: 900;
+      line-height: 1.25;
+      font-size: 13px;
+    }
+
     .latest-item a:hover { text-decoration: underline; }
-    .latest-meta { color: #9ca3af; font-size: 10.5px; margin-top: 5px; }
-    .latest-empty { color: #9ca3af; font-size: 12px; line-height: 1.45; margin: 0; }
 
-    .statgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
-    .stat { background: rgba(0,0,0,.18); border-radius: 13px; padding: 10px; }
-    .stat-num { font-size: 22px; font-weight: 900; }
-    .stat-label { font-size: 11px; color: #9ca3af; }
+    .latest-meta {
+      color: #9ca3af;
+      font-size: 10.5px;
+      margin-top: 5px;
+    }
 
-    .filters { display: grid; gap: 8px; }
-    .filter { display: flex; justify-content: space-between; align-items: center; background: rgba(0,0,0,.18); border: 1px solid rgba(255,255,255,.08); border-radius: 12px; padding: 9px 10px; color: #e5e7eb; cursor: pointer; font-weight: 700; }
-    .filter.active { outline: 2px solid rgba(96,165,250,.55); }
-    .dot { width: 12px; height: 12px; display: inline-block; border-radius: 99px; margin-right: 7px; }
-    .line { width: 26px; height: 5px; display: inline-block; border-radius: 99px; margin-right: 7px; vertical-align: middle; }
+    .latest-empty {
+      color: #9ca3af;
+      font-size: 12px;
+      line-height: 1.45;
+      margin: 0;
+    }
 
-    .map-note { position: absolute; left: 14px; bottom: 14px; z-index: 500; background: rgba(17,24,39,.92); border: 1px solid rgba(255,255,255,.12); border-radius: 14px; padding: 10px 12px; max-width: 430px; font-size: 12px; color: #d1d5db; backdrop-filter: blur(4px); }
+    .statgrid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
 
-    .inset-map-card { position: absolute; top: 14px; right: 14px; z-index: 520; width: 310px; background: rgba(17,24,39,.94); border: 1px solid rgba(255,255,255,.14); border-radius: 16px; padding: 10px; box-shadow: 0 10px 30px rgba(0,0,0,.35); backdrop-filter: blur(5px); }
-    .inset-title { font-size: 13px; font-weight: 900; margin-bottom: 7px; color: #f9fafb; }
-    .inset-sub { font-size: 11px; color: #9ca3af; margin-bottom: 8px; line-height: 1.3; }
-    #insetMap { width: 100%; height: 210px; border-radius: 12px; overflow: hidden; background: #1f2937; }
-    .inset-legend { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; font-size: 10.5px; color: #cbd5e1; }
-    .legend-chip { display: inline-flex; align-items: center; gap: 4px; background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.08); border-radius: 999px; padding: 3px 6px; }
+    .stat {
+      background: rgba(0,0,0,.18);
+      border-radius: 13px;
+      padding: 10px;
+    }
 
-    .news-tools { display: flex; gap: 8px; margin-bottom: 10px; flex-wrap: wrap; }
-    .news-tools input, .news-tools select { background: #0f172a; border: 1px solid rgba(255,255,255,.12); color: #f3f4f6; padding: 10px 12px; border-radius: 12px; outline: none; }
-    .news-tools input { flex: 1; min-width: 180px; }
-    .news-head { display: flex; align-items: start; justify-content: space-between; gap: 8px; margin-bottom: 10px; }
-    .news-head h2 { margin: 0; font-size: 18px; }
-    .refresh { border: 1px solid rgba(96,165,250,.45); background: #2563eb; color: #fff; border-radius: 10px; padding: 9px 11px; cursor: pointer; font-weight: 900; box-shadow: 0 6px 16px rgba(37,99,235,.20); }
+    .stat-num {
+      font-size: 22px;
+      font-weight: 900;
+    }
+
+    .stat-label {
+      font-size: 11px;
+      color: #9ca3af;
+    }
+
+    .filters {
+      display: grid;
+      gap: 8px;
+    }
+
+    .filter {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(0,0,0,.18);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 12px;
+      padding: 9px 10px;
+      color: #e5e7eb;
+      cursor: pointer;
+      font-weight: 700;
+    }
+
+    .filter.active {
+      outline: 2px solid rgba(96,165,250,.55);
+    }
+
+    .dot {
+      width: 12px;
+      height: 12px;
+      display: inline-block;
+      border-radius: 99px;
+      margin-right: 7px;
+    }
+
+    .line {
+      width: 26px;
+      height: 5px;
+      display: inline-block;
+      border-radius: 99px;
+      margin-right: 7px;
+      vertical-align: middle;
+    }
+
+    .map-note {
+      position: absolute;
+      left: 14px;
+      bottom: 14px;
+      z-index: 500;
+      background: rgba(17,24,39,.92);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 14px;
+      padding: 10px 12px;
+      max-width: 460px;
+      font-size: 12px;
+      color: #d1d5db;
+      backdrop-filter: blur(4px);
+    }
+
+    .inset-map-card {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      z-index: 520;
+      width: 310px;
+      background: rgba(17,24,39,.94);
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: 16px;
+      padding: 10px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.35);
+      backdrop-filter: blur(5px);
+    }
+
+    .inset-title {
+      font-size: 13px;
+      font-weight: 900;
+      margin-bottom: 7px;
+      color: #f9fafb;
+    }
+
+    .inset-sub {
+      font-size: 11px;
+      color: #9ca3af;
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
+
+    #insetMap {
+      width: 100%;
+      height: 210px;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #1f2937;
+    }
+
+    .inset-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 8px;
+      font-size: 10.5px;
+      color: #cbd5e1;
+    }
+
+    .legend-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 999px;
+      padding: 3px 6px;
+    }
+
+    .news-tools {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 10px;
+      flex-wrap: wrap;
+    }
+
+    .news-tools input,
+    .news-tools select {
+      background: #0f172a;
+      border: 1px solid rgba(255,255,255,.12);
+      color: #f3f4f6;
+      padding: 10px 12px;
+      border-radius: 12px;
+      outline: none;
+    }
+
+    .news-tools input {
+      flex: 1;
+      min-width: 180px;
+    }
+
+    .news-head {
+      display: flex;
+      align-items: start;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .news-head h2 {
+      margin: 0;
+      font-size: 18px;
+    }
+
+    .refresh {
+      border: 1px solid rgba(96,165,250,.45);
+      background: #2563eb;
+      color: #fff;
+      border-radius: 10px;
+      padding: 9px 11px;
+      cursor: pointer;
+      font-weight: 900;
+      box-shadow: 0 6px 16px rgba(37,99,235,.20);
+    }
+
     .refresh:hover { filter: brightness(1.08); }
-    .refresh:disabled { opacity: .72; cursor: wait; }
+
+    .refresh:disabled {
+      opacity: .72;
+      cursor: wait;
+    }
+
     .news-group { margin-bottom: 18px; }
-    .news-group-title { display:flex; align-items:center; justify-content:space-between; gap:8px; margin: 14px 0 8px; padding: 8px 10px; border-radius: 12px; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.09); font-size: 14px; font-weight: 900; }
-    .news-count { color:#cbd5e1; font-size:11px; font-weight:700; background:rgba(0,0,0,.2); padding:3px 7px; border-radius:999px; }
-    .official-title { border-color: rgba(96,165,250,.35); color:#bfdbfe; }
-    .civil-title { border-color: rgba(34,197,94,.35); color:#bbf7d0; }
-    .austrian-title { border-color: rgba(248,113,113,.35); color:#fecaca; }
-    .media-title { border-color: rgba(250,204,21,.35); color:#fef08a; }
-    .news-item { position: relative; background: rgba(255,255,255,.055); border: 1px solid rgba(255,255,255,.085); border-radius: 12px; padding: 9px 10px; margin-bottom: 8px; }
-    .news-item.greenpeace-item { background: rgba(34,197,94,.09); border-color: rgba(34,197,94,.32); }
-    .news-item a { color: #93c5fd; text-decoration: none; font-weight: 800; line-height: 1.22; font-size: 14px; }
+
+    .news-group-title {
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:8px;
+      margin: 14px 0 8px;
+      padding: 8px 10px;
+      border-radius: 12px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.09);
+      font-size: 14px;
+      font-weight: 900;
+    }
+
+    .news-count {
+      color:#cbd5e1;
+      font-size:11px;
+      font-weight:700;
+      background:rgba(0,0,0,.2);
+      padding:3px 7px;
+      border-radius:999px;
+    }
+
+    .official-title {
+      border-color: rgba(96,165,250,.35);
+      color:#bfdbfe;
+    }
+
+    .civil-title {
+      border-color: rgba(34,197,94,.35);
+      color:#bbf7d0;
+    }
+
+    .austrian-title {
+      border-color: rgba(248,113,113,.35);
+      color:#fecaca;
+    }
+
+    .media-title {
+      border-color: rgba(250,204,21,.35);
+      color:#fef08a;
+    }
+
+    .news-item {
+      position: relative;
+      background: rgba(255,255,255,.055);
+      border: 1px solid rgba(255,255,255,.085);
+      border-radius: 12px;
+      padding: 9px 10px;
+      margin-bottom: 8px;
+    }
+
+    .news-item.greenpeace-item {
+      background: rgba(34,197,94,.09);
+      border-color: rgba(34,197,94,.32);
+    }
+
+    .news-item a {
+      color: #93c5fd;
+      text-decoration: none;
+      font-weight: 800;
+      line-height: 1.22;
+      font-size: 14px;
+    }
+
     .news-item.greenpeace-item a { color: #86efac; }
+
     .news-item a:hover { text-decoration: underline; }
-    .meta { color: #9ca3af; font-size: 10.5px; margin-top: 5px; }
-    .tag { display: inline-block; margin-top: 6px; background: rgba(37,99,235,.18); color: #bfdbfe; border: 1px solid rgba(37,99,235,.34); border-radius: 999px; padding: 3px 6px; font-size: 10px; }
-    .green-tag { background: rgba(34,197,94,.18); color: #bbf7d0; border-color: rgba(34,197,94,.38); }
-    .top-badge { position: absolute; top: 8px; right: 8px; background: #dc2626; color: white; padding: 3px 7px; border-radius: 999px; font-size: 10px; font-weight: 800; }
-    .new-badge { display: inline-block; margin-right: 6px; background: #ef4444; color: #fff; padding: 2px 6px; border-radius: 999px; font-size: 10px; font-weight: 900; box-shadow: 0 0 14px rgba(239,68,68,.45); animation: badgePulse 1.6s infinite; vertical-align: 1px; }
-    .source-badge { font-size: 10px; color: #cbd5e1; margin-bottom: 6px; font-weight: 700; letter-spacing: .3px; }
-    .toast { position: fixed; top: 18px; right: 18px; z-index: 99999; background: rgba(17,24,39,.96); border: 1px solid rgba(255,255,255,.14); border-left: 5px solid #22c55e; color: #fff; padding: 13px 16px; border-radius: 14px; box-shadow: 0 12px 28px rgba(0,0,0,.35); font-size: 13px; font-weight: 900; animation: toastIn .25s ease-out; }
 
-    .timeline { border-left: 3px solid rgba(148,163,184,.45); padding-left: 11px; }
-    .timeline-item { margin: 0 0 12px; position: relative; }
-    .timeline-date { color: #f9fafb; font-weight: 900; font-size: 12px; }
-    .timeline-text { color: #cbd5e1; font-size: 12px; line-height: 1.35; }
-    .timeline-source { color:#94a3b8; font-size: 11px; margin-top: 3px; }
-    .timeline-type { display:inline-block; margin-top: 5px; padding: 2px 6px; border-radius: 999px; background: rgba(255,255,255,.08); color:#cbd5e1; font-size:10px; font-weight:700; }
+    .meta {
+      color: #9ca3af;
+      font-size: 10.5px;
+      margin-top: 5px;
+    }
 
-    .leaflet-popup-content-wrapper, .leaflet-popup-tip { background: #111827; color: #f3f4f6; }
+    .tag {
+      display: inline-block;
+      margin-top: 6px;
+      background: rgba(37,99,235,.18);
+      color: #bfdbfe;
+      border: 1px solid rgba(37,99,235,.34);
+      border-radius: 999px;
+      padding: 3px 6px;
+      font-size: 10px;
+    }
+
+    .green-tag {
+      background: rgba(34,197,94,.18);
+      color: #bbf7d0;
+      border-color: rgba(34,197,94,.38);
+    }
+
+    .top-badge {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      background: #dc2626;
+      color: white;
+      padding: 3px 7px;
+      border-radius: 999px;
+      font-size: 10px;
+      font-weight: 800;
+    }
+
+    .new-badge {
+      display: inline-block;
+      margin-right: 6px;
+      background: #ef4444;
+      color: #fff;
+      padding: 2px 6px;
+      border-radius: 999px;
+      font-size: 10px;
+      font-weight: 900;
+      box-shadow: 0 0 14px rgba(239,68,68,.45);
+      animation: badgePulse 1.6s infinite;
+      vertical-align: 1px;
+    }
+
+    .source-badge {
+      font-size: 10px;
+      color: #cbd5e1;
+      margin-bottom: 6px;
+      font-weight: 700;
+      letter-spacing: .3px;
+    }
+
+    .toast {
+      position: fixed;
+      top: 18px;
+      right: 18px;
+      z-index: 99999;
+      background: rgba(17,24,39,.96);
+      border: 1px solid rgba(255,255,255,.14);
+      border-left: 5px solid #22c55e;
+      color: #fff;
+      padding: 13px 16px;
+      border-radius: 14px;
+      box-shadow: 0 12px 28px rgba(0,0,0,.35);
+      font-size: 13px;
+      font-weight: 900;
+      animation: toastIn .25s ease-out;
+    }
+
+    .timeline {
+      border-left: 3px solid rgba(148,163,184,.45);
+      padding-left: 11px;
+    }
+
+    .timeline-item {
+      margin: 0 0 12px;
+      position: relative;
+    }
+
+    .timeline-date {
+      color: #f9fafb;
+      font-weight: 900;
+      font-size: 12px;
+    }
+
+    .timeline-text {
+      color: #cbd5e1;
+      font-size: 12px;
+      line-height: 1.35;
+    }
+
+    .timeline-source {
+      color:#94a3b8;
+      font-size: 11px;
+      margin-top: 3px;
+    }
+
+    .timeline-type {
+      display:inline-block;
+      margin-top: 5px;
+      padding: 2px 6px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.08);
+      color:#cbd5e1;
+      font-size:10px;
+      font-weight:700;
+    }
+
+    .leaflet-popup-content-wrapper,
+    .leaflet-popup-tip {
+      background: #111827;
+      color: #f3f4f6;
+    }
+
     .leaflet-popup-content a { color:#93c5fd; }
+
+    .official-site-popup-title {
+      font-weight: 900;
+      font-size: 14px;
+      margin-bottom: 4px;
+    }
+
+    .official-site-popup-row {
+      font-size: 12px;
+      line-height: 1.4;
+      color: #d1d5db;
+    }
 
     @keyframes livePulse {
       0% { box-shadow: 0 0 0 0 rgba(34,197,94,.65); }
@@ -137,30 +720,80 @@
 
     @media (max-width: 1100px) {
       body { overflow: auto; }
-      .app { height: auto; min-height: 100vh; }
+
+      .app {
+        height: auto;
+        min-height: 100vh;
+      }
+
       .layout { grid-template-columns: 1fr; }
-      .sidebar, .newsbar { border: 0; }
-      .mapwrap { height: 72vh; min-height: 480px; }
-      .topbar { height: auto; min-height: 64px; align-items: flex-start; padding: 12px; flex-direction: column; }
-      .map-note { position: static; margin: 8px; }
-      .inset-map-card { position: static; width: auto; margin: 8px; }
+
+      .sidebar,
+      .newsbar { border: 0; }
+
+      .mapwrap {
+        height: 72vh;
+        min-height: 480px;
+      }
+
+      .topbar {
+        height: auto;
+        min-height: 64px;
+        align-items: flex-start;
+        padding: 12px;
+        flex-direction: column;
+      }
+
+      .map-note {
+        position: static;
+        margin: 8px;
+      }
+
+      .inset-map-card {
+        position: static;
+        width: auto;
+        margin: 8px;
+      }
+
       #insetMap { height: 220px; }
     }
 
     @media print {
-      body { overflow: visible; background: white; color: black; }
-      .topbar, .sidebar, .newsbar, .map-note { display: none; }
-      .app, .layout, .mapwrap, #map { display: block; height: 100vh; width: 100%; }
+      body {
+        overflow: visible;
+        background: white;
+        color: black;
+      }
+
+      .topbar,
+      .sidebar,
+      .newsbar,
+      .map-note {
+        display: none;
+      }
+
+      .app,
+      .layout,
+      .mapwrap,
+      #map {
+        display: block;
+        height: 100vh;
+        width: 100%;
+      }
     }
   </style>
 </head>
+
 <body>
   <div class="app">
     <header class="topbar">
       <div>
         <div class="brand-title">Kőszeg és környéke – Azbeszt Monitor</div>
-        <div class="brand-sub">Érintett utak · GeoJSON réteg · esemény-idővonal · sajtófigyelő · ügyindex · AI összefoglaló</div>
+        <div class="brand-sub">
+          Érintett utak · GeoJSON réteg · kormányhivatali helyszínek · esemény-idővonal · sajtófigyelő · ügyindex
+        </div>
       </div>
+
       <div class="top-actions">
         <span class="live-indicator"><span class="live-dot"></span>Élő monitoring</span>
         <span class="pill" id="lastUpdate">Hírek: betöltés alatt</span>
@@ -172,32 +805,104 @@
 
     <main class="layout">
       <aside class="sidebar">
-        <section class="card warn"><h2>Figyelmeztetés</h2><p class="muted">A térkép tájékoztató jellegű. Nem hivatalos hatósági térkép. A pontos információkat az önkormányzati, hatósági és katasztrófavédelmi közlemények tartalmazzák.</p></section>
-        <section class="card source"><h2>Források</h2><p class="muted">A hírek a <code>data/news.json</code>, a pontozott ügyindex a <code>data/news_scores.json</code>, az események a <code>data/events.json</code>, a pontosított utcaszakaszok pedig a <code>data/streets.geojson</code> fájlból töltődnek be.</p></section>
-        <section class="card green-card"><h2>Greenpeace / civil források</h2><p class="muted">A rendszer külön kiemeli a Greenpeace-hez kapcsolódó híreket és közleményeket. Közvetlen, nyilvános térképes Greenpeace-adatot jelenleg nem használ.</p></section>
+        <section class="card warn">
+          <h2>Figyelmeztetés</h2>
+          <p class="muted">
+            A térkép tájékoztató jellegű. Nem hivatalos hatósági térkép.
+            A pontos információkat az önkormányzati, hatósági és katasztrófavédelmi közlemények tartalmazzák.
+          </p>
+        </section>
+
+        <section class="card source">
+          <h2>Források</h2>
+          <p class="muted">
+            A hírek a <code>data/news.json</code>, az ügyindex a <code>data/news_scores.json</code>,
+            az események a <code>data/events.json</code>, a pontosított utcaszakaszok a
+            <code>data/streets.geojson</code>, a kormányhivatali pontok pedig elsődlegesen a
+            <code>data/koszeg_official_sites.json</code> fájlból töltődnek be. Ha ez nem érhető el,
+            a rendszer beépített tartaléklistát használ.
+          </p>
+        </section>
+
+        <section class="card official-card">
+          <h2>Kormányhivatali helyszínek</h2>
+          <p class="muted">
+            Az új lila réteg a kőszegi speciális helyszíneket jelöli: parkolók, játszóterek,
+            intézményi környezetek, sétányok és egyéb nem egyszerű utcaszakaszok.
+          </p>
+        </section>
+
+        <section class="card green-card">
+          <h2>Greenpeace / civil források</h2>
+          <p class="muted">
+            A rendszer külön kiemeli a Greenpeace-hez kapcsolódó híreket és közleményeket.
+            Közvetlen, nyilvános térképes Greenpeace-adatot jelenleg nem használ.
+          </p>
+        </section>
 
         <section class="card">
           <h2>Áttekintés</h2>
           <div class="statgrid">
-            <div class="stat"><div class="stat-num" id="statRoads">–</div><div class="stat-label">OSM útszakasz</div></div>
-            <div class="stat"><div class="stat-num" id="statGeojson">–</div><div class="stat-label">GeoJSON elem</div></div>
-            <div class="stat"><div class="stat-num" id="statParks">–</div><div class="stat-label">jelölt parkoló</div></div>
-            <div class="stat"><div class="stat-num" id="statEvents">–</div><div class="stat-label">esemény</div></div>
-            <div class="stat"><div class="stat-num" id="statNews">–</div><div class="stat-label">hírforrás</div></div>
-            <div class="stat"><div class="stat-num" id="statGreenpeace">–</div><div class="stat-label">Greenpeace találat</div></div>
+            <div class="stat">
+              <div class="stat-num" id="statRoads">–</div>
+              <div class="stat-label">OSM útszakasz</div>
+            </div>
+            <div class="stat">
+              <div class="stat-num" id="statGeojson">–</div>
+              <div class="stat-label">GeoJSON elem</div>
+            </div>
+            <div class="stat">
+              <div class="stat-num" id="statParks">–</div>
+              <div class="stat-label">jelölt parkoló</div>
+            </div>
+            <div class="stat">
+              <div class="stat-num" id="statOfficialSites">–</div>
+              <div class="stat-label">kormányhivatali pont</div>
+            </div>
+            <div class="stat">
+              <div class="stat-num" id="statEvents">–</div>
+              <div class="stat-label">esemény</div>
+            </div>
+            <div class="stat">
+              <div class="stat-num" id="statNews">–</div>
+              <div class="stat-label">hírforrás</div>
+            </div>
           </div>
         </section>
 
         <section class="card">
           <h2>Rétegek</h2>
           <div class="filters">
-            <button id="btnAffected" class="filter active" onclick="toggleLayer('affected')"><span><span class="line" style="background:#dc2626"></span>OSM érintett utak</span><span id="stateAffected">be</span></button>
-            <button id="btnGeojson" class="filter active" onclick="toggleLayer('geojson')"><span><span class="line" style="background:#f97316"></span>Pontosított GeoJSON</span><span id="stateGeojson">be</span></button>
-            <button id="btnParking" class="filter active" onclick="toggleLayer('parking')"><span><span class="dot" style="background:#f59e0b"></span>Lezárt parkolók</span><span id="stateParking">be</span></button>
+            <button id="btnAffected" class="filter active" onclick="toggleLayer('affected')">
+              <span><span class="line" style="background:#dc2626"></span>OSM érintett utak</span>
+              <span id="stateAffected">be</span>
+            </button>
+
+            <button id="btnGeojson" class="filter active" onclick="toggleLayer('geojson')">
+              <span><span class="line" style="background:#f97316"></span>Pontosított GeoJSON</span>
+              <span id="stateGeojson">be</span>
+            </button>
+
+            <button id="btnParking" class="filter active" onclick="toggleLayer('parking')">
+              <span><span class="dot" style="background:#f59e0b"></span>Lezárt parkolók</span>
+              <span id="stateParking">be</span>
+            </button>
+
+            <button id="btnOfficialSites" class="filter active" onclick="toggleLayer('officialSites')">
+              <span><span class="dot" style="background:#8b5cf6"></span>Kormányhivatali helyszínek</span>
+              <span id="stateOfficialSites">be</span>
+            </button>
           </div>
         </section>
 
-        <section class="card"><h2>Lakossági óvatosság</h2><p class="muted">Kerüld a por felverését, ne söpörd szárazon a gyanús port, szeles időben légy óvatosabb, és kövesd a hivatalos közleményeket. Ez nem egészségügyi tanácsadás.</p></section>
+        <section class="card">
+          <h2>Lakossági óvatosság</h2>
+          <p class="muted">
+            Kerüld a por felverését, ne söpörd szárazon a gyanús port,
+            szeles időben légy óvatosabb, és kövesd a hivatalos közleményeket.
+            Ez nem egészségügyi tanácsadás.
+          </p>
+        </section>
       </aside>
 
       <section class="mapwrap">
@@ -205,7 +910,9 @@
 
         <div class="inset-map-card">
           <div class="inset-title">Osztrák kőbányák térsége</div>
-          <div class="inset-sub">Települési szintű tájékoztató jelölés a magyar határhoz és Kőszeghez viszonyítva.</div>
+          <div class="inset-sub">
+            Települési szintű tájékoztató jelölés a magyar határhoz és Kőszeghez viszonyítva.
+          </div>
           <div id="insetMap"></div>
           <div class="inset-legend">
             <span class="legend-chip">🔵 Kőszeg / Bozsok</span>
@@ -219,6 +926,7 @@
       <aside class="newsbar">
         <div class="news-tools">
           <input id="newsSearch" type="text" placeholder="Hír keresése..." oninput="filterNews()">
+
           <select id="newsFilter" onchange="filterNews()">
             <option value="all">Minden forrás</option>
             <option value="official">Hatósági / önkormányzati</option>
@@ -246,25 +954,43 @@
             <span class="summary-state" id="summaryState">Megnyitás</span>
           </button>
           <div class="summary-preview" id="summaryPreview">Összefoglaló betöltése...</div>
-          <div class="summary-body" id="summaryBody"><p id="aiSummary">Összefoglaló betöltése...</p></div>
+          <div class="summary-body" id="summaryBody">
+            <p id="aiSummary">Összefoglaló betöltése...</p>
+          </div>
         </section>
 
         <section class="card latest-card" id="todayLatestCard">
           <h2>Mai legfrissebb hírek <span class="latest-sub" id="todayLatestCount">0</span></h2>
-          <div class="latest-list" id="todayLatestList"><p class="latest-empty">Mai hírek betöltése...</p></div>
+          <div class="latest-list" id="todayLatestList">
+            <p class="latest-empty">Mai hírek betöltése...</p>
+          </div>
         </section>
 
         <section class="card score-card" id="newsScoreChartContainer">
           <h2>Azbeszt Ügyindex</h2>
-          <p class="muted">Napi, híralapú pontozás: negatív érték = kockázatos vagy romló fejlemény, pozitív érték = intézkedés, tájékoztatás vagy megoldás felé mutató esemény.</p>
+          <p class="muted">
+            Napi, híralapú pontozás: negatív érték = kockázatos vagy romló fejlemény,
+            pozitív érték = intézkedés, tájékoztatás vagy megoldás felé mutató esemény.
+          </p>
           <div class="score-chart-wrap">
             <canvas id="newsScoreChart"></canvas>
           </div>
           <div id="newsScoreSummary"></div>
-          <div class="score-note">Forrás: <code>data/news_scores.json</code>. A módszer kézi, eseményalapú pontozásra épül, nem automatikus hangulatelemzésre.</div>
+          <div class="score-note">
+            Forrás: <code>data/news_scores.json</code>. A módszer kézi, eseményalapú pontozásra épül,
+            nem automatikus hangulatelemzésre.
+          </div>
         </section>
 
-        <section class="card"><h2>Élő idővonal</h2><div class="timeline" id="eventTimeline"><div class="timeline-item"><div class="timeline-date">Betöltés...</div><div class="timeline-text">Eseménynapló betöltése.</div></div></div></section>
+        <section class="card">
+          <h2>Élő idővonal</h2>
+          <div class="timeline" id="eventTimeline">
+            <div class="timeline-item">
+              <div class="timeline-date">Betöltés...</div>
+              <div class="timeline-text">Eseménynapló betöltése.</div>
+            </div>
+          </div>
+        </section>
 
         <div id="newsList">
           <div id="officialNews" class="news-group"></div>
@@ -279,26 +1005,133 @@
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
   <script>
     const OFFICIAL_STREET_COUNT = 46;
     const OFFICIAL_PARKING_COUNT = 10;
 
     const fallbackNews = [
-      { title: 'Kőszeg Önkormányzat – Lakossági tájékoztató az ausztriai bányákból származó kőzúzalék azbeszttartalma miatt hozott intézkedésekről', source: 'Kőszeg Önkormányzat', source_type: 'official', date: '2026-04', url: 'https://koszeg.hu/hu/aktualis/hirek/' },
-      { title: 'Greenpeace Magyarország – Feljelentés az osztrák kőbányákkal kapcsolatban', source: 'Greenpeace', source_type: 'civil', date: '2026-04', url: 'https://www.greenpeace.org/hungary/sajtokozlemeny/13601/a-greenpeace-ausztria-feljelentest-tett-a-vas-varmegyeben-is-azbesztszennyezest-okozo-osztrak-kobanyakkal-kapcsolatban/' },
-      { title: 'Telex – Azbesztügy Kőszegen: intézkedések és érintett területek', source: 'Telex', source_type: 'media', date: '2026-04-24', url: 'https://telex.hu/belfold/2026/04/24/azbeszt-koszeg-banya-intezkedesek' },
-      { title: 'HVG – Kőszegre is kerülhetett az azbeszttartalmú kőzúzalékból', source: 'HVG', source_type: 'media', date: '2026-04-24', url: 'https://hvg.hu/zhvg/20260424_koszeg-azbeszt-tartalom-kozuzalek-bozsok-szombathely' },
-      { title: '444 – Szombathely és Bozsok mellett Kőszeg is érintett lehet', source: '444', source_type: 'media', date: '2026-04-24', url: 'https://444.hu/2026/04/24/szombathely-es-bozsok-mellett-koszegre-is-juthatott-abbol-az-azbeszttel-szennyezett-kozuzalekbol' },
-      { title: 'VAOL – Helyi tudósítás az azbesztügyről', source: 'VAOL', source_type: 'media', date: '2026-04', url: 'https://www.vaol.hu/helyi-kozelet/2026/04/azbeszt-ugy-bozsok-koszeg' }
+      {
+        title: 'Kőszeg Önkormányzat – Lakossági tájékoztató az ausztriai bányákból származó kőzúzalék azbeszttartalma miatt hozott intézkedésekről',
+        source: 'Kőszeg Önkormányzat',
+        source_type: 'official',
+        date: '2026-04',
+        url: 'https://koszeg.hu/hu/aktualis/hirek/'
+      },
+      {
+        title: 'Greenpeace Magyarország – Feljelentés az osztrák kőbányákkal kapcsolatban',
+        source: 'Greenpeace',
+        source_type: 'civil',
+        date: '2026-04',
+        url: 'https://www.greenpeace.org/hungary/sajtokozlemeny/13601/a-greenpeace-ausztria-feljelentest-tett-a-vas-varmegyeben-is-azbesztszennyezest-okozo-osztrak-kobanyakkal-kapcsolatban/'
+      },
+      {
+        title: 'Telex – Azbesztügy Kőszegen: intézkedések és érintett területek',
+        source: 'Telex',
+        source_type: 'media',
+        date: '2026-04-24',
+        url: 'https://telex.hu/belfold/2026/04/24/azbeszt-koszeg-banya-intezkedesek'
+      },
+      {
+        title: 'HVG – Kőszegre is kerülhetett az azbeszttartalmú kőzúzalékból',
+        source: 'HVG',
+        source_type: 'media',
+        date: '2026-04-24',
+        url: 'https://hvg.hu/zhvg/20260424_koszeg-azbeszt-tartalom-kozuzalek-bozsok-szombathely'
+      },
+      {
+        title: '444 – Szombathely és Bozsok mellett Kőszeg is érintett lehet',
+        source: '444',
+        source_type: 'media',
+        date: '2026-04-24',
+        url: 'https://444.hu/2026/04/24/szombathely-es-bozsok-mellett-koszegre-is-juthatott-abbol-az-azbeszttel-szennyezett-kozuzalekbol'
+      },
+      {
+        title: 'VAOL – Helyi tudósítás az azbesztügyről',
+        source: 'VAOL',
+        source_type: 'media',
+        date: '2026-04',
+        url: 'https://www.vaol.hu/helyi-kozelet/2026/04/azbeszt-ugy-bozsok-koszeg'
+      }
     ];
 
     const fallbackEvents = [
-      { date: '2026-04-22', title: 'Greenpeace-vonatkozású és osztrák kapcsolatot említő hírek jelennek meg.', source: 'Sajtó / Greenpeace', type: 'civil', url: 'https://www.greenpeace.org/hungary/' },
-      { date: '2026-04-24', title: 'Kőszeg és környéke érintettsége országos és helyi médiában is megjelenik.', source: 'Sajtó', type: 'media', url: '' },
-      { date: 'Folyamatos', title: 'A dashboard külön kezeli a hivatalos, civil, magyar média és osztrák/burgenlandi forrásokat.', source: 'Monitoring rendszer', type: 'system', url: '' }
+      {
+        date: '2026-04-22',
+        title: 'Greenpeace-vonatkozású és osztrák kapcsolatot említő hírek jelennek meg.',
+        source: 'Sajtó / Greenpeace',
+        type: 'civil',
+        url: 'https://www.greenpeace.org/hungary/'
+      },
+      {
+        date: '2026-04-24',
+        title: 'Kőszeg és környéke érintettsége országos és helyi médiában is megjelenik.',
+        source: 'Sajtó',
+        type: 'media',
+        url: ''
+      },
+      {
+        date: 'Folyamatos',
+        title: 'A dashboard külön kezeli a hivatalos, civil, magyar média és osztrák/burgenlandi forrásokat.',
+        source: 'Monitoring rendszer',
+        type: 'system',
+        url: ''
+      }
     ];
 
-    const affectedStreetNames = new Set(['Borostyánkő utca','Lékai út','Malomárok utca','Meskó utca','Kálvária utca','Bechtold utca','Királyvölgyi utca','Erdő utca','Mélyút utca','Arborétum utca','Freh Alfonz utca','Szent Anna utca','Hadik utca','Óház utca','Bersek József utca','Kórház utca','Szent György utca','József Forrás utca','Csőszház utca','Szelestey László utca','Hermina utca','Fehér Sáfrány utca','Dr. Ambró Gyula utca','Kenyérhegyi út','Zrínyi utca','Sörgyár utca','Vízmű utca','Lóránt Gyula utca','Posztógyár utca','Forintos Mátyás utca','Napsugár utca','Kankalin utca','Tüskevár utca','Faludi utca','Hunyadi utca']);
+    const affectedStreetNames = new Set([
+      'Borostyánkő utca',
+      'Lékai út',
+      'Malomárok utca',
+      'Meskó utca',
+      'Kálvária utca',
+      'Bechtold utca',
+      'Királyvölgyi utca',
+      'Erdő utca',
+      'Mélyút utca',
+      'Arborétum utca',
+      'Freh Alfonz utca',
+      'Szent Anna utca',
+      'Hadik utca',
+      'Óház utca',
+      'Bersek József utca',
+      'Kórház utca',
+      'Szent György utca',
+      'József Forrás utca',
+      'Csőszház utca',
+      'Szelestey László utca',
+      'Hermina utca',
+      'Fehér Sáfrány utca',
+      'Dr. Ambró Gyula utca',
+      'Kenyérhegyi út',
+      'Zrínyi utca',
+      'Sörgyár utca',
+      'Vízmű utca',
+      'Lóránt Gyula utca',
+      'Posztógyár utca',
+      'Forintos Mátyás utca',
+      'Napsugár utca',
+      'Kankalin utca',
+      'Tüskevár utca',
+      'Faludi utca',
+      'Hunyadi utca',
+
+      /* Új, PDF alapján kiegészített kőszegi utcanevek */
+      'Rómer Flóris utca',
+      'Táncsics Mihály utca',
+      'Sáncárok utca',
+      'Vámház utca',
+      'Pocichter utca',
+      'Libaszőlő utca',
+      'Hidegvölgy út',
+      'Panoráma körút',
+      'Strand sétány',
+      'Károlyi Mihály utca',
+      'Liszt Ferenc utca',
+      'Dózsa György utca',
+      'Bajcsy-Zsilinszky utca',
+      'Rőtivölgyi utca'
+    ]);
 
     const parkingSearches = [
       { name: 'Dózsa György utca – Szociális Gondozóközpont előtti parkoló', query: 'Dózsa György utca Kőszeg' },
@@ -313,6 +1146,125 @@
       { name: 'Károlyi Mihály utca vége parkoló', query: 'Károlyi Mihály utca Kőszeg' }
     ];
 
+    const fallbackOfficialSites = {
+      source: 'Vas Vármegyei Kormányhivatal – kőszegi ideiglenes intézkedések listája',
+      source_url: 'https://kormanyhivatalok.hu/',
+      items: [
+        {
+          name: 'Táncsics utcai játszótér körüli gyalogút',
+          type: 'playground',
+          status: 'kormányhivatali listában szerepel',
+          city: 'Kőszeg',
+          query: 'Táncsics Mihály utca játszótér Kőszeg'
+        },
+        {
+          name: 'Rómer Flóris utcai parkolók',
+          type: 'parking',
+          status: 'kormányhivatali listában szerepel',
+          city: 'Kőszeg',
+          query: 'Rómer Flóris utca Kőszeg parkoló'
+        },
+        {
+          name: 'Faludi utcai garázssor',
+          type: 'parking',
+          status: 'kormányhivatali listában szerepel',
+          city: 'Kőszeg',
+          query: 'Faludi utca garázssor Kőszeg'
+        },
+        {
+          name: 'Látogatóközpont / Chernel-kert parkoló',
+          type: 'recreation',
+          status: 'kormányhivatali listában szerepel',
+          city: 'Kőszeg',
+          query: 'Chernel kert látogatóközpont Kőszeg'
+        },
+        {
+          name: 'Gimnázium – Kollégium parkoló',
+          type: 'institution',
+          status: 'kormányhivatali listában szerepel',
+          city: 'Kőszeg',
+          query: 'Kőszeg gimnázium kollégium parkoló'
+        },
+        {
+          name: 'Strand sétány',
+          type: 'walkway',
+          status: 'kormányhivatali listában szerepel',
+          city: 'Kőszeg',
+          query: 'Strand sétány Kőszeg'
+        },
+        {
+          name: 'Koronaőrző bunker parkoló',
+          type: 'parking',
+          status: 'kormányhivatali listában szerepel',
+          city: 'Kőszeg',
+          query: 'Koronaőrző bunker Kőszeg parkoló'
+        },
+        {
+          name: 'Bajcsy-Zsilinszky utcai óvoda parkoló',
+          type: 'institution',
+          status: 'kormányhivatali listában szerepel',
+          city: 'Kőszeg',
+          query: 'Bajcsy-Zsilinszky utca óvoda Kőszeg'
+        },
+        {
+          name: 'Dózsa György utca – Szociális Gondozóközpont előtti parkoló',
+          type: 'institution',
+          status: 'kormányhivatali listában szerepel',
+          city: 'Kőszeg',
+          query: 'Dózsa György utca Szociális Gondozóközpont Kőszeg'
+        },
+        {
+          name: 'Bersek iskola belső parkoló',
+          type: 'institution',
+          status: 'kormányhivatali listában szerepel',
+          city: 'Kőszeg',
+          query: 'Bersek József Általános Iskola Kőszeg parkoló'
+        },
+        {
+          name: 'Károlyi Mihály utca vége parkoló',
+          type: 'parking',
+          status: 'kormányhivatali listában szerepel',
+          city: 'Kőszeg',
+          query: 'Károlyi Mihály utca Kőszeg'
+        },
+        {
+          name: 'Hidegvölgy útjai',
+          type: 'road_area',
+          status: 'kormányhivatali listában szerepel',
+          city: 'Kőszeg',
+          query: 'Hidegvölgy Kőszeg'
+        },
+        {
+          name: 'Panoráma körút térsége',
+          type: 'road_area',
+          status: 'kormányhivatali listában szerepel',
+          city: 'Kőszeg',
+          query: 'Panoráma körút Kőszeg'
+        },
+        {
+          name: 'Pocichter és Libaszőlő utcák térsége',
+          type: 'road_area',
+          status: 'kormányhivatali listában szerepel',
+          city: 'Kőszeg',
+          query: 'Pocichter utca Kőszeg'
+        },
+        {
+          name: 'Vámház utca térsége',
+          type: 'road_area',
+          status: 'kormányhivatali listában szerepel',
+          city: 'Kőszeg',
+          query: 'Vámház utca Kőszeg'
+        },
+        {
+          name: 'Rőtivölgyi utca térsége',
+          type: 'road_area',
+          status: 'kormányhivatali listában szerepel',
+          city: 'Kőszeg',
+          query: 'Rőtivölgyi utca Kőszeg'
+        }
+      ]
+    };
+
     let map;
     let insetMap;
     let layers;
@@ -320,7 +1272,13 @@
     let currentEvents = [];
     let lastSummary = '';
     let summaryOpen = false;
-    const layerVisible = { affected: true, geojson: true, parking: true };
+
+    const layerVisible = {
+      affected: true,
+      geojson: true,
+      parking: true,
+      officialSites: true
+    };
 
     function escapeHtml(value) {
       return String(value || '')
@@ -333,8 +1291,18 @@
 
     function initMap() {
       map = L.map('map').setView([47.3895, 16.5410], 13);
-      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19, attribution: '&copy; OpenStreetMap contributors' }).addTo(map);
-      layers = { affected: L.featureGroup().addTo(map), geojson: L.featureGroup().addTo(map), parking: L.featureGroup().addTo(map) };
+
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '&copy; OpenStreetMap contributors'
+      }).addTo(map);
+
+      layers = {
+        affected: L.featureGroup().addTo(map),
+        geojson: L.featureGroup().addTo(map),
+        parking: L.featureGroup().addTo(map),
+        officialSites: L.featureGroup().addTo(map)
+      };
     }
 
     function initInsetMap() {
@@ -350,7 +1318,9 @@
         keyboard: false
       }).setView([47.37, 16.43], 10);
 
-      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 18 }).addTo(insetMap);
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 18
+      }).addTo(insetMap);
 
       const hungarianIcon = L.divIcon({
         className: 'inset-marker-hu',
@@ -378,74 +1348,178 @@
       const bounds = [];
 
       points.forEach(point => {
-        L.marker([point.lat, point.lon], { icon: point.type === 'quarry' ? quarryIcon : hungarianIcon })
+        L.marker([point.lat, point.lon], {
+          icon: point.type === 'quarry' ? quarryIcon : hungarianIcon
+        })
           .bindPopup(`<b>${escapeHtml(point.name)}</b><br>${escapeHtml(point.note)}`)
           .addTo(insetMap);
+
         bounds.push([point.lat, point.lon]);
       });
 
       L.polyline(
         points.filter(p => p.type === 'quarry').map(p => [p.lat, p.lon]),
-        { color: '#dc2626', weight: 2, opacity: .45, dashArray: '4 5' }
+        {
+          color: '#dc2626',
+          weight: 2,
+          opacity: .45,
+          dashArray: '4 5'
+        }
       ).addTo(insetMap);
 
       insetMap.fitBounds(bounds, { padding: [18, 18] });
       setTimeout(() => insetMap.invalidateSize(), 250);
     }
 
-    function normalizeName(name) { return (name || '').toLowerCase().replace(/\./g, '').replace(/útja$/g, 'út').replace(/\s+/g, ' ').trim(); }
-    function isAffectedStreet(name) { const normalized = normalizeName(name); for (const street of affectedStreetNames) { if (normalized === normalizeName(street)) return true; } return false; }
-    function overpassUrl(query) { return 'https://overpass-api.de/api/interpreter?data=' + encodeURIComponent(query); }
-    async function fetchOverpass(query) { const response = await fetch(overpassUrl(query)); if (!response.ok) throw new Error('Overpass API hiba'); return await response.json(); }
-    function nodesToMap(elements) { const result = new Map(); for (const item of elements) if (item.type === 'node') result.set(item.id, [item.lat, item.lon]); return result; }
-    function wayToLatLngs(way, nodeMap) { return way.nodes.map(id => nodeMap.get(id)).filter(Boolean); }
+    function normalizeName(name) {
+      return (name || '')
+        .toLowerCase()
+        .replace(/\./g, '')
+        .replace(/útja$/g, 'út')
+        .replace(/\s+/g, ' ')
+        .trim();
+    }
+
+    function isAffectedStreet(name) {
+      const normalized = normalizeName(name);
+
+      for (const street of affectedStreetNames) {
+        if (normalized === normalizeName(street)) return true;
+      }
+
+      return false;
+    }
+
+    function overpassUrl(query) {
+      return 'https://overpass-api.de/api/interpreter?data=' + encodeURIComponent(query);
+    }
+
+    async function fetchOverpass(query) {
+      const response = await fetch(overpassUrl(query));
+      if (!response.ok) throw new Error('Overpass API hiba');
+      return await response.json();
+    }
+
+    function nodesToMap(elements) {
+      const result = new Map();
+
+      for (const item of elements) {
+        if (item.type === 'node') {
+          result.set(item.id, [item.lat, item.lon]);
+        }
+      }
+
+      return result;
+    }
+
+    function wayToLatLngs(way, nodeMap) {
+      return way.nodes.map(id => nodeMap.get(id)).filter(Boolean);
+    }
 
     async function loadRoads() {
       const query = `[out:json][timeout:40];(way(47.340,16.470,47.450,16.640)["highway"]["name"];);out body;>;out skel qt;`;
-      const roadStyle = { color: '#dc2626', weight: 4, opacity: .78, lineCap: 'round', lineJoin: 'round' };
-      const glowStyle = { color: '#7f1d1d', weight: 9, opacity: .22, lineCap: 'round', lineJoin: 'round' };
+
+      const roadStyle = {
+        color: '#dc2626',
+        weight: 4,
+        opacity: .78,
+        lineCap: 'round',
+        lineJoin: 'round'
+      };
+
+      const glowStyle = {
+        color: '#7f1d1d',
+        weight: 9,
+        opacity: .22,
+        lineCap: 'round',
+        lineJoin: 'round'
+      };
+
       const data = await fetchOverpass(query);
       const nodeMap = nodesToMap(data.elements);
+
       let count = 0;
+
       for (const item of data.elements) {
         if (item.type !== 'way' || !item.tags || !item.tags.name || !item.nodes) continue;
         if (!isAffectedStreet(item.tags.name)) continue;
+
         const latlngs = wayToLatLngs(item, nodeMap);
         if (latlngs.length < 2) continue;
+
         L.polyline(latlngs, glowStyle).addTo(layers.affected);
-        L.polyline(latlngs, roadStyle).bindPopup(`<b>${escapeHtml(item.tags.name)}</b><br>Érintett út / utca / útszakasz`).addTo(layers.affected);
+
+        L.polyline(latlngs, roadStyle)
+          .bindPopup(`<b>${escapeHtml(item.tags.name)}</b><br>Érintett út / utca / útszakasz`)
+          .addTo(layers.affected);
+
         count++;
       }
+
       document.getElementById('statRoads').textContent = OFFICIAL_STREET_COUNT;
-      if (layers.affected.getLayers().length > 0) map.fitBounds(layers.affected.getBounds(), { padding: [60, 60], maxZoom: 14 });
+
+      if (layers.affected.getLayers().length > 0) {
+        map.fitBounds(layers.affected.getBounds(), {
+          padding: [60, 60],
+          maxZoom: 14
+        });
+      }
+
       return count;
     }
 
     async function loadGeojsonStreets() {
       try {
         const response = await fetch('data/streets.geojson?t=' + Date.now());
+
         if (!response.ok) throw new Error('streets.geojson nem érhető el');
+
         const data = await response.json();
         let count = 0;
+
         const layer = L.geoJSON(data, {
           style: feature => {
             const status = ((feature.properties && feature.properties.status) || '').toLowerCase();
-            const color = status.includes('megerősített') ? '#f97316' : status.includes('vizsgálat') ? '#facc15' : '#fb7185';
-            return { color, weight: 6, opacity: .9, lineCap: 'round', lineJoin: 'round' };
+            const color = status.includes('megerősített')
+              ? '#f97316'
+              : status.includes('vizsgálat')
+                ? '#facc15'
+                : '#fb7185';
+
+            return {
+              color,
+              weight: 6,
+              opacity: .9,
+              lineCap: 'round',
+              lineJoin: 'round'
+            };
           },
+
           onEachFeature: (feature, layer) => {
             count++;
+
             const p = feature.properties || {};
             const title = p.name || p.utca || 'Pontosított szakasz';
             const status = p.status || 'státusz nincs megadva';
             const source = p.source || p.forras || 'forrás nincs megadva';
             const date = p.date || p.datum || '';
-            const url = p.url ? `<br><a href="${escapeHtml(p.url)}" target="_blank" rel="noopener">Forrás megnyitása</a>` : '';
-            layer.bindPopup(`<b>${escapeHtml(title)}</b><br>Státusz: ${escapeHtml(status)}<br>Forrás: ${escapeHtml(source)}<br>${date ? 'Dátum: ' + escapeHtml(date) + '<br>' : ''}${url}`);
+            const url = p.url
+              ? `<br><a href="${escapeHtml(p.url)}" target="_blank" rel="noopener">Forrás megnyitása</a>`
+              : '';
+
+            layer.bindPopup(
+              `<b>${escapeHtml(title)}</b><br>
+               Státusz: ${escapeHtml(status)}<br>
+               Forrás: ${escapeHtml(source)}<br>
+               ${date ? 'Dátum: ' + escapeHtml(date) + '<br>' : ''}
+               ${url}`
+            );
           }
         });
+
         layer.addTo(layers.geojson);
         document.getElementById('statGeojson').textContent = count;
+
         return count;
       } catch (error) {
         console.warn('GeoJSON betöltési hiba:', error);
@@ -455,35 +1529,194 @@
     }
 
     async function geocode(query) {
-      const response = await fetch(`https://nominatim.openstreetmap.org/search?format=json&limit=1&q=${encodeURIComponent(query)}`);
+      const response = await fetch(
+        `https://nominatim.openstreetmap.org/search?format=json&limit=1&q=${encodeURIComponent(query)}`
+      );
+
       const data = await response.json();
+
       if (!data || data.length === 0) return null;
+
       return [parseFloat(data[0].lat), parseFloat(data[0].lon)];
     }
 
     async function loadParkings() {
       let count = 0;
-      const icon = L.divIcon({ className: 'parking-marker', html: '<div style="width:26px;height:26px;border-radius:50%;background:#111827;border:3px solid #f59e0b;color:#fbbf24;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:14px;box-shadow:0 3px 10px rgba(0,0,0,.45);">P</div>', iconSize: [26, 26], iconAnchor: [13, 13] });
+
+      const icon = L.divIcon({
+        className: 'parking-marker',
+        html: '<div style="width:26px;height:26px;border-radius:50%;background:#111827;border:3px solid #f59e0b;color:#fbbf24;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:14px;box-shadow:0 3px 10px rgba(0,0,0,.45);">P</div>',
+        iconSize: [26, 26],
+        iconAnchor: [13, 13]
+      });
+
       for (const parking of parkingSearches) {
         try {
           const latlng = await geocode(parking.query);
-          if (latlng) { L.marker(latlng, { icon }).bindPopup(`<b>${escapeHtml(parking.name)}</b><br>Lezárt parkoló / parkolási érintettség`).addTo(layers.parking); count++; }
+
+          if (latlng) {
+            L.marker(latlng, { icon })
+              .bindPopup(`<b>${escapeHtml(parking.name)}</b><br>Lezárt parkoló / parkolási érintettség`)
+              .addTo(layers.parking);
+
+            count++;
+          }
+
           await new Promise(resolve => setTimeout(resolve, 650));
-        } catch (error) { console.warn('Parkoló geokódolási hiba:', parking.name, error); }
+        } catch (error) {
+          console.warn('Parkoló geokódolási hiba:', parking.name, error);
+        }
       }
+
       document.getElementById('statParks').textContent = OFFICIAL_PARKING_COUNT;
+      return count;
+    }
+
+    function officialSiteIcon(type) {
+      let label = '●';
+      let borderColor = '#8b5cf6';
+      let textColor = '#ede9fe';
+
+      if (type === 'playground') {
+        label = 'J';
+        borderColor = '#ec4899';
+      } else if (type === 'parking') {
+        label = 'P';
+        borderColor = '#f59e0b';
+      } else if (type === 'institution') {
+        label = 'I';
+        borderColor = '#3b82f6';
+      } else if (type === 'recreation') {
+        label = 'R';
+        borderColor = '#22c55e';
+      } else if (type === 'walkway') {
+        label = 'S';
+        borderColor = '#14b8a6';
+      } else if (type === 'road_area') {
+        label = 'Ú';
+        borderColor = '#8b5cf6';
+      }
+
+      return L.divIcon({
+        className: 'official-site-marker',
+        html: `
+          <div style="
+            width:28px;
+            height:28px;
+            border-radius:50%;
+            background:#111827;
+            border:3px solid ${borderColor};
+            color:${textColor};
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            font-weight:900;
+            font-size:13px;
+            box-shadow:0 4px 12px rgba(0,0,0,.55);
+          ">${label}</div>
+        `,
+        iconSize: [28, 28],
+        iconAnchor: [14, 14]
+      });
+    }
+
+    function officialTypeLabel(type) {
+      const labels = {
+        playground: 'játszótér / gyalogút',
+        parking: 'parkoló',
+        institution: 'intézményi környezet',
+        recreation: 'rekreációs terület',
+        walkway: 'sétány / gyalogos kapcsolat',
+        road_area: 'utca- vagy úttérség'
+      };
+
+      return labels[type] || 'speciális helyszín';
+    }
+
+    async function loadOfficialSites() {
+      let data = fallbackOfficialSites;
+
+      try {
+        const response = await fetch('data/koszeg_official_sites.json?t=' + Date.now());
+
+        if (response.ok) {
+          const json = await response.json();
+
+          if (json && Array.isArray(json.items) && json.items.length > 0) {
+            data = json;
+          }
+        }
+      } catch (error) {
+        console.warn('koszeg_official_sites.json nem érhető el, fallback lista használata:', error);
+      }
+
+      const items = Array.isArray(data.items) ? data.items : [];
+      let count = 0;
+
+      for (const site of items) {
+        try {
+          let latlng = null;
+
+          if (typeof site.lat === 'number' && typeof site.lon === 'number') {
+            latlng = [site.lat, site.lon];
+          } else if (site.query) {
+            latlng = await geocode(site.query);
+          }
+
+          if (!latlng) continue;
+
+          const icon = officialSiteIcon(site.type);
+
+          const sourceUrl = site.source_url || data.source_url || '';
+          const sourceLink = sourceUrl
+            ? `<br><a href="${escapeHtml(sourceUrl)}" target="_blank" rel="noopener">Forrás megnyitása</a>`
+            : '';
+
+          const popup = `
+            <div class="official-site-popup-title">${escapeHtml(site.name)}</div>
+            <div class="official-site-popup-row"><strong>Típus:</strong> ${escapeHtml(officialTypeLabel(site.type))}</div>
+            <div class="official-site-popup-row"><strong>Státusz:</strong> ${escapeHtml(site.status || 'kormányhivatali listában szerepel')}</div>
+            <div class="official-site-popup-row"><strong>Település:</strong> ${escapeHtml(site.city || 'Kőszeg')}</div>
+            <div class="official-site-popup-row"><strong>Forrás:</strong> ${escapeHtml(site.source || data.source || 'Vas Vármegyei Kormányhivatal')}</div>
+            ${sourceLink}
+          `;
+
+          L.marker(latlng, { icon })
+            .bindPopup(popup)
+            .addTo(layers.officialSites);
+
+          count++;
+
+          await new Promise(resolve => setTimeout(resolve, 650));
+        } catch (error) {
+          console.warn('Kormányhivatali helyszín geokódolási hiba:', site.name, error);
+        }
+      }
+
+      document.getElementById('statOfficialSites').textContent = count;
       return count;
     }
 
     function toggleLayer(layerName) {
       layerVisible[layerName] = !layerVisible[layerName];
+
       const button = document.getElementById('btn' + layerName.charAt(0).toUpperCase() + layerName.slice(1));
       const label = document.getElementById('state' + layerName.charAt(0).toUpperCase() + layerName.slice(1));
-      if (layerVisible[layerName]) { layers[layerName].addTo(map); button.classList.add('active'); label.textContent = 'be'; }
-      else { map.removeLayer(layers[layerName]); button.classList.remove('active'); label.textContent = 'ki'; }
+
+      if (layerVisible[layerName]) {
+        layers[layerName].addTo(map);
+        if (button) button.classList.add('active');
+        if (label) label.textContent = 'be';
+      } else {
+        map.removeLayer(layers[layerName]);
+        if (button) button.classList.remove('active');
+        if (label) label.textContent = 'ki';
+      }
     }
 
-    function isGreenpeaceItem(item) { return `${item.title || ''} ${item.source || ''} ${item.url || ''}`.toLowerCase().includes('greenpeace'); }
+    function isGreenpeaceItem(item) {
+      return `${item.title || ''} ${item.source || ''} ${item.url || ''}`.toLowerCase().includes('greenpeace');
+    }
 
     function itemKey(item) {
       return String(item && item.url ? item.url : item && item.title ? item.title : '').trim().toLowerCase();
@@ -500,11 +1733,24 @@
 
     function setKnownNewsKeys(items) {
       try {
-        const keys = (Array.isArray(items) ? items : []).map(itemKey).filter(Boolean).slice(0, 400);
+        const keys = (Array.isArray(items) ? items : [])
+          .map(itemKey)
+          .filter(Boolean)
+          .slice(0, 400);
+
         localStorage.setItem('knownNewsKeys', JSON.stringify(keys));
       } catch (error) {
         console.warn('knownNewsKeys mentési hiba:', error);
       }
+    }
+
+    function getTodayIsoDate() {
+      const now = new Date();
+      const year = now.getFullYear();
+      const month = String(now.getMonth() + 1).padStart(2, '0');
+      const day = String(now.getDate()).padStart(2, '0');
+
+      return `${year}-${month}-${day}`;
     }
 
     function isTodayItem(item) {
@@ -514,11 +1760,13 @@
 
     function showToast(message) {
       const oldToast = document.querySelector('.toast');
+
       if (oldToast) oldToast.remove();
 
       const toast = document.createElement('div');
       toast.className = 'toast';
       toast.textContent = message;
+
       document.body.appendChild(toast);
 
       setTimeout(() => {
@@ -530,6 +1778,7 @@
       const source = (item.source || '').toLowerCase();
       const type = (item.source_type || '').toLowerCase();
       const text = `${item.title || ''} ${item.url || ''}`.toLowerCase();
+
       if (type === 'official' || source.includes('kőszeg') || source.includes('kormányhivatal') || source.includes('koszeg')) return '🔵 HIVATALOS';
       if (type === 'civil' || source.includes('greenpeace') || text.includes('greenpeace')) return '🟢 CIVIL / GREENPEACE';
       if (source.includes('nyugat')) return '🟨 NYUGAT.HU';
@@ -540,6 +1789,7 @@
       if (source.includes('24')) return '🟧 24.HU';
       if (source.includes('euronews')) return '🟪 EURONEWS';
       if (type === 'austrian' || text.includes('.at') || source.includes('orf') || source.includes('standard') || source.includes('kurier') || text.includes('österreich') || text.includes('burgenland')) return '🔴 OSZTRÁK';
+
       return '📰 HÍR';
     }
 
@@ -553,42 +1803,97 @@
         const modeText = escapeHtml(mode || '');
         const fresh = item.__isNew || isTodayItem(item);
         const freshLabel = item.__isNew ? 'ÚJ' : 'MA';
-        return `<article class="news-item ${green ? 'greenpeace-item' : ''}">${index < 2 ? '<div class="top-badge">TOP</div>' : ''}<div class="source-badge">${fresh ? `<span class="new-badge">${freshLabel}</span>` : ''}${sourceBadge(item)}</div><a href="${url}" target="_blank" rel="noopener">${title}</a><div class="meta">${source} · ${date}</div>${green ? '<span class="tag green-tag">civil / Greenpeace</span>' : ''}${modeText ? `<span class="tag">${modeText}</span>` : ''}</article>`;
+
+        return `
+          <article class="news-item ${green ? 'greenpeace-item' : ''}">
+            ${index < 2 ? '<div class="top-badge">TOP</div>' : ''}
+            <div class="source-badge">${fresh ? `<span class="new-badge">${freshLabel}</span>` : ''}${sourceBadge(item)}</div>
+            <a href="${url}" target="_blank" rel="noopener">${title}</a>
+            <div class="meta">${source} · ${date}</div>
+            ${green ? '<span class="tag green-tag">civil / Greenpeace</span>' : ''}
+            ${modeText ? `<span class="tag">${modeText}</span>` : ''}
+          </article>
+        `;
       }).join('');
     }
 
     function updateNewsStats(items) {
       document.getElementById('statNews').textContent = Array.isArray(items) ? items.length : 0;
-      document.getElementById('statGreenpeace').textContent = Array.isArray(items) ? items.filter(isGreenpeaceItem).length : 0;
     }
 
     function groupArticles(items) {
-      const groups = { official: [], civil: [], austrian: [], hungarian: [], other: [] };
+      const groups = {
+        official: [],
+        civil: [],
+        austrian: [],
+        hungarian: [],
+        other: []
+      };
+
       for (const item of items) {
         const type = (item.source_type || '').toLowerCase();
         const source = (item.source || '').toLowerCase();
         const text = `${item.title || ''} ${item.url || ''} ${item.source || ''}`.toLowerCase();
-        if (type === 'official' || source.includes('kőszeg') || source.includes('koszeg') || source.includes('kormányhivatal')) groups.official.push(item);
-        else if (type === 'civil' || text.includes('greenpeace')) groups.civil.push(item);
-        else if (type === 'media' || source.includes('telex') || source.includes('hvg') || source.includes('444') || source.includes('vaol') || source.includes('nyugat') || source.includes('24') || source.includes('euronews')) groups.hungarian.push(item);
-        else if (type === 'austrian' || text.includes('.at') || source.includes('orf') || source.includes('standard') || source.includes('kurier') || text.includes('österreich') || text.includes('burgenland')) groups.austrian.push(item);
-        else groups.other.push(item);
+
+        if (type === 'official' || source.includes('kőszeg') || source.includes('koszeg') || source.includes('kormányhivatal')) {
+          groups.official.push(item);
+        } else if (type === 'civil' || text.includes('greenpeace')) {
+          groups.civil.push(item);
+        } else if (
+          type === 'media' ||
+          source.includes('telex') ||
+          source.includes('hvg') ||
+          source.includes('444') ||
+          source.includes('vaol') ||
+          source.includes('nyugat') ||
+          source.includes('24') ||
+          source.includes('euronews')
+        ) {
+          groups.hungarian.push(item);
+        } else if (
+          type === 'austrian' ||
+          text.includes('.at') ||
+          source.includes('orf') ||
+          source.includes('standard') ||
+          source.includes('kurier') ||
+          text.includes('österreich') ||
+          text.includes('burgenland')
+        ) {
+          groups.austrian.push(item);
+        } else {
+          groups.other.push(item);
+        }
       }
+
       return groups;
     }
 
     function renderGroup(targetId, title, titleClass, items, mode) {
       const target = document.getElementById(targetId);
+
       if (!target) return;
-      if (!items.length) { target.innerHTML = ''; return; }
-      target.innerHTML = `<div class="news-group-title ${titleClass}"><span>${escapeHtml(title)}</span><span class="news-count">${items.length}</span></div>${newsHtml(items, mode)}`;
+
+      if (!items.length) {
+        target.innerHTML = '';
+        return;
+      }
+
+      target.innerHTML = `
+        <div class="news-group-title ${titleClass}">
+          <span>${escapeHtml(title)}</span>
+          <span class="news-count">${items.length}</span>
+        </div>
+        ${newsHtml(items, mode)}
+      `;
     }
 
     function renderNews(items, mode) {
       currentNews = items || [];
       updateNewsStats(currentNews);
       renderTodayLatest(currentNews);
+
       const groups = groupArticles(currentNews.slice(0, 150));
+
       renderGroup('officialNews', '🔵 Hatósági / önkormányzati tájékoztatás', 'official-title', groups.official, mode);
       renderGroup('civilNews', '🟢 Civil és Greenpeace források', 'civil-title', groups.civil, mode);
       renderGroup('austrianNews', '🔴 Osztrák / burgenlandi források', 'austrian-title', groups.austrian, mode);
@@ -596,17 +1901,10 @@
       renderGroup('otherNews', '📰 Egyéb találatok', '', groups.other, mode);
     }
 
-    function getTodayIsoDate() {
-      const now = new Date();
-      const year = now.getFullYear();
-      const month = String(now.getMonth() + 1).padStart(2, '0');
-      const day = String(now.getDate()).padStart(2, '0');
-      return `${year}-${month}-${day}`;
-    }
-
     function renderTodayLatest(items) {
       const target = document.getElementById('todayLatestList');
       const count = document.getElementById('todayLatestCount');
+
       if (!target || !count) return;
 
       const latest = (Array.isArray(items) ? items : [])
@@ -626,26 +1924,41 @@
         const date = escapeHtml(item.date || '');
         const url = escapeHtml(item.url || '#');
         const freshBadge = item.__isNew ? '<span class="new-badge">ÚJ</span>' : '<span class="new-badge">MA</span>';
-        return `<article class="latest-item">${freshBadge}<a href="${url}" target="_blank" rel="noopener">${title}</a><div class="latest-meta">${source} · ${date}</div></article>`;
+
+        return `
+          <article class="latest-item">
+            ${freshBadge}
+            <a href="${url}" target="_blank" rel="noopener">${title}</a>
+            <div class="latest-meta">${source} · ${date}</div>
+          </article>
+        `;
       }).join('');
     }
 
     function setSummary(text) {
       lastSummary = text || 'A hír-adatbázis elérhető, de összefoglaló nincs benne.';
+
       const summaryText = document.getElementById('aiSummary');
       const preview = document.getElementById('summaryPreview');
+
       if (summaryText) summaryText.textContent = lastSummary;
+
       if (preview) {
-        const shortened = lastSummary.length > 260 ? lastSummary.slice(0, 260).trim() + '…' : lastSummary;
+        const shortened = lastSummary.length > 260
+          ? lastSummary.slice(0, 260).trim() + '…'
+          : lastSummary;
+
         preview.textContent = shortened;
       }
     }
 
     function toggleSummary() {
       summaryOpen = !summaryOpen;
+
       const body = document.getElementById('summaryBody');
       const state = document.getElementById('summaryState');
       const preview = document.getElementById('summaryPreview');
+
       if (body) body.classList.toggle('open', summaryOpen);
       if (state) state.textContent = summaryOpen ? 'Bezárás' : 'Megnyitás';
       if (preview) preview.style.display = summaryOpen ? 'none' : 'block';
@@ -654,13 +1967,27 @@
     function filterNews() {
       const text = document.getElementById('newsSearch').value.toLowerCase();
       const source = document.getElementById('newsFilter').value;
+
       const filtered = currentNews.filter(item => {
         const haystack = `${item.title || ''} ${item.source || ''} ${item.url || ''} ${item.source_type || ''}`.toLowerCase();
+
         const textOk = haystack.includes(text);
-        const sourceOk = source === 'all' ? true : source === 'greenpeace' ? isGreenpeaceItem(item) : source === 'official' ? ((item.source_type || '').toLowerCase() === 'official' || haystack.includes('kőszeg') || haystack.includes('kormányhivatal')) : source === 'austrian' ? ((item.source_type || '').toLowerCase() === 'austrian' || haystack.includes('.at') || haystack.includes('orf') || haystack.includes('burgenland') || haystack.includes('österreich')) : haystack.includes(source);
+
+        const sourceOk = source === 'all'
+          ? true
+          : source === 'greenpeace'
+            ? isGreenpeaceItem(item)
+            : source === 'official'
+              ? ((item.source_type || '').toLowerCase() === 'official' || haystack.includes('kőszeg') || haystack.includes('kormányhivatal'))
+              : source === 'austrian'
+                ? ((item.source_type || '').toLowerCase() === 'austrian' || haystack.includes('.at') || haystack.includes('orf') || haystack.includes('burgenland') || haystack.includes('österreich'))
+                : haystack.includes(source);
+
         return textOk && sourceOk;
       });
+
       const groups = groupArticles(filtered);
+
       renderGroup('officialNews', '🔵 Hatósági / önkormányzati tájékoztatás', 'official-title', groups.official, 'szűrt');
       renderGroup('civilNews', '🟢 Civil és Greenpeace források', 'civil-title', groups.civil, 'szűrt');
       renderGroup('austrianNews', '🔴 Osztrák / burgenlandi források', 'austrian-title', groups.austrian, 'szűrt');
@@ -680,24 +2007,37 @@
       try {
         const knownKeys = getKnownNewsKeys();
         const knownSet = new Set(knownKeys);
+
         const response = await fetch('data/news.json' + (force ? '?t=' + Date.now() : ''));
+
         if (!response.ok) throw new Error('data/news.json nem elérhető');
+
         const data = await response.json();
         const articles = Array.isArray(data.articles) ? data.articles : [];
+
         if (!articles.length) throw new Error('Nincs cikk a JSON fájlban');
 
         let newCount = 0;
+
         const markedArticles = articles.map(item => {
           const copy = { ...item };
           const key = itemKey(copy);
+
           copy.__isNew = knownSet.size > 0 && key && !knownSet.has(key);
+
           if (copy.__isNew) newCount++;
+
           return copy;
         });
 
         setSummary(data.summary || 'A hír-adatbázis elérhető, de összefoglaló nincs benne.');
-        const generated = data.generated_at ? new Date(data.generated_at).toLocaleString('hu-HU') : new Date().toLocaleString('hu-HU');
+
+        const generated = data.generated_at
+          ? new Date(data.generated_at).toLocaleString('hu-HU')
+          : new Date().toLocaleString('hu-HU');
+
         document.getElementById('lastUpdate').textContent = 'Hírek: ' + generated;
+
         renderNews(markedArticles, data.mode || 'JSON');
 
         if (force && knownSet.size > 0 && newCount > 0) {
@@ -707,15 +2047,21 @@
         setKnownNewsKeys(articles);
       } catch (error) {
         console.warn('News JSON hiba:', error);
+
         setSummary('A data/news.json jelenleg nem érhető el, ezért a rendszer kézi tartalék hírlistát mutat.');
+
         document.getElementById('lastUpdate').textContent = 'Hírek: tartalék lista';
+
         renderNews(fallbackNews, 'helyi tartalék');
       } finally {
         if (button) {
           button.disabled = false;
           button.textContent = force ? 'Újratöltve' : originalText || 'Adatok újratöltése';
+
           if (force) {
-            setTimeout(() => { button.textContent = 'Adatok újratöltése'; }, 1400);
+            setTimeout(() => {
+              button.textContent = 'Adatok újratöltése';
+            }, 1400);
           }
         }
       }
@@ -724,30 +2070,122 @@
     function renderEvents(events) {
       currentEvents = events || [];
       document.getElementById('statEvents').textContent = currentEvents.length;
+
       const target = document.getElementById('eventTimeline');
-      if (!currentEvents.length) { target.innerHTML = '<div class="timeline-item"><div class="timeline-date">Nincs adat</div><div class="timeline-text">Az eseményfájl még nem tartalmaz bejegyzést.</div></div>'; return; }
+
+      if (!currentEvents.length) {
+        target.innerHTML = `
+          <div class="timeline-item">
+            <div class="timeline-date">Nincs adat</div>
+            <div class="timeline-text">Az eseményfájl még nem tartalmaz bejegyzést.</div>
+          </div>
+        `;
+        return;
+      }
+
       target.innerHTML = currentEvents.map(event => {
-        const url = event.url ? `<div class="timeline-source"><a href="${escapeHtml(event.url)}" target="_blank" rel="noopener" style="color:#93c5fd;">Forrás megnyitása</a></div>` : '';
-        return `<div class="timeline-item"><div class="timeline-date">${escapeHtml(event.date || '')}</div><div class="timeline-text">${escapeHtml(event.title || event.text || '')}</div><div class="timeline-source">${escapeHtml(event.source || '')}</div><span class="timeline-type">${escapeHtml(event.type || 'event')}</span>${url}</div>`;
+        const url = event.url
+          ? `<div class="timeline-source"><a href="${escapeHtml(event.url)}" target="_blank" rel="noopener" style="color:#93c5fd;">Forrás megnyitása</a></div>`
+          : '';
+
+        return `
+          <div class="timeline-item">
+            <div class="timeline-date">${escapeHtml(event.date || '')}</div>
+            <div class="timeline-text">${escapeHtml(event.title || event.text || '')}</div>
+            <div class="timeline-source">${escapeHtml(event.source || '')}</div>
+            <span class="timeline-type">${escapeHtml(event.type || 'event')}</span>
+            ${url}
+          </div>
+        `;
       }).join('');
     }
 
     async function loadEvents() {
       try {
         const response = await fetch('data/events.json?t=' + Date.now());
+
         if (!response.ok) throw new Error('events.json nem érhető el');
+
         const data = await response.json();
+
         renderEvents(Array.isArray(data) ? data : data.events || []);
-      } catch (error) { console.warn('Events betöltési hiba:', error); renderEvents(fallbackEvents); }
+      } catch (error) {
+        console.warn('Events betöltési hiba:', error);
+        renderEvents(fallbackEvents);
+      }
     }
 
     function openReportWindow() {
-      const topNews = currentNews.slice(0, 10).map(n => `<li><strong>${escapeHtml(n.source || '')}</strong>: <a href="${escapeHtml(n.url || '#')}">${escapeHtml(n.title || '')}</a> <em>${escapeHtml(n.date || '')}</em></li>`).join('');
-      const eventList = currentEvents.slice(0, 10).map(e => `<li><strong>${escapeHtml(e.date || '')}</strong>: ${escapeHtml(e.title || e.text || '')} <em>${escapeHtml(e.source || '')}</em></li>`).join('');
+      const topNews = currentNews.slice(0, 10).map(n => {
+        return `<li><strong>${escapeHtml(n.source || '')}</strong>: <a href="${escapeHtml(n.url || '#')}">${escapeHtml(n.title || '')}</a> <em>${escapeHtml(n.date || '')}</em></li>`;
+      }).join('');
+
+      const eventList = currentEvents.slice(0, 10).map(e => {
+        return `<li><strong>${escapeHtml(e.date || '')}</strong>: ${escapeHtml(e.title || e.text || '')} <em>${escapeHtml(e.source || '')}</em></li>`;
+      }).join('');
+
       const report = window.open('', '_blank');
+
       report.document.open();
-      report.document.write(`<!DOCTYPE html><html lang="hu"><head><meta charset="utf-8"><title>Kőszeg Azbeszt Monitor – Jelentés</title><style>body{font-family:Arial,sans-serif;margin:34px;line-height:1.5;color:#111}h1{font-size:24px}h2{margin-top:28px;border-bottom:1px solid #ddd;padding-bottom:6px}a{color:#0645ad}.note{background:#fff7ed;border-left:5px solid #f59e0b;padding:10px}</style></head><body><h1>Kőszeg és környéke – Azbeszt Monitor jelentés</h1><p><strong>Készült:</strong> ${new Date().toLocaleString('hu-HU')}</p><div class="note">Tájékoztató jellegű automatikus jelentés. Nem hivatalos hatósági dokumentum.</div><h2>AI összefoglaló</h2><p>${escapeHtml(lastSummary || 'Nincs elérhető összefoglaló.')}</p><h2>Esemény-idővonal</h2><ul>${eventList || '<li>Nincs eseményadat.</li>'}</ul><h2>Top hírek</h2><ul>${topNews || '<li>Nincs hír.</li>'}</ul><p style="margin-top:30px;font-size:12px;color:#666">Forrás: data/news.json, data/events.json, data/news_scores.json, OpenStreetMap, GitHub Actions monitoring.</p></body></html>`);
+
+      report.document.write(`
+        <!DOCTYPE html>
+        <html lang="hu">
+        <head>
+          <meta charset="utf-8">
+          <title>Kőszeg Azbeszt Monitor – Jelentés</title>
+          <style>
+            body {
+              font-family: Arial, sans-serif;
+              margin: 34px;
+              line-height: 1.5;
+              color: #111;
+            }
+
+            h1 { font-size: 24px; }
+
+            h2 {
+              margin-top: 28px;
+              border-bottom: 1px solid #ddd;
+              padding-bottom: 6px;
+            }
+
+            a { color: #0645ad; }
+
+            .note {
+              background: #fff7ed;
+              border-left: 5px solid #f59e0b;
+              padding: 10px;
+            }
+          </style>
+        </head>
+        <body>
+          <h1>Kőszeg és környéke – Azbeszt Monitor jelentés</h1>
+          <p><strong>Készült:</strong> ${new Date().toLocaleString('hu-HU')}</p>
+
+          <div class="note">
+            Tájékoztató jellegű automatikus jelentés. Nem hivatalos hatósági dokumentum.
+          </div>
+
+          <h2>AI összefoglaló</h2>
+          <p>${escapeHtml(lastSummary || 'Nincs elérhető összefoglaló.')}</p>
+
+          <h2>Esemény-idővonal</h2>
+          <ul>${eventList || '<li>Nincs eseményadat.</li>'}</ul>
+
+          <h2>Top hírek</h2>
+          <ul>${topNews || '<li>Nincs hír.</li>'}</ul>
+
+          <p style="margin-top:30px;font-size:12px;color:#666">
+            Forrás: data/news.json, data/events.json, data/news_scores.json, data/streets.geojson,
+            data/koszeg_official_sites.json, OpenStreetMap, GitHub Actions monitoring.
+          </p>
+        </body>
+        </html>
+      `);
+
       report.document.close();
+
       setTimeout(() => report.print(), 500);
     }
 
@@ -755,23 +2193,37 @@
       try {
         initMap();
         initInsetMap();
+
         loadNews();
         loadEvents();
+
         document.getElementById('status').textContent = 'Utcavonalak betöltése Kőszeg és környéke térségéből...';
         const roads = await loadRoads();
+
         document.getElementById('status').textContent = 'Pontosított GeoJSON-réteg betöltése...';
         const geojson = await loadGeojsonStreets();
+
         document.getElementById('status').textContent = 'Parkolók jelölése...';
         const parks = await loadParkings();
-        document.getElementById('status').textContent = `Kész: hivatalosan ${OFFICIAL_STREET_COUNT} utca és ${OFFICIAL_PARKING_COUNT} parkoló érintett. A térképi vonalak tájékoztató jellegű OSM-szakaszok; a rendszer ${roads} OSM-vonalelemet, ${geojson} GeoJSON-elemet és ${parks} geokódolt parkolójelölést töltött be.`;
+
+        document.getElementById('status').textContent = 'Kormányhivatali speciális helyszínek betöltése...';
+        const officialSites = await loadOfficialSites();
+
+        document.getElementById('status').textContent =
+          `Kész: hivatalosan ${OFFICIAL_STREET_COUNT} utca és ${OFFICIAL_PARKING_COUNT} parkoló érintett. ` +
+          `A térképi vonalak tájékoztató jellegű OSM-szakaszok; a rendszer ${roads} OSM-vonalelemet, ` +
+          `${geojson} GeoJSON-elemet, ${parks} geokódolt parkolójelölést és ${officialSites} kormányhivatali helyszínt töltött be.`;
       } catch (error) {
         console.error('Oldal betöltési hiba:', error);
-        document.getElementById('status').textContent = 'Hiba történt az oldal betöltésekor. Ellenőrizd a böngésző konzolt vagy töltsd újra az oldalt.';
+
+        document.getElementById('status').textContent =
+          'Hiba történt az oldal betöltésekor. Ellenőrizd a böngésző konzolt vagy töltsd újra az oldalt.';
       }
     }
 
     document.addEventListener('DOMContentLoaded', start);
   </script>
+
   <script src="js/news-score-chart.js"></script>
 </body>
 </html>
