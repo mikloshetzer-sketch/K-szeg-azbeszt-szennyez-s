@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-19T08:39:21.767Z",
+  "generated_at": "2026-05-20T08:36:08.106Z",
   "method": "balanced_keyword_rule_based_event_scoring_v3",
   "description": "Automatikusan generált Kőszeg–azbeszt ügyindex a data/news.json alapján. A rendszer külön számolja a negatív kockázati és a pozitív intézkedési kulcsszavakat.",
   "scoring_note": "Ez nem klasszikus hangulatelemzés. A negatív pont kockázatot vagy romló fejleményt, a pozitív pont intézkedést, tájékoztatást, monitoringot vagy megoldás felé mutató eseményt jelent.",
@@ -1054,29 +1054,6 @@
       "url": "https://www.meinbezirk.at/burgenland/c-politik/greenpeace-nachbarn-sanieren-das-burgenland-bleibt-bei-asbest-untaetig_a8639037"
     },
     {
-      "date": "2026-05-13",
-      "title": "A Dozmati víztározó és a lukácsházi Abért-tó is azbeszttel szennyezett",
-      "source": "Nyugat.hu",
-      "source_type": "media",
-      "category": "szennyezes_vagy_gyanu",
-      "base_score": -4,
-      "source_weight": 1,
-      "confidence": 1,
-      "final_score": -4,
-      "matched_negative_rules": [
-        {
-          "category": "szennyezes_vagy_gyanu",
-          "score": -4,
-          "keywords": [
-            "szennyezett",
-            "azbeszttel szennyezett"
-          ]
-        }
-      ],
-      "matched_positive_rules": [],
-      "url": "https://www.nyugat.hu/cikk/ujabb_vasi_varosban_vizsgaljak_kozuzalek_azbeszt"
-    },
-    {
       "date": "2026-05-14",
       "title": "Hétfőn a parlament elé kerül a szombathelyi azbeszt-ügy",
       "source": "Nyugat.hu",
@@ -1164,7 +1141,7 @@
     },
     {
       "date": "2026-05-16",
-      "title": "Asbestbelastung: Schotterstraße im Burgenland wird asphaltiert Greenpeace forderte Sofortmaßnahmen. Bis zur Asphaltierung der Straße sollen Maßnahmen zur Staubminimierung gesetzt werden.",
+      "title": "Asbestbelastung: Schotterstraße im Burgenland wird asphaltiert",
       "source": "Kurier Burgenland",
       "source_type": "austrian",
       "category": "altalanos_media_megjelenes",
@@ -1175,20 +1152,6 @@
       "matched_negative_rules": [],
       "matched_positive_rules": [],
       "url": "https://kurier.at/chronik/burgenland/asbest-messung-grosspetersdorf-schotterstrasse-asphaltierung/403160514"
-    },
-    {
-      "date": "2026-05-16",
-      "title": "Megérkeztek a vizsgálat eredményei - 19 soproni utca érintett az azbeszt-ügyben",
-      "source": "Nyugat.hu",
-      "source_type": "media",
-      "category": "altalanos_media_megjelenes",
-      "base_score": -1,
-      "source_weight": 1,
-      "confidence": 0.7,
-      "final_score": -0.7,
-      "matched_negative_rules": [],
-      "matched_positive_rules": [],
-      "url": "https://www.nyugat.hu/cikk/megerkeztek_a_vizsgalat_eredmenyei_19_soproni_utca"
     },
     {
       "date": "2026-05-18",
@@ -1241,9 +1204,45 @@
       "url": "https://www.nyugat.hu/cikk/harminc_eve_hordhatjak_rank_az_azbesztet_most_kezd"
     },
     {
-      "date": "2026-05-18",
-      "title": "Magyar Péter: Kedden hozzák nyilvánosságra a kegyelmi ügy dossziéját, Varga Judit első körben nem támogatta K. Endre kérvényét",
-      "source": "Telex",
+      "date": "2026-05-19",
+      "title": "Kőszegen is kimutatták az azbesztszennyezést",
+      "source": "HVG",
+      "source_type": "media",
+      "category": "szennyezes_vagy_gyanu",
+      "base_score": -4,
+      "source_weight": 1,
+      "confidence": 0.85,
+      "final_score": -3.4,
+      "matched_negative_rules": [
+        {
+          "category": "szennyezes_vagy_gyanu",
+          "score": -4,
+          "keywords": [
+            "azbesztszennyezes"
+          ]
+        }
+      ],
+      "matched_positive_rules": [],
+      "url": "https://hvg.hu/itthon/20260519_azbesztszennyezes-koszeg-vizsgalat-vas-megyei-kormanyhivatal"
+    },
+    {
+      "date": "2026-05-19",
+      "title": "Passionsspiele: Letzte Vorbereitungen für Mirjams großen Auftritt",
+      "source": "Kurier Burgenland",
+      "source_type": "austrian",
+      "category": "altalanos_media_megjelenes",
+      "base_score": -1,
+      "source_weight": 1,
+      "confidence": 0.7,
+      "final_score": -0.7,
+      "matched_negative_rules": [],
+      "matched_positive_rules": [],
+      "url": "https://kurier.at/chronik/burgenland/passionsspiele-st-margarethen-jubilaeum-roemersteinbruch/403160958"
+    },
+    {
+      "date": "2026-05-19",
+      "title": "Azbeszt miatt lezárták két népszerű vasi tó parkolóit, de a horgászoknak azért hagytak egy kiskaput",
+      "source": "Nyugat.hu",
       "source_type": "media",
       "category": "altalanos_media_megjelenes",
       "base_score": -1,
@@ -1252,7 +1251,7 @@
       "final_score": -0.7,
       "matched_negative_rules": [],
       "matched_positive_rules": [],
-      "url": "https://telex.hu/belfold/2026/05/18/kormanyules-magyar-peter-kegyelmi-dosszie-aszaly-havasi-bertalan-azbeszt-vegrehajtas"
+      "url": "https://www.nyugat.hu/cikk/azbeszt_miatt_lezartak_ket_nepszeru_vasi_to_de_a"
     }
   ]
 }
