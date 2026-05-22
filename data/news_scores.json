@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-21T08:43:30.450Z",
+  "generated_at": "2026-05-22T08:32:54.974Z",
   "method": "balanced_keyword_rule_based_event_scoring_v3",
   "description": "Automatikusan generált Kőszeg–azbeszt ügyindex a data/news.json alapján. A rendszer külön számolja a negatív kockázati és a pozitív intézkedési kulcsszavakat.",
   "scoring_note": "Ez nem klasszikus hangulatelemzés. A negatív pont kockázatot vagy romló fejleményt, a pozitív pont intézkedést, tájékoztatást, monitoringot vagy megoldás felé mutató eseményt jelent.",
@@ -758,28 +758,6 @@
       "url": "https://kormanyhivatalok.hu/kormanyhivatalok/vas/megye/hirek/hir/azbeszt-ugy-egeszsegugyi-lakossagi-forumot-tartott"
     },
     {
-      "date": "2026-04-30",
-      "title": "Szombathelyi azbesztügy: nem minden műszaki megoldás jöhet szóba a polgármester szerint",
-      "source": "Telex",
-      "source_type": "media",
-      "category": "karelhartas_megoldas",
-      "base_score": 5,
-      "source_weight": 1,
-      "confidence": 0.85,
-      "final_score": 4.25,
-      "matched_negative_rules": [],
-      "matched_positive_rules": [
-        {
-          "category": "karelhartas_megoldas",
-          "score": 5,
-          "keywords": [
-            "megoldas"
-          ]
-        }
-      ],
-      "url": "https://telex.hu/belfold/2026/04/30/szombathely-azbeszt-ugy-onkormanyzat-muszaki-megoldasok"
-    },
-    {
       "date": "2026-05-02",
       "title": "Szombathely polgármestere az azbesztszennyezésről: Egész Nyugat-Magyarország érintett lesz ebben",
       "source": "Telex",
@@ -873,28 +851,6 @@
       ],
       "matched_positive_rules": [],
       "url": "https://index.hu/belfold/2026/05/03/azbeszt-szennyezes-veszely-szombathely-vas-varmegye-ausztria-magyar-kozlony"
-    },
-    {
-      "date": "2026-05-07",
-      "title": "A szombathelyi erdészet is vizsgálja a lehetséges azbeszt szennyezettséget Vas vármegyében",
-      "source": "VAOL",
-      "source_type": "media",
-      "category": "szennyezes_vagy_gyanu",
-      "base_score": -4,
-      "source_weight": 1,
-      "confidence": 0.85,
-      "final_score": -3.4,
-      "matched_negative_rules": [
-        {
-          "category": "szennyezes_vagy_gyanu",
-          "score": -4,
-          "keywords": [
-            "szennyezett"
-          ]
-        }
-      ],
-      "matched_positive_rules": [],
-      "url": "https://www.vaol.hu/helyi-kozelet/2026/05/azbeszt-ugy-szombathelyi-erdeszet-vizsgal"
     },
     {
       "date": "2026-05-07",
@@ -1030,20 +986,6 @@
       ],
       "matched_positive_rules": [],
       "url": "https://24.hu/belfold/2026/05/08/azbesztszennyezes-kozuzalek-vas-megye-oriszentpeter-velem-2"
-    },
-    {
-      "date": "2026-05-10",
-      "title": "Megjött a vizsgálat eredménye: kimutatták az azbesztet ezen a vasi településen",
-      "source": "VAOL",
-      "source_type": "media",
-      "category": "altalanos_media_megjelenes",
-      "base_score": -1,
-      "source_weight": 1,
-      "confidence": 0.7,
-      "final_score": -0.7,
-      "matched_negative_rules": [],
-      "matched_positive_rules": [],
-      "url": "https://www.vaol.hu/helyi-kozelet/2026/05/azbesztet-ezen-a-vasi-telepulesen"
     },
     {
       "date": "2026-05-11",
@@ -1414,42 +1356,6 @@
       "url": "https://kurier.at/chronik/burgenland/asbest-messung-grosspetersdorf-schotterstrasse-asphaltierung/403160514"
     },
     {
-      "date": "2026-05-18",
-      "title": "Azbesztügy: A kormány a kockázat azonnali csökkentését ígérte",
-      "source": "Nyugat.hu",
-      "source_type": "media",
-      "category": "altalanos_media_megjelenes",
-      "base_score": -1,
-      "source_weight": 1,
-      "confidence": 0.7,
-      "final_score": -0.7,
-      "matched_negative_rules": [],
-      "matched_positive_rules": [],
-      "url": "https://www.nyugat.hu/cikk/kormany_hatarozat_azbeszt_szenynezes_nyugat_magyarorszag"
-    },
-    {
-      "date": "2026-05-18",
-      "title": "Rápli Róbert: Elkészült az azbesztügy megoldásának szakértői javaslatcsomagja",
-      "source": "Nyugat.hu",
-      "source_type": "media",
-      "category": "karelhartas_megoldas",
-      "base_score": 5,
-      "source_weight": 1,
-      "confidence": 0.85,
-      "final_score": 4.25,
-      "matched_negative_rules": [],
-      "matched_positive_rules": [
-        {
-          "category": "karelhartas_megoldas",
-          "score": 5,
-          "keywords": [
-            "megoldas"
-          ]
-        }
-      ],
-      "url": "https://www.nyugat.hu/cikk/rapli_robert_elkeszult_az_azbesztugy_megoldasanak"
-    },
-    {
       "date": "2026-05-19",
       "title": "Kőszegen is kimutatták az azbesztszennyezést",
       "source": "HVG",
@@ -1486,22 +1392,8 @@
       "url": "https://kurier.at/chronik/burgenland/passionsspiele-st-margarethen-jubilaeum-roemersteinbruch/403160958"
     },
     {
-      "date": "2026-05-19",
-      "title": "Azbeszt miatt lezárták két népszerű vasi tó parkolóit, de a horgászoknak azért hagytak egy kiskaput",
-      "source": "Nyugat.hu",
-      "source_type": "media",
-      "category": "altalanos_media_megjelenes",
-      "base_score": -1,
-      "source_weight": 1,
-      "confidence": 0.7,
-      "final_score": -0.7,
-      "matched_negative_rules": [],
-      "matched_positive_rules": [],
-      "url": "https://www.nyugat.hu/cikk/azbeszt_miatt_lezartak_ket_nepszeru_vasi_to_de_a"
-    },
-    {
       "date": "2026-05-20",
-      "title": "Asbest-Schotter: Greenpeace fordert Krisenstab vor Magyar-Besuch Vor dem Wien-Besuch des ungarischen Premiers Péter Magyar erhöht Greenpeace den Druck. Die NGO fordert Krisenstab, Entsorgungslösungen und Unterstützung für Betroffene.",
+      "title": "Asbest-Schotter: Greenpeace fordert Krisenstab vor Magyar-Besuch",
       "source": "Kurier Burgenland",
       "source_type": "austrian",
       "category": "altalanos_media_megjelenes",
@@ -1526,28 +1418,6 @@
       "matched_negative_rules": [],
       "matched_positive_rules": [],
       "url": "https://www.nyugat.hu/cikk/egy_szombathelyi_ovoda_parkolojaban_is_kimutattak"
-    },
-    {
-      "date": "2026-05-20",
-      "title": "Az osztrák Greenpeace szerint példát kéne venni Magyarországtól az azbesztszennyezés kezelésében",
-      "source": "Telex",
-      "source_type": "media",
-      "category": "szennyezes_vagy_gyanu",
-      "base_score": -4,
-      "source_weight": 1,
-      "confidence": 0.85,
-      "final_score": -3.4,
-      "matched_negative_rules": [
-        {
-          "category": "szennyezes_vagy_gyanu",
-          "score": -4,
-          "keywords": [
-            "azbesztszennyezes"
-          ]
-        }
-      ],
-      "matched_positive_rules": [],
-      "url": "https://telex.hu/techtud/2026/05/20/greenpeace-ausztria-szombathely-azbeszt-szennyezes"
     },
     {
       "date": "2026-05-20",
@@ -1580,6 +1450,28 @@
     },
     {
       "date": "2026-05-20",
+      "title": "Az osztrák Greenpeace szerint példát kéne venni Magyarországtól az azbesztszennyezés kezelésében",
+      "source": "Telex",
+      "source_type": "media",
+      "category": "szennyezes_vagy_gyanu",
+      "base_score": -4,
+      "source_weight": 1,
+      "confidence": 0.85,
+      "final_score": -3.4,
+      "matched_negative_rules": [
+        {
+          "category": "szennyezes_vagy_gyanu",
+          "score": -4,
+          "keywords": [
+            "azbesztszennyezes"
+          ]
+        }
+      ],
+      "matched_positive_rules": [],
+      "url": "https://telex.hu/techtud/2026/05/20/greenpeace-ausztria-szombathely-azbeszt-szennyezes"
+    },
+    {
+      "date": "2026-05-20",
       "title": "Azbeszt: bölcsődék, óvodák, iskolai kollégiumok parkolóiba és játszótér közelébe is jutott a szennyezett kövekből",
       "source": "HVG",
       "source_type": "media",
@@ -1603,17 +1495,25 @@
     },
     {
       "date": "2026-05-20",
-      "title": "Asbest: Greenpeace will nationalen Krisenstab",
-      "source": "ORF Burgenland",
-      "source_type": "austrian",
-      "category": "altalanos_media_megjelenes",
-      "base_score": -1,
+      "title": "Azbesztveszély: Hamarosan megnyitják a lezárt szombathelyi parkolókat, mobilposta jár majd az Oladi Platóra",
+      "source": "Nyugat.hu",
+      "source_type": "media",
+      "category": "egeszsegugyi_kockazat",
+      "base_score": -5,
       "source_weight": 1,
-      "confidence": 0.7,
-      "final_score": -0.7,
-      "matched_negative_rules": [],
+      "confidence": 0.85,
+      "final_score": -4.25,
+      "matched_negative_rules": [
+        {
+          "category": "egeszsegugyi_kockazat",
+          "score": -5,
+          "keywords": [
+            "azbesztveszely"
+          ]
+        }
+      ],
       "matched_positive_rules": [],
-      "url": "https://burgenland.orf.at/stories/3355033"
+      "url": "https://www.nyugat.hu/cikk/azbesztveszely_hamarosan_megnyitjak_alezart_jar_az"
     },
     {
       "date": "2026-05-20",
@@ -1636,28 +1536,6 @@
         }
       ],
       "url": "https://www.nyugat.hu/cikk/azbeszt_oladi_plato_utcak_allapot_mentesites_video_szombathely"
-    },
-    {
-      "date": "2026-05-20",
-      "title": "Azbesztveszély: Hamarosan megnyitják a lezárt szombathelyi parkolókat, mobilposta jár majd az Oladi Platóra",
-      "source": "Nyugat.hu",
-      "source_type": "media",
-      "category": "egeszsegugyi_kockazat",
-      "base_score": -5,
-      "source_weight": 1,
-      "confidence": 0.85,
-      "final_score": -4.25,
-      "matched_negative_rules": [
-        {
-          "category": "egeszsegugyi_kockazat",
-          "score": -5,
-          "keywords": [
-            "azbesztveszely"
-          ]
-        }
-      ],
-      "matched_positive_rules": [],
-      "url": "https://www.nyugat.hu/cikk/azbesztveszely_hamarosan_megnyitjak_alezart_jar_az"
     },
     {
       "date": "2026-05-20",
@@ -1764,26 +1642,113 @@
       "url": "https://24.hu/tudomany/2026/05/20/azbesztbotrany-ausztria-kormany-szombathely"
     },
     {
-      "date": "2026-05-20",
-      "title": "Sebességkorlátozást rendeltek el a vasi településen az azbeszt miatt - kalcium-kloridos kezelés is jöhet",
-      "source": "VAOL",
+      "date": "2026-05-21",
+      "title": "Asbestbelastung: Burgenland bekommt Hilfe vom Bund Bundeskanzler kündigt Gründung einer Arbeitsgruppe durch den Bund an. Land und Greenpeace reagieren positiv.",
+      "source": "Kurier Burgenland",
+      "source_type": "austrian",
+      "category": "altalanos_media_megjelenes",
+      "base_score": -1,
+      "source_weight": 1,
+      "confidence": 0.7,
+      "final_score": -0.7,
+      "matched_negative_rules": [],
+      "matched_positive_rules": [],
+      "url": "https://kurier.at/chronik/burgenland/asbestbelastung-burgenland-arbeitsgruppe-bund-gesetzliche-regelung/403161901"
+    },
+    {
+      "date": "2026-05-21",
+      "title": "Asbest: Österreich und Ungarn vereinbaren Arbeitsgruppe",
+      "source": "ORF Burgenland",
+      "source_type": "austrian",
+      "category": "altalanos_media_megjelenes",
+      "base_score": -1,
+      "source_weight": 1,
+      "confidence": 0.7,
+      "final_score": -0.7,
+      "matched_negative_rules": [],
+      "matched_positive_rules": [],
+      "url": "https://burgenland.orf.at/stories/3355231"
+    },
+    {
+      "date": "2026-05-21",
+      "title": "Ausztriában is gondot okoz az azbeszt, de még mindig nem tudni, mekkora a baj",
+      "source": "Nyugat.hu",
       "source_type": "media",
-      "category": "korlatozas",
-      "base_score": -2,
+      "category": "altalanos_media_megjelenes",
+      "base_score": -1,
+      "source_weight": 1,
+      "confidence": 0.7,
+      "final_score": -0.7,
+      "matched_negative_rules": [],
+      "matched_positive_rules": [],
+      "url": "https://www.nyugat.hu/cikk/ausztriaban_is_gondot_okoz_az_azbeszt_de_meg_nem_a"
+    },
+    {
+      "date": "2026-05-21",
+      "title": "Azbesztveszély: Fekvőrendőrt helyeznek ki a Síp utcába, az Oladi Platóra",
+      "source": "Nyugat.hu",
+      "source_type": "media",
+      "category": "egeszsegugyi_kockazat",
+      "base_score": -5,
       "source_weight": 1,
       "confidence": 0.85,
-      "final_score": -1.7,
+      "final_score": -4.25,
       "matched_negative_rules": [
         {
-          "category": "korlatozas",
-          "score": -2,
+          "category": "egeszsegugyi_kockazat",
+          "score": -5,
           "keywords": [
-            "korlatozas"
+            "azbesztveszely"
           ]
         }
       ],
       "matched_positive_rules": [],
-      "url": "https://www.vaol.hu/helyi-kozelet/2026/05/azbeszt-ugy-sebessegkorlatozast-rendeltek-el"
+      "url": "https://www.nyugat.hu/cikk/azbesztveszely_fekvorendort_helyeznek_ki_a_sip_az"
+    },
+    {
+      "date": "2026-05-21",
+      "title": "Magyar Péter: Hétfőn kezdi meg munkáját az azbesztszennyezést vizsgáló bizottság",
+      "source": "Nyugat.hu",
+      "source_type": "media",
+      "category": "szennyezes_vagy_gyanu",
+      "base_score": -4,
+      "source_weight": 1,
+      "confidence": 0.85,
+      "final_score": -3.4,
+      "matched_negative_rules": [
+        {
+          "category": "szennyezes_vagy_gyanu",
+          "score": -4,
+          "keywords": [
+            "azbesztszennyezes"
+          ]
+        }
+      ],
+      "matched_positive_rules": [],
+      "url": "https://www.nyugat.hu/cikk/magyar_peter_hetfon_kezdi_meg_munkajat_az_vizsgalo"
+    },
+    {
+      "date": "2026-05-21",
+      "title": "Felfüggesztették a Manó-tornát az azbeszttel szennyezett szombathelyi parkoló miatt",
+      "source": "VAOL",
+      "source_type": "media",
+      "category": "szennyezes_vagy_gyanu",
+      "base_score": -4,
+      "source_weight": 1,
+      "confidence": 1,
+      "final_score": -4,
+      "matched_negative_rules": [
+        {
+          "category": "szennyezes_vagy_gyanu",
+          "score": -4,
+          "keywords": [
+            "szennyezett",
+            "azbeszttel szennyezett"
+          ]
+        }
+      ],
+      "matched_positive_rules": [],
+      "url": "https://www.vaol.hu/helyi-kozelet/2026/05/azbeszt-szombathely-parkolo-elmarad-ovis-torna"
     }
   ]
 }
