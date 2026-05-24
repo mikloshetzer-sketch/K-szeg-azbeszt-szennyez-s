@@ -1,0 +1,45 @@
+name: Fetch settlement county lookup
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  fetch-settlement-county-lookup:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Repository letöltése
+        uses: actions/checkout@v4
+
+      - name: Python telepítése
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Függőségek telepítése
+        run: |
+          python -m pip install --upgrade pip
+          pip install pandas requests openpyxl
+
+      - name: KSH település-vármegye törzsadat letöltése
+        run: |
+          python scripts/fetch_settlement_county_lookup.py
+
+      - name: Eredményfájlok ellenőrzése
+        run: |
+          ls -lah data || true
+          ls -lah docs/data || true
+
+      - name: Változások commitolása
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+
+          git add data/settlement_county_lookup.json
+          git add docs/data/settlement_county_lookup.json
+
+          git commit -m "KSH település-vármegye törzsadat frissítése" || echo "Nincs változás"
+          git push
