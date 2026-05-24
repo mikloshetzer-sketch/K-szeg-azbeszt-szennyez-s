@@ -1,9 +1,11 @@
 import json
 import re
 from pathlib import Path
+from urllib.parse import urljoin
 
 import pandas as pd
 import requests
+from bs4 import BeautifulSoup
 
 
 SOURCE_URL = "https://www.martinkepviselo.hu/azbesztveszely/kozerdekulista"
@@ -22,57 +24,75 @@ def clean_text(value):
     return re.sub(r"\s+", " ", str(value)).strip()
 
 
+def get_html(url):
+    headers = {
+        "User-Agent": "Mozilla/5.0"
+    }
+    r = requests.get(url, headers=headers, timeout=40)
+    r.raise_for_status()
+    return r.text
+
+
+def extract_google_sheet_url(html):
+    soup = BeautifulSoup(html, "html.parser")
+    iframe = soup.find("iframe")
+
+    if not iframe or not iframe.get("src"):
+        raise RuntimeError("Nem találtam Google Sheets iframe-et a forrásoldalon.")
+
+    src = iframe["src"].replace("&amp;", "&")
+
+    if src.startswith("//"):
+        src = "https:" + src
+    elif src.startswith("/"):
+        src = urljoin(SOURCE_URL, src)
+
+    return src
+
+
 def normalize_columns(df):
     df = df.copy()
     df.columns = [clean_text(c) for c in df.columns]
 
-    rename_map = {}
+    rename = {}
 
     for col in df.columns:
         low = col.lower()
 
         if low in ["év", "ev", "year"]:
-            rename_map[col] = "year"
+            rename[col] = "year"
         elif low in ["hó", "ho", "month"]:
-            rename_map[col] = "month"
+            rename[col] = "month"
         elif "felrakod" in low:
-            rename_map[col] = "loading_place"
+            rename[col] = "loading_place"
         elif "kirakod" in low:
-            rename_map[col] = "destination"
+            rename[col] = "destination"
         elif "menny" in low or "tonna" in low or "kg" in low:
-            rename_map[col] = "quantity"
+            rename[col] = "quantity"
 
-    df = df.rename(columns=rename_map)
-
-    return df
+    return df.rename(columns=rename)
 
 
-def fetch_tables():
-    headers = {
-        "User-Agent": (
-            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
-            "AppleWebKit/537.36 (KHTML, like Gecko) "
-            "Chrome/120 Safari/537.36"
-        )
-    }
+def fetch_table():
+    page_html = get_html(SOURCE_URL)
+    sheet_url = extract_google_sheet_url(page_html)
 
-    response = requests.get(SOURCE_URL, headers=headers, timeout=30)
-    response.raise_for_status()
+    print("Google Sheets iframe URL:")
+    print(sheet_url)
 
-    tables = pd.read_html(response.text)
+    tables = pd.read_html(sheet_url)
 
     if not tables:
-        raise RuntimeError("Nem találtam HTML táblázatot a forrásoldalon.")
+        raise RuntimeError("A Google Sheets oldalon nem találtam táblázatot.")
 
     best = None
     best_score = -1
 
     for table in tables:
         df = normalize_columns(table)
-
         cols = set(df.columns)
-        score = 0
 
+        score = 0
         if "year" in cols:
             score += 2
         if "month" in cols:
@@ -83,25 +103,23 @@ def fetch_tables():
             score += 2
         if "quantity" in cols:
             score += 1
-
-        if len(df) > 10:
-            score += 1
+        if len(df) > 20:
+            score += 2
 
         if score > best_score:
             best = df
             best_score = score
 
-    if best is None or best_score < 4:
-        raise RuntimeError("Találtam táblázatot, de nem ismertem fel EKÁER-adatként.")
+    if best is None or best_score < 6:
+        raise RuntimeError(
+            f"Találtam táblázatot, de nem ismertem fel EKÁER-táblaként. "
+            f"Legjobb pontszám: {best_score}"
+        )
 
-    return best
+    return normalize_columns(best), sheet_url
 
 
 def add_county_guess(destination):
-    """
-    Egyszerű első verzió.
-    Később ezt érdemes pontos település–megye törzsadattal kiváltani.
-    """
     name = clean_text(destination).lower()
 
     vas = {
@@ -133,21 +151,21 @@ def add_county_guess(destination):
 
 
 def main():
-    df = fetch_tables()
-    df = normalize_columns(df)
+    df, sheet_url = fetch_table()
 
     required = ["year", "month", "loading_place", "destination"]
-    missing = [col for col in required if col not in df.columns]
+    missing = [c for c in required if c not in df.columns]
 
     if missing:
-        raise RuntimeError(f"Hiányzó kötelező oszlopok: {missing}. Elérhető oszlopok: {list(df.columns)}")
+        raise RuntimeError(
+            f"Hiányzó oszlopok: {missing}. Elérhető oszlopok: {list(df.columns)}"
+        )
 
     for col in df.columns:
         df[col] = df[col].map(clean_text)
 
-    df = df[df["year"].astype(str).str.match(r"^\d{4}$", na=False)]
+    df = df[df["year"].astype(str).str.match(r"^\d{4}$", na=False)].copy()
     df["year"] = df["year"].astype(int)
-
     df["month"] = pd.to_numeric(df["month"], errors="coerce").fillna(0).astype(int)
 
     df["quarry"] = df["loading_place"].str.upper()
@@ -163,6 +181,7 @@ def main():
 
     summary = {
         "source_url": SOURCE_URL,
+        "google_sheet_url": sheet_url,
         "record_count": len(records),
         "year_min": int(df["year"].min()) if len(df) else None,
         "year_max": int(df["year"].max()) if len(df) else None,
