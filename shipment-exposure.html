@@ -19,7 +19,7 @@
     }
 
     .page {
-      max-width: 1320px;
+      max-width: 1380px;
       margin: 0 auto;
       background: #f8fafc;
       min-height: 100vh;
@@ -42,7 +42,7 @@
     }
 
     .hero p {
-      max-width: 760px;
+      max-width: 780px;
       color: #dbeafe;
       font-size: 17px;
       line-height: 1.55;
@@ -53,7 +53,7 @@
       border-radius: 18px;
       padding: 24px 34px;
       text-align: center;
-      min-width: 230px;
+      min-width: 240px;
       background: rgba(255,255,255,.06);
     }
 
@@ -130,7 +130,7 @@
     }
 
     .big {
-      font-size: 40px;
+      font-size: 38px;
       font-weight: 900;
       color: #2563eb;
       line-height: 1;
@@ -154,7 +154,7 @@
 
     .section h2 {
       margin: 0 0 18px;
-      font-size: 26px;
+      font-size: 25px;
     }
 
     .assessment {
@@ -172,44 +172,19 @@
       gap: 22px;
     }
 
-    .chartbox {
-      height: 310px;
-      position: relative;
-    }
-
-    .region-grid {
+    .grid3 {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: 1fr 1fr 1fr;
       gap: 18px;
     }
 
-    .region {
-      border-radius: 18px;
-      overflow: hidden;
-      border: 1px solid #dbe3ee;
-      background: #f8fafc;
+    .chartbox {
+      height: 330px;
+      position: relative;
     }
 
-    .region-title {
-      padding: 18px 20px;
-      color: white;
-      font-weight: 900;
-      font-size: 21px;
-    }
-
-    .blue { background:#2563eb; }
-    .green { background:#16a34a; }
-    .orange { background:#f97316; }
-    .red { background:#dc2626; }
-
-    .region-body {
-      padding: 22px 20px;
-    }
-
-    .region-score {
-      font-size: 34px;
-      color: #2563eb;
-      font-weight: 900;
+    .chartbox.large {
+      height: 420px;
     }
 
     .method {
@@ -243,21 +218,6 @@
       text-transform: uppercase;
     }
 
-    .status-known {
-      color: #15803d;
-      font-weight: 900;
-    }
-
-    .status-limited {
-      color: #c2410c;
-      font-weight: 900;
-    }
-
-    .status-missing {
-      color: #b91c1c;
-      font-weight: 900;
-    }
-
     .sources li {
       margin-bottom: 8px;
       line-height: 1.5;
@@ -266,6 +226,24 @@
     .sources a {
       color: #2563eb;
       font-weight: 800;
+    }
+
+    .small-note {
+      color: #64748b;
+      font-size: 12px;
+      line-height: 1.5;
+      margin-top: 10px;
+    }
+
+    .error {
+      background: #fee2e2;
+      border-left: 6px solid #dc2626;
+      padding: 18px 22px;
+      border-radius: 14px;
+      color: #7f1d1d;
+      font-weight: 800;
+      display: none;
+      margin-bottom: 24px;
     }
 
     @media (max-width: 1000px) {
@@ -283,7 +261,7 @@
 
       .cards,
       .grid2,
-      .region-grid {
+      .grid3 {
         grid-template-columns: 1fr;
       }
 
@@ -306,15 +284,15 @@
       <div>
         <h1>EKÁER/NAV Szállítási<br>Kitettségi Riport</h1>
         <p>
-          Logisztikai helyzetkép az osztrák bányákból Magyarországra érkező
-          zúzottkő-szállítások nyugat-dunántúli kitettségéről.
+          Valós adatokra épülő logisztikai helyzetkép az osztrák bányákból
+          Magyarországra érkező zúzottkő-szállítások területi és időbeli mintázatairól.
         </p>
       </div>
 
       <div class="datebox">
         <div class="label">adatmodul</div>
-        <div class="date">2015–2026</div>
-        <div class="label">aggregált riport</div>
+        <div class="date" id="periodBox">–</div>
+        <div class="label">CSV-alapú riport</div>
       </div>
     </header>
 
@@ -322,185 +300,144 @@
       <a class="btn" href="index.html">Vissza a főoldalra</a>
       <a class="btn orange" href="https://www.nyugat.hu/cikk/tobb_mint_250_telepules_erintett_az_azbesztugyben" target="_blank" rel="noopener">Nyugat.hu forrás</a>
       <a class="btn dark" href="https://martinkepviselo.hu/azbesztveszely/kozerdekulista" target="_blank" rel="noopener">Közérdekű lista</a>
-      <a class="btn dark" href="data/ekaer_shipments_summary.json" target="_blank" rel="noopener">Adatfájl</a>
+      <a class="btn dark" href="docs/data/ekaer_dashboard_summary.json" target="_blank" rel="noopener">Adatfájl</a>
     </div>
 
     <main class="content">
 
       <div class="notice">
-        A jelenlegi oldal csak a nyilvánosan ismert, ellenőrizhető keretadatokat használja.
-        A diagramok nem tonnaadatokat és nem egyedi EKÁER-számokat mutatnak, hanem adatstátuszt,
-        azonosított forrásokat és módszertani kategóriákat.
+        A riport az EKÁER/NAV-alapú, publikált árumozgási adatokból készült.
+        Az adatok logisztikai kitettséget mutatnak, nem bizonyított azbesztszennyezést.
+        A mennyiségi oszlopok a 2517-es vámtarifaszám alá tartozó árukategóriákból vannak összesítve.
+      </div>
+
+      <div class="error" id="errorBox">
+        Az adatfájl nem tölthető be. Ellenőrizd, hogy létezik-e:
+        docs/data/ekaer_dashboard_summary.json
       </div>
 
       <section class="cards">
         <div class="card">
-          <h3>Érintett települések</h3>
-          <div class="big">250+</div>
-          <div class="sub">publikált árumozgási adatok alapján</div>
+          <h3>Rekordok száma</h3>
+          <div class="big" id="recordCount">–</div>
+          <div class="sub">szállítási adatsor</div>
         </div>
 
         <div class="card">
-          <h3>Vizsgált időszak</h3>
-          <div class="big">2015–2026</div>
-          <div class="sub">többéves logisztikai kitettségi keret</div>
+          <h3>Céltelepülések</h3>
+          <div class="big" id="destinationCount">–</div>
+          <div class="sub">egyedi kirakodási település</div>
         </div>
 
         <div class="card">
           <h3>Forrásbányák</h3>
-          <div class="big">4</div>
-          <div class="sub">Badersdorf, Bernstein, Pilgersdorf, Rumpersdorf</div>
+          <div class="big" id="quarryCount">–</div>
+          <div class="sub" id="quarryNames">–</div>
         </div>
 
         <div class="card">
-          <h3>Vámtarifaszám</h3>
-          <div class="big">2517</div>
-          <div class="sub">zúzottkő, kavics, kőzúzalék és hasonló anyagok</div>
+          <h3>Összesített mennyiség</h3>
+          <div class="big" id="quantityTotal">–</div>
+          <div class="sub">a forrásfájl mértékegysége szerint</div>
         </div>
       </section>
 
       <section class="section">
         <h2>Rövid értékelés</h2>
-        <div class="assessment">
-          Az EKÁER/NAV-alapú adatok nem szennyezettségi bizonyítékok, hanem
-          árumozgási és logisztikai kitettségi indikátorok. A jelenleg beépített
-          adatok azt mutatják, hogy az érintett osztrák bányákból származó
-          zúzottkő-szállítások széles nyugat-dunántúli települési körben jelenhettek meg.
-          A modul ezért nem hatósági szennyezettségi lista, hanem elemzési és monitoring
-          segédeszköz.
+        <div class="assessment" id="assessmentText">
+          Adatok betöltése...
         </div>
       </section>
 
-      <section class="section">
-        <h2>Fő kitettségi blokkok</h2>
-
-        <div class="region-grid">
-          <div class="region">
-            <div class="region-title blue">Vas megye</div>
-            <div class="region-body">
-              <div class="region-score">kiemelt</div>
-              <div class="sub">Kőszeg, Bozsok, Szombathely térségi fókusz</div>
-            </div>
+      <section class="grid2">
+        <div class="section">
+          <h2>Megyei bontás – céltelepülések száma</h2>
+          <div class="chartbox">
+            <canvas id="countyDestChart"></canvas>
           </div>
-
-          <div class="region">
-            <div class="region-title green">Zala megye</div>
-            <div class="region-body">
-              <div class="region-score">érintett</div>
-              <div class="sub">nyugat-dunántúli logisztikai kitettségi blokk</div>
-            </div>
+          <div class="small-note">
+            Ez azt mutatja, hogy hány különböző céltelepülés szerepel megyénként.
           </div>
+        </div>
 
-          <div class="region">
-            <div class="region-title orange">Győr-Moson-Sopron</div>
-            <div class="region-body">
-              <div class="region-score">érintett</div>
-              <div class="sub">határ menti és regionális szállítási kapcsolatok</div>
-            </div>
+        <div class="section">
+          <h2>Megyei bontás – mennyiség</h2>
+          <div class="chartbox">
+            <canvas id="countyQuantityChart"></canvas>
           </div>
-
-          <div class="region">
-            <div class="region-title red">Adatkorlát</div>
-            <div class="region-body">
-              <div class="region-score">fontos</div>
-              <div class="sub">a nyilvános adatok aggregáltak, nem egyedi EKÁER-számok</div>
-            </div>
+          <div class="small-note">
+            A vámtarifaszám-oszlopokból összesített mennyiségi érték.
           </div>
         </div>
       </section>
 
       <section class="grid2">
         <div class="section">
-          <h2>Bányák azonosítása</h2>
+          <h2>Bányák szerinti összesített mennyiség</h2>
           <div class="chartbox">
-            <canvas id="quarryChart"></canvas>
+            <canvas id="quarryQuantityChart"></canvas>
           </div>
         </div>
 
         <div class="section">
-          <h2>Regionális érintettségi blokkok</h2>
+          <h2>Éves szállítási aktivitás</h2>
           <div class="chartbox">
-            <canvas id="countyChart"></canvas>
-          </div>
-        </div>
-      </section>
-
-      <section class="grid2">
-        <div class="section">
-          <h2>Adatigénylés időkerete</h2>
-          <div class="chartbox">
-            <canvas id="yearChart"></canvas>
-          </div>
-        </div>
-
-        <div class="section">
-          <h2>Adatok ismertségi státusza</h2>
-          <div class="chartbox">
-            <canvas id="typeChart"></canvas>
+            <canvas id="yearQuantityChart"></canvas>
           </div>
         </div>
       </section>
 
       <section class="section">
-        <h2>Adatstátusz táblázat</h2>
+        <h2>Bánya → megye mátrix</h2>
+        <div class="chartbox large">
+          <canvas id="matrixChart"></canvas>
+        </div>
+        <div class="small-note">
+          A diagram azt mutatja, hogy az egyes bányákból mely megyékbe mekkora összesített mennyiség kapcsolódik.
+        </div>
+      </section>
 
+      <section class="grid2">
+        <div class="section">
+          <h2>Top céltelepülések – mennyiség szerint</h2>
+          <div class="chartbox large">
+            <canvas id="topQuantityChart"></canvas>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2>Top céltelepülések – rekordok szerint</h2>
+          <div class="chartbox large">
+            <canvas id="topRecordChart"></canvas>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Megyei összesítő táblázat</h2>
         <table class="data-table">
           <thead>
             <tr>
-              <th>Adatkör</th>
-              <th>Jelenlegi státusz</th>
-              <th>Értelmezés</th>
+              <th>Megye</th>
+              <th>Céltelepülések száma</th>
+              <th>Rekordok száma</th>
+              <th>Összesített mennyiség</th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <td>Érintett települések száma</td>
-              <td class="status-known">ismert</td>
-              <td>250+ település szerepel a publikált összefoglalókban.</td>
-            </tr>
-            <tr>
-              <td>Vizsgált időszak</td>
-              <td class="status-known">ismert</td>
-              <td>2015–2026 közötti szállítási keret.</td>
-            </tr>
-            <tr>
-              <td>Forrásbányák</td>
-              <td class="status-known">ismert</td>
-              <td>Badersdorf, Bernstein, Pilgersdorf, Rumpersdorf.</td>
-            </tr>
-            <tr>
-              <td>Vámtarifaszám</td>
-              <td class="status-known">ismert</td>
-              <td>2517-es árukör: zúzottkő, kavics, kőzúzalék és hasonló anyagok.</td>
-            </tr>
-            <tr>
-              <td>Településenkénti mennyiség</td>
-              <td class="status-limited">korlátozott / kinyerés alatt</td>
-              <td>A nyilvános oldalon lehet strukturált adat, de még nem épült be a repóba.</td>
-            </tr>
-            <tr>
-              <td>Egyedi EKÁER-számok</td>
-              <td class="status-missing">nem publikus</td>
-              <td>A jelenlegi oldal nem kezel egyedi EKÁER-azonosítókat.</td>
-            </tr>
-            <tr>
-              <td>Bizonyított azbesztszennyezés</td>
-              <td class="status-limited">külön kezelendő</td>
-              <td>Ez nem azonos a logisztikai kitettséggel. Hatósági vagy laboradat szükséges hozzá.</td>
-            </tr>
+          <tbody id="countyTableBody">
+            <tr><td colspan="4">Betöltés...</td></tr>
           </tbody>
         </table>
       </section>
 
       <section class="section">
         <h2>Módszertani figyelmeztetés</h2>
-        <div class="method">
+        <div class="method" id="methodNote">
           A település szereplése az EKÁER/NAV-alapú árumozgási adatokban nem
           jelenti azt, hogy ott bizonyított azbesztszennyezés történt. A 2517-es
           vámtarifaszám önmagában nem bizonyít azbeszttartalmat. Az adatok
           elsősorban logisztikai kitettséget, első célállomásokat és szállítási
-          mintázatokat jeleznek. A bizonyított helyi érintettséget külön adatmodulban
-          kell kezelni.
+          mintázatokat jeleznek.
         </div>
       </section>
 
@@ -508,23 +445,18 @@
         <h2>Források</h2>
         <ul class="sources">
           <li>
-            <a href="https://www.nyugat.hu/cikk/tobb_mint_250_telepules_erintett_az_azbesztugyben" target="_blank" rel="noopener">
-              Nyugat.hu – Több mint 250 település érintett az azbesztügyben
-            </a>
-          </li>
-          <li>
             <a href="https://martinkepviselo.hu/azbesztveszely/kozerdekulista" target="_blank" rel="noopener">
               Németh Martin – közérdekű lista
             </a>
           </li>
           <li>
-            <a href="https://martinkepviselo.hu/azbesztveszely/kozerdekuterkep" target="_blank" rel="noopener">
-              Németh Martin – közérdekű térkép
+            <a href="https://www.nyugat.hu/cikk/tobb_mint_250_telepules_erintett_az_azbesztugyben" target="_blank" rel="noopener">
+              Nyugat.hu – Több mint 250 település érintett az azbesztügyben
             </a>
           </li>
           <li>
-            <a href="data/ekaer_shipments_summary.json" target="_blank" rel="noopener">
-              Helyi adatmodul: data/ekaer_shipments_summary.json
+            <a href="docs/data/ekaer_dashboard_summary.json" target="_blank" rel="noopener">
+              Helyi feldolgozott adatfájl: docs/data/ekaer_dashboard_summary.json
             </a>
           </li>
         </ul>
@@ -534,131 +466,278 @@
   </div>
 
   <script>
-    new Chart(document.getElementById('quarryChart'), {
-      type: 'bar',
-      data: {
-        labels: ['Badersdorf', 'Bernstein', 'Pilgersdorf', 'Rumpersdorf'],
-        datasets: [{
-          label: 'Forrásként azonosított bánya',
-          data: [1, 1, 1, 1],
-          backgroundColor: ['#2563eb', '#16a34a', '#f97316', '#dc2626']
-        }]
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: {
-          legend: { display: false },
-          tooltip: {
-            callbacks: {
-              label: () => 'Azonosított forrásbánya – mennyiségi adat nélkül'
-            }
-          }
+    const DATA_URL = 'docs/data/ekaer_dashboard_summary.json';
+
+    let charts = [];
+
+    function formatNumber(value) {
+      const n = Number(value || 0);
+      return n.toLocaleString('hu-HU', { maximumFractionDigits: 0 });
+    }
+
+    function formatShort(value) {
+      const n = Number(value || 0);
+
+      if (Math.abs(n) >= 1_000_000_000) {
+        return (n / 1_000_000_000).toLocaleString('hu-HU', { maximumFractionDigits: 2 }) + ' Mrd';
+      }
+
+      if (Math.abs(n) >= 1_000_000) {
+        return (n / 1_000_000).toLocaleString('hu-HU', { maximumFractionDigits: 1 }) + ' M';
+      }
+
+      if (Math.abs(n) >= 1_000) {
+        return (n / 1_000).toLocaleString('hu-HU', { maximumFractionDigits: 1 }) + ' ezer';
+      }
+
+      return formatNumber(n);
+    }
+
+    function objectToSortedEntries(obj, limit = null) {
+      const entries = Object.entries(obj || {})
+        .sort((a, b) => Number(b[1]) - Number(a[1]));
+
+      return limit ? entries.slice(0, limit) : entries;
+    }
+
+    function createChart(ctx, config) {
+      const chart = new Chart(ctx, config);
+      charts.push(chart);
+      return chart;
+    }
+
+    function barChart(canvasId, labels, values, label, horizontal = false) {
+      return createChart(document.getElementById(canvasId), {
+        type: 'bar',
+        data: {
+          labels,
+          datasets: [{
+            label,
+            data: values,
+            backgroundColor: [
+              '#2563eb', '#16a34a', '#f97316', '#dc2626',
+              '#7c3aed', '#0891b2', '#64748b', '#ca8a04',
+              '#be123c', '#15803d', '#1d4ed8', '#9333ea'
+            ]
+          }]
         },
-        scales: {
-          y: {
-            beginAtZero: true,
-            max: 1,
-            ticks: {
-              stepSize: 1,
-              callback: value => value === 1 ? 'szerepel' : ''
-            }
-          }
-        }
-      }
-    });
-
-    new Chart(document.getElementById('countyChart'), {
-      type: 'doughnut',
-      data: {
-        labels: ['Vas megye', 'Zala megye', 'Győr-Moson-Sopron', 'További települések'],
-        datasets: [{
-          data: [1, 1, 1, 1],
-          backgroundColor: ['#2563eb', '#16a34a', '#f97316', '#94a3b8']
-        }]
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: {
-          tooltip: {
-            callbacks: {
-              label: context => context.label + ': regionális érintettségi blokk, arányadat nélkül'
-            }
-          }
-        }
-      }
-    });
-
-    new Chart(document.getElementById('yearChart'), {
-      type: 'line',
-      data: {
-        labels: ['2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022', '2023', '2024', '2025', '2026'],
-        datasets: [{
-          label: 'Adatigénylés időkerete',
-          data: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-          borderColor: '#2563eb',
-          backgroundColor: 'rgba(37,99,235,.12)',
-          fill: true,
-          tension: .2
-        }]
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: {
-          tooltip: {
-            callbacks: {
-              label: () => 'Az időszak része – nem éves mennyiségi adat'
-            }
-          }
-        },
-        scales: {
-          y: {
-            display: false
-          }
-        }
-      }
-    });
-
-    new Chart(document.getElementById('typeChart'), {
-      type: 'bar',
-      data: {
-        labels: [
-          '250+ település',
-          '4 forrásbánya',
-          '2015–2026 időkeret',
-          '2517 vámtarifaszám',
-          'Településenkénti mennyiség',
-          'Egyedi EKÁER-szám'
-        ],
-        datasets: [{
-          label: 'Adatstátusz',
-          data: [100, 100, 100, 100, 50, 0],
-          backgroundColor: ['#16a34a', '#16a34a', '#16a34a', '#16a34a', '#f97316', '#dc2626']
-        }]
-      },
-      options: {
-        indexAxis: 'y',
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: { legend: { display: false } },
-        scales: {
-          x: {
-            beginAtZero: true,
-            max: 100,
-            ticks: {
-              callback: value => {
-                if (value === 100) return 'ismert';
-                if (value === 50) return 'részben';
-                if (value === 0) return 'nem publikus';
-                return '';
+        options: {
+          indexAxis: horizontal ? 'y' : 'x',
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { display: false },
+            tooltip: {
+              callbacks: {
+                label: context => `${label}: ${formatNumber(context.raw)}`
               }
             }
+          },
+          scales: {
+            x: { beginAtZero: true },
+            y: { beginAtZero: true }
           }
         }
+      });
+    }
+
+    function lineChart(canvasId, labels, values, label) {
+      return createChart(document.getElementById(canvasId), {
+        type: 'line',
+        data: {
+          labels,
+          datasets: [{
+            label,
+            data: values,
+            borderColor: '#2563eb',
+            backgroundColor: 'rgba(37,99,235,.14)',
+            fill: true,
+            tension: 0.35,
+            pointRadius: 4
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            tooltip: {
+              callbacks: {
+                label: context => `${label}: ${formatNumber(context.raw)}`
+              }
+            }
+          },
+          scales: {
+            y: { beginAtZero: true }
+          }
+        }
+      });
+    }
+
+    function stackedMatrixChart(data) {
+      const matrix = Array.isArray(data.quarry_county_matrix) ? data.quarry_county_matrix : [];
+      const counties = [...new Set(matrix.map(item => item.county))];
+      const quarries = [...new Set(matrix.map(item => item.quarry))];
+
+      const colors = ['#2563eb', '#16a34a', '#f97316', '#dc2626', '#7c3aed', '#64748b'];
+
+      const datasets = quarries.map((quarry, index) => ({
+        label: quarry,
+        data: counties.map(county => {
+          const row = matrix.find(item => item.county === county && item.quarry === quarry);
+          return row ? Number(row.quantity_total || 0) : 0;
+        }),
+        backgroundColor: colors[index % colors.length]
+      }));
+
+      return createChart(document.getElementById('matrixChart'), {
+        type: 'bar',
+        data: {
+          labels: counties,
+          datasets
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            tooltip: {
+              callbacks: {
+                label: context => `${context.dataset.label}: ${formatNumber(context.raw)}`
+              }
+            }
+          },
+          scales: {
+            x: { stacked: true },
+            y: { stacked: true, beginAtZero: true }
+          }
+        }
+      });
+    }
+
+    function renderCountyTable(data) {
+      const tbody = document.getElementById('countyTableBody');
+      const countyDest = data.county_destination_counts || {};
+      const countyRecords = data.county_record_counts || {};
+      const countyQuantity = data.county_quantity_totals || {};
+
+      const rows = objectToSortedEntries(countyQuantity).map(([county, quantity]) => {
+        return `
+          <tr>
+            <td><strong>${county}</strong></td>
+            <td>${formatNumber(countyDest[county] || 0)}</td>
+            <td>${formatNumber(countyRecords[county] || 0)}</td>
+            <td>${formatNumber(quantity)}</td>
+          </tr>
+        `;
+      }).join('');
+
+      tbody.innerHTML = rows || '<tr><td colspan="4">Nincs adat.</td></tr>';
+    }
+
+    function renderDashboard(data) {
+      document.getElementById('periodBox').textContent =
+        `${data.year_min || '–'}–${data.year_max || '–'}`;
+
+      document.getElementById('recordCount').textContent = formatNumber(data.record_count);
+      document.getElementById('destinationCount').textContent = formatNumber(data.unique_destinations);
+      document.getElementById('quarryCount').textContent = formatNumber(data.unique_quarries);
+      document.getElementById('quarryNames').textContent = (data.quarries || []).join(', ');
+      document.getElementById('quantityTotal').textContent = formatShort(data.quantity_total);
+
+      const topCounty = objectToSortedEntries(data.county_quantity_totals, 1)[0];
+      const topQuarry = objectToSortedEntries(data.quarry_quantity_totals, 1)[0];
+      const topDestination = objectToSortedEntries(data.top_destinations_by_quantity, 1)[0];
+
+      document.getElementById('assessmentText').innerHTML = `
+        A feldolgozott adatbázis <strong>${formatNumber(data.record_count)}</strong> rekordot és
+        <strong>${formatNumber(data.unique_destinations)}</strong> különböző céltelepülést tartalmaz.
+        A legnagyobb mennyiségi kitettség megyék szerint
+        <strong>${topCounty ? topCounty[0] : '–'}</strong> megyéhez kapcsolódik
+        (${topCounty ? formatNumber(topCounty[1]) : '–'}).
+        Bányák szerint a legnagyobb összesített mennyiséget
+        <strong>${topQuarry ? topQuarry[0] : '–'}</strong> adja.
+        A legnagyobb céltelepülési mennyiség
+        <strong>${topDestination ? topDestination[0] : '–'}</strong> esetében jelenik meg.
+      `;
+
+      if (data.method_note) {
+        document.getElementById('methodNote').textContent = data.method_note +
+          ' A logisztikai kitettség nem azonos a bizonyított szennyezettséggel.';
       }
-    });
+
+      const countyDestEntries = objectToSortedEntries(data.county_destination_counts);
+      barChart(
+        'countyDestChart',
+        countyDestEntries.map(e => e[0]),
+        countyDestEntries.map(e => e[1]),
+        'Céltelepülések száma'
+      );
+
+      const countyQuantityEntries = objectToSortedEntries(data.county_quantity_totals);
+      barChart(
+        'countyQuantityChart',
+        countyQuantityEntries.map(e => e[0]),
+        countyQuantityEntries.map(e => e[1]),
+        'Összesített mennyiség'
+      );
+
+      const quarryQuantityEntries = objectToSortedEntries(data.quarry_quantity_totals);
+      barChart(
+        'quarryQuantityChart',
+        quarryQuantityEntries.map(e => e[0]),
+        quarryQuantityEntries.map(e => e[1]),
+        'Összesített mennyiség'
+      );
+
+      const yearEntries = Object.entries(data.year_quantity_totals || {})
+        .sort((a, b) => Number(a[0]) - Number(b[0]));
+
+      lineChart(
+        'yearQuantityChart',
+        yearEntries.map(e => e[0]),
+        yearEntries.map(e => e[1]),
+        'Éves összesített mennyiség'
+      );
+
+      stackedMatrixChart(data);
+
+      const topQuantityEntries = objectToSortedEntries(data.top_destinations_by_quantity, 15).reverse();
+      barChart(
+        'topQuantityChart',
+        topQuantityEntries.map(e => e[0]),
+        topQuantityEntries.map(e => e[1]),
+        'Mennyiség',
+        true
+      );
+
+      const topRecordEntries = objectToSortedEntries(data.top_destinations_by_records, 15).reverse();
+      barChart(
+        'topRecordChart',
+        topRecordEntries.map(e => e[0]),
+        topRecordEntries.map(e => e[1]),
+        'Rekordok száma',
+        true
+      );
+
+      renderCountyTable(data);
+    }
+
+    async function loadData() {
+      try {
+        const response = await fetch(DATA_URL + '?t=' + Date.now());
+
+        if (!response.ok) {
+          throw new Error('Adatfájl nem elérhető');
+        }
+
+        const data = await response.json();
+        renderDashboard(data);
+      } catch (error) {
+        console.error(error);
+        document.getElementById('errorBox').style.display = 'block';
+      }
+    }
+
+    loadData();
   </script>
 
 </body>
