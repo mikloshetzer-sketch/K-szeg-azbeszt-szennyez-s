@@ -1,7 +1,8 @@
 import json
 import re
+from io import StringIO
 from pathlib import Path
-from urllib.parse import urljoin
+from urllib.parse import parse_qs, urlparse
 
 import pandas as pd
 import requests
@@ -25,29 +26,39 @@ def clean_text(value):
 
 
 def get_html(url):
-    headers = {
-        "User-Agent": "Mozilla/5.0"
-    }
-    r = requests.get(url, headers=headers, timeout=40)
+    r = requests.get(url, headers={"User-Agent": "Mozilla/5.0"}, timeout=40)
     r.raise_for_status()
     return r.text
 
 
-def extract_google_sheet_url(html):
+def extract_iframe_url(html):
     soup = BeautifulSoup(html, "html.parser")
     iframe = soup.find("iframe")
 
     if not iframe or not iframe.get("src"):
-        raise RuntimeError("Nem találtam Google Sheets iframe-et a forrásoldalon.")
+        raise RuntimeError("Nem találtam iframe-et.")
 
     src = iframe["src"].replace("&amp;", "&")
 
     if src.startswith("//"):
         src = "https:" + src
-    elif src.startswith("/"):
-        src = urljoin(SOURCE_URL, src)
 
     return src
+
+
+def google_csv_url(sheet_url):
+    parsed = urlparse(sheet_url)
+    parts = parsed.path.split("/")
+
+    try:
+        doc_id = parts[parts.index("d") + 1]
+    except Exception as exc:
+        raise RuntimeError(f"Nem tudtam kinyerni a Google Sheet azonosítót: {sheet_url}") from exc
+
+    query = parse_qs(parsed.query)
+    gid = query.get("gid", ["0"])[0]
+
+    return f"https://docs.google.com/spreadsheets/d/{doc_id}/export?format=csv&gid={gid}"
 
 
 def normalize_columns(df):
@@ -74,49 +85,22 @@ def normalize_columns(df):
 
 
 def fetch_table():
-    page_html = get_html(SOURCE_URL)
-    sheet_url = extract_google_sheet_url(page_html)
+    html = get_html(SOURCE_URL)
+    iframe_url = extract_iframe_url(html)
+    csv_url = google_csv_url(iframe_url)
 
-    print("Google Sheets iframe URL:")
-    print(sheet_url)
+    print("Google Sheets iframe URL:", iframe_url)
+    print("Google Sheets CSV URL:", csv_url)
 
-    tables = pd.read_html(sheet_url)
+    csv_text = get_html(csv_url)
 
-    if not tables:
-        raise RuntimeError("A Google Sheets oldalon nem találtam táblázatot.")
+    if "<html" in csv_text[:200].lower():
+        raise RuntimeError("A CSV export helyett HTML érkezett. Lehet, hogy a sheet export tiltott.")
 
-    best = None
-    best_score = -1
+    df = pd.read_csv(StringIO(csv_text))
+    df = normalize_columns(df)
 
-    for table in tables:
-        df = normalize_columns(table)
-        cols = set(df.columns)
-
-        score = 0
-        if "year" in cols:
-            score += 2
-        if "month" in cols:
-            score += 2
-        if "loading_place" in cols:
-            score += 2
-        if "destination" in cols:
-            score += 2
-        if "quantity" in cols:
-            score += 1
-        if len(df) > 20:
-            score += 2
-
-        if score > best_score:
-            best = df
-            best_score = score
-
-    if best is None or best_score < 6:
-        raise RuntimeError(
-            f"Találtam táblázatot, de nem ismertem fel EKÁER-táblaként. "
-            f"Legjobb pontszám: {best_score}"
-        )
-
-    return normalize_columns(best), sheet_url
+    return df, iframe_url, csv_url
 
 
 def add_county_guess(destination):
@@ -151,7 +135,7 @@ def add_county_guess(destination):
 
 
 def main():
-    df, sheet_url = fetch_table()
+    df, iframe_url, csv_url = fetch_table()
 
     required = ["year", "month", "loading_place", "destination"]
     missing = [c for c in required if c not in df.columns]
@@ -181,7 +165,8 @@ def main():
 
     summary = {
         "source_url": SOURCE_URL,
-        "google_sheet_url": sheet_url,
+        "google_sheet_iframe_url": iframe_url,
+        "google_sheet_csv_url": csv_url,
         "record_count": len(records),
         "year_min": int(df["year"].min()) if len(df) else None,
         "year_max": int(df["year"].max()) if len(df) else None,
@@ -228,10 +213,7 @@ def main():
     }
 
     for path, payload in outputs.items():
-        path.write_text(
-            json.dumps(payload, ensure_ascii=False, indent=2),
-            encoding="utf-8"
-        )
+        path.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
 
     print("EKÁER adatletöltés kész.")
     print(f"Rekordok száma: {summary['record_count']}")
