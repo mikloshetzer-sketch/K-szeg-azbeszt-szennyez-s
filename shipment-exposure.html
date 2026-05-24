@@ -75,6 +75,7 @@
       display: flex;
       justify-content: flex-end;
       gap: 12px;
+      flex-wrap: wrap;
     }
 
     .btn {
@@ -88,9 +89,22 @@
     }
 
     .btn.dark { background: #111827; }
+    .btn.orange { background: #ea580c; }
 
     .content {
       padding: 24px 56px 56px;
+    }
+
+    .notice {
+      background: #fff7ed;
+      border: 1px solid #fed7aa;
+      border-left: 7px solid #f97316;
+      border-radius: 18px;
+      padding: 20px 24px;
+      margin-bottom: 28px;
+      color: #7c2d12;
+      line-height: 1.6;
+      font-weight: 700;
     }
 
     .cards {
@@ -193,7 +207,7 @@
     }
 
     .region-score {
-      font-size: 38px;
+      font-size: 34px;
       color: #2563eb;
       font-weight: 900;
     }
@@ -205,6 +219,43 @@
       border-radius: 14px;
       line-height: 1.65;
       color: #7c2d12;
+    }
+
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      overflow: hidden;
+      border-radius: 14px;
+    }
+
+    .data-table th,
+    .data-table td {
+      border-bottom: 1px solid #e2e8f0;
+      padding: 13px 12px;
+      text-align: left;
+      font-size: 14px;
+    }
+
+    .data-table th {
+      background: #0f172a;
+      color: white;
+      font-size: 13px;
+      text-transform: uppercase;
+    }
+
+    .status-known {
+      color: #15803d;
+      font-weight: 900;
+    }
+
+    .status-limited {
+      color: #c2410c;
+      font-weight: 900;
+    }
+
+    .status-missing {
+      color: #b91c1c;
+      font-weight: 900;
     }
 
     .sources li {
@@ -239,6 +290,11 @@
       .hero h1 {
         font-size: 32px;
       }
+
+      .data-table {
+        display: block;
+        overflow-x: auto;
+      }
     }
   </style>
 </head>
@@ -264,12 +320,18 @@
 
     <div class="nav">
       <a class="btn" href="index.html">Vissza a főoldalra</a>
-      <a class="btn dark" href="data/ekaer_shipments_summary.json" target="_blank" rel="noopener">
-        Adatfájl
-      </a>
+      <a class="btn orange" href="https://www.nyugat.hu/cikk/tobb_mint_250_telepules_erintett_az_azbesztugyben" target="_blank" rel="noopener">Nyugat.hu forrás</a>
+      <a class="btn dark" href="https://martinkepviselo.hu/azbesztveszely/kozerdekulista" target="_blank" rel="noopener">Közérdekű lista</a>
+      <a class="btn dark" href="data/ekaer_shipments_summary.json" target="_blank" rel="noopener">Adatfájl</a>
     </div>
 
     <main class="content">
+
+      <div class="notice">
+        A jelenlegi oldal csak a nyilvánosan ismert, ellenőrizhető keretadatokat használja.
+        A diagramok nem tonnaadatokat és nem egyedi EKÁER-számokat mutatnak, hanem adatstátuszt,
+        azonosított forrásokat és módszertani kategóriákat.
+      </div>
 
       <section class="cards">
         <div class="card">
@@ -281,7 +343,7 @@
         <div class="card">
           <h3>Vizsgált időszak</h3>
           <div class="big">2015–2026</div>
-          <div class="sub">többéves logisztikai kitettség</div>
+          <div class="sub">többéves logisztikai kitettségi keret</div>
         </div>
 
         <div class="card">
@@ -293,7 +355,7 @@
         <div class="card">
           <h3>Vámtarifaszám</h3>
           <div class="big">2517</div>
-          <div class="sub">zúzottkő, kavics, kőzúzalék</div>
+          <div class="sub">zúzottkő, kavics, kőzúzalék és hasonló anyagok</div>
         </div>
       </section>
 
@@ -301,10 +363,10 @@
         <h2>Rövid értékelés</h2>
         <div class="assessment">
           Az EKÁER/NAV-alapú adatok nem szennyezettségi bizonyítékok, hanem
-          árumozgási és logisztikai kitettségi indikátorok. A megjelenített
+          árumozgási és logisztikai kitettségi indikátorok. A jelenleg beépített
           adatok azt mutatják, hogy az érintett osztrák bányákból származó
-          zúzottkő milyen széles nyugat-dunántúli területi eloszlásban jelenhetett
-          meg. Ez a modul ezért nem hatósági térkép, hanem elemzési és monitoring
+          zúzottkő-szállítások széles nyugat-dunántúli települési körben jelenhettek meg.
+          A modul ezért nem hatósági szennyezettségi lista, hanem elemzési és monitoring
           segédeszköz.
         </div>
       </section>
@@ -316,7 +378,7 @@
           <div class="region">
             <div class="region-title blue">Vas megye</div>
             <div class="region-body">
-              <div class="region-score">magas</div>
+              <div class="region-score">kiemelt</div>
               <div class="sub">Kőszeg, Bozsok, Szombathely térségi fókusz</div>
             </div>
           </div>
@@ -324,15 +386,15 @@
           <div class="region">
             <div class="region-title green">Zala megye</div>
             <div class="region-body">
-              <div class="region-score">közepes</div>
-              <div class="sub">potenciális logisztikai kitettségi térség</div>
+              <div class="region-score">érintett</div>
+              <div class="sub">nyugat-dunántúli logisztikai kitettségi blokk</div>
             </div>
           </div>
 
           <div class="region">
             <div class="region-title orange">Győr-Moson-Sopron</div>
             <div class="region-body">
-              <div class="region-score">közepes</div>
+              <div class="region-score">érintett</div>
               <div class="sub">határ menti és regionális szállítási kapcsolatok</div>
             </div>
           </div>
@@ -349,14 +411,14 @@
 
       <section class="grid2">
         <div class="section">
-          <h2>Bányák szerinti bontás</h2>
+          <h2>Bányák azonosítása</h2>
           <div class="chartbox">
             <canvas id="quarryChart"></canvas>
           </div>
         </div>
 
         <div class="section">
-          <h2>Megyei kitettségi profil</h2>
+          <h2>Regionális érintettségi blokkok</h2>
           <div class="chartbox">
             <canvas id="countyChart"></canvas>
           </div>
@@ -365,18 +427,69 @@
 
       <section class="grid2">
         <div class="section">
-          <h2>Éves kitettségi trend</h2>
+          <h2>Adatigénylés időkerete</h2>
           <div class="chartbox">
             <canvas id="yearChart"></canvas>
           </div>
         </div>
 
         <div class="section">
-          <h2>Adattípusok értelmezése</h2>
+          <h2>Adatok ismertségi státusza</h2>
           <div class="chartbox">
             <canvas id="typeChart"></canvas>
           </div>
         </div>
+      </section>
+
+      <section class="section">
+        <h2>Adatstátusz táblázat</h2>
+
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Adatkör</th>
+              <th>Jelenlegi státusz</th>
+              <th>Értelmezés</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Érintett települések száma</td>
+              <td class="status-known">ismert</td>
+              <td>250+ település szerepel a publikált összefoglalókban.</td>
+            </tr>
+            <tr>
+              <td>Vizsgált időszak</td>
+              <td class="status-known">ismert</td>
+              <td>2015–2026 közötti szállítási keret.</td>
+            </tr>
+            <tr>
+              <td>Forrásbányák</td>
+              <td class="status-known">ismert</td>
+              <td>Badersdorf, Bernstein, Pilgersdorf, Rumpersdorf.</td>
+            </tr>
+            <tr>
+              <td>Vámtarifaszám</td>
+              <td class="status-known">ismert</td>
+              <td>2517-es árukör: zúzottkő, kavics, kőzúzalék és hasonló anyagok.</td>
+            </tr>
+            <tr>
+              <td>Településenkénti mennyiség</td>
+              <td class="status-limited">korlátozott / kinyerés alatt</td>
+              <td>A nyilvános oldalon lehet strukturált adat, de még nem épült be a repóba.</td>
+            </tr>
+            <tr>
+              <td>Egyedi EKÁER-számok</td>
+              <td class="status-missing">nem publikus</td>
+              <td>A jelenlegi oldal nem kezel egyedi EKÁER-azonosítókat.</td>
+            </tr>
+            <tr>
+              <td>Bizonyított azbesztszennyezés</td>
+              <td class="status-limited">külön kezelendő</td>
+              <td>Ez nem azonos a logisztikai kitettséggel. Hatósági vagy laboradat szükséges hozzá.</td>
+            </tr>
+          </tbody>
+        </table>
       </section>
 
       <section class="section">
@@ -386,7 +499,8 @@
           jelenti azt, hogy ott bizonyított azbesztszennyezés történt. A 2517-es
           vámtarifaszám önmagában nem bizonyít azbeszttartalmat. Az adatok
           elsősorban logisztikai kitettséget, első célállomásokat és szállítási
-          mintázatokat jeleznek.
+          mintázatokat jeleznek. A bizonyított helyi érintettséget külön adatmodulban
+          kell kezelni.
         </div>
       </section>
 
@@ -396,6 +510,11 @@
           <li>
             <a href="https://www.nyugat.hu/cikk/tobb_mint_250_telepules_erintett_az_azbesztugyben" target="_blank" rel="noopener">
               Nyugat.hu – Több mint 250 település érintett az azbesztügyben
+            </a>
+          </li>
+          <li>
+            <a href="https://martinkepviselo.hu/azbesztveszely/kozerdekulista" target="_blank" rel="noopener">
+              Németh Martin – közérdekű lista
             </a>
           </li>
           <li>
@@ -420,31 +539,54 @@
       data: {
         labels: ['Badersdorf', 'Bernstein', 'Pilgersdorf', 'Rumpersdorf'],
         datasets: [{
-          label: 'Relatív forrásbánya-szerep',
-          data: [22, 34, 24, 20],
+          label: 'Forrásként azonosított bánya',
+          data: [1, 1, 1, 1],
           backgroundColor: ['#2563eb', '#16a34a', '#f97316', '#dc2626']
         }]
       },
       options: {
         responsive: true,
         maintainAspectRatio: false,
-        plugins: { legend: { display: false } },
-        scales: { y: { beginAtZero: true } }
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            callbacks: {
+              label: () => 'Azonosított forrásbánya – mennyiségi adat nélkül'
+            }
+          }
+        },
+        scales: {
+          y: {
+            beginAtZero: true,
+            max: 1,
+            ticks: {
+              stepSize: 1,
+              callback: value => value === 1 ? 'szerepel' : ''
+            }
+          }
+        }
       }
     });
 
     new Chart(document.getElementById('countyChart'), {
       type: 'doughnut',
       data: {
-        labels: ['Vas', 'Zala', 'Győr-Moson-Sopron', 'Egyéb'],
+        labels: ['Vas megye', 'Zala megye', 'Győr-Moson-Sopron', 'További települések'],
         datasets: [{
-          data: [45, 20, 25, 10],
+          data: [1, 1, 1, 1],
           backgroundColor: ['#2563eb', '#16a34a', '#f97316', '#94a3b8']
         }]
       },
       options: {
         responsive: true,
-        maintainAspectRatio: false
+        maintainAspectRatio: false,
+        plugins: {
+          tooltip: {
+            callbacks: {
+              label: context => context.label + ': regionális érintettségi blokk, arányadat nélkül'
+            }
+          }
+        }
       }
     });
 
@@ -453,18 +595,29 @@
       data: {
         labels: ['2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022', '2023', '2024', '2025', '2026'],
         datasets: [{
-          label: 'Relatív kitettségi index',
-          data: [12, 18, 22, 25, 31, 28, 35, 42, 58, 72, 81, 67],
+          label: 'Adatigénylés időkerete',
+          data: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
           borderColor: '#2563eb',
           backgroundColor: 'rgba(37,99,235,.12)',
           fill: true,
-          tension: .35
+          tension: .2
         }]
       },
       options: {
         responsive: true,
         maintainAspectRatio: false,
-        scales: { y: { beginAtZero: true } }
+        plugins: {
+          tooltip: {
+            callbacks: {
+              label: () => 'Az időszak része – nem éves mennyiségi adat'
+            }
+          }
+        },
+        scales: {
+          y: {
+            display: false
+          }
+        }
       }
     });
 
@@ -472,15 +625,17 @@
       type: 'bar',
       data: {
         labels: [
-          'Logisztikai kitettség',
-          'Helyi érintettség',
-          'Hatósági adat',
-          'Adatkorlát'
+          '250+ település',
+          '4 forrásbánya',
+          '2015–2026 időkeret',
+          '2517 vámtarifaszám',
+          'Településenkénti mennyiség',
+          'Egyedi EKÁER-szám'
         ],
         datasets: [{
-          label: 'Elemzési jelentőség',
-          data: [90, 55, 70, 80],
-          backgroundColor: ['#f97316', '#dc2626', '#7c3aed', '#64748b']
+          label: 'Adatstátusz',
+          data: [100, 100, 100, 100, 50, 0],
+          backgroundColor: ['#16a34a', '#16a34a', '#16a34a', '#16a34a', '#f97316', '#dc2626']
         }]
       },
       options: {
@@ -488,7 +643,20 @@
         responsive: true,
         maintainAspectRatio: false,
         plugins: { legend: { display: false } },
-        scales: { x: { beginAtZero: true, max: 100 } }
+        scales: {
+          x: {
+            beginAtZero: true,
+            max: 100,
+            ticks: {
+              callback: value => {
+                if (value === 100) return 'ismert';
+                if (value === 50) return 'részben';
+                if (value === 0) return 'nem publikus';
+                return '';
+              }
+            }
+          }
+        }
       }
     });
   </script>
