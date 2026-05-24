@@ -50,7 +50,7 @@ def extract_iframe_url(html):
     iframe = soup.find("iframe")
 
     if not iframe or not iframe.get("src"):
-        raise RuntimeError("Nem találtam Google Sheets iframe-et a forrásoldalon.")
+        raise RuntimeError("Nem találtam Google Sheets iframe-et.")
 
     src = iframe["src"].replace("&amp;", "&")
 
@@ -74,9 +74,7 @@ def google_csv_url(sheet_url):
     try:
         doc_id = parts[parts.index("d") + 1]
     except Exception as exc:
-        raise RuntimeError(
-            f"Nem tudtam kinyerni a Google Sheet azonosítót: {sheet_url}"
-        ) from exc
+        raise RuntimeError(f"Nem tudtam kinyerni a Google Sheet azonosítót: {sheet_url}") from exc
 
     return f"https://docs.google.com/spreadsheets/d/{doc_id}/export?format=csv&gid={gid}"
 
@@ -104,6 +102,40 @@ def normalize_columns(df):
     return df.rename(columns=rename)
 
 
+def extract_year(value):
+    text = clean_text(value)
+    match = re.search(r"(20\d{2}|19\d{2})", text)
+    if match:
+        return int(match.group(1))
+    return None
+
+
+def extract_month(value):
+    text = clean_text(value)
+    match = re.search(r"\d+", text)
+    if match:
+        month = int(match.group(0))
+        if 1 <= month <= 12:
+            return month
+    return 0
+
+
+def parse_number(value):
+    text = clean_text(value)
+
+    if text == "":
+        return 0.0
+
+    text = text.replace("\u00a0", "")
+    text = text.replace(" ", "")
+    text = text.replace(",", ".")
+
+    try:
+        return float(text)
+    except Exception:
+        return 0.0
+
+
 def fetch_table():
     html = get_text(SOURCE_URL)
     iframe_url = extract_iframe_url(html)
@@ -129,14 +161,18 @@ def fetch_table():
         except Exception:
             continue
 
-    if csv_text is None:
+    if not csv_text:
         raise RuntimeError("Nem sikerült dekódolni a CSV-t.")
 
     if "<html" in csv_text[:300].lower():
         raise RuntimeError("CSV helyett HTML érkezett.")
 
-    df = pd.read_csv(StringIO(csv_text))
+    df = pd.read_csv(StringIO(csv_text), dtype=str)
     df = normalize_columns(df)
+
+    print("Beolvasott oszlopok:", list(df.columns))
+    print("Első 5 sor:")
+    print(df.head(5).to_string())
 
     return df, iframe_url, csv_url
 
@@ -192,10 +228,18 @@ def main():
     for col in df.columns:
         df[col] = df[col].map(clean_text)
 
-    df = df[df["year"].astype(str).str.match(r"^\d{4}$", na=False)].copy()
+    df["year_parsed"] = df["year"].map(extract_year)
+    df["month_parsed"] = df["month"].map(extract_month)
 
-    df["year"] = df["year"].astype(int)
-    df["month"] = pd.to_numeric(df["month"], errors="coerce").fillna(0).astype(int)
+    before = len(df)
+    df = df[df["year_parsed"].notna()].copy()
+    after = len(df)
+
+    print(f"Sorok szűrés előtt: {before}")
+    print(f"Sorok év alapján szűrés után: {after}")
+
+    df["year"] = df["year_parsed"].astype(int)
+    df["month"] = df["month_parsed"].astype(int)
 
     df["quarry"] = df["loading_place"].str.upper()
     df["destination"] = df["destination"].map(clean_text)
@@ -208,14 +252,13 @@ def main():
 
     if quantity_columns:
         for col in quantity_columns:
-            df[col] = pd.to_numeric(
-                df[col].astype(str).str.replace(",", ".", regex=False),
-                errors="coerce"
-            ).fillna(0)
+            df[col] = df[col].map(parse_number)
 
         df["quantity_total"] = df[quantity_columns].sum(axis=1)
     else:
-        df["quantity_total"] = 0
+        df["quantity_total"] = 0.0
+
+    df = df.drop(columns=["year_parsed", "month_parsed"], errors="ignore")
 
     records = df.to_dict(orient="records")
 
@@ -226,56 +269,64 @@ def main():
         "record_count": len(records),
         "year_min": int(df["year"].min()) if len(df) else None,
         "year_max": int(df["year"].max()) if len(df) else None,
-        "unique_destinations": int(df["destination"].nunique()),
-        "unique_quarries": int(df["quarry"].nunique()),
-        "quarries": sorted(df["quarry"].dropna().unique().tolist()),
+        "unique_destinations": int(df["destination"].nunique()) if len(df) else 0,
+        "unique_quarries": int(df["quarry"].nunique()) if len(df) else 0,
+        "quarries": sorted(df["quarry"].dropna().unique().tolist()) if len(df) else [],
         "quantity_columns": quantity_columns,
-        "quantity_total": float(df["quantity_total"].sum()),
+        "quantity_total": float(df["quantity_total"].sum()) if len(df) else 0.0,
         "county_destination_counts": (
             df.groupby("county_guess")["destination"]
             .nunique()
             .sort_values(ascending=False)
             .to_dict()
+            if len(df) else {}
         ),
         "county_record_counts": (
             df.groupby("county_guess")
             .size()
             .sort_values(ascending=False)
             .to_dict()
+            if len(df) else {}
         ),
         "county_quantity_totals": (
             df.groupby("county_guess")["quantity_total"]
             .sum()
             .sort_values(ascending=False)
             .to_dict()
+            if len(df) else {}
         ),
         "quarry_destination_counts": (
             df.groupby("quarry")["destination"]
             .nunique()
             .sort_values(ascending=False)
             .to_dict()
+            if len(df) else {}
         ),
         "quarry_record_counts": (
             df.groupby("quarry")
             .size()
             .sort_values(ascending=False)
             .to_dict()
+            if len(df) else {}
         ),
         "quarry_quantity_totals": (
             df.groupby("quarry")["quantity_total"]
             .sum()
             .sort_values(ascending=False)
             .to_dict()
+            if len(df) else {}
         ),
         "year_record_counts": (
             df.groupby("year")
             .size()
             .to_dict()
+            if len(df) else {}
         ),
         "year_quantity_totals": (
             df.groupby("year")["quantity_total"]
             .sum()
             .to_dict()
+            if len(df) else {}
         ),
         "quarry_county_matrix": (
             df.groupby(["quarry", "county_guess"])
@@ -286,6 +337,7 @@ def main():
             )
             .reset_index()
             .to_dict(orient="records")
+            if len(df) else []
         ),
         "top_destinations_by_records": (
             df.groupby("destination")
@@ -293,6 +345,7 @@ def main():
             .sort_values(ascending=False)
             .head(30)
             .to_dict()
+            if len(df) else {}
         ),
         "top_destinations_by_quantity": (
             df.groupby("destination")["quantity_total"]
@@ -300,6 +353,7 @@ def main():
             .sort_values(ascending=False)
             .head(30)
             .to_dict()
+            if len(df) else {}
         ),
         "method_note": (
             "A megyei bontás jelenleg településnév-alapú becslés. "
@@ -323,6 +377,7 @@ def main():
     print("EKÁER adatletöltés kész.")
     print(f"Rekordok száma: {summary['record_count']}")
     print(f"Egyedi céltelepülések: {summary['unique_destinations']}")
+    print(f"Időszak: {summary['year_min']}–{summary['year_max']}")
     print(f"Mennyiségi oszlopok: {summary['quantity_columns']}")
     print(f"Összesített mennyiség: {summary['quantity_total']}")
     print("Megyei becsült településszám:")
