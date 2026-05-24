@@ -1,0 +1,80 @@
+{
+  "type": "FeatureCollection",
+  "name": "EKÁER/NAV settlement logistics exposure sample",
+  "generated_at": "2026-05-24",
+  "methodology": {
+    "type": "logistics_exposure",
+    "warning": "A megjelenített adatok árumozgási és logisztikai kitettséget mutatnak, nem bizonyított azbesztszennyezést.",
+    "source_basis": "Nyugat.hu és közérdekű adatigénylés alapján publikált interaktív térkép."
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "settlement": "Kőszeg",
+        "county": "Vas",
+        "country": "Hungary",
+        "exposure_type": "shipment_exposure",
+        "shipment_period": "2015-2026",
+        "linked_quarries": [
+          "Bernstein",
+          "Rumpersdorf"
+        ],
+        "customs_code": "2517",
+        "risk_level": "medium",
+        "evidence_type": "aggregated_logistics_data",
+        "note": "A település szerepel a publikált EKÁER/NAV árumozgási adatokban.",
+        "source": "Nyugat.hu"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [16.5414, 47.3893]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "settlement": "Szombathely",
+        "county": "Vas",
+        "country": "Hungary",
+        "exposure_type": "shipment_exposure",
+        "shipment_period": "2015-2026",
+        "linked_quarries": [
+          "Bernstein",
+          "Pilgersdorf"
+        ],
+        "customs_code": "2517",
+        "risk_level": "medium",
+        "evidence_type": "aggregated_logistics_data",
+        "note": "A település szerepel a publikált EKÁER/NAV árumozgási adatokban.",
+        "source": "Nyugat.hu"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [16.6218, 47.2307]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "settlement": "Bozsok",
+        "county": "Vas",
+        "country": "Hungary",
+        "exposure_type": "shipment_exposure",
+        "shipment_period": "2015-2026",
+        "linked_quarries": [
+          "Bernstein"
+        ],
+        "customs_code": "2517",
+        "risk_level": "low",
+        "evidence_type": "aggregated_logistics_data",
+        "note": "A település szerepel a publikált EKÁER/NAV árumozgási adatokban.",
+        "source": "Nyugat.hu"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [16.4892, 47.3238]
+      }
+    }
+  ]
+}
