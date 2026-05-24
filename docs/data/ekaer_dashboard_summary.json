@@ -23,22 +23,37 @@
   ],
   "quantity_total": 1180528039.0,
   "county_destination_counts": {
-    "Ismeretlen": 233,
-    "Vas": 17,
-    "Zala": 10,
-    "Győr-Moson-Sopron": 5
+    "Vas": 153,
+    "Zala": 55,
+    "Győr-Moson-Sopron": 34,
+    "Ismeretlen": 15,
+    "Somogy": 2,
+    "Veszprém": 2,
+    "Pest": 2,
+    "Bács-Kiskun": 1,
+    "Komárom-Esztergom": 1
   },
   "county_record_counts": {
-    "Ismeretlen": 1934,
-    "Vas": 1671,
-    "Győr-Moson-Sopron": 154,
-    "Zala": 100
+    "Vas": 3148,
+    "Győr-Moson-Sopron": 474,
+    "Zala": 194,
+    "Ismeretlen": 24,
+    "Veszprém": 11,
+    "Bács-Kiskun": 3,
+    "Pest": 2,
+    "Somogy": 2,
+    "Komárom-Esztergom": 1
   },
   "county_quantity_totals": {
-    "Vas": 853471738.0,
-    "Ismeretlen": 274018011.0,
-    "Győr-Moson-Sopron": 29861210.0,
-    "Zala": 23177080.0
+    "Vas": 1059270865.0,
+    "Győr-Moson-Sopron": 80010580.0,
+    "Zala": 35984960.0,
+    "Ismeretlen": 3144104.0,
+    "Veszprém": 1743750.0,
+    "Bács-Kiskun": 158000.0,
+    "Pest": 107400.0,
+    "Komárom-Esztergom": 54880.0,
+    "Somogy": 53500.0
   },
   "quarry_destination_counts": {
     "RUMPERSDORF": 174,
@@ -89,108 +104,157 @@
   "quarry_county_matrix": [
     {
       "quarry": "BADERSDORF",
-      "county_guess": "Győr-Moson-Sopron",
-      "records": 12,
-      "unique_destinations": 3,
-      "quantity_total": 2046160.0
+      "county": "Bács-Kiskun",
+      "records": 3,
+      "unique_destinations": 1,
+      "quantity_total": 158000.0
     },
     {
       "quarry": "BADERSDORF",
-      "county_guess": "Ismeretlen",
-      "records": 713,
-      "unique_destinations": 129,
-      "quantity_total": 97644422.0
+      "county": "Győr-Moson-Sopron",
+      "records": 147,
+      "unique_destinations": 11,
+      "quantity_total": 13716920.0
     },
     {
       "quarry": "BADERSDORF",
-      "county_guess": "Vas",
-      "records": 523,
-      "unique_destinations": 16,
-      "quantity_total": 214212590.0
+      "county": "Ismeretlen",
+      "records": 13,
+      "unique_destinations": 5,
+      "quantity_total": 1581200.0
     },
     {
       "quarry": "BADERSDORF",
-      "county_guess": "Zala",
-      "records": 29,
-      "unique_destinations": 3,
-      "quantity_total": 5284520.0
+      "county": "Somogy",
+      "records": 1,
+      "unique_destinations": 1,
+      "quantity_total": 26500.0
+    },
+    {
+      "quarry": "BADERSDORF",
+      "county": "Vas",
+      "records": 1057,
+      "unique_destinations": 113,
+      "quantity_total": 295264382.0
+    },
+    {
+      "quarry": "BADERSDORF",
+      "county": "Veszprém",
+      "records": 10,
+      "unique_destinations": 2,
+      "quantity_total": 1693750.0
+    },
+    {
+      "quarry": "BADERSDORF",
+      "county": "Zala",
+      "records": 46,
+      "unique_destinations": 18,
+      "quantity_total": 6746940.0
     },
     {
       "quarry": "BERNSTEIN",
-      "county_guess": "Győr-Moson-Sopron",
+      "county": "Győr-Moson-Sopron",
       "records": 3,
       "unique_destinations": 2,
       "quantity_total": 134790.0
     },
     {
       "quarry": "BERNSTEIN",
-      "county_guess": "Ismeretlen",
-      "records": 4,
-      "unique_destinations": 2,
-      "quantity_total": 221000.0
-    },
-    {
-      "quarry": "BERNSTEIN",
-      "county_guess": "Vas",
-      "records": 2,
-      "unique_destinations": 2,
-      "quantity_total": 32340.0
+      "county": "Vas",
+      "records": 6,
+      "unique_destinations": 4,
+      "quantity_total": 253340.0
     },
     {
       "quarry": "PILGERSDORF",
-      "county_guess": "Győr-Moson-Sopron",
-      "records": 134,
-      "unique_destinations": 3,
-      "quantity_total": 27306760.0
+      "county": "Győr-Moson-Sopron",
+      "records": 283,
+      "unique_destinations": 26,
+      "quantity_total": 63046370.0
     },
     {
       "quarry": "PILGERSDORF",
-      "county_guess": "Ismeretlen",
-      "records": 335,
-      "unique_destinations": 79,
-      "quantity_total": 53771490.0
+      "county": "Ismeretlen",
+      "records": 1,
+      "unique_destinations": 1,
+      "quantity_total": 790850.0
     },
     {
       "quarry": "PILGERSDORF",
-      "county_guess": "Vas",
-      "records": 668,
-      "unique_destinations": 13,
-      "quantity_total": 453561147.0
+      "county": "Komárom-Esztergom",
+      "records": 1,
+      "unique_destinations": 1,
+      "quantity_total": 54880.0
     },
     {
       "quarry": "PILGERSDORF",
-      "county_guess": "Zala",
+      "county": "Pest",
+      "records": 1,
+      "unique_destinations": 1,
+      "quantity_total": 53400.0
+    },
+    {
+      "quarry": "PILGERSDORF",
+      "county": "Vas",
+      "records": 851,
+      "unique_destinations": 66,
+      "quantity_total": 470693897.0
+    },
+    {
+      "quarry": "PILGERSDORF",
+      "county": "Zala",
       "records": 1,
       "unique_destinations": 1,
       "quantity_total": 48000.0
     },
     {
       "quarry": "RUMPERSDORF",
-      "county_guess": "Győr-Moson-Sopron",
-      "records": 5,
+      "county": "Győr-Moson-Sopron",
+      "records": 41,
+      "unique_destinations": 5,
+      "quantity_total": 3112500.0
+    },
+    {
+      "quarry": "RUMPERSDORF",
+      "county": "Ismeretlen",
+      "records": 10,
+      "unique_destinations": 9,
+      "quantity_total": 772054.0
+    },
+    {
+      "quarry": "RUMPERSDORF",
+      "county": "Pest",
+      "records": 1,
       "unique_destinations": 1,
-      "quantity_total": 373500.0
+      "quantity_total": 54000.0
     },
     {
       "quarry": "RUMPERSDORF",
-      "county_guess": "Ismeretlen",
-      "records": 882,
-      "unique_destinations": 148,
-      "quantity_total": 122381099.0
+      "county": "Somogy",
+      "records": 1,
+      "unique_destinations": 1,
+      "quantity_total": 27000.0
     },
     {
       "quarry": "RUMPERSDORF",
-      "county_guess": "Vas",
-      "records": 478,
-      "unique_destinations": 15,
-      "quantity_total": 185665661.0
+      "county": "Vas",
+      "records": 1234,
+      "unique_destinations": 113,
+      "quantity_total": 293059246.0
     },
     {
       "quarry": "RUMPERSDORF",
-      "county_guess": "Zala",
-      "records": 70,
-      "unique_destinations": 10,
-      "quantity_total": 17844560.0
+      "county": "Veszprém",
+      "records": 1,
+      "unique_destinations": 1,
+      "quantity_total": 50000.0
+    },
+    {
+      "quarry": "RUMPERSDORF",
+      "county": "Zala",
+      "records": 147,
+      "unique_destinations": 44,
+      "quantity_total": 29190020.0
     }
   ],
   "top_destinations_by_records": {
@@ -257,5 +321,23 @@
     "EGYHÁZASRÁDÓC": 5050000.0,
     "JÁK": 4893900.0
   },
-  "method_note": "A megyei bontás jelenleg településnév-alapú becslés. A mennyiségi összesítés a vámtarifaszám-oszlopok összegzéséből készül."
+  "unknown_destination_count": 15,
+  "unknown_destinations_sample": [
+    "BUCSUSZENTLÁSZLÓ",
+    "BUDAPEST",
+    "BÜKFÜRDŐ",
+    "KÖRMEND, HORVÁTNÁDALJA",
+    "NAGYLENGEL",
+    "OLMÓD",
+    "PERSZNYE",
+    "RÁBAHIDVÉG",
+    "RÁBATÓTFALU",
+    "SZENTGOTTHÁRD-ZSIDA",
+    "SZENTPÉTERFA, ERDŐHÁZA",
+    "SZOMBATHELY-Újperint",
+    "SÁGOD",
+    "TORMAFÖLD",
+    "ZALASZENTMIHÁLYFA"
+  ],
+  "method_note": "A megyei bontás a settlement_county_lookup.json település-vármegye törzsadat alapján készül. Az Ismeretlen kategória azokat a céltelepüléseket tartalmazza, amelyek nem illeszkedtek a törzsadatra."
 }
