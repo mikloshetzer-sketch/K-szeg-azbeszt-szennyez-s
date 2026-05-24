@@ -1,0 +1,71 @@
+{
+  "generated_at": "2026-05-24",
+  "dataset_name": "EKÁER/NAV szállítási kitettség",
+  "dataset_version": "0.1",
+  "status": "summary_only",
+  "period": {
+    "from": 2015,
+    "to": 2026
+  },
+  "interpretation": {
+    "data_type": "logistics_exposure",
+    "important_note": "Az adatok árumozgást mutatnak, nem bizonyított azbesztszennyezést.",
+    "risk_warning": "A település szereplése az EKÁER/NAV alapú szállítási adatokban nem jelenti azt, hogy az adott településen azbesztszennyezés történt."
+  },
+  "customs_code": {
+    "code": "2517",
+    "description": "Zúzottkő, kavics, kőzúzalék és hasonló ásványi anyagok"
+  },
+  "reported_scope": {
+    "affected_settlements_reported": "250+",
+    "region_focus": "Nyugat-Dunántúl",
+    "country": "Hungary"
+  },
+  "source_quarries": [
+    {
+      "name": "Badersdorf",
+      "country": "Austria",
+      "role": "source_quarry"
+    },
+    {
+      "name": "Bernstein",
+      "country": "Austria",
+      "role": "source_quarry"
+    },
+    {
+      "name": "Pilgersdorf",
+      "country": "Austria",
+      "role": "source_quarry"
+    },
+    {
+      "name": "Rumpersdorf",
+      "country": "Austria",
+      "role": "source_quarry"
+    }
+  ],
+  "data_limitations": [
+    "Az eredeti EKÁER azonosítók nem szerepelnek a nyilvános összefoglalóban.",
+    "A nyilvános adatok aggregált árumozgási információként kezelendők.",
+    "Az adatok az első célállomásokat mutathatják, nem feltétlenül a későbbi továbbértékesítési útvonalakat.",
+    "A 2517-es vámtarifaszám önmagában nem bizonyít azbeszttartalmat."
+  ],
+  "recommended_dashboard_label": "EKÁER szállítási kitettség",
+  "recommended_map_layer": {
+    "layer_id": "ekaer_logistics_exposure",
+    "layer_name": "EKÁER/NAV szállítási kitettség",
+    "color": "#f97316",
+    "marker_type": "orange_circle"
+  },
+  "sources": [
+    {
+      "name": "Nyugat.hu",
+      "url": "https://www.nyugat.hu/cikk/tobb_mint_250_telepules_erintett_az_azbesztugyben",
+      "type": "article"
+    },
+    {
+      "name": "Németh Martin közérdekű térképe",
+      "url": "https://martinkepviselo.hu/azbesztveszely/kozerdekuterkep",
+      "type": "interactive_map"
+    }
+  ]
+}
