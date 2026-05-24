@@ -15,6 +15,11 @@ ROOT = Path(__file__).resolve().parents[1]
 DATA_DIR = ROOT / "data"
 DOCS_DATA_DIR = ROOT / "docs" / "data"
 
+LOOKUP_PATHS = [
+    DATA_DIR / "settlement_county_lookup.json",
+    DOCS_DATA_DIR / "settlement_county_lookup.json"
+]
+
 DATA_DIR.mkdir(parents=True, exist_ok=True)
 DOCS_DATA_DIR.mkdir(parents=True, exist_ok=True)
 
@@ -33,6 +38,10 @@ def clean_text(value):
         return ""
     value = fix_mojibake(value)
     return re.sub(r"\s+", " ", str(value)).strip()
+
+
+def normalize_key(value):
+    return clean_text(value).upper()
 
 
 def get_text(url):
@@ -136,6 +145,27 @@ def parse_number(value):
         return 0.0
 
 
+def load_county_lookup():
+    for path in LOOKUP_PATHS:
+        if path.exists():
+            payload = json.loads(path.read_text(encoding="utf-8"))
+            lookup = payload.get("lookup", payload)
+
+            if isinstance(lookup, dict) and lookup:
+                normalized = {
+                    normalize_key(k): clean_text(v)
+                    for k, v in lookup.items()
+                    if k and v
+                }
+
+                print(f"Település-vármegye lookup betöltve: {path}")
+                print(f"Lookup elemek száma: {len(normalized)}")
+                return normalized
+
+    print("FIGYELEM: Nem találtam settlement_county_lookup.json fájlt, Ismeretlen megye lesz használva.")
+    return {}
+
+
 def fetch_table():
     html = get_text(SOURCE_URL)
     iframe_url = extract_iframe_url(html)
@@ -177,43 +207,8 @@ def fetch_table():
     return df, iframe_url, csv_url
 
 
-def add_county_guess(destination):
-    name = clean_text(destination).lower()
-
-    vas = {
-        "kőszeg", "koszeg", "bozsok", "szombathely", "sárvár", "sarvar",
-        "rum", "bük", "buk", "csepreg", "vasvár", "vasvar", "körmend",
-        "kormend", "celldömölk", "celldomolk", "őriszentpéter",
-        "oriszentpeter", "répcelak", "repcelak", "nádasd", "nadasd",
-        "pornóapáti", "pornoapati", "rábahídvég", "rabahidveg",
-        "vaspör", "vaspor", "szentgotthárd", "szentgotthard"
-    }
-
-    zala = {
-        "egervár", "egervar", "zalaegerszeg", "nagykanizsa", "keszthely",
-        "zalalövő", "zalalovo", "lenti", "hévíz", "heviz", "zalaszentgrót",
-        "zalaszentgrot", "fűzvölgy", "fuzvolgy", "letenye", "zalakomár",
-        "zalakomar", "zalacsány", "zalacsany", "bagod", "pókaszepetk",
-        "pokaszepetk"
-    }
-
-    gyms = {
-        "sopron", "győr", "gyor", "mosonmagyaróvár", "mosonmagyarovar",
-        "kapuvár", "kapuvar", "csorna", "fertőd", "fertod", "lébény",
-        "lebeny", "pannonhalma", "tét", "tet"
-    }
-
-    if name in vas:
-        return "Vas"
-    if name in zala:
-        return "Zala"
-    if name in gyms:
-        return "Győr-Moson-Sopron"
-
-    return "Ismeretlen"
-
-
 def main():
+    county_lookup = load_county_lookup()
     df, iframe_url, csv_url = fetch_table()
 
     required = ["year", "month", "loading_place", "destination"]
@@ -243,7 +238,9 @@ def main():
 
     df["quarry"] = df["loading_place"].str.upper()
     df["destination"] = df["destination"].map(clean_text)
-    df["county_guess"] = df["destination"].map(add_county_guess)
+
+    df["destination_key"] = df["destination"].map(normalize_key)
+    df["county"] = df["destination_key"].map(county_lookup).fillna("Ismeretlen")
 
     quantity_columns = [
         col for col in df.columns
@@ -262,6 +259,45 @@ def main():
 
     records = df.to_dict(orient="records")
 
+    county_destination_counts = (
+        df.groupby("county")["destination"]
+        .nunique()
+        .sort_values(ascending=False)
+        .to_dict()
+    )
+
+    county_record_counts = (
+        df.groupby("county")
+        .size()
+        .sort_values(ascending=False)
+        .to_dict()
+    )
+
+    county_quantity_totals = (
+        df.groupby("county")["quantity_total"]
+        .sum()
+        .sort_values(ascending=False)
+        .to_dict()
+    )
+
+    quarry_county_matrix = (
+        df.groupby(["quarry", "county"])
+        .agg(
+            records=("destination", "size"),
+            unique_destinations=("destination", "nunique"),
+            quantity_total=("quantity_total", "sum")
+        )
+        .reset_index()
+        .to_dict(orient="records")
+    )
+
+    unknown_destinations = sorted(
+        df.loc[df["county"] == "Ismeretlen", "destination"]
+        .dropna()
+        .unique()
+        .tolist()
+    )
+
     summary = {
         "source_url": SOURCE_URL,
         "google_sheet_iframe_url": iframe_url,
@@ -274,27 +310,9 @@ def main():
         "quarries": sorted(df["quarry"].dropna().unique().tolist()) if len(df) else [],
         "quantity_columns": quantity_columns,
         "quantity_total": float(df["quantity_total"].sum()) if len(df) else 0.0,
-        "county_destination_counts": (
-            df.groupby("county_guess")["destination"]
-            .nunique()
-            .sort_values(ascending=False)
-            .to_dict()
-            if len(df) else {}
-        ),
-        "county_record_counts": (
-            df.groupby("county_guess")
-            .size()
-            .sort_values(ascending=False)
-            .to_dict()
-            if len(df) else {}
-        ),
-        "county_quantity_totals": (
-            df.groupby("county_guess")["quantity_total"]
-            .sum()
-            .sort_values(ascending=False)
-            .to_dict()
-            if len(df) else {}
-        ),
+        "county_destination_counts": county_destination_counts,
+        "county_record_counts": county_record_counts,
+        "county_quantity_totals": county_quantity_totals,
         "quarry_destination_counts": (
             df.groupby("quarry")["destination"]
             .nunique()
@@ -328,17 +346,7 @@ def main():
             .to_dict()
             if len(df) else {}
         ),
-        "quarry_county_matrix": (
-            df.groupby(["quarry", "county_guess"])
-            .agg(
-                records=("destination", "size"),
-                unique_destinations=("destination", "nunique"),
-                quantity_total=("quantity_total", "sum")
-            )
-            .reset_index()
-            .to_dict(orient="records")
-            if len(df) else []
-        ),
+        "quarry_county_matrix": quarry_county_matrix,
         "top_destinations_by_records": (
             df.groupby("destination")
             .size()
@@ -355,9 +363,11 @@ def main():
             .to_dict()
             if len(df) else {}
         ),
+        "unknown_destination_count": len(unknown_destinations),
+        "unknown_destinations_sample": unknown_destinations[:100],
         "method_note": (
-            "A megyei bontás jelenleg településnév-alapú becslés. "
-            "A mennyiségi összesítés a vámtarifaszám-oszlopok összegzéséből készül."
+            "A megyei bontás a settlement_county_lookup.json település-vármegye törzsadat alapján készül. "
+            "Az Ismeretlen kategória azokat a céltelepüléseket tartalmazza, amelyek nem illeszkedtek a törzsadatra."
         )
     }
 
@@ -380,8 +390,9 @@ def main():
     print(f"Időszak: {summary['year_min']}–{summary['year_max']}")
     print(f"Mennyiségi oszlopok: {summary['quantity_columns']}")
     print(f"Összesített mennyiség: {summary['quantity_total']}")
-    print("Megyei becsült településszám:")
+    print("Megyei településszám:")
     print(summary["county_destination_counts"])
+    print(f"Ismeretlen települések száma: {summary['unknown_destination_count']}")
 
 
 if __name__ == "__main__":
