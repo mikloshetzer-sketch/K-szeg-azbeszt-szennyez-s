@@ -1,0 +1,32 @@
+{
+  "source_url": "https://www.martinkepviselo.hu/azbesztveszely/kozerdekulista",
+  "google_sheet_iframe_url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTEkLzOTF9DoyUzRs6PyrodjcYEELKd5l18hW7FKYQa5A0oyNs6RBsKNgjE1SoFSA/pubhtml?gid=171983438&single=true&widget=true&headers=false",
+  "google_sheet_csv_url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTEkLzOTF9DoyUzRs6PyrodjcYEELKd5l18hW7FKYQa5A0oyNs6RBsKNgjE1SoFSA/pub?gid=171983438&single=true&output=csv",
+  "record_count": 0,
+  "year_min": null,
+  "year_max": null,
+  "unique_destinations": 0,
+  "unique_quarries": 0,
+  "quarries": [],
+  "quantity_columns": [
+    "251720",
+    "251730",
+    "251741",
+    "25171010",
+    "25171020",
+    "25171080"
+  ],
+  "quantity_total": 0.0,
+  "county_destination_counts": {},
+  "county_record_counts": {},
+  "county_quantity_totals": {},
+  "quarry_destination_counts": {},
+  "quarry_record_counts": {},
+  "quarry_quantity_totals": {},
+  "year_record_counts": {},
+  "year_quantity_totals": {},
+  "quarry_county_matrix": [],
+  "top_destinations_by_records": {},
+  "top_destinations_by_quantity": {},
+  "method_note": "A megyei bontás jelenleg településnév-alapú becslés. A mennyiségi összesítés a vámtarifaszám-oszlopok összegzéséből készül."
+}
