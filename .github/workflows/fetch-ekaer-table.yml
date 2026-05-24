@@ -1,0 +1,47 @@
+name: Fetch EKÁER table data
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  fetch-ekaer-table:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Repository letöltése
+        uses: actions/checkout@v4
+
+      - name: Python telepítése
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Függőségek telepítése
+        run: |
+          python -m pip install --upgrade pip
+          pip install pandas requests lxml beautifulsoup4 html5lib
+
+      - name: EKÁER tábla letöltése és feldolgozása
+        run: |
+          python scripts/fetch_ekaer_table.py
+
+      - name: Eredményfájlok ellenőrzése
+        run: |
+          ls -lah data || true
+          ls -lah docs/data || true
+
+      - name: Változások commitolása
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+
+          git add data/known_shipments.json
+          git add data/ekaer_dashboard_summary.json
+          git add docs/data/known_shipments.json
+          git add docs/data/ekaer_dashboard_summary.json
+
+          git commit -m "EKÁER adatok frissítése" || echo "Nincs változás"
+          git push
