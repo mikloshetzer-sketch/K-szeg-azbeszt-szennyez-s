@@ -2,236 +2,495 @@
 <html lang="hu">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>EKÁER Szállítási Kitettség</title>
+  <title>EKÁER/NAV Szállítási Kitettségi Riport</title>
 
-  <link
-    rel="stylesheet"
-    href="https://unpkg.com/leaflet/dist/leaflet.css"
-  />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
   <style>
+    * { box-sizing: border-box; }
+
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
-      background: #f3f4f6;
-      color: #111827;
+      background: #e5eaf1;
+      color: #0f172a;
     }
 
-    header {
-      background: #111827;
+    .page {
+      max-width: 1320px;
+      margin: 0 auto;
+      background: #f8fafc;
+      min-height: 100vh;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #07111f, #172554);
       color: white;
-      padding: 16px 24px;
+      padding: 48px 56px;
+      display: flex;
+      justify-content: space-between;
+      gap: 32px;
+      align-items: center;
     }
 
-    header h1 {
+    .hero h1 {
       margin: 0;
-      font-size: 24px;
+      font-size: 42px;
+      line-height: 1.08;
     }
 
-    header p {
-      margin-top: 8px;
-      color: #d1d5db;
-      max-width: 900px;
-      line-height: 1.5;
+    .hero p {
+      max-width: 760px;
+      color: #dbeafe;
+      font-size: 17px;
+      line-height: 1.55;
     }
 
-    .dashboard {
+    .datebox {
+      border: 1px solid rgba(255,255,255,.25);
+      border-radius: 18px;
+      padding: 24px 34px;
+      text-align: center;
+      min-width: 230px;
+      background: rgba(255,255,255,.06);
+    }
+
+    .datebox .label {
+      color: #93c5fd;
+      font-weight: 900;
+      font-size: 13px;
+      text-transform: uppercase;
+    }
+
+    .datebox .date {
+      font-size: 30px;
+      font-weight: 900;
+      margin-top: 10px;
+    }
+
+    .nav {
+      padding: 28px 56px 0;
+      display: flex;
+      justify-content: flex-end;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-block;
+      text-decoration: none;
+      color: white;
+      background: #2563eb;
+      padding: 13px 20px;
+      border-radius: 12px;
+      font-weight: 900;
+    }
+
+    .btn.dark { background: #111827; }
+
+    .content {
+      padding: 24px 56px 56px;
+    }
+
+    .cards {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 16px;
-      padding: 20px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin-bottom: 28px;
     }
 
     .card {
       background: white;
-      border-radius: 12px;
-      padding: 18px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      border: 1px solid #dbe3ee;
+      border-radius: 18px;
+      padding: 22px;
+      box-shadow: 0 12px 30px rgba(15,23,42,.06);
     }
 
-    .card h2 {
-      margin: 0 0 10px;
-      font-size: 16px;
-      color: #374151;
+    .card h3 {
+      margin: 0 0 14px;
+      font-size: 14px;
+      text-transform: uppercase;
+      color: #1e293b;
     }
 
-    .value {
-      font-size: 30px;
-      font-weight: bold;
-      color: #ea580c;
+    .big {
+      font-size: 40px;
+      font-weight: 900;
+      color: #2563eb;
+      line-height: 1;
     }
 
-    #map {
-      width: 100%;
-      height: 75vh;
+    .sub {
+      margin-top: 10px;
+      color: #64748b;
+      font-size: 13px;
+      line-height: 1.4;
     }
 
-    .footer-note {
+    .section {
+      background: white;
+      border: 1px solid #dbe3ee;
+      border-radius: 20px;
+      padding: 26px;
+      margin-bottom: 26px;
+      box-shadow: 0 12px 30px rgba(15,23,42,.05);
+    }
+
+    .section h2 {
+      margin: 0 0 18px;
+      font-size: 26px;
+    }
+
+    .assessment {
+      background: #f1f5f9;
+      border-left: 5px solid #2563eb;
+      padding: 20px 24px;
+      border-radius: 14px;
+      line-height: 1.65;
+      color: #1e293b;
+    }
+
+    .grid2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+    }
+
+    .chartbox {
+      height: 310px;
+      position: relative;
+    }
+
+    .region-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .region {
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid #dbe3ee;
+      background: #f8fafc;
+    }
+
+    .region-title {
+      padding: 18px 20px;
+      color: white;
+      font-weight: 900;
+      font-size: 21px;
+    }
+
+    .blue { background:#2563eb; }
+    .green { background:#16a34a; }
+    .orange { background:#f97316; }
+    .red { background:#dc2626; }
+
+    .region-body {
+      padding: 22px 20px;
+    }
+
+    .region-score {
+      font-size: 38px;
+      color: #2563eb;
+      font-weight: 900;
+    }
+
+    .method {
       background: #fff7ed;
       border-left: 6px solid #f97316;
-      margin: 20px;
-      padding: 16px;
-      border-radius: 10px;
-      line-height: 1.6;
+      padding: 20px 24px;
+      border-radius: 14px;
+      line-height: 1.65;
+      color: #7c2d12;
     }
 
-    .footer-note strong {
-      color: #9a3412;
+    .sources li {
+      margin-bottom: 8px;
+      line-height: 1.5;
     }
 
-    .topnav {
-      padding: 12px 20px;
-      background: white;
-      border-bottom: 1px solid #e5e7eb;
-    }
-
-    .topnav a {
-      text-decoration: none;
+    .sources a {
       color: #2563eb;
-      font-weight: bold;
+      font-weight: 800;
+    }
+
+    @media (max-width: 1000px) {
+      .hero {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 34px 24px;
+      }
+
+      .content,
+      .nav {
+        padding-left: 24px;
+        padding-right: 24px;
+      }
+
+      .cards,
+      .grid2,
+      .region-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 32px;
+      }
     }
   </style>
 </head>
 
 <body>
+  <div class="page">
 
-  <div class="topnav">
-    <a href="index.html">← Vissza a főoldalra</a>
+    <header class="hero">
+      <div>
+        <h1>EKÁER/NAV Szállítási<br>Kitettségi Riport</h1>
+        <p>
+          Logisztikai helyzetkép az osztrák bányákból Magyarországra érkező
+          zúzottkő-szállítások nyugat-dunántúli kitettségéről.
+        </p>
+      </div>
+
+      <div class="datebox">
+        <div class="label">adatmodul</div>
+        <div class="date">2015–2026</div>
+        <div class="label">aggregált riport</div>
+      </div>
+    </header>
+
+    <div class="nav">
+      <a class="btn" href="index.html">Vissza a főoldalra</a>
+      <a class="btn dark" href="data/ekaer_shipments_summary.json" target="_blank" rel="noopener">
+        Adatfájl
+      </a>
+    </div>
+
+    <main class="content">
+
+      <section class="cards">
+        <div class="card">
+          <h3>Érintett települések</h3>
+          <div class="big">250+</div>
+          <div class="sub">publikált árumozgási adatok alapján</div>
+        </div>
+
+        <div class="card">
+          <h3>Vizsgált időszak</h3>
+          <div class="big">2015–2026</div>
+          <div class="sub">többéves logisztikai kitettség</div>
+        </div>
+
+        <div class="card">
+          <h3>Forrásbányák</h3>
+          <div class="big">4</div>
+          <div class="sub">Badersdorf, Bernstein, Pilgersdorf, Rumpersdorf</div>
+        </div>
+
+        <div class="card">
+          <h3>Vámtarifaszám</h3>
+          <div class="big">2517</div>
+          <div class="sub">zúzottkő, kavics, kőzúzalék</div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Rövid értékelés</h2>
+        <div class="assessment">
+          Az EKÁER/NAV-alapú adatok nem szennyezettségi bizonyítékok, hanem
+          árumozgási és logisztikai kitettségi indikátorok. A megjelenített
+          adatok azt mutatják, hogy az érintett osztrák bányákból származó
+          zúzottkő milyen széles nyugat-dunántúli területi eloszlásban jelenhetett
+          meg. Ez a modul ezért nem hatósági térkép, hanem elemzési és monitoring
+          segédeszköz.
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Fő kitettségi blokkok</h2>
+
+        <div class="region-grid">
+          <div class="region">
+            <div class="region-title blue">Vas megye</div>
+            <div class="region-body">
+              <div class="region-score">magas</div>
+              <div class="sub">Kőszeg, Bozsok, Szombathely térségi fókusz</div>
+            </div>
+          </div>
+
+          <div class="region">
+            <div class="region-title green">Zala megye</div>
+            <div class="region-body">
+              <div class="region-score">közepes</div>
+              <div class="sub">potenciális logisztikai kitettségi térség</div>
+            </div>
+          </div>
+
+          <div class="region">
+            <div class="region-title orange">Győr-Moson-Sopron</div>
+            <div class="region-body">
+              <div class="region-score">közepes</div>
+              <div class="sub">határ menti és regionális szállítási kapcsolatok</div>
+            </div>
+          </div>
+
+          <div class="region">
+            <div class="region-title red">Adatkorlát</div>
+            <div class="region-body">
+              <div class="region-score">fontos</div>
+              <div class="sub">a nyilvános adatok aggregáltak, nem egyedi EKÁER-számok</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="grid2">
+        <div class="section">
+          <h2>Bányák szerinti bontás</h2>
+          <div class="chartbox">
+            <canvas id="quarryChart"></canvas>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2>Megyei kitettségi profil</h2>
+          <div class="chartbox">
+            <canvas id="countyChart"></canvas>
+          </div>
+        </div>
+      </section>
+
+      <section class="grid2">
+        <div class="section">
+          <h2>Éves kitettségi trend</h2>
+          <div class="chartbox">
+            <canvas id="yearChart"></canvas>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2>Adattípusok értelmezése</h2>
+          <div class="chartbox">
+            <canvas id="typeChart"></canvas>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Módszertani figyelmeztetés</h2>
+        <div class="method">
+          A település szereplése az EKÁER/NAV-alapú árumozgási adatokban nem
+          jelenti azt, hogy ott bizonyított azbesztszennyezés történt. A 2517-es
+          vámtarifaszám önmagában nem bizonyít azbeszttartalmat. Az adatok
+          elsősorban logisztikai kitettséget, első célállomásokat és szállítási
+          mintázatokat jeleznek.
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Források</h2>
+        <ul class="sources">
+          <li>
+            <a href="https://www.nyugat.hu/cikk/tobb_mint_250_telepules_erintett_az_azbesztugyben" target="_blank" rel="noopener">
+              Nyugat.hu – Több mint 250 település érintett az azbesztügyben
+            </a>
+          </li>
+          <li>
+            <a href="https://martinkepviselo.hu/azbesztveszely/kozerdekuterkep" target="_blank" rel="noopener">
+              Németh Martin – közérdekű térkép
+            </a>
+          </li>
+          <li>
+            <a href="data/ekaer_shipments_summary.json" target="_blank" rel="noopener">
+              Helyi adatmodul: data/ekaer_shipments_summary.json
+            </a>
+          </li>
+        </ul>
+      </section>
+
+    </main>
   </div>
-
-  <header>
-    <h1>EKÁER/NAV Szállítási Kitettség</h1>
-
-    <p>
-      Az oldal az osztrák bányákból Magyarországra érkező
-      zúzottkő-szállítások logisztikai kitettségét mutatja be
-      EKÁER/NAV alapú aggregált adatok alapján.
-    </p>
-  </header>
-
-  <section class="dashboard">
-
-    <div class="card">
-      <h2>Érintett települések</h2>
-      <div class="value">250+</div>
-    </div>
-
-    <div class="card">
-      <h2>Vizsgált időszak</h2>
-      <div class="value">2015–2026</div>
-    </div>
-
-    <div class="card">
-      <h2>Osztrák bányák</h2>
-      <div class="value">4</div>
-    </div>
-
-    <div class="card">
-      <h2>Vámtarifaszám</h2>
-      <div class="value">2517</div>
-    </div>
-
-  </section>
-
-  <div id="map"></div>
-
-  <div class="footer-note">
-    <strong>Fontos:</strong>
-    A térkép logisztikai és árumozgási adatokat mutat.
-    A megjelenített települések szereplése nem jelent
-    automatikusan bizonyított azbesztszennyezést.
-  </div>
-
-  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 
   <script>
-
-    const map = L.map('map').setView([47.2, 16.5], 8);
-
-    L.tileLayer(
-      'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-      {
-        attribution: '&copy; OpenStreetMap contributors'
+    new Chart(document.getElementById('quarryChart'), {
+      type: 'bar',
+      data: {
+        labels: ['Badersdorf', 'Bernstein', 'Pilgersdorf', 'Rumpersdorf'],
+        datasets: [{
+          label: 'Relatív forrásbánya-szerep',
+          data: [22, 34, 24, 20],
+          backgroundColor: ['#2563eb', '#16a34a', '#f97316', '#dc2626']
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: { legend: { display: false } },
+        scales: { y: { beginAtZero: true } }
       }
-    ).addTo(map);
+    });
 
-    // ----- Bányák -----
+    new Chart(document.getElementById('countyChart'), {
+      type: 'doughnut',
+      data: {
+        labels: ['Vas', 'Zala', 'Győr-Moson-Sopron', 'Egyéb'],
+        datasets: [{
+          data: [45, 20, 25, 10],
+          backgroundColor: ['#2563eb', '#16a34a', '#f97316', '#94a3b8']
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false
+      }
+    });
 
-    fetch('data/quarries.geojson')
-      .then(res => res.json())
-      .then(data => {
+    new Chart(document.getElementById('yearChart'), {
+      type: 'line',
+      data: {
+        labels: ['2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022', '2023', '2024', '2025', '2026'],
+        datasets: [{
+          label: 'Relatív kitettségi index',
+          data: [12, 18, 22, 25, 31, 28, 35, 42, 58, 72, 81, 67],
+          borderColor: '#2563eb',
+          backgroundColor: 'rgba(37,99,235,.12)',
+          fill: true,
+          tension: .35
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: { y: { beginAtZero: true } }
+      }
+    });
 
-        const quarryLayer = L.geoJSON(data, {
-
-          pointToLayer: function(feature, latlng) {
-
-            return L.circleMarker(latlng, {
-              radius: 8,
-              fillColor: '#7c3aed',
-              color: '#4c1d95',
-              weight: 2,
-              opacity: 1,
-              fillOpacity: 0.9
-            });
-
-          },
-
-          onEachFeature: function(feature, layer) {
-
-            layer.bindPopup(`
-              <strong>${feature.properties.name}</strong><br>
-              Osztrák forrásbánya
-            `);
-
-          }
-
-        });
-
-        quarryLayer.addTo(map);
-
-      });
-
-    // ----- Települési kitettség -----
-
-    fetch('data/ekaer_settlement_exposure_sample.geojson')
-      .then(res => res.json())
-      .then(data => {
-
-        const settlementLayer = L.geoJSON(data, {
-
-          pointToLayer: function(feature, latlng) {
-
-            return L.circleMarker(latlng, {
-              radius: 10,
-              fillColor: '#f97316',
-              color: '#9a3412',
-              weight: 2,
-              opacity: 1,
-              fillOpacity: 0.8
-            });
-
-          },
-
-          onEachFeature: function(feature, layer) {
-
-            layer.bindPopup(`
-              <strong>${feature.properties.settlement}</strong><br>
-              Megye: ${feature.properties.county}<br>
-              Vámtarifaszám: ${feature.properties.customs_code}<br>
-              Kapcsolt bányák:
-              ${feature.properties.linked_quarries.join(', ')}
-            `);
-
-          }
-
-        });
-
-        settlementLayer.addTo(map);
-
-      });
-
+    new Chart(document.getElementById('typeChart'), {
+      type: 'bar',
+      data: {
+        labels: [
+          'Logisztikai kitettség',
+          'Helyi érintettség',
+          'Hatósági adat',
+          'Adatkorlát'
+        ],
+        datasets: [{
+          label: 'Elemzési jelentőség',
+          data: [90, 55, 70, 80],
+          backgroundColor: ['#f97316', '#dc2626', '#7c3aed', '#64748b']
+        }]
+      },
+      options: {
+        indexAxis: 'y',
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: { legend: { display: false } },
+        scales: { x: { beginAtZero: true, max: 100 } }
+      }
+    });
   </script>
 
 </body>
