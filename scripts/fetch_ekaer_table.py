@@ -83,7 +83,9 @@ def google_csv_url(sheet_url):
     try:
         doc_id = parts[parts.index("d") + 1]
     except Exception as exc:
-        raise RuntimeError(f"Nem tudtam kinyerni a Google Sheet azonosítót: {sheet_url}") from exc
+        raise RuntimeError(
+            f"Nem tudtam kinyerni a Google Sheet azonosítót: {sheet_url}"
+        ) from exc
 
     return f"https://docs.google.com/spreadsheets/d/{doc_id}/export?format=csv&gid={gid}"
 
@@ -162,7 +164,7 @@ def load_county_lookup():
                 print(f"Lookup elemek száma: {len(normalized)}")
                 return normalized
 
-    print("FIGYELEM: Nem találtam settlement_county_lookup.json fájlt, Ismeretlen megye lesz használva.")
+    print("FIGYELEM: Nem találtam settlement_county_lookup.json fájlt.")
     return {}
 
 
@@ -251,9 +253,12 @@ def main():
         for col in quantity_columns:
             df[col] = df[col].map(parse_number)
 
-        df["quantity_total"] = df[quantity_columns].sum(axis=1)
+        # A forrás mennyiségi mezői kg-ban vannak kezelve.
+        df["quantity_total_kg"] = df[quantity_columns].sum(axis=1)
+        df["quantity_total_t"] = df["quantity_total_kg"] / 1000.0
     else:
-        df["quantity_total"] = 0.0
+        df["quantity_total_kg"] = 0.0
+        df["quantity_total_t"] = 0.0
 
     df = df.drop(columns=["year_parsed", "month_parsed"], errors="ignore")
 
@@ -273,8 +278,8 @@ def main():
         .to_dict()
     )
 
-    county_quantity_totals = (
-        df.groupby("county")["quantity_total"]
+    county_quantity_totals_t = (
+        df.groupby("county")["quantity_total_t"]
         .sum()
         .sort_values(ascending=False)
         .to_dict()
@@ -285,7 +290,8 @@ def main():
         .agg(
             records=("destination", "size"),
             unique_destinations=("destination", "nunique"),
-            quantity_total=("quantity_total", "sum")
+            quantity_total_t=("quantity_total_t", "sum"),
+            quantity_total_kg=("quantity_total_kg", "sum")
         )
         .reset_index()
         .to_dict(orient="records")
@@ -302,17 +308,31 @@ def main():
         "source_url": SOURCE_URL,
         "google_sheet_iframe_url": iframe_url,
         "google_sheet_csv_url": csv_url,
+
         "record_count": len(records),
         "year_min": int(df["year"].min()) if len(df) else None,
         "year_max": int(df["year"].max()) if len(df) else None,
+
         "unique_destinations": int(df["destination"].nunique()) if len(df) else 0,
         "unique_quarries": int(df["quarry"].nunique()) if len(df) else 0,
         "quarries": sorted(df["quarry"].dropna().unique().tolist()) if len(df) else [],
+
         "quantity_columns": quantity_columns,
-        "quantity_total": float(df["quantity_total"].sum()) if len(df) else 0.0,
+        "quantity_source_unit": "kg",
+        "quantity_display_unit": "t",
+        "quantity_conversion": "kg / 1000 = t",
+
+        "quantity_total_kg": float(df["quantity_total_kg"].sum()) if len(df) else 0.0,
+        "quantity_total_t": float(df["quantity_total_t"].sum()) if len(df) else 0.0,
+
+        # Régi kompatibilitás miatt meghagyva, de már tonnában.
+        "quantity_total": float(df["quantity_total_t"].sum()) if len(df) else 0.0,
+
         "county_destination_counts": county_destination_counts,
         "county_record_counts": county_record_counts,
-        "county_quantity_totals": county_quantity_totals,
+        "county_quantity_totals": county_quantity_totals_t,
+        "county_quantity_totals_t": county_quantity_totals_t,
+
         "quarry_destination_counts": (
             df.groupby("quarry")["destination"]
             .nunique()
@@ -320,6 +340,7 @@ def main():
             .to_dict()
             if len(df) else {}
         ),
+
         "quarry_record_counts": (
             df.groupby("quarry")
             .size()
@@ -327,26 +348,46 @@ def main():
             .to_dict()
             if len(df) else {}
         ),
+
         "quarry_quantity_totals": (
-            df.groupby("quarry")["quantity_total"]
+            df.groupby("quarry")["quantity_total_t"]
             .sum()
             .sort_values(ascending=False)
             .to_dict()
             if len(df) else {}
         ),
+
+        "quarry_quantity_totals_t": (
+            df.groupby("quarry")["quantity_total_t"]
+            .sum()
+            .sort_values(ascending=False)
+            .to_dict()
+            if len(df) else {}
+        ),
+
         "year_record_counts": (
             df.groupby("year")
             .size()
             .to_dict()
             if len(df) else {}
         ),
+
         "year_quantity_totals": (
-            df.groupby("year")["quantity_total"]
+            df.groupby("year")["quantity_total_t"]
             .sum()
             .to_dict()
             if len(df) else {}
         ),
+
+        "year_quantity_totals_t": (
+            df.groupby("year")["quantity_total_t"]
+            .sum()
+            .to_dict()
+            if len(df) else {}
+        ),
+
         "quarry_county_matrix": quarry_county_matrix,
+
         "top_destinations_by_records": (
             df.groupby("destination")
             .size()
@@ -355,19 +396,33 @@ def main():
             .to_dict()
             if len(df) else {}
         ),
+
         "top_destinations_by_quantity": (
-            df.groupby("destination")["quantity_total"]
+            df.groupby("destination")["quantity_total_t"]
             .sum()
             .sort_values(ascending=False)
             .head(30)
             .to_dict()
             if len(df) else {}
         ),
+
+        "top_destinations_by_quantity_t": (
+            df.groupby("destination")["quantity_total_t"]
+            .sum()
+            .sort_values(ascending=False)
+            .head(30)
+            .to_dict()
+            if len(df) else {}
+        ),
+
         "unknown_destination_count": len(unknown_destinations),
         "unknown_destinations_sample": unknown_destinations[:100],
+
         "method_note": (
             "A megyei bontás a settlement_county_lookup.json település-vármegye törzsadat alapján készül. "
-            "Az Ismeretlen kategória azokat a céltelepüléseket tartalmazza, amelyek nem illeszkedtek a törzsadatra."
+            "A mennyiségi összesítés a 2517-es vámtarifaszám-oszlopokból készül. "
+            "A forrás mennyiségi értékei kg-ként vannak kezelve, a dashboard tonnában (t) jeleníti meg őket. "
+            "A logisztikai kitettség nem azonos a bizonyított azbesztszennyezettséggel."
         )
     }
 
@@ -389,7 +444,8 @@ def main():
     print(f"Egyedi céltelepülések: {summary['unique_destinations']}")
     print(f"Időszak: {summary['year_min']}–{summary['year_max']}")
     print(f"Mennyiségi oszlopok: {summary['quantity_columns']}")
-    print(f"Összesített mennyiség: {summary['quantity_total']}")
+    print(f"Összesített mennyiség kg: {summary['quantity_total_kg']}")
+    print(f"Összesített mennyiség t: {summary['quantity_total_t']}")
     print("Megyei településszám:")
     print(summary["county_destination_counts"])
     print(f"Ismeretlen települések száma: {summary['unknown_destination_count']}")
