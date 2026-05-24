@@ -1,0 +1,67 @@
+{
+  "type": "FeatureCollection",
+  "name": "Austrian source quarries linked to EKÁER/NAV shipment exposure",
+  "generated_at": "2026-05-24",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Badersdorf",
+        "country": "Austria",
+        "role": "source_quarry",
+        "evidence_type": "reported_source_quarry",
+        "note": "Az EKÁER/NAV alapú szállítási kitettségi adatokban forrásbányaként szerepel.",
+        "source": "Nyugat.hu / Németh Martin közérdekű térképe"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [16.3686, 47.1971]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Bernstein",
+        "country": "Austria",
+        "role": "source_quarry",
+        "evidence_type": "reported_source_quarry",
+        "note": "Az EKÁER/NAV alapú szállítási kitettségi adatokban forrásbányaként szerepel.",
+        "source": "Nyugat.hu / Németh Martin közérdekű térképe"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [16.2525, 47.4067]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Pilgersdorf",
+        "country": "Austria",
+        "role": "source_quarry",
+        "evidence_type": "reported_source_quarry",
+        "note": "Az EKÁER/NAV alapú szállítási kitettségi adatokban forrásbányaként szerepel.",
+        "source": "Nyugat.hu / Németh Martin közérdekű térképe"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [16.3494, 47.4414]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Rumpersdorf",
+        "country": "Austria",
+        "role": "source_quarry",
+        "evidence_type": "reported_source_quarry",
+        "note": "Az EKÁER/NAV alapú szállítási kitettségi adatokban forrásbányaként szerepel.",
+        "source": "Nyugat.hu / Németh Martin közérdekű térképe"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [16.3768, 47.2695]
+      }
+    }
+  ]
+}
