@@ -1,0 +1,45 @@
+name: Build Kőszeg road projects data
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-road-projects:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Repository letöltése
+        uses: actions/checkout@v4
+
+      - name: Python telepítése
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Függőségek telepítése
+        run: |
+          python -m pip install --upgrade pip
+          pip install pandas openpyxl
+
+      - name: Út- és utcafelújítási Excel feldolgozása
+        run: |
+          python scripts/convert_road_projects.py
+
+      - name: Eredményfájlok ellenőrzése
+        run: |
+          ls -lah data || true
+          ls -lah docs/data || true
+
+      - name: Változások commitolása
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+
+          git add data/road_projects.json
+          git add docs/data/road_projects.json
+
+          git commit -m "Kőszeg út- és utcafelújítási adatok frissítése" || echo "Nincs változás"
+          git push
