@@ -1,639 +1,865 @@
 <!DOCTYPE html>
 <html lang="hu">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kőszeg út és utca felújítások</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-<title>Kőszeg út és utca felújítások</title>
+  <style>
+    * { box-sizing: border-box; }
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #e5eaf1;
+      color: #0f172a;
+    }
 
-<style>
+    .page {
+      max-width: 1380px;
+      margin: 0 auto;
+      background: #f8fafc;
+      min-height: 100vh;
+    }
 
-*{
-  box-sizing:border-box;
-}
+    .hero {
+      background: linear-gradient(135deg, #07111f, #172554);
+      color: white;
+      padding: 48px 56px;
+      display: flex;
+      justify-content: space-between;
+      gap: 32px;
+      align-items: center;
+    }
 
-body{
-  margin:0;
-  background:#f3f4f6;
-  font-family:Arial, Helvetica, sans-serif;
-  color:#111827;
-}
+    .hero h1 {
+      margin: 0;
+      font-size: 42px;
+      line-height: 1.08;
+    }
 
-header{
-  background:#111827;
-  color:white;
-  padding:22px;
-}
+    .hero p {
+      max-width: 760px;
+      color: #dbeafe;
+      font-size: 17px;
+      line-height: 1.55;
+    }
 
-header h1{
-  margin:0;
-  font-size:30px;
-}
+    .datebox {
+      border: 1px solid rgba(255,255,255,.25);
+      border-radius: 18px;
+      padding: 24px 34px;
+      text-align: center;
+      min-width: 240px;
+      background: rgba(255,255,255,.06);
+    }
 
-header p{
-  margin-top:8px;
-  color:#d1d5db;
-}
+    .datebox .label {
+      color: #93c5fd;
+      font-weight: 900;
+      font-size: 13px;
+      text-transform: uppercase;
+    }
 
-.container{
-  max-width:1600px;
-  margin:auto;
-  padding:20px;
-}
+    .datebox .date {
+      font-size: 30px;
+      font-weight: 900;
+      margin-top: 10px;
+    }
 
-.grid-kpi{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:18px;
-  margin-bottom:24px;
-}
+    .nav {
+      padding: 28px 56px 0;
+      display: flex;
+      justify-content: flex-end;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
 
-.kpi{
-  background:white;
-  border-radius:14px;
-  padding:22px;
-  box-shadow:0 2px 8px rgba(0,0,0,0.08);
-}
+    .btn {
+      display: inline-block;
+      text-decoration: none;
+      color: white;
+      background: #2563eb;
+      padding: 13px 20px;
+      border-radius: 12px;
+      font-weight: 900;
+    }
 
-.kpi-title{
-  font-size:14px;
-  color:#6b7280;
-  margin-bottom:10px;
-}
+    .btn.dark { background: #111827; }
+    .btn.red { background: #dc2626; }
 
-.kpi-value{
-  font-size:34px;
-  font-weight:700;
-}
+    .content {
+      padding: 24px 56px 56px;
+    }
 
-.kpi-sub{
-  margin-top:8px;
-  font-size:13px;
-  color:#6b7280;
-}
+    .notice {
+      background: #fff7ed;
+      border: 1px solid #fed7aa;
+      border-left: 7px solid #f97316;
+      border-radius: 18px;
+      padding: 20px 24px;
+      margin-bottom: 28px;
+      color: #7c2d12;
+      line-height: 1.6;
+      font-weight: 700;
+    }
 
-.section{
-  background:white;
-  border-radius:14px;
-  padding:20px;
-  margin-bottom:24px;
-  box-shadow:0 2px 8px rgba(0,0,0,0.08);
-}
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin-bottom: 28px;
+    }
 
-.section h2{
-  margin-top:0;
-  margin-bottom:20px;
-  font-size:24px;
-}
+    .card {
+      background: white;
+      border: 1px solid #dbe3ee;
+      border-radius: 18px;
+      padding: 22px;
+      box-shadow: 0 12px 30px rgba(15,23,42,.06);
+    }
 
-.chart-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
-  gap:24px;
-}
+    .card h3 {
+      margin: 0 0 14px;
+      font-size: 14px;
+      text-transform: uppercase;
+      color: #1e293b;
+    }
 
-.chart-box{
-  background:#fafafa;
-  border-radius:12px;
-  padding:16px;
-  min-height:420px;
-}
+    .big {
+      font-size: 38px;
+      font-weight: 900;
+      color: #2563eb;
+      line-height: 1;
+    }
 
-.chart-title{
-  font-size:17px;
-  font-weight:700;
-  margin-bottom:12px;
-}
+    .big.red {
+      color: #dc2626;
+    }
 
-.table-wrap{
-  overflow-x:auto;
-}
+    .sub {
+      margin-top: 10px;
+      color: #64748b;
+      font-size: 13px;
+      line-height: 1.4;
+    }
 
-table{
-  width:100%;
-  border-collapse:collapse;
-}
+    .section {
+      background: white;
+      border: 1px solid #dbe3ee;
+      border-radius: 20px;
+      padding: 26px;
+      margin-bottom: 26px;
+      box-shadow: 0 12px 30px rgba(15,23,42,.05);
+    }
 
-th{
-  background:#111827;
-  color:white;
-  padding:12px;
-  text-align:left;
-  font-size:14px;
-}
+    .section h2 {
+      margin: 0 0 18px;
+      font-size: 25px;
+    }
 
-td{
-  padding:10px;
-  border-bottom:1px solid #e5e7eb;
-  font-size:14px;
-}
+    .assessment {
+      background: #f1f5f9;
+      border-left: 5px solid #2563eb;
+      padding: 20px 24px;
+      border-radius: 14px;
+      line-height: 1.65;
+      color: #1e293b;
+    }
 
-tr:hover{
-  background:#f9fafb;
-}
+    .grid2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+    }
 
-.badge{
-  display:inline-block;
-  padding:5px 10px;
-  border-radius:999px;
-  font-size:12px;
-  font-weight:700;
-}
+    .chartbox {
+      height: 360px;
+      position: relative;
+    }
 
-.badge-red{
-  background:#fee2e2;
-  color:#b91c1c;
-}
+    .chartbox.large {
+      height: 460px;
+    }
 
-.badge-green{
-  background:#dcfce7;
-  color:#166534;
-}
+    .chartbox.tall {
+      height: 520px;
+    }
 
-.badge-blue{
-  background:#dbeafe;
-  color:#1d4ed8;
-}
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      overflow: hidden;
+      border-radius: 14px;
+    }
 
-.flagged-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:16px;
-}
+    .data-table th,
+    .data-table td {
+      border-bottom: 1px solid #e2e8f0;
+      padding: 13px 12px;
+      text-align: left;
+      font-size: 14px;
+      vertical-align: top;
+    }
 
-.flag-card{
-  background:#fff5f5;
-  border-left:6px solid #dc2626;
-  border-radius:12px;
-  padding:16px;
-}
+    .data-table th {
+      background: #0f172a;
+      color: white;
+      font-size: 13px;
+      text-transform: uppercase;
+    }
 
-.flag-card h3{
-  margin-top:0;
-  margin-bottom:10px;
-  color:#991b1b;
-}
+    .badge {
+      display: inline-block;
+      padding: 5px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 900;
+    }
 
-.flag-item{
-  margin-bottom:8px;
-  font-size:14px;
-}
+    .badge.red {
+      background: #fee2e2;
+      color: #991b1b;
+    }
 
-.note{
-  background:#eff6ff;
-  border-left:5px solid #2563eb;
-  padding:16px;
-  border-radius:12px;
-  margin-top:24px;
-  font-size:14px;
-  line-height:1.6;
-}
+    .badge.green {
+      background: #dcfce7;
+      color: #166534;
+    }
 
-.footer{
-  margin-top:30px;
-  text-align:center;
-  color:#6b7280;
-  font-size:13px;
-}
+    .flag-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
 
-@media (max-width:900px){
+    .flag-card {
+      background: #fff1f2;
+      border: 1px solid #fecdd3;
+      border-left: 7px solid #dc2626;
+      border-radius: 16px;
+      padding: 18px;
+    }
 
-  header h1{
-    font-size:24px;
-  }
+    .flag-card h3 {
+      margin: 0 0 12px;
+      color: #991b1b;
+      font-size: 18px;
+    }
 
-  .chart-grid{
-    grid-template-columns:1fr;
-  }
+    .flag-card p {
+      margin: 6px 0;
+      color: #334155;
+      font-size: 14px;
+      line-height: 1.45;
+    }
 
-  .chart-box{
-    min-height:340px;
-  }
+    .method {
+      background: #fff7ed;
+      border-left: 6px solid #f97316;
+      padding: 20px 24px;
+      border-radius: 14px;
+      line-height: 1.65;
+      color: #7c2d12;
+    }
 
-}
+    .small-note {
+      color: #64748b;
+      font-size: 12px;
+      line-height: 1.5;
+      margin-top: 10px;
+    }
 
-</style>
+    .error {
+      background: #fee2e2;
+      border-left: 6px solid #dc2626;
+      padding: 18px 22px;
+      border-radius: 14px;
+      color: #7f1d1d;
+      font-weight: 800;
+      display: none;
+      margin-bottom: 24px;
+    }
+
+    @media (max-width: 1100px) {
+      .cards {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .flag-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 780px) {
+      .hero {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 34px 22px;
+      }
+
+      .hero h1 {
+        font-size: 31px;
+      }
+
+      .content,
+      .nav {
+        padding-left: 18px;
+        padding-right: 18px;
+      }
+
+      .cards,
+      .grid2,
+      .flag-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .chartbox,
+      .chartbox.large,
+      .chartbox.tall {
+        height: 380px;
+      }
+
+      .data-table {
+        display: block;
+        overflow-x: auto;
+      }
+
+      .big {
+        font-size: 34px;
+      }
+    }
+  </style>
 </head>
 
 <body>
+  <div class="page">
 
-<header>
-  <h1>Kőszeg út és utca felújítások</h1>
-  <p>
-    2015 utáni közlekedési infrastruktúra-fejlesztések, út- és parkolófelújítások,
-    valamint az azbesztügyben szereplő utcák összevetése.
-  </p>
-</header>
-
-<div class="container">
-
-  <div class="grid-kpi">
-
-    <div class="kpi">
-      <div class="kpi-title">Projekt rekordok</div>
-      <div class="kpi-value" id="recordCount">-</div>
-      <div class="kpi-sub">azonosított fejlesztési tétel</div>
-    </div>
-
-    <div class="kpi">
-      <div class="kpi-title">Egyedi utcák</div>
-      <div class="kpi-value" id="streetCount">-</div>
-      <div class="kpi-sub">külön azonosított helyszín</div>
-    </div>
-
-    <div class="kpi">
-      <div class="kpi-title">Azbeszt-listás utcák</div>
-      <div class="kpi-value" id="flaggedCount">-</div>
-      <div class="kpi-sub">összevetési találatok</div>
-    </div>
-
-    <div class="kpi">
-      <div class="kpi-title">Dokumentált hossz</div>
-      <div class="kpi-value" id="lengthKm">-</div>
-      <div class="kpi-sub">azonosított km adat</div>
-    </div>
-
-    <div class="kpi">
-      <div class="kpi-title">Projektérték</div>
-      <div class="kpi-value" id="amountTotal">-</div>
-      <div class="kpi-sub">projektcsomag + támogatási adatok</div>
-    </div>
-
-  </div>
-
-  <div class="section">
-
-    <h2>Diagramok</h2>
-
-    <div class="chart-grid">
-
-      <div class="chart-box">
-        <div class="chart-title">Éves projektszám</div>
-        <canvas id="yearProjectsChart"></canvas>
+    <header class="hero">
+      <div>
+        <h1>Kőszeg út és utca<br>felújítások</h1>
+        <p>
+          Vizuális infrastruktúra-riport a Kőszegen azonosított út-, utca-, parkoló-
+          és közlekedésfejlesztési projektekről, külön jelölve az azbesztügyben
+          szereplő utcanevekkel való egyezéseket.
+        </p>
       </div>
 
-      <div class="chart-box">
-        <div class="chart-title">Projekt típusok</div>
-        <canvas id="typeChart"></canvas>
+      <div class="datebox">
+        <div class="label">vizsgált időszak</div>
+        <div class="date" id="periodBox">–</div>
+        <div class="label">Excel → JSON riport</div>
       </div>
+    </header>
 
-      <div class="chart-box">
-        <div class="chart-title">Finanszírozási kategóriák</div>
-        <canvas id="fundingChart"></canvas>
-      </div>
-
-      <div class="chart-box">
-        <div class="chart-title">Azbeszt-listás utcák aránya</div>
-        <canvas id="flaggedChart"></canvas>
-      </div>
-
-      <div class="chart-box">
-        <div class="chart-title">Éves azonosított hossz (méter)</div>
-        <canvas id="lengthChart"></canvas>
-      </div>
-
-      <div class="chart-box">
-        <div class="chart-title">Projekt státuszok</div>
-        <canvas id="statusChart"></canvas>
-      </div>
-
+    <div class="nav">
+      <a class="btn" href="../index.html">Vissza a főoldalra</a>
+      <a class="btn dark" href="data/road_projects.json" target="_blank" rel="noopener">Adatfájl</a>
+      <a class="btn red" href="../shipment-exposure.html">EKÁER riport</a>
     </div>
 
+    <main class="content">
+
+      <div class="notice">
+        Az oldal nem térképes megjelenítés, hanem összesítő adatvizualizáció.
+        Az „azbeszt-listás” jelölés kizárólag utcanév-alapú összevetés.
+        Nem bizonyít szennyezést, csak azt mutatja, hogy az adott utca szerepel az összevetési listában.
+      </div>
+
+      <div class="error" id="errorBox">
+        Az adatfájl nem tölthető be. Ellenőrizd, hogy létezik-e: docs/data/road_projects.json
+      </div>
+
+      <section class="cards">
+        <div class="card">
+          <h3>Projekt rekordok</h3>
+          <div class="big" id="recordCount">–</div>
+          <div class="sub">azonosított fejlesztési tétel</div>
+        </div>
+
+        <div class="card">
+          <h3>Egyedi utcák</h3>
+          <div class="big" id="streetCount">–</div>
+          <div class="sub">külön azonosított helyszín</div>
+        </div>
+
+        <div class="card">
+          <h3>Azbeszt-listás utcák</h3>
+          <div class="big red" id="flaggedStreetCount">–</div>
+          <div class="sub">utcanév-egyezés alapján</div>
+        </div>
+
+        <div class="card">
+          <h3>Dokumentált hossz</h3>
+          <div class="big" id="lengthTotal">–</div>
+          <div class="sub">csak ahol méteradat szerepel</div>
+        </div>
+      </section>
+
+      <section class="cards">
+        <div class="card">
+          <h3>Projektérték</h3>
+          <div class="big" id="amountTotal">–</div>
+          <div class="sub">projektcsomag-adat, nem utcánkénti költség</div>
+        </div>
+
+        <div class="card">
+          <h3>Azbeszt-listás rekord</h3>
+          <div class="big red" id="flaggedRecordCount">–</div>
+          <div class="sub">projektsor szintű találat</div>
+        </div>
+
+        <div class="card">
+          <h3>Legaktívabb év</h3>
+          <div class="big" id="topYear">–</div>
+          <div class="sub">projektszám alapján</div>
+        </div>
+
+        <div class="card">
+          <h3>Adatforrás</h3>
+          <div class="big" style="font-size:26px;">Excel</div>
+          <div class="sub" id="sourceSheet">–</div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Rövid értékelés</h2>
+        <div class="assessment" id="assessmentText">Adatok betöltése...</div>
+      </section>
+
+      <section class="grid2">
+        <div class="section">
+          <h2>Éves projektszám</h2>
+          <div class="chartbox">
+            <canvas id="yearProjectsChart"></canvas>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2>Éves azbeszt-listás találatok</h2>
+          <div class="chartbox">
+            <canvas id="yearFlaggedChart"></canvas>
+          </div>
+        </div>
+      </section>
+
+      <section class="grid2">
+        <div class="section">
+          <h2>Projekt típusok</h2>
+          <div class="chartbox tall">
+            <canvas id="typeChart"></canvas>
+          </div>
+          <div class="small-note">Hosszú kategórianevek miatt vízszintes oszlopdiagramként jelenik meg.</div>
+        </div>
+
+        <div class="section">
+          <h2>Finanszírozási kategóriák</h2>
+          <div class="chartbox tall">
+            <canvas id="fundingChart"></canvas>
+          </div>
+        </div>
+      </section>
+
+      <section class="grid2">
+        <div class="section">
+          <h2>Státuszok bontása</h2>
+          <div class="chartbox tall">
+            <canvas id="statusChart"></canvas>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2>Azbeszt-listás arány</h2>
+          <div class="chartbox">
+            <canvas id="flaggedRatioChart"></canvas>
+          </div>
+        </div>
+      </section>
+
+      <section class="grid2">
+        <div class="section">
+          <h2>Dokumentált hossz évente</h2>
+          <div class="chartbox">
+            <canvas id="lengthChart"></canvas>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2>Projektérték évente</h2>
+          <div class="chartbox">
+            <canvas id="amountChart"></canvas>
+          </div>
+          <div class="small-note">A pénzügyi adat több esetben projektcsomag-szintű, nem utcánkénti bontás.</div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Év × kategória mátrix</h2>
+        <div class="chartbox large">
+          <canvas id="matrixChart"></canvas>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Azbeszt ügyben szereplő utcák</h2>
+        <div class="flag-grid" id="flaggedGrid"></div>
+      </section>
+
+      <section class="section">
+        <h2>Legnagyobb projektek projektérték szerint</h2>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Utca / szakasz</th>
+              <th>Időszak</th>
+              <th>Típus</th>
+              <th>Finanszírozás</th>
+              <th>Hossz</th>
+              <th>Projektérték</th>
+              <th>Azbeszt-lista</th>
+            </tr>
+          </thead>
+          <tbody id="topAmountTable"></tbody>
+        </table>
+      </section>
+
+      <section class="section">
+        <h2>Legnagyobb projektek dokumentált hossz szerint</h2>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Utca / szakasz</th>
+              <th>Időszak</th>
+              <th>Típus</th>
+              <th>Finanszírozás</th>
+              <th>Hossz</th>
+              <th>Azbeszt-lista</th>
+            </tr>
+          </thead>
+          <tbody id="topLengthTable"></tbody>
+        </table>
+      </section>
+
+      <section class="section">
+        <h2>Módszertani megjegyzés</h2>
+        <div class="method" id="methodNote">
+          Az oldal a feltöltött Excel-táblából generált JSON adatfájlból dolgozik.
+          A jelölések adatminősége az eredeti táblában szereplő források, megjegyzések
+          és adatbiztonsági mezők pontosságától függ.
+        </div>
+      </section>
+
+    </main>
   </div>
 
-  <div class="section">
+  <script>
+    const DATA_URL = "data/road_projects.json";
+    let charts = [];
 
-    <h2>Legnagyobb projektek</h2>
-
-    <div class="table-wrap">
-
-      <table>
-
-        <thead>
-          <tr>
-            <th>Utca</th>
-            <th>Időszak</th>
-            <th>Típus</th>
-            <th>Hossz</th>
-            <th>Projektérték</th>
-            <th>Azbeszt-lista</th>
-          </tr>
-        </thead>
-
-        <tbody id="topProjectsTable"></tbody>
-
-      </table>
-
-    </div>
-
-  </div>
-
-  <div class="section">
-
-    <h2>Azbeszt ügyben szereplő utcák</h2>
-
-    <div class="flagged-grid" id="flaggedGrid"></div>
-
-  </div>
-
-  <div class="note">
-
-    <strong>Módszertani megjegyzés:</strong><br><br>
-
-    Az oldal a Kőszeg városához kapcsolódó út- és utcafelújítási projektek
-    nyilvánosan elérhető önkormányzati, projekt- és közbeszerzési adataiból épül fel.
-
-    Az „azbeszt-listás” jelölés kizárólag névegyezéses összevetés.
-    Nem bizonyít szennyezést vagy egészségügyi kockázatot.
-    A jelölés azt mutatja, hogy az adott utcanév szerepel a korábban
-    nyilvánosságra került összevetési listákban is.
-
-  </div>
-
-  <div class="footer">
-    Kőszeg út és utca felújítások • Automatikus adatvizualizáció
-  </div>
-
-</div>
-
-<script>
-
-function formatNumber(num){
-
-  if(!num) return "0";
-
-  return new Intl.NumberFormat('hu-HU').format(num);
-
-}
-
-function formatMoney(num){
-
-  if(!num) return "0 Ft";
-
-  if(num >= 1000000000){
-    return (num / 1000000000).toFixed(2) + " Md Ft";
-  }
-
-  if(num >= 1000000){
-    return (num / 1000000).toFixed(1) + " M Ft";
-  }
-
-  return formatNumber(num) + " Ft";
-
-}
-
-fetch("data/road_projects.json")
-.then(r => r.json())
-.then(data => {
-
-  document.getElementById("recordCount").innerText =
-    formatNumber(data.record_count);
-
-  document.getElementById("streetCount").innerText =
-    formatNumber(data.unique_streets);
-
-  document.getElementById("flaggedCount").innerText =
-    formatNumber(data.flagged_street_count);
-
-  document.getElementById("lengthKm").innerText =
-    data.total_length_km.toFixed(2) + " km";
-
-  document.getElementById("amountTotal").innerText =
-    formatMoney(data.total_amount_huf);
-
-  createYearProjectsChart(data);
-  createTypeChart(data);
-  createFundingChart(data);
-  createFlaggedChart(data);
-  createLengthChart(data);
-  createStatusChart(data);
-
-  buildTopProjects(data);
-  buildFlaggedGrid(data);
-
-});
-
-function createYearProjectsChart(data){
-
-  new Chart(document.getElementById("yearProjectsChart"),{
-
-    type:"bar",
-
-    data:{
-      labels:Object.keys(data.year_project_counts),
-      datasets:[{
-        label:"Projektek száma",
-        data:Object.values(data.year_project_counts)
-      }]
-    },
-
-    options:{
-      responsive:true,
-      maintainAspectRatio:false
+    function formatNumber(value) {
+      return Number(value || 0).toLocaleString("hu-HU", { maximumFractionDigits: 0 });
     }
 
-  });
-
-}
-
-function createTypeChart(data){
-
-  new Chart(document.getElementById("typeChart"),{
-
-    type:"doughnut",
-
-    data:{
-      labels:Object.keys(data.type_counts),
-      datasets:[{
-        data:Object.values(data.type_counts)
-      }]
-    },
-
-    options:{
-      responsive:true,
-      maintainAspectRatio:false
+    function formatKm(value) {
+      return Number(value || 0).toLocaleString("hu-HU", { maximumFractionDigits: 2 }) + " km";
     }
 
-  });
-
-}
-
-function createFundingChart(data){
-
-  new Chart(document.getElementById("fundingChart"),{
-
-    type:"pie",
-
-    data:{
-      labels:Object.keys(data.funding_counts),
-      datasets:[{
-        data:Object.values(data.funding_counts)
-      }]
-    },
-
-    options:{
-      responsive:true,
-      maintainAspectRatio:false
+    function formatMoney(value) {
+      const n = Number(value || 0);
+      if (n >= 1_000_000_000) {
+        return (n / 1_000_000_000).toLocaleString("hu-HU", { maximumFractionDigits: 2 }) + " Md Ft";
+      }
+      if (n >= 1_000_000) {
+        return (n / 1_000_000).toLocaleString("hu-HU", { maximumFractionDigits: 1 }) + " M Ft";
+      }
+      return formatNumber(n) + " Ft";
     }
 
-  });
-
-}
-
-function createFlaggedChart(data){
-
-  new Chart(document.getElementById("flaggedChart"),{
-
-    type:"doughnut",
-
-    data:{
-      labels:["Azbeszt-listás","Nem jelölt"],
-      datasets:[{
-        data:[
-          data.flagged_street_count,
-          data.unique_streets - data.flagged_street_count
-        ]
-      }]
-    },
-
-    options:{
-      responsive:true,
-      maintainAspectRatio:false
+    function shortMoney(value) {
+      const n = Number(value || 0);
+      if (n >= 1_000_000_000) return (n / 1_000_000_000).toLocaleString("hu-HU", { maximumFractionDigits: 1 }) + " Md";
+      if (n >= 1_000_000) return (n / 1_000_000).toLocaleString("hu-HU", { maximumFractionDigits: 0 }) + " M";
+      return formatNumber(n);
     }
 
-  });
-
-}
-
-function createLengthChart(data){
-
-  new Chart(document.getElementById("lengthChart"),{
-
-    type:"bar",
-
-    data:{
-      labels:Object.keys(data.year_length_totals),
-      datasets:[{
-        label:"Méret (m)",
-        data:Object.values(data.year_length_totals)
-      }]
-    },
-
-    options:{
-      responsive:true,
-      maintainAspectRatio:false
+    function sortedEntries(obj, limit = null) {
+      const entries = Object.entries(obj || {}).sort((a, b) => Number(b[1]) - Number(a[1]));
+      return limit ? entries.slice(0, limit) : entries;
     }
 
-  });
-
-}
-
-function createStatusChart(data){
-
-  new Chart(document.getElementById("statusChart"),{
-
-    type:"polarArea",
-
-    data:{
-      labels:Object.keys(data.status_counts),
-      datasets:[{
-        data:Object.values(data.status_counts)
-      }]
-    },
-
-    options:{
-      responsive:true,
-      maintainAspectRatio:false
+    function yearEntries(obj) {
+      return Object.entries(obj || {}).sort((a, b) => {
+        if (a[0] === "Ismeretlen") return 1;
+        if (b[0] === "Ismeretlen") return -1;
+        return Number(a[0]) - Number(b[0]);
+      });
     }
 
-  });
+    function createChart(id, config) {
+      const chart = new Chart(document.getElementById(id), config);
+      charts.push(chart);
+      return chart;
+    }
 
-}
-
-function buildTopProjects(data){
-
-  const tbody = document.getElementById("topProjectsTable");
-
-  data.top_projects_by_amount.slice(0,15).forEach(item => {
-
-    const tr = document.createElement("tr");
-
-    tr.innerHTML = `
-
-      <td>${item.street}</td>
-
-      <td>${item.period || "-"}</td>
-
-      <td>${item.project || "-"}</td>
-
-      <td>${item.length_m ? item.length_m + " m" : "-"}</td>
-
-      <td>${formatMoney(item.amount_huf)}</td>
-
-      <td>
-        ${
-          item.flagged_asbestos_street
-          ? '<span class="badge badge-red">igen</span>'
-          : '<span class="badge badge-green">nem</span>'
+    function barChart(id, labels, values, label, horizontal = false, formatter = null) {
+      return createChart(id, {
+        type: "bar",
+        data: {
+          labels,
+          datasets: [{
+            label,
+            data: values,
+            backgroundColor: [
+              "#2563eb", "#16a34a", "#f97316", "#dc2626",
+              "#7c3aed", "#0891b2", "#64748b", "#ca8a04",
+              "#be123c", "#15803d", "#1d4ed8", "#9333ea"
+            ]
+          }]
+        },
+        options: {
+          indexAxis: horizontal ? "y" : "x",
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { display: false },
+            tooltip: {
+              callbacks: {
+                label: ctx => `${label}: ${formatter ? formatter(ctx.raw) : formatNumber(ctx.raw)}`
+              }
+            }
+          },
+          scales: {
+            x: { beginAtZero: true },
+            y: { beginAtZero: true }
+          }
         }
-      </td>
+      });
+    }
 
-    `;
+    function doughnutChart(id, labels, values) {
+      return createChart(id, {
+        type: "doughnut",
+        data: {
+          labels,
+          datasets: [{
+            data: values,
+            backgroundColor: ["#dc2626", "#2563eb"]
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { position: "bottom" }
+          },
+          cutout: "62%"
+        }
+      });
+    }
 
-    tbody.appendChild(tr);
+    function buildMatrix(data) {
+      const records = data.records || [];
+      const years = [...new Set(records.map(r => r.year || "Ismeretlen"))]
+        .sort((a, b) => Number(a) - Number(b));
 
-  });
+      const types = Object.keys(data.type_counts || {}).slice(0, 8);
 
-}
+      const datasets = types.map((type, idx) => ({
+        label: type,
+        data: years.map(y => records.filter(r => String(r.year || "Ismeretlen") === String(y) && r.type === type).length),
+        backgroundColor: [
+          "#2563eb", "#16a34a", "#f97316", "#dc2626",
+          "#7c3aed", "#0891b2", "#64748b", "#ca8a04"
+        ][idx % 8]
+      }));
 
-function buildFlaggedGrid(data){
+      return createChart("matrixChart", {
+        type: "bar",
+        data: { labels: years, datasets },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { position: "bottom" },
+            tooltip: {
+              callbacks: {
+                label: ctx => `${ctx.dataset.label}: ${formatNumber(ctx.raw)} projekt`
+              }
+            }
+          },
+          scales: {
+            x: { stacked: true },
+            y: { stacked: true, beginAtZero: true }
+          }
+        }
+      });
+    }
 
-  const grid = document.getElementById("flaggedGrid");
+    function buildFlaggedGrid(data) {
+      const grid = document.getElementById("flaggedGrid");
+      const flagged = (data.records || []).filter(r => r.flagged_asbestos_street);
 
-  const flagged = data.records.filter(r => r.flagged_asbestos_street);
+      grid.innerHTML = flagged.map(item => `
+        <div class="flag-card">
+          <h3>${item.street || "-"}</h3>
+          <p><strong>Időszak:</strong> ${item.period || "-"}</p>
+          <p><strong>Projekt:</strong> ${item.project || "-"}</p>
+          <p><strong>Finanszírozás:</strong> ${item.funding || "-"}</p>
+          <p><strong>Hossz:</strong> ${item.length_m ? formatNumber(item.length_m) + " m" : "-"}</p>
+          <p><strong>Státusz:</strong> ${item.status || "-"}</p>
+        </div>
+      `).join("");
+    }
 
-  flagged.forEach(item => {
+    function buildTables(data) {
+      const amountBody = document.getElementById("topAmountTable");
+      const lengthBody = document.getElementById("topLengthTable");
 
-    const div = document.createElement("div");
+      amountBody.innerHTML = (data.top_projects_by_amount || []).slice(0, 12).map(item => `
+        <tr>
+          <td><strong>${item.street || "-"}</strong></td>
+          <td>${item.period || "-"}</td>
+          <td>${item.type || item.project || "-"}</td>
+          <td>${item.funding || "-"}</td>
+          <td>${item.length_m ? formatNumber(item.length_m) + " m" : "-"}</td>
+          <td>${formatMoney(item.amount_huf)}</td>
+          <td>${item.flagged_asbestos_street ? '<span class="badge red">igen</span>' : '<span class="badge green">nem</span>'}</td>
+        </tr>
+      `).join("");
 
-    div.className = "flag-card";
+      lengthBody.innerHTML = (data.top_projects_by_length || []).slice(0, 12).map(item => `
+        <tr>
+          <td><strong>${item.street || "-"}</strong></td>
+          <td>${item.period || "-"}</td>
+          <td>${item.type || item.project || "-"}</td>
+          <td>${item.funding || "-"}</td>
+          <td>${item.length_m ? formatNumber(item.length_m) + " m" : "-"}</td>
+          <td>${item.flagged_asbestos_street ? '<span class="badge red">igen</span>' : '<span class="badge green">nem</span>'}</td>
+        </tr>
+      `).join("");
+    }
 
-    div.innerHTML = `
+    function render(data) {
+      const yearMin = data.year_min || "–";
+      const yearMax = data.year_max || "–";
+      document.getElementById("periodBox").textContent = `${yearMin}–${yearMax}`;
 
-      <h3>${item.street}</h3>
+      document.getElementById("recordCount").textContent = formatNumber(data.record_count);
+      document.getElementById("streetCount").textContent = formatNumber(data.unique_streets);
+      document.getElementById("flaggedStreetCount").textContent = formatNumber(data.flagged_street_count);
+      document.getElementById("lengthTotal").textContent = formatKm(data.total_length_km);
+      document.getElementById("amountTotal").textContent = formatMoney(data.total_amount_huf);
+      document.getElementById("flaggedRecordCount").textContent = formatNumber(data.flagged_record_count);
 
-      <div class="flag-item">
-        <strong>Időszak:</strong> ${item.period || "-"}
-      </div>
+      const topYear = sortedEntries(data.year_project_counts, 1)[0];
+      document.getElementById("topYear").textContent = topYear ? topYear[0] : "–";
+      document.getElementById("sourceSheet").textContent = data.source_sheet || "–";
 
-      <div class="flag-item">
-        <strong>Projekt:</strong> ${item.project || "-"}
-      </div>
+      const topType = sortedEntries(data.type_counts, 1)[0];
+      const topFunding = sortedEntries(data.funding_counts, 1)[0];
 
-      <div class="flag-item">
-        <strong>Finanszírozás:</strong> ${item.funding || "-"}
-      </div>
+      document.getElementById("assessmentText").innerHTML = `
+        A feldolgozott adatbázis <strong>${formatNumber(data.record_count)}</strong> projekt-rekordot és
+        <strong>${formatNumber(data.unique_streets)}</strong> egyedi utcát vagy helyszínt tartalmaz.
+        Az azbesztügyben szereplő utcanevekkel <strong>${formatNumber(data.flagged_street_count)}</strong>
+        utca mutat egyezést. A dokumentált hossz <strong>${formatKm(data.total_length_km)}</strong>,
+        de ez csak azokra a sorokra vonatkozik, ahol a forrás méteradatot is tartalmaz.
+        A leggyakoribb projekttípus: <strong>${topType ? topType[0] : "–"}</strong>.
+        A leggyakoribb finanszírozási kategória: <strong>${topFunding ? topFunding[0] : "–"}</strong>.
+      `;
 
-      <div class="flag-item">
-        <strong>Hossz:</strong>
-        ${item.length_m ? item.length_m + " m" : "-"}
-      </div>
+      if (data.method_note) {
+        document.getElementById("methodNote").textContent = data.method_note;
+      }
 
-      <div class="flag-item">
-        <strong>Státusz:</strong> ${item.status || "-"}
-      </div>
+      const years = yearEntries(data.year_project_counts);
+      barChart(
+        "yearProjectsChart",
+        years.map(e => e[0]),
+        years.map(e => e[1]),
+        "Projektek száma"
+      );
 
-    `;
+      const flaggedYears = yearEntries(data.year_flagged_counts);
+      barChart(
+        "yearFlaggedChart",
+        flaggedYears.map(e => e[0]),
+        flaggedYears.map(e => e[1]),
+        "Azbeszt-listás találatok"
+      );
 
-    grid.appendChild(div);
+      const typeEntries = sortedEntries(data.type_counts, 12).reverse();
+      barChart(
+        "typeChart",
+        typeEntries.map(e => e[0]),
+        typeEntries.map(e => e[1]),
+        "Projektek száma",
+        true
+      );
 
-  });
+      const fundingEntries = sortedEntries(data.funding_counts, 10).reverse();
+      barChart(
+        "fundingChart",
+        fundingEntries.map(e => e[0]),
+        fundingEntries.map(e => e[1]),
+        "Projektek száma",
+        true
+      );
 
-}
+      const statusEntries = sortedEntries(data.status_counts, 10).reverse();
+      barChart(
+        "statusChart",
+        statusEntries.map(e => e[0]),
+        statusEntries.map(e => e[1]),
+        "Projektek száma",
+        true
+      );
 
-</script>
+      doughnutChart(
+        "flaggedRatioChart",
+        ["Azbeszt-listás utca", "Nem jelölt utca"],
+        [data.flagged_street_count || 0, Math.max((data.unique_streets || 0) - (data.flagged_street_count || 0), 0)]
+      );
 
+      const lengthYears = yearEntries(data.year_length_totals);
+      barChart(
+        "lengthChart",
+        lengthYears.map(e => e[0]),
+        lengthYears.map(e => e[1]),
+        "Dokumentált hossz",
+        false,
+        v => formatNumber(v) + " m"
+      );
+
+      const amountYears = yearEntries(data.year_amount_totals);
+      barChart(
+        "amountChart",
+        amountYears.map(e => e[0]),
+        amountYears.map(e => e[1]),
+        "Projektérték",
+        false,
+        shortMoney
+      );
+
+      buildMatrix(data);
+      buildFlaggedGrid(data);
+      buildTables(data);
+    }
+
+    async function loadData() {
+      try {
+        const response = await fetch(DATA_URL + "?t=" + Date.now());
+        if (!response.ok) throw new Error("Adatfájl nem elérhető");
+        const data = await response.json();
+        render(data);
+      } catch (error) {
+        console.error(error);
+        document.getElementById("errorBox").style.display = "block";
+      }
+    }
+
+    loadData();
+  </script>
 </body>
 </html>
