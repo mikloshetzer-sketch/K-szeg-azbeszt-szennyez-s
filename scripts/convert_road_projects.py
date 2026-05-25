@@ -1,4 +1,5 @@
 import json
+import re
 from pathlib import Path
 
 import pandas as pd
@@ -6,137 +7,354 @@ import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[1]
 
-EXCEL_FILE = ROOT / "koszeg_ut_es_utcafelujitasok_2015_tol(1).xlsx"
+SOURCE_DIR = ROOT / "data" / "source"
 
 OUTPUTS = [
     ROOT / "data" / "road_projects.json",
     ROOT / "docs" / "data" / "road_projects.json",
 ]
 
+FLAGGED_STREETS = {
+    "BOROSTYÁNKŐ UTCA",
+    "LÉKAI ÚT",
+    "MALOMÁROK UTCA",
+    "MESKÓ UTCA",
+    "KÁLVÁRIA UTCA",
+    "BECHTOLD UTCA",
+    "KIRÁLYVÖLGYI UTCA",
+    "ERDŐ UTCA",
+    "MÉLYÚT UTCA",
+    "ARBORÉTUM UTCA",
+    "FREH ALFONZ UTCA",
+    "SZENT ANNA UTCA",
+    "HADIK UTCA",
+    "ÓHÁZ UTCA",
+    "BERSEK JÓZSEF UTCA",
+    "KÓRHÁZ UTCA",
+    "SZENT GYÖRGY UTCA",
+    "JÓZSEF FORRÁS UTCA",
+    "CSŐSZHÁZ UTCA",
+    "SZELESTEY LÁSZLÓ UTCA",
+    "HERMINA UTCA",
+    "FEHÉR SÁFRÁNY UTCA",
+    "DR. AMBRÓ GYULA UTCA",
+    "KENYÉRHEGYI ÚT",
+    "ZRÍNYI UTCA",
+    "SÖRGYÁR UTCA",
+    "VÍZMŰ UTCA",
+    "LÓRÁNT GYULA UTCA",
+    "POSZTÓGYÁR UTCA",
+    "FORINTOS MÁTYÁS UTCA",
+    "NAPSUGÁR UTCA",
+    "KANKALIN UTCA",
+    "TÜSKEVÁR UTCA",
+    "FALUDI UTCA",
+    "HUNYADI UTCA",
+    "RÓMER FLÓRIS UTCA",
+    "TÁNCSICS MIHÁLY UTCA",
+    "SÁNCÁROK UTCA",
+    "VÁMHÁZ UTCA",
+    "POCICHTER UTCA",
+    "LIBASZŐLŐ UTCA",
+    "HIDEGVÖLGY ÚT",
+    "PANORÁMA KÖRÚT",
+    "STRAND SÉTÁNY",
+    "KÁROLYI MIHÁLY UTCA",
+    "LISZT FERENC UTCA",
+    "DÓZSA GYÖRGY UTCA",
+    "BAJCSY-ZSILINSZKY UTCA",
+    "RŐTIVÖLGYI UTCA",
+}
+
 
 def clean(value):
     if pd.isna(value):
-        return None
-
-    value = str(value).strip()
-
-    if value == "":
-        return None
-
-    return value
+        return ""
+    return re.sub(r"\s+", " ", str(value)).strip()
 
 
-def number(value):
-    if pd.isna(value):
-        return None
+def norm(value):
+    text = clean(value).upper()
+    text = text.replace(".", "")
+    text = text.replace("  ", " ")
+    return text.strip()
 
-    text = str(value).replace(" ", "").replace(",", ".")
+
+def parse_number(value):
+    text = clean(value)
+
+    if not text:
+        return 0.0
+
+    text = text.replace("\u00a0", "")
+    text = text.replace(" ", "")
+    text = text.replace("Ft", "")
+    text = text.replace("HUF", "")
+    text = text.replace(",", ".")
+
+    match = re.search(r"-?\d+(\.\d+)?", text)
+
+    if not match:
+        return 0.0
 
     try:
-        return float(text)
+        return float(match.group(0))
     except Exception:
-        return clean(value)
+        return 0.0
+
+
+def parse_year(value):
+    text = clean(value)
+    match = re.search(r"(20\d{2}|19\d{2})", text)
+
+    if match:
+        return int(match.group(1))
+
+    return None
+
+
+def find_excel_file():
+    preferred = SOURCE_DIR / "koszeg_ut_es_utcafelujitasok_2015_tol.xlsx"
+
+    if preferred.exists():
+        return preferred
+
+    candidates = list(SOURCE_DIR.glob("*.xlsx"))
+
+    if not candidates:
+        raise FileNotFoundError(
+            f"Nincs Excel fájl itt: {SOURCE_DIR}. "
+            "Töltsd fel ide: data/source/koszeg_ut_es_utcafelujitasok_2015_tol.xlsx"
+        )
+
+    return candidates[0]
 
 
 def detect_columns(columns):
     mapping = {}
 
     for col in columns:
-
         low = str(col).lower()
 
-        if "év" in low or "year" in low:
+        if "év" in low or "ev" in low or "year" in low or "időszak" in low:
             mapping[col] = "year"
 
-        elif "utca" in low or "út" in low:
+        elif "utca" in low or "út" in low or "ut" in low or "helyszín" in low or "helyszin" in low:
             mapping[col] = "street"
 
-        elif "projekt" in low:
+        elif "projekt" in low or "munka" in low or "fejlesztés" in low or "felújítás" in low or "felujitas" in low:
             mapping[col] = "project"
 
-        elif "hossz" in low or "méter" in low:
+        elif "típus" in low or "tipus" in low or "kategória" in low or "kategoria" in low:
+            mapping[col] = "type"
+
+        elif "hossz" in low or "méter" in low or "meter" in low or "m)" in low:
             mapping[col] = "length_m"
 
-        elif "forrás" in low or "program" in low:
+        elif "forrás" in low or "forras" in low or "program" in low or "finanszíroz" in low or "finansziroz" in low:
             mapping[col] = "funding"
 
-        elif "összeg" in low or "támogatás" in low:
+        elif "összeg" in low or "osszeg" in low or "támogatás" in low or "tamogatas" in low or "költség" in low or "koltseg" in low:
             mapping[col] = "amount_huf"
 
-        elif "státusz" in low:
+        elif "státusz" in low or "status" in low or "állapot" in low or "allapot" in low:
             mapping[col] = "status"
 
-        elif "megjegyzés" in low:
+        elif "forráslink" in low or "link" in low or "url" in low:
+            mapping[col] = "source_url"
+
+        elif "megjegyzés" in low or "megjegyzes" in low or "note" in low:
             mapping[col] = "notes"
+
+        elif "adatbiztons" in low or "bizonyosság" in low or "bizonyossag" in low:
+            mapping[col] = "confidence"
 
     return mapping
 
 
+def read_excel(path):
+    print(f"Excel betöltése: {path}")
+
+    sheets = pd.read_excel(path, sheet_name=None, dtype=str)
+
+    best_df = None
+    best_sheet = None
+    best_score = -1
+
+    for sheet_name, df in sheets.items():
+        df = df.dropna(how="all").copy()
+        df.columns = [clean(c) for c in df.columns]
+
+        mapping = detect_columns(df.columns)
+        score = len(mapping) + len(df) / 1000
+
+        print(f"Sheet: {sheet_name}, sorok: {len(df)}, felismert oszlopok: {mapping}")
+
+        if score > best_score:
+            best_score = score
+            best_df = df
+            best_sheet = sheet_name
+
+    if best_df is None or best_df.empty:
+        raise RuntimeError("Nem sikerült értelmezhető sheetet találni az Excelben.")
+
+    print(f"Kiválasztott sheet: {best_sheet}")
+
+    mapping = detect_columns(best_df.columns)
+    best_df = best_df.rename(columns=mapping)
+
+    return best_df, best_sheet, mapping
+
+
+def is_flagged_street(street):
+    street_norm = norm(street)
+
+    if not street_norm:
+        return False
+
+    if street_norm in FLAGGED_STREETS:
+        return True
+
+    for flagged in FLAGGED_STREETS:
+        if flagged in street_norm or street_norm in flagged:
+            return True
+
+    return False
+
+
 def main():
-
-    print("Excel betöltése...")
-    df = pd.read_excel(EXCEL_FILE)
-
-    print("Oszlopok:")
-    print(list(df.columns))
-
-    mapping = detect_columns(df.columns)
-
-    print("Felismerések:")
-    print(mapping)
-
-    df = df.rename(columns=mapping)
+    excel_path = find_excel_file()
+    df, sheet_name, mapping = read_excel(excel_path)
 
     records = []
 
     for _, row in df.iterrows():
+        street = clean(row.get("street", ""))
+
+        if not street:
+            continue
+
+        year = parse_year(row.get("year", ""))
 
         record = {
-            "year": clean(row.get("year")),
-            "street": clean(row.get("street")),
-            "project": clean(row.get("project")),
-            "length_m": number(row.get("length_m")),
-            "funding": clean(row.get("funding")),
-            "amount_huf": number(row.get("amount_huf")),
-            "status": clean(row.get("status")),
-            "notes": clean(row.get("notes")),
+            "year": year,
+            "street": street,
+            "street_key": norm(street),
+            "project": clean(row.get("project", "")),
+            "type": clean(row.get("type", "")),
+            "length_m": parse_number(row.get("length_m", "")),
+            "funding": clean(row.get("funding", "")),
+            "amount_huf": parse_number(row.get("amount_huf", "")),
+            "status": clean(row.get("status", "")),
+            "source_url": clean(row.get("source_url", "")),
+            "confidence": clean(row.get("confidence", "")),
+            "notes": clean(row.get("notes", "")),
         }
 
-        if not record["street"]:
-            continue
+        record["flagged_asbestos_street"] = is_flagged_street(record["street"])
 
         records.append(record)
 
+    unique_streets = sorted({r["street_key"] for r in records if r["street_key"]})
+    flagged_records = [r for r in records if r["flagged_asbestos_street"]]
+    flagged_streets = sorted({r["street_key"] for r in flagged_records})
+
+    years = [r["year"] for r in records if isinstance(r["year"], int)]
+
+    def group_count(field):
+        result = {}
+        for r in records:
+            key = r.get(field) or "Ismeretlen"
+            result[key] = result.get(key, 0) + 1
+        return dict(sorted(result.items(), key=lambda x: x[1], reverse=True))
+
+    def group_sum(field, value_field):
+        result = {}
+        for r in records:
+            key = r.get(field) or "Ismeretlen"
+            result[key] = result.get(key, 0) + float(r.get(value_field) or 0)
+        return dict(sorted(result.items(), key=lambda x: x[1], reverse=True))
+
+    year_project_counts = {}
+    year_length_totals = {}
+    year_amount_totals = {}
+    year_flagged_counts = {}
+
+    for r in records:
+        y = str(r["year"]) if r["year"] else "Ismeretlen"
+
+        year_project_counts[y] = year_project_counts.get(y, 0) + 1
+        year_length_totals[y] = year_length_totals.get(y, 0) + float(r["length_m"] or 0)
+        year_amount_totals[y] = year_amount_totals.get(y, 0) + float(r["amount_huf"] or 0)
+
+        if r["flagged_asbestos_street"]:
+            year_flagged_counts[y] = year_flagged_counts.get(y, 0) + 1
+
+    top_projects_by_amount = sorted(
+        records,
+        key=lambda r: float(r.get("amount_huf") or 0),
+        reverse=True
+    )[:15]
+
+    top_projects_by_length = sorted(
+        records,
+        key=lambda r: float(r.get("length_m") or 0),
+        reverse=True
+    )[:15]
+
     summary = {
+        "title": "Kőszeg út és utca felújítások",
+        "source_excel": str(excel_path.relative_to(ROOT)),
+        "source_sheet": sheet_name,
+        "column_mapping": {str(k): v for k, v in mapping.items()},
+
         "record_count": len(records),
-        "unique_streets": len(
-            set(r["street"] for r in records if r["street"])
-        ),
-        "year_min": min(
-            [int(r["year"]) for r in records if r["year"] and str(r["year"]).isdigit()],
-            default=None
-        ),
-        "year_max": max(
-            [int(r["year"]) for r in records if r["year"] and str(r["year"]).isdigit()],
-            default=None
-        ),
-        "records": records
+        "unique_streets": len(unique_streets),
+        "year_min": min(years) if years else None,
+        "year_max": max(years) if years else None,
+
+        "total_length_m": sum(float(r["length_m"] or 0) for r in records),
+        "total_amount_huf": sum(float(r["amount_huf"] or 0) for r in records),
+
+        "flagged_record_count": len(flagged_records),
+        "flagged_street_count": len(flagged_streets),
+        "flagged_streets": flagged_streets,
+
+        "funding_counts": group_count("funding"),
+        "funding_amount_totals": group_sum("funding", "amount_huf"),
+        "type_counts": group_count("type"),
+        "status_counts": group_count("status"),
+
+        "year_project_counts": dict(sorted(year_project_counts.items())),
+        "year_length_totals": dict(sorted(year_length_totals.items())),
+        "year_amount_totals": dict(sorted(year_amount_totals.items())),
+        "year_flagged_counts": dict(sorted(year_flagged_counts.items())),
+
+        "top_projects_by_amount": top_projects_by_amount,
+        "top_projects_by_length": top_projects_by_length,
+
+        "records": records,
+
+        "method_note": (
+            "Az út- és utcafelújítási adatok a feltöltött Excel-táblából készültek. "
+            "Az azbesztügyben megjelölt utcák jelölése névegyezésen és normalizált utcanév-illesztésen alapul. "
+            "A jelölés nem bizonyít szennyezést, csak azt mutatja, hogy az adott utcanév szerepel az összevetési listában."
+        )
     }
 
     for output in OUTPUTS:
-
         output.parent.mkdir(parents=True, exist_ok=True)
-
         output.write_text(
             json.dumps(summary, ensure_ascii=False, indent=2),
             encoding="utf-8"
         )
-
         print(f"Mentve: {output}")
 
     print("Kész.")
     print(f"Rekordok: {summary['record_count']}")
     print(f"Egyedi utcák: {summary['unique_streets']}")
+    print(f"Azbesztlistán szereplő rekordok: {summary['flagged_record_count']}")
+    print(f"Azbesztlistán szereplő utcák: {summary['flagged_street_count']}")
 
 
 if __name__ == "__main__":
