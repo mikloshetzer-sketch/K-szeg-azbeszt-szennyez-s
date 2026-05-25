@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>Kőszeg út és utca felújítások</title>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+
+*{
+  box-sizing:border-box;
+}
+
+body{
+  margin:0;
+  background:#f3f4f6;
+  font-family:Arial, Helvetica, sans-serif;
+  color:#111827;
+}
+
+header{
+  background:#111827;
+  color:white;
+  padding:22px;
+}
+
+header h1{
+  margin:0;
+  font-size:30px;
+}
+
+header p{
+  margin-top:8px;
+  color:#d1d5db;
+}
+
+.container{
+  max-width:1600px;
+  margin:auto;
+  padding:20px;
+}
+
+.grid-kpi{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:18px;
+  margin-bottom:24px;
+}
+
+.kpi{
+  background:white;
+  border-radius:14px;
+  padding:22px;
+  box-shadow:0 2px 8px rgba(0,0,0,0.08);
+}
+
+.kpi-title{
+  font-size:14px;
+  color:#6b7280;
+  margin-bottom:10px;
+}
+
+.kpi-value{
+  font-size:34px;
+  font-weight:700;
+}
+
+.kpi-sub{
+  margin-top:8px;
+  font-size:13px;
+  color:#6b7280;
+}
+
+.section{
+  background:white;
+  border-radius:14px;
+  padding:20px;
+  margin-bottom:24px;
+  box-shadow:0 2px 8px rgba(0,0,0,0.08);
+}
+
+.section h2{
+  margin-top:0;
+  margin-bottom:20px;
+  font-size:24px;
+}
+
+.chart-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+  gap:24px;
+}
+
+.chart-box{
+  background:#fafafa;
+  border-radius:12px;
+  padding:16px;
+  min-height:420px;
+}
+
+.chart-title{
+  font-size:17px;
+  font-weight:700;
+  margin-bottom:12px;
+}
+
+.table-wrap{
+  overflow-x:auto;
+}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+}
+
+th{
+  background:#111827;
+  color:white;
+  padding:12px;
+  text-align:left;
+  font-size:14px;
+}
+
+td{
+  padding:10px;
+  border-bottom:1px solid #e5e7eb;
+  font-size:14px;
+}
+
+tr:hover{
+  background:#f9fafb;
+}
+
+.badge{
+  display:inline-block;
+  padding:5px 10px;
+  border-radius:999px;
+  font-size:12px;
+  font-weight:700;
+}
+
+.badge-red{
+  background:#fee2e2;
+  color:#b91c1c;
+}
+
+.badge-green{
+  background:#dcfce7;
+  color:#166534;
+}
+
+.badge-blue{
+  background:#dbeafe;
+  color:#1d4ed8;
+}
+
+.flagged-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:16px;
+}
+
+.flag-card{
+  background:#fff5f5;
+  border-left:6px solid #dc2626;
+  border-radius:12px;
+  padding:16px;
+}
+
+.flag-card h3{
+  margin-top:0;
+  margin-bottom:10px;
+  color:#991b1b;
+}
+
+.flag-item{
+  margin-bottom:8px;
+  font-size:14px;
+}
+
+.note{
+  background:#eff6ff;
+  border-left:5px solid #2563eb;
+  padding:16px;
+  border-radius:12px;
+  margin-top:24px;
+  font-size:14px;
+  line-height:1.6;
+}
+
+.footer{
+  margin-top:30px;
+  text-align:center;
+  color:#6b7280;
+  font-size:13px;
+}
+
+@media (max-width:900px){
+
+  header h1{
+    font-size:24px;
+  }
+
+  .chart-grid{
+    grid-template-columns:1fr;
+  }
+
+  .chart-box{
+    min-height:340px;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>Kőszeg út és utca felújítások</h1>
+  <p>
+    2015 utáni közlekedési infrastruktúra-fejlesztések, út- és parkolófelújítások,
+    valamint az azbesztügyben szereplő utcák összevetése.
+  </p>
+</header>
+
+<div class="container">
+
+  <div class="grid-kpi">
+
+    <div class="kpi">
+      <div class="kpi-title">Projekt rekordok</div>
+      <div class="kpi-value" id="recordCount">-</div>
+      <div class="kpi-sub">azonosított fejlesztési tétel</div>
+    </div>
+
+    <div class="kpi">
+      <div class="kpi-title">Egyedi utcák</div>
+      <div class="kpi-value" id="streetCount">-</div>
+      <div class="kpi-sub">külön azonosított helyszín</div>
+    </div>
+
+    <div class="kpi">
+      <div class="kpi-title">Azbeszt-listás utcák</div>
+      <div class="kpi-value" id="flaggedCount">-</div>
+      <div class="kpi-sub">összevetési találatok</div>
+    </div>
+
+    <div class="kpi">
+      <div class="kpi-title">Dokumentált hossz</div>
+      <div class="kpi-value" id="lengthKm">-</div>
+      <div class="kpi-sub">azonosított km adat</div>
+    </div>
+
+    <div class="kpi">
+      <div class="kpi-title">Projektérték</div>
+      <div class="kpi-value" id="amountTotal">-</div>
+      <div class="kpi-sub">projektcsomag + támogatási adatok</div>
+    </div>
+
+  </div>
+
+  <div class="section">
+
+    <h2>Diagramok</h2>
+
+    <div class="chart-grid">
+
+      <div class="chart-box">
+        <div class="chart-title">Éves projektszám</div>
+        <canvas id="yearProjectsChart"></canvas>
+      </div>
+
+      <div class="chart-box">
+        <div class="chart-title">Projekt típusok</div>
+        <canvas id="typeChart"></canvas>
+      </div>
+
+      <div class="chart-box">
+        <div class="chart-title">Finanszírozási kategóriák</div>
+        <canvas id="fundingChart"></canvas>
+      </div>
+
+      <div class="chart-box">
+        <div class="chart-title">Azbeszt-listás utcák aránya</div>
+        <canvas id="flaggedChart"></canvas>
+      </div>
+
+      <div class="chart-box">
+        <div class="chart-title">Éves azonosított hossz (méter)</div>
+        <canvas id="lengthChart"></canvas>
+      </div>
+
+      <div class="chart-box">
+        <div class="chart-title">Projekt státuszok</div>
+        <canvas id="statusChart"></canvas>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="section">
+
+    <h2>Legnagyobb projektek</h2>
+
+    <div class="table-wrap">
+
+      <table>
+
+        <thead>
+          <tr>
+            <th>Utca</th>
+            <th>Időszak</th>
+            <th>Típus</th>
+            <th>Hossz</th>
+            <th>Projektérték</th>
+            <th>Azbeszt-lista</th>
+          </tr>
+        </thead>
+
+        <tbody id="topProjectsTable"></tbody>
+
+      </table>
+
+    </div>
+
+  </div>
+
+  <div class="section">
+
+    <h2>Azbeszt ügyben szereplő utcák</h2>
+
+    <div class="flagged-grid" id="flaggedGrid"></div>
+
+  </div>
+
+  <div class="note">
+
+    <strong>Módszertani megjegyzés:</strong><br><br>
+
+    Az oldal a Kőszeg városához kapcsolódó út- és utcafelújítási projektek
+    nyilvánosan elérhető önkormányzati, projekt- és közbeszerzési adataiból épül fel.
+
+    Az „azbeszt-listás” jelölés kizárólag névegyezéses összevetés.
+    Nem bizonyít szennyezést vagy egészségügyi kockázatot.
+    A jelölés azt mutatja, hogy az adott utcanév szerepel a korábban
+    nyilvánosságra került összevetési listákban is.
+
+  </div>
+
+  <div class="footer">
+    Kőszeg út és utca felújítások • Automatikus adatvizualizáció
+  </div>
+
+</div>
+
+<script>
+
+function formatNumber(num){
+
+  if(!num) return "0";
+
+  return new Intl.NumberFormat('hu-HU').format(num);
+
+}
+
+function formatMoney(num){
+
+  if(!num) return "0 Ft";
+
+  if(num >= 1000000000){
+    return (num / 1000000000).toFixed(2) + " Md Ft";
+  }
+
+  if(num >= 1000000){
+    return (num / 1000000).toFixed(1) + " M Ft";
+  }
+
+  return formatNumber(num) + " Ft";
+
+}
+
+fetch("data/road_projects.json")
+.then(r => r.json())
+.then(data => {
+
+  document.getElementById("recordCount").innerText =
+    formatNumber(data.record_count);
+
+  document.getElementById("streetCount").innerText =
+    formatNumber(data.unique_streets);
+
+  document.getElementById("flaggedCount").innerText =
+    formatNumber(data.flagged_street_count);
+
+  document.getElementById("lengthKm").innerText =
+    data.total_length_km.toFixed(2) + " km";
+
+  document.getElementById("amountTotal").innerText =
+    formatMoney(data.total_amount_huf);
+
+  createYearProjectsChart(data);
+  createTypeChart(data);
+  createFundingChart(data);
+  createFlaggedChart(data);
+  createLengthChart(data);
+  createStatusChart(data);
+
+  buildTopProjects(data);
+  buildFlaggedGrid(data);
+
+});
+
+function createYearProjectsChart(data){
+
+  new Chart(document.getElementById("yearProjectsChart"),{
+
+    type:"bar",
+
+    data:{
+      labels:Object.keys(data.year_project_counts),
+      datasets:[{
+        label:"Projektek száma",
+        data:Object.values(data.year_project_counts)
+      }]
+    },
+
+    options:{
+      responsive:true,
+      maintainAspectRatio:false
+    }
+
+  });
+
+}
+
+function createTypeChart(data){
+
+  new Chart(document.getElementById("typeChart"),{
+
+    type:"doughnut",
+
+    data:{
+      labels:Object.keys(data.type_counts),
+      datasets:[{
+        data:Object.values(data.type_counts)
+      }]
+    },
+
+    options:{
+      responsive:true,
+      maintainAspectRatio:false
+    }
+
+  });
+
+}
+
+function createFundingChart(data){
+
+  new Chart(document.getElementById("fundingChart"),{
+
+    type:"pie",
+
+    data:{
+      labels:Object.keys(data.funding_counts),
+      datasets:[{
+        data:Object.values(data.funding_counts)
+      }]
+    },
+
+    options:{
+      responsive:true,
+      maintainAspectRatio:false
+    }
+
+  });
+
+}
+
+function createFlaggedChart(data){
+
+  new Chart(document.getElementById("flaggedChart"),{
+
+    type:"doughnut",
+
+    data:{
+      labels:["Azbeszt-listás","Nem jelölt"],
+      datasets:[{
+        data:[
+          data.flagged_street_count,
+          data.unique_streets - data.flagged_street_count
+        ]
+      }]
+    },
+
+    options:{
+      responsive:true,
+      maintainAspectRatio:false
+    }
+
+  });
+
+}
+
+function createLengthChart(data){
+
+  new Chart(document.getElementById("lengthChart"),{
+
+    type:"bar",
+
+    data:{
+      labels:Object.keys(data.year_length_totals),
+      datasets:[{
+        label:"Méret (m)",
+        data:Object.values(data.year_length_totals)
+      }]
+    },
+
+    options:{
+      responsive:true,
+      maintainAspectRatio:false
+    }
+
+  });
+
+}
+
+function createStatusChart(data){
+
+  new Chart(document.getElementById("statusChart"),{
+
+    type:"polarArea",
+
+    data:{
+      labels:Object.keys(data.status_counts),
+      datasets:[{
+        data:Object.values(data.status_counts)
+      }]
+    },
+
+    options:{
+      responsive:true,
+      maintainAspectRatio:false
+    }
+
+  });
+
+}
+
+function buildTopProjects(data){
+
+  const tbody = document.getElementById("topProjectsTable");
+
+  data.top_projects_by_amount.slice(0,15).forEach(item => {
+
+    const tr = document.createElement("tr");
+
+    tr.innerHTML = `
+
+      <td>${item.street}</td>
+
+      <td>${item.period || "-"}</td>
+
+      <td>${item.project || "-"}</td>
+
+      <td>${item.length_m ? item.length_m + " m" : "-"}</td>
+
+      <td>${formatMoney(item.amount_huf)}</td>
+
+      <td>
+        ${
+          item.flagged_asbestos_street
+          ? '<span class="badge badge-red">igen</span>'
+          : '<span class="badge badge-green">nem</span>'
+        }
+      </td>
+
+    `;
+
+    tbody.appendChild(tr);
+
+  });
+
+}
+
+function buildFlaggedGrid(data){
+
+  const grid = document.getElementById("flaggedGrid");
+
+  const flagged = data.records.filter(r => r.flagged_asbestos_street);
+
+  flagged.forEach(item => {
+
+    const div = document.createElement("div");
+
+    div.className = "flag-card";
+
+    div.innerHTML = `
+
+      <h3>${item.street}</h3>
+
+      <div class="flag-item">
+        <strong>Időszak:</strong> ${item.period || "-"}
+      </div>
+
+      <div class="flag-item">
+        <strong>Projekt:</strong> ${item.project || "-"}
+      </div>
+
+      <div class="flag-item">
+        <strong>Finanszírozás:</strong> ${item.funding || "-"}
+      </div>
+
+      <div class="flag-item">
+        <strong>Hossz:</strong>
+        ${item.length_m ? item.length_m + " m" : "-"}
+      </div>
+
+      <div class="flag-item">
+        <strong>Státusz:</strong> ${item.status || "-"}
+      </div>
+
+    `;
+
+    grid.appendChild(div);
+
+  });
+
+}
+
+</script>
+
+</body>
+</html>
