@@ -9,10 +9,7 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <style>
-
-*{
-  box-sizing:border-box;
-}
+*{box-sizing:border-box}
 
 body{
   margin:0;
@@ -64,11 +61,11 @@ body{
   font-weight:800;
 }
 
-.btn.blue{background:#2563eb;}
-.btn.green{background:#0f766e;}
-.btn.orange{background:#ea580c;}
-.btn.dark{background:#111827;}
-.btn.purple{background:#7c3aed;}
+.btn.blue{background:#2563eb}
+.btn.green{background:#0f766e}
+.btn.orange{background:#ea580c}
+.btn.dark{background:#111827}
+.btn.purple{background:#7c3aed}
 
 .content{
   padding:26px 56px 56px;
@@ -123,11 +120,11 @@ body{
   line-height:1;
 }
 
-.big.red{color:#dc2626;}
-.big.orange{color:#ea580c;}
-.big.green{color:#16a34a;}
-.big.blue{color:#2563eb;}
-.big.purple{color:#7c3aed;}
+.big.red{color:#dc2626}
+.big.orange{color:#ea580c}
+.big.green{color:#16a34a}
+.big.blue{color:#2563eb}
+.big.purple{color:#7c3aed}
 
 .sub{
   margin-top:10px;
@@ -194,8 +191,8 @@ body{
 .measurement-card{
   background:#f8fafc;
   border-radius:18px;
-  border-left:7px solid #2563eb;
   border:1px solid #dbe3ee;
+  border-left:7px solid #2563eb;
   padding:18px;
 }
 
@@ -248,6 +245,11 @@ body{
   color:#166534;
 }
 
+.badge.blue{
+  background:#dbeafe;
+  color:#1d4ed8;
+}
+
 .table-wrap{
   overflow-x:auto;
 }
@@ -285,45 +287,17 @@ body{
 }
 
 @media(max-width:1100px){
-
-  .cards{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-  .measurement-grid{
-    grid-template-columns:1fr;
-  }
-
+  .cards{grid-template-columns:repeat(2,1fr)}
+  .measurement-grid{grid-template-columns:1fr}
 }
 
 @media(max-width:780px){
-
-  .hero{
-    padding:32px 20px;
-  }
-
-  .hero h1{
-    font-size:32px;
-  }
-
-  .nav,
-  .content{
-    padding-left:18px;
-    padding-right:18px;
-  }
-
-  .cards,
-  .grid2{
-    grid-template-columns:1fr;
-  }
-
-  .chartbox,
-  .chartbox.large{
-    height:380px;
-  }
-
+  .hero{padding:32px 20px}
+  .hero h1{font-size:32px}
+  .nav,.content{padding-left:18px;padding-right:18px}
+  .cards,.grid2{grid-template-columns:1fr}
+  .chartbox,.chartbox.large{height:380px}
 }
-
 </style>
 </head>
 
@@ -332,662 +306,147 @@ body{
 <div class="page">
 
 <header class="hero">
-
-<h1>Azbeszt mérési adatok</h1>
-
-<p>
-Ausztriai és magyarországi hivatalos, civil és sajtóban közölt
-azbeszt mérési információk összehasonlító dashboardja.
-A rendszer külön kezeli a levegőméréseket, anyagmintákat,
-felületi mintákat és referenciaértékeket.
-</p>
-
+  <h1>Azbeszt mérési adatok</h1>
+  <p>
+    Ausztriai és magyarországi hivatalos, civil és sajtóban közölt
+    azbeszt mérési információk összehasonlító dashboardja.
+    A rendszer külön kezeli a levegőméréseket, anyagmintákat,
+    felületi mintákat és referenciaértékeket.
+  </p>
 </header>
 
 <div class="nav">
-
-<a class="btn blue" href="../index.html">
-Vissza a főoldalra
-</a>
-
-<a class="btn green" href="koszeg-road-monitor.html">
-Út- és utcafelújítások
-</a>
-
-<a class="btn orange" href="../shipment-exposure.html">
-EKÁER riport
-</a>
-
-<a class="btn dark"
-href="data/asbestos_measurements.json"
-target="_blank"
-rel="noopener">
-Adatfájl
-</a>
-
+  <a class="btn blue" href="../index.html">Vissza a főoldalra</a>
+  <a class="btn green" href="koszeg-road-monitor.html">Út- és utcafelújítások</a>
+  <a class="btn orange" href="../shipment-exposure.html">EKÁER riport</a>
+  <a class="btn dark" href="data/asbestos_measurements.json" target="_blank" rel="noopener">Adatfájl</a>
 </div>
 
 <main class="content">
 
 <div class="notice">
-A dashboard külön kezeli a magyarországi és ausztriai adatokat.
-A Greenpeace, hatósági és sajtóban közölt információk módszertana eltérhet,
-ezért a koncentrációs értékek közvetlen összevetése csak óvatosan értelmezhető.
-A levegőmérések esetében az egység jellemzően rost/m³,
-míg a felületi mintáknál rost/cm² formában jelenik meg.
+  A dashboard külön kezeli a magyarországi és ausztriai adatokat.
+  A Greenpeace, hatósági és sajtóban közölt információk módszertana eltérhet,
+  ezért a koncentrációs értékek közvetlen összevetése csak óvatosan értelmezhető.
+  A levegőmérések esetében az egység jellemzően rost/m³,
+  míg a felületi mintáknál rost/cm² formában jelenik meg.
 </div>
 
-<div class="error" id="errorBox">
-Az adatfájl nem tölthető be.
-</div>
+<div class="error" id="errorBox">Az adatfájl nem tölthető be.</div>
 
 <section class="section">
-
-<h2>Összesített értékelés</h2>
-
-<div class="assessment" id="assessmentBox">
-Adatok betöltése...
-</div>
-
+  <h2>Összesített értékelés</h2>
+  <div class="assessment" id="assessmentBox">Adatok betöltése...</div>
 </section>
 
 <section class="country-block">
+  <h2 class="country-title">🇭🇺 Magyarországi mérési adatok</h2>
 
-<h2 class="country-title">
-🇭🇺 Magyarországi mérési adatok
-</h2>
+  <div class="cards">
+    <div class="card">
+      <h3>Magyar rekordok</h3>
+      <div class="big red" id="huRecordCount">–</div>
+      <div class="sub">strukturált magyarországi rekord</div>
+    </div>
 
-<div class="cards">
+    <div class="card">
+      <h3>Minták / mérési pontok</h3>
+      <div class="big blue" id="huSampleCount">–</div>
+      <div class="sub">összesített mintaszám</div>
+    </div>
 
-<div class="card">
-<h3>Magyar rekordok</h3>
-<div class="big red" id="huRecordCount">–</div>
-<div class="sub">strukturált magyarországi rekord</div>
-</div>
+    <div class="card">
+      <h3>Legmagasabb levegőérték</h3>
+      <div class="big red" id="huMaxAir">–</div>
+      <div class="sub">rost/m³</div>
+    </div>
 
-<div class="card">
-<h3>Minták / mérési pontok</h3>
-<div class="big blue" id="huSampleCount">–</div>
-<div class="sub">összesített mintaszám</div>
-</div>
+    <div class="card">
+      <h3>Magas kockázat</h3>
+      <div class="big orange" id="huHighRisk">–</div>
+      <div class="sub">magas kockázati besorolás</div>
+    </div>
+  </div>
 
-<div class="card">
-<h3>Legmagasabb levegőérték</h3>
-<div class="big red" id="huMaxAir">–</div>
-<div class="sub">rost/m³</div>
-</div>
+  <div class="grid2">
+    <section class="section">
+      <h2>Magyar mérési típusok</h2>
+      <div class="chartbox"><canvas id="huTypeChart"></canvas></div>
+      <div class="chart-analysis">
+        A diagram a magyarországi rekordok mérési típusait mutatja.
+        A kategóriák magyarul jelennek meg: levegőmérés, anyagminta, felületi mérés vagy kombinált vizsgálat.
+        Az oszlopok darabszámot mutatnak, nem koncentrációt.
+        A magyar adatokban jelenleg az anyagminták és kőzetminták erősen megjelennek.
+        Ez arra utal, hogy sok magyar rekord a szennyezett anyag kimutatásához kapcsolódik.
+      </div>
+    </section>
 
-<div class="card">
-<h3>Magas kockázat</h3>
-<div class="big orange" id="huHighRisk">–</div>
-<div class="sub">high risk besorolás</div>
-</div>
-
-</div>
-
-<div class="grid2">
-
-<section class="section">
-
-<h2>Magyar mérési típusok</h2>
-
-<div class="chartbox">
-<canvas id="huTypeChart"></canvas>
-</div>
-
-<div class="chart-analysis">
-A diagram a magyarországi rekordok mérési típusait mutatja.
-A kategóriák közé levegőmérés, anyagminta,
-kőzetminta és kombinált vizsgálatok tartoznak.
-Az oszlopok a strukturált rekordok számát mutatják.
-A mérési módszerek eltérő típusú kockázatokat jeleznek.
-A magyar adatokban jelenleg az anyagminták dominálnak.
-</div>
-
-</section>
-
-<section class="section">
-
-<h2>Magyar levegőmérések</h2>
-
-<div class="chartbox">
-<canvas id="huAirChart"></canvas>
-</div>
-
-<div class="chart-analysis">
-Ez a diagram a magyarországi levegőmérések maximális koncentrációit mutatja.
-Az értékek rost/m³ mértékegységben szerepelnek.
-A zöld oszlop a referencia benchmarkot mutatja.
-A vörös oszlopok a közölt mérési maximumokat jelenítik meg.
-A szombathelyi Greenpeace mérés kiugró koncentrációt jelzett.
-</div>
-
-</section>
-
-</div>
-
+    <section class="section">
+      <h2>Magyar levegőmérések</h2>
+      <div class="chartbox"><canvas id="huAirChart"></canvas></div>
+      <div class="chart-analysis">
+        Ez a diagram a magyarországi levegőmérések maximális koncentrációit mutatja.
+        Az értékek mértékegysége rost/m³.
+        A zöld oszlop a referenciaértéket mutatja, a vörös oszlop a közölt mérési maximumot.
+        A szombathelyi Oladi Platóhoz kapcsolódó Greenpeace-adat kiugró értéket jelez.
+        A diagram alapján ez a magyar adatbázis legkritikusabb számszerű levegőmérési rekordja.
+      </div>
+    </section>
+  </div>
 </section>
 
 <section class="country-block">
+  <h2 class="country-title">🇦🇹 Ausztriai mérési adatok</h2>
 
-<h2 class="country-title">
-🇦🇹 Ausztriai mérési adatok
-</h2>
+  <div class="cards">
+    <div class="card">
+      <h3>Osztrák rekordok</h3>
+      <div class="big purple" id="atRecordCount">–</div>
+      <div class="sub">strukturált osztrák rekord</div>
+    </div>
 
-<div class="cards">
+    <div class="card">
+      <h3>Minták / mérési pontok</h3>
+      <div class="big blue" id="atSampleCount">–</div>
+      <div class="sub">összesített mintaszám</div>
+    </div>
 
-<div class="card">
-<h3>Osztrák rekordok</h3>
-<div class="big purple" id="atRecordCount">–</div>
-<div class="sub">strukturált osztrák rekord</div>
-</div>
+    <div class="card">
+      <h3>Legmagasabb levegőérték</h3>
+      <div class="big orange" id="atMaxAir">–</div>
+      <div class="sub">rost/m³</div>
+    </div>
 
-<div class="card">
-<h3>Minták / mérési pontok</h3>
-<div class="big blue" id="atSampleCount">–</div>
-<div class="sub">összesített mintaszám</div>
-</div>
+    <div class="card">
+      <h3>Magas kockázat</h3>
+      <div class="big red" id="atHighRisk">–</div>
+      <div class="sub">magas kockázati besorolás</div>
+    </div>
+  </div>
 
-<div class="card">
-<h3>Legmagasabb levegőérték</h3>
-<div class="big orange" id="atMaxAir">–</div>
-<div class="sub">rost/m³</div>
-</div>
+  <div class="grid2">
+    <section class="section">
+      <h2>Osztrák forrástípusok</h2>
+      <div class="chartbox"><canvas id="atSourceChart"></canvas></div>
+      <div class="chart-analysis">
+        A diagram az osztrák rekordok forrástípusait mutatja.
+        A kategóriák magyarul jelennek meg: hivatalos Taskforce, Greenpeace vagy egyéb forrás.
+        Az oszlopok darabszámot mutatnak.
+        Az osztrák adatokban fontos különbség van a hivatalos és civil mérési kommunikáció között.
+        Ezért a dashboard nem keveri össze ezeket, hanem külön bontásban kezeli.
+      </div>
+    </section>
 
-<div class="card">
-<h3>Magas kockázat</h3>
-<div class="big red" id="atHighRisk">–</div>
-<div class="sub">high risk besorolás</div>
-</div>
-
-</div>
-
-<div class="grid2">
-
-<section class="section">
-
-<h2>Osztrák forrástípusok</h2>
-
-<div class="chartbox">
-<canvas id="atSourceChart"></canvas>
-</div>
-
-<div class="chart-analysis">
-A diagram az osztrák rekordok forrástípusait mutatja.
-A rendszer külön kezeli a Taskforce,
-Greenpeace és sajtóban közölt információkat.
-Az oszlopok a rekordok számát jelenítik meg.
-A hivatalos és civil adatok eltérő mintavételi módszerekkel készültek.
-Ez fontos a koncentrációs értékek értelmezésénél.
-</div>
-
+    <section class="section">
+      <h2>Osztrák bánya-kapcsolatok</h2>
+      <div class="chartbox large"><canvas id="quarryChart"></canvas></div>
+      <div class="chart-analysis">
+        Ez a diagram az egyes bányákhoz vagy bánya-térségekhez kapcsolódó rekordok számát mutatja.
+        Az oszlopok darabszámot jelentenek, nem kitermelési vagy szállítási mennyiséget.
+        A vizualizáció segít azonosítani, mely bányanevek fordulnak elő gyakrabban a mérési rekordokban.
+        Ez később összekapcsolható az EKÁER-szállítási adattal.
+        Így a bánya → szállítás → település → mérés kapcsolat is vizsgálhatóvá válik.
+      </div>
+    </section>
+  </div>
 </section>
-
-<section class="section">
-
-<h2>Osztrák bánya-kapcsolatok</h2>
-
-<div class="chartbox large">
-<canvas id="quarryChart"></canvas>
-</div>
-
-<div class="chart-analysis">
-A diagram az egyes bányákhoz kapcsolódó rekordok számát mutatja.
-A vízszintes oszlopok a strukturált események mennyiségét jelzik.
-A rendszer külön kezeli Bernstein,
-Pilgersdorf, Rumpersdorf és más helyszínek kapcsolatait.
-A diagram segít azonosítani a gyakran említett bányákat.
-Ez fontos lehet a szállítási és kitettségi útvonalak elemzésében.
-</div>
-
-</section>
-
-</div>
-
-</section>
-<section class="section">
-
-<h2>Országok összehasonlítása</h2>
-
-<div class="grid2">
-
-<div>
-
-<div class="chartbox">
-<canvas id="countryCompareChart"></canvas>
-</div>
-
-<div class="chart-analysis">
-Ez a diagram Magyarország és Ausztria strukturált rekordjait hasonlítja össze.
-Az oszlopok a teljes rekordszámot mutatják országonként.
-A diagram nem a szennyezés mértékét,
-hanem a dokumentált események számát jeleníti meg.
-A rendszer jelenleg több magyarországi high risk rekordot tartalmaz.
-Az adatok folyamatosan bővíthetők új mérési eredményekkel.
-</div>
-
-</div>
-
-<div>
-
-<div class="chartbox">
-<canvas id="riskChart"></canvas>
-</div>
-
-<div class="chart-analysis">
-A kördiagram a kockázati besorolások arányát mutatja.
-A high, medium és low kategóriák a rekordokhoz rendelt szinteket jelzik.
-A high risk rekordok jellemzően pozitív levegőmérésekhez
-vagy azbesztet tartalmazó anyagmintákhoz kapcsolódnak.
-A diagram gyors áttekintést ad a teljes adatbázis kockázati szerkezetéről.
-A besorolás nem helyettesíti a hivatalos egészségügyi minősítést.
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<section class="section">
-
-<h2>Kiemelt mérési események</h2>
-
-<div class="measurement-grid" id="measurementGrid"></div>
-
-</section>
-
-<section class="section">
-
-<h2>Részletes rekordtábla</h2>
-
-<div class="table-wrap">
-
-<table class="data-table">
-
-<thead>
-
-<tr>
-<th>Helyszín</th>
-<th>Ország</th>
-<th>Mérés típusa</th>
-<th>Forrás</th>
-<th>Levegő max.</th>
-<th>Felületi max.</th>
-<th>Kockázat</th>
-<th>Bánya</th>
-</tr>
-
-</thead>
-
-<tbody id="recordTable"></tbody>
-
-</table>
-
-</div>
-
-</section>
-
-</main>
-
-</div>
-
-<script>
-
-const DATA_URL = "data/asbestos_measurements.json";
-
-function formatNumber(value){
-
-  if(value === null || value === undefined || value === ""){
-    return "–";
-  }
-
-  return Number(value).toLocaleString("hu-HU");
-
-}
-
-function badge(level){
-
-  if(level === "high"){
-    return '<span class="badge red">magas</span>';
-  }
-
-  if(level === "medium"){
-    return '<span class="badge orange">közepes</span>';
-  }
-
-  if(level === "low"){
-    return '<span class="badge green">alacsony</span>';
-  }
-
-  return '<span class="badge blue">egyéb</span>';
-
-}
-
-function barChart(id,labels,data,color){
-
-  new Chart(document.getElementById(id),{
-    type:"bar",
-    data:{
-      labels:labels,
-      datasets:[{
-        data:data,
-        backgroundColor:color
-      }]
-    },
-    options:{
-      responsive:true,
-      maintainAspectRatio:false,
-      plugins:{
-        legend:{
-          display:false
-        }
-      },
-      scales:{
-        y:{
-          beginAtZero:true
-        }
-      }
-    }
-  });
-
-}
-
-function doughnutChart(id,labels,data){
-
-  new Chart(document.getElementById(id),{
-    type:"doughnut",
-    data:{
-      labels:labels,
-      datasets:[{
-        data:data,
-        backgroundColor:[
-          "#dc2626",
-          "#ea580c",
-          "#16a34a",
-          "#2563eb"
-        ]
-      }]
-    },
-    options:{
-      responsive:true,
-      maintainAspectRatio:false,
-      plugins:{
-        legend:{
-          position:"bottom"
-        }
-      }
-    }
-  });
-
-}
-
-async function loadData(){
-
-  try{
-
-    const response = await fetch(DATA_URL + "?t=" + Date.now());
-
-    if(!response.ok){
-      throw new Error("JSON hiba");
-    }
-
-    const data = await response.json();
-
-    const records = data.records || [];
-
-    const hu = records.filter(r => r.country === "Hungary");
-    const at = records.filter(r => r.country === "Austria");
-
-    document.getElementById("huRecordCount").textContent = hu.length;
-    document.getElementById("atRecordCount").textContent = at.length;
-
-    document.getElementById("huSampleCount").textContent =
-      formatNumber(
-        hu.reduce((sum,r)=>sum + Number(r.sample_count || 0),0)
-      );
-
-    document.getElementById("atSampleCount").textContent =
-      formatNumber(
-        at.reduce((sum,r)=>sum + Number(r.sample_count || 0),0)
-      );
-
-    const huAir = Math.max(...hu.map(r => Number(r.fiber_per_m3_max || 0)));
-    const atAir = Math.max(...at.map(r => Number(r.fiber_per_m3_max || 0)));
-
-    document.getElementById("huMaxAir").textContent =
-      huAir > 0 ? formatNumber(huAir) : "–";
-
-    document.getElementById("atMaxAir").textContent =
-      atAir > 0 ? formatNumber(atAir) : "–";
-
-    document.getElementById("huHighRisk").textContent =
-      hu.filter(r => r.risk_level === "high").length;
-
-    document.getElementById("atHighRisk").textContent =
-      at.filter(r => r.risk_level === "high").length;
-
-    document.getElementById("assessmentBox").innerHTML = `
-      A dashboard jelenleg <strong>${records.length}</strong> strukturált rekordot kezel.
-      A magyar rekordok között dominálnak az anyagminták és a high risk besorolású események.
-      A legmagasabb ismert levegőmérési koncentráció a szombathelyi Greenpeace méréshez kapcsolódik.
-      Az osztrák adatok nagy része hivatalos Taskforce kommunikációból származik.
-      A rendszer célja az eltérő források strukturált összevetése és vizuális elemzése.
-    `;
-
-    const huTypeCounts = {};
-
-    hu.forEach(r => {
-
-      const key = r.measurement_type || "unknown";
-
-      huTypeCounts[key] = (huTypeCounts[key] || 0) + 1;
-
-    });
-
-    barChart(
-      "huTypeChart",
-      Object.keys(huTypeCounts),
-      Object.values(huTypeCounts),
-      "#dc2626"
-    );
-
-    const huAirLabels = hu
-      .filter(r => r.fiber_per_m3_max)
-      .map(r => r.settlement);
-
-    const huAirValues = hu
-      .filter(r => r.fiber_per_m3_max)
-      .map(r => r.fiber_per_m3_max);
-
-    new Chart(document.getElementById("huAirChart"),{
-
-      type:"bar",
-
-      data:{
-        labels:huAirLabels,
-        datasets:[
-          {
-            label:"Max. rost/m³",
-            data:huAirValues,
-            backgroundColor:"#dc2626"
-          },
-          {
-            label:"Benchmark",
-            data:huAirValues.map(()=>1000),
-            backgroundColor:"#16a34a"
-          }
-        ]
-      },
-
-      options:{
-        responsive:true,
-        maintainAspectRatio:false
-      }
-
-    });
-
-    const atSourceCounts = {};
-
-    at.forEach(r => {
-
-      const key = r.source_type || "unknown";
-
-      atSourceCounts[key] = (atSourceCounts[key] || 0) + 1;
-
-    });
-
-    barChart(
-      "atSourceChart",
-      Object.keys(atSourceCounts),
-      Object.values(atSourceCounts),
-      "#7c3aed"
-    );
-
-    const quarryCounts = {};
-
-    at.forEach(r => {
-
-      const key = r.related_quarry || "ismeretlen";
-
-      quarryCounts[key] = (quarryCounts[key] || 0) + 1;
-
-    });
-
-    new Chart(document.getElementById("quarryChart"),{
-
-      type:"bar",
-
-      data:{
-        labels:Object.keys(quarryCounts),
-        datasets:[{
-          data:Object.values(quarryCounts),
-          backgroundColor:"#ea580c"
-        }]
-      },
-
-      options:{
-        responsive:true,
-        maintainAspectRatio:false,
-        indexAxis:"y",
-        plugins:{
-          legend:{
-            display:false
-          }
-        }
-      }
-
-    });
-
-    new Chart(document.getElementById("countryCompareChart"),{
-
-      type:"bar",
-
-      data:{
-        labels:["Magyarország","Ausztria"],
-        datasets:[{
-          data:[hu.length,at.length],
-          backgroundColor:["#dc2626","#7c3aed"]
-        }]
-      },
-
-      options:{
-        responsive:true,
-        maintainAspectRatio:false,
-        plugins:{
-          legend:{
-            display:false
-          }
-        }
-      }
-
-    });
-
-    const riskCounts = {};
-
-    records.forEach(r => {
-
-      const key = r.risk_level || "other";
-
-      riskCounts[key] = (riskCounts[key] || 0) + 1;
-
-    });
-
-    doughnutChart(
-      "riskChart",
-      Object.keys(riskCounts),
-      Object.values(riskCounts)
-    );
-
-    document.getElementById("measurementGrid").innerHTML =
-      records.map(r => `
-
-        <div class="measurement-card ${r.risk_level}">
-
-          <h3>${r.location_name || r.id}</h3>
-
-          <p><strong>Ország:</strong> ${r.country}</p>
-
-          <p><strong>Mérés:</strong> ${r.measurement_type}</p>
-
-          <p><strong>Forrás:</strong> ${r.source_name}</p>
-
-          <p><strong>Levegő max:</strong>
-          ${r.fiber_per_m3_max ? formatNumber(r.fiber_per_m3_max) + " rost/m³" : "–"}
-          </p>
-
-          <p><strong>Kockázat:</strong>
-          ${badge(r.risk_level)}
-          </p>
-
-          <p>${r.reported_result || ""}</p>
-
-        </div>
-
-      `).join("");
-
-    document.getElementById("recordTable").innerHTML =
-      records.map(r => `
-
-        <tr>
-
-          <td>${r.location_name || ""}</td>
-
-          <td>${r.country || ""}</td>
-
-          <td>${r.measurement_type || ""}</td>
-
-          <td>${r.source_name || ""}</td>
-
-          <td>
-          ${r.fiber_per_m3_max ? formatNumber(r.fiber_per_m3_max) + " rost/m³" : "–"}
-          </td>
-
-          <td>
-          ${r.fiber_per_cm2_max ? formatNumber(r.fiber_per_cm2_max) + " rost/cm²" : "–"}
-          </td>
-
-          <td>${badge(r.risk_level)}</td>
-
-          <td>${r.related_quarry || "–"}</td>
-
-        </tr>
-
-      `).join("");
-
-  }catch(error){
-
-    console.error(error);
-
-    document.getElementById("errorBox").style.display = "block";
-
-  }
-
-}
-
-loadData();
-
-</script>
-
-</body>
-</html>
