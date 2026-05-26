@@ -1,999 +1,993 @@
 <!DOCTYPE html>
 <html lang="hu">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-  <title>Ausztriai és magyar azbeszt mérési adatok</title>
+<title>Azbeszt mérési adatok</title>
 
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-  <style>
-    * { box-sizing: border-box; }
+<style>
 
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: #e5eaf1;
-      color: #0f172a;
-    }
+*{
+  box-sizing:border-box;
+}
 
-    .page {
-      max-width: 1380px;
-      margin: 0 auto;
-      background: #f8fafc;
-      min-height: 100vh;
-    }
+body{
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  background:#e5eaf1;
+  color:#0f172a;
+}
 
-    .hero {
-      background: linear-gradient(135deg, #07111f, #172554);
-      color: white;
-      padding: 48px 56px;
-      display: flex;
-      justify-content: space-between;
-      gap: 32px;
-      align-items: center;
-    }
+.page{
+  max-width:1450px;
+  margin:0 auto;
+  background:#f8fafc;
+  min-height:100vh;
+}
 
-    .hero h1 {
-      margin: 0;
-      font-size: 42px;
-      line-height: 1.08;
-    }
+.hero{
+  background:linear-gradient(135deg,#07111f,#172554);
+  color:white;
+  padding:48px 56px;
+}
 
-    .hero p {
-      max-width: 780px;
-      color: #dbeafe;
-      font-size: 17px;
-      line-height: 1.55;
-    }
+.hero h1{
+  margin:0;
+  font-size:44px;
+  line-height:1.1;
+}
 
-    .datebox {
-      border: 1px solid rgba(255,255,255,.25);
-      border-radius: 18px;
-      padding: 24px 34px;
-      text-align: center;
-      min-width: 240px;
-      background: rgba(255,255,255,.06);
-    }
+.hero p{
+  margin-top:18px;
+  max-width:900px;
+  line-height:1.7;
+  color:#dbeafe;
+  font-size:17px;
+}
 
-    .datebox .label {
-      color: #93c5fd;
-      font-weight: 900;
-      font-size: 13px;
-      text-transform: uppercase;
-    }
+.nav{
+  padding:24px 56px 0;
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+}
 
-    .datebox .date {
-      font-size: 30px;
-      font-weight: 900;
-      margin-top: 10px;
-    }
+.btn{
+  display:inline-block;
+  text-decoration:none;
+  color:white;
+  padding:13px 18px;
+  border-radius:12px;
+  font-weight:800;
+}
 
-    .nav {
-      padding: 28px 56px 0;
-      display: flex;
-      justify-content: flex-end;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
+.btn.blue{background:#2563eb;}
+.btn.green{background:#0f766e;}
+.btn.orange{background:#ea580c;}
+.btn.dark{background:#111827;}
+.btn.purple{background:#7c3aed;}
 
-    .btn {
-      display: inline-block;
-      text-decoration: none;
-      color: white;
-      background: #2563eb;
-      padding: 13px 20px;
-      border-radius: 12px;
-      font-weight: 900;
-    }
+.content{
+  padding:26px 56px 56px;
+}
 
-    .btn.dark { background: #111827; }
-    .btn.orange { background: #ea580c; }
-    .btn.green { background: #0f766e; }
-    .btn.purple { background: #7c3aed; }
+.notice{
+  background:#fff7ed;
+  border-left:7px solid #f97316;
+  border-radius:18px;
+  padding:22px;
+  margin-bottom:28px;
+  color:#7c2d12;
+  line-height:1.7;
+  font-weight:700;
+}
 
-    .content {
-      padding: 24px 56px 56px;
-    }
+.country-block{
+  margin-bottom:46px;
+}
 
-    .notice {
-      background: #fff7ed;
-      border: 1px solid #fed7aa;
-      border-left: 7px solid #f97316;
-      border-radius: 18px;
-      padding: 20px 24px;
-      margin-bottom: 28px;
-      color: #7c2d12;
-      line-height: 1.6;
-      font-weight: 700;
-    }
+.country-title{
+  margin:0 0 18px;
+  font-size:34px;
+  color:#0f172a;
+}
 
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
-      margin-bottom: 28px;
-    }
+.cards{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:18px;
+  margin-bottom:26px;
+}
 
-    .card {
-      background: white;
-      border: 1px solid #dbe3ee;
-      border-radius: 18px;
-      padding: 22px;
-      box-shadow: 0 12px 30px rgba(15,23,42,.06);
-    }
+.card{
+  background:white;
+  border:1px solid #dbe3ee;
+  border-radius:18px;
+  padding:22px;
+  box-shadow:0 12px 30px rgba(15,23,42,.05);
+}
 
-    .card h3 {
-      margin: 0 0 14px;
-      font-size: 14px;
-      text-transform: uppercase;
-      color: #1e293b;
-    }
+.card h3{
+  margin:0 0 12px;
+  font-size:13px;
+  text-transform:uppercase;
+  color:#334155;
+}
 
-    .big {
-      font-size: 38px;
-      font-weight: 900;
-      color: #2563eb;
-      line-height: 1;
-    }
+.big{
+  font-size:38px;
+  font-weight:900;
+  line-height:1;
+}
 
-    .big.red { color: #dc2626; }
-    .big.orange { color: #ea580c; }
-    .big.green { color: #16a34a; }
-    .big.purple { color: #7c3aed; }
+.big.red{color:#dc2626;}
+.big.orange{color:#ea580c;}
+.big.green{color:#16a34a;}
+.big.blue{color:#2563eb;}
+.big.purple{color:#7c3aed;}
 
-    .sub {
-      margin-top: 10px;
-      color: #64748b;
-      font-size: 13px;
-      line-height: 1.4;
-    }
+.sub{
+  margin-top:10px;
+  font-size:13px;
+  color:#64748b;
+  line-height:1.45;
+}
 
-    .section {
-      background: white;
-      border: 1px solid #dbe3ee;
-      border-radius: 20px;
-      padding: 26px;
-      margin-bottom: 26px;
-      box-shadow: 0 12px 30px rgba(15,23,42,.05);
-    }
+.section{
+  background:white;
+  border:1px solid #dbe3ee;
+  border-radius:20px;
+  padding:26px;
+  margin-bottom:26px;
+  box-shadow:0 12px 30px rgba(15,23,42,.05);
+}
 
-    .section h2 {
-      margin: 0 0 18px;
-      font-size: 25px;
-    }
+.section h2{
+  margin:0 0 18px;
+  font-size:26px;
+}
 
-    .assessment {
-      background: #f1f5f9;
-      border-left: 5px solid #2563eb;
-      padding: 20px 24px;
-      border-radius: 14px;
-      line-height: 1.65;
-      color: #1e293b;
-    }
+.grid2{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:24px;
+}
 
-    .grid2 {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 22px;
-    }
+.chartbox{
+  height:360px;
+  position:relative;
+}
 
-    .chartbox {
-      height: 360px;
-      position: relative;
-    }
+.chartbox.large{
+  height:460px;
+}
 
-    .chartbox.large {
-      height: 460px;
-    }
+.chart-analysis{
+  margin-top:18px;
+  background:#f8fafc;
+  border-left:5px solid #2563eb;
+  padding:18px 20px;
+  border-radius:14px;
+  color:#334155;
+  line-height:1.7;
+  font-size:14px;
+}
 
-    .chartbox.tall {
-      height: 520px;
-    }
+.assessment{
+  background:#eff6ff;
+  border-left:6px solid #2563eb;
+  border-radius:14px;
+  padding:20px 24px;
+  line-height:1.75;
+  color:#1e293b;
+}
 
-    .measurement-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 18px;
-    }
+.measurement-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:18px;
+}
 
-    .measurement-card {
-      background: #f8fafc;
-      border: 1px solid #dbe3ee;
-      border-left: 7px solid #2563eb;
-      border-radius: 16px;
-      padding: 18px;
-    }
+.measurement-card{
+  background:#f8fafc;
+  border-radius:18px;
+  border-left:7px solid #2563eb;
+  border:1px solid #dbe3ee;
+  padding:18px;
+}
 
-    .measurement-card.high {
-      border-left-color: #dc2626;
-      background: #fff1f2;
-    }
+.measurement-card.high{
+  border-left-color:#dc2626;
+  background:#fff1f2;
+}
 
-    .measurement-card.medium {
-      border-left-color: #ea580c;
-      background: #fff7ed;
-    }
+.measurement-card.medium{
+  border-left-color:#ea580c;
+  background:#fff7ed;
+}
 
-    .measurement-card.low {
-      border-left-color: #16a34a;
-      background: #f0fdf4;
-    }
+.measurement-card.low{
+  border-left-color:#16a34a;
+  background:#f0fdf4;
+}
 
-    .measurement-card.methodological {
-      border-left-color: #7c3aed;
-      background: #f5f3ff;
-    }
+.measurement-card h3{
+  margin:0 0 10px;
+  font-size:19px;
+}
 
-    .measurement-card h3 {
-      margin: 0 0 10px;
-      font-size: 18px;
-      color: #0f172a;
-    }
+.measurement-card p{
+  margin:6px 0;
+  font-size:14px;
+  line-height:1.55;
+}
 
-    .measurement-card p {
-      margin: 6px 0;
-      color: #334155;
-      font-size: 14px;
-      line-height: 1.45;
-    }
+.badge{
+  display:inline-block;
+  padding:5px 10px;
+  border-radius:999px;
+  font-size:12px;
+  font-weight:900;
+}
 
-    .measurement-card a {
-      color: #2563eb;
-      font-weight: 800;
-    }
+.badge.red{
+  background:#fee2e2;
+  color:#991b1b;
+}
 
-    .badge {
-      display: inline-block;
-      padding: 5px 10px;
-      border-radius: 999px;
-      font-size: 12px;
-      font-weight: 900;
-    }
+.badge.orange{
+  background:#ffedd5;
+  color:#9a3412;
+}
 
-    .badge.red {
-      background: #fee2e2;
-      color: #991b1b;
-    }
+.badge.green{
+  background:#dcfce7;
+  color:#166534;
+}
 
-    .badge.orange {
-      background: #ffedd5;
-      color: #9a3412;
-    }
+.table-wrap{
+  overflow-x:auto;
+}
 
-    .badge.green {
-      background: #dcfce7;
-      color: #166534;
-    }
+.data-table{
+  width:100%;
+  border-collapse:collapse;
+}
 
-    .badge.blue {
-      background: #dbeafe;
-      color: #1d4ed8;
-    }
+.data-table th,
+.data-table td{
+  border-bottom:1px solid #e2e8f0;
+  padding:13px 12px;
+  text-align:left;
+  vertical-align:top;
+  font-size:14px;
+}
 
-    .badge.purple {
-      background: #ede9fe;
-      color: #5b21b6;
-    }
+.data-table th{
+  background:#0f172a;
+  color:white;
+  text-transform:uppercase;
+  font-size:12px;
+}
 
-    .data-table {
-      width: 100%;
-      border-collapse: collapse;
-      overflow: hidden;
-      border-radius: 14px;
-    }
+.error{
+  display:none;
+  background:#fee2e2;
+  border-left:6px solid #dc2626;
+  border-radius:14px;
+  padding:18px 22px;
+  color:#7f1d1d;
+  font-weight:800;
+  margin-bottom:24px;
+}
 
-    .data-table th,
-    .data-table td {
-      border-bottom: 1px solid #e2e8f0;
-      padding: 13px 12px;
-      text-align: left;
-      font-size: 14px;
-      vertical-align: top;
-    }
+@media(max-width:1100px){
 
-    .data-table th {
-      background: #0f172a;
-      color: white;
-      font-size: 13px;
-      text-transform: uppercase;
-    }
+  .cards{
+    grid-template-columns:repeat(2,1fr);
+  }
 
-    .method {
-      background: #fff7ed;
-      border-left: 6px solid #f97316;
-      padding: 20px 24px;
-      border-radius: 14px;
-      line-height: 1.65;
-      color: #7c2d12;
-    }
+  .measurement-grid{
+    grid-template-columns:1fr;
+  }
 
-    .small-note {
-      color: #64748b;
-      font-size: 12px;
-      line-height: 1.5;
-      margin-top: 10px;
-    }
+}
 
-    .error {
-      background: #fee2e2;
-      border-left: 6px solid #dc2626;
-      padding: 18px 22px;
-      border-radius: 14px;
-      color: #7f1d1d;
-      font-weight: 800;
-      display: none;
-      margin-bottom: 24px;
-    }
+@media(max-width:780px){
 
-    @media (max-width: 1100px) {
-      .cards {
-        grid-template-columns: repeat(2, 1fr);
-      }
+  .hero{
+    padding:32px 20px;
+  }
 
-      .measurement-grid {
-        grid-template-columns: 1fr;
-      }
-    }
+  .hero h1{
+    font-size:32px;
+  }
 
-    @media (max-width: 780px) {
-      .hero {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 34px 22px;
-      }
+  .nav,
+  .content{
+    padding-left:18px;
+    padding-right:18px;
+  }
 
-      .hero h1 {
-        font-size: 31px;
-      }
+  .cards,
+  .grid2{
+    grid-template-columns:1fr;
+  }
 
-      .content,
-      .nav {
-        padding-left: 18px;
-        padding-right: 18px;
-      }
+  .chartbox,
+  .chartbox.large{
+    height:380px;
+  }
 
-      .cards,
-      .grid2 {
-        grid-template-columns: 1fr;
-      }
+}
 
-      .chartbox,
-      .chartbox.large,
-      .chartbox.tall {
-        height: 390px;
-      }
-
-      .data-table {
-        display: block;
-        overflow-x: auto;
-      }
-
-      .big {
-        font-size: 34px;
-      }
-    }
-  </style>
+</style>
 </head>
 
 <body>
-  <div class="page">
 
-    <header class="hero">
-      <div>
-        <h1>Azbeszt mérési<br>adatok</h1>
-        <p>
-          Ausztriai és magyar hivatalos, civil és sajtóban közölt mérési információk
-          strukturált, vizuális összevetése. A dashboard külön kezeli a levegőméréseket,
-          anyagmintákat és felületi mintákat.
-        </p>
-      </div>
+<div class="page">
 
-      <div class="datebox">
-        <div class="label">adatmodul</div>
-        <div class="date" id="periodBox">2026</div>
-        <div class="label">mérési riport</div>
-      </div>
-    </header>
+<header class="hero">
 
-    <div class="nav">
-      <a class="btn" href="../index.html">Vissza a főoldalra</a>
-      <a class="btn green" href="koszeg-road-monitor.html">Út- és utcafelújítások</a>
-      <a class="btn orange" href="../shipment-exposure.html">EKÁER riport</a>
-      <a class="btn dark" href="data/asbestos_measurements.json" target="_blank" rel="noopener">Adatfájl</a>
-    </div>
+<h1>Azbeszt mérési adatok</h1>
 
-    <main class="content">
+<p>
+Ausztriai és magyarországi hivatalos, civil és sajtóban közölt
+azbeszt mérési információk összehasonlító dashboardja.
+A rendszer külön kezeli a levegőméréseket, anyagmintákat,
+felületi mintákat és referenciaértékeket.
+</p>
 
-      <div class="notice">
-        A mérési oldal nem hatósági minősítés. A rekordok részben hivatalos közlésekből,
-        részben Greenpeace-mérésekből, részben sajtóban közölt hatósági információkból származnak.
-        A számszerű levegőértékek és az anyagminták közvetlen összevetése csak módszertani óvatossággal értelmezhető.
-      </div>
+</header>
 
-      <div class="error" id="errorBox">
-        Az adatfájl nem tölthető be. Ellenőrizd, hogy létezik-e: docs/data/asbestos_measurements.json
-      </div>
+<div class="nav">
 
-      <section class="cards">
-        <div class="card">
-          <h3>Mérési rekordok</h3>
-          <div class="big" id="recordCount">–</div>
-          <div class="sub">strukturált adatbejegyzés</div>
-        </div>
+<a class="btn blue" href="../index.html">
+Vissza a főoldalra
+</a>
 
-        <div class="card">
-          <h3>Mintapont / minta</h3>
-          <div class="big" id="sampleCount">–</div>
-          <div class="sub">összesített mintaszám</div>
-        </div>
+<a class="btn green" href="koszeg-road-monitor.html">
+Út- és utcafelújítások
+</a>
 
-        <div class="card">
-          <h3>Max. levegőérték</h3>
-          <div class="big red" id="maxFiberM3">–</div>
-          <div class="sub">rost/m³</div>
-        </div>
+<a class="btn orange" href="../shipment-exposure.html">
+EKÁER riport
+</a>
 
-        <div class="card">
-          <h3>Benchmark</h3>
-          <div class="big green" id="thresholdM3">–</div>
-          <div class="sub">rost/m³ referencia</div>
-        </div>
-      </section>
+<a class="btn dark"
+href="data/asbestos_measurements.json"
+target="_blank"
+rel="noopener">
+Adatfájl
+</a>
 
-      <section class="cards">
-        <div class="card">
-          <h3>Felületi max.</h3>
-          <div class="big orange" id="maxFiberCm2">–</div>
-          <div class="sub">rost/cm², ahol közölt</div>
-        </div>
+</div>
 
-        <div class="card">
-          <h3>Magyar rekord</h3>
-          <div class="big" id="hungaryCount">–</div>
-          <div class="sub">ország szerinti bontás</div>
-        </div>
+<main class="content">
 
-        <div class="card">
-          <h3>Osztrák rekord</h3>
-          <div class="big purple" id="austriaCount">–</div>
-          <div class="sub">ország szerinti bontás</div>
-        </div>
+<div class="notice">
+A dashboard külön kezeli a magyarországi és ausztriai adatokat.
+A Greenpeace, hatósági és sajtóban közölt információk módszertana eltérhet,
+ezért a koncentrációs értékek közvetlen összevetése csak óvatosan értelmezhető.
+A levegőmérések esetében az egység jellemzően rost/m³,
+míg a felületi mintáknál rost/cm² formában jelenik meg.
+</div>
 
-        <div class="card">
-          <h3>Magas kockázat</h3>
-          <div class="big red" id="highRiskCount">–</div>
-          <div class="sub">risk_level alapján</div>
-        </div>
-      </section>
+<div class="error" id="errorBox">
+Az adatfájl nem tölthető be.
+</div>
 
-      <section class="section">
-        <h2>Rövid értékelés</h2>
-        <div class="assessment" id="assessmentText">Adatok betöltése...</div>
-      </section>
+<section class="section">
 
-      <section class="grid2">
-        <div class="section">
-          <h2>Ország szerinti bontás</h2>
-          <div class="chartbox">
-            <canvas id="countryChart"></canvas>
-          </div>
-        </div>
+<h2>Összesített értékelés</h2>
 
-        <div class="section">
-          <h2>Forrástípusok</h2>
-          <div class="chartbox">
-            <canvas id="sourceChart"></canvas>
-          </div>
-        </div>
-      </section>
+<div class="assessment" id="assessmentBox">
+Adatok betöltése...
+</div>
 
-      <section class="grid2">
-        <div class="section">
-          <h2>Mérési típusok</h2>
-          <div class="chartbox">
-            <canvas id="typeChart"></canvas>
-          </div>
-        </div>
+</section>
 
-        <div class="section">
-          <h2>Kockázati besorolás</h2>
-          <div class="chartbox">
-            <canvas id="riskChart"></canvas>
-          </div>
-        </div>
-      </section>
+<section class="country-block">
 
-      <section class="grid2">
-        <div class="section">
-          <h2>Levegőmérési értékek és benchmark</h2>
-          <div class="chartbox large">
-            <canvas id="airBenchmarkChart"></canvas>
-          </div>
-          <div class="small-note">
-            Ahol nincs közölt max. rost/m³ érték, ott a rekord nem jelenik meg ebben a diagramon.
-          </div>
-        </div>
+<h2 class="country-title">
+🇭🇺 Magyarországi mérési adatok
+</h2>
 
-        <div class="section">
-          <h2>Minta- / mérési pontszám</h2>
-          <div class="chartbox large">
-            <canvas id="sampleChart"></canvas>
-          </div>
-        </div>
-      </section>
+<div class="cards">
 
-      <section class="grid2">
-        <div class="section">
-          <h2>Bánya-kapcsolatok</h2>
-          <div class="chartbox tall">
-            <canvas id="quarryChart"></canvas>
-          </div>
-        </div>
+<div class="card">
+<h3>Magyar rekordok</h3>
+<div class="big red" id="huRecordCount">–</div>
+<div class="sub">strukturált magyarországi rekord</div>
+</div>
 
-        <div class="section">
-          <h2>Települési bontás</h2>
-          <div class="chartbox tall">
-            <canvas id="settlementChart"></canvas>
-          </div>
-        </div>
-      </section>
+<div class="card">
+<h3>Minták / mérési pontok</h3>
+<div class="big blue" id="huSampleCount">–</div>
+<div class="sub">összesített mintaszám</div>
+</div>
 
-      <section class="section">
-        <h2>Ország × mérési típus mátrix</h2>
-        <div class="chartbox large">
-          <canvas id="matrixChart"></canvas>
-        </div>
-      </section>
+<div class="card">
+<h3>Legmagasabb levegőérték</h3>
+<div class="big red" id="huMaxAir">–</div>
+<div class="sub">rost/m³</div>
+</div>
 
-      <section class="section">
-        <h2>Kiemelt mérési események</h2>
-        <div class="measurement-grid" id="measurementGrid"></div>
-      </section>
+<div class="card">
+<h3>Magas kockázat</h3>
+<div class="big orange" id="huHighRisk">–</div>
+<div class="sub">high risk besorolás</div>
+</div>
 
-      <section class="section">
-        <h2>Részletes rekordtábla</h2>
-        <table class="data-table">
-          <thead>
-            <tr>
-              <th>Helyszín</th>
-              <th>Ország</th>
-              <th>Típus</th>
-              <th>Forrás</th>
-              <th>Levegő max.</th>
-              <th>Felület max.</th>
-              <th>Kockázat</th>
-              <th>Kapcsolódó bánya</th>
-            </tr>
-          </thead>
-          <tbody id="recordTable"></tbody>
-        </table>
-      </section>
+</div>
 
-      <section class="section">
-        <h2>Módszertani megjegyzés</h2>
-        <div class="method" id="methodNote">
-          A mérési adatok részben összesített hivatalos közlésekből, részben civil szervezeti
-          mintavételi beszámolókból származnak. A dashboard célja az eltérő adatforrások
-          strukturált összevetése, nem hatósági minősítés.
-        </div>
-      </section>
+<div class="grid2">
 
-    </main>
-  </div>
+<section class="section">
 
-  <script>
-    const DATA_URL = "data/asbestos_measurements.json";
-    let charts = [];
+<h2>Magyar mérési típusok</h2>
 
-    function formatNumber(value) {
-      if (value === null || value === undefined || value === "") return "–";
-      return Number(value || 0).toLocaleString("hu-HU", { maximumFractionDigits: 0 });
-    }
+<div class="chartbox">
+<canvas id="huTypeChart"></canvas>
+</div>
 
-    function cleanKey(value) {
-      return value || "Ismeretlen";
-    }
+<div class="chart-analysis">
+A diagram a magyarországi rekordok mérési típusait mutatja.
+A kategóriák közé levegőmérés, anyagminta,
+kőzetminta és kombinált vizsgálatok tartoznak.
+Az oszlopok a strukturált rekordok számát mutatják.
+A mérési módszerek eltérő típusú kockázatokat jeleznek.
+A magyar adatokban jelenleg az anyagminták dominálnak.
+</div>
 
-    function displayCountry(value) {
-      if (value === "Hungary") return "Magyarország";
-      if (value === "Austria") return "Ausztria";
-      return value || "Ismeretlen";
-    }
+</section>
 
-    function displaySource(value) {
-      const map = {
-        official_taskforce: "Hivatalos Taskforce",
-        greenpeace: "Greenpeace",
-        hungarian_official: "Magyar hivatalos",
-        hungarian_official_media: "Magyar hivatalos / sajtó"
-      };
-      return map[value] || value || "Ismeretlen";
-    }
+<section class="section">
 
-    function displayType(value) {
-      const map = {
-        air_measurement: "Levegőmérés",
-        surface_measurement: "Felületi mérés",
-        material_measurement: "Anyagminta / kőzetminta",
-        air_and_material_measurement: "Levegő + anyagminta",
-        reference_value: "Referenciaérték"
-      };
-      return map[value] || value || "Ismeretlen";
-    }
+<h2>Magyar levegőmérések</h2>
 
-    function displayRisk(value) {
-      const map = {
-        high: "Magas",
-        medium: "Közepes",
-        low: "Alacsony",
-        methodological: "Módszertani"
-      };
-      return map[value] || value || "Nem besorolható";
-    }
+<div class="chartbox">
+<canvas id="huAirChart"></canvas>
+</div>
 
-    function countBy(records, field, formatter = null) {
-      const result = {};
-      records.forEach(r => {
-        const raw = cleanKey(r[field]);
-        const key = formatter ? formatter(raw) : raw;
-        result[key] = (result[key] || 0) + 1;
-      });
-      return result;
-    }
+<div class="chart-analysis">
+Ez a diagram a magyarországi levegőmérések maximális koncentrációit mutatja.
+Az értékek rost/m³ mértékegységben szerepelnek.
+A zöld oszlop a referencia benchmarkot mutatja.
+A vörös oszlopok a közölt mérési maximumokat jelenítik meg.
+A szombathelyi Greenpeace mérés kiugró koncentrációt jelzett.
+</div>
 
-    function sumSamples(records) {
-      return records.reduce((sum, r) => sum + Number(r.sample_count || 0), 0);
-    }
+</section>
 
-    function maxValue(records, field) {
-      const vals = records
-        .map(r => r[field])
-        .filter(v => v !== null && v !== undefined && v !== "")
-        .map(Number);
-      return vals.length ? Math.max(...vals) : null;
-    }
+</div>
 
-    function sortedEntries(obj) {
-      return Object.entries(obj || {}).sort((a, b) => Number(b[1]) - Number(a[1]));
-    }
+</section>
 
-    function createChart(id, config) {
-      const chart = new Chart(document.getElementById(id), config);
-      charts.push(chart);
-      return chart;
-    }
+<section class="country-block">
 
-    function barChart(id, labels, values, label, horizontal = false) {
-      return createChart(id, {
-        type: "bar",
-        data: {
-          labels,
-          datasets: [{
-            label,
-            data: values,
-            backgroundColor: [
-              "#2563eb", "#16a34a", "#f97316", "#dc2626",
-              "#7c3aed", "#0891b2", "#64748b", "#ca8a04"
-            ]
-          }]
-        },
-        options: {
-          indexAxis: horizontal ? "y" : "x",
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: {
-            legend: { display: false },
-            tooltip: {
-              callbacks: {
-                label: ctx => `${label}: ${formatNumber(ctx.raw)}`
-              }
-            }
-          },
-          scales: {
-            x: { beginAtZero: true },
-            y: { beginAtZero: true }
-          }
+<h2 class="country-title">
+🇦🇹 Ausztriai mérési adatok
+</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>Osztrák rekordok</h3>
+<div class="big purple" id="atRecordCount">–</div>
+<div class="sub">strukturált osztrák rekord</div>
+</div>
+
+<div class="card">
+<h3>Minták / mérési pontok</h3>
+<div class="big blue" id="atSampleCount">–</div>
+<div class="sub">összesített mintaszám</div>
+</div>
+
+<div class="card">
+<h3>Legmagasabb levegőérték</h3>
+<div class="big orange" id="atMaxAir">–</div>
+<div class="sub">rost/m³</div>
+</div>
+
+<div class="card">
+<h3>Magas kockázat</h3>
+<div class="big red" id="atHighRisk">–</div>
+<div class="sub">high risk besorolás</div>
+</div>
+
+</div>
+
+<div class="grid2">
+
+<section class="section">
+
+<h2>Osztrák forrástípusok</h2>
+
+<div class="chartbox">
+<canvas id="atSourceChart"></canvas>
+</div>
+
+<div class="chart-analysis">
+A diagram az osztrák rekordok forrástípusait mutatja.
+A rendszer külön kezeli a Taskforce,
+Greenpeace és sajtóban közölt információkat.
+Az oszlopok a rekordok számát jelenítik meg.
+A hivatalos és civil adatok eltérő mintavételi módszerekkel készültek.
+Ez fontos a koncentrációs értékek értelmezésénél.
+</div>
+
+</section>
+
+<section class="section">
+
+<h2>Osztrák bánya-kapcsolatok</h2>
+
+<div class="chartbox large">
+<canvas id="quarryChart"></canvas>
+</div>
+
+<div class="chart-analysis">
+A diagram az egyes bányákhoz kapcsolódó rekordok számát mutatja.
+A vízszintes oszlopok a strukturált események mennyiségét jelzik.
+A rendszer külön kezeli Bernstein,
+Pilgersdorf, Rumpersdorf és más helyszínek kapcsolatait.
+A diagram segít azonosítani a gyakran említett bányákat.
+Ez fontos lehet a szállítási és kitettségi útvonalak elemzésében.
+</div>
+
+</section>
+
+</div>
+
+</section>
+<section class="section">
+
+<h2>Országok összehasonlítása</h2>
+
+<div class="grid2">
+
+<div>
+
+<div class="chartbox">
+<canvas id="countryCompareChart"></canvas>
+</div>
+
+<div class="chart-analysis">
+Ez a diagram Magyarország és Ausztria strukturált rekordjait hasonlítja össze.
+Az oszlopok a teljes rekordszámot mutatják országonként.
+A diagram nem a szennyezés mértékét,
+hanem a dokumentált események számát jeleníti meg.
+A rendszer jelenleg több magyarországi high risk rekordot tartalmaz.
+Az adatok folyamatosan bővíthetők új mérési eredményekkel.
+</div>
+
+</div>
+
+<div>
+
+<div class="chartbox">
+<canvas id="riskChart"></canvas>
+</div>
+
+<div class="chart-analysis">
+A kördiagram a kockázati besorolások arányát mutatja.
+A high, medium és low kategóriák a rekordokhoz rendelt szinteket jelzik.
+A high risk rekordok jellemzően pozitív levegőmérésekhez
+vagy azbesztet tartalmazó anyagmintákhoz kapcsolódnak.
+A diagram gyors áttekintést ad a teljes adatbázis kockázati szerkezetéről.
+A besorolás nem helyettesíti a hivatalos egészségügyi minősítést.
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<h2>Kiemelt mérési események</h2>
+
+<div class="measurement-grid" id="measurementGrid"></div>
+
+</section>
+
+<section class="section">
+
+<h2>Részletes rekordtábla</h2>
+
+<div class="table-wrap">
+
+<table class="data-table">
+
+<thead>
+
+<tr>
+<th>Helyszín</th>
+<th>Ország</th>
+<th>Mérés típusa</th>
+<th>Forrás</th>
+<th>Levegő max.</th>
+<th>Felületi max.</th>
+<th>Kockázat</th>
+<th>Bánya</th>
+</tr>
+
+</thead>
+
+<tbody id="recordTable"></tbody>
+
+</table>
+
+</div>
+
+</section>
+
+</main>
+
+</div>
+
+<script>
+
+const DATA_URL = "data/asbestos_measurements.json";
+
+function formatNumber(value){
+
+  if(value === null || value === undefined || value === ""){
+    return "–";
+  }
+
+  return Number(value).toLocaleString("hu-HU");
+
+}
+
+function badge(level){
+
+  if(level === "high"){
+    return '<span class="badge red">magas</span>';
+  }
+
+  if(level === "medium"){
+    return '<span class="badge orange">közepes</span>';
+  }
+
+  if(level === "low"){
+    return '<span class="badge green">alacsony</span>';
+  }
+
+  return '<span class="badge blue">egyéb</span>';
+
+}
+
+function barChart(id,labels,data,color){
+
+  new Chart(document.getElementById(id),{
+    type:"bar",
+    data:{
+      labels:labels,
+      datasets:[{
+        data:data,
+        backgroundColor:color
+      }]
+    },
+    options:{
+      responsive:true,
+      maintainAspectRatio:false,
+      plugins:{
+        legend:{
+          display:false
         }
-      });
-    }
-
-    function doughnutChart(id, labels, values) {
-      return createChart(id, {
-        type: "doughnut",
-        data: {
-          labels,
-          datasets: [{
-            data: values,
-            backgroundColor: ["#2563eb", "#dc2626", "#ea580c", "#16a34a", "#7c3aed", "#64748b"]
-          }]
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: {
-            legend: { position: "bottom" }
-          },
-          cutout: "62%"
+      },
+      scales:{
+        y:{
+          beginAtZero:true
         }
-      });
+      }
+    }
+  });
+
+}
+
+function doughnutChart(id,labels,data){
+
+  new Chart(document.getElementById(id),{
+    type:"doughnut",
+    data:{
+      labels:labels,
+      datasets:[{
+        data:data,
+        backgroundColor:[
+          "#dc2626",
+          "#ea580c",
+          "#16a34a",
+          "#2563eb"
+        ]
+      }]
+    },
+    options:{
+      responsive:true,
+      maintainAspectRatio:false,
+      plugins:{
+        legend:{
+          position:"bottom"
+        }
+      }
+    }
+  });
+
+}
+
+async function loadData(){
+
+  try{
+
+    const response = await fetch(DATA_URL + "?t=" + Date.now());
+
+    if(!response.ok){
+      throw new Error("JSON hiba");
     }
 
-    function airBenchmarkChart(records) {
-      const airRecords = records.filter(r =>
-        r.fiber_per_m3_max !== null &&
-        r.fiber_per_m3_max !== undefined &&
-        r.fiber_per_m3_max !== ""
+    const data = await response.json();
+
+    const records = data.records || [];
+
+    const hu = records.filter(r => r.country === "Hungary");
+    const at = records.filter(r => r.country === "Austria");
+
+    document.getElementById("huRecordCount").textContent = hu.length;
+    document.getElementById("atRecordCount").textContent = at.length;
+
+    document.getElementById("huSampleCount").textContent =
+      formatNumber(
+        hu.reduce((sum,r)=>sum + Number(r.sample_count || 0),0)
       );
 
-      const labels = airRecords.map(r => r.settlement || r.location_name || r.id);
-      const values = airRecords.map(r => Number(r.fiber_per_m3_max || 0));
-      const thresholds = airRecords.map(r => Number(r.fiber_per_m3_threshold || 1000));
+    document.getElementById("atSampleCount").textContent =
+      formatNumber(
+        at.reduce((sum,r)=>sum + Number(r.sample_count || 0),0)
+      );
 
-      return createChart("airBenchmarkChart", {
-        type: "bar",
-        data: {
-          labels,
-          datasets: [
-            {
-              label: "Közölt max. rost/m³",
-              data: values,
-              backgroundColor: "#dc2626"
-            },
-            {
-              label: "Referencia / benchmark",
-              data: thresholds,
-              backgroundColor: "#16a34a"
-            }
-          ]
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: {
-            legend: { position: "bottom" },
-            tooltip: {
-              callbacks: {
-                label: ctx => `${ctx.dataset.label}: ${formatNumber(ctx.raw)} rost/m³`
-              }
-            }
+    const huAir = Math.max(...hu.map(r => Number(r.fiber_per_m3_max || 0)));
+    const atAir = Math.max(...at.map(r => Number(r.fiber_per_m3_max || 0)));
+
+    document.getElementById("huMaxAir").textContent =
+      huAir > 0 ? formatNumber(huAir) : "–";
+
+    document.getElementById("atMaxAir").textContent =
+      atAir > 0 ? formatNumber(atAir) : "–";
+
+    document.getElementById("huHighRisk").textContent =
+      hu.filter(r => r.risk_level === "high").length;
+
+    document.getElementById("atHighRisk").textContent =
+      at.filter(r => r.risk_level === "high").length;
+
+    document.getElementById("assessmentBox").innerHTML = `
+      A dashboard jelenleg <strong>${records.length}</strong> strukturált rekordot kezel.
+      A magyar rekordok között dominálnak az anyagminták és a high risk besorolású események.
+      A legmagasabb ismert levegőmérési koncentráció a szombathelyi Greenpeace méréshez kapcsolódik.
+      Az osztrák adatok nagy része hivatalos Taskforce kommunikációból származik.
+      A rendszer célja az eltérő források strukturált összevetése és vizuális elemzése.
+    `;
+
+    const huTypeCounts = {};
+
+    hu.forEach(r => {
+
+      const key = r.measurement_type || "unknown";
+
+      huTypeCounts[key] = (huTypeCounts[key] || 0) + 1;
+
+    });
+
+    barChart(
+      "huTypeChart",
+      Object.keys(huTypeCounts),
+      Object.values(huTypeCounts),
+      "#dc2626"
+    );
+
+    const huAirLabels = hu
+      .filter(r => r.fiber_per_m3_max)
+      .map(r => r.settlement);
+
+    const huAirValues = hu
+      .filter(r => r.fiber_per_m3_max)
+      .map(r => r.fiber_per_m3_max);
+
+    new Chart(document.getElementById("huAirChart"),{
+
+      type:"bar",
+
+      data:{
+        labels:huAirLabels,
+        datasets:[
+          {
+            label:"Max. rost/m³",
+            data:huAirValues,
+            backgroundColor:"#dc2626"
           },
-          scales: {
-            y: {
-              beginAtZero: true,
-              ticks: {
-                callback: value => formatNumber(value)
-              }
-            }
+          {
+            label:"Benchmark",
+            data:huAirValues.map(()=>1000),
+            backgroundColor:"#16a34a"
+          }
+        ]
+      },
+
+      options:{
+        responsive:true,
+        maintainAspectRatio:false
+      }
+
+    });
+
+    const atSourceCounts = {};
+
+    at.forEach(r => {
+
+      const key = r.source_type || "unknown";
+
+      atSourceCounts[key] = (atSourceCounts[key] || 0) + 1;
+
+    });
+
+    barChart(
+      "atSourceChart",
+      Object.keys(atSourceCounts),
+      Object.values(atSourceCounts),
+      "#7c3aed"
+    );
+
+    const quarryCounts = {};
+
+    at.forEach(r => {
+
+      const key = r.related_quarry || "ismeretlen";
+
+      quarryCounts[key] = (quarryCounts[key] || 0) + 1;
+
+    });
+
+    new Chart(document.getElementById("quarryChart"),{
+
+      type:"bar",
+
+      data:{
+        labels:Object.keys(quarryCounts),
+        datasets:[{
+          data:Object.values(quarryCounts),
+          backgroundColor:"#ea580c"
+        }]
+      },
+
+      options:{
+        responsive:true,
+        maintainAspectRatio:false,
+        indexAxis:"y",
+        plugins:{
+          legend:{
+            display:false
           }
         }
-      });
-    }
+      }
 
-    function matrixChart(records) {
-      const countries = [...new Set(records.map(r => displayCountry(cleanKey(r.country))))];
-      const types = [...new Set(records.map(r => displayType(cleanKey(r.measurement_type))))];
+    });
 
-      const colors = ["#2563eb", "#16a34a", "#f97316", "#dc2626", "#7c3aed", "#64748b"];
+    new Chart(document.getElementById("countryCompareChart"),{
 
-      const datasets = types.map((type, idx) => ({
-        label: type,
-        data: countries.map(country =>
-          records.filter(r =>
-            displayCountry(cleanKey(r.country)) === country &&
-            displayType(cleanKey(r.measurement_type)) === type
-          ).length
-        ),
-        backgroundColor: colors[idx % colors.length]
-      }));
+      type:"bar",
 
-      return createChart("matrixChart", {
-        type: "bar",
-        data: {
-          labels: countries,
-          datasets
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: {
-            legend: { position: "bottom" },
-            tooltip: {
-              callbacks: {
-                label: ctx => `${ctx.dataset.label}: ${formatNumber(ctx.raw)} rekord`
-              }
-            }
-          },
-          scales: {
-            x: { stacked: true },
-            y: { stacked: true, beginAtZero: true }
+      data:{
+        labels:["Magyarország","Ausztria"],
+        datasets:[{
+          data:[hu.length,at.length],
+          backgroundColor:["#dc2626","#7c3aed"]
+        }]
+      },
+
+      options:{
+        responsive:true,
+        maintainAspectRatio:false,
+        plugins:{
+          legend:{
+            display:false
           }
         }
-      });
-    }
+      }
 
-    function riskClass(level) {
-      const text = String(level || "").toLowerCase();
-      if (text.includes("high")) return "high";
-      if (text.includes("medium")) return "medium";
-      if (text.includes("low")) return "low";
-      if (text.includes("methodological")) return "methodological";
-      return "";
-    }
+    });
 
-    function riskBadge(level) {
-      const text = String(level || "").toLowerCase();
-      if (text.includes("high")) return '<span class="badge red">magas</span>';
-      if (text.includes("medium")) return '<span class="badge orange">közepes</span>';
-      if (text.includes("low")) return '<span class="badge green">alacsony</span>';
-      if (text.includes("methodological")) return '<span class="badge purple">módszertani</span>';
-      return '<span class="badge blue">nem besorolható</span>';
-    }
+    const riskCounts = {};
 
-    function buildMeasurementCards(records) {
-      const grid = document.getElementById("measurementGrid");
+    records.forEach(r => {
 
-      const sorted = [...records].sort((a, b) => {
-        const ar = a.risk_level === "high" ? 0 : 1;
-        const br = b.risk_level === "high" ? 0 : 1;
-        return ar - br;
-      });
+      const key = r.risk_level || "other";
 
-      grid.innerHTML = sorted.map(r => `
-        <div class="measurement-card ${riskClass(r.risk_level)}">
+      riskCounts[key] = (riskCounts[key] || 0) + 1;
+
+    });
+
+    doughnutChart(
+      "riskChart",
+      Object.keys(riskCounts),
+      Object.values(riskCounts)
+    );
+
+    document.getElementById("measurementGrid").innerHTML =
+      records.map(r => `
+
+        <div class="measurement-card ${r.risk_level}">
+
           <h3>${r.location_name || r.id}</h3>
-          <p><strong>Hely:</strong> ${r.settlement || "–"}, ${r.region || "–"}, ${displayCountry(r.country)}</p>
-          <p><strong>Mérés típusa:</strong> ${displayType(r.measurement_type)}</p>
-          <p><strong>Forrás:</strong> ${r.source_name || displaySource(r.source_type)}</p>
-          <p><strong>Eredmény:</strong> ${r.reported_result || "–"}</p>
-          <p><strong>Levegő max.:</strong> ${r.fiber_per_m3_max ? formatNumber(r.fiber_per_m3_max) + " rost/m³" : "–"}</p>
-          <p><strong>Felületi max.:</strong> ${r.fiber_per_cm2_max ? formatNumber(r.fiber_per_cm2_max) + " rost/cm²" : "–"}</p>
-          <p><strong>Kockázat:</strong> ${riskBadge(r.risk_level)}</p>
-          <p><strong>Forrás:</strong> <a href="${r.source_url || "#"}" target="_blank" rel="noopener">megnyitás</a></p>
+
+          <p><strong>Ország:</strong> ${r.country}</p>
+
+          <p><strong>Mérés:</strong> ${r.measurement_type}</p>
+
+          <p><strong>Forrás:</strong> ${r.source_name}</p>
+
+          <p><strong>Levegő max:</strong>
+          ${r.fiber_per_m3_max ? formatNumber(r.fiber_per_m3_max) + " rost/m³" : "–"}
+          </p>
+
+          <p><strong>Kockázat:</strong>
+          ${badge(r.risk_level)}
+          </p>
+
+          <p>${r.reported_result || ""}</p>
+
         </div>
+
       `).join("");
-    }
 
-    function buildRecordTable(records) {
-      const tbody = document.getElementById("recordTable");
+    document.getElementById("recordTable").innerHTML =
+      records.map(r => `
 
-      tbody.innerHTML = records.map(r => `
         <tr>
-          <td><strong>${r.location_name || r.id}</strong><br><span class="small-note">${r.settlement || ""}</span></td>
-          <td>${displayCountry(r.country)}</td>
-          <td>${displayType(r.measurement_type)}</td>
-          <td>${displaySource(r.source_type)}<br><span class="small-note">${r.source_name || ""}</span></td>
-          <td>${r.fiber_per_m3_max ? formatNumber(r.fiber_per_m3_max) + " rost/m³" : "–"}</td>
-          <td>${r.fiber_per_cm2_max ? formatNumber(r.fiber_per_cm2_max) + " rost/cm²" : "–"}</td>
-          <td>${riskBadge(r.risk_level)}</td>
+
+          <td>${r.location_name || ""}</td>
+
+          <td>${r.country || ""}</td>
+
+          <td>${r.measurement_type || ""}</td>
+
+          <td>${r.source_name || ""}</td>
+
+          <td>
+          ${r.fiber_per_m3_max ? formatNumber(r.fiber_per_m3_max) + " rost/m³" : "–"}
+          </td>
+
+          <td>
+          ${r.fiber_per_cm2_max ? formatNumber(r.fiber_per_cm2_max) + " rost/cm²" : "–"}
+          </td>
+
+          <td>${badge(r.risk_level)}</td>
+
           <td>${r.related_quarry || "–"}</td>
+
         </tr>
+
       `).join("");
-    }
 
-    function render(data) {
-      const records = data.records || [];
+  }catch(error){
 
-      const sampleTotal = sumSamples(records);
-      const maxM3 = maxValue(records, "fiber_per_m3_max");
-      const maxCm2 = maxValue(records, "fiber_per_cm2_max");
-      const threshold = maxValue(records, "fiber_per_m3_threshold");
+    console.error(error);
 
-      const huCount = records.filter(r => r.country === "Hungary").length;
-      const atCount = records.filter(r => r.country === "Austria").length;
-      const highRisk = records.filter(r => String(r.risk_level || "").toLowerCase().includes("high")).length;
+    document.getElementById("errorBox").style.display = "block";
 
-      document.getElementById("recordCount").textContent = formatNumber(records.length);
-      document.getElementById("sampleCount").textContent = formatNumber(sampleTotal);
-      document.getElementById("maxFiberM3").textContent = maxM3 ? formatNumber(maxM3) : "–";
-      document.getElementById("thresholdM3").textContent = threshold ? formatNumber(threshold) : "–";
-      document.getElementById("maxFiberCm2").textContent = maxCm2 ? formatNumber(maxCm2) : "–";
-      document.getElementById("hungaryCount").textContent = formatNumber(huCount);
-      document.getElementById("austriaCount").textContent = formatNumber(atCount);
-      document.getElementById("highRiskCount").textContent = formatNumber(highRisk);
+  }
 
-      const topAir = records.find(r => Number(r.fiber_per_m3_max || 0) === Number(maxM3 || 0));
-      const topSurface = records.find(r => Number(r.fiber_per_cm2_max || 0) === Number(maxCm2 || 0));
+}
 
-      document.getElementById("assessmentText").innerHTML = `
-        A mérési modul jelenleg <strong>${formatNumber(records.length)}</strong> strukturált rekordot tartalmaz.
-        Ebből <strong>${formatNumber(huCount)}</strong> magyarországi és <strong>${formatNumber(atCount)}</strong>
-        ausztriai rekord. Az összesített mintaszám vagy mérési pontszám
-        <strong>${formatNumber(sampleTotal)}</strong>. A legmagasabb közölt levegőmérési maximum
-        <strong>${maxM3 ? formatNumber(maxM3) + " rost/m³" : "nem ismert"}</strong>,
-        amely a(z) <strong>${topAir ? topAir.settlement : "–"}</strong> rekordhoz kapcsolódik.
-        A legmagasabb felületi közlés
-        <strong>${maxCm2 ? formatNumber(maxCm2) + " rost/cm²" : "nem ismert"}</strong>.
-        A hivatalos, civil és sajtóban közölt adatok eltérő módszertannal készültek,
-        ezért közvetlen összevetésük külön óvatosságot igényel.
-      `;
+loadData();
 
-      if (data.method_note) {
-        document.getElementById("methodNote").textContent = data.method_note;
-      }
+</script>
 
-      const countryEntries = sortedEntries(countBy(records, "country", displayCountry));
-      doughnutChart(
-        "countryChart",
-        countryEntries.map(e => e[0]),
-        countryEntries.map(e => e[1])
-      );
-
-      const sourceEntries = sortedEntries(countBy(records, "source_type", displaySource));
-      barChart(
-        "sourceChart",
-        sourceEntries.map(e => e[0]),
-        sourceEntries.map(e => e[1]),
-        "Rekordok száma",
-        true
-      );
-
-      const typeEntries = sortedEntries(countBy(records, "measurement_type", displayType));
-      doughnutChart(
-        "typeChart",
-        typeEntries.map(e => e[0]),
-        typeEntries.map(e => e[1])
-      );
-
-      const riskEntries = sortedEntries(countBy(records, "risk_level", displayRisk));
-      doughnutChart(
-        "riskChart",
-        riskEntries.map(e => e[0]),
-        riskEntries.map(e => e[1])
-      );
-
-      airBenchmarkChart(records);
-
-      const sampleEntries = records
-        .filter(r => r.sample_count)
-        .map(r => [r.settlement || r.location_name || r.id, Number(r.sample_count || 0)])
-        .sort((a, b) => b[1] - a[1]);
-
-      barChart(
-        "sampleChart",
-        sampleEntries.map(e => e[0]),
-        sampleEntries.map(e => e[1]),
-        "Mintaszám / mérési pont",
-        true
-      );
-
-      const quarryEntries = sortedEntries(countBy(records.filter(r => r.related_quarry), "related_quarry"));
-      barChart(
-        "quarryChart",
-        quarryEntries.map(e => e[0]),
-        quarryEntries.map(e => e[1]),
-        "Kapcsolódó rekord",
-        true
-      );
-
-      const settlementEntries = sortedEntries(countBy(records, "settlement"));
-      barChart(
-        "settlementChart",
-        settlementEntries.map(e => e[0]),
-        settlementEntries.map(e => e[1]),
-        "Rekordok száma",
-        true
-      );
-
-      matrixChart(records);
-      buildMeasurementCards(records);
-      buildRecordTable(records);
-    }
-
-    async function loadData() {
-      try {
-        const response = await fetch(DATA_URL + "?t=" + Date.now());
-        if (!response.ok) throw new Error("Adatfájl nem elérhető");
-        const data = await response.json();
-        render(data);
-      } catch (error) {
-        console.error(error);
-        document.getElementById("errorBox").style.display = "block";
-      }
-    }
-
-    loadData();
-  </script>
 </body>
 </html>
