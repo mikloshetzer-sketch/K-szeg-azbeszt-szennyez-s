@@ -450,3 +450,477 @@ body{
     </section>
   </div>
 </section>
+  <section class="section">
+
+  <h2>Országok összehasonlítása</h2>
+
+  <div class="grid2">
+
+    <div>
+      <div class="chartbox">
+        <canvas id="countryCompareChart"></canvas>
+      </div>
+
+      <div class="chart-analysis">
+        Ez a diagram Magyarország és Ausztria strukturált mérési rekordjait hasonlítja össze.
+        Az oszlopok darabszámot mutatnak, nem szennyezettségi koncentrációt.
+        A magyar és osztrák rekordok eltérő forráslogikából származnak.
+        A magyar oldalon több rekord konkrét pozitív anyagmintához vagy magas kockázati jelzéshez kapcsolódik.
+        Az osztrák oldalon erősebb a Taskforce és bányatérségi mérési kontextus.
+      </div>
+    </div>
+
+    <div>
+      <div class="chartbox">
+        <canvas id="riskChart"></canvas>
+      </div>
+
+      <div class="chart-analysis">
+        A kördiagram a teljes adatbázis kockázati besorolását mutatja.
+        A kategóriák magyarul jelennek meg: magas, közepes, alacsony vagy módszertani.
+        A diagram rekordarányt mutat, nem hivatalos egészségügyi kockázati minősítést.
+        A magas besorolású rekordok jellemzően pozitív anyagmintához vagy magas levegőértékhez kapcsolódnak.
+        A módszertani rekordok referenciaértékeket vagy összehasonlítási alapokat jelölnek.
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+<section class="section">
+
+  <h2>Kiemelt mérési események</h2>
+
+  <div class="measurement-grid" id="measurementGrid"></div>
+
+</section>
+
+<section class="section">
+
+  <h2>Részletes rekordtábla</h2>
+
+  <div class="table-wrap">
+
+    <table class="data-table">
+
+      <thead>
+        <tr>
+          <th>Helyszín</th>
+          <th>Ország</th>
+          <th>Mérés típusa</th>
+          <th>Forrás</th>
+          <th>Levegő max.</th>
+          <th>Felületi max.</th>
+          <th>Kockázat</th>
+          <th>Bánya</th>
+        </tr>
+      </thead>
+
+      <tbody id="recordTable"></tbody>
+
+    </table>
+
+  </div>
+
+</section>
+
+</main>
+
+</div>
+
+<script>
+
+const DATA_URL = "data/asbestos_measurements.json";
+
+function formatNumber(value) {
+  if (value === null || value === undefined || value === "") {
+    return "–";
+  }
+
+  return Number(value).toLocaleString("hu-HU", {
+    maximumFractionDigits: 0
+  });
+}
+
+function huCountry(value) {
+  const map = {
+    "Hungary": "Magyarország",
+    "Austria": "Ausztria"
+  };
+
+  return map[value] || value || "Ismeretlen";
+}
+
+function huMeasurement(value) {
+  const map = {
+    "air_measurement": "Levegőmérés",
+    "surface_measurement": "Felületi mérés",
+    "material_measurement": "Anyagminta / kőzetminta",
+    "air_and_material_measurement": "Levegő + anyagminta",
+    "reference_value": "Referenciaérték"
+  };
+
+  return map[value] || value || "Egyéb mérés";
+}
+
+function huSource(value) {
+  const map = {
+    "official_taskforce": "Hivatalos Taskforce",
+    "greenpeace": "Greenpeace",
+    "hungarian_official": "Magyar hivatalos",
+    "hungarian_official_media": "Magyar hivatalos / sajtó"
+  };
+
+  return map[value] || value || "Egyéb forrás";
+}
+
+function huRisk(value) {
+  const map = {
+    "high": "Magas",
+    "medium": "Közepes",
+    "low": "Alacsony",
+    "methodological": "Módszertani"
+  };
+
+  return map[value] || value || "Egyéb";
+}
+
+function badge(level) {
+  if (level === "high") {
+    return '<span class="badge red">magas</span>';
+  }
+
+  if (level === "medium") {
+    return '<span class="badge orange">közepes</span>';
+  }
+
+  if (level === "low") {
+    return '<span class="badge green">alacsony</span>';
+  }
+
+  return '<span class="badge blue">egyéb</span>';
+}
+
+function barChart(id, labels, data, color, horizontal = false) {
+  new Chart(document.getElementById(id), {
+    type: "bar",
+
+    data: {
+      labels: labels,
+      datasets: [{
+        data: data,
+        backgroundColor: color
+      }]
+    },
+
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      indexAxis: horizontal ? "y" : "x",
+      plugins: {
+        legend: {
+          display: false
+        }
+      },
+      scales: {
+        x: {
+          beginAtZero: true
+        },
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+}
+
+function doughnutChart(id, labels, data) {
+  new Chart(document.getElementById(id), {
+    type: "doughnut",
+
+    data: {
+      labels: labels,
+      datasets: [{
+        data: data,
+        backgroundColor: [
+          "#dc2626",
+          "#ea580c",
+          "#16a34a",
+          "#2563eb",
+          "#7c3aed"
+        ]
+      }]
+    },
+
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: {
+          position: "bottom"
+        }
+      }
+    }
+  });
+}
+
+function countBy(records, field, formatter) {
+  const result = {};
+
+  records.forEach(record => {
+    const raw = record[field] || "unknown";
+    const key = formatter ? formatter(raw) : raw;
+
+    result[key] = (result[key] || 0) + 1;
+  });
+
+  return result;
+}
+
+function sumSamples(records) {
+  return records.reduce((sum, record) => {
+    return sum + Number(record.sample_count || 0);
+  }, 0);
+}
+
+function maxAir(records) {
+  const values = records
+    .map(record => Number(record.fiber_per_m3_max || 0))
+    .filter(value => value > 0);
+
+  return values.length ? Math.max(...values) : 0;
+}
+
+function renderAssessment(records, hu, at) {
+  const highestHu = maxAir(hu);
+  const highestAt = maxAir(at);
+
+  document.getElementById("assessmentBox").innerHTML = `
+    A dashboard jelenleg <strong>${records.length}</strong> strukturált mérési rekordot kezel.
+    Ebből <strong>${hu.length}</strong> magyarországi és <strong>${at.length}</strong> ausztriai rekord.
+    A magyar oldalon a legmagasabb közölt levegőmérési érték <strong>${highestHu ? formatNumber(highestHu) + " rost/m³" : "nem ismert"}</strong>.
+    Az osztrák oldalon a legmagasabb közölt levegőmérési érték <strong>${highestAt ? formatNumber(highestAt) + " rost/m³" : "nem ismert"}</strong>.
+    A rekordok eltérő módszertanból származnak, ezért a dashboard fő célja az információk rendszerezése és összevethető megjelenítése.
+  `;
+}
+
+function renderKpis(hu, at) {
+  document.getElementById("huRecordCount").textContent = formatNumber(hu.length);
+  document.getElementById("atRecordCount").textContent = formatNumber(at.length);
+
+  document.getElementById("huSampleCount").textContent = formatNumber(sumSamples(hu));
+  document.getElementById("atSampleCount").textContent = formatNumber(sumSamples(at));
+
+  const huAir = maxAir(hu);
+  const atAir = maxAir(at);
+
+  document.getElementById("huMaxAir").textContent = huAir ? formatNumber(huAir) : "–";
+  document.getElementById("atMaxAir").textContent = atAir ? formatNumber(atAir) : "–";
+
+  document.getElementById("huHighRisk").textContent =
+    formatNumber(hu.filter(record => record.risk_level === "high").length);
+
+  document.getElementById("atHighRisk").textContent =
+    formatNumber(at.filter(record => record.risk_level === "high").length);
+}
+
+function renderHungarianCharts(hu) {
+  const huTypeCounts = countBy(hu, "measurement_type", huMeasurement);
+
+  barChart(
+    "huTypeChart",
+    Object.keys(huTypeCounts),
+    Object.values(huTypeCounts),
+    "#dc2626",
+    true
+  );
+
+  const airRecords = hu.filter(record => Number(record.fiber_per_m3_max || 0) > 0);
+
+  new Chart(document.getElementById("huAirChart"), {
+    type: "bar",
+
+    data: {
+      labels: airRecords.map(record => record.settlement || record.location_name || record.id),
+      datasets: [
+        {
+          label: "Közölt max. rost/m³",
+          data: airRecords.map(record => Number(record.fiber_per_m3_max || 0)),
+          backgroundColor: "#dc2626"
+        },
+        {
+          label: "Referenciaérték",
+          data: airRecords.map(record => Number(record.fiber_per_m3_threshold || 1000)),
+          backgroundColor: "#16a34a"
+        }
+      ]
+    },
+
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: {
+          position: "bottom"
+        },
+        tooltip: {
+          callbacks: {
+            label: context => `${context.dataset.label}: ${formatNumber(context.raw)} rost/m³`
+          }
+        }
+      },
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+}
+
+function renderAustrianCharts(at) {
+  const atSourceCounts = countBy(at, "source_type", huSource);
+
+  barChart(
+    "atSourceChart",
+    Object.keys(atSourceCounts),
+    Object.values(atSourceCounts),
+    "#7c3aed",
+    true
+  );
+
+  const quarryCounts = {};
+
+  at.forEach(record => {
+    const key = record.related_quarry || "Ismeretlen";
+    quarryCounts[key] = (quarryCounts[key] || 0) + 1;
+  });
+
+  barChart(
+    "quarryChart",
+    Object.keys(quarryCounts),
+    Object.values(quarryCounts),
+    "#ea580c",
+    true
+  );
+}
+
+function renderComparisonCharts(records, hu, at) {
+  new Chart(document.getElementById("countryCompareChart"), {
+    type: "bar",
+
+    data: {
+      labels: ["Magyarország", "Ausztria"],
+      datasets: [{
+        data: [hu.length, at.length],
+        backgroundColor: ["#dc2626", "#7c3aed"]
+      }]
+    },
+
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: {
+          display: false
+        }
+      },
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+
+  const riskCounts = countBy(records, "risk_level", huRisk);
+
+  doughnutChart(
+    "riskChart",
+    Object.keys(riskCounts),
+    Object.values(riskCounts)
+  );
+}
+
+function renderMeasurementCards(records) {
+  const grid = document.getElementById("measurementGrid");
+
+  grid.innerHTML = records.map(record => `
+    <div class="measurement-card ${record.risk_level || ""}">
+      <h3>${record.location_name || record.id}</h3>
+
+      <p><strong>Ország:</strong> ${huCountry(record.country)}</p>
+
+      <p><strong>Település:</strong> ${record.settlement || "–"}</p>
+
+      <p><strong>Mérés típusa:</strong> ${huMeasurement(record.measurement_type)}</p>
+
+      <p><strong>Forrás:</strong> ${huSource(record.source_type)}</p>
+
+      <p><strong>Levegő max.:</strong>
+        ${record.fiber_per_m3_max ? formatNumber(record.fiber_per_m3_max) + " rost/m³" : "–"}
+      </p>
+
+      <p><strong>Felületi max.:</strong>
+        ${record.fiber_per_cm2_max ? formatNumber(record.fiber_per_cm2_max) + " rost/cm²" : "–"}
+      </p>
+
+      <p><strong>Kockázat:</strong> ${badge(record.risk_level)}</p>
+
+      <p>${record.reported_result || ""}</p>
+    </div>
+  `).join("");
+}
+
+function renderRecordTable(records) {
+  const table = document.getElementById("recordTable");
+
+  table.innerHTML = records.map(record => `
+    <tr>
+      <td>${record.location_name || "–"}</td>
+      <td>${huCountry(record.country)}</td>
+      <td>${huMeasurement(record.measurement_type)}</td>
+      <td>${huSource(record.source_type)}</td>
+      <td>${record.fiber_per_m3_max ? formatNumber(record.fiber_per_m3_max) + " rost/m³" : "–"}</td>
+      <td>${record.fiber_per_cm2_max ? formatNumber(record.fiber_per_cm2_max) + " rost/cm²" : "–"}</td>
+      <td>${badge(record.risk_level)}</td>
+      <td>${record.related_quarry || "–"}</td>
+    </tr>
+  `).join("");
+}
+
+async function loadData() {
+  try {
+    const response = await fetch(DATA_URL + "?t=" + Date.now());
+
+    if (!response.ok) {
+      throw new Error("Adatfájl nem elérhető.");
+    }
+
+    const data = await response.json();
+    const records = data.records || [];
+
+    const hu = records.filter(record => record.country === "Hungary");
+    const at = records.filter(record => record.country === "Austria");
+
+    renderAssessment(records, hu, at);
+    renderKpis(hu, at);
+    renderHungarianCharts(hu);
+    renderAustrianCharts(at);
+    renderComparisonCharts(records, hu, at);
+    renderMeasurementCards(records);
+    renderRecordTable(records);
+
+  } catch (error) {
+    console.error(error);
+    document.getElementById("errorBox").style.display = "block";
+  }
+}
+
+loadData();
+
+</script>
+
+</body>
+</html>
