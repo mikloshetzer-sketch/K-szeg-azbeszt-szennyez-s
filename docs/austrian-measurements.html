@@ -311,7 +311,7 @@ body{
     Ausztriai és magyarországi hivatalos, civil és sajtóban közölt
     azbeszt mérési információk összehasonlító dashboardja.
     A rendszer külön kezeli a levegőméréseket, anyagmintákat,
-    felületi mintákat és referenciaértékeket.
+    felületi mintákat, referenciaértékeket és az utcaszintű laborpontokat.
   </p>
 </header>
 
@@ -319,20 +319,20 @@ body{
   <a class="btn blue" href="../index.html">Vissza a főoldalra</a>
   <a class="btn green" href="koszeg-road-monitor.html">Út- és utcafelújítások</a>
   <a class="btn orange" href="../shipment-exposure.html">EKÁER riport</a>
-  <a class="btn dark" href="data/asbestos_measurements.json" target="_blank" rel="noopener">Adatfájl</a>
+  <a class="btn dark" href="data/asbestos_measurements.json" target="_blank" rel="noopener">Fő adatfájl</a>
+  <a class="btn purple" href="data/asbestos_measurement_points.json" target="_blank" rel="noopener">Utcaszintű adatfájl</a>
 </div>
 
 <main class="content">
 
 <div class="notice">
   A dashboard külön kezeli a magyarországi és ausztriai adatokat.
-  A Greenpeace, hatósági és sajtóban közölt információk módszertana eltérhet,
-  ezért a koncentrációs értékek közvetlen összevetése csak óvatosan értelmezhető.
-  A levegőmérések esetében az egység jellemzően rost/m³,
-  míg a felületi mintáknál rost/cm² formában jelenik meg.
+  A fő mérési adatfájl és az utcaszintű mintapont-adatfájl külön töltődik be.
+  Emiatt az új utcaszintű rész nem tudja tönkretenni a már működő fő mérési dashboardot.
+  A levegőmérések esetében az egység jellemzően rost/m³, míg a felületi mintáknál rost/cm² formában jelenik meg.
 </div>
 
-<div class="error" id="errorBox">Az adatfájl nem tölthető be.</div>
+<div class="error" id="errorBox">A fő adatfájl nem tölthető be.</div>
 
 <section class="section">
   <h2>Összesített értékelés</h2>
@@ -450,12 +450,11 @@ body{
     </section>
   </div>
 </section>
-  <section class="section">
 
+<section class="section">
   <h2>Országok összehasonlítása</h2>
 
   <div class="grid2">
-
     <div>
       <div class="chartbox">
         <canvas id="countryCompareChart"></canvas>
@@ -483,27 +482,109 @@ body{
         A módszertani rekordok referenciaértékeket vagy összehasonlítási alapokat jelölnek.
       </div>
     </div>
+  </div>
+</section>
 
+<section class="section">
+  <h2>Kiemelt mérési események</h2>
+  <div class="measurement-grid" id="measurementGrid"></div>
+</section>
+
+<section class="section">
+  <h2>Utcaszintű laborpontok</h2>
+
+  <div class="assessment" id="pointAssessmentBox">
+    Utcaszintű mintapontok betöltése...
   </div>
 
+  <div class="grid2" style="margin-top:24px;">
+    <div>
+      <div class="chartbox">
+        <canvas id="streetRiskChart"></canvas>
+      </div>
+
+      <div class="chart-analysis">
+        A diagram az utcaszintű laborpontok kockázati besorolását mutatja.
+        Az oszlopok darabszámot jelentenek.
+        A magas kategória itt pozitív azbeszttartalmú szilárd anyagmintát jelez.
+        Ez a blokk külön JSON-fájlból töltődik be, ezért nem befolyásolja a fő mérési dashboardot.
+        A diagram akkor lesz igazán hasznos, ha minden PDF-ből bekerülnek az utcaszintű minták.
+      </div>
+    </div>
+
+    <div>
+      <div class="chartbox">
+        <canvas id="asbestosTypeChart"></canvas>
+      </div>
+
+      <div class="chart-analysis">
+        A kördiagram az azbeszttípusok előfordulását mutatja az utcaszintű mintapontokban.
+        A tremolit az amfibol-csoportba tartozó azbeszt, a krizotil pedig a szerpentin-csoportba.
+        Az értékek mintadarabszámot jelentenek.
+        A vegyes minták külön kategóriában is kezelhetők.
+        Ez segít látni, hogy az anyagösszetétel milyen mintázatot mutat Kőszegen és Szombathelyen.
+      </div>
+    </div>
+  </div>
+
+  <div class="grid2" style="margin-top:24px;">
+    <div>
+      <div class="chartbox">
+        <canvas id="settlementPointChart"></canvas>
+      </div>
+
+      <div class="chart-analysis">
+        Ez a diagram településenként mutatja a mintapontok számát.
+        Az oszlopok darabszámot jelentenek.
+        Így külön látszik Kőszeg és Szombathely érintettsége az utcaszintű laborpontok alapján.
+        A diagram nem koncentrációt, hanem dokumentált mintavételi pontok számát mutatja.
+        A későbbi PDF-ekkel ez a bontás tovább bővíthető.
+      </div>
+    </div>
+
+    <div>
+      <div class="chartbox large">
+        <canvas id="topStreetChart"></canvas>
+      </div>
+
+      <div class="chart-analysis">
+        Ez a diagram a legtöbbször szereplő utcákat és helyszíneket mutatja.
+        Az oszlopok azt jelzik, hogy egy adott utca vagy helyszín hány mintával szerepel.
+        Ez segít azonosítani a sűrűbben mintázott területeket.
+        A diagram különösen fontos a kormányhivatali PDF-ben szereplő többpontos parkolók és utcák esetében.
+        A forrás PDF minden táblázati sorban megnyitható.
+      </div>
+    </div>
+  </div>
+
+  <div class="table-wrap" style="margin-top:28px;">
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Minta</th>
+          <th>Utca / helyszín</th>
+          <th>Település</th>
+          <th>Mintatípus</th>
+          <th>Azbeszt típus</th>
+          <th>Kockázat</th>
+          <th>PDF</th>
+        </tr>
+      </thead>
+
+      <tbody id="streetPointTable">
+        <tr>
+          <td colspan="7">Utcaszintű adatok betöltése...</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </section>
 
 <section class="section">
-
-  <h2>Kiemelt mérési események</h2>
-
-  <div class="measurement-grid" id="measurementGrid"></div>
-
-</section>
-
-<section class="section">
-
   <h2>Részletes rekordtábla</h2>
 
   <div class="table-wrap">
-
     <table class="data-table">
-
       <thead>
         <tr>
           <th>Helyszín</th>
@@ -518,20 +599,16 @@ body{
       </thead>
 
       <tbody id="recordTable"></tbody>
-
     </table>
-
   </div>
-
 </section>
 
 </main>
-
 </div>
 
 <script>
-
 const DATA_URL = "data/asbestos_measurements.json";
+const POINT_DATA_URL = "data/asbestos_measurement_points.json";
 
 function formatNumber(value) {
   if (value === null || value === undefined || value === "") {
@@ -569,7 +646,8 @@ function huSource(value) {
     "official_taskforce": "Hivatalos Taskforce",
     "greenpeace": "Greenpeace",
     "hungarian_official": "Magyar hivatalos",
-    "hungarian_official_media": "Magyar hivatalos / sajtó"
+    "hungarian_official_media": "Magyar hivatalos / sajtó",
+    "laboratory_report": "Laboratóriumi jegyzőkönyv"
   };
 
   return map[value] || value || "Egyéb forrás";
@@ -603,9 +681,11 @@ function badge(level) {
 }
 
 function barChart(id, labels, data, color, horizontal = false) {
-  new Chart(document.getElementById(id), {
-    type: "bar",
+  const canvas = document.getElementById(id);
+  if (!canvas) return;
 
+  new Chart(canvas, {
+    type: "bar",
     data: {
       labels: labels,
       datasets: [{
@@ -613,32 +693,27 @@ function barChart(id, labels, data, color, horizontal = false) {
         backgroundColor: color
       }]
     },
-
     options: {
       responsive: true,
       maintainAspectRatio: false,
       indexAxis: horizontal ? "y" : "x",
       plugins: {
-        legend: {
-          display: false
-        }
+        legend: { display: false }
       },
       scales: {
-        x: {
-          beginAtZero: true
-        },
-        y: {
-          beginAtZero: true
-        }
+        x: { beginAtZero: true },
+        y: { beginAtZero: true }
       }
     }
   });
 }
 
 function doughnutChart(id, labels, data) {
-  new Chart(document.getElementById(id), {
-    type: "doughnut",
+  const canvas = document.getElementById(id);
+  if (!canvas) return;
 
+  new Chart(canvas, {
+    type: "doughnut",
     data: {
       labels: labels,
       datasets: [{
@@ -648,18 +723,16 @@ function doughnutChart(id, labels, data) {
           "#ea580c",
           "#16a34a",
           "#2563eb",
-          "#7c3aed"
+          "#7c3aed",
+          "#64748b"
         ]
       }]
     },
-
     options: {
       responsive: true,
       maintainAspectRatio: false,
       plugins: {
-        legend: {
-          position: "bottom"
-        }
+        legend: { position: "bottom" }
       }
     }
   });
@@ -671,7 +744,6 @@ function countBy(records, field, formatter) {
   records.forEach(record => {
     const raw = record[field] || "unknown";
     const key = formatter ? formatter(raw) : raw;
-
     result[key] = (result[key] || 0) + 1;
   });
 
@@ -740,7 +812,6 @@ function renderHungarianCharts(hu) {
 
   new Chart(document.getElementById("huAirChart"), {
     type: "bar",
-
     data: {
       labels: airRecords.map(record => record.settlement || record.location_name || record.id),
       datasets: [
@@ -756,14 +827,11 @@ function renderHungarianCharts(hu) {
         }
       ]
     },
-
     options: {
       responsive: true,
       maintainAspectRatio: false,
       plugins: {
-        legend: {
-          position: "bottom"
-        },
+        legend: { position: "bottom" },
         tooltip: {
           callbacks: {
             label: context => `${context.dataset.label}: ${formatNumber(context.raw)} rost/m³`
@@ -771,9 +839,7 @@ function renderHungarianCharts(hu) {
         }
       },
       scales: {
-        y: {
-          beginAtZero: true
-        }
+        y: { beginAtZero: true }
       }
     }
   });
@@ -809,7 +875,6 @@ function renderAustrianCharts(at) {
 function renderComparisonCharts(records, hu, at) {
   new Chart(document.getElementById("countryCompareChart"), {
     type: "bar",
-
     data: {
       labels: ["Magyarország", "Ausztria"],
       datasets: [{
@@ -817,19 +882,14 @@ function renderComparisonCharts(records, hu, at) {
         backgroundColor: ["#dc2626", "#7c3aed"]
       }]
     },
-
     options: {
       responsive: true,
       maintainAspectRatio: false,
       plugins: {
-        legend: {
-          display: false
-        }
+        legend: { display: false }
       },
       scales: {
-        y: {
-          beginAtZero: true
-        }
+        y: { beginAtZero: true }
       }
     }
   });
@@ -849,25 +909,17 @@ function renderMeasurementCards(records) {
   grid.innerHTML = records.map(record => `
     <div class="measurement-card ${record.risk_level || ""}">
       <h3>${record.location_name || record.id}</h3>
-
       <p><strong>Ország:</strong> ${huCountry(record.country)}</p>
-
       <p><strong>Település:</strong> ${record.settlement || "–"}</p>
-
       <p><strong>Mérés típusa:</strong> ${huMeasurement(record.measurement_type)}</p>
-
       <p><strong>Forrás:</strong> ${huSource(record.source_type)}</p>
-
       <p><strong>Levegő max.:</strong>
         ${record.fiber_per_m3_max ? formatNumber(record.fiber_per_m3_max) + " rost/m³" : "–"}
       </p>
-
       <p><strong>Felületi max.:</strong>
         ${record.fiber_per_cm2_max ? formatNumber(record.fiber_per_cm2_max) + " rost/cm²" : "–"}
       </p>
-
       <p><strong>Kockázat:</strong> ${badge(record.risk_level)}</p>
-
       <p>${record.reported_result || ""}</p>
     </div>
   `).join("");
@@ -888,6 +940,24 @@ function renderRecordTable(records) {
       <td>${record.related_quarry || "–"}</td>
     </tr>
   `).join("");
+}
+
+function asbestosTypeLabel(value){
+  const text = String(value || "ismeretlen").toLowerCase();
+
+  if(text.includes("tremolit") && text.includes("krizotil")){
+    return "tremolit + krizotil";
+  }
+
+  if(text.includes("tremolit")){
+    return "tremolit";
+  }
+
+  if(text.includes("krizotil")){
+    return "krizotil";
+  }
+
+  return value || "ismeretlen";
 }
 
 async function loadData() {
@@ -918,8 +988,116 @@ async function loadData() {
   }
 }
 
-loadData();
+async function loadPointData(){
+  try{
+    const response = await fetch(POINT_DATA_URL + "?t=" + Date.now());
 
+    if(!response.ok){
+      throw new Error("Utcaszintű adatfájl nem elérhető.");
+    }
+
+    const data = await response.json();
+    const points = data.points || [];
+
+    if(points.length === 0){
+      document.getElementById("pointAssessmentBox").innerHTML =
+        "Az utcaszintű adatfájl elérhető, de még nincs benne mintapont.";
+      return;
+    }
+
+    const riskCounts = {};
+    const asbestosCounts = {};
+    const settlementCounts = {};
+    const streetCounts = {};
+
+    points.forEach(point => {
+      const risk = point.risk_level || "egyéb";
+      riskCounts[huRisk(risk)] = (riskCounts[huRisk(risk)] || 0) + 1;
+
+      const asbestos = asbestosTypeLabel(point.asbestos_type);
+      asbestosCounts[asbestos] = (asbestosCounts[asbestos] || 0) + 1;
+
+      const settlement = point.settlement || "Ismeretlen";
+      settlementCounts[settlement] = (settlementCounts[settlement] || 0) + 1;
+
+      const street = point.street_or_location || "Ismeretlen";
+      streetCounts[street] = (streetCounts[street] || 0) + 1;
+    });
+
+    const topStreets = Object.entries(streetCounts)
+      .sort((a,b) => b[1] - a[1])
+      .slice(0,12);
+
+    document.getElementById("pointAssessmentBox").innerHTML = `
+      Az utcaszintű laborpont-adatbázis jelenleg <strong>${points.length}</strong> mintapontot tartalmaz.
+      Ezek a pontok külön JSON-fájlból töltődnek be, így a fő mérési dashboard akkor is működik, ha ez a kiegészítő adatfájl hibás.
+      A táblázatban minden mintánál látható az utca vagy helyszín, a település, az azbeszttípus és az eredeti PDF-jegyzőkönyv linkje.
+      A diagramok darabszámot mutatnak, nem koncentrációt.
+      A részletes PDF-ek a forrásoszlopból nyithatók meg.
+    `;
+
+    barChart(
+      "streetRiskChart",
+      Object.keys(riskCounts),
+      Object.values(riskCounts),
+      "#dc2626",
+      false
+    );
+
+    doughnutChart(
+      "asbestosTypeChart",
+      Object.keys(asbestosCounts),
+      Object.values(asbestosCounts)
+    );
+
+    barChart(
+      "settlementPointChart",
+      Object.keys(settlementCounts),
+      Object.values(settlementCounts),
+      "#2563eb",
+      false
+    );
+
+    barChart(
+      "topStreetChart",
+      topStreets.map(item => item[0]),
+      topStreets.map(item => item[1]),
+      "#ea580c",
+      true
+    );
+
+    document.getElementById("streetPointTable").innerHTML =
+      points.map(point => `
+        <tr>
+          <td>${point.sample_id || "–"}</td>
+          <td>${point.street_or_location || "–"}</td>
+          <td>${point.settlement || "–"}</td>
+          <td>${point.sample_type || "–"}</td>
+          <td>${asbestosTypeLabel(point.asbestos_type)}</td>
+          <td>${badge(point.risk_level)}</td>
+          <td>
+            ${
+              point.source_pdf
+              ? `<a href="${point.source_pdf}" target="_blank" rel="noopener" style="color:#2563eb;font-weight:800;">PDF</a>`
+              : "–"
+            }
+          </td>
+        </tr>
+      `).join("");
+
+  }catch(error){
+    console.warn("Utcaszintű adatblokk nem töltődött be:", error);
+
+    document.getElementById("pointAssessmentBox").innerHTML =
+      "Az utcaszintű adatfájl jelenleg nem tölthető be. A fő mérési dashboard ettől függetlenül működik.";
+
+    document.getElementById("streetPointTable").innerHTML =
+      '<tr><td colspan="7">Nincs betölthető utcaszintű adat.</td></tr>';
+  }
+}
+
+loadData();
+loadPointData();
 </script>
 
 </body>
