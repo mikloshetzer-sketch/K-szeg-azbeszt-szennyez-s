@@ -1,0 +1,47 @@
+{
+  "points": [
+
+    {
+      "sample_id": "2026_363_M1",
+      "report_id": "koszeg_onk_2026",
+      "country": "Hungary",
+      "settlement": "Kőszeg",
+      "street_or_location": "Borostyánkő utca",
+      "sample_type": "szilárd anyagminta",
+      "material": "útfeltöltési kőzúzalék",
+      "asbestos_detected": true,
+      "asbestos_type": "tremolit",
+      "risk_level": "high",
+      "source_pdf": "assets/pdf/koszeg-onk.-.pdf"
+    },
+
+    {
+      "sample_id": "2026_363_M2",
+      "report_id": "koszeg_onk_2026",
+      "country": "Hungary",
+      "settlement": "Kőszeg",
+      "street_or_location": "Kálvária utca",
+      "sample_type": "szilárd anyagminta",
+      "material": "útfeltöltési kőzúzalék",
+      "asbestos_detected": true,
+      "asbestos_type": "tremolit",
+      "risk_level": "high",
+      "source_pdf": "assets/pdf/koszeg-onk.-.pdf"
+    },
+
+    {
+      "sample_id": "2026_363_M3",
+      "report_id": "koszeg_onk_2026",
+      "country": "Hungary",
+      "settlement": "Kőszeg",
+      "street_or_location": "Erdő utca",
+      "sample_type": "szilárd anyagminta",
+      "material": "útfeltöltési kőzúzalék",
+      "asbestos_detected": true,
+      "asbestos_type": "tremolit",
+      "risk_level": "high",
+      "source_pdf": "assets/pdf/koszeg-onk.-.pdf"
+    }
+
+  ]
+}
