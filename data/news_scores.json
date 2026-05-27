@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-26T08:43:59.146Z",
+  "generated_at": "2026-05-27T08:49:08.332Z",
   "method": "balanced_keyword_rule_based_event_scoring_v3",
   "description": "Automatikusan generált Kőszeg–azbeszt ügyindex a data/news.json alapján. A rendszer külön számolja a negatív kockázati és a pozitív intézkedési kulcsszavakat.",
   "scoring_note": "Ez nem klasszikus hangulatelemzés. A negatív pont kockázatot vagy romló fejleményt, a pozitív pont intézkedést, tájékoztatást, monitoringot vagy megoldás felé mutató eseményt jelent.",
@@ -797,37 +797,6 @@
       "url": "https://telex.hu/belfold/2026/05/12/gajdos-laszlo-szombathely-azbeszt-szennyezes"
     },
     {
-      "date": "2026-05-13",
-      "title": "Azbesztszennyezés – A legfontosabb lakossági információk 2026. május 13. 07:19 Az alábbiakban a témával kapcsolatos legfontosabb információkról, fejleményekről, lakossági felhívásokról, illetve teendőkről tájékozódhatnak. Az oldalon található információkat folyamatosan frissítjük. Részletek",
-      "source": "Vas Vármegyei Kormányhivatal",
-      "source_type": "official",
-      "category": "szennyezes_vagy_gyanu",
-      "base_score": -2,
-      "source_weight": 1.25,
-      "confidence": 1,
-      "final_score": -2.5,
-      "matched_negative_rules": [
-        {
-          "category": "szennyezes_vagy_gyanu",
-          "score": -4,
-          "keywords": [
-            "azbesztszennyezes"
-          ]
-        }
-      ],
-      "matched_positive_rules": [
-        {
-          "category": "lakossagi_tajekoztatas",
-          "score": 2,
-          "keywords": [
-            "lakossagi informaciok",
-            "felhivas"
-          ]
-        }
-      ],
-      "url": "https://kormanyhivatalok.hu/kormanyhivatalok/vas/megye/hirek/hir/azbesztszennyezes-legfontosabb-lakossagi-informaciok"
-    },
-    {
       "date": "2026-05-14",
       "title": "Hétfőn a parlament elé kerül a szombathelyi azbeszt-ügy",
       "source": "Nyugat.hu",
@@ -1141,42 +1110,6 @@
     },
     {
       "date": "2026-05-21",
-      "title": "Ausztriában is gondot okoz az azbeszt, de még mindig nem tudni, mekkora a baj",
-      "source": "Nyugat.hu",
-      "source_type": "media",
-      "category": "altalanos_media_megjelenes",
-      "base_score": -1,
-      "source_weight": 1,
-      "confidence": 0.7,
-      "final_score": -0.7,
-      "matched_negative_rules": [],
-      "matched_positive_rules": [],
-      "url": "https://www.nyugat.hu/cikk/ausztriaban_is_gondot_okoz_az_azbeszt_de_meg_nem_a"
-    },
-    {
-      "date": "2026-05-21",
-      "title": "Magyar Péter: Hétfőn kezdi meg munkáját az azbesztszennyezést vizsgáló bizottság",
-      "source": "Nyugat.hu",
-      "source_type": "media",
-      "category": "szennyezes_vagy_gyanu",
-      "base_score": -4,
-      "source_weight": 1,
-      "confidence": 0.85,
-      "final_score": -3.4,
-      "matched_negative_rules": [
-        {
-          "category": "szennyezes_vagy_gyanu",
-          "score": -4,
-          "keywords": [
-            "azbesztszennyezes"
-          ]
-        }
-      ],
-      "matched_positive_rules": [],
-      "url": "https://www.nyugat.hu/cikk/magyar_peter_hetfon_kezdi_meg_munkajat_az_vizsgalo"
-    },
-    {
-      "date": "2026-05-21",
       "title": "Felfüggesztették a Manó-tornát az azbeszttel szennyezett szombathelyi parkoló miatt",
       "source": "VAOL",
       "source_type": "media",
@@ -1200,7 +1133,7 @@
     },
     {
       "date": "2026-05-22",
-      "title": "Wie hoch ist die Belastung? Neue Asbest-Zahlen aus Großpetersdorf Messungen reichen von 95 bis 13.000 Fasern pro Kubikmeter Luft. Jeztzt sind weitere Schritte geplant.",
+      "title": "Wie hoch ist die Belastung? Neue Asbest-Zahlen aus Großpetersdorf",
       "source": "Kurier Burgenland",
       "source_type": "austrian",
       "category": "altalanos_media_megjelenes",
@@ -1233,20 +1166,6 @@
       ],
       "matched_positive_rules": [],
       "url": "https://hvg.hu/gazdasag/20260522_gajdos-laszlo-azbeszt-osztrak-banya-szombathely"
-    },
-    {
-      "date": "2026-05-22",
-      "title": "Gajdos László: Nem szállítanak több azbesztes követ Magyarországra az osztrákok",
-      "source": "Nyugat.hu",
-      "source_type": "media",
-      "category": "altalanos_media_megjelenes",
-      "base_score": -1,
-      "source_weight": 1,
-      "confidence": 0.7,
-      "final_score": -0.7,
-      "matched_negative_rules": [],
-      "matched_positive_rules": [],
-      "url": "https://www.nyugat.hu/cikk/gajdos_tamas_nem_szallitanak_tobb_azbesztes_kovet"
     },
     {
       "date": "2026-05-23",
@@ -1333,6 +1252,65 @@
       "matched_negative_rules": [],
       "matched_positive_rules": [],
       "url": "https://www.nyugat.hu/cikk/kigyulladt_egy_vonat_kelenfoldon_lezartak_az"
+    },
+    {
+      "date": "2026-05-26",
+      "title": "Azbesztszennyezés – A legfontosabb lakossági információk 2026. május 26. 07:19 Az alábbiakban a témával kapcsolatos legfontosabb információkról, fejleményekről, lakossági felhívásokról, illetve teendőkről tájékozódhatnak. Az oldalon található információkat folyamatosan frissítjük. Részletek",
+      "source": "Vas Vármegyei Kormányhivatal",
+      "source_type": "official",
+      "category": "szennyezes_vagy_gyanu",
+      "base_score": -2,
+      "source_weight": 1.25,
+      "confidence": 1,
+      "final_score": -2.5,
+      "matched_negative_rules": [
+        {
+          "category": "szennyezes_vagy_gyanu",
+          "score": -4,
+          "keywords": [
+            "azbesztszennyezes"
+          ]
+        }
+      ],
+      "matched_positive_rules": [
+        {
+          "category": "lakossagi_tajekoztatas",
+          "score": 2,
+          "keywords": [
+            "lakossagi informaciok",
+            "felhivas"
+          ]
+        }
+      ],
+      "url": "https://kormanyhivatalok.hu/kormanyhivatalok/vas/megye/hirek/hir/azbesztszennyezes-legfontosabb-lakossagi-informaciok"
+    },
+    {
+      "date": "2026-05-26",
+      "title": "Budapestre, Veszprémbe, Kalocsára is jutott az azbesztes zúzottkőből",
+      "source": "Nyugat.hu",
+      "source_type": "media",
+      "category": "altalanos_media_megjelenes",
+      "base_score": -1,
+      "source_weight": 1,
+      "confidence": 0.7,
+      "final_score": -0.7,
+      "matched_negative_rules": [],
+      "matched_positive_rules": [],
+      "url": "https://www.nyugat.hu/cikk/budapestre_veszprembe_kalocsara_is_jutott_az"
+    },
+    {
+      "date": "2026-05-26",
+      "title": "Ágh Péter fontos írásbeli kérdéseket tett fel a vasi azbeszt-ügyben",
+      "source": "VAOL",
+      "source_type": "media",
+      "category": "altalanos_media_megjelenes",
+      "base_score": -1,
+      "source_weight": 1,
+      "confidence": 0.7,
+      "final_score": -0.7,
+      "matched_negative_rules": [],
+      "matched_positive_rules": [],
+      "url": "https://www.vaol.hu/helyi-kozelet/2026/05/agh-peter-fontos-irasbeli-kerdeseket-tett-fel-a-vasi-azbeszt-ugyben"
     }
   ]
 }
