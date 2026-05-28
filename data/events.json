@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-28T09:51:49.611777+00:00",
+  "generated_at": "2026-05-28T15:35:25.147054+00:00",
   "mode": "milestones_from_news",
   "events": [
     {
@@ -10,22 +10,22 @@
       "url": "https://kormanyhivatalok.hu/kormanyhivatalok/vas/megye/hirek/hir/azbeszthelyzet-szombathelyen-lakossagi-forumot-tartottak"
     },
     {
-      "date": "2026-05-20",
+      "date": "2026-05-22",
       "title": "Osztrák vagy burgenlandi forrás is kapcsolódik az ügyhöz.",
       "source": "Kurier Burgenland",
       "type": "austrian_context",
-      "url": "https://kurier.at/chronik/burgenland/asbest-burgenland-greenpeace-szombathely-schotter-gesundheitsnotstand-christian-stocker/403161458"
+      "url": "https://kurier.at/chronik/burgenland/asbest-grosspetersdorf-messwerte-schotterstrasse-burgenland-staubbelastung-massnahmen/403162220"
     },
     {
       "date": "Folyamatos",
-      "title": "Jelentős magyar médiafigyelem: legalább 41 releváns magyar médiatalálat szerepel a rendszerben.",
+      "title": "Jelentős magyar médiafigyelem: legalább 43 releváns magyar médiatalálat szerepel a rendszerben.",
       "source": "Magyar médiafigyelés",
       "type": "media_wave",
       "url": ""
     },
     {
       "date": "Folyamatos",
-      "title": "A rendszer jelenleg 4 hivatalos, 0 civil, 4 osztrák/burgenlandi, 41 magyar média és 0 egyéb GDELT-találatot különít el.",
+      "title": "A rendszer jelenleg 4 hivatalos, 0 civil, 3 osztrák/burgenlandi, 43 magyar média és 0 egyéb GDELT-találatot különít el.",
       "source": "Automatikus monitoring",
       "type": "system_summary",
       "url": ""
