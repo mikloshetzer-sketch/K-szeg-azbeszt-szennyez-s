@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-28T08:53:52.175Z",
+  "generated_at": "2026-05-29T08:52:24.854Z",
   "method": "balanced_keyword_rule_based_event_scoring_v3",
   "description": "Automatikusan generált Kőszeg–azbeszt ügyindex a data/news.json alapján. A rendszer külön számolja a negatív kockázati és a pozitív intézkedési kulcsszavakat.",
   "scoring_note": "Ez nem klasszikus hangulatelemzés. A negatív pont kockázatot vagy romló fejleményt, a pozitív pont intézkedést, tájékoztatást, monitoringot vagy megoldás felé mutató eseményt jelent.",
@@ -1128,20 +1128,6 @@
       "url": "https://24.hu/tudomany/2026/05/14/gajdos-laszlo-szombathelyen-azbesztszennyezes"
     },
     {
-      "date": "2026-05-14",
-      "title": "A konkrétumokra még várni kell - Hétfőn a kormány elé kerül a vasi azbeszt-ügy",
-      "source": "VAOL",
-      "source_type": "media",
-      "category": "altalanos_media_megjelenes",
-      "base_score": -1,
-      "source_weight": 1,
-      "confidence": 0.7,
-      "final_score": -0.7,
-      "matched_negative_rules": [],
-      "matched_positive_rules": [],
-      "url": "https://www.vaol.hu/helyi-kozelet/2026/05/azbeszt-ugy-szombathely-miniszter-latogatas"
-    },
-    {
       "date": "2026-05-15",
       "title": "„Védjük meg a lakosság egészségét, és tudjuk meg, kik a felelősök” – azbesztszemlén jártunk Gajdos Lászlóval",
       "source": "24.hu",
@@ -1176,20 +1162,6 @@
       ],
       "matched_positive_rules": [],
       "url": "https://hvg.hu/itthon/20260519_azbesztszennyezes-koszeg-vizsgalat-vas-megyei-kormanyhivatal"
-    },
-    {
-      "date": "2026-05-20",
-      "title": "Asbest-Schotter: Greenpeace fordert Krisenstab vor Magyar-Besuch",
-      "source": "Kurier Burgenland",
-      "source_type": "austrian",
-      "category": "altalanos_media_megjelenes",
-      "base_score": -1,
-      "source_weight": 1,
-      "confidence": 0.7,
-      "final_score": -0.7,
-      "matched_negative_rules": [],
-      "matched_positive_rules": [],
-      "url": "https://kurier.at/chronik/burgenland/asbest-burgenland-greenpeace-szombathely-schotter-gesundheitsnotstand-christian-stocker/403161458"
     },
     {
       "date": "2026-05-20",
@@ -1480,28 +1452,6 @@
     },
     {
       "date": "2026-05-25",
-      "title": "Központi porszívóval az azbeszt ellen? – Igen, egy lehetséges megoldás a tisztább otthoni levegőért",
-      "source": "Nyugat.hu",
-      "source_type": "media",
-      "category": "karelhartas_megoldas",
-      "base_score": 5,
-      "source_weight": 1,
-      "confidence": 0.85,
-      "final_score": 4.25,
-      "matched_negative_rules": [],
-      "matched_positive_rules": [
-        {
-          "category": "karelhartas_megoldas",
-          "score": 5,
-          "keywords": [
-            "megoldas"
-          ]
-        }
-      ],
-      "url": "https://www.nyugat.hu/cikk/kozponti_porszivoval_az_azbeszt_ellen_igen_egy_a"
-    },
-    {
-      "date": "2026-05-25",
       "title": "Kigyulladt egy vonat Kelenföldön, lezárták az állomást",
       "source": "Nyugat.hu",
       "source_type": "media",
@@ -1546,45 +1496,8 @@
       "url": "https://kormanyhivatalok.hu/kormanyhivatalok/vas/megye/hirek/hir/azbesztszennyezes-legfontosabb-lakossagi-informaciok"
     },
     {
-      "date": "2026-05-26",
-      "title": "Budapestre, Veszprémbe, Kalocsára is jutott az azbesztes zúzottkőből",
-      "source": "Nyugat.hu",
-      "source_type": "media",
-      "category": "altalanos_media_megjelenes",
-      "base_score": -1,
-      "source_weight": 1,
-      "confidence": 0.7,
-      "final_score": -0.7,
-      "matched_negative_rules": [],
-      "matched_positive_rules": [],
-      "url": "https://www.nyugat.hu/cikk/budapestre_veszprembe_kalocsara_is_jutott_az"
-    },
-    {
       "date": "2026-05-27",
-      "title": "Már több évtizede ismert volt, hogy a burgenlandi bányákból azbeszttel szennyezett követ termelnek ki, az osztrák hatóságok mégis asszisztáltak a tevékenység folytatásához.",
-      "source": "Telex",
-      "source_type": "media",
-      "category": "szennyezes_vagy_gyanu",
-      "base_score": -4,
-      "source_weight": 1,
-      "confidence": 1,
-      "final_score": -4,
-      "matched_negative_rules": [
-        {
-          "category": "szennyezes_vagy_gyanu",
-          "score": -4,
-          "keywords": [
-            "szennyezett",
-            "azbeszttel szennyezett"
-          ]
-        }
-      ],
-      "matched_positive_rules": [],
-      "url": "https://telex.hu/g7/vallalat/2026/05/27/azbeszt-szennyezes-osztrak-banyak-kavics-import-forgalom-nyereseg"
-    },
-    {
-      "date": "2026-05-27",
-      "title": "Már 32 éve is tudták, hogy azbeszttel szennyezettek a mostani botrányban érintett bányák",
+      "title": "Persze, megy a mutogatás, főként mindig másfelé. Aztán ha valaki veszi a... Már 32 éve is tudták, hogy azbeszttel szennyezettek a mostani botrányban érintett bányák",
       "source": "Nyugat.hu",
       "source_type": "media",
       "category": "szennyezes_vagy_gyanu",
@@ -1604,6 +1517,20 @@
       ],
       "matched_positive_rules": [],
       "url": "https://www.nyugat.hu/cikk/mar_32_eve_is_tudtak_hogy_azbeszttel_szennyezettek"
+    },
+    {
+      "date": "2026-05-27",
+      "title": "Nem csak Szombathelyen fogynak el a vendéglátóhelyek - 15 év alatt minden második italbolt bezárt az országban",
+      "source": "Nyugat.hu",
+      "source_type": "media",
+      "category": "altalanos_media_megjelenes",
+      "base_score": -1,
+      "source_weight": 1,
+      "confidence": 0.7,
+      "final_score": -0.7,
+      "matched_negative_rules": [],
+      "matched_positive_rules": [],
+      "url": "https://www.nyugat.hu/cikk/nem_csak_szombathelyen_zarnak_be_a_15_ev_alatt_az"
     },
     {
       "date": "2026-05-27",
@@ -1628,9 +1555,31 @@
       "url": "https://www.nyugat.hu/cikk/azbesztveszely_lezartak_a_marisujfalui_harsas_to"
     },
     {
-      "date": "2026-05-27",
-      "title": "Nem csak Szombathelyen fogynak el a vendéglátóhelyek - 15 év alatt minden második italbolt bezárt az országban",
+      "date": "2026-05-28",
+      "title": "Azbesztveszély: Pénteken kezelik vegyszerrel a szombathelyi Rohonci út melletti nagyparkolót",
       "source": "Nyugat.hu",
+      "source_type": "media",
+      "category": "egeszsegugyi_kockazat",
+      "base_score": -5,
+      "source_weight": 1,
+      "confidence": 0.85,
+      "final_score": -4.25,
+      "matched_negative_rules": [
+        {
+          "category": "egeszsegugyi_kockazat",
+          "score": -5,
+          "keywords": [
+            "azbesztveszely"
+          ]
+        }
+      ],
+      "matched_positive_rules": [],
+      "url": "https://www.nyugat.hu/cikk/azbesztveszely_penteken_kezelik_vgyszerrel_a_ut"
+    },
+    {
+      "date": "2026-05-28",
+      "title": "Fontos tájékoztatást adott a szombathelyi polgármesteri hivatal az azbeszt-ügy kapcsán.",
+      "source": "VAOL",
       "source_type": "media",
       "category": "altalanos_media_megjelenes",
       "base_score": -1,
@@ -1639,29 +1588,51 @@
       "final_score": -0.7,
       "matched_negative_rules": [],
       "matched_positive_rules": [],
-      "url": "https://www.nyugat.hu/cikk/nem_csak_szombathelyen_zarnak_be_a_15_ev_alatt_az"
+      "url": "https://www.vaol.hu/helyi-kozelet/2026/05/azbeszt-ugy-locsolas-parkolas"
     },
     {
-      "date": "2026-05-27",
-      "title": "A közkedvelt vasi horgásztó és strand is érintett lehet az azbeszt-ügyben",
+      "date": "2026-05-28",
+      "title": "Állásfoglalást tett a TÖOSZ: pénzügyi és módszertani segítséget sürgetnek az azbeszt-ügyben érintetteknek",
       "source": "VAOL",
       "source_type": "media",
-      "category": "uj_erintett_terulet",
-      "base_score": -4,
+      "category": "altalanos_media_megjelenes",
+      "base_score": -1,
       "source_weight": 1,
-      "confidence": 0.85,
-      "final_score": -3.4,
+      "confidence": 0.7,
+      "final_score": -0.7,
+      "matched_negative_rules": [],
+      "matched_positive_rules": [],
+      "url": "https://www.vaol.hu/helyi-kozelet/2026/05/azbeszt-toosz-vas-allasfoglalas-kormanyzati-segitseg"
+    },
+    {
+      "date": "2026-05-28",
+      "title": "Az aszfaltozás nem jelent végleges megoldást az azbesztszennyezésre – erről beszélt Gajdos László a Parlamentben. Strompová Viktóra, a TISZA vasi képviselője a megyét érintő azbeszt-ügyben intézett azonnali kérdést az élő környezetért felelős miniszterhez.",
+      "source": "VAOL",
+      "source_type": "media",
+      "category": "karelhartas_megoldas",
+      "base_score": 1,
+      "source_weight": 1,
+      "confidence": 1,
+      "final_score": 1,
       "matched_negative_rules": [
         {
-          "category": "uj_erintett_terulet",
+          "category": "szennyezes_vagy_gyanu",
           "score": -4,
           "keywords": [
-            "erintett lehet"
+            "azbesztszennyezes"
           ]
         }
       ],
-      "matched_positive_rules": [],
-      "url": "https://www.vaol.hu/helyi-kozelet/2026/05/azbeszt-ugy-szentgotthard-lezartak-a-harsas-to-setanyt"
+      "matched_positive_rules": [
+        {
+          "category": "karelhartas_megoldas",
+          "score": 5,
+          "keywords": [
+            "megoldas"
+          ]
+        }
+      ],
+      "url": "https://www.vaol.hu/helyi-kozelet/2026/05/azbeszt-ugy-is-tema-volt-a-parlamentben"
     }
   ]
 }
