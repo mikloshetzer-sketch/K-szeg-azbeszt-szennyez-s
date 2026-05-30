@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-29T08:52:24.854Z",
+  "generated_at": "2026-05-30T07:57:58.937Z",
   "method": "balanced_keyword_rule_based_event_scoring_v3",
   "description": "Automatikusan generált Kőszeg–azbeszt ügyindex a data/news.json alapján. A rendszer külön számolja a negatív kockázati és a pozitív intézkedési kulcsszavakat.",
   "scoring_note": "Ez nem klasszikus hangulatelemzés. A negatív pont kockázatot vagy romló fejleményt, a pozitív pont intézkedést, tájékoztatást, monitoringot vagy megoldás felé mutató eseményt jelent.",
@@ -1466,7 +1466,7 @@
     },
     {
       "date": "2026-05-26",
-      "title": "Azbesztszennyezés – A legfontosabb lakossági információk 2026. május 26. 07:19 Az alábbiakban a témával kapcsolatos legfontosabb információkról, fejleményekről, lakossági felhívásokról, illetve teendőkről tájékozódhatnak. Az oldalon található információkat folyamatosan frissítjük. Részletek",
+      "title": "Azbesztszennyezés – A legfontosabb lakossági információk 2026. május 29. 09:16 Az alábbiakban a témával kapcsolatos legfontosabb információkról, fejleményekről, lakossági felhívásokról, illetve teendőkről tájékozódhatnak. Az oldalon található információkat folyamatosan frissítjük. Részletek",
       "source": "Vas Vármegyei Kormányhivatal",
       "source_type": "official",
       "category": "szennyezes_vagy_gyanu",
@@ -1497,7 +1497,7 @@
     },
     {
       "date": "2026-05-27",
-      "title": "Persze, megy a mutogatás, főként mindig másfelé. Aztán ha valaki veszi a... Már 32 éve is tudták, hogy azbeszttel szennyezettek a mostani botrányban érintett bányák",
+      "title": "Már 32 éve is tudták, hogy azbeszttel szennyezettek a mostani botrányban érintett bányák",
       "source": "Nyugat.hu",
       "source_type": "media",
       "category": "szennyezes_vagy_gyanu",
@@ -1517,20 +1517,6 @@
       ],
       "matched_positive_rules": [],
       "url": "https://www.nyugat.hu/cikk/mar_32_eve_is_tudtak_hogy_azbeszttel_szennyezettek"
-    },
-    {
-      "date": "2026-05-27",
-      "title": "Nem csak Szombathelyen fogynak el a vendéglátóhelyek - 15 év alatt minden második italbolt bezárt az országban",
-      "source": "Nyugat.hu",
-      "source_type": "media",
-      "category": "altalanos_media_megjelenes",
-      "base_score": -1,
-      "source_weight": 1,
-      "confidence": 0.7,
-      "final_score": -0.7,
-      "matched_negative_rules": [],
-      "matched_positive_rules": [],
-      "url": "https://www.nyugat.hu/cikk/nem_csak_szombathelyen_zarnak_be_a_15_ev_alatt_az"
     },
     {
       "date": "2026-05-27",
@@ -1592,20 +1578,6 @@
     },
     {
       "date": "2026-05-28",
-      "title": "Állásfoglalást tett a TÖOSZ: pénzügyi és módszertani segítséget sürgetnek az azbeszt-ügyben érintetteknek",
-      "source": "VAOL",
-      "source_type": "media",
-      "category": "altalanos_media_megjelenes",
-      "base_score": -1,
-      "source_weight": 1,
-      "confidence": 0.7,
-      "final_score": -0.7,
-      "matched_negative_rules": [],
-      "matched_positive_rules": [],
-      "url": "https://www.vaol.hu/helyi-kozelet/2026/05/azbeszt-toosz-vas-allasfoglalas-kormanyzati-segitseg"
-    },
-    {
-      "date": "2026-05-28",
       "title": "Az aszfaltozás nem jelent végleges megoldást az azbesztszennyezésre – erről beszélt Gajdos László a Parlamentben. Strompová Viktóra, a TISZA vasi képviselője a megyét érintő azbeszt-ügyben intézett azonnali kérdést az élő környezetért felelős miniszterhez.",
       "source": "VAOL",
       "source_type": "media",
@@ -1633,6 +1605,49 @@
         }
       ],
       "url": "https://www.vaol.hu/helyi-kozelet/2026/05/azbeszt-ugy-is-tema-volt-a-parlamentben"
+    },
+    {
+      "date": "2026-05-28",
+      "title": "Állásfoglalást tett a TÖOSZ: pénzügyi és módszertani segítséget sürgetnek az azbeszt-ügyben érintetteknek",
+      "source": "VAOL",
+      "source_type": "media",
+      "category": "altalanos_media_megjelenes",
+      "base_score": -1,
+      "source_weight": 1,
+      "confidence": 0.7,
+      "final_score": -0.7,
+      "matched_negative_rules": [],
+      "matched_positive_rules": [],
+      "url": "https://www.vaol.hu/helyi-kozelet/2026/05/azbeszt-toosz-vas-allasfoglalas-kormanyzati-segitseg"
+    },
+    {
+      "date": "2026-05-29",
+      "title": "Az uniós szabályozások kiskapui miatt kerülhetett Magyarországra is azbesztes kő",
+      "source": "HVG",
+      "source_type": "media",
+      "category": "szennyezes_vagy_gyanu",
+      "base_score": -5,
+      "source_weight": 1,
+      "confidence": 1,
+      "final_score": -5,
+      "matched_negative_rules": [
+        {
+          "category": "szennyezes_vagy_gyanu",
+          "score": -4,
+          "keywords": [
+            "azbesztszennyezes"
+          ]
+        },
+        {
+          "category": "uj_erintett_terulet",
+          "score": -4,
+          "keywords": [
+            "kerulhetett"
+          ]
+        }
+      ],
+      "matched_positive_rules": [],
+      "url": "https://hvg.hu/gazdasag/20260529_europai-unio-jogszabaly-joghezag-atlatszo-azbeszt-azbesztszennyezes-ausztria-burgenland-kobanya"
     }
   ]
 }
