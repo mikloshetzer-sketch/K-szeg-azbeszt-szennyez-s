@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-04T09:02:43.471Z",
+  "generated_at": "2026-06-05T08:52:59.395Z",
   "method": "balanced_keyword_rule_based_event_scoring_v3",
   "description": "Automatikusan generált Kőszeg–azbeszt ügyindex a data/news.json alapján. A rendszer külön számolja a negatív kockázati és a pozitív intézkedési kulcsszavakat.",
   "scoring_note": "Ez nem klasszikus hangulatelemzés. A negatív pont kockázatot vagy romló fejleményt, a pozitív pont intézkedést, tájékoztatást, monitoringot vagy megoldás felé mutató eseményt jelent.",
@@ -1040,28 +1040,6 @@
     },
     {
       "date": "2026-05-28",
-      "title": "Azbesztveszély: Pénteken kezelik vegyszerrel a szombathelyi Rohonci út melletti nagyparkolót",
-      "source": "Nyugat.hu",
-      "source_type": "media",
-      "category": "egeszsegugyi_kockazat",
-      "base_score": -5,
-      "source_weight": 1,
-      "confidence": 0.85,
-      "final_score": -4.25,
-      "matched_negative_rules": [
-        {
-          "category": "egeszsegugyi_kockazat",
-          "score": -5,
-          "keywords": [
-            "azbesztveszely"
-          ]
-        }
-      ],
-      "matched_positive_rules": [],
-      "url": "https://www.nyugat.hu/cikk/azbesztveszely_penteken_kezelik_vgyszerrel_a_ut"
-    },
-    {
-      "date": "2026-05-28",
       "title": "Fontos tájékoztatást adott a szombathelyi polgármesteri hivatal az azbeszt-ügy kapcsán.",
       "source": "VAOL",
       "source_type": "media",
@@ -1147,42 +1125,6 @@
       "url": "https://www.nyugat.hu/cikk/lezartak_a_markusovszky_korhaz_egyik_udvarat"
     },
     {
-      "date": "2026-06-01",
-      "title": "Halpusztulás a Perint-patakban Szombathelynél, vizsgálják a feltételezett szennyezés okát",
-      "source": "VAOL",
-      "source_type": "media",
-      "category": "altalanos_media_megjelenes",
-      "base_score": -1,
-      "source_weight": 1,
-      "confidence": 0.7,
-      "final_score": -0.7,
-      "matched_negative_rules": [],
-      "matched_positive_rules": [],
-      "url": "https://www.vaol.hu/helyi-kozelet/2026/06/halpusztulas-perint-patakban-szombathely-szennyezes"
-    },
-    {
-      "date": "2026-06-02",
-      "title": "21, az azbesztveszély miatt korábban lezárt parkolót nyitnak meg Szombathelyen",
-      "source": "Nyugat.hu",
-      "source_type": "media",
-      "category": "egeszsegugyi_kockazat",
-      "base_score": -5,
-      "source_weight": 1,
-      "confidence": 0.85,
-      "final_score": -4.25,
-      "matched_negative_rules": [
-        {
-          "category": "egeszsegugyi_kockazat",
-          "score": -5,
-          "keywords": [
-            "azbesztveszely"
-          ]
-        }
-      ],
-      "matched_positive_rules": [],
-      "url": "https://www.nyugat.hu/cikk/21_az_azbesztveszely_miatt_lezart_parkolot_nyitnak"
-    },
-    {
       "date": "2026-06-02",
       "title": "Több, korábban azbesztszennyezés miatt lezárt parkolót is megnyitnak Szombathelyen",
       "source": "VAOL",
@@ -1205,22 +1147,8 @@
       "url": "https://www.vaol.hu/helyi-kozelet/2026/06/azbesztszennyezes-parkolot-nyitnak-szombathelyen"
     },
     {
-      "date": "2026-06-02",
-      "title": "Azbeszt-ügy: döntött és lép a vasi város – de lesz-e idén Őrségi vásár?",
-      "source": "VAOL",
-      "source_type": "media",
-      "category": "altalanos_media_megjelenes",
-      "base_score": -1,
-      "source_weight": 1,
-      "confidence": 0.7,
-      "final_score": -0.7,
-      "matched_negative_rules": [],
-      "matched_positive_rules": [],
-      "url": "https://www.vaol.hu/helyi-kozelet/2026/06/azbeszt-az-azonnali-lepesek-idoszaka-oriszentpeteren"
-    },
-    {
       "date": "2026-06-03",
-      "title": "Le is lehet ragasztani az azbeszttel szennyezett zúzottkövet, még az ipari porszívót is kibírja",
+      "title": "Meg kell csinálni a még hiányzó közműveket ,aztán normálisnál vastagabb... Le is lehet ragasztani az azbeszttel szennyezett zúzottkövet, még az ipari porszívót is kibírja",
       "source": "Nyugat.hu",
       "source_type": "media",
       "category": "szennyezes_vagy_gyanu",
@@ -1240,6 +1168,122 @@
       ],
       "matched_positive_rules": [],
       "url": "https://www.nyugat.hu/cikk/le_is_lehet_ragasztani_az_azbeszttel_szennyezett_zuzottkovet"
+    },
+    {
+      "date": "2026-06-04",
+      "title": "Azbesztszennyezés miatt két területet zár le a GYSEV Szombathely térségében",
+      "source": "Nyugat.hu",
+      "source_type": "media",
+      "category": "szennyezes_vagy_gyanu",
+      "base_score": -4,
+      "source_weight": 1,
+      "confidence": 0.85,
+      "final_score": -3.4,
+      "matched_negative_rules": [
+        {
+          "category": "szennyezes_vagy_gyanu",
+          "score": -4,
+          "keywords": [
+            "azbesztszennyezes"
+          ]
+        }
+      ],
+      "matched_positive_rules": [],
+      "url": "https://www.nyugat.hu/cikk/azbesztszennyezes_miatt_ket_teruletet_zar_le_a"
+    },
+    {
+      "date": "2026-06-04",
+      "title": "Azbesztbotrány: újabb félmillió tonna kőzúzalék Magyarországra szállítása derült ki, egy ötödik osztrák bánya is érintett",
+      "source": "Nyugat.hu",
+      "source_type": "media",
+      "category": "altalanos_media_megjelenes",
+      "base_score": -1,
+      "source_weight": 1,
+      "confidence": 0.7,
+      "final_score": -0.7,
+      "matched_negative_rules": [],
+      "matched_positive_rules": [],
+      "url": "https://www.nyugat.hu/cikk/tovabb_dagad_azbesztbotrany_ujabb_felmillio_tonna"
+    },
+    {
+      "date": "2026-06-04",
+      "title": "Azbesztszennyezés miatt két területet zár le a GYSEV Zrt. Szombathely térségében",
+      "source": "VAOL",
+      "source_type": "media",
+      "category": "szennyezes_vagy_gyanu",
+      "base_score": -4,
+      "source_weight": 1,
+      "confidence": 0.85,
+      "final_score": -3.4,
+      "matched_negative_rules": [
+        {
+          "category": "szennyezes_vagy_gyanu",
+          "score": -4,
+          "keywords": [
+            "azbesztszennyezes"
+          ]
+        }
+      ],
+      "matched_positive_rules": [],
+      "url": "https://www.vaol.hu/helyi-kozelet/2026/06/azbesztszennyezes-ket-teruletet-lezar-gysev-zrt"
+    },
+    {
+      "date": "2026-06-04",
+      "title": "Két helyen is azbesztszennyezésre bukkant a GYSEV",
+      "source": "24.hu",
+      "source_type": "media",
+      "category": "szennyezes_vagy_gyanu",
+      "base_score": -4,
+      "source_weight": 1,
+      "confidence": 0.85,
+      "final_score": -3.4,
+      "matched_negative_rules": [
+        {
+          "category": "szennyezes_vagy_gyanu",
+          "score": -4,
+          "keywords": [
+            "azbesztszennyezes"
+          ]
+        }
+      ],
+      "matched_positive_rules": [],
+      "url": "https://24.hu/belfold/2026/06/04/gysev-azbesztszennyezes-szombathely-vep"
+    },
+    {
+      "date": "2026-06-04",
+      "title": "Két területet zár le a GYSEV a veszélyes anyagot tartalmazó kőzúzalék miatt Szombathelyen",
+      "source": "444",
+      "source_type": "media",
+      "category": "altalanos_media_megjelenes",
+      "base_score": -1,
+      "source_weight": 1,
+      "confidence": 0.7,
+      "final_score": -0.7,
+      "matched_negative_rules": [],
+      "matched_positive_rules": [],
+      "url": "https://444.hu/2026/06/04/ket-teruletet-zar-le-a-gysev-a-veszelyes-anyagot-tartalmazo-kozuzalek-miatt-szombathelyen"
+    },
+    {
+      "date": "2026-06-04",
+      "title": "Azonnali lezárások Magyarországon: a vasút mellett is veszélyes azbesztet találtak",
+      "source": "Portfolio",
+      "source_type": "media",
+      "category": "korlatozas",
+      "base_score": -2,
+      "source_weight": 1,
+      "confidence": 0.85,
+      "final_score": -1.7,
+      "matched_negative_rules": [
+        {
+          "category": "korlatozas",
+          "score": -2,
+          "keywords": [
+            "lezaras"
+          ]
+        }
+      ],
+      "matched_positive_rules": [],
+      "url": "https://www.portfolio.hu/ingatlan/20260604/azonnali-lezarasok-magyarorszagon-a-vasut-mellett-is-veszelyes-azbesztet-talaltak-841330"
     }
   ]
 }
