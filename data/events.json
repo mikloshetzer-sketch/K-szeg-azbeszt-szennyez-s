@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-09T09:28:52.636128+00:00",
+  "generated_at": "2026-06-09T14:32:40.291780+00:00",
   "mode": "milestones_from_news",
   "events": [
     {
@@ -12,20 +12,20 @@
     {
       "date": "2026-06-08",
       "title": "Osztrák vagy burgenlandi forrás is kapcsolódik az ügyhöz.",
-      "source": "ORF Burgenland",
+      "source": "Kurier Burgenland",
       "type": "austrian_context",
-      "url": "https://burgenland.orf.at/stories/3357581"
+      "url": "https://kurier.at/chronik/burgenland/oper-steinbruch-st-margarethen-tosca-premiere-2026/403167057"
     },
     {
       "date": "Folyamatos",
-      "title": "Jelentős magyar médiafigyelem: legalább 44 releváns magyar médiatalálat szerepel a rendszerben.",
+      "title": "Jelentős magyar médiafigyelem: legalább 43 releváns magyar médiatalálat szerepel a rendszerben.",
       "source": "Magyar médiafigyelés",
       "type": "media_wave",
       "url": ""
     },
     {
       "date": "Folyamatos",
-      "title": "A rendszer jelenleg 4 hivatalos, 0 civil, 3 osztrák/burgenlandi, 44 magyar média és 0 egyéb GDELT-találatot különít el.",
+      "title": "A rendszer jelenleg 4 hivatalos, 0 civil, 2 osztrák/burgenlandi, 43 magyar média és 0 egyéb GDELT-találatot különít el.",
       "source": "Automatikus monitoring",
       "type": "system_summary",
       "url": ""
