@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-09T20:00:23.902217+00:00",
-  "count": 2,
-  "summary": "Az osztrák és burgenlandi sajtó 2026 tavaszán és nyarán nem közölt konkrét, azbeszttel vagy kőzúzalékkal kapcsolatos vizsgálati eredményeket vagy hatósági intézkedéseket a Kőszeg, Bozsok, Szombathely környéki, valamint Pilgersdorf, Bernstein és Burgenland térségéből. Az áttekintett források – a Kurier Burgenland cikkei – főként kulturális események, így egy helyi kőbánya színpadán megrendezett operapremier és passiójátékok kapcsán említik a „steinbruch” (kőbánya) helyszínét, de azbesztről, kőzúzalék szennyezésről vagy környezeti egészségügyi problémákról nem szolgáltatnak adatokat.\n\nAz osztrák médiumok jelenléte a határhoz közeli térségből azért fontos, mert a regionális hírek segíthetnek árnyaltabb képet adni a helyi környezetvédelmi, egészségügyi kérdésekről, különösen olyan esetekben, amikor a szomszédos országok területein, településein – mint Pilgersdorf vagy Bernstein – felmerülhetnek összefüggések vagy határmenti hatások. Az ilyen hírfigyelés különösen hasznos lehet egy esetleges kockázat esetén, mivel segít időben észlelni a helyzetek alakulását, és az érintett magyar települések (Kőszeg, Bozsok, Szombathely) szempontjából is releváns információkhoz juttat.\n\nÖsszességében az osztrák források jelenleg inkább kulturális és helytörténeti jellegű anyagokat tartalmaznak, így a kőzúzalék illetve azbeszt ügy kapcsán további, szakmai, hivatalos jelentések vagy hatósági tájékoztatások szükségesek a helyzet pontos értékeléséhez.\n\n**Figyelendő pontok:**\n1. Jelenleg nincs megbízható, közvetlen adat vagy vizsgálati eredmény osztrák oldalon az azbeszt/kőzúzalék ügyben.\n2. A határon átnyúló térség rendszeres, több szempontú hírfollow-up-ja elengedhetetlen az esetleges környezeti kockázatok idejében történő felismeréséhez.\n3. A kulturális és helyi eseményekről szóló hírek mellett különösen fontos a hatósági, laboratóriumi vagy önkormányzati tájékoztatások nyomon követése mindkét oldalon.",
+  "generated_at": "2026-06-10T02:42:07.025319+00:00",
+  "count": 4,
+  "summary": "**Összefoglaló az azbeszt/kőzúzalék ügy kapcsán – osztrák és burgenlandi források tükrében**\n\nAz elmúlt időszakban a Kőszeg környéki régió, Szombathely, valamint az osztrák oldalon Burgenland területei – így többek között Pilgersdorf és Bernstein – szoros figyelem alatt állnak az azbesztszennyezéssel kapcsolatos hírek kapcsán. Magyar források, különösen a hazai ATV hírcsatorna értesülései alapján Szombathelyen súlyos azbesztprobléma alakult ki, amelynek egyik forrásaként osztrák bányák, köztük valószínűsíthetően a környező kőbányák és kőzúzalék-termelők merülnek fel. Az osztrák oldalról származó közvetlen híradások ezzel kapcsolatban jelenleg nem adnak laboreredményeket vagy hatósági döntésekre vonatkozó információkat.\n\nBurgenlandban több, kőbányászattal összefüggő kulturális eseményről olvashatunk a helyi Kurier Burgenland portálon, például a St. Margaretheni kőbányában tartott premier előadásokról és passiójátékokról, amelyek az adott helyszínhez kötődnek. Ezek az információk közvetett módon jelzik a térség fontos bányászati tevékenységeit, ahol potenciálisan előfordulhat az azbesztes anyagok termelése vagy feldolgozása. Ugyanakkor a Kurier cikkei nem foglalkoznak konkrétan az azbeszt egészségügyi vagy környezeti problémáival.\n\nAz osztrák források jelentősége abban áll, hogy a régió határokon átnyúló természeti és ipari jellemzői miatt a környezeti kockázatok és a szennyezések is átterjedhetnek a magyar oldalon élők, például Szombathely lakosságára. Ezért a határon átnyúló hírfigyelés nélkülözhetetlen annak érdekében, hogy magyar oldalon is időben észleljék, és megfelelően reagáljanak a problémákra, amennyiben azok osztrák tevékenységekből erednek.\n\nA jelenlegi források alapján a konkrét műszaki vagy laboreredmények, illetve jogi döntések nem ismertek, így az ügy további alapos, többoldalú vizsgálatot igényelhet.\n\n---\n\n**Fontos települések és térségek a témában:**\n- Magyar oldalról: Kőszeg, Bozsok, Szombathely\n- Osztrák oldalról: Pilgersdorf, Bernstein, Burgenland egész területe\n- Kiemelt helyszín: St. Margarethen kőbánya (Burgenland)\n\n---\n\n**Figyelendő pontok:**\n\n1. Fontos a határon átnyúló együttműködés és hírfigyelés, mivel a szennyező források egyik oldalon vannak, míg a következmények a másikon jelentkeznek.\n2. Jelenleg nem állnak rendelkezésre hivatalos laboreredmények vagy hatósági határozatok az osztrák oldal részéről, ezért óvatos a helyzet megítélése.\n3. Az érintett térségek kulturális és ipari sajátosságai (pl. kőbányák) kulcsszerepet játszanak a helyzet alakulásában, melyek komplex információgyűjtést igényelnek.",
   "articles": [
     {
       "title": "Probenstart im Steinbruch: Eine \"Tosca mit Twist\" Die Neuinterpretation von Regisseur Strassberger setzt auf große Bilder, Emotionen - und eine unerwartete Wendung.",
@@ -18,6 +18,22 @@
       "date": "2026-05-20",
       "url": "https://kurier.at/kolumnen/burgenland-und-leute-passionsspiele-st-margarethen-jubilaeum-roemersteinbruch/403161439",
       "type": "html"
+    },
+    {
+      "title": "Súlyos azbesztszennyezés Szombathelyen , ausztriai bányákból származik a rákkeltő anyag",
+      "source": "atv.hu",
+      "source_type": "austrian",
+      "date": "2026-04-15",
+      "url": "https://www.atv.hu/belfold/20260415/sulyos-azbesztszennyezes-szombathely",
+      "type": "gdelt"
+    },
+    {
+      "title": "Egyre aggasztóbb a szombathelyi azbesztszennyezés , gyerekek egészségét kockáztatták az osztrák bányában",
+      "source": "atv.hu",
+      "source_type": "austrian",
+      "date": "2026-04-23",
+      "url": "https://www.atv.hu/belfold/20260423/szombathely-azbeszt-szennyezes",
+      "type": "gdelt"
     }
   ]
 }
