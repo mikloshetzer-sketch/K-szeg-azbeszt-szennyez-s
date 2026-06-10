@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-10T14:59:15.048599+00:00",
+  "generated_at": "2026-06-10T20:17:53.580568+00:00",
   "mode": "milestones_from_news",
   "events": [
     {
@@ -10,22 +10,22 @@
       "url": "https://koszeg.hu/hu/aktualis/hirek"
     },
     {
-      "date": "2026-05-20",
+      "date": "2026-06-10",
       "title": "Osztrák vagy burgenlandi forrás is kapcsolódik az ügyhöz.",
       "source": "Kurier Burgenland",
       "type": "austrian_context",
-      "url": "https://kurier.at/kolumnen/burgenland-und-leute-passionsspiele-st-margarethen-jubilaeum-roemersteinbruch/403161439"
+      "url": "https://kurier.at/chronik/burgenland/asbest-steinbruch-taskforce-umwelt/403167924"
     },
     {
       "date": "Folyamatos",
-      "title": "Jelentős magyar médiafigyelem: legalább 41 releváns magyar médiatalálat szerepel a rendszerben.",
+      "title": "Jelentős magyar médiafigyelem: legalább 34 releváns magyar médiatalálat szerepel a rendszerben.",
       "source": "Magyar médiafigyelés",
       "type": "media_wave",
       "url": ""
     },
     {
       "date": "Folyamatos",
-      "title": "A rendszer jelenleg 3 hivatalos, 0 civil, 3 osztrák/burgenlandi, 41 magyar média és 0 egyéb GDELT-találatot különít el.",
+      "title": "A rendszer jelenleg 3 hivatalos, 0 civil, 4 osztrák/burgenlandi, 34 magyar média és 0 egyéb GDELT-találatot különít el.",
       "source": "Automatikus monitoring",
       "type": "system_summary",
       "url": ""
