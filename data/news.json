@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-11T20:13:31.022253+00:00",
+  "generated_at": "2026-06-12T02:47:59.832734+00:00",
   "refresh_hours": 6,
   "query": "\n(\"Kőszeg\" OR \"Koszeg\" OR \"Bozsok\" OR \"Szombathely\" OR \"Pilgersdorf\" OR \"Burgenland\" OR \"Bernstein\")\n(azbeszt OR aszbeszt OR kőzúzalék OR kőbánya OR serpentinit OR Asbest OR Steinbruch OR Schotter OR Greenpeace)\n",
   "mode": "rss_html_gdelt_ai_filtered_with_article_date_extraction",
@@ -19,7 +19,7 @@
     "official": 3,
     "austrian": 3
   },
-  "summary": "Az elmúlt hónapokban a Kőszeg, Bozsok, Szombathely, Pilgersdorf és Burgenland térségében zajló azbesztszennyezéssel összefüggő ügy komoly figyelmet kapott mind a magyar, mind az osztrák médiában, hivatalos szerveknél és civil szervezetek körében. Az érintett területen az azbesztet tartalmazó kőzúzalék használata, amely részben az osztrákországi Pilgersdorfi-bányából származhat, számos helyszínen – köztük közterületeken és lakóövezetekben – felvetett egészségügyi aggodalmakat.\n\n**Hivatalos magyar álláspont és intézkedések**  \nA Vas Vármegyei Kormányhivatal rendszeresen adott ki lakossági tájékoztatókat és szervezett fórumokat, ahol szakmai információkat osztottak meg a témával kapcsolatban. A Kőszeg Önkormányzat a lakosság tájékoztatását kiemelten kezeli, korlátozásokat vezettek be például sebességkorlátozások formájában több utcában, és helyszíneket zártak le az esetleges további szennyezés elkerülése érdekében. A kormányhivatal hangsúlyozza a helyzet folyamatos felügyeletét és a vizsgálatok folytatását.\n\n**Civil és magyar médiabeli reakciók**  \nA Greenpeace osztrák szervezete is megszólalt, elismerve a magyar hatóságok intézkedéseit, ugyanakkor az osztrák bányaüzemek újranyitását kritikus szemmel figyelik. A magyarországi civil megmozdulások és médiabejelentések között megjelent a lakossági aggodalom, különösen a gyermekek és a közösségi terek közelsége miatt, az érintett helyeken, mint bölcsődék, óvodák, iskolák és játszóterek. A helyi sajtó riportjai említést tesznek az ingatlanárak csökkenéséről és a közterületi korlátozásokról, azonban egyik forrás sem állít laboreredményt vagy egészségügyi következtetést a tájékoztatók hivatalos tartalmán túl.\n\n**Osztrák vonatkozások és helyzetkép**  \nAz osztrák Kurier Burgenland hírportál beszámolt arról, hogy a burgenlandi hatóságok lezárták az érintett bányákat, és az összes azbesztvizsgálat elkészült, az ügy további kezelését a területi hatóságok végzik. Ugyanakkor egyes osztrák érdekcsoportok ellenlobbija megjelent, amely a Greenpeace-t okolja a bányák bezárásáért. A helyi politikai viták és gazdasági érdekeltségek ezen túlmenően árnyalják a képet.\n\n**Összefoglalóan** az ügy mindkét oldalon komoly nyilvánosságot kapott, a magyar hatóságok intézkedéseket tettek és tájékoztatták a lakosságot, miközben a helyi civil szervezetek aktívak és a sajtó folyamatosan követi a fejleményeket. Az osztrák bányaüzemek állapota és a további felelősségvállalás kérdése azonban még vitatott. Érdemes kiemelni, hogy a hivatalos vizsgálatok és közlemények a helyzet felügyeletét és az esetleges újabb lépések szükségességét hangsúlyozzák.\n\n---\n\n**Röviden:**  \n- Azbesztszennyezéssel kapcsolatos kőzúzalék került több magyar településre, köztük Kőszegre is.  \n- Magyar hatóságok korlátozásokat vezettek be, és folyamatosan tájékoztatják a lakosságot.  \n- Az osztrák bányák szerepe és a további intézkedések kérdése vitatott, a helyzet mindkét oldalon nyomon követett.",
+  "summary": "AI-összefoglaló hiba miatt nem készült el. OpenAI HTTP hiba: 500.",
   "latest_articles": [
     {
       "title": "Kimagasló az azbeszt miatti rákos megbetegedések aránya néhány burgenlandi járásban",
@@ -107,7 +107,7 @@
       "source_type": "media",
       "date": "2026-06-08",
       "url": "https://www.vaol.hu/helyi-kozelet/2026/06/azbeszt-vasut-allomas-szombathely-parkolo-megnyitottak",
-      "type": "html_targeted"
+      "type": "html"
     },
     {
       "title": "Azbeszt-ügy: Vas vármegye minden lakójára jutna egy billencsnyi kőzúzalék - Meglepő adatokat mutatunk",
@@ -400,6 +400,14 @@
       "type": "html_targeted"
     },
     {
+      "title": "Újra megnyitották az azbesztszennyezés miatt lezárt szombathelyi vasúti megállónál található parkolót",
+      "source": "VAOL",
+      "source_type": "media",
+      "date": "2026-06-08",
+      "url": "https://www.vaol.hu/helyi-kozelet/2026/06/azbeszt-vasut-allomas-szombathely-parkolo-megnyitottak",
+      "type": "html"
+    },
+    {
       "title": "Ausztria magára hagyta Magyarországot az azbesztszennyezéssel",
       "source": "24.hu",
       "source_type": "media",
@@ -437,14 +445,6 @@
       "source_type": "media",
       "date": "2026-04-16",
       "url": "https://24.hu/otthon/2026/04/16/szombathely-azbeszt-szennyezes-lakok-menekules",
-      "type": "html_targeted"
-    },
-    {
-      "title": "Újra megnyitották az azbesztszennyezés miatt lezárt szombathelyi vasúti megállónál található parkolót",
-      "source": "VAOL",
-      "source_type": "media",
-      "date": "2026-06-08",
-      "url": "https://www.vaol.hu/helyi-kozelet/2026/06/azbeszt-vasut-allomas-szombathely-parkolo-megnyitottak",
       "type": "html_targeted"
     },
     {
