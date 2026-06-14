@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-13T08:32:45.741Z",
+  "generated_at": "2026-06-14T08:50:42.277Z",
   "method": "balanced_keyword_rule_based_event_scoring_v3",
   "description": "Automatikusan generált Kőszeg–azbeszt ügyindex a data/news.json alapján. A rendszer külön számolja a negatív kockázati és a pozitív intézkedési kulcsszavakat.",
   "scoring_note": "Ez nem klasszikus hangulatelemzés. A negatív pont kockázatot vagy romló fejleményt, a pozitív pont intézkedést, tájékoztatást, monitoringot vagy megoldás felé mutató eseményt jelent.",
@@ -202,35 +202,6 @@
       "url": "https://444.hu/2026/04/14/azbeszttel-szennyezett-aszfalttal-mergezik-a-szombathelyieket-30-szoros-a-munka-egeszsegugyi-hatarertek-tullepes-az-oladi-platon"
     },
     {
-      "date": "2026-04-15",
-      "title": "Súlyos azbesztszennyezés Szombathelyen , ausztriai bányákból származik a rákkeltő anyag",
-      "source": "atv.hu",
-      "source_type": "austrian",
-      "category": "egeszsegugyi_kockazat",
-      "base_score": -5,
-      "source_weight": 1,
-      "confidence": 1,
-      "final_score": -5,
-      "matched_negative_rules": [
-        {
-          "category": "egeszsegugyi_kockazat",
-          "score": -5,
-          "keywords": [
-            "rakkelto"
-          ]
-        },
-        {
-          "category": "szennyezes_vagy_gyanu",
-          "score": -4,
-          "keywords": [
-            "azbesztszennyezes"
-          ]
-        }
-      ],
-      "matched_positive_rules": [],
-      "url": "https://www.atv.hu/belfold/20260415/sulyos-azbesztszennyezes-szombathely"
-    },
-    {
       "date": "2026-04-16",
       "title": "Menekülnének a lakók: többen „bármi áron” eladnák otthonukat a szombathelyi városrészben, ahol azbesztbotrány robbant ki",
       "source": "24.hu",
@@ -243,28 +214,6 @@
       "matched_negative_rules": [],
       "matched_positive_rules": [],
       "url": "https://24.hu/otthon/2026/04/16/szombathely-azbeszt-szennyezes-lakok-menekules"
-    },
-    {
-      "date": "2026-04-17",
-      "title": "Durvul a helyzet Szombathelyen : védőmaszkokat osztanak a rákkeltő azbeszt - szennyezés miatt",
-      "source": "penzcentrum.hu",
-      "source_type": "media",
-      "category": "egeszsegugyi_kockazat",
-      "base_score": -5,
-      "source_weight": 1,
-      "confidence": 0.85,
-      "final_score": -4.25,
-      "matched_negative_rules": [
-        {
-          "category": "egeszsegugyi_kockazat",
-          "score": -5,
-          "keywords": [
-            "rakkelto"
-          ]
-        }
-      ],
-      "matched_positive_rules": [],
-      "url": "https://www.penzcentrum.hu/hellovidek/20260417/durvul-a-helyzet-szombathelyen-vedomaszkokat-osztanak-a-rakkelto-azbeszt-szennyezes-miatt-1197107"
     },
     {
       "date": "2026-04-21",
@@ -331,59 +280,6 @@
       ],
       "matched_positive_rules": [],
       "url": "https://hvg.hu/zhvg/20260422_azbesztszennyezes-szombathely-oladi-plato-egeszsegugyi-veszhelyzet"
-    },
-    {
-      "date": "2026-04-23",
-      "title": "Egyre aggasztóbb a szombathelyi azbesztszennyezés , gyerekek egészségét kockáztatták az osztrák bányában",
-      "source": "atv.hu",
-      "source_type": "austrian",
-      "category": "szennyezes_vagy_gyanu",
-      "base_score": -4,
-      "source_weight": 1,
-      "confidence": 0.85,
-      "final_score": -3.4,
-      "matched_negative_rules": [
-        {
-          "category": "szennyezes_vagy_gyanu",
-          "score": -4,
-          "keywords": [
-            "azbesztszennyezes"
-          ]
-        }
-      ],
-      "matched_positive_rules": [],
-      "url": "https://www.atv.hu/belfold/20260423/szombathely-azbeszt-szennyezes"
-    },
-    {
-      "date": "2026-04-23",
-      "title": "Feljelentést tett a Greenpeace a Vas vármegyében is azbesztszennyezést okozó osztrák kőbányák miatt",
-      "source": "hirado.hu",
-      "source_type": "media",
-      "category": "szennyezes_vagy_gyanu",
-      "base_score": -2,
-      "source_weight": 1,
-      "confidence": 1,
-      "final_score": -2,
-      "matched_negative_rules": [
-        {
-          "category": "szennyezes_vagy_gyanu",
-          "score": -4,
-          "keywords": [
-            "azbesztszennyezes"
-          ]
-        }
-      ],
-      "matched_positive_rules": [
-        {
-          "category": "jogi_lepes",
-          "score": 2,
-          "keywords": [
-            "feljelentest tett",
-            "feljelentes"
-          ]
-        }
-      ],
-      "url": "https://hirado.hu/belfold/cikk/2026/04/23/feljelentest-tett-a-greenpeace-a-vas-varmegyeben-is-azbesztszennyezest-okozo-osztrak-kobanyak-miatt"
     },
     {
       "date": "2026-04-24",
@@ -573,86 +469,6 @@
       "url": "https://www.vaol.hu/helyi-kozelet/2026/04/azbeszt-ugy-koszeg-lezarasok"
     },
     {
-      "date": "2026-04-24",
-      "title": "Index - Belföld - Ha száll a por , a gyerekek nem mehetnek ki játszani – példátlan azbeszt - botrány Szombathelyen",
-      "source": "index.hu",
-      "source_type": "media",
-      "category": "altalanos_media_megjelenes",
-      "base_score": -1,
-      "source_weight": 1,
-      "confidence": 0.7,
-      "final_score": -0.7,
-      "matched_negative_rules": [],
-      "matched_positive_rules": [],
-      "url": "https://index.hu/belfold/2026/04/24/szombathely-vas-varmegye-azbeszt-egeszsegugy-azbeszt-szennyezes-nemeny-andras-greenpeace-ausztria-veszelyhelyzet"
-    },
-    {
-      "date": "2026-04-24",
-      "title": "Egészségügyi veszélyhelyzet Szombathelyen : Használj szájmaszkot !",
-      "source": "blikk.hu",
-      "source_type": "media",
-      "category": "egeszsegugyi_kockazat",
-      "base_score": -5,
-      "source_weight": 1,
-      "confidence": 1,
-      "final_score": -5,
-      "matched_negative_rules": [
-        {
-          "category": "egeszsegugyi_kockazat",
-          "score": -5,
-          "keywords": [
-            "egeszsegugyi veszely"
-          ]
-        },
-        {
-          "category": "korlatozas",
-          "score": -2,
-          "keywords": [
-            "korlatozas"
-          ]
-        }
-      ],
-      "matched_positive_rules": [],
-      "url": "https://www.blikk.hu/aktualis/veszhelyzet/azbeszt-szombathely-szennyezes-korlatozas/9mnv9bl"
-    },
-    {
-      "date": "2026-04-25",
-      "title": "Újabb magyar városban lehet azbesztszennyezés : maszkot osztanak a helyieknek",
-      "source": "divany.hu",
-      "source_type": "media",
-      "category": "szennyezes_vagy_gyanu",
-      "base_score": -5,
-      "source_weight": 1,
-      "confidence": 1,
-      "final_score": -5,
-      "matched_negative_rules": [
-        {
-          "category": "szennyezes_vagy_gyanu",
-          "score": -4,
-          "keywords": [
-            "azbesztszennyezes"
-          ]
-        },
-        {
-          "category": "uj_erintett_terulet",
-          "score": -4,
-          "keywords": [
-            "bozsok"
-          ]
-        }
-      ],
-      "matched_positive_rules": [
-        {
-          "category": "ovintezkedes",
-          "score": 2,
-          "keywords": [
-            "maszkot osztanak"
-          ]
-        }
-      ],
-      "url": "https://divany.hu/eletem/azbesztszennyezes-magyar-varos-maszkosztas-egeszsegugyi-kockazat-koszeg-sporon-szombathely-bozsok"
-    },
-    {
       "date": "2026-04-27",
       "title": "Újranyitnának a Szombathelyt azbesztkrízisbe lökő burgenlandi kőfejtők, szerintük nincs is szennyezés Ausztriában bezáratták a hatóságok a bányákat, de már megindult a Greenpeace-t bűnbaknak kikiáltó ellenlobbi. Vas megyében viszont egészségügyi vészhelyzet van. Kolozsi Ádám külföld 2026. április 27. 21:12",
       "source": "444",
@@ -740,65 +556,6 @@
       ],
       "matched_positive_rules": [],
       "url": "https://444.hu/2026/05/02/akar-egesz-nyugat-magyarorszagot-is-sujthatja-az-osztrak-banyakbol-importalt-azbesztszennyezes"
-    },
-    {
-      "date": "2026-05-03",
-      "title": "Index - Belföld - Akár egész Nyugat - Magyarország érintett lehet a rendkívül veszélyes azbesztszennyezésben",
-      "source": "index.hu",
-      "source_type": "media",
-      "category": "szennyezes_vagy_gyanu",
-      "base_score": -5,
-      "source_weight": 1,
-      "confidence": 1,
-      "final_score": -5,
-      "matched_negative_rules": [
-        {
-          "category": "szennyezes_vagy_gyanu",
-          "score": -4,
-          "keywords": [
-            "azbesztszennyezes"
-          ]
-        },
-        {
-          "category": "uj_erintett_terulet",
-          "score": -4,
-          "keywords": [
-            "erintett lehet"
-          ]
-        }
-      ],
-      "matched_positive_rules": [],
-      "url": "https://index.hu/belfold/2026/05/03/azbeszt-szennyezes-veszely-szombathely-vas-varmegye-ausztria-magyar-kozlony"
-    },
-    {
-      "date": "2026-05-07",
-      "title": "Index - Belföld - Folytatódik az azbesztbotrány , több város is bajban lehet , lépett a leköszönő kormány",
-      "source": "index.hu",
-      "source_type": "media",
-      "category": "szennyezes_vagy_gyanu",
-      "base_score": -2,
-      "source_weight": 1,
-      "confidence": 1,
-      "final_score": -2,
-      "matched_negative_rules": [
-        {
-          "category": "szennyezes_vagy_gyanu",
-          "score": -4,
-          "keywords": [
-            "azbesztszennyezes"
-          ]
-        }
-      ],
-      "matched_positive_rules": [
-        {
-          "category": "jogi_lepes",
-          "score": 2,
-          "keywords": [
-            "feljelentes"
-          ]
-        }
-      ],
-      "url": "https://index.hu/belfold/2026/05/07/szombathely-azbeszt-azbesztszennyezes-nemeny-andras-kormanyrendelet-feljelentes-vas-varmegye"
     },
     {
       "date": "2026-05-08",
@@ -926,95 +683,6 @@
       ],
       "matched_positive_rules": [],
       "url": "https://24.hu/belfold/2026/05/11/azbesztszennyezes-szombathely-kezeles-tajekoztatas"
-    },
-    {
-      "date": "2026-05-11",
-      "title": "Megkezdődött az azbeszttel szennyeződött utcák bitumenes zárása Szombathelyen",
-      "source": "hirado.hu",
-      "source_type": "media",
-      "category": "altalanos_media_megjelenes",
-      "base_score": -1,
-      "source_weight": 1,
-      "confidence": 0.7,
-      "final_score": -0.7,
-      "matched_negative_rules": [],
-      "matched_positive_rules": [],
-      "url": "https://hirado.hu/belfold/cikk/2026/05/11/megkezdodott-az-azbeszttel-szennyezodott-utcak-bitumenes-zarasa-szombathelyen"
-    },
-    {
-      "date": "2026-05-12",
-      "title": "Térképen mutatjuk , hogy áll most az azbesztszennyezés elleni küzdelem",
-      "source": "divany.hu",
-      "source_type": "media",
-      "category": "karelhartas_megoldas",
-      "base_score": 1,
-      "source_weight": 1,
-      "confidence": 1,
-      "final_score": 1,
-      "matched_negative_rules": [
-        {
-          "category": "szennyezes_vagy_gyanu",
-          "score": -4,
-          "keywords": [
-            "azbesztszennyezes"
-          ]
-        }
-      ],
-      "matched_positive_rules": [
-        {
-          "category": "karelhartas_megoldas",
-          "score": 5,
-          "keywords": [
-            "mentesites"
-          ]
-        }
-      ],
-      "url": "https://divany.hu/szuloseg/azbesztmentesites-helyzete-magyarorszag-szombathely-terkep-2026"
-    },
-    {
-      "date": "2026-05-12",
-      "title": "Azbesztszennyezés - Megkezdődött az azbeszttel szennyeződött utcák bitumenes zárása Szombathely oladi városrészében",
-      "source": "infogyor.hu",
-      "source_type": "media",
-      "category": "szennyezes_vagy_gyanu",
-      "base_score": -4,
-      "source_weight": 1,
-      "confidence": 0.85,
-      "final_score": -3.4,
-      "matched_negative_rules": [
-        {
-          "category": "szennyezes_vagy_gyanu",
-          "score": -4,
-          "keywords": [
-            "azbesztszennyezes"
-          ]
-        }
-      ],
-      "matched_positive_rules": [],
-      "url": "https://www.infogyor.hu/hirek/olvas/azbesztszennyezes-megkezdodott-az-azbeszttel-szennyezodott-utcak-bitumenes-zarasa-szombathely-oladi-varosreszeben-2026-05-12-100000"
-    },
-    {
-      "date": "2026-05-13",
-      "title": "Ott jártunk Szombathelyen , az azbeszttel szennyezett utcákon – videó",
-      "source": "blikk.hu",
-      "source_type": "media",
-      "category": "szennyezes_vagy_gyanu",
-      "base_score": -4,
-      "source_weight": 1,
-      "confidence": 1,
-      "final_score": -4,
-      "matched_negative_rules": [
-        {
-          "category": "szennyezes_vagy_gyanu",
-          "score": -4,
-          "keywords": [
-            "szennyezett",
-            "azbeszttel szennyezett"
-          ]
-        }
-      ],
-      "matched_positive_rules": [],
-      "url": "https://www.blikk.hu/aktualis/belfold/azbesztbotrany-szombathely-riport/8edbsvw"
     },
     {
       "date": "2026-05-14",
@@ -1199,36 +867,6 @@
       "matched_negative_rules": [],
       "matched_positive_rules": [],
       "url": "https://www.vaol.hu/helyi-kozelet/2026/05/azbeszt-ugy-koszeg-vizsgalat-eredmeny-29-helyszin"
-    },
-    {
-      "date": "2026-05-20",
-      "title": "Index - Belföld - Újabb helyszíneken mutattak ki azbesztszennyezést Kőszegen",
-      "source": "index.hu",
-      "source_type": "media",
-      "category": "szennyezes_vagy_gyanu",
-      "base_score": -2,
-      "source_weight": 1,
-      "confidence": 1,
-      "final_score": -2,
-      "matched_negative_rules": [
-        {
-          "category": "szennyezes_vagy_gyanu",
-          "score": -4,
-          "keywords": [
-            "azbesztszennyezes"
-          ]
-        }
-      ],
-      "matched_positive_rules": [
-        {
-          "category": "monitoring_vizsgalat",
-          "score": 2,
-          "keywords": [
-            "meres"
-          ]
-        }
-      ],
-      "url": "https://index.hu/belfold/2026/05/20/azbeszt-azbesztszennyezes-koszeg-meres-vas-varmegye"
     },
     {
       "date": "2026-05-20",
@@ -1420,20 +1058,6 @@
     },
     {
       "date": "2026-06-08",
-      "title": "Az általános tartalékból fogja finanszírozni a kormány az azbesztes kártalanítást",
-      "source": "Nyugat.hu",
-      "source_type": "media",
-      "category": "altalanos_media_megjelenes",
-      "base_score": -1,
-      "source_weight": 1,
-      "confidence": 0.7,
-      "final_score": -0.7,
-      "matched_negative_rules": [],
-      "matched_positive_rules": [],
-      "url": "https://www.nyugat.hu/cikk/az_altalanos_tartalekbol_fogja_finanszirozni_a_az"
-    },
-    {
-      "date": "2026-06-08",
       "title": "Újra megnyitották az azbesztszennyezés miatt lezárt szombathelyi vasúti megállónál található parkolót",
       "source": "VAOL",
       "source_type": "media",
@@ -1453,20 +1077,6 @@
       ],
       "matched_positive_rules": [],
       "url": "https://www.vaol.hu/helyi-kozelet/2026/06/azbeszt-vasut-allomas-szombathely-parkolo-megnyitottak"
-    },
-    {
-      "date": "2026-06-09",
-      "title": "Azzal fenyegetett két szombathelyi közterület-felügyelőt egy férfi és egy nő, hogy megölik őket",
-      "source": "Nyugat.hu",
-      "source_type": "media",
-      "category": "altalanos_media_megjelenes",
-      "base_score": -1,
-      "source_weight": 1,
-      "confidence": 0.7,
-      "final_score": -0.7,
-      "matched_negative_rules": [],
-      "matched_positive_rules": [],
-      "url": "https://www.nyugat.hu/cikk/azzal_fenyegetett_ket_szombathelyi_kozterulet_egy"
     },
     {
       "date": "2026-06-10",
@@ -1501,7 +1111,7 @@
     },
     {
       "date": "2026-06-10",
-      "title": "Alle Asbest-Gutachten sind da, Bezirksbehörden sind am Zug Betreiber wollen Arbeit rasch wieder aufnehmen, Land will auf Grundlage der Gutachten rasch entscheiden.",
+      "title": "Alle Asbest-Gutachten sind da, Bezirksbehörden sind am Zug",
       "source": "Kurier Burgenland",
       "source_type": "austrian",
       "category": "altalanos_media_megjelenes",
@@ -1540,28 +1150,6 @@
       "matched_negative_rules": [],
       "matched_positive_rules": [],
       "url": "https://telex.hu/g7/adat/2026/06/11/burgenland-banyak-azbeszt-rakos-megbetegedesek-aranya-ausztria"
-    },
-    {
-      "date": "2026-06-11",
-      "title": "Lezárták a szombathelyi Iseum előtti utcát - Hamarosan kezdődik a Bloomsday",
-      "source": "Nyugat.hu",
-      "source_type": "media",
-      "category": "korlatozas",
-      "base_score": -2,
-      "source_weight": 1,
-      "confidence": 0.85,
-      "final_score": -1.7,
-      "matched_negative_rules": [
-        {
-          "category": "korlatozas",
-          "score": -2,
-          "keywords": [
-            "lezaras"
-          ]
-        }
-      ],
-      "matched_positive_rules": [],
-      "url": "https://www.nyugat.hu/cikk/bloomsday_rakoczi_utca_lezaras_bloomslandia"
     },
     {
       "date": "2026-06-11",
@@ -1617,7 +1205,7 @@
     },
     {
       "date": "2026-06-12",
-      "title": "Asbest im Burgenland: Greenpeace rechnet mit Kosten in Milliardenhöhe Die Umweltschutzorganisation fordert Mittel aus Katastrophenhilfe für die Entsorgung.",
+      "title": "Asbest im Burgenland: Greenpeace rechnet mit Kosten in Milliardenhöhe",
       "source": "Kurier Burgenland",
       "source_type": "austrian",
       "category": "altalanos_media_megjelenes",
