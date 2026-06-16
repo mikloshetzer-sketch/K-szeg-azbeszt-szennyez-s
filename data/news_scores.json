@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-15T11:23:29.530Z",
+  "generated_at": "2026-06-16T10:21:03.771Z",
   "method": "balanced_keyword_rule_based_event_scoring_v3",
   "description": "Automatikusan generált Kőszeg–azbeszt ügyindex a data/news.json alapján. A rendszer külön számolja a negatív kockázati és a pozitív intézkedési kulcsszavakat.",
   "scoring_note": "Ez nem klasszikus hangulatelemzés. A negatív pont kockázatot vagy romló fejleményt, a pozitív pont intézkedést, tájékoztatást, monitoringot vagy megoldás felé mutató eseményt jelent.",
@@ -1044,20 +1044,6 @@
     },
     {
       "date": "2026-06-08",
-      "title": "Probenstart im Steinbruch: Eine \"Tosca mit Twist\"",
-      "source": "Kurier Burgenland",
-      "source_type": "austrian",
-      "category": "altalanos_media_megjelenes",
-      "base_score": -1,
-      "source_weight": 1,
-      "confidence": 0.7,
-      "final_score": -0.7,
-      "matched_negative_rules": [],
-      "matched_positive_rules": [],
-      "url": "https://kurier.at/chronik/burgenland/oper-steinbruch-st-margarethen-tosca-premiere-2026/403167057"
-    },
-    {
-      "date": "2026-06-08",
       "title": "Újra megnyitották az azbesztszennyezés miatt lezárt szombathelyi vasúti megállónál található parkolót",
       "source": "VAOL",
       "source_type": "media",
@@ -1122,20 +1108,6 @@
       "matched_negative_rules": [],
       "matched_positive_rules": [],
       "url": "https://kurier.at/chronik/burgenland/asbest-steinbruch-taskforce-umwelt/403167924"
-    },
-    {
-      "date": "2026-06-10",
-      "title": "„Tosca“ im Steinbruch: Proben für Sommeroper starten",
-      "source": "Kurier Burgenland",
-      "source_type": "austrian",
-      "category": "altalanos_media_megjelenes",
-      "base_score": -1,
-      "source_weight": 1,
-      "confidence": 0.7,
-      "final_score": -0.7,
-      "matched_negative_rules": [],
-      "matched_positive_rules": [],
-      "url": "https://kurier.at/chronik/burgenland/tosca-im-steinbruch-proben-fuer-sommeroper-starten/403167854"
     },
     {
       "date": "2026-06-11",
@@ -1230,20 +1202,6 @@
       "matched_negative_rules": [],
       "matched_positive_rules": [],
       "url": "https://www.nyugat.hu/cikk/bitumennal_zarjak_le_az_azbesztet_sarvaron_negy_a"
-    },
-    {
-      "date": "2026-06-14",
-      "title": "Musical-Highlight Volksschule und Mittelschule Bernstein feiern gelungenes Schulfest",
-      "source": "MeinBezirk Burgenland",
-      "source_type": "austrian",
-      "category": "altalanos_media_megjelenes",
-      "base_score": -1,
-      "source_weight": 1,
-      "confidence": 0.7,
-      "final_score": -0.7,
-      "matched_negative_rules": [],
-      "matched_positive_rules": [],
-      "url": "https://www.meinbezirk.at/oberwart/c-leute/volksschule-und-mittelschule-bernstein-feiern-gelungenes-schulfest_a8690819"
     }
   ]
 }
