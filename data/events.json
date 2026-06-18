@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-18T10:11:11.024742+00:00",
+  "generated_at": "2026-06-18T14:53:43.961783+00:00",
   "mode": "milestones_from_news",
   "events": [
     {
@@ -10,6 +10,13 @@
       "url": "https://koszeg.hu/hu/aktualis/hirek"
     },
     {
+      "date": "2026-05-29",
+      "title": "Greenpeace vagy más civil forrás is megjelent az ügyben.",
+      "source": "Greenpeace Magyarország",
+      "type": "civil_action",
+      "url": "https://www.greenpeace.org/hungary/sajtokozlemeny/14025/a-kormany-lemondta-a-szombathelyre-kihelyezett-parlamenti-bizottsagi-ulest-pedig-burgenlandban-mar-juliusban-ujranyithatjak-az-osztrak-azbesztes-banyakat"
+    },
+    {
       "date": "2026-06-12",
       "title": "Osztrák vagy burgenlandi forrás is kapcsolódik az ügyhöz.",
       "source": "Kurier Burgenland",
@@ -18,14 +25,14 @@
     },
     {
       "date": "Folyamatos",
-      "title": "Jelentős magyar médiafigyelem: legalább 45 releváns magyar médiatalálat szerepel a rendszerben.",
+      "title": "Jelentős magyar médiafigyelem: legalább 46 releváns magyar médiatalálat szerepel a rendszerben.",
       "source": "Magyar médiafigyelés",
       "type": "media_wave",
       "url": ""
     },
     {
       "date": "Folyamatos",
-      "title": "A rendszer jelenleg 2 hivatalos, 0 civil, 1 osztrák/burgenlandi, 45 magyar média és 0 egyéb GDELT-találatot különít el.",
+      "title": "A rendszer jelenleg 2 hivatalos, 1 civil, 1 osztrák/burgenlandi, 46 magyar média és 0 egyéb GDELT-találatot különít el.",
       "source": "Automatikus monitoring",
       "type": "system_summary",
       "url": ""
