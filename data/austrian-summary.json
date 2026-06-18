@@ -1,6 +1,23 @@
 {
-  "generated_at": "2026-06-17T20:05:07.433158+00:00",
-  "count": 0,
-  "summary": "Jelenleg nincs külön osztrák vagy burgenlandi hírtalálat a rendszerben.",
-  "articles": []
+  "generated_at": "2026-06-18T02:50:50.628416+00:00",
+  "count": 2,
+  "summary": "**Összefoglaló az osztrák-burgenlandi térség azbesztkérdéséről**\n\nAz osztrák és burgenlandi hírforrások részben megerősítik, hogy az azbeszt szennyezés és annak egészségügyi kockázatai a Kőszeg, Bozsok, Szombathely, Pilgersdorf, Bernstein és a Burgenland környéki térségben közösen jelentős problémaként jelennek meg. Az ügy különösen Szombathely vonatkozásában került a magyar sajtó és a nyilvánosság érdeklődésének középpontjába 2026 tavaszán, ahol komoly azbeszt-szennyezést tártak fel.\n\nAz osztrák régiókból származó bánya, amely az azbeszt anyagot eredetileg kitermelte, fontos szerepet játszik a helyzet alakulásában. A határon átnyúló kapcsolat miatt az osztrák bányák és a magyarországi települések közötti környezeti és egészségügyi összefüggések az osztrák források által is alátámasztottak. Kapcsolódó települések között szerepel Szombathely, amely Magyarországon központi helyet foglal el az ügyben, valamint Pilgersdorf és Bernstein, amelyek az osztrák oldalon fekvő Burgenland területén találhatók.\n\nA problémakör egyik hangsúlyos eleme, hogy külön figyelmet fordítanak a veszélyeztetett csoportokra, így például a gyermekek egészségére, amelyet az osztrák bányákból származó azbesztszennyezés jelentősnek ítélnek. Az osztrák magyar együttműködés, a határon átnyúló hírfigyelés, valamint az információk megosztása kulcsfontosságú annak érdekében, hogy a kockázatok kezelhetők legyenek, és a megfelelő intézkedések megvalósuljanak mindkét oldalon.\n\nFontos megjegyezni, hogy az elérhető sajtóinformációk nem tartalmaznak laboreredményeket vagy hivatalos hatósági döntéseket, így a szennyezés mértékére és annak pontos következményeire vonatkozóan további szakértői elemzések szükségesek.\n\n---\n\n**Figyelendő pontok:**\n\n1. Az osztrák bányák forrásként jelentős szerepet játszanak a szennyezés terjedésében, ezért a kétoldalú együttműködés kulcsfontosságú a probléma feltérképezésében és kezelésében.\n\n2. Szombathely és a közeli burgenlandi települések esetében a határon átnyúló információáramlás elősegítheti a hatékonyabb környezetvédelmi és egészségügyi intézkedéseket.\n\n3. A jelenlegi hírek alapján nem állnak rendelkezésre laboratóriumi eredmények vagy hatósági határozatok, ezért az ügy további szakmai vizsgálatokat igényel a pontos megítéléshez.",
+  "articles": [
+    {
+      "title": "Súlyos azbesztszennyezés Szombathelyen , ausztriai bányákból származik a rákkeltő anyag",
+      "source": "atv.hu",
+      "source_type": "austrian",
+      "date": "2026-04-15",
+      "url": "https://www.atv.hu/belfold/20260415/sulyos-azbesztszennyezes-szombathely",
+      "type": "gdelt"
+    },
+    {
+      "title": "Egyre aggasztóbb a szombathelyi azbesztszennyezés , gyerekek egészségét kockáztatták az osztrák bányában",
+      "source": "atv.hu",
+      "source_type": "austrian",
+      "date": "2026-04-23",
+      "url": "https://www.atv.hu/belfold/20260423/szombathely-azbeszt-szennyezes",
+      "type": "gdelt"
+    }
+  ]
 }
