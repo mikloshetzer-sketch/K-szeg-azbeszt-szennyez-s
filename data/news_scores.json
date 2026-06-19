@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-18T09:47:01.458Z",
+  "generated_at": "2026-06-19T09:54:15.570Z",
   "method": "balanced_keyword_rule_based_event_scoring_v3",
   "description": "Automatikusan generált Kőszeg–azbeszt ügyindex a data/news.json alapján. A rendszer külön számolja a negatív kockázati és a pozitív intézkedési kulcsszavakat.",
   "scoring_note": "Ez nem klasszikus hangulatelemzés. A negatív pont kockázatot vagy romló fejleményt, a pozitív pont intézkedést, tájékoztatást, monitoringot vagy megoldás felé mutató eseményt jelent.",
@@ -1253,48 +1253,26 @@
       "url": "https://telex.hu/kulfold/2026/05/23/azbeszt-nagy-britannia-gyerekjatek-visszahivas"
     },
     {
-      "date": "2026-05-28",
-      "title": "Az aszfaltozás nem jelent végleges megoldást az azbesztszennyezésre – erről beszélt Gajdos László a Parlamentben. Strompová Viktóra, a TISZA vasi képviselője a megyét érintő azbeszt-ügyben intézett azonnali kérdést az élő környezetért felelős miniszterhez.",
-      "source": "VAOL",
-      "source_type": "media",
-      "category": "karelhartas_megoldas",
-      "base_score": 1,
-      "source_weight": 1,
-      "confidence": 1,
-      "final_score": 1,
-      "matched_negative_rules": [
-        {
-          "category": "szennyezes_vagy_gyanu",
-          "score": -4,
-          "keywords": [
-            "azbesztszennyezes"
-          ]
-        }
-      ],
+      "date": "2026-05-29",
+      "title": "A kormány lemondta a Szombathelyre kihelyezett parlamenti bizottsági ülést, pedig Burgenlandban már júliusban újranyithatják az osztrák azbesztes bányákat",
+      "source": "Greenpeace Magyarország",
+      "source_type": "civil",
+      "category": "lakossagi_tajekoztatas",
+      "base_score": 2,
+      "source_weight": 1.15,
+      "confidence": 0.85,
+      "final_score": 1.95,
+      "matched_negative_rules": [],
       "matched_positive_rules": [
         {
-          "category": "karelhartas_megoldas",
-          "score": 5,
+          "category": "lakossagi_tajekoztatas",
+          "score": 2,
           "keywords": [
-            "megoldas"
+            "kozlemeny"
           ]
         }
       ],
-      "url": "https://www.vaol.hu/helyi-kozelet/2026/05/azbeszt-ugy-is-tema-volt-a-parlamentben"
-    },
-    {
-      "date": "2026-05-30",
-      "title": "Azbeszt: holnaptól használhatók ezek a szombathelyi parkolók",
-      "source": "VAOL",
-      "source_type": "media",
-      "category": "altalanos_media_megjelenes",
-      "base_score": -1,
-      "source_weight": 1,
-      "confidence": 0.7,
-      "final_score": -0.7,
-      "matched_negative_rules": [],
-      "matched_positive_rules": [],
-      "url": "https://www.vaol.hu/helyi-kozelet/2026/05/azbeszt-ugy-parkolo-szombathely-joskar-ola"
+      "url": "https://www.greenpeace.org/hungary/sajtokozlemeny/14025/a-kormany-lemondta-a-szombathelyre-kihelyezett-parlamenti-bizottsagi-ulest-pedig-burgenlandban-mar-juliusban-ujranyithatjak-az-osztrak-azbesztes-banyakat"
     },
     {
       "date": "2026-06-02",
@@ -1467,6 +1445,20 @@
     },
     {
       "date": "2026-06-12",
+      "title": "Asbest im Burgenland: Greenpeace rechnet mit Kosten in Milliardenhöhe",
+      "source": "Kurier Burgenland",
+      "source_type": "austrian",
+      "category": "altalanos_media_megjelenes",
+      "base_score": -1,
+      "source_weight": 1,
+      "confidence": 0.7,
+      "final_score": -0.7,
+      "matched_negative_rules": [],
+      "matched_positive_rules": [],
+      "url": "https://kurier.at/chronik/burgenland/asbest-burgenland-greenpeace-kosten-in-milliardenhoehe/403168348"
+    },
+    {
+      "date": "2026-06-12",
       "title": "Azbesztszennyezés kontra vasi turizmus – ezt a választ kapta Ágh Péter a Parlamentben",
       "source": "VAOL",
       "source_type": "media",
@@ -1516,8 +1508,58 @@
       "url": "https://www.nyugat.hu/cikk/354_millio_forintot_koltott_eddig_az_azbeszt"
     },
     {
-      "date": "2026-06-16",
-      "title": "Azbeszt-ügy: Szombathelyen tartja kihelyezett ülését a parlament bizottsága",
+      "date": "2026-06-18",
+      "title": "A kormánypárti képviselők lemondták a Szombathelyre kihelyezett parlamenti bizottsági ülést, amit az azbesztszennyezésről tartottak volna",
+      "source": "HVG",
+      "source_type": "media",
+      "category": "szennyezes_vagy_gyanu",
+      "base_score": -4,
+      "source_weight": 1,
+      "confidence": 0.85,
+      "final_score": -3.4,
+      "matched_negative_rules": [
+        {
+          "category": "szennyezes_vagy_gyanu",
+          "score": -4,
+          "keywords": [
+            "azbesztszennyezes"
+          ]
+        }
+      ],
+      "matched_positive_rules": [],
+      "url": "https://hvg.hu/gazdasag/20260618_azbesztszennyezes-szombathely-parlamenti-bizottsag-kihelyezett-ules-elo-kornyezetert-felelos-miniszterium-greenpeace"
+    },
+    {
+      "date": "2026-06-18",
+      "title": "Összehívták az azbesztügyi parlamenti bizottságot Szombathelyen, aztán a fél politika inkább otthon maradt",
+      "source": "Nyugat.hu",
+      "source_type": "media",
+      "category": "altalanos_media_megjelenes",
+      "base_score": -1,
+      "source_weight": 1,
+      "confidence": 0.7,
+      "final_score": -0.7,
+      "matched_negative_rules": [],
+      "matched_positive_rules": [],
+      "url": "https://www.nyugat.hu/cikk/osszehivtak_az_azbesztugyi_parlamenti_bizottsagot"
+    },
+    {
+      "date": "2026-06-18",
+      "title": "Csütörtökön újraindul az azbeszt elleni védő locsolás a szombathelyi Oladi Platón és a déli városrészen",
+      "source": "Nyugat.hu",
+      "source_type": "media",
+      "category": "altalanos_media_megjelenes",
+      "base_score": -1,
+      "source_weight": 1,
+      "confidence": 0.7,
+      "final_score": -0.7,
+      "matched_negative_rules": [],
+      "matched_positive_rules": [],
+      "url": "https://www.nyugat.hu/cikk/csutortokon_ujtoraindul_az_azbeszt_elleni_locsolas"
+    },
+    {
+      "date": "2026-06-18",
+      "title": "Visszakerülhetnek az iskolák az önkormányzatokhoz?",
       "source": "VAOL",
       "source_type": "media",
       "category": "altalanos_media_megjelenes",
@@ -1527,7 +1569,79 @@
       "final_score": -0.7,
       "matched_negative_rules": [],
       "matched_positive_rules": [],
-      "url": "https://www.vaol.hu/helyi-kozelet/2026/06/azbeszt-ugy-szombathely-parlamenti-bizottsag-ulese"
+      "url": "https://www.vaol.hu/helyi-kozelet/2026/06/kozgyules-szombathely-azbeszt-iskolak-onkormanyzat"
+    },
+    {
+      "date": "2026-06-18",
+      "title": "A Tisza nem ment el az aszbesztbotránnyal kapcsolatos szombathelyi, kihelyezett ülésre",
+      "source": "24.hu",
+      "source_type": "media",
+      "category": "altalanos_media_megjelenes",
+      "base_score": -1,
+      "source_weight": 1,
+      "confidence": 0.7,
+      "final_score": -0.7,
+      "matched_negative_rules": [],
+      "matched_positive_rules": [],
+      "url": "https://24.hu/belfold/2026/06/18/azbeszt-szombathely-kihelyezett-ules-tisza-nem-ment"
+    },
+    {
+      "date": "2026-06-18",
+      "title": "Azbesztügy: határozatképtelen a bizottság a kormánypárti tagok távolmaradása miatt! - frissül!",
+      "source": "VAOL",
+      "source_type": "media",
+      "category": "altalanos_media_megjelenes",
+      "base_score": -1,
+      "source_weight": 1,
+      "confidence": 0.7,
+      "final_score": -0.7,
+      "matched_negative_rules": [],
+      "matched_positive_rules": [],
+      "url": "https://www.vaol.hu/helyi-kozelet/2026/06/azbeszt-ugy-szombathely-bizottsagi-ules"
+    },
+    {
+      "date": "2026-06-18",
+      "title": "Rápli Róbert (TISZA) Szombathely országgyűlési képviselője Facebook posztban jelentette be, hogy nem megy el a mai kihelyezett ülésre, amelyet az azbesztszennyezés kapcsán tartanak Szombathelyen. A tiszás politikus posztja alatt nem fogadták kitörő örömmel a Rápli döntését.",
+      "source": "VAOL",
+      "source_type": "media",
+      "category": "szennyezes_vagy_gyanu",
+      "base_score": -4,
+      "source_weight": 1,
+      "confidence": 0.85,
+      "final_score": -3.4,
+      "matched_negative_rules": [
+        {
+          "category": "szennyezes_vagy_gyanu",
+          "score": -4,
+          "keywords": [
+            "azbesztszennyezes"
+          ]
+        }
+      ],
+      "matched_positive_rules": [],
+      "url": "https://www.vaol.hu/helyi-kozelet/2026/06/azbesztugyi-ules-rapli-robert-lakok-kemeny-reakcio"
+    },
+    {
+      "date": "2026-06-18",
+      "title": "Határozatképtelen bizottsági ülés után több mint két órát tanácskoztak az azbesztszennyezésről Szombathelyen",
+      "source": "hirado.hu",
+      "source_type": "media",
+      "category": "szennyezes_vagy_gyanu",
+      "base_score": -4,
+      "source_weight": 1,
+      "confidence": 0.85,
+      "final_score": -3.4,
+      "matched_negative_rules": [
+        {
+          "category": "szennyezes_vagy_gyanu",
+          "score": -4,
+          "keywords": [
+            "azbesztszennyezes"
+          ]
+        }
+      ],
+      "matched_positive_rules": [],
+      "url": "https://hirado.hu/belfold/cikk/2026/06/18/hatarozatkeptelen-bizottsagi-ules-utan-tobb-mint-ket-orat-tanacskoztak-az-azbesztszennyezesrol-szombathelyen"
     }
   ]
 }
