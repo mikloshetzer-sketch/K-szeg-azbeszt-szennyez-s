@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-19T14:48:09.441894+00:00",
+  "generated_at": "2026-06-19T19:29:50.700888+00:00",
   "mode": "milestones_from_news",
   "events": [
     {
@@ -17,6 +17,13 @@
       "url": "https://www.greenpeace.org/hungary/sajtokozlemeny/14025/a-kormany-lemondta-a-szombathelyre-kihelyezett-parlamenti-bizottsagi-ulest-pedig-burgenlandban-mar-juliusban-ujranyithatjak-az-osztrak-azbesztes-banyakat"
     },
     {
+      "date": "2026-06-19",
+      "title": "Osztrák vagy burgenlandi forrás is kapcsolódik az ügyhöz.",
+      "source": "Kurier Burgenland",
+      "type": "austrian_context",
+      "url": "https://kurier.at/chronik/burgenland/asbest-dorner-greenpeace-staatsanwaltschaft-pilgersdorf-burgenland/403170538"
+    },
+    {
       "date": "Folyamatos",
       "title": "Jelentős magyar médiafigyelem: legalább 43 releváns magyar médiatalálat szerepel a rendszerben.",
       "source": "Magyar médiafigyelés",
@@ -25,7 +32,7 @@
     },
     {
       "date": "Folyamatos",
-      "title": "A rendszer jelenleg 2 hivatalos, 1 civil, 0 osztrák/burgenlandi, 43 magyar média és 0 egyéb GDELT-találatot különít el.",
+      "title": "A rendszer jelenleg 2 hivatalos, 1 civil, 2 osztrák/burgenlandi, 43 magyar média és 0 egyéb GDELT-találatot különít el.",
       "source": "Automatikus monitoring",
       "type": "system_summary",
       "url": ""

@@ -1,6 +1,23 @@
 {
-  "generated_at": "2026-06-19T14:48:09.441862+00:00",
-  "count": 0,
-  "summary": "Jelenleg nincs külön osztrák vagy burgenlandi hírtalálat a rendszerben.",
-  "articles": []
+  "generated_at": "2026-06-19T19:29:50.700827+00:00",
+  "count": 2,
+  "summary": "**Összefoglaló: Azbeszt-ügy a Kőszeg, Bozsok, Szombathely, valamint Pilgersdorf, Bernstein és Burgenland térségében – osztrák források alapján**\n\nAz osztrák Burgenland tartományból származó hírek szerint, amelyek Pilgersdorfot és Bernsteint is érintik, az aszbeszttel kapcsolatos vádak és aggályok kapcsán a helyi ügyészség nem indított nyomozást Burgenland egyik tartományi politikusa, Dorner ellen. Erről több, egymástól független osztrák forrás – így a Kurier és az ORF Burgenland – is beszámolt 2026 júniusában. Ezek az információk rámutatnak arra, hogy bár azbeszttel kapcsolatos kérdések felmerültek a térségben, hivatalos nyomozás nem indult, ami fontos részlet a jogi és szakmai helyzet megértése szempontjából.\n\nA térség, amelyhez Kőszeg, Bozsok és Szombathely magyarországi települései is tartoznak, valamint a burgenlandi Pilgersdorf és Bernstein, különösen érdekes a határon átnyúló környezeti és egészségügyi kockázatok vizsgálata miatt. Az osztrák oldalon megjelenő hírek segítséget nyújtanak a magyar oldalon zajló folyamatok jobb megértéséhez, akár közös környezetvédelmi intézkedések, akár lakossági tájékoztatás szempontjából. A határon átnyúló hírfigyelés ezért kiemelt jelentőségű a térség biztonságos lakhatóságának fenntartásában, illetve a környezeti kockázatok korai felismerésében.\n\nFontos megjegyezni, hogy az említett osztrák cikkek nem közöltek részletes adatokat mérésekről, laboreredményekről vagy jogi döntésekről az azbeszttel kapcsolatban, ezért e téren óvatosan kell kezelni az információkat, és minden további lépést a hiteles, hivatalos adatokra kell alapozni.\n\n**Figyelendő pontok:**\n\n1. Jelenleg nem zajlik hivatalos nyomozás az azbeszt ügyében Burgenland politikai vezetői ellen, ami befolyásolja a regionális jogi helyzet értékelését.  \n2. Az osztrák források segítenek a magyar oldali érintett települések környezetvédelmi helyzetének átfogóbb megértésében, különösen a határon átnyúló kockázatkezelés szempontjából.  \n3. A rendelkezésre álló információk hiányosságai miatt (laboreredmények, hatósági döntések) továbbra is fontos a kiegészítő adatok gyűjtése és a kétoldalú kommunikáció erősítése.",
+  "articles": [
+    {
+      "title": "Asbest-Vorwürfe: Keine Ermittlungen gegen Landesrat Dorner Staatsanwaltschaft nimmt keine Ermittlungen in der Asbest-Causa auf.",
+      "source": "Kurier Burgenland",
+      "source_type": "austrian",
+      "date": "2026-06-19",
+      "url": "https://kurier.at/chronik/burgenland/asbest-dorner-greenpeace-staatsanwaltschaft-pilgersdorf-burgenland/403170538",
+      "type": "html"
+    },
+    {
+      "title": "Staatsanwaltschaft Asbest: Keine Ermittlungen gegen Landesrat Dorner",
+      "source": "ORF Burgenland",
+      "source_type": "austrian",
+      "date": "2026-06-19",
+      "url": "https://burgenland.orf.at/stories/3359258",
+      "type": "html"
+    }
+  ]
 }
