@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-18T20:15:33.200306+00:00",
-  "count": 1,
-  "summary": "**Azbeszt kérdés Burgenland és környéke: összefoglaló az osztrák források alapján**\n\nAz osztrák, különösen burgenlandi hírforrások jelentős szerepet töltenek be a határon átnyúló környezeti problémák, így az azbesztes szennyezés ügyének feltárásában és nyomon követésében. Burgenland és az azt határoló magyar települések, mint Kőszeg, Bozsok, Szombathely, továbbá osztrák oldalon Pilgersdorf és Bernstein környéke földrajzilag is szoros kapcsolatban állnak, ezért a helyi média beszámolói fontos információforrásként szolgálnak a térség állapotáról.\n\nA jelenleg elérhető burgenlandi hírek között kiemelkedik egy Greenpeace által megfogalmazott becslés, amely szerint az azbeszt eltávolításához és a szennyezés kezeléséhez szükséges költségek több milliárd euróra rúghatnak. Ez az összevetés hangsúlyozza a probléma nagyságrendjét és a környezeti kockázatok súlyosságát, anélkül azonban, hogy konkrét laboreredményekre vagy hatósági döntésekre hivatkozna.\n\nAz osztrák média által közvetített információk hozzájárulnak ahhoz, hogy a magyar oldal érdeklődői és döntéshozói naprakész képet kapjanak a környék környezetvédelmi helyzetéről. Ez különösen fontos egy olyan területen, ahol a határ két ország között vannak kiterjedt környezeti hatások, és az érintett települések lakóinak egészsége, valamint a környezet védelme szempontjából elengedhetetlen a hatékony együttműködés.\n\n**Figyelendő pontok:**\n\n1. Az osztrák források fontos tájékoztatást nyújtanak a burgenlandi régióban zajló azbeszt-ügy gazdasági és környezeti következményeiről, különösen a Greenpeace költségbecslése kapcsán.  \n2. A térség magyar és osztrák településeinek szoros földrajzi kapcsolata miatt a határon átnyúló hírek figyelemmel kísérése elengedhetetlen a teljes kép megértéséhez.  \n3. Az elérhető információk jelenleg nem tartalmaznak részletes laboratóriumi eredményeket vagy hivatalos hatósági döntéseket, ezért a további fejlemények folyamatos nyomon követése javasolt.",
+  "generated_at": "2026-06-19T03:35:21.140637+00:00",
+  "count": 3,
+  "summary": "**Összefoglaló az osztrák és burgenlandi források alapján: Azbesztszennyezés a Kőszeg–Burgenland határtérségben**\n\nAz osztrák és burgenlandi híradások, valamint magyarországi tudósítások alapján egyre nagyobb figyelmet kap a térségben az azbeszt jelenléte, amely kockázatot jelent a környezetre és az emberi egészségre is. Az érintett terület földrajzilag magában foglalja Kőszeg és Bozsok környékét, továbbá Szombathelyt, mint hazai illetve Pilgersdorf és Bernstein településeket Burgenlandban.\n\nA burgenlandi források – például a Kurier Burgenland – kiemelik, hogy az azbeszt problémája jelentős anyagi terhet róhat a régióra, hiszen a Greenpeace becslése szerint az eltávolítás és helyreállítás költségei akár milliárdos nagyságrendűek lehetnek. A burgenlandi térségen belül különösen Pilgersdorf és Bernstein környéke jelenik meg a bányászati tevékenységek miatt, melyekhez kapcsolódóan az azbeszt szennyeződés kérdése megfogalmazódott.\n\nA magyar oldalról főként az ATV hazai hírei foglalkoznak a szombathelyi helyzettel, ahol állítások szerint súlyos azbesztszennyezés alakult ki, amely osztrák bányákból származó rákkeltő anyaghoz köthető. Ezek a beszámolók hangsúlyozzák a kockázatot, különösen a gyermekek egészségére nézve. Azonban a források nem tartalmaznak részletes laboreredményeket vagy hatósági határozatokat az azbesztszennyezés konkrét mértékéről és forrásáról, így e tekintetben további megerősítés szükséges.\n\nAz osztrák források szerepe azért kiemelten fontos, mert a határtérségben zajló környezeti problémák – így azbeszt szennyezés – természetükből adódóan nem állnak meg az országhatáron. A burgenlandi bányák környezetének állapota és az onnan eredő kockázatok közvetlenül érintik a szomszédos magyar települések, például Kőszeg és Szombathely lakosságát. Ezért a határon átnyúló hírfigyelés, információcsere és együttműködés kulcsfontosságú annak érdekében, hogy az érintett térségben időben és megfelelően lehessen reagálni a szennyezés jelenségeire.\n\n**Figyelendő pontok:**\n\n1. Az azbeszt szennyezés forrásának pontos kimutatása és a hatósági vizsgálatok eredményének nyomon követése elengedhetetlen a megalapozott intézkedésekhez.\n\n2. Burgenlandi bányászati tevékenységekből eredő környezeti kockázatok folyamatos monitorozása szükséges a határon átnyúló egészségügyi és környezetvédelmi problémák megelőzése érdekében.\n\n3. A határ menti települések – különösen Kőszeg, Bozsok, Szombathely, Pilgersdorf és Bernstein – helyi lakosságának tájékoztatása és bevonása a kérdéses ügyekbe elősegítheti a közös megoldások kialakítását.",
   "articles": [
     {
       "title": "Asbest im Burgenland: Greenpeace rechnet mit Kosten in Milliardenhöhe",
@@ -10,6 +10,22 @@
       "date": "2026-06-12",
       "url": "https://kurier.at/chronik/burgenland/asbest-burgenland-greenpeace-kosten-in-milliardenhoehe/403168348",
       "type": "html"
+    },
+    {
+      "title": "Súlyos azbesztszennyezés Szombathelyen , ausztriai bányákból származik a rákkeltő anyag",
+      "source": "atv.hu",
+      "source_type": "austrian",
+      "date": "2026-04-15",
+      "url": "https://www.atv.hu/belfold/20260415/sulyos-azbesztszennyezes-szombathely",
+      "type": "gdelt"
+    },
+    {
+      "title": "Egyre aggasztóbb a szombathelyi azbesztszennyezés , gyerekek egészségét kockáztatták az osztrák bányában",
+      "source": "atv.hu",
+      "source_type": "austrian",
+      "date": "2026-04-23",
+      "url": "https://www.atv.hu/belfold/20260423/szombathely-azbeszt-szennyezes",
+      "type": "gdelt"
     }
   ]
 }
