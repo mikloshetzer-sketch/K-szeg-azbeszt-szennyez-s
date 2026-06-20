@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-20T13:45:06.357051+00:00",
-  "count": 4,
-  "summary": "**Összefoglaló az osztrák és burgenlandi források alapján a Kőszeg, Bozsok, Szombathely, Pilgersdorf, Bernstein és Burgenland térségében felmerült azbeszt- és kőzúzalék ügyben**\n\nAz elmúlt időszakban a Kőszeg környéki, illetve a szombathelyi térségben jelentős figyelmet kapott az azbesztszennyezés kérdése, amelyhez szoros összefüggésben állnak az osztrák, elsősorban burgenlandi bányákból származó anyagok. Magyar és osztrák hírforrások egyaránt beszámoltak arról, hogy Szombathelyen súlyos azbesztszennyezés alakult ki, mely komoly egészségügyi kockázatokat jelent, különösen a gyermekkort érintően. Ezek a hírek alapján az azbeszt anyag többek között az ausztriai bányákból, így Pilgersdorf és Burgenland környékéről származhat.\n\nAz osztrák források, elsősorban a burgenlandi Kurier és az ORF Burgenland tudósításai megemlítik, hogy az azbeszttel kapcsolatos vádak ügyében állami szinten nincs folyamatban nyomozás, különösen nem Landesrat Dorner ellen. Az osztrák hatóságok és bírósági intézmények egyelőre nem indítottak vizsgálatot ezzel kapcsolatban, ami azt jelzi, hogy az ügy vizsgálata adott időpontban még nem jutott el egyértelmű jogi lépésekhez Burgenlandból.\n\nA térség földrajzi sajátosságai és a határozott kapcsolatok miatt – Kőszeg és Bozsok közvetlen közelsége és a szombathelyi ipari területek, valamint az osztrák határ menti Pilgersdorf és Bernstein bányászati tevékenységei – a határon átnyúló hírfigyelés kiemelt fontosságú. Magyar és osztrák médiavisszhang egyaránt segít megérteni az eseményeket és azok lehetséges következményeit, valamint segít az érintett közösségek tájékoztatásában és a kockázatok csökkentésében.\n\nÖsszességében tehát jelenlegi tudásunk szerint az azbesztszennyezés főként magyarországi, a szombathelyi térséget érinti konkrét egészségügyi aggodalomként, míg az osztrák oldalon a hatósági lépések hiányáról és az ügy „nem nyomozásról” érkezett közlemények fontos kontextust szolgáltatnak a helyzet megértéséhez.\n\n---\n\n**Figyelendő pontok:**\n\n1. Az osztrák hatóságok jelenleg nem folytatnak nyomozást az azbeszt ügyében, ami a vizsgálatok állapotáról árulkodik, de a későbbi fejlemények figyelemmel kísérése szükséges.  \n2. Magyarországi források – különösen Szombathely térségéből – panaszkodnak az azbesztszennyezés súlyosságára, amely határközeli osztrák bányákhoz köthető.  \n3. A határon átnyúló médiafigyelés és információcsere kulcsfontosságú a térség lakói egészségének védelmében és az esetleges közös intézkedések előkészítésében.",
+  "generated_at": "2026-06-20T19:14:28.236401+00:00",
+  "count": 2,
+  "summary": "**Összefoglaló az osztrák és burgenlandi források alapján: Azbeszt-ügy a Kőszeg–Burgenland határtérségben**\n\nAz osztrák és különösen burgenlandi források közlései szerint jelenleg nem folynak büntetőeljárások Landesrat Dorner ellen az azbesztkérdés kapcsán. A burgenlandi Kurier és az ORF Burgenland egyaránt megerősítette, hogy az állami ügyészség nem indított nyomozást a szóban forgó ügyben, amely a régiót, így Pilgersdorfot és tágabb értelemben Burgenlandet érinti. A cikkek nem tartalmaznak részletes adatokat laboreredményekről, hatósági intézkedésekről vagy konkrét egészségügyi hatásokról, így ezekről pontos információ nem áll rendelkezésre.\n\nAz érintett települések és térségek közül Kőszeg, Bozsok és Szombathely magyar oldalról, Pilgersdorf és Bernstein pedig az osztrák határ túloldaláról relevánsak. Az azbeszt vagy kőzúzalék problémája mindkét oldalt érinti, ezért különösen fontos a határon átnyúló hírfigyelés és információcsere. Az osztrák sajtó értesülései hiteles alapot nyújtanak a magyar régiós OSINT-elemzéshez, ugyanakkor hangsúlyozandó, hogy az ügy további részletei nem ismertek, és további hivatalos információk várhatók.\n\nAz osztrák források fontos szerepet töltenek be a térség környezeti és közegészségügyi kérdéseinek átlátható követésében, és hozzájárulnak a tájékozott helyi döntéshozatalhoz. A Kőszeg és Burgenland térségében fennálló környezeti kockázatok kezelése érdekében folyamatosan figyelni kell a helyi és regionális híreket.\n\n---\n\n**Figyelendő pontok:**\n\n1. Jelenleg nincs eljárás Landesrat Dorner ellen az azbesztügyben, az ügy további vizsgálata még nem ismert.\n\n2. A Kőszeg–Bozsok–Szombathely és Pilgersdorf–Bernstein térségében fennálló környezeti kérdések miatt fontos a határon átnyúló információgyűjtés.\n\n3. A jelenlegi források nem szolgáltatnak részletes egészségügyi vagy laboreredményeket, ezért a további közlemények és hivatalos hatósági jelentések várhatók.",
   "articles": [
     {
       "title": "Asbest-Vorwürfe: Keine Ermittlungen gegen Landesrat Dorner Staatsanwaltschaft nimmt keine Ermittlungen in der Asbest-Causa auf.",
@@ -18,22 +18,6 @@
       "date": "2026-06-19",
       "url": "https://burgenland.orf.at/stories/3359258",
       "type": "html"
-    },
-    {
-      "title": "Súlyos azbesztszennyezés Szombathelyen , ausztriai bányákból származik a rákkeltő anyag",
-      "source": "atv.hu",
-      "source_type": "austrian",
-      "date": "2026-04-15",
-      "url": "https://www.atv.hu/belfold/20260415/sulyos-azbesztszennyezes-szombathely",
-      "type": "gdelt"
-    },
-    {
-      "title": "Egyre aggasztóbb a szombathelyi azbesztszennyezés , gyerekek egészségét kockáztatták az osztrák bányában",
-      "source": "atv.hu",
-      "source_type": "austrian",
-      "date": "2026-04-23",
-      "url": "https://www.atv.hu/belfold/20260423/szombathely-azbeszt-szennyezes",
-      "type": "gdelt"
     }
   ]
 }
