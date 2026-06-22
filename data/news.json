@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-22T02:58:44.448772+00:00",
+  "generated_at": "2026-06-22T11:40:02.804579+00:00",
   "refresh_hours": 6,
   "query": "\n(\"Kőszeg\" OR \"Koszeg\" OR \"Bozsok\" OR \"Szombathely\" OR \"Pilgersdorf\" OR \"Burgenland\" OR \"Bernstein\")\n(azbeszt OR aszbeszt OR kőzúzalék OR kőbánya OR serpentinit OR Asbest OR Steinbruch OR Schotter OR Greenpeace)\n",
   "mode": "rss_html_gdelt_ai_filtered_with_article_date_extraction",
@@ -9,29 +9,27 @@
     "Greenpeace Magyarország": 1,
     "Kőszeg Önkormányzat": 1,
     "Kurier Burgenland": 1,
-    "MeinBezirk Burgenland": 1,
     "Vas Vármegyei Kormányhivatal": 1,
     "Telex": 5,
-    "Nyugat.hu": 3,
+    "Nyugat.hu": 4,
     "24.hu": 8,
-    "VAOL": 11,
-    "ORF Burgenland": 1
+    "VAOL": 11
   },
   "source_type_counts": {
-    "media": 42,
+    "media": 43,
     "civil": 1,
     "official": 2,
-    "austrian": 3
+    "austrian": 1
   },
-  "summary": "Azbesztszennyezés a Kőszeg, Bozsok, Szombathely, Pilgersdorf és Burgenland térségében – helyzetkép\n\nAz elmúlt hónapokban súlyos figyelmeztetések érkeztek a Kőszeg, Bozsok és Szombathely környékén talált azbeszttartalmú kőzúzalékkal kapcsolatban, melynek forrása a Burgenland térségében, Pilgersdorf környékén működő bányákból származhat. A kőzúzalék alkalmas volt közterületeken történő felhasználásra, például utak, járdák, parkolók burkolataként, amely több településen azbesztszennyezést okozhatott – ismertette a tényt több hazai médium, így a 444.hu, a HVG és a Telex.\n\n**Hivatalos és önkormányzati álláspontok**  \nKőszeg önkormányzata már áprilisban lakossági tájékoztatást adott ki a kialakult helyzetről, amelyben többek között az érintett területeken javasolt maximális sebességkorlátozásokat vezettek be a porforgalom mérséklése érdekében. A Vas megyei Kormányhivatal folyamatosan frissített tájékoztatót biztosít a lakosság számára, amely a felelősségi köröket, a vizsgálati eredményeket és a teendőket ismerteti. Az önkormányzat parki, iskolai és bölcsődei környezetekben is találtak azbesztet, ezért folyamatosan intézkednek a további terjedés megakadályozására.\n\n**Kormányzati és kormányhivatali intézkedések**  \nA magyar kormány a helyzet kezelésére parlamenti bizottsági ülés összehívását tervezte Szombathelyre, azonban ezt az eseményt később lemondták. A kormányhivatal szervezett tájékoztatóival és helyszíni vizsgálatokkal igyekszik kezelni a kérdést, de eddig nem hoztak nyilvánosságra újabb jogi vagy egészségügyi határozatot. A helyi közlekedési szabályok szigorításával igyekeznek csökkenteni az esetleges kockázatokat.\n\n**Civil szervezetek és civilek véleménye**  \nA Greenpeace Magyarország a helyzet súlyosságára hívta fel a figyelmet, egyúttal kritikával illette a kormány késlekedő intézkedéseit, és az osztrák oldali bányák júliusi újranyitását aggályosnak tartja, figyelmeztetve a lehetséges kockázatokra. Az osztrák Greenpeace viszont a magyar fél példamutató intézkedéseit emelte ki. A civil szervezet szerint az azbesztszennyezés kezelése és a megelőzés terén további együttműködésre lenne szükség.\n\n**Magyar és osztrák médiavisszhang**  \nHazai médiumok részletesen beszámoltak az ügyről, kiemelve a közterületek szennyeződését és a lakossági aggályokat. Több újság beszámolt az ingatlanárak csökkenéséről és a lakossági félelmekről, de egyaránt hangsúlyozták a jegyzők, kormányhivatali szervek és önkormányzatok által hozott óvintézkedéseket.\n\nOsztrák források, például a Kurier Burgenland és a MeinBezirk Burgenland tájékoztatása szerint a helyi hatóságok eddig nem indítottak vizsgálatot az Azbeszt-ügyben érintett politikusok ellen, és a Pilgersdorf melletti bánya körüli katonasági gyakorlatokat is lezárták vizsgálat nélkül. Az osztrák bányászati vállalatok szerint nincs szennyezés a helyi bányákban, és az ellenük indított vádakat egyes esetekben a Greenpeace elleni ellenlobbinak minősítik.\n\n**Költségek és jövőbeli kilátások**  \nAz azbesztmentesítés jelentős anyagi terhet ró mind a magyar, mind az osztrákországi költségvetésekre – erről főként a HVG írt, hangsúlyozva, hogy a pontos költségek még nem ismertek, de a terület nagysága és a szennyezés mértéke miatt",
+  "summary": "Az utóbbi időszakban nyilvánosságra került, hogy a Kőszeg, Bozsok, Szombathely környékén, valamint Pilgersdorf és a burgenlandi térségben forgalomba hozott kőzúzalék egy részét azbeszttel szennyezett anyagból állíthatták elő. A kérdéses kőzúzalék alapanyagául szolgáló bányák döntő része Burgenland területén, többek között Pilgersdorf környékén található, ahonnan az osztrák hatóságok korábban a veszély felismerése után visszavonták az engedélyeket.\n\nMagyarországi hivatalos források, így a Vas Vármegyei Kormányhivatal májusban részletes lakossági tájékoztatást nyújtottak a helyzetről, kiemelve a biztonsági intézkedéseket és a hatósági vizsgálatokat. A kormányhivatal folyamatosan frissíti az információkat és javaslatokat ad a lakosságnak, de konkrét egészségügyi következtetéseket egyelőre nem tettek közzé. Kőszeg önkormányzata is tájékoztatta az érintetteket, hangsúlyozva a közbiztonság fenntartására irányuló lépéseket, például forgalmi korlátozásokat (említve 10 km/h-s sebességkorlátozást több utcában).\n\nA magyar média beszámolói szerint a kőzúzalékot elsősorban útépítési és közterületi beruházások során használták fel, és több helyen, köztük bölcsődék, óvodák, iskolai kollégiumok parkolói és játszóterek közelében is kimutatták azbesztszennyezést. Ezek a hírek felkeltették a lakosság aggodalmát, ami a helyi közéletben és ingatlanpiacon is visszhangot váltott ki, például közterületek ideiglenes lezárásával és lakossági szájmaszkok biztosításával.\n\nFelmerült egy parlamenti bizottság Szombathelyre tervezett kihelyezett ülése, amit a kormány később lemondott, ami a civil szervezetek, például a Greenpeace Magyarország kritikáját váltotta ki. A Greenpeace rámutatott, hogy míg Magyarországon működik az átlátható és gyors válságkezelés, addig Burgenlandban az osztrák hatóságok már a bányák újranyitását tervezik, ami civil szervezeti perspektívából egyfajta kockázatot hordozhat.\n\nOsztrák források, köztük a Kurier Burgenland, arról számoltak be, hogy az azbesztügyben indított nyomozások, így például az érintett burgenlandi politikusokkal szembeni vizsgálatok, egyelőre nem vezettek vádemeléshez vagy büntetőjogi következményekhez. Az osztrák ellenérdekeltek részéről egy erős lobbi működik, amely tagadja a helyi bányák szennyező szerepét.\n\nMindezek mellett a szennyezés eltakarítása komoly anyagi terhet jelentene mind a magyar, mind az osztrák oldalon, amit médiaelemzések és civil vélemények is hangsúlyoznak.\n\nÖsszességében a helyzet egy többoldalú, határokon átnyúló ügy, amely a magyar és az osztrák hatóságok, civil szervezetek, valamint a helyi lakosság közös figyelmét és együttműködését igényli. Jelenleg zajlanak az elemzések, vizsgálatok, és mindkét országban különböző szinten zajlanak a válaszlépések.\n\nRöviden:\n- Azbeszttartalmú kőzúzalék került Nyugat-Magyarországra, főleg Kőszeg, Bozsok és Szombathely térségébe.\n- Hivatalos szervek és önkormányzatok intézkedéseket vezettek be, a lakosságot folyamatosan tájékoztatják.\n- Civilek és osztrák hatóságok eltérő álláspontokat képviselnek a burgenlandi bányák helyzetét illetően.",
   "latest_articles": [
     {
-      "title": "Nach Asbest-Anzeige Keine Ermittlungen wegen Katastrophenübung im Steinbruch Pilgersdorf",
-      "source": "MeinBezirk Burgenland",
-      "source_type": "austrian",
-      "date": "2026-06-21",
-      "url": "https://www.meinbezirk.at/oberpullendorf/c-lokales/keine-ermittlungen-wegen-katastrophenuebung-im-steinbruch-pilgersdorf_a8702733",
-      "type": "html"
+      "title": "Két szombathelyi gyár parkolójában is kimutatták az azbeszt jelenlétét",
+      "source": "Nyugat.hu",
+      "source_type": "media",
+      "date": "2026-06-22",
+      "url": "https://www.nyugat.hu/cikk/ket_szombathelyi_gyar_parkolojaban_is_kimutattak_az_azbesztet",
+      "type": "html_targeted"
     },
     {
       "title": "Nagykölked, felelősség és azbeszt: mit mondott V. Németh Zsolt Szombathelyen?",
@@ -42,19 +40,11 @@
       "type": "html_targeted"
     },
     {
-      "title": "Asbest-Vorwürfe: Keine Ermittlungen gegen Landesrat Dorner Staatsanwaltschaft nimmt keine Ermittlungen in der Asbest-Causa auf.",
+      "title": "Asbest-Vorwürfe: Keine Ermittlungen gegen Landesrat Dorner",
       "source": "Kurier Burgenland",
       "source_type": "austrian",
       "date": "2026-06-19",
       "url": "https://kurier.at/chronik/burgenland/asbest-dorner-greenpeace-staatsanwaltschaft-pilgersdorf-burgenland/403170538",
-      "type": "html"
-    },
-    {
-      "title": "Asbest: Keine Ermittlungen gegen Landesrat Dorner",
-      "source": "ORF Burgenland",
-      "source_type": "austrian",
-      "date": "2026-06-19",
-      "url": "https://burgenland.orf.at/stories/3359258",
       "type": "html"
     },
     {
@@ -120,6 +110,14 @@
       "date": "2026-06-11",
       "url": "https://telex.hu/g7/adat/2026/06/11/burgenland-banyak-azbeszt-rakos-megbetegedesek-aranya-ausztria",
       "type": "html_targeted"
+    },
+    {
+      "title": "Azbesztszennyezés – A legfontosabb lakossági információk 2026. május 29. 09:16 Az alábbiakban a témával kapcsolatos legfontosabb információkról, fejleményekről, lakossági felhívásokról, illetve teendőkről tájékozódhatnak. Az oldalon található információkat folyamatosan frissítjük. Részletek",
+      "source": "Vas Vármegyei Kormányhivatal",
+      "source_type": "official",
+      "date": "2026-06-10",
+      "url": "https://kormanyhivatalok.hu/kormanyhivatalok/vas/megye/hirek/hir/azbesztszennyezes-legfontosabb-lakossagi-informaciok",
+      "type": "html"
     }
   ],
   "articles": [
@@ -164,19 +162,11 @@
       "type": "html_targeted"
     },
     {
-      "title": "Asbest-Vorwürfe: Keine Ermittlungen gegen Landesrat Dorner Staatsanwaltschaft nimmt keine Ermittlungen in der Asbest-Causa auf.",
+      "title": "Asbest-Vorwürfe: Keine Ermittlungen gegen Landesrat Dorner",
       "source": "Kurier Burgenland",
       "source_type": "austrian",
       "date": "2026-06-19",
       "url": "https://kurier.at/chronik/burgenland/asbest-dorner-greenpeace-staatsanwaltschaft-pilgersdorf-burgenland/403170538",
-      "type": "html"
-    },
-    {
-      "title": "Nach Asbest-Anzeige Keine Ermittlungen wegen Katastrophenübung im Steinbruch Pilgersdorf",
-      "source": "MeinBezirk Burgenland",
-      "source_type": "austrian",
-      "date": "2026-06-21",
-      "url": "https://www.meinbezirk.at/oberpullendorf/c-lokales/keine-ermittlungen-wegen-katastrophenuebung-im-steinbruch-pilgersdorf_a8702733",
       "type": "html"
     },
     {
@@ -241,6 +231,14 @@
       "source_type": "media",
       "date": "2026-04-21",
       "url": "https://444.hu/2026/04/21/panik-szombathelyen-az-azbesztszennyezes-miatt-egy-sor-kozteruletet-lezarnak-szajmaszkot-osztanak-a-lakosoknak-esnek-az-ingatlanarak",
+      "type": "html_targeted"
+    },
+    {
+      "title": "Két szombathelyi gyár parkolójában is kimutatták az azbeszt jelenlétét",
+      "source": "Nyugat.hu",
+      "source_type": "media",
+      "date": "2026-06-22",
+      "url": "https://www.nyugat.hu/cikk/ket_szombathelyi_gyar_parkolojaban_is_kimutattak_az_azbesztet",
       "type": "html_targeted"
     },
     {
@@ -362,14 +360,6 @@
       "date": "2026-05-08",
       "url": "https://444.hu/2026/05/08/szombathely-rozsadombjanak-indult-most-az-udvarra-se-mehetnek-ki-a-sulyos-azbesztszennyezes-miatt",
       "type": "html_targeted"
-    },
-    {
-      "title": "Asbest: Keine Ermittlungen gegen Landesrat Dorner",
-      "source": "ORF Burgenland",
-      "source_type": "austrian",
-      "date": "2026-06-19",
-      "url": "https://burgenland.orf.at/stories/3359258",
-      "type": "html"
     },
     {
       "title": "Magyar Péter: Az előző kormányzat tudott a nyugat-magyarországi azbesztszennyezésről, de nem tett lépéseket ellene",
