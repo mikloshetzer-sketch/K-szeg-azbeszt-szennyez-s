@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-21T09:02:54.394Z",
+  "generated_at": "2026-06-22T10:47:22.430Z",
   "method": "balanced_keyword_rule_based_event_scoring_v3",
   "description": "Automatikusan generált Kőszeg–azbeszt ügyindex a data/news.json alapján. A rendszer külön számolja a negatív kockázati és a pozitív intézkedési kulcsszavakat.",
   "scoring_note": "Ez nem klasszikus hangulatelemzés. A negatív pont kockázatot vagy romló fejleményt, a pozitív pont intézkedést, tájékoztatást, monitoringot vagy megoldás felé mutató eseményt jelent.",
@@ -1066,20 +1066,6 @@
     },
     {
       "date": "2026-06-18",
-      "title": "Csütörtökön újraindul az azbeszt elleni védő locsolás a szombathelyi Oladi Platón és a déli városrészen",
-      "source": "Nyugat.hu",
-      "source_type": "media",
-      "category": "altalanos_media_megjelenes",
-      "base_score": -1,
-      "source_weight": 1,
-      "confidence": 0.7,
-      "final_score": -0.7,
-      "matched_negative_rules": [],
-      "matched_positive_rules": [],
-      "url": "https://www.nyugat.hu/cikk/csutortokon_ujtoraindul_az_azbeszt_elleni_locsolas"
-    },
-    {
-      "date": "2026-06-18",
       "title": "Azbesztügy: határozatképtelen a bizottság a kormánypárti tagok távolmaradása miatt! - frissül!",
       "source": "VAOL",
       "source_type": "media",
@@ -1127,20 +1113,6 @@
       "matched_negative_rules": [],
       "matched_positive_rules": [],
       "url": "https://kurier.at/chronik/burgenland/asbest-dorner-greenpeace-staatsanwaltschaft-pilgersdorf-burgenland/403170538"
-    },
-    {
-      "date": "2026-06-19",
-      "title": "Navracsics az azbeszthelyzetről: A Tisza mindeddig arra hivatkozott, hogy nem azt fogja csinálni, mint amit a Fidesz tett",
-      "source": "HVG",
-      "source_type": "media",
-      "category": "altalanos_media_megjelenes",
-      "base_score": -1,
-      "source_weight": 1,
-      "confidence": 0.7,
-      "final_score": -0.7,
-      "matched_negative_rules": [],
-      "matched_positive_rules": [],
-      "url": "https://hvg.hu/itthon/20260619_navracsics-tibor-azbeszt-szennyezes-kozigazdasagi-es-teruletvejlesztesi-miniszter-volt-szombathely-tisza-parlamenti-bizottsag-ules-lemondtak"
     },
     {
       "date": "2026-06-19",
@@ -1199,6 +1171,34 @@
         }
       ],
       "url": "https://www.vaol.hu/helyi-kozelet/2026/06/azbeszt-ugy-bizottsagi-ules-kormany"
+    },
+    {
+      "date": "2026-06-21",
+      "title": "Nach Asbest-Anzeige Keine Ermittlungen wegen Katastrophenübung im Steinbruch Pilgersdorf",
+      "source": "MeinBezirk Burgenland",
+      "source_type": "austrian",
+      "category": "altalanos_media_megjelenes",
+      "base_score": -1,
+      "source_weight": 1,
+      "confidence": 0.7,
+      "final_score": -0.7,
+      "matched_negative_rules": [],
+      "matched_positive_rules": [],
+      "url": "https://www.meinbezirk.at/oberpullendorf/c-lokales/keine-ermittlungen-wegen-katastrophenuebung-im-steinbruch-pilgersdorf_a8702733"
+    },
+    {
+      "date": "2026-06-21",
+      "title": "Nagykölked, felelősség és azbeszt: mit mondott V. Németh Zsolt Szombathelyen?",
+      "source": "Nyugat.hu",
+      "source_type": "media",
+      "category": "altalanos_media_megjelenes",
+      "base_score": -1,
+      "source_weight": 1,
+      "confidence": 0.7,
+      "final_score": -0.7,
+      "matched_negative_rules": [],
+      "matched_positive_rules": [],
+      "url": "https://www.nyugat.hu/cikk/nagykolked_felelosseg_es_azbeszt_mit_mondott_v"
     }
   ]
 }
