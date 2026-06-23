@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-23T14:33:33.959311+00:00",
+  "generated_at": "2026-06-23T19:53:32.880578+00:00",
   "refresh_hours": 6,
   "query": "\n(\"Kőszeg\" OR \"Koszeg\" OR \"Bozsok\" OR \"Szombathely\" OR \"Pilgersdorf\" OR \"Burgenland\" OR \"Bernstein\")\n(azbeszt OR aszbeszt OR kőzúzalék OR kőbánya OR serpentinit OR Asbest OR Steinbruch OR Schotter OR Greenpeace)\n",
   "mode": "rss_html_gdelt_ai_filtered_with_article_date_extraction",
@@ -10,19 +10,35 @@
     "Kőszeg Önkormányzat": 1,
     "Kurier Burgenland": 1,
     "Vas Vármegyei Kormányhivatal": 1,
-    "Telex": 5,
-    "Nyugat.hu": 2,
+    "Telex": 6,
+    "Nyugat.hu": 3,
     "24.hu": 8,
     "VAOL": 11
   },
   "source_type_counts": {
-    "media": 41,
+    "media": 43,
     "civil": 1,
     "official": 2,
     "austrian": 1
   },
-  "summary": "Az elmúlt hónapokban a Kőszeg, Bozsok, Szombathely térségét, valamint az ausztriai Pilgersdorfot és Burgenland régióját érintő azbeszttel szennyezett kőzúzalék kérdése több fórumon vált hangsúlyossá, különösen a lakosság egészségügyi biztonsága miatt.\n\nA magyar médiában, így például a 444.hu, a HVG, a Telex és a 24.hu beszámolói szerint az érintett térségbe – elsősorban Szombathely, Bozsok és Kőszeg környékére – az azbeszttartalmú kőzúzalék alapanyagként kerülhetett. Ezt az anyagot osztrák bányákból, főként a pilgersdorfi kőfejtőből szállíthatták Magyarországra az elmúlt években. A sajtó beszámol arról is, hogy több közterületet, köztük iskolák, óvodák és játszóterek környezetét is érintette a szennyeződés, ami helyi intézkedéseket váltott ki, például sebességkorlátozások és területi lezárások bevezetését, illetve szájmaszkok terjesztését.\n\nA Kőszeg Város Önkormányzata hivatalos közleményében tájékoztatta a lakosságot az ügyben, hangsúlyozva a folyamatos egyeztetés és információszolgáltatás igényét. A Vas Vármegyei Kormányhivatal is közzétett lakossági tájékoztatót, amelyben összegzi az elérhető információkat, felhívásokat és javaslatokat a további biztonság érdekében.\n\nOsztrák oldalról a Kurier Burgenland beszámolója szerint a helyi hatóságok vizsgálódnak az ügyben, de eddig nincs folyamatban nyomozás például Landesrat Dorner ellen. Az osztrák bányaüzemeltetők ugyanakkor vitatják, hogy lenne szennyezés, és a Greenpeace-t – amely civil szervezeti oldalról aktívan áll ki a témában – bűnbaknak nevezik. A Greenpeace Magyarország az ügy kapcsán hiányolja a parlamenti bizottsági ülés megtartását, amelyet a kormány lemondott, miközben Burgenlandban tervben van az érintett bányák júliusi újranyitása.\n\nA civil szervezetek közül a Greenpeace Magyarország aktívan kommunikál az ügyben, felhívva a figyelmet a kockázatokra és a felelős lépések szükségességére mindkét oldalon, Magyarországon és Ausztriában egyaránt.\n\nA magyar média tudósításai mindeközben a helyi lakosság reakcióiról is beszámolnak, kiemelve az ingatlanpiaci hatásokat és a közbizalmi kérdéseket, de a korábbi hírekkel ellentétben ismételten nem születtek hivatalos hatósági egészségügyi következtetések vagy laboreredmények az ügy kapcsán, ezért azokat óvatosan szükséges kezelni.\n\nÖsszességében a kőzúzalék-ügy egy több régiót érintő problémaként jelentkezik, amely számos szinten – helyi önkormányzati, kormányhivatali, civil és nemzetközi – párbeszédet eredményezett, de a bizonyított egészségügyi következményeket illetően egyelőre nincs egyértelmű, közös konszenzus.\n\nRöviden:  \n- Kőszeg, Bozsok, Szombathely térségében osztrák bányákból származó, azbeszttel szennyezett kőzúzalék került felhasználásra.  \n- Hivatalos hatóságok és önkormányzatok tájékoztatják a lakosságot, számos intézkedés folyamatban van a kockázatok csökkentésére.  \n- Az ügy nemzetközi szinten is megjelenik, lasan alakul ki konszenzus a szennyezés mértékét és következményeit illetően.",
+  "summary": "AI-összefoglaló hiba miatt nem készült el. OpenAI HTTP hiba: 500.",
   "latest_articles": [
+    {
+      "title": "V. Németh Zsolt szerint Magyar Péter úgy kezeli az azbesztügyet, mint a kalapácsot",
+      "source": "Nyugat.hu",
+      "source_type": "media",
+      "date": "2026-06-23",
+      "url": "https://www.nyugat.hu/cikk/orban_anita_v_nemeth_zsolt_csorte_parlament",
+      "type": "html_targeted"
+    },
+    {
+      "title": "A helyi távhőcégnél történt hiba miatt lett narancssárga a miskolci Szinva patak",
+      "source": "Telex",
+      "source_type": "media",
+      "date": "2026-06-23",
+      "url": "https://telex.hu/belfold/2026/06/23/miskolc-szinva-patak-vasoxid-szennyezes",
+      "type": "rss"
+    },
     {
       "title": "Két szombathelyi gyár parkolójában is kimutatták az azbeszt jelenlétét",
       "source": "Nyugat.hu",
@@ -102,22 +118,6 @@
       "date": "2026-06-10",
       "url": "https://kormanyhivatalok.hu/kormanyhivatalok/vas/megye/hirek/hir/azbesztszennyezes-legfontosabb-lakossagi-informaciok",
       "type": "html"
-    },
-    {
-      "title": "Újra megnyitották az azbesztszennyezés miatt lezárt szombathelyi vasúti megállónál található parkolót",
-      "source": "VAOL",
-      "source_type": "media",
-      "date": "2026-06-08",
-      "url": "https://www.vaol.hu/helyi-kozelet/2026/06/azbeszt-vasut-allomas-szombathely-parkolo-megnyitottak",
-      "type": "html_targeted"
-    },
-    {
-      "title": "Azbeszt-ügy: Vas vármegye minden lakójára jutna egy billencsnyi kőzúzalék - Meglepő adatokat mutatunk",
-      "source": "VAOL",
-      "source_type": "media",
-      "date": "2026-06-07",
-      "url": "https://www.vaol.hu/helyi-kozelet/2026/06/azbeszt-ugy-vas-varmegye-minden-lakojara",
-      "type": "html_targeted"
     }
   ],
   "articles": [
@@ -354,6 +354,14 @@
       "type": "html_targeted"
     },
     {
+      "title": "V. Németh Zsolt szerint Magyar Péter úgy kezeli az azbesztügyet, mint a kalapácsot",
+      "source": "Nyugat.hu",
+      "source_type": "media",
+      "date": "2026-06-23",
+      "url": "https://www.nyugat.hu/cikk/orban_anita_v_nemeth_zsolt_csorte_parlament",
+      "type": "html_targeted"
+    },
+    {
       "title": "Ausztria magára hagyta Magyarországot az azbesztszennyezéssel",
       "source": "24.hu",
       "source_type": "media",
@@ -480,6 +488,14 @@
       "date": "2026-06-07",
       "url": "https://www.vaol.hu/helyi-kozelet/2026/06/azbeszt-ugy-vas-varmegye-minden-lakojara",
       "type": "html_targeted"
+    },
+    {
+      "title": "A helyi távhőcégnél történt hiba miatt lett narancssárga a miskolci Szinva patak",
+      "source": "Telex",
+      "source_type": "media",
+      "date": "2026-06-23",
+      "url": "https://telex.hu/belfold/2026/06/23/miskolc-szinva-patak-vasoxid-szennyezes",
+      "type": "rss"
     }
   ]
 }
