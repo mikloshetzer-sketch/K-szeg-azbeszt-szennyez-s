@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-26T08:35:26.341Z",
+  "generated_at": "2026-06-27T08:06:46.431Z",
   "method": "balanced_keyword_rule_based_event_scoring_v3",
   "description": "Automatikusan generált Kőszeg–azbeszt ügyindex a data/news.json alapján. A rendszer külön számolja a negatív kockázati és a pozitív intézkedési kulcsszavakat.",
   "scoring_note": "Ez nem klasszikus hangulatelemzés. A negatív pont kockázatot vagy romló fejleményt, a pozitív pont intézkedést, tájékoztatást, monitoringot vagy megoldás felé mutató eseményt jelent.",
@@ -1115,20 +1115,6 @@
       "url": "https://www.nyugat.hu/cikk/ket_szombathelyi_gyar_parkolojaban_is_kimutattak_az_azbesztet"
     },
     {
-      "date": "2026-06-23",
-      "title": "V. Németh Zsolt szerint Magyar Péter úgy kezeli az azbesztügyet, mint a kalapácsot",
-      "source": "Nyugat.hu",
-      "source_type": "media",
-      "category": "altalanos_media_megjelenes",
-      "base_score": -1,
-      "source_weight": 1,
-      "confidence": 0.7,
-      "final_score": -0.7,
-      "matched_negative_rules": [],
-      "matched_positive_rules": [],
-      "url": "https://www.nyugat.hu/cikk/orban_anita_v_nemeth_zsolt_csorte_parlament"
-    },
-    {
       "date": "2026-06-24",
       "title": "A kormány lemondta a Szombathelyre kihelyezett parlamenti bizottsági ülést, pedig Burgenlandban már júliusban újranyithatják az osztrák azbesztes bányákat",
       "source": "Greenpeace Magyarország",
@@ -1152,7 +1138,7 @@
     },
     {
       "date": "2026-06-25",
-      "title": "Asbest-Entscheidung rückt näher: Warnung vor Klagen in Milliardenhöhe Greenpeace und ein Wiener Anwalt warnen vor Amtshaftungsklagen in Milliardenhöhe. Im Landtag verteidigte Landesrat Heinrich Dorner das laufende Behördenverfahren.",
+      "title": "Asbest-Entscheidung rückt näher: Warnung vor Klagen in Milliardenhöhe",
       "source": "Kurier Burgenland",
       "source_type": "austrian",
       "category": "altalanos_media_megjelenes",
