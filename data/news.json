@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-30T09:00:46.204743+00:00",
+  "generated_at": "2026-06-30T14:03:14.951872+00:00",
   "refresh_hours": 6,
   "query": "\n(\"Kőszeg\" OR \"Koszeg\" OR \"Bozsok\" OR \"Szombathely\" OR \"Pilgersdorf\" OR \"Burgenland\" OR \"Bernstein\")\n(azbeszt OR aszbeszt OR kőzúzalék OR kőbánya OR serpentinit OR Asbest OR Steinbruch OR Schotter OR Greenpeace)\n",
   "mode": "rss_html_gdelt_ai_filtered_with_article_date_extraction",
@@ -14,15 +14,15 @@
     "VAOL": 12,
     "24.hu": 8,
     "MeinBezirk Burgenland": 1,
-    "Nyugat.hu": 3
+    "Nyugat.hu": 1
   },
   "source_type_counts": {
-    "media": 43,
+    "media": 41,
     "civil": 1,
     "official": 2,
     "austrian": 2
   },
-  "summary": "Az azbeszttel szennyezett kőzúzalék ügyében az elmúlt hónapokban jelentős figyelem irányult Kőszeg, Bozsok, Szombathely térségére, valamint az ausztriai Burgenland egyes területeire, különösen a pilgersdorfi bányára. A közérthető összefoglaló érdekében forrástípusonként különböztetjük meg a közlésmódokat és információkat.\n\n**Hivatalos források:**\n\nA Vas Vármegyei Kormányhivatal tájékoztatásai május végén és június elején megerősítették, hogy folyamatos vizsgálatok zajlanak az azbesztszennyezés feltérképezésére, illetve a lakosság számára fontos információkat, felhívásokat tesznek elérhetővé (Vas Vármegyei Kormányhivatal, 2026). A kormányhivatal honlapján részletes útmutatók vannak a teendőkről, a helyszíni vizsgálatokról és az érintett területeken érvényben lévő korlátozásokról.\n\nKőszeg Önkormányzata áprilisban lakossági tájékoztatót tett közzé, amelyben tájékoztatják a helyi lakosságot a pilgersdorfi bányából származó, azbeszttartalmú kőzúzalék terjedéséről és a városban bevezetett forgalmi korlátozásokról. A városban 46 utcában 10 km/h-s sebességkorlátozást rendeltek el, hogy mérsékeljék a porfelverődést (Kőszeg Önkormányzat, 2026).\n\n**Önkormányzati és kormányzati intézkedések:**\n\nA térségben – főként Szombathelyen – a helyi önkormányzatok több közterület ideiglenes lezárásáról döntöttek, maszkokat osztanak ki a lakosok körében, és fokozott tájékoztatást nyújtanak az egészségügyi elővigyázatosságról. E hírek alapján a helyi hatóságok az esetleges kockázatok csökkentésére törekednek, miközben további vizsgálatok zajlanak (444, 2026. április).\n\nAz osztrák oldalon Burgenland megyei kormányzati döntésekről is beszámoltak, amely szerint az ottani azbesztbányák 2026 júliusában újranyithatnak. Ez a lépés vitákat váltott ki, ugyanis a Greenpeace Magyarország aggodalmát fejezte ki amiatt, hogy ez a fejlemény következményekkel lehet az érintett magyar területekre nézve. Az osztrák kormányzat és ipari szereplők ugyanakkor olyan álláspontot képviselnek, hogy az adott bányákban nincs szennyezés, miközben a Greenpeace kritikusan viszonyul az újranyitás terveihez (Greenpeace Magyarország, 2026; 444, 2026. április).\n\n**Média- és civil források:**\n\nA magyar médiában több cikk foglalkozott az azbeszt ügyével. A 444.hu, HVG, Telex és 24.hu beszámolóiból kiderül, hogy azbesztszennyezést írtak le több helyszínen Kőszegen, Bozsokon, Szombathelyen és vonzáskörzetükben. A beszámolók kitértek arra, hogy az érintett kőzúzalék az osztrák pilgersdorfi bánya terméke lehet, amely a múltban került a magyar térségbe.\n\nA tájékoztatások hangsúlyozzák, hogy az azbeszt jelenléte komoly aggályokat vet fel, mert az érintett szállítóanyagból szennyezett kőzúzalék került közterületekre, közel bölcsődékhez, óvodákhoz, iskolai intézményekhez és játszóterekhez. Médiajelentésekben említik az ingatlanárak csökkenését és helyi lakosok körében tapasztalható félelmeket, ugyanakkor nem fogalmaznak meg saját egészségügyi állításokat, hanem hatósági vizsgálatokra és szakértői elemzésekre hivatkoznak (444, HVG, Telex, 24.hu, VAOL, 2026).\n\nA Greenpeace Magyarország és osztrák szervezetei eltérő nézőpontokat képvis",
+  "summary": "Az elmúlt hónapokban egyre több információ látott napvilágot az úgynevezett azbeszt vagy azbeszttartalmú kőzúzalék ügyében, amely Szombathely, Bozsok, Kőszeg és a közeli osztrák Pilgersdorf, valamint Burgenland térségét érinti. A helyzet összetett és több érintett szereplő álláspontját, valamint számos hivatalos intézkedést is érint.\n\n**Hivatalos és önkormányzati források szerint** a probléma az osztrák Pilgersdorfi bányából származó, azbeszttel szennyezett kőzúzalék elhelyezéséből ered Magyarországon, amelyet a magyar hatóságok is vizsgálnak. Kőszeg önkormányzata több lakossági tájékoztatót tett közzé, ahol ismertetik a helyzetet, a kockázatokat és a városban bevezetett intézkedéseket, például a közlekedési korlátozásokat, amelyek közül 46 utcában 10 km/h-s sebességkorlátozás lépett érvénybe. A Vas Vármegyei Kormányhivatal honlapján folyamatosan frissítik az azbesztszennyezéssel kapcsolatos legfontosabb információkat és lakossági felhívásokat.\n\n**A magyar média beszámolói** hangsúlyozzák, hogy Szombathelyen, Bozsokon és Kőszegen is kimutatták az azbeszt jelenlétét több utcában, különösen olyan helyeken, ahol bölcsődék, óvodák, iskolai kollégiumok és játszóterek találhatók, ami a lakosság széles körű aggodalmát váltotta ki. Ezért adott időszakban szájmaszkokat osztottak ki, és több közterületet lezártak. A közéleti beszámolók kitérnek arra is, hogy az ingatlanárak csökkenése is megfigyelhető az érintett városokban a szennyezés ügyének nyilvánosságra kerülése után. Ugyanakkor a médiumok részletes laboreredményeket vagy egészségügyi következtetéseket nem közölnek, ezek továbbra is az illetékes hatóságok értékelésére várnak.\n\n**A civil szervezetek, elsősorban a Greenpeace Magyarország**, felhívják a figyelmet a szennyezés súlyosságára és a kormányzati reagálás körüli vitákra. Közleményük szerint a magyar kormány 2026 nyarán lemondta a Szombathelyre tervezett kihelyezett parlamenti bizottsági ülést, miközben Ausztriában, Burgenland tartományban már júliusban újraindítanák az azbesztbányákat. A Greenpeace szerint érdemes lenne példát venni a magyarországi azbesztszennyezés kezelésében, ami viták kereszttüzében áll. Az osztrák Greenpeace és helyi érdekcsoportok részéről ellenérvek is felmerülnek, amelyek tagadják a szennyezést, miközben Vas megyében egészségügyi vészhelyzet kialakulását említik magyar oldalon.\n\n**Osztrák források, így a Kurier Burgenland**, a burgenlandi tartományi napilap, arról számol be, hogy az azbeszt kérdésének rendezése, valamint a felelősség tisztázása a közeljövőben várható. Előrejelzések szerint a hozzá kapcsolódó kárigények akár több milliárd eurós nagyságrendű kártérítéseket is eredményezhetnek. Ugyanakkor a burgenlandi politikai döntéshozók és gazdasági szereplők részéről nyomás nehezedik az azbesztes bányák újranyitására, ami további kényes kérdéseket vet fel.\n\n**Összességében** a térségben jelenleg több vizsgálat és intézkedés is folyik, a tényeket illetően pedig nem született végleges hatósági döntés vagy egészségügyi ajánlás, amit a nyilvánosság teljes körűen elfogadott volna. Az ügy sokszereplős és érdekellentétekkel terhelt, ezért továbbra is fontos a hiteles tájékoztatás és a körültekintő, tényalapú kommunikáció.\n\n---\n\n### Röviden:\n- Az osztrák Pilgersdorfi bányából származó azbesztes k",
   "latest_articles": [
     {
       "title": "Hetven év után bezárták, most már a kastély sorsa is kérdés: petíció indult a Zsennyei Alkotóház megmentéséért",
@@ -55,22 +55,6 @@
       "date": "2026-06-25",
       "url": "https://www.meinbezirk.at/burgenland/c-politik/mindestschuelerzahlen-in-schulen-asbest-und-warnung-vor-klage_a8712249",
       "type": "html"
-    },
-    {
-      "title": "Azbesztválság Nyugat-Magyarországon: az MTA szerint tudományos és politikai válaszokra is szükség van",
-      "source": "Nyugat.hu",
-      "source_type": "media",
-      "date": "2026-06-25",
-      "url": "https://www.nyugat.hu/cikk/azbesztvalsag_nyugat_magyarorszagon_az_mta_szerint",
-      "type": "html_targeted"
-    },
-    {
-      "title": "Gyorsfelmérést indított az azbeszt-ügy gazdasági hatásairól a Vas megyei Iparkamara",
-      "source": "Nyugat.hu",
-      "source_type": "media",
-      "date": "2026-06-25",
-      "url": "https://www.nyugat.hu/cikk/gyorsfelmerest_inditott_az_azbeszt_ugy_gazdasagi_a",
-      "type": "html_targeted"
     },
     {
       "title": "A kormány lemondta a Szombathelyre kihelyezett parlamenti bizottsági ülést, pedig Burgenlandban már júliusban újranyithatják az osztrák azbesztes bányákat",
@@ -119,6 +103,22 @@
       "date": "2026-06-12",
       "url": "https://www.vaol.hu/helyi-kozelet/2026/06/azbesztszennyezes-vasi-turizmus-agh-peter-a-parlament",
       "type": "html_targeted"
+    },
+    {
+      "title": "Kimagasló az azbeszt miatti rákos megbetegedések aránya néhány burgenlandi járásban",
+      "source": "Telex",
+      "source_type": "media",
+      "date": "2026-06-11",
+      "url": "https://telex.hu/g7/adat/2026/06/11/burgenland-banyak-azbeszt-rakos-megbetegedesek-aranya-ausztria",
+      "type": "html_targeted"
+    },
+    {
+      "title": "Azbesztszennyezés – A legfontosabb lakossági információk 2026. május 29. 09:16 Az alábbiakban a témával kapcsolatos legfontosabb információkról, fejleményekről, lakossági felhívásokról, illetve teendőkről tájékozódhatnak. Az oldalon található információkat folyamatosan frissítjük. Részletek",
+      "source": "Vas Vármegyei Kormányhivatal",
+      "source_type": "official",
+      "date": "2026-06-10",
+      "url": "https://kormanyhivatalok.hu/kormanyhivatalok/vas/megye/hirek/hir/azbesztszennyezes-legfontosabb-lakossagi-informaciok",
+      "type": "html"
     }
   ],
   "articles": [
@@ -353,22 +353,6 @@
       "date": "2026-06-25",
       "url": "https://www.meinbezirk.at/burgenland/c-politik/mindestschuelerzahlen-in-schulen-asbest-und-warnung-vor-klage_a8712249",
       "type": "html"
-    },
-    {
-      "title": "Azbesztválság Nyugat-Magyarországon: az MTA szerint tudományos és politikai válaszokra is szükség van",
-      "source": "Nyugat.hu",
-      "source_type": "media",
-      "date": "2026-06-25",
-      "url": "https://www.nyugat.hu/cikk/azbesztvalsag_nyugat_magyarorszagon_az_mta_szerint",
-      "type": "html_targeted"
-    },
-    {
-      "title": "Gyorsfelmérést indított az azbeszt-ügy gazdasági hatásairól a Vas megyei Iparkamara",
-      "source": "Nyugat.hu",
-      "source_type": "media",
-      "date": "2026-06-25",
-      "url": "https://www.nyugat.hu/cikk/gyorsfelmerest_inditott_az_azbeszt_ugy_gazdasagi_a",
-      "type": "html_targeted"
     },
     {
       "title": "Ausztria magára hagyta Magyarországot az azbesztszennyezéssel",
