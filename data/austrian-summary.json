@@ -1,6 +1,31 @@
 {
-  "generated_at": "2026-07-01T09:33:48.913202+00:00",
-  "count": 0,
-  "summary": "Jelenleg nincs külön osztrák vagy burgenlandi hírtalálat a rendszerben.",
-  "articles": []
+  "generated_at": "2026-07-01T14:15:57.982441+00:00",
+  "count": 3,
+  "summary": "**Azbeszt- és kőzúzalék ügy a Kőszeg–Burgenland–Szombathely térségében: összefoglaló az osztrák és burgenlandi források alapján**\n\nAz azbesztszennyezés kérdése hírértékűvé vált a Kőszeghez és Szombathelyhez közeli, valamint a burgenlandi térségben található Pilgersdorf, Bernstein és környékén. Az osztrák és burgenlandi médiumok, köztük a Kurier Burgenland, bizonyos összefüggésekről és aggodalmakról számolnak be az azbeszttel kapcsolatban, amely az útépítési anyagokban, például az aszfaltban és kőzúzalékban is megjelenhet.\n\n**Az osztrák források szerepe és az érintett települések**\n\nA burgenlandi Kurier cikke (2026. július 1.) kiemeli, hogy az azbeszt közegészségügyi kockázatot jelenthet, ha az anyag útépítésnek vagy hasonló felhasználásnak köszönhetően szabadul fel a környezetbe. Az aszfaltban előforduló azbeszt veszélyessége és az ebből fakadó egészségügyi kockázatok országos és regionális szinten is ismertté váltak. Az érintett térségek közé sorolható Burgenland mellett Kőszeg és Szombathely is, ahol a magyar források áprilisi tudósításai szerint jelentős szennyezésre derült fény.\n\nAz ATV magyar hírportál áprilisi cikkei (2026. április 15. és 23.) részletesen foglalkoznak azzal a körülménnyel, hogy a szombathelyi területen felfedezett azbeszt egyes forrásai osztrák bányákhoz köthetők. A hírek hangsúlyozzák, hogy a szennyeződés nem csupán környezeti problémát jelent, hanem az egészségügyi kockázatok különösen súlyosak lehetnek, különösen a gyerekek számára.\n\n**Fontossága a határon átnyúló hírfigyelésnek**\n\nAz osztrák–magyar határ menti régiókban, mint amilyen Kőszeg, Bozsok, Szombathely (Magyarország), valamint Pilgersdorf és Bernstein (Burgenland, Ausztria), a környezeti szennyezések esetében a határon átnyúló információcsere és hírfigyelés kulcsfontosságú. Az azbeszt, mint veszélyes anyag esetében a források és az érintett területek gyakran átnyúlnak az országhatáron, így a regionális és országos információk egységes értékelése alapvető a hatékony reagálás és tájékoztatás érdekében.\n\nAz osztrák forrásokból származó híradások tovább árnyalják a helyzet képét, ugyanakkor egyes konkrét laboreredmények vagy hatósági döntések nem szerepelnek a rendelkezésre álló anyagok között, ezért ezen részekről nem áll rendelkezésre megbízható, hiteles információ.\n\n---\n\n**Figyelendő pontok:**\n\n1. Az osztrák és burgenlandi hírek rámutatnak az azbeszt egészségügyi kockázataira, különösen az aszfalt és kőzúzalék használatából eredően, de konkrét laborvizsgálatok vagy hivatalos hatósági állásfoglalások nem elérhetők.\n\n2. A szombathelyi szennyezés kapcsán megjelent magyar hírek szerint a veszélyforrás részben osztrák bányákhoz köthető, ami kiemeli a határon átívelő környezeti ügyek összetettségét.\n\n3. A Kőszeg–Burgenland térségében élők és döntéshozók számára létfontosságú a határon átnyúló folyamatos hírfigyelés és információcsere a pontos helyzetértékelés és a megfelelő egészségügyi intézkedések érdekében.",
+  "articles": [
+    {
+      "title": "Asbest im Asphalt: Wie gefährlich ist das für die Gesundheit?",
+      "source": "Kurier Burgenland",
+      "source_type": "austrian",
+      "date": "2026-07-01",
+      "url": "https://kurier.at/wissen/gesundheit/asbest-asphalt-greenpeace-burgenland-wien-gesundheitsgefahr/403173787",
+      "type": "html"
+    },
+    {
+      "title": "Súlyos azbesztszennyezés Szombathelyen , ausztriai bányákból származik a rákkeltő anyag",
+      "source": "atv.hu",
+      "source_type": "austrian",
+      "date": "2026-04-15",
+      "url": "https://www.atv.hu/belfold/20260415/sulyos-azbesztszennyezes-szombathely",
+      "type": "gdelt"
+    },
+    {
+      "title": "Egyre aggasztóbb a szombathelyi azbesztszennyezés , gyerekek egészségét kockáztatták az osztrák bányában",
+      "source": "atv.hu",
+      "source_type": "austrian",
+      "date": "2026-04-23",
+      "url": "https://www.atv.hu/belfold/20260423/szombathely-azbeszt-szennyezes",
+      "type": "gdelt"
+    }
+  ]
 }
