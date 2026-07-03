@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-02T08:25:24.628Z",
+  "generated_at": "2026-07-03T08:28:18.577Z",
   "method": "balanced_keyword_rule_based_event_scoring_v3",
   "description": "Automatikusan generált Kőszeg–azbeszt ügyindex a data/news.json alapján. A rendszer külön számolja a negatív kockázati és a pozitív intézkedési kulcsszavakat.",
   "scoring_note": "Ez nem klasszikus hangulatelemzés. A negatív pont kockázatot vagy romló fejleményt, a pozitív pont intézkedést, tájékoztatást, monitoringot vagy megoldás felé mutató eseményt jelent.",
@@ -981,7 +981,7 @@
     },
     {
       "date": "2026-07-01",
-      "title": "Asbest im Asphalt: Wie gefährlich ist das für die Gesundheit?",
+      "title": "Asbest im Asphalt: Wie gefährlich ist das für die Gesundheit? Asbest gilt seit Jahrzehnten als hochgefährlich. Nach neuen Funden in Wiener Straßen stellt sich erneut die Frage: Wann wird belasteter Asphalt zum Gesundheitsrisiko?",
       "source": "Kurier Burgenland",
       "source_type": "austrian",
       "category": "altalanos_media_megjelenes",
@@ -1018,15 +1018,22 @@
     },
     {
       "date": "2026-07-01",
-      "title": "\"Sem a szombathelyi Olad Platón élőknek, sem a veszélyzónákban élőknek nincs arra lehetőségük, hogy megvárják a magyar és az osztrák hatóságok közötti tárgyalások lezárását\" - írják",
+      "title": "Nyílt levélben sürgeti 14 nemzetközi szervezet, hogy a magyarországi és európai uniós tisztségviselők haladéktalanul tegyenek hatékony intézkedéseket a nyugat-magyarországi katasztrófa által érintetteteket fenyegető azbesztveszély megszüntetése érdekében. \"Sem a szombathelyi Olad Platón élőknek, sem a veszélyzónákban élőknek nincs arra lehetőségük, hogy megvárják a magyar és az osztrák hatóságok közötti tárgyalások lezárását\" - írják.",
       "source": "VAOL",
       "source_type": "media",
-      "category": "korlatozas",
-      "base_score": -2,
+      "category": "egeszsegugyi_kockazat",
+      "base_score": -4,
       "source_weight": 1,
-      "confidence": 0.85,
-      "final_score": -1.7,
+      "confidence": 1,
+      "final_score": -4,
       "matched_negative_rules": [
+        {
+          "category": "egeszsegugyi_kockazat",
+          "score": -5,
+          "keywords": [
+            "azbesztveszely"
+          ]
+        },
         {
           "category": "korlatozas",
           "score": -2,
@@ -1035,8 +1042,31 @@
           ]
         }
       ],
-      "matched_positive_rules": [],
+      "matched_positive_rules": [
+        {
+          "category": "hatosagi_intezkedes",
+          "score": 3,
+          "keywords": [
+            "intezkedes",
+            "intezkedesek"
+          ]
+        }
+      ],
       "url": "https://www.vaol.hu/helyi-kozelet/2026/07/azbeszt-ugye-olad-plato-14-nemzetkozi-szervezet-level"
+    },
+    {
+      "date": "2026-07-02",
+      "title": "Szombathelyről Brüsszelig ért az azbesztügy: 14 nemzetközi szervezet állt be egy helyi aktivista kezdeményezése mögé",
+      "source": "Nyugat.hu",
+      "source_type": "media",
+      "category": "altalanos_media_megjelenes",
+      "base_score": -1,
+      "source_weight": 1,
+      "confidence": 0.7,
+      "final_score": -0.7,
+      "matched_negative_rules": [],
+      "matched_positive_rules": [],
+      "url": "https://www.nyugat.hu/cikk/szombathelyrol_brusszelig_ert_az_azbesztugy_14_be"
     }
   ]
 }
