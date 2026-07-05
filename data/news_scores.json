@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-04T08:05:36.678Z",
+  "generated_at": "2026-07-05T08:18:51.490Z",
   "method": "balanced_keyword_rule_based_event_scoring_v3",
   "description": "Automatikusan generált Kőszeg–azbeszt ügyindex a data/news.json alapján. A rendszer külön számolja a negatív kockázati és a pozitív intézkedési kulcsszavakat.",
   "scoring_note": "Ez nem klasszikus hangulatelemzés. A negatív pont kockázatot vagy romló fejleményt, a pozitív pont intézkedést, tájékoztatást, monitoringot vagy megoldás felé mutató eseményt jelent.",
@@ -725,20 +725,6 @@
       "url": "https://hvg.hu/gazdasag/20260522_gajdos-laszlo-azbeszt-osztrak-banya-szombathely"
     },
     {
-      "date": "2026-05-23",
-      "title": "Azbesztet találtak több Nagy-Britanniában árult gyerekjátékban",
-      "source": "Telex",
-      "source_type": "media",
-      "category": "altalanos_media_megjelenes",
-      "base_score": -1,
-      "source_weight": 1,
-      "confidence": 0.7,
-      "final_score": -0.7,
-      "matched_negative_rules": [],
-      "matched_positive_rules": [],
-      "url": "https://telex.hu/kulfold/2026/05/23/azbeszt-nagy-britannia-gyerekjatek-visszahivas"
-    },
-    {
       "date": "2026-06-07",
       "title": "Azbeszt-ügy: Vas vármegye minden lakójára jutna egy billencsnyi kőzúzalék - Meglepő adatokat mutatunk",
       "source": "VAOL",
@@ -952,20 +938,6 @@
       "url": "https://www.greenpeace.org/hungary/sajtokozlemeny/14025/a-kormany-lemondta-a-szombathelyre-kihelyezett-parlamenti-bizottsagi-ulest-pedig-burgenlandban-mar-juliusban-ujranyithatjak-az-osztrak-azbesztes-banyakat"
     },
     {
-      "date": "2026-06-29",
-      "title": "Hetven év után bezárták, most már a kastély sorsa is kérdés: petíció indult a Zsennyei Alkotóház megmentéséért",
-      "source": "Nyugat.hu",
-      "source_type": "media",
-      "category": "altalanos_media_megjelenes",
-      "base_score": -1,
-      "source_weight": 1,
-      "confidence": 0.7,
-      "final_score": -0.7,
-      "matched_negative_rules": [],
-      "matched_positive_rules": [],
-      "url": "https://www.nyugat.hu/cikk/hetven_ev_utan_bezartak_most_mar_a_kastely_sorsa_a"
-    },
-    {
       "date": "2026-07-01",
       "title": "Győrben és Bécsben is találtak azbeszttel szennyezett utcákat",
       "source": "Nyugat.hu",
@@ -1053,6 +1025,20 @@
       "matched_negative_rules": [],
       "matched_positive_rules": [],
       "url": "https://www.vaol.hu/helyi-kozelet/2026/07/azbeszt-ugy-nylt-level-250-kisgyerek-holdosi-daniel"
+    },
+    {
+      "date": "2026-07-04",
+      "title": "Asbest-Warnungen: Beliebte Ausflugsziele an der Grenze gesperrt In Orten nahe der Grenze klagen Hoteliers und Gastronomen über Einbußen. Warnungen vor belastetem Schotter verunsichern viele Ungarn – Österreich weniger.",
+      "source": "Kurier Burgenland",
+      "source_type": "austrian",
+      "category": "altalanos_media_megjelenes",
+      "base_score": -1,
+      "source_weight": 1,
+      "confidence": 0.7,
+      "final_score": -0.7,
+      "matched_negative_rules": [],
+      "matched_positive_rules": [],
+      "url": "https://kurier.at/chronik/burgenland/asbest-burgenland-ungarn-tourismus-vas-szombathely-gesundheitsnotstand/403174331"
     }
   ]
 }
