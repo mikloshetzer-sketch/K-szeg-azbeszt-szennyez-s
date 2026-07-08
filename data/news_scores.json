@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-07T08:44:11.943Z",
+  "generated_at": "2026-07-08T07:41:30.377Z",
   "method": "balanced_keyword_rule_based_event_scoring_v3",
   "description": "Automatikusan generált Kőszeg–azbeszt ügyindex a data/news.json alapján. A rendszer külön számolja a negatív kockázati és a pozitív intézkedési kulcsszavakat.",
   "scoring_note": "Ez nem klasszikus hangulatelemzés. A negatív pont kockázatot vagy romló fejleményt, a pozitív pont intézkedést, tájékoztatást, monitoringot vagy megoldás felé mutató eseményt jelent.",
@@ -569,6 +569,28 @@
       "url": "https://24.hu/belfold/2026/05/15/gajdos-laszlo-azbeszt-szombathely-video"
     },
     {
+      "date": "2026-05-19",
+      "title": "Kőszegen is kimutatták az azbesztszennyezést",
+      "source": "HVG",
+      "source_type": "media",
+      "category": "szennyezes_vagy_gyanu",
+      "base_score": -4,
+      "source_weight": 1,
+      "confidence": 0.85,
+      "final_score": -3.4,
+      "matched_negative_rules": [
+        {
+          "category": "szennyezes_vagy_gyanu",
+          "score": -4,
+          "keywords": [
+            "azbesztszennyezes"
+          ]
+        }
+      ],
+      "matched_positive_rules": [],
+      "url": "https://hvg.hu/itthon/20260519_azbesztszennyezes-koszeg-vizsgalat-vas-megyei-kormanyhivatal"
+    },
+    {
       "date": "2026-05-20",
       "title": "Kőszegen újabb helyeken mutattak ki azbesztszennyezést, az osztrák rohonci bánya is érintett lehet",
       "source": "Telex",
@@ -917,29 +939,6 @@
     },
     {
       "date": "2026-07-01",
-      "title": "Győrben és Bécsben is találtak azbeszttel szennyezett utcákat",
-      "source": "Nyugat.hu",
-      "source_type": "media",
-      "category": "szennyezes_vagy_gyanu",
-      "base_score": -4,
-      "source_weight": 1,
-      "confidence": 1,
-      "final_score": -4,
-      "matched_negative_rules": [
-        {
-          "category": "szennyezes_vagy_gyanu",
-          "score": -4,
-          "keywords": [
-            "szennyezett",
-            "azbeszttel szennyezett"
-          ]
-        }
-      ],
-      "matched_positive_rules": [],
-      "url": "https://www.nyugat.hu/cikk/gyorben_es_becsben_is_talaltak_azbeszttel_utcakat"
-    },
-    {
-      "date": "2026-07-01",
       "title": "Nyílt levélben sürgeti 14 nemzetközi szervezet, hogy a magyarországi és európai uniós tisztségviselők haladéktalanul tegyenek hatékony intézkedéseket a nyugat-magyarországi katasztrófa által érintetteteket fenyegető azbesztveszély megszüntetése érdekében. \"Sem a szombathelyi Olad Platón élőknek, sem a veszélyzónákban élőknek nincs arra lehetőségük, hogy megvárják a magyar és az osztrák hatóságok közötti tárgyalások lezárását\" - írják.",
       "source": "VAOL",
       "source_type": "media",
@@ -991,22 +990,8 @@
       "url": "https://www.nyugat.hu/cikk/szombathelyrol_brusszelig_ert_az_azbesztugy_14_be"
     },
     {
-      "date": "2026-07-03",
-      "title": "Több, mint 250 kisgyerek életét forgatta fel az azbeszt-ügy - Így hajtotta ki a nyílt levelet a szombathelyi családapa (videó)",
-      "source": "VAOL",
-      "source_type": "media",
-      "category": "altalanos_media_megjelenes",
-      "base_score": -1,
-      "source_weight": 1,
-      "confidence": 0.7,
-      "final_score": -0.7,
-      "matched_negative_rules": [],
-      "matched_positive_rules": [],
-      "url": "https://www.vaol.hu/helyi-kozelet/2026/07/azbeszt-ugy-nylt-level-250-kisgyerek-holdosi-daniel"
-    },
-    {
       "date": "2026-07-04",
-      "title": "Asbest-Warnungen: Beliebte Ausflugsziele an der Grenze gesperrt In Orten nahe der Grenze klagen Hoteliers und Gastronomen über Einbußen. Warnungen vor belastetem Schotter verunsichern viele Ungarn – Österreich weniger.",
+      "title": "Asbest-Warnungen: Beliebte Ausflugsziele an der Grenze gesperrt",
       "source": "Kurier Burgenland",
       "source_type": "austrian",
       "category": "altalanos_media_megjelenes",
