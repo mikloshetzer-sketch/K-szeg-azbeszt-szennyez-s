@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-10T08:42:44.483Z",
+  "generated_at": "2026-07-11T07:19:43.866Z",
   "method": "balanced_keyword_rule_based_event_scoring_v3",
   "description": "Automatikusan generált Kőszeg–azbeszt ügyindex a data/news.json alapján. A rendszer külön számolja a negatív kockázati és a pozitív intézkedési kulcsszavakat.",
   "scoring_note": "Ez nem klasszikus hangulatelemzés. A negatív pont kockázatot vagy romló fejleményt, a pozitív pont intézkedést, tájékoztatást, monitoringot vagy megoldás felé mutató eseményt jelent.",
@@ -983,7 +983,7 @@
     },
     {
       "date": "2026-07-09",
-      "title": "Asbest-Belastung auf Straßen wird auch in Wien zum Politikum Oppositionsparteien fordern lückenlose Aufklärung und flächendeckende Untersuchungen wegen Asbest-Funden.",
+      "title": "Asbest-Belastung auf Straßen wird auch in Wien zum Politikum",
       "source": "Kurier Burgenland",
       "source_type": "austrian",
       "category": "altalanos_media_megjelenes",
@@ -1081,6 +1081,48 @@
       "matched_negative_rules": [],
       "matched_positive_rules": [],
       "url": "https://24.hu/fn/gazdasag/2026/07/09/azbeszt-gysev-vasutfelujitas-vizsgalat"
+    },
+    {
+      "date": "2026-07-10",
+      "title": "Asbest-Sanierung: EU könnte laut Greenpeace zahlen Greenpeace sieht Chancen auf Mittel aus dem EU-Solidaritätsfonds für eine mögliche Sanierung. Das Land nennt die Aussagen hingegen „nicht nachvollziehbar“ und verweist auf den Bund.",
+      "source": "Kurier Burgenland",
+      "source_type": "austrian",
+      "category": "altalanos_media_megjelenes",
+      "base_score": -1,
+      "source_weight": 1,
+      "confidence": 0.7,
+      "final_score": -0.7,
+      "matched_negative_rules": [],
+      "matched_positive_rules": [],
+      "url": "https://kurier.at/chronik/burgenland/asbest-burgenland-greenpeace-eu-solidaritaetsfonds-grosspetersdorf-kosten-streit/403175475"
+    },
+    {
+      "date": "2026-07-10",
+      "title": "Asbest Geschlossene Steinbrüche wollen wieder öffnen",
+      "source": "ORF Burgenland",
+      "source_type": "austrian",
+      "category": "altalanos_media_megjelenes",
+      "base_score": -1,
+      "source_weight": 1,
+      "confidence": 0.7,
+      "final_score": -0.7,
+      "matched_negative_rules": [],
+      "matched_positive_rules": [],
+      "url": "https://burgenland.orf.at/stories/3362092"
+    },
+    {
+      "date": "2026-07-10",
+      "title": "Neue Pläne um Asbest: Diese Orte könnten bald zu Deponien werden Das Umweltministerium prüft, geschlossene Steinbrüche künftig als Asbest-Deponien zu nutzen.",
+      "source": "Kurier Burgenland",
+      "source_type": "austrian",
+      "category": "altalanos_media_megjelenes",
+      "base_score": -1,
+      "source_weight": 1,
+      "confidence": 0.7,
+      "final_score": -0.7,
+      "matched_negative_rules": [],
+      "matched_positive_rules": [],
+      "url": "https://kurier.at/chronik/burgenland/asbest-steinbrueche-deponie-umweltministerium-burgenland-verordnung-entsorgung/403175533"
     }
   ]
 }
