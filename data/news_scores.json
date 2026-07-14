@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-13T08:27:50.819Z",
+  "generated_at": "2026-07-14T07:21:06.257Z",
   "method": "balanced_keyword_rule_based_event_scoring_v3",
   "description": "Automatikusan generált Kőszeg–azbeszt ügyindex a data/news.json alapján. A rendszer külön számolja a negatív kockázati és a pozitív intézkedési kulcsszavakat.",
   "scoring_note": "Ez nem klasszikus hangulatelemzés. A negatív pont kockázatot vagy romló fejleményt, a pozitív pont intézkedést, tájékoztatást, monitoringot vagy megoldás felé mutató eseményt jelent.",
@@ -471,28 +471,6 @@
       ],
       "matched_positive_rules": [],
       "url": "https://444.hu/2026/04/27/ujranyitnanak-a-szombathelyt-azbesztkrizisbe-loko-burgenlandi-kofejtok-szerintuk-nincs-is-szennyezes"
-    },
-    {
-      "date": "2026-05-02",
-      "title": "Szombathely polgármestere: Akár egész Nyugat-Magyarországon lehetnek azbesztszennyezéssel érintett települések",
-      "source": "HVG",
-      "source_type": "media",
-      "category": "szennyezes_vagy_gyanu",
-      "base_score": -4,
-      "source_weight": 1,
-      "confidence": 0.85,
-      "final_score": -3.4,
-      "matched_negative_rules": [
-        {
-          "category": "szennyezes_vagy_gyanu",
-          "score": -4,
-          "keywords": [
-            "azbesztszennyezes"
-          ]
-        }
-      ],
-      "matched_positive_rules": [],
-      "url": "https://hvg.hu/zhvg/20260502_azbesztszennyezes-nyugat-magyarorszag-szombathely-polgarmester"
     },
     {
       "date": "2026-05-02",
@@ -1014,28 +992,6 @@
       "url": "https://hvg.hu/gazdasag/20260522_gajdos-laszlo-azbeszt-osztrak-banya-szombathely"
     },
     {
-      "date": "2026-06-08",
-      "title": "Újra megnyitották az azbesztszennyezés miatt lezárt szombathelyi vasúti megállónál található parkolót",
-      "source": "VAOL",
-      "source_type": "media",
-      "category": "szennyezes_vagy_gyanu",
-      "base_score": -4,
-      "source_weight": 1,
-      "confidence": 0.85,
-      "final_score": -3.4,
-      "matched_negative_rules": [
-        {
-          "category": "szennyezes_vagy_gyanu",
-          "score": -4,
-          "keywords": [
-            "azbesztszennyezes"
-          ]
-        }
-      ],
-      "matched_positive_rules": [],
-      "url": "https://www.vaol.hu/helyi-kozelet/2026/06/azbeszt-vasut-allomas-szombathely-parkolo-megnyitottak"
-    },
-    {
       "date": "2026-06-10",
       "title": "Azbesztszennyezés – A legfontosabb lakossági információk 2026. május 29. 09:16 Az alábbiakban a témával kapcsolatos legfontosabb információkról, fejleményekről, lakossági felhívásokról, illetve teendőkről tájékozódhatnak. Az oldalon található információkat folyamatosan frissítjük. Részletek",
       "source": "Vas Vármegyei Kormányhivatal",
@@ -1265,20 +1221,6 @@
       "url": "https://www.vaol.hu/helyi-kozelet/2026/07/azbeszt-ugye-olad-plato-14-nemzetkozi-szervezet-level"
     },
     {
-      "date": "2026-07-04",
-      "title": "Asbest-Warnungen: Beliebte Ausflugsziele an der Grenze gesperrt",
-      "source": "Kurier Burgenland",
-      "source_type": "austrian",
-      "category": "altalanos_media_megjelenes",
-      "base_score": -1,
-      "source_weight": 1,
-      "confidence": 0.7,
-      "final_score": -0.7,
-      "matched_negative_rules": [],
-      "matched_positive_rules": [],
-      "url": "https://kurier.at/chronik/burgenland/asbest-burgenland-ungarn-tourismus-vas-szombathely-gesundheitsnotstand/403174331"
-    },
-    {
       "date": "2026-07-09",
       "title": "A kormány lemondta a Szombathelyre kihelyezett parlamenti bizottsági ülést, pedig Burgenlandban már júliusban újranyithatják az osztrák azbesztes bányákat",
       "source": "Greenpeace Magyarország",
@@ -1353,20 +1295,6 @@
     },
     {
       "date": "2026-07-09",
-      "title": "Azbeszttérképet indított a Greenpeace",
-      "source": "Nyugat.hu",
-      "source_type": "media",
-      "category": "altalanos_media_megjelenes",
-      "base_score": -1,
-      "source_weight": 1,
-      "confidence": 0.7,
-      "final_score": -0.7,
-      "matched_negative_rules": [],
-      "matched_positive_rules": [],
-      "url": "https://www.nyugat.hu/cikk/azbesztterkepet_inditott_a_greenpeace"
-    },
-    {
-      "date": "2026-07-09",
       "title": "A GYSEV egyik vonalának töltésébe is kerülhetett azbesztes kő",
       "source": "HVG",
       "source_type": "media",
@@ -1403,7 +1331,7 @@
     },
     {
       "date": "2026-07-10",
-      "title": "Asbest-Sanierung: EU könnte laut Greenpeace zahlen Greenpeace sieht Chancen auf Mittel aus dem EU-Solidaritätsfonds für eine mögliche Sanierung. Das Land nennt die Aussagen hingegen „nicht nachvollziehbar“ und verweist auf den Bund.",
+      "title": "Asbest-Sanierung: EU könnte laut Greenpeace zahlen",
       "source": "Kurier Burgenland",
       "source_type": "austrian",
       "category": "altalanos_media_megjelenes",
