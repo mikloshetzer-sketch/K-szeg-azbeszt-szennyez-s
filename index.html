@@ -4,7 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Kőszeg és környéke – Azbeszt Monitor</title>
+  <title>Kőszeg és környéke – Azbeszt Monitor | Törésvonalak</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Merriweather:wght@700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 
@@ -919,20 +923,352 @@
   }
 
 }
+
+
+/* =========================================================
+   TÖRÉSVONALAK UI 2.0 – MODERN VILÁGOS ELEMZŐI FELÜLET
+   A működési logikát nem módosítja, csak a megjelenést.
+========================================================= */
+:root {
+  --tv-bg: #f3f6f9;
+  --tv-surface: #ffffff;
+  --tv-surface-soft: #eef3f7;
+  --tv-ink: #172033;
+  --tv-muted: #667085;
+  --tv-line: #d9e2ec;
+  --tv-blue: #245f91;
+  --tv-blue-dark: #173f63;
+  --tv-teal: #0f766e;
+  --tv-orange: #d97706;
+  --tv-red: #b42318;
+  --tv-purple: #6941c6;
+  --tv-shadow: 0 10px 30px rgba(31, 48, 71, .08);
+  --tv-radius: 16px;
+}
+
+html, body {
+  height: auto;
+  min-height: 100%;
+  font-family: Inter, Arial, sans-serif;
+  background: var(--tv-bg);
+  color: var(--tv-ink);
+}
+
+body { overflow: auto; }
+
+.app {
+  display: block;
+  min-height: 100vh;
+  height: auto;
+}
+
+.topbar {
+  min-height: 188px;
+  padding: 28px clamp(20px, 4vw, 64px);
+  align-items: flex-end;
+  background:
+    linear-gradient(90deg, rgba(13, 38, 59, .97), rgba(27, 76, 112, .90)),
+    radial-gradient(circle at 80% 20%, rgba(56, 189, 248, .22), transparent 34%);
+  border: 0;
+  box-shadow: 0 10px 30px rgba(16, 37, 58, .18);
+}
+
+.brand-wrap { max-width: 760px; }
+.brand-kicker {
+  margin-bottom: 10px;
+  color: #a8d2ef;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: .16em;
+}
+.brand-title {
+  font-family: Merriweather, Georgia, serif;
+  font-size: clamp(27px, 3.2vw, 44px);
+  line-height: 1.12;
+  color: #fff;
+  letter-spacing: -.025em;
+}
+.brand-sub {
+  max-width: 700px;
+  margin-top: 12px;
+  color: #d9e8f4;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.top-actions {
+  justify-content: flex-end;
+  max-width: 690px;
+}
+
+.pill, .live-indicator, .primary {
+  min-height: 38px;
+  border-radius: 999px;
+  font-family: Inter, Arial, sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.pill {
+  border-color: rgba(255,255,255,.25);
+  background: rgba(255,255,255,.10);
+  color: #eef7ff;
+}
+.live-indicator {
+  border-color: rgba(134,239,172,.40);
+  background: rgba(34,197,94,.16);
+  color: #dcfce7;
+}
+.primary {
+  padding: 10px 14px;
+  background: #2f79b3;
+  box-shadow: none;
+}
+.primary.secondary { background: rgba(255,255,255,.13); }
+.primary:hover { transform: translateY(-1px); filter: brightness(1.05); }
+
+.portal-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(320px, .65fr);
+  gap: 28px;
+  max-width: 1680px;
+  margin: 28px auto 18px;
+  padding: 0 24px;
+}
+.portal-intro-copy,
+.portal-intro-meta {
+  background: var(--tv-surface);
+  border: 1px solid var(--tv-line);
+  border-radius: var(--tv-radius);
+  box-shadow: var(--tv-shadow);
+}
+.portal-intro-copy {
+  padding: 24px 28px;
+  border-left: 6px solid var(--tv-blue);
+}
+.section-eyebrow {
+  display: block;
+  margin-bottom: 7px;
+  color: var(--tv-blue);
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: .13em;
+}
+.portal-intro h1 {
+  margin: 0 0 8px;
+  font-family: Merriweather, Georgia, serif;
+  font-size: clamp(22px, 2vw, 30px);
+  color: var(--tv-ink);
+}
+.portal-intro p {
+  margin: 0;
+  color: var(--tv-muted);
+  line-height: 1.65;
+  font-size: 14px;
+}
+.portal-intro-meta {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  overflow: hidden;
+}
+.portal-intro-meta > div {
+  display: flex;
+  min-height: 118px;
+  padding: 18px 12px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  border-right: 1px solid var(--tv-line);
+}
+.portal-intro-meta > div:last-child { border-right: 0; }
+.portal-intro-meta strong {
+  color: var(--tv-blue-dark);
+  font-size: 22px;
+}
+.portal-intro-meta span {
+  margin-top: 5px;
+  color: var(--tv-muted);
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.layout {
+  grid-template-columns: 320px minmax(460px, 1fr) 390px;
+  gap: 16px;
+  max-width: 1680px;
+  min-height: 760px;
+  margin: 0 auto 36px;
+  padding: 0 24px;
+}
+.sidebar, .newsbar {
+  padding: 0;
+  background: transparent;
+  border: 0;
+  overflow: visible;
+}
+.mapwrap {
+  min-height: 760px;
+  overflow: hidden;
+  border: 1px solid var(--tv-line);
+  border-radius: 18px;
+  background: #dfe8ee;
+  box-shadow: var(--tv-shadow);
+}
+#map { min-height: 760px; background: #dfe8ee; }
+
+.card {
+  margin-bottom: 14px;
+  padding: 17px;
+  background: var(--tv-surface);
+  border: 1px solid var(--tv-line);
+  border-radius: var(--tv-radius);
+  box-shadow: 0 5px 18px rgba(31,48,71,.055);
+}
+.card:hover { border-color: #c5d3df; }
+.card h2, .news-head h2 {
+  color: var(--tv-ink);
+  font-size: 15px;
+  letter-spacing: -.01em;
+}
+.muted, .summary-preview, .summary-body p, .timeline-text, .timeline-source,
+.stat-label, .latest-meta, .meta, .latest-empty {
+  color: var(--tv-muted);
+}
+.warn { background: #fffaf0; border-left: 5px solid var(--tv-orange); }
+.source { background: #f4f8fb; border-left: 5px solid var(--tv-blue); }
+.green-card { background: #f1faf7; border-left: 5px solid var(--tv-teal); }
+.official-card { background: #f7f4ff; border-left: 5px solid var(--tv-purple); }
+.score-card { background: #f7f8ff; border-left: 5px solid #4f46e5; }
+.latest-card { background: #f1f9ff; border-left: 5px solid #0284c7; }
+
+.statgrid { gap: 9px; }
+.stat {
+  background: var(--tv-surface-soft);
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+}
+.stat-num { color: var(--tv-blue-dark); }
+
+.filter {
+  background: #f8fafc;
+  border-color: var(--tv-line);
+  color: var(--tv-ink);
+}
+.filter:hover { background: #eef5fa; }
+.filter.active {
+  outline: none;
+  border-color: #82afd0;
+  box-shadow: inset 0 0 0 1px #82afd0;
+}
+
+.map-note, .inset-map-card {
+  background: rgba(255,255,255,.96);
+  border-color: rgba(180,196,208,.9);
+  color: var(--tv-ink);
+  box-shadow: 0 12px 30px rgba(30,52,68,.17);
+}
+.inset-title { color: var(--tv-ink); }
+.inset-sub, .inset-legend { color: var(--tv-muted); }
+.legend-chip { background: #f3f6f8; border-color: var(--tv-line); }
+
+.news-tools input, .news-tools select {
+  background: #fff;
+  border-color: var(--tv-line);
+  color: var(--tv-ink);
+}
+.news-tools input:focus, .news-tools select:focus {
+  border-color: #7da9c8;
+  box-shadow: 0 0 0 3px rgba(36,95,145,.10);
+}
+.refresh { background: var(--tv-blue); }
+
+.summary-toggle { color: var(--tv-ink); }
+.summary-toggle:hover { background: #f4f7fa; }
+.summary-state, .latest-sub, .tag {
+  color: var(--tv-blue-dark);
+  background: #e7f1f8;
+  border-color: #c6ddeb;
+}
+.latest-item, .news-item {
+  background: #f8fafc;
+  border-color: #e2e8f0;
+}
+.latest-item a, .news-item a { color: #1f679d; }
+.news-item.greenpeace-item { background: #f0faf5; border-color: #b9e5ce; }
+.news-item.greenpeace-item a { color: #08795c; }
+.news-group-title { background: #edf2f6; border-color: var(--tv-line); }
+.news-count { background: #fff; color: var(--tv-muted); }
+.official-title { color:#245f91; }
+.civil-title { color:#0f766e; }
+.austrian-title { color:#b42318; }
+.media-title { color:#9a6700; }
+
+.timeline { border-left-color: #9cb7cb; }
+.timeline-date { color: var(--tv-blue-dark); }
+.timeline-type { background: #edf2f6; color: var(--tv-muted); }
+.score-note { color: #6266a7; }
+
+.leaflet-popup-content-wrapper, .leaflet-popup-tip {
+  background: #fff;
+  color: var(--tv-ink);
+}
+.leaflet-popup-content a { color: #1f679d; }
+.official-site-popup-row { color: var(--tv-muted); }
+
+.toast {
+  background: #fff;
+  border-color: var(--tv-line);
+  border-left-color: #16a34a;
+  color: var(--tv-ink);
+}
+
+@media (max-width: 1320px) {
+  .layout { grid-template-columns: 300px minmax(420px, 1fr) 350px; }
+  .topbar { align-items: flex-start; flex-direction: column; }
+  .top-actions { justify-content: flex-start; max-width: none; }
+}
+
+@media (max-width: 1100px) {
+  .portal-intro { grid-template-columns: 1fr; }
+  .layout { grid-template-columns: 1fr; }
+  .mapwrap, #map { min-height: 620px; }
+  .sidebar, .newsbar { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+  .sidebar .card, .newsbar .card, .newsbar > div { margin-bottom: 0; }
+  .news-tools, .news-head, #newsList { grid-column: 1 / -1; }
+}
+
+@media (max-width: 768px) {
+  .topbar { min-height: auto; padding: 24px 18px; }
+  .brand-title { font-size: 28px; }
+  .portal-intro { margin-top: 18px; padding: 0 12px; }
+  .portal-intro-copy { padding: 20px; }
+  .portal-intro-meta { grid-template-columns: 1fr; }
+  .portal-intro-meta > div { min-height: 78px; border-right: 0; border-bottom: 1px solid var(--tv-line); }
+  .portal-intro-meta > div:last-child { border-bottom: 0; }
+  .layout { padding: 0 12px; }
+  .sidebar, .newsbar { display: block; }
+  .mapwrap { border-radius: 14px; min-height: auto; }
+  #map { height: 460px !important; min-height: 460px !important; }
+  .pill, .primary, .live-indicator { width: auto !important; }
+  .top-actions { align-items: stretch; }
+}
+
   </style>
 </head>
 
 <body>
   <div class="app">
     <header class="topbar">
-      <div>
+      <div class="brand-wrap">
+        <div class="brand-kicker">TÖRÉSVONALAK · KÖRNYEZETI MONITOR</div>
         <div class="brand-title">Kőszeg és környéke – Azbeszt Monitor</div>
         <div class="brand-sub">
-          Érintett utak · GeoJSON réteg · kormányhivatali helyszínek · esemény-idővonal · sajtófigyelő · ügyindex
+          Nyílt forrású térképi, hatósági és sajtóadatok egyetlen elemző felületen.
         </div>
       </div>
 
-     <div class="top-actions">
+      <div class="top-actions">
 
   <span class="live-indicator">
     <span class="live-dot"></span>
@@ -984,6 +1320,23 @@
 
 </div>
     </header>
+
+    <section class="portal-intro" aria-label="Az oldal célja">
+      <div class="portal-intro-copy">
+        <span class="section-eyebrow">AKTUÁLIS HELYZETKÉP</span>
+        <h1>Az ügy térbeli és időbeli követése</h1>
+        <p>
+          A monitor az érintett kőszegi helyszíneket, a nyilvános intézkedéseket,
+          a kapcsolódó híreket és az ügy napi változását kapcsolja össze. Az adatok
+          tájékoztató jellegűek, nem helyettesítik a hatósági vagy egészségügyi tájékoztatást.
+        </p>
+      </div>
+      <div class="portal-intro-meta">
+        <div><strong>4</strong><span>térképi réteg</span></div>
+        <div><strong>OSINT</strong><span>nyílt források</span></div>
+        <div><strong>ÉLŐ</strong><span>sajtófigyelés</span></div>
+      </div>
+    </section>
 
     <main class="layout">
       <aside class="sidebar">
@@ -1184,6 +1537,13 @@
       </aside>
     </main>
   </div>
+
+
+  <footer class="site-footer" style="max-width:1680px;margin:0 auto 30px;padding:0 24px;color:#667085;font:12px/1.6 Inter,Arial,sans-serif;text-align:center;">
+    <div style="padding:18px;border-top:1px solid #d9e2ec;">
+      Kőszeg és környéke – Azbeszt Monitor · Nyílt forrású tájékoztató és elemző felület
+    </div>
+  </footer>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
