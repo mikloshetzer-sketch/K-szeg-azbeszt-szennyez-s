@@ -1988,10 +1988,12 @@ body { overflow: auto; }
     }
 
     async function loadRoads() {
+      const query = `[out:json][timeout:40];(way(47.340,16.470,47.450,16.640)["highway"]["name"];);out body;>;out skel qt;`;
+
       const roadStyle = {
         color: '#dc2626',
         weight: 4,
-        opacity: .82,
+        opacity: .78,
         lineCap: 'round',
         lineJoin: 'round'
       };
@@ -2004,71 +2006,28 @@ body { overflow: auto; }
         lineJoin: 'round'
       };
 
-      async function renderLocalRoads() {
-        const response = await fetch('data/affected_streets.geojson?t=' + Date.now(), {
-          cache: 'no-store'
-        });
+      const data = await fetchOverpass(query);
+      const nodeMap = nodesToMap(data.elements);
 
-        if (!response.ok) {
-          throw new Error('affected_streets.geojson nem érhető el');
-        }
-
-        const data = await response.json();
-        let count = 0;
-
-        L.geoJSON(data, {
-          style: () => roadStyle,
-          onEachFeature: (feature, featureLayer) => {
-            const properties = feature.properties || {};
-            const name = properties.name || properties.street || 'Érintett utca';
-
-            L.geoJSON(feature, { style: () => glowStyle }).addTo(layers.affected);
-            featureLayer.bindPopup(`<b>${escapeHtml(name)}</b><br>Érintett út / utca / útszakasz`);
-            count++;
-          }
-        }).addTo(layers.affected);
-
-        return count;
-      }
-
-      async function renderOverpassRoads() {
-        const escapedNames = Array.from(affectedStreetNames)
-          .map(name => name.replace(/[.*+?^${}()|[\]\]/g, '\\$&'))
-          .join('|');
-
-        const query = `[out:json][timeout:60];way(47.345,16.485,47.435,16.605)["highway"]["name"~"^(${escapedNames})$",i];out body;>;out skel qt;`;
-        const data = await fetchOverpass(query);
-        const nodeMap = nodesToMap(data.elements);
-        let count = 0;
-
-        for (const item of data.elements) {
-          if (item.type !== 'way' || !item.tags || !item.tags.name || !item.nodes) continue;
-          if (!isAffectedStreet(item.tags.name)) continue;
-
-          const latlngs = wayToLatLngs(item, nodeMap);
-          if (latlngs.length < 2) continue;
-
-          L.polyline(latlngs, glowStyle).addTo(layers.affected);
-          L.polyline(latlngs, roadStyle)
-            .bindPopup(`<b>${escapeHtml(item.tags.name)}</b><br>Érintett út / utca / útszakasz`)
-            .addTo(layers.affected);
-          count++;
-        }
-
-        return count;
-      }
-
-      layers.affected.clearLayers();
       let count = 0;
 
-      try {
-        count = await renderLocalRoads();
-      } catch (localError) {
-        console.warn('Helyi érintett utcaréteg nem érhető el, Overpass tartalék indul:', localError);
-        count = await renderOverpassRoads();
+      for (const item of data.elements) {
+        if (item.type !== 'way' || !item.tags || !item.tags.name || !item.nodes) continue;
+        if (!isAffectedStreet(item.tags.name)) continue;
+
+        const latlngs = wayToLatLngs(item, nodeMap);
+        if (latlngs.length < 2) continue;
+
+        L.polyline(latlngs, glowStyle).addTo(layers.affected);
+
+        L.polyline(latlngs, roadStyle)
+          .bindPopup(`<b>${escapeHtml(item.tags.name)}</b><br>Érintett út / utca / útszakasz`)
+          .addTo(layers.affected);
+
+        count++;
       }
 
-      document.getElementById('statRoads').textContent = count || OFFICIAL_STREET_COUNT;
+      document.getElementById('statRoads').textContent = OFFICIAL_STREET_COUNT;
 
       if (layers.affected.getLayers().length > 0) {
         map.fitBounds(layers.affected.getBounds(), {
