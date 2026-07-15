@@ -1932,14 +1932,43 @@ body { overflow: auto; }
       return false;
     }
 
-    function overpassUrl(query) {
-      return 'https://overpass-api.de/api/interpreter?data=' + encodeURIComponent(query);
+    const OVERPASS_ENDPOINTS = [
+      'https://overpass-api.de/api/interpreter',
+      'https://overpass.kumi.systems/api/interpreter',
+      'https://overpass.nchc.org.tw/api/interpreter'
+    ];
+
+    function overpassUrl(endpoint, query) {
+      return endpoint + '?data=' + encodeURIComponent(query);
     }
 
     async function fetchOverpass(query) {
-      const response = await fetch(overpassUrl(query));
-      if (!response.ok) throw new Error('Overpass API hiba');
-      return await response.json();
+      let lastError = null;
+
+      for (const endpoint of OVERPASS_ENDPOINTS) {
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 25000);
+
+        try {
+          const response = await fetch(overpassUrl(endpoint, query), {
+            signal: controller.signal,
+            cache: 'no-store'
+          });
+
+          if (!response.ok) {
+            throw new Error(`Overpass API hiba: ${response.status}`);
+          }
+
+          return await response.json();
+        } catch (error) {
+          lastError = error;
+          console.warn(`Overpass végpont nem elérhető: ${endpoint}`, error);
+        } finally {
+          clearTimeout(timeoutId);
+        }
+      }
+
+      throw lastError || new Error('Egyik Overpass API végpont sem érhető el.');
     }
 
     function nodesToMap(elements) {
@@ -2735,32 +2764,63 @@ body { overflow: auto; }
       try {
         initMap();
         initInsetMap();
-
-        loadNews();
-        loadEvents();
-
-        document.getElementById('status').textContent = 'Utcavonalak betöltése Kőszeg és környéke térségéből...';
-        const roads = await loadRoads();
-
-        document.getElementById('status').textContent = 'Pontosított GeoJSON-réteg betöltése...';
-        const geojson = await loadGeojsonStreets();
-
-        document.getElementById('status').textContent = 'Parkolók jelölése...';
-        const parks = await loadParkings();
-
-        document.getElementById('status').textContent = 'Kormányhivatali speciális helyszínek betöltése...';
-        const officialSites = await loadOfficialSites();
-
-        document.getElementById('status').textContent =
-          `Kész: hivatalosan ${OFFICIAL_STREET_COUNT} utca és ${OFFICIAL_PARKING_COUNT} parkoló érintett. ` +
-          `A térképi vonalak tájékoztató jellegű OSM-szakaszok; a rendszer ${roads} OSM-vonalelemet, ` +
-          `${geojson} GeoJSON-elemet, ${parks} geokódolt parkolójelölést és ${officialSites} kormányhivatali helyszínt töltött be.`;
       } catch (error) {
-        console.error('Oldal betöltési hiba:', error);
-
+        console.error('Térkép inicializálási hiba:', error);
         document.getElementById('status').textContent =
-          'Hiba történt az oldal betöltésekor. Ellenőrizd a böngésző konzolt vagy töltsd újra az oldalt.';
+          'A térkép inicializálása nem sikerült. Ellenőrizd a böngésző konzolt.';
+        return;
       }
+
+      loadNews().catch(error => console.warn('Hírbetöltési hiba:', error));
+      loadEvents().catch(error => console.warn('Idővonal-betöltési hiba:', error));
+
+      let roads = 0;
+      let geojson = 0;
+      let parks = 0;
+      let officialSites = 0;
+      const warnings = [];
+
+      document.getElementById('status').textContent = 'Pontosított utcavonalak betöltése...';
+      try {
+        geojson = await loadGeojsonStreets();
+      } catch (error) {
+        console.warn('GeoJSON-réteg betöltési hiba:', error);
+        warnings.push('a pontosított GeoJSON-réteg nem érhető el');
+      }
+
+      document.getElementById('status').textContent = 'OSM utcavonalak betöltése Kőszeg térségéből...';
+      try {
+        roads = await loadRoads();
+      } catch (error) {
+        console.warn('OSM utcavonalak betöltési hiba:', error);
+        document.getElementById('statRoads').textContent = OFFICIAL_STREET_COUNT;
+        warnings.push('az élő OSM/Overpass-réteg átmenetileg nem érhető el');
+      }
+
+      document.getElementById('status').textContent = 'Parkolók jelölése...';
+      try {
+        parks = await loadParkings();
+      } catch (error) {
+        console.warn('Parkolóbetöltési hiba:', error);
+        warnings.push('néhány parkolójelölés nem tölthető be');
+      }
+
+      document.getElementById('status').textContent = 'Kormányhivatali speciális helyszínek betöltése...';
+      try {
+        officialSites = await loadOfficialSites();
+      } catch (error) {
+        console.warn('Helyszínbetöltési hiba:', error);
+        warnings.push('néhány kormányhivatali helyszín nem tölthető be');
+      }
+
+      const warningText = warnings.length
+        ? ` Figyelmeztetés: ${warnings.join('; ')}.`
+        : '';
+
+      document.getElementById('status').textContent =
+        `Kész: hivatalosan ${OFFICIAL_STREET_COUNT} utca és ${OFFICIAL_PARKING_COUNT} parkoló érintett. ` +
+        `Betöltve: ${roads} OSM-vonalelem, ${geojson} GeoJSON-elem, ${parks} parkolójelölés és ` +
+        `${officialSites} kormányhivatali helyszín.${warningText}`;
     }
 
     document.addEventListener('DOMContentLoaded', start);
