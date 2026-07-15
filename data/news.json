@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-14T19:08:21.731610+00:00",
+  "generated_at": "2026-07-15T01:44:11.621771+00:00",
   "refresh_hours": 6,
   "query": "\n(\"Kőszeg\" OR \"Koszeg\" OR \"Bozsok\" OR \"Szombathely\" OR \"Pilgersdorf\" OR \"Burgenland\" OR \"Bernstein\")\n(azbeszt OR aszbeszt OR kőzúzalék OR kőbánya OR serpentinit OR Asbest OR Steinbruch OR Schotter OR Greenpeace)\n",
   "mode": "rss_html_gdelt_ai_filtered_with_article_date_extraction",
@@ -22,14 +22,14 @@
     "official": 2,
     "austrian": 4
   },
-  "summary": "Az elmúlt hónapokban a Kőszeg, Bozsok, Szombathely valamint az ausztriai Pilgersdorf és Burgenland térségében az azbeszttartalmú kőzúzalék használata miatti esetleges szennyezés került a középpontba. Az ügy összetett, több érintett települést és hatóságot foglal magában, ezért fontos a különböző forrásokra támaszkodva átfogó képet alkotni.\n\n**Hivatalos források:**  \nA Vas Vármegyei Kormányhivatal a lakosság számára rendszeresen frissített tájékoztatást adott ki az azbesztszennyezésről és az ahhoz kapcsolódó teendőkről (2026. június). A Kőszegi Önkormányzat április végén szintén közleményben tájékoztatta a helyi lakosságot az ausztriai bányákból származó kőzúzalék ügyéről. Kőszeg területén több mint két tucat helyszínen (29 ponton) mutatták ki azbesztet tartalmazó anyagot, aminek kapcsán forgalmi és egyéb korlátozásokat vezettek be (10 km/h-s sebességkorlátozás több utcában). A szennyezett kőzúzalék több közintézmény környékére, így bölcsődék, óvodák, iskolai kollégiumok és játszóterek közelébe is került.\n\n**Önkormányzati és kormányhivatali lépések:**  \nAz érintett települések elsődleges feladata a lakossági tájékoztatás és a behatárolt területeken az azbeszt terjedésének megakadályozása. Szombathelyen a helyi önkormányzat és a kormányhivatal is részt vesz a szennyezés felmérésében és a megelőző intézkedésekben.\n\n**Civil szervezetek véleménye:**  \nA Greenpeace Magyarország több nyilatkozatban is aggályokat fogalmazott meg azzal kapcsolatban, hogy Burgenlandban júliusra tervezik az azbesztes bányák újranyitását, miközben a magyar oldalon egészségügyi vészhelyzetnek minősített helyzet alakult ki. A civil szervezet ismételten sürgette a kormányzati fellépést és az ügy átfogó vizsgálatát.\n\n**Magyar média tudósításai:**  \nA HVG, Telex, 444, 24.hu és VAOL hasonlóképpen beszámoltak az azbesztszennyezés kimutatásáról Kőszegen, a környező településeken és Szombathelyen. Az anyag több helyszínen is jelen van, a sajtó beszámolói alapján a helyzet orvoslása jelentős erőforrásokat igényel. A Sopron-Szombathely-Szentgotthárd vasútvonal felújításának kapcsán is felmerült az azbeszttartalmú anyag használata. Több médium ismertette, hogy a helyi lakosoknak maszkokat biztosítottak a védelem érdekében.\n\n**Osztrák források:**  \nA burgenlandi Kurier légkörjelentése szerint Ausztriában folytatódik a vita a bányák működtetéséről. Egyes szakmai és gazdasági szereplők az azbesztszennyezés hiányát hangsúlyozzák, és ellenlobbi tevékenységet említenek, amely a Greenpeace-t próbálja bűnbakká tenni. Az EU-s finanszírozási lehetőségek is szóba kerültek a szanálási költségek miatt. A lakossági és politikai viták fontos része az osztrák térségi diskurzusnak, amely néhány hete már Bécsben is témává vált.\n\nÖsszegzésként megállapítható, hogy az ügy mindkét oldalon – Magyarországon és Burgenlandban – komoly figyelmet kap, részben a lakosság egészségét érintő kockázatok, részben pedig az ipari és politikai érdekek kölcsönhatása miatt. A kormányzati oldal az óvatosság és a tájékoztatás fokozására helyezte a hangsúlyt, miközben a civil szervezetek további intézkedéseket szorgalmaznak. Az osztrák és magyar médiaszereplők pedig folyamatosan hozzájárulnak a közvélemény tájékoztatásá",
+  "summary": "AI-összefoglaló hiba miatt nem készült el. OpenAI HTTP hiba: 500.",
   "latest_articles": [
     {
       "title": "Sperre Steinbrüche Pilgersdorf, Rumpersdorf, Badersdorf, Bernstein wollen wieder öffnen",
       "source": "MeinBezirk Burgenland",
       "source_type": "austrian",
       "date": "2026-07-14",
-      "url": "https://www.meinbezirk.at/oberpullendorf/c-wirtschaft/steinbrueche-pilgersdorf-rumpersdorf-badersdorf-bernstein-wollen-wieder-oeffnen_a8793246?ref=curate",
+      "url": "https://www.meinbezirk.at/oberpullendorf/c-wirtschaft/steinbrueche-pilgersdorf-rumpersdorf-badersdorf-bernstein-wollen-wieder-oeffnen_a8793246",
       "type": "html"
     },
     {
@@ -327,7 +327,7 @@
       "source": "MeinBezirk Burgenland",
       "source_type": "austrian",
       "date": "2026-07-14",
-      "url": "https://www.meinbezirk.at/oberpullendorf/c-wirtschaft/steinbrueche-pilgersdorf-rumpersdorf-badersdorf-bernstein-wollen-wieder-oeffnen_a8793246?ref=curate",
+      "url": "https://www.meinbezirk.at/oberpullendorf/c-wirtschaft/steinbrueche-pilgersdorf-rumpersdorf-badersdorf-bernstein-wollen-wieder-oeffnen_a8793246",
       "type": "html"
     },
     {
