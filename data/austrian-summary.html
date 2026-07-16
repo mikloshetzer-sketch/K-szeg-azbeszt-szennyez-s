@@ -3,936 +3,105 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Osztrák és burgenlandi hírösszefoglaló | Kőszegi Azbeszt Monitor</title>
-  <meta
-    name="description"
-    content="Automatikus magyar nyelvű összefoglaló az osztrák és burgenlandi azbesztügyi hírekről, forrásokkal és figyelendő pontokkal."
-  >
-
+  <title>Osztrák és burgenlandi hírösszefoglaló</title>
   <style>
-    :root {
-      --page-bg: #eef3f7;
-      --surface: #ffffff;
-      --surface-soft: #f7fafc;
-      --surface-blue: #eff6ff;
-      --surface-orange: #fff7ed;
-      --surface-green: #f0fdf4;
-
-      --text: #10233f;
-      --text-strong: #071a33;
-      --muted: #5d6d82;
-
-      --blue: #1466a8;
-      --blue-dark: #0b477a;
-      --blue-light: #d9ebf8;
-      --orange: #d97706;
-      --green: #16835b;
-
-      --border: #d5e0e9;
-      --border-strong: #b9cbd9;
-
-      --shadow-sm: 0 4px 14px rgba(15, 42, 70, 0.06);
-      --shadow-md: 0 14px 38px rgba(15, 42, 70, 0.10);
-
-      --radius-md: 16px;
-      --radius-lg: 22px;
-      --content-width: 1180px;
-    }
-
-    * { box-sizing: border-box; }
-
-    html { scroll-behavior: smooth; }
-
     body {
+      font-family: Arial, sans-serif;
       margin: 0;
-      min-height: 100vh;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system,
-        BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
-      line-height: 1.65;
-      color: var(--text);
-      background:
-        radial-gradient(circle at top right, rgba(20, 102, 168, 0.10), transparent 30rem),
-        var(--page-bg);
+      padding: 34px;
+      line-height: 1.6;
+      color: #111827;
+      background: #f8fafc;
     }
-
-    a {
-      color: var(--blue-dark);
-      text-decoration-thickness: 1px;
-      text-underline-offset: 3px;
-    }
-
-    a:hover { color: var(--blue); }
-
-    button,
-    a.button { font: inherit; }
-
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      border-bottom: 1px solid rgba(185, 203, 217, 0.85);
-      background: rgba(255, 255, 255, 0.94);
-      backdrop-filter: blur(12px);
-    }
-
-    .site-header-inner {
-      width: min(calc(100% - 40px), var(--content-width));
-      min-height: 68px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      color: var(--text-strong);
-      text-decoration: none;
-    }
-
-    .brand-mark {
-      width: 38px;
-      height: 38px;
-      display: grid;
-      place-items: center;
-      border-radius: 12px;
-      color: #fff;
-      font-weight: 900;
-      letter-spacing: -0.04em;
-      background: linear-gradient(145deg, var(--blue), var(--blue-dark));
-      box-shadow: 0 7px 18px rgba(20, 102, 168, 0.24);
-    }
-
-    .brand-text {
-      display: grid;
-      line-height: 1.15;
-    }
-
-    .brand-text strong { font-size: 15px; }
-
-    .brand-text span {
-      margin-top: 4px;
-      font-size: 11px;
-      color: var(--muted);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .header-actions {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      min-height: 42px;
-      border: 1px solid transparent;
-      border-radius: 11px;
-      padding: 9px 14px;
-      font-size: 13px;
-      font-weight: 800;
-      cursor: pointer;
-      text-decoration: none;
-      transition:
-        transform 0.18s ease,
-        box-shadow 0.18s ease,
-        background 0.18s ease;
-    }
-
-    .button:hover { transform: translateY(-1px); }
-
-    .button-primary {
-      color: #fff;
-      background: linear-gradient(145deg, var(--blue), var(--blue-dark));
-      box-shadow: 0 7px 18px rgba(20, 102, 168, 0.22);
-    }
-
-    .button-primary:hover {
-      color: #fff;
-      box-shadow: 0 10px 24px rgba(20, 102, 168, 0.30);
-    }
-
-    .button-secondary {
-      color: var(--text);
-      border-color: var(--border);
-      background: #fff;
-    }
-
-    .page-shell {
-      width: min(calc(100% - 40px), var(--content-width));
-      margin: 28px auto 50px;
-    }
-
-    .hero {
-      position: relative;
-      overflow: hidden;
-      padding: clamp(28px, 5vw, 58px);
-      border: 1px solid rgba(20, 102, 168, 0.18);
-      border-radius: var(--radius-lg);
-      color: #fff;
-      background:
-        linear-gradient(115deg, rgba(5, 28, 54, 0.98), rgba(10, 75, 123, 0.91)),
-        linear-gradient(145deg, var(--blue-dark), var(--blue));
-      box-shadow: var(--shadow-md);
-    }
-
-    .hero::before,
-    .hero::after {
-      content: "";
-      position: absolute;
-      border-radius: 50%;
-      pointer-events: none;
-    }
-
-    .hero::before {
-      width: 280px;
-      height: 280px;
-      top: -145px;
-      right: -65px;
-      border: 1px solid rgba(255, 255, 255, 0.20);
-    }
-
-    .hero::after {
-      width: 170px;
-      height: 170px;
-      right: 80px;
-      bottom: -110px;
-      background: rgba(255, 255, 255, 0.06);
-    }
-
-    .eyebrow {
-      margin: 0 0 12px;
-      font-size: 11px;
-      font-weight: 900;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: #b9dfff;
-    }
-
-    .hero h1 {
-      position: relative;
-      z-index: 1;
-      max-width: 860px;
-      margin: 0;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(32px, 5vw, 58px);
-      line-height: 1.08;
-      letter-spacing: -0.035em;
-    }
-
-    .hero-lead {
-      position: relative;
-      z-index: 1;
-      max-width: 800px;
-      margin: 20px 0 0;
-      color: rgba(255, 255, 255, 0.82);
-      font-size: clamp(15px, 2vw, 18px);
-    }
-
-    .hero-meta {
-      position: relative;
-      z-index: 1;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 26px;
-    }
-
-    .meta-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      min-height: 34px;
-      padding: 6px 11px;
-      border: 1px solid rgba(255, 255, 255, 0.20);
-      border-radius: 999px;
-      color: rgba(255, 255, 255, 0.90);
-      background: rgba(255, 255, 255, 0.08);
-      font-size: 12px;
-      font-weight: 750;
-    }
-
-    .meta-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: #65d6a6;
-      box-shadow: 0 0 0 4px rgba(101, 214, 166, 0.14);
-    }
-
-    .overview-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.6fr) minmax(290px, 0.8fr);
-      gap: 18px;
-      margin-top: 20px;
-    }
-
-    .notice {
-      padding: 20px 22px;
-      border: 1px solid #f2d3aa;
-      border-left: 5px solid var(--orange);
-      border-radius: var(--radius-md);
-      color: #6f4a16;
-      background: var(--surface-orange);
-      box-shadow: var(--shadow-sm);
-    }
-
-    .notice strong {
-      display: block;
-      margin-bottom: 5px;
-      color: #7b4303;
-    }
-
-    .summary-stats {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      overflow: hidden;
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      background: var(--surface);
-      box-shadow: var(--shadow-sm);
-    }
-
-    .summary-stat {
-      padding: 18px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .summary-stat + .summary-stat {
-      border-left: 1px solid var(--border);
-    }
-
-    .summary-stat strong {
-      color: var(--text-strong);
-      font-size: 25px;
-      line-height: 1;
-    }
-
-    .summary-stat span {
-      margin-top: 7px;
-      color: var(--muted);
-      font-size: 12px;
-      font-weight: 700;
-    }
-
-    .content-layout {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) 320px;
-      align-items: start;
-      gap: 22px;
-      margin-top: 22px;
-    }
-
-    .panel {
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      background: var(--surface);
-      box-shadow: var(--shadow-sm);
-    }
-
-    .article-panel {
-      padding: clamp(22px, 4vw, 42px);
-    }
-
-    .section-heading {
-      display: flex;
-      align-items: flex-start;
-      gap: 13px;
-      margin-bottom: 24px;
-    }
-
-    .section-number {
-      flex: 0 0 auto;
-      width: 34px;
-      height: 34px;
-      display: grid;
-      place-items: center;
+    .box {
+      background: white;
+      border: 1px solid #d0d9e2;
+      border-left: 6px solid #2563eb;
       border-radius: 10px;
-      color: #fff;
-      background: var(--blue);
-      font-size: 13px;
-      font-weight: 900;
+      padding: 24px;
+      max-width: 980px;
+      margin: auto;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
     }
-
-    .section-heading h2 {
-      margin: 0;
-      color: var(--text-strong);
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(24px, 3vw, 34px);
-      line-height: 1.18;
-      letter-spacing: -0.025em;
+    h1 { margin-top: 0; }
+    h2 {
+      margin-top: 28px;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 6px;
     }
-
-    .section-heading p {
-      margin: 6px 0 0;
-      color: var(--muted);
+    a { color: #0645ad; }
+    li { margin-bottom: 10px; }
+    .warning {
+      background: #fff7ed;
+      border-left: 5px solid #f59e0b;
+      padding: 12px;
+      margin: 18px 0;
+    }
+    .meta {
+      color: #4b5563;
       font-size: 14px;
     }
-
-    .summary-content {
-      color: #25364c;
-      font-size: 16px;
-      line-height: 1.78;
+    .actions {
+      margin-top: 24px;
     }
-
-    .summary-content > :first-child { margin-top: 0; }
-    .summary-content > :last-child { margin-bottom: 0; }
-
-    .summary-content h3 {
-      margin: 30px 0 12px;
-      color: var(--text-strong);
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 22px;
-      letter-spacing: -0.02em;
-    }
-
-    .summary-content p { margin: 0 0 18px; }
-    .summary-content strong { color: #0b355b; }
-
-    .summary-content ol,
-    .summary-content ul {
-      margin: 12px 0 22px;
-      padding-left: 24px;
-    }
-
-    .summary-content li {
-      margin-bottom: 13px;
-      padding-left: 4px;
-    }
-
-    .summary-content hr {
-      height: 1px;
-      margin: 30px 0;
+    button {
+      background: #2563eb;
+      color: white;
       border: 0;
-      background: var(--border);
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-weight: 700;
+      cursor: pointer;
     }
-
-    .key-points {
-      display: grid;
-      gap: 12px;
-      margin-top: 18px;
-    }
-
-    .key-point {
-      padding: 16px 18px;
-      border: 1px solid #c7dfef;
-      border-radius: 13px;
-      background: var(--surface-blue);
-    }
-
-    .key-point strong {
-      display: block;
-      margin-bottom: 4px;
-      color: var(--blue-dark);
-    }
-
-    .sidebar {
-      position: sticky;
-      top: 90px;
-      display: grid;
-      gap: 16px;
-    }
-
-    .sidebar-panel { padding: 20px; }
-
-    .sidebar-panel h2,
-    .sidebar-panel h3 {
-      margin: 0;
-      color: var(--text-strong);
-    }
-
-    .sidebar-panel h2 {
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 23px;
-    }
-
-    .sidebar-panel h3 { font-size: 15px; }
-
-    .sidebar-panel p {
-      margin: 8px 0 0;
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    .toc {
-      display: grid;
-      gap: 8px;
-      margin-top: 16px;
-    }
-
-    .toc a {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-      padding: 10px 12px;
-      border: 1px solid transparent;
-      border-radius: 10px;
-      color: var(--text);
-      background: var(--surface-soft);
-      font-size: 13px;
-      font-weight: 750;
-      text-decoration: none;
-    }
-
-    .toc a:hover {
-      border-color: var(--blue-light);
-      color: var(--blue-dark);
-      background: var(--surface-blue);
-    }
-
-    .source-list {
-      display: grid;
-      gap: 12px;
-      margin: 18px 0 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    .source-card {
-      padding: 15px;
-      border: 1px solid var(--border);
-      border-radius: 13px;
-      background: var(--surface-soft);
-    }
-
-    .source-card:hover {
-      border-color: #adc9dc;
-      background: #fff;
-    }
-
-    .source-name {
-      display: inline-flex;
-      margin-bottom: 8px;
-      padding: 3px 7px;
-      border-radius: 999px;
-      color: var(--blue-dark);
-      background: var(--blue-light);
-      font-size: 10px;
-      font-weight: 900;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-    }
-
-    .source-card a {
-      display: block;
-      color: var(--text-strong);
-      font-size: 14px;
-      font-weight: 800;
-      line-height: 1.42;
-      text-decoration: none;
-    }
-
-    .source-card a:hover { color: var(--blue); }
-
-    .source-date {
-      display: block;
-      margin-top: 8px;
-      color: var(--muted);
-      font-size: 11px;
-    }
-
-    .method-note {
-      border-left: 4px solid var(--green);
-      background: var(--surface-green);
-    }
-
-    .method-note h3 { color: #0b6143; }
-
-    .page-footer {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 18px;
-      margin-top: 22px;
-      padding: 18px 4px 0;
-      border-top: 1px solid var(--border-strong);
-      color: var(--muted);
-      font-size: 12px;
-    }
-
-    .back-to-top {
-      color: var(--blue-dark);
-      font-weight: 800;
-      text-decoration: none;
-    }
-
-    @media (max-width: 920px) {
-      .overview-grid,
-      .content-layout {
-        grid-template-columns: 1fr;
-      }
-
-      .sidebar { position: static; }
-    }
-
-    @media (max-width: 680px) {
-      .site-header-inner,
-      .page-shell {
-        width: min(calc(100% - 24px), var(--content-width));
-      }
-
-      .site-header-inner { min-height: 62px; }
-
-      .brand-text span,
-      .header-actions .button-secondary {
-        display: none;
-      }
-
-      .hero { padding: 28px 22px; }
-      .hero h1 { font-size: 34px; }
-
-      .summary-stats { grid-template-columns: 1fr 1fr; }
-
-      .article-panel { padding: 22px 18px; }
-
-      .section-heading { gap: 10px; }
-
-      .summary-content { font-size: 15px; }
-
-      .page-footer {
-        align-items: flex-start;
-        flex-direction: column;
-      }
-    }
-
     @media print {
-      @page { margin: 16mm; }
-
-      body {
-        color: #111;
-        background: #fff;
-      }
-
-      .site-header,
-      .sidebar,
-      .page-footer,
-      .print-hidden {
-        display: none !important;
-      }
-
-      .page-shell {
-        width: 100%;
-        margin: 0;
-      }
-
-      .hero {
-        padding: 0 0 18px;
-        border: 0;
-        border-bottom: 2px solid #111;
-        border-radius: 0;
-        color: #111;
-        background: #fff;
-        box-shadow: none;
-      }
-
-      .hero::before,
-      .hero::after { display: none; }
-
-      .hero .eyebrow,
-      .hero-lead,
-      .hero-meta,
-      .hero h1 {
-        color: #111;
-      }
-
-      .overview-grid { display: block; }
-
-      .notice {
-        margin-top: 16px;
-        color: #111;
-        border: 1px solid #aaa;
-        background: #fff;
-        box-shadow: none;
-      }
-
-      .summary-stats { display: none; }
-
-      .content-layout { display: block; }
-
-      .panel {
-        border: 0;
-        box-shadow: none;
-      }
-
-      .article-panel { padding: 22px 0 0; }
-
-      a {
-        color: #111;
-        text-decoration: none;
-      }
+      .actions { display: none; }
+      body { background: white; padding: 0; }
+      .box { box-shadow: none; border: 0; }
     }
   </style>
 </head>
+<body>
+  <div class="box">
+    <h1>Osztrák és burgenlandi hírösszefoglaló</h1>
 
-<body id="top">
-  <header class="site-header print-hidden">
-    <div class="site-header-inner">
-      <a class="brand" href="../index.html" aria-label="Vissza a Kőszegi Azbeszt Monitor főoldalára">
-        <span class="brand-mark">AM</span>
-        <span class="brand-text">
-          <strong>Kőszegi Azbeszt Monitor</strong>
-          <span>Határon átnyúló sajtófigyelés</span>
-        </span>
-      </a>
+    <p class="meta">
+      Készült: 2026-07-16T01:54:01.741054+00:00<br>
+      Források száma: 3
+    </p>
 
-      <div class="header-actions">
-        <a class="button button-secondary" href="../index.html">← Főoldal</a>
-        <button class="button button-primary" type="button" onclick="window.print()">
-          PDF / nyomtatás
-        </button>
-      </div>
-    </div>
-  </header>
-
-  <main class="page-shell">
-    <section class="hero" aria-labelledby="pageTitle">
-      <p class="eyebrow">Nemzetközi sajtófigyelés · Ausztria és Burgenland</p>
-
-      <h1 id="pageTitle">Osztrák és burgenlandi hírösszefoglaló</h1>
-
-      <p class="hero-lead">
-        Magyar nyelvű elemző összefoglaló az azbeszttel szennyezett
-        kőzúzalék ügyének osztrák fejleményeiről, politikai visszhangjáról
-        és lehetséges határon átnyúló következményeiről.
-      </p>
-
-      <div class="hero-meta">
-        <span class="meta-pill">
-          <span class="meta-dot"></span>
-          Automatikus összefoglaló
-        </span>
-        <span class="meta-pill">Készült: 2026. július 15.</span>
-        <span class="meta-pill">3 felhasznált forrás</span>
-      </div>
-    </section>
-
-    <section class="overview-grid" aria-label="Tájékoztató és összesítő adatok">
-      <div class="notice">
-        <strong>Fontos módszertani figyelmeztetés</strong>
-        Ez az oldal automatikusan előállított, tájékoztató jellegű
-        összefoglalót közöl. Nem hivatalos hatósági dokumentum, és nem
-        helyettesíti az osztrák vagy magyar hatóságok, önkormányzatok és
-        egészségügyi szervek közleményeit.
-      </div>
-
-      <div class="summary-stats" aria-label="Összesítő adatok">
-        <div class="summary-stat">
-          <strong>3</strong>
-          <span>osztrák forrás</span>
-        </div>
-        <div class="summary-stat">
-          <strong>3</strong>
-          <span>kiemelt figyelési pont</span>
-        </div>
-      </div>
-    </section>
-
-    <div class="content-layout">
-      <article class="panel article-panel">
-        <header class="section-heading">
-          <span class="section-number">01</span>
-          <div>
-            <h2 id="osszefoglalo">Magyar nyelvű összefoglaló</h2>
-            <p>Az osztrák és burgenlandi hírekből összeállított elemzői helyzetkép.</p>
-          </div>
-        </header>
-
-        <div class="summary-content">
-          <p>
-            <strong>
-              Összefoglaló az osztrák és burgenlandi források alapján:
-              azbeszt és kőzúzalék ügy a Kőszeg, Bozsok, Szombathely,
-              Pilgersdorf, Bernstein és Burgenland térségében
-            </strong>
-          </p>
-
-          <p>
-            Az ausztriai és burgenlandi híradások az azbeszttel és annak
-            környezetre gyakorolt hatásaival kapcsolatos aktuális
-            fejleményeket mutatják be, amelyek érintik a határ menti
-            régiókat. Az ügy különös jelentőséggel bír Kőszeg, Bozsok és
-            Szombathely magyarországi, valamint Pilgersdorf, Bernstein és
-            további burgenlandi települések szempontjából. A szennyeződés
-            jellege és kezelése határon átnyúló együttműködést és folyamatos
-            figyelmet igényel.
-          </p>
-
-          <h3>Az osztrák források fontosabb megállapításai</h3>
-
-          <ol>
-            <li>
-              <strong>EU-s támogatás és finanszírozási kérdések.</strong>
-              A Greenpeace javaslata alapján felmerült, hogy az Európai
-              Unió, különösen az EU Szolidaritási Alapja, hozzájárulhatna
-              az azbesztszennyezés eltakarításának költségeihez Burgenland
-              térségében. Ez a helyi önkormányzatok és környezetvédelmi
-              szervezetek számára fontos finanszírozási lehetőséget
-              jelenthet.
-            </li>
-
-            <li>
-              <strong>Politikai és közéleti visszhang.</strong>
-              Az azbesztprobléma a burgenlandi utak mellett Bécsben is
-              politikai témává vált. Ez arra utal, hogy az ügy már nem
-              csupán helyi vagy regionális, hanem országos szintű figyelmet
-              kap Ausztriában. A vitában környezetvédelmi szervezetek és
-              politikai szereplők is részt vesznek.
-            </li>
-
-            <li>
-              <strong>Új tervek és a települések érintettsége.</strong>
-              A tartományi környezetvédelmi tárca új elképzeléseket
-              mutatott be az azbeszttel szennyezett kőzetek és hulladékok
-              elhelyezéséről. Az érintett bányaterületek és lehetséges
-              lerakóhelyek között több burgenlandi helyszín szerepel.
-              A Pilgersdorf és Bernstein térségéhez hasonló, magyar
-              határhoz közeli területek miatt ezek a fejlemények magyar
-              szempontból is figyelmet érdemelnek.
-            </li>
-          </ol>
-
-          <h3>Az osztrák források szerepe és jelentősége</h3>
-
-          <p>
-            Az osztrák oldalon zajló környezeti, politikai és hatósági
-            folyamatok követése a magyar határ mentén élők és a helyi
-            döntéshozók számára is fontos. Az osztrák média beszámolóiból
-            megismerhető a helyi politikai vita, a környezetvédelmi
-            intézkedések iránya, az érintett települések helyzete, valamint
-            az uniós jogi és pénzügyi eszközök alkalmazására irányuló
-            törekvés.
-          </p>
-
-          <p>
-            Mindez rámutat a <strong>határon átnyúló hírfigyelés
-            szükségességére</strong>. A két ország nyilvános adatainak és
-            közleményeinek párhuzamos követése segítheti a regionális
-            együttműködést, és pontosabb képet adhat a lakosság számára is.
-          </p>
-
-          <hr>
-
-          <h3 id="figyelendo-pontok">Figyelendő pontok</h3>
-
-          <div class="key-points">
-            <div class="key-point">
-              <strong>EU-s támogatások alakulása</strong>
-              Az esetleges uniós finanszírozási döntések jelentősen
-              befolyásolhatják a szennyezés felszámolásának pénzügyi
-              hátterét Burgenlandban és a magyar határ menti térségben.
-            </div>
-
-            <div class="key-point">
-              <strong>Politikai és társadalmi viták</strong>
-              A helyi és országos politikai diskurzus alakulása
-              meghatározhatja a környezetvédelmi intézkedések ütemét és
-              végrehajtását.
-            </div>
-
-            <div class="key-point">
-              <strong>Határon átnyúló együttműködés</strong>
-              Az azbeszt és a kapcsolódó hulladékok kezelése koordinált,
-              mindkét országot érintő megközelítésben lehet eredményes.
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <aside class="sidebar">
-        <section class="panel sidebar-panel print-hidden">
-          <h2>Oldalnavigáció</h2>
-          <p>Gyors ugrás az oldal fontosabb részeihez.</p>
-
-          <nav class="toc" aria-label="Oldalnavigáció">
-            <a href="#osszefoglalo">
-              <span>Összefoglaló</span>
-              <span>→</span>
-            </a>
-            <a href="#figyelendo-pontok">
-              <span>Figyelendő pontok</span>
-              <span>→</span>
-            </a>
-            <a href="#forrasok">
-              <span>Felhasznált források</span>
-              <span>→</span>
-            </a>
-          </nav>
-        </section>
-
-        <section class="panel sidebar-panel method-note">
-          <h3>Módszertani háttér</h3>
-          <p>
-            Az összefoglaló nyilvánosan elérhető osztrák és burgenlandi
-            sajtóforrások alapján készült. Az automatikus szöveg
-            tájékoztató célú, ezért a fontos állításokat mindig az eredeti
-            forrásokkal együtt érdemes értelmezni.
-          </p>
-        </section>
-
-        <section class="panel sidebar-panel" id="forrasok">
-          <h2>Felhasznált források</h2>
-          <p>Az összefoglalóhoz feldolgozott osztrák sajtóanyagok.</p>
-
-          <ul class="source-list">
-            <li class="source-card">
-              <span class="source-name">Kurier Burgenland</span>
-              <a
-                href="https://kurier.at/chronik/burgenland/asbest-burgenland-greenpeace-eu-solidaritaetsfonds-grosspetersdorf-kosten-streit/403175475"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Asbest-Sanierung: EU könnte laut Greenpeace zahlen
-              </a>
-              <span class="source-date">Dátum nem szerepel az adatfájlban</span>
-            </li>
-
-            <li class="source-card">
-              <span class="source-name">Kurier Burgenland</span>
-              <a
-                href="https://kurier.at/chronik/wien/asbest-wien-burgenland-greenpeace-oevp-fpoe/403175346"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Asbest-Belastung auf Straßen wird auch in Wien zum Politikum
-              </a>
-              <span class="source-date">2026. július 9.</span>
-            </li>
-
-            <li class="source-card">
-              <span class="source-name">Kurier Burgenland</span>
-              <a
-                href="https://kurier.at/chronik/burgenland/asbest-steinbrueche-deponie-umweltministerium-burgenland-verordnung-entsorgung/403175533"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Neue Pläne um Asbest: Diese Orte könnten bald zu Deponien werden
-              </a>
-              <span class="source-date">2026. július 10.</span>
-            </li>
-          </ul>
-        </section>
-      </aside>
+    <div class="warning">
+      Tájékoztató jellegű automatikus összefoglaló. Nem hivatalos hatósági dokumentum, és nem helyettesíti az osztrák vagy magyar hivatalos közleményeket.
     </div>
 
-    <footer class="page-footer">
-      <span>
-        Kőszegi Azbeszt Monitor · Tájékoztató jellegű, nyílt forrású
-        sajtóösszefoglaló
-      </span>
-      <a class="back-to-top" href="#top">Vissza az oldal tetejére ↑</a>
-    </footer>
-  </main>
+    <h2>Magyar nyelvű összefoglaló</h2>
+    <p>**Azbeszt- és kőzúzalék-ügy Burgenland és a határ közeli térségekben – összefoglaló az osztrák források tükrében**<br><br>Az osztrák és különösen burgenlandi híradásokból az elmúlt időszakban kiemelt figyelem irányult az azbeszttel kapcsolatos kérdésekre, amelyek kihatással lehetnek a Kőszeg, Bozsok, Szombathely (Magyarország), valamint Pilgersdorf, Bernstein és azok környékére Burgenlandban. Az osztrák sajtó olyan aspektusokat emel ki, amelyek fontosak lehetnek a határon átnyúló környezeti és egészségügyi kockázatok szempontjából.<br><br>**Főbb megállapítások az osztrák források alapján:**<br><br>1. **EU-s támogatási lehetőségek az azbeszt-mentesítésben**  <br>Az egyik cikk szerint a Greenpeace felvetése alapján az Európai Unió – a Szolidaritási Alap révén – anyagi forrást biztosíthat az azbeszt szennyezés megszüntetésére Burgenlandban. Ez előrevetíti, hogy a területen folyó azbesztmentesítési munkálatok kiemelt támogatást kaphatnak, bár a pontos támogatások mértéke és feltételei még nem véglegesek.<br><br>2. **Azbeszt a közutakon és a politika**  <br>A közlekedési infrastruktúrában fellelhető azbesztes anyagok ügye nemcsak Burgenlandot, hanem Bécset is érinti, és politikai viták tárgya. Ez rávilágít arra, hogy az azbeszt jelenléte a burgenlandi utak közelében a tágabb régióban is érezhető problémaként jelentkezik, amely több osztrák tartományban, de potenciálisan a határokon túl is releváns lehet.<br><br>3. **Új tervek a hulladéklerakók kialakítására**  <br>A burgenlandi környezetvédelmi minisztérium tervei között szerepel új lerakók kijelölése olyan helyeken, amelyek közel esnek az érintett területekhez. Ez jelentős a regionális hulladékkezelés és azbeszt-eltávolítás szempontjából, de a tervezett helyszínek pontos listája és az engedélyezési folyamat állapota az újságokból nem tisztán derül ki.<br><br>**Az osztrák források szerepe és a határon átnyúló hírfigyelés fontossága**<br><br>Az osztrák médiában megjelenő információk közérthető áttekintést nyújtanak a helyi környezeti kihívásokról, különösen Burgenland térségében, ahol az azbeszt jelenléte releváns a határhoz közeli magyar településekre is. A határon átnyúló hírfigyelés azért fontos, mert az érintett környezetvédelmi problémák a régió egészét érinthetik, és a megoldáshoz mindkét ország tapasztalatára, koordinációjára szükség van. Az Ausztria oldali fejlemények ismerete segít a magyar hatóságoknak és lakosságnak jobban értékelni a helyzetet, és időben tájékozódni a környezetvédelmi intézkedésekről.<br><br>**Fontosabb települések és térségek**<br><br>- Magyar oldalról: Kőszeg, Bozsok, Szombathely  <br>- Osztrák oldalról: Pilgersdorf, Bernstein és általában Burgenland térsége<br><br>E települések környékén történő beruházások, hulladéklerakók vagy szennyezés-eltávolítási akciók relevánsak lehetnek a határon átnyúló környezeti állapot szempontjából.<br><br>---<br><br>**Figyelendő pontok**<br><br>1. A jelenlegi információk szerint folyamatban lévő tervezések és kezdeményezések vannak az azbeszt-mentesítés és hulladéklerakók kialakítása kapcsán, de konkrét, végleges hatósági döntések vagy laboreredmények nem állnak rendelkezésre az osztrák hírek alapján.  <br>2. A terület határon átnyúló jellege miatt a magyar és osztrák oldali intézkedések és információk összehangoltsága kulcsfontosságú a hatékony kockázatkezeléshez.  <br>3. A politikai és civil szervezetek által jelzett kérdések – például az EU támogatás vagy az azbeszt jelenléte a közutakon – további fejleményekre adnak lehetőséget, amelyek nyomon követése javasolt.<br><br>---<br><br>Ez az összefoglaló az osztrák sajtó legfrissebb cikkeit dolgozza fel a Burgenland mellett fekvő magyar településeket érintő azbeszt/kőzúzalék helyzet kapcsán, cél</p>
+
+    <h2>Felhasznált osztrák / burgenlandi források</h2>
+    <ul>
+      
+        <li>
+          <strong>Kurier Burgenland</strong>:
+          <a href="https://kurier.at/chronik/burgenland/asbest-burgenland-greenpeace-eu-solidaritaetsfonds-grosspetersdorf-kosten-streit/403175475" target="_blank" rel="noopener">Asbest-Sanierung: EU könnte laut Greenpeace zahlen</a>
+          <em>2026-07-10</em>
+        </li>
+        
+        <li>
+          <strong>Kurier Burgenland</strong>:
+          <a href="https://kurier.at/chronik/wien/asbest-wien-burgenland-greenpeace-oevp-fpoe/403175346" target="_blank" rel="noopener">Asbest-Belastung auf Straßen wird auch in Wien zum Politikum</a>
+          <em>2026-07-09</em>
+        </li>
+        
+        <li>
+          <strong>Kurier Burgenland</strong>:
+          <a href="https://kurier.at/chronik/burgenland/asbest-steinbrueche-deponie-umweltministerium-burgenland-verordnung-entsorgung/403175533" target="_blank" rel="noopener">Neue Pläne um Asbest: Diese Orte könnten bald zu Deponien werden</a>
+          <em>2026-07-10</em>
+        </li>
+        
+    </ul>
+
+    <div class="actions">
+      <button onclick="window.print()">PDF / nyomtatás</button>
+    </div>
+  </div>
 </body>
 </html>
-
