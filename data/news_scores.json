@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-23T07:44:08.228Z",
+  "generated_at": "2026-07-24T07:42:10.496Z",
   "method": "balanced_keyword_rule_based_event_scoring_v3",
   "description": "Automatikusan generált Kőszeg–azbeszt ügyindex a data/news.json alapján. A rendszer külön számolja a negatív kockázati és a pozitív intézkedési kulcsszavakat.",
   "scoring_note": "Ez nem klasszikus hangulatelemzés. A negatív pont kockázatot vagy romló fejleményt, a pozitív pont intézkedést, tájékoztatást, monitoringot vagy megoldás felé mutató eseményt jelent.",
@@ -747,20 +747,6 @@
       "url": "https://www.vaol.hu/helyi-kozelet/2026/07/szima-barna-tudogyogyasz-eloadas-irottko-koszeg-azbeszt"
     },
     {
-      "date": "2026-07-11",
-      "title": "Hulladéklerakók lehetnek a burgenlandi azbeszt-bányákból",
-      "source": "VAOL",
-      "source_type": "media",
-      "category": "altalanos_media_megjelenes",
-      "base_score": -1,
-      "source_weight": 1,
-      "confidence": 0.7,
-      "final_score": -0.7,
-      "matched_negative_rules": [],
-      "matched_positive_rules": [],
-      "url": "https://www.vaol.hu/helyi-kozelet/2026/07/azbeszt-ugy-hulladeklerako-burgenland-banya"
-    },
-    {
       "date": "2026-07-15",
       "title": "Azbesztinfót tartott a szombathelyi polgármester, erre a hétre várja a kormány döntését",
       "source": "Telex",
@@ -955,28 +941,6 @@
     },
     {
       "date": "2026-07-17",
-      "title": "Azbesztügy: Ágh Péter kevesli, hogy a kormány csak Szombathelynek segít a probléma megoldásában",
-      "source": "Nyugat.hu",
-      "source_type": "media",
-      "category": "karelhartas_megoldas",
-      "base_score": 5,
-      "source_weight": 1,
-      "confidence": 0.85,
-      "final_score": 4.25,
-      "matched_negative_rules": [],
-      "matched_positive_rules": [
-        {
-          "category": "karelhartas_megoldas",
-          "score": 5,
-          "keywords": [
-            "megoldas"
-          ]
-        }
-      ],
-      "url": "https://www.nyugat.hu/cikk/azbesztugy_agh_peter_kevesli_hogy_a_kormany_csak_a"
-    },
-    {
-      "date": "2026-07-17",
       "title": "A jövő héten tárgyalhat a kormány a szombathelyi azbesztszennyezés felszámolásáról szóló javaslatokról",
       "source": "24.hu",
       "source_type": "media",
@@ -1021,15 +985,23 @@
     },
     {
       "date": "2026-07-22",
-      "title": "A kormány lemondta a Szombathelyre kihelyezett parlamenti bizottsági ülést, pedig Burgenlandban már júliusban újranyithatják az osztrák azbesztes bányákat",
+      "title": "Bár a Kormányinfón elhangzottak szerint jelenleg nincs határérték feletti azbesztszennyezés az országban, az utolsó közzétett adatok Kőszegen és Sé községben is jelentős határérték feletti szennyezést mutattak",
       "source": "Greenpeace Magyarország",
       "source_type": "civil",
-      "category": "lakossagi_tajekoztatas",
-      "base_score": 2,
+      "category": "szennyezes_vagy_gyanu",
+      "base_score": -2,
       "source_weight": 1.15,
-      "confidence": 0.85,
-      "final_score": 1.95,
-      "matched_negative_rules": [],
+      "confidence": 1,
+      "final_score": -2.3,
+      "matched_negative_rules": [
+        {
+          "category": "szennyezes_vagy_gyanu",
+          "score": -4,
+          "keywords": [
+            "azbesztszennyezes"
+          ]
+        }
+      ],
       "matched_positive_rules": [
         {
           "category": "lakossagi_tajekoztatas",
@@ -1039,11 +1011,11 @@
           ]
         }
       ],
-      "url": "https://www.greenpeace.org/hungary/sajtokozlemeny/14025/a-kormany-lemondta-a-szombathelyre-kihelyezett-parlamenti-bizottsagi-ulest-pedig-burgenlandban-mar-juliusban-ujranyithatjak-az-osztrak-azbesztes-banyakat"
+      "url": "https://www.greenpeace.org/hungary/sajtokozlemeny/14656/bar-a-kormanyinfon-elhangzottak-szerint-jelenleg-nincs-hatarertek-feletti-azbesztszennyezes-az-orszagban-az-utolso-kozzetett-adatok-koszegen-es-se-kozsegben-is-jelentos-hatarertek-feletti-szennyezest"
     },
     {
       "date": "2026-07-22",
-      "title": "Asbest: Anzeige wegen Weitergabe von Dokumenten an NGOs Staatsanwaltschaft hat Ermittlungen beauftragt. Unterdessen geht Tauziehen zur Zukunft der Steinbrüche weiter, Entscheidung noch im Sommer möglich.",
+      "title": "Asbest: Anzeige wegen Weitergabe von Dokumenten an NGOs",
       "source": "Kurier Burgenland",
       "source_type": "austrian",
       "category": "altalanos_media_megjelenes",
@@ -1076,6 +1048,100 @@
       ],
       "matched_positive_rules": [],
       "url": "https://www.nyugat.hu/cikk/nemeny_andras_az_olad_platot_erinto_azbeszthelyzet"
+    },
+    {
+      "date": "2026-07-23",
+      "title": "Azbeszt-ügy: A Greenpeace nem ért egyet a kormány döntésével",
+      "source": "Nyugat.hu",
+      "source_type": "media",
+      "category": "altalanos_media_megjelenes",
+      "base_score": -1,
+      "source_weight": 1,
+      "confidence": 0.7,
+      "final_score": -0.7,
+      "matched_negative_rules": [],
+      "matched_positive_rules": [],
+      "url": "https://www.nyugat.hu/cikk/azbeszt_ugy_greenpeace_nem_ert_egyet_kormany"
+    },
+    {
+      "date": "2026-07-23",
+      "title": "Újabb helyen mutattak ki azbesztszennyezést Szombathelyen",
+      "source": "Nyugat.hu",
+      "source_type": "media",
+      "category": "szennyezes_vagy_gyanu",
+      "base_score": -4,
+      "source_weight": 1,
+      "confidence": 0.85,
+      "final_score": -3.4,
+      "matched_negative_rules": [
+        {
+          "category": "szennyezes_vagy_gyanu",
+          "score": -4,
+          "keywords": [
+            "azbesztszennyezes"
+          ]
+        }
+      ],
+      "matched_positive_rules": [],
+      "url": "https://www.nyugat.hu/cikk/396213_azbeszt"
+    },
+    {
+      "date": "2026-07-23",
+      "title": "Nem szedik fel és nem szállítják el az azbesztes követ az Oladi Platóról",
+      "source": "Nyugat.hu",
+      "source_type": "media",
+      "category": "altalanos_media_megjelenes",
+      "base_score": -1,
+      "source_weight": 1,
+      "confidence": 0.7,
+      "final_score": -0.7,
+      "matched_negative_rules": [],
+      "matched_positive_rules": [],
+      "url": "https://www.nyugat.hu/cikk/3_milliard_forintot_tesz_felre_a_kormaeny_az"
+    },
+    {
+      "date": "2026-07-23",
+      "title": "Nyomozást indított az osztrák ügyészség az azbesztszennyezett kőbányák miatt",
+      "source": "Nyugat.hu",
+      "source_type": "media",
+      "category": "szennyezes_vagy_gyanu",
+      "base_score": -4,
+      "source_weight": 1,
+      "confidence": 0.85,
+      "final_score": -3.4,
+      "matched_negative_rules": [
+        {
+          "category": "szennyezes_vagy_gyanu",
+          "score": -4,
+          "keywords": [
+            "szennyezett"
+          ]
+        }
+      ],
+      "matched_positive_rules": [],
+      "url": "https://www.nyugat.hu/cikk/nyomozast_inditott_osztrak_ugyeszseg_azbeszt_banya_miatt"
+    },
+    {
+      "date": "2026-07-23",
+      "title": "Azbeszt-ügy: közleményt adott ki a vasi TÖOSZ",
+      "source": "VAOL",
+      "source_type": "media",
+      "category": "lakossagi_tajekoztatas",
+      "base_score": 2,
+      "source_weight": 1,
+      "confidence": 0.85,
+      "final_score": 1.7,
+      "matched_negative_rules": [],
+      "matched_positive_rules": [
+        {
+          "category": "lakossagi_tajekoztatas",
+          "score": 2,
+          "keywords": [
+            "kozlemeny"
+          ]
+        }
+      ],
+      "url": "https://www.vaol.hu/helyi-kozelet/2026/07/azbeszt-kozlemeny-toosz"
     }
   ]
 }
