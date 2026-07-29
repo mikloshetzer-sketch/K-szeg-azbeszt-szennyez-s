@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-28T07:47:28.590Z",
+  "generated_at": "2026-07-29T08:00:02.950Z",
   "method": "balanced_keyword_rule_based_event_scoring_v3",
   "description": "Automatikusan generált Kőszeg–azbeszt ügyindex a data/news.json alapján. A rendszer külön számolja a negatív kockázati és a pozitív intézkedési kulcsszavakat.",
   "scoring_note": "Ez nem klasszikus hangulatelemzés. A negatív pont kockázatot vagy romló fejleményt, a pozitív pont intézkedést, tájékoztatást, monitoringot vagy megoldás felé mutató eseményt jelent.",
@@ -592,20 +592,6 @@
       "url": "https://hvg.hu/gazdasag/20260522_gajdos-laszlo-azbeszt-osztrak-banya-szombathely"
     },
     {
-      "date": "2026-06-11",
-      "title": "Kimagasló az azbeszt miatti rákos megbetegedések aránya néhány burgenlandi járásban",
-      "source": "Telex",
-      "source_type": "media",
-      "category": "altalanos_media_megjelenes",
-      "base_score": -1,
-      "source_weight": 1,
-      "confidence": 0.7,
-      "final_score": -0.7,
-      "matched_negative_rules": [],
-      "matched_positive_rules": [],
-      "url": "https://telex.hu/g7/adat/2026/06/11/burgenland-banyak-azbeszt-rakos-megbetegedesek-aranya-ausztria"
-    },
-    {
       "date": "2026-06-12",
       "title": "Annyiba kerülne az azbesztmentesítés, hogy még Burgenland büdzséje is megsínylené",
       "source": "HVG",
@@ -656,20 +642,6 @@
       ],
       "matched_positive_rules": [],
       "url": "https://hvg.hu/kkv/20260709_gysev-vasut-vonal-toltes-azbeszt-kozet"
-    },
-    {
-      "date": "2026-07-11",
-      "title": "Biztonságos a kőszegi pihenés: Tüdőnk egészsége előadásában az azbeszt-témát is érintette dr. Szima Barna",
-      "source": "VAOL",
-      "source_type": "media",
-      "category": "altalanos_media_megjelenes",
-      "base_score": -1,
-      "source_weight": 1,
-      "confidence": 0.7,
-      "final_score": -0.7,
-      "matched_negative_rules": [],
-      "matched_positive_rules": [],
-      "url": "https://www.vaol.hu/helyi-kozelet/2026/07/szima-barna-tudogyogyasz-eloadas-irottko-koszeg-azbeszt"
     },
     {
       "date": "2026-07-15",
@@ -925,78 +897,6 @@
       "url": "https://www.greenpeace.org/hungary/sajtokozlemeny/14656/bar-a-kormanyinfon-elhangzottak-szerint-jelenleg-nincs-hatarertek-feletti-azbesztszennyezes-az-orszagban-az-utolso-kozzetett-adatok-koszegen-es-se-kozsegben-is-jelentos-hatarertek-feletti-szennyezest"
     },
     {
-      "date": "2026-07-23",
-      "title": "Újabb helyen mutattak ki azbesztszennyezést Szombathelyen",
-      "source": "Nyugat.hu",
-      "source_type": "media",
-      "category": "szennyezes_vagy_gyanu",
-      "base_score": -4,
-      "source_weight": 1,
-      "confidence": 0.85,
-      "final_score": -3.4,
-      "matched_negative_rules": [
-        {
-          "category": "szennyezes_vagy_gyanu",
-          "score": -4,
-          "keywords": [
-            "azbesztszennyezes"
-          ]
-        }
-      ],
-      "matched_positive_rules": [],
-      "url": "https://www.nyugat.hu/cikk/396213_azbeszt"
-    },
-    {
-      "date": "2026-07-23",
-      "title": "Azbeszt-ügy: A Greenpeace nem ért egyet a kormány döntésével",
-      "source": "Nyugat.hu",
-      "source_type": "media",
-      "category": "altalanos_media_megjelenes",
-      "base_score": -1,
-      "source_weight": 1,
-      "confidence": 0.7,
-      "final_score": -0.7,
-      "matched_negative_rules": [],
-      "matched_positive_rules": [],
-      "url": "https://www.nyugat.hu/cikk/azbeszt_ugy_greenpeace_nem_ert_egyet_kormany"
-    },
-    {
-      "date": "2026-07-23",
-      "title": "Nem szedik fel és nem szállítják el az azbesztes követ az Oladi Platóról",
-      "source": "Nyugat.hu",
-      "source_type": "media",
-      "category": "altalanos_media_megjelenes",
-      "base_score": -1,
-      "source_weight": 1,
-      "confidence": 0.7,
-      "final_score": -0.7,
-      "matched_negative_rules": [],
-      "matched_positive_rules": [],
-      "url": "https://www.nyugat.hu/cikk/3_milliard_forintot_tesz_felre_a_kormaeny_az"
-    },
-    {
-      "date": "2026-07-23",
-      "title": "Nyomozást indított az osztrák ügyészség az azbesztszennyezett kőbányák miatt",
-      "source": "Nyugat.hu",
-      "source_type": "media",
-      "category": "szennyezes_vagy_gyanu",
-      "base_score": -4,
-      "source_weight": 1,
-      "confidence": 0.85,
-      "final_score": -3.4,
-      "matched_negative_rules": [
-        {
-          "category": "szennyezes_vagy_gyanu",
-          "score": -4,
-          "keywords": [
-            "szennyezett"
-          ]
-        }
-      ],
-      "matched_positive_rules": [],
-      "url": "https://www.nyugat.hu/cikk/nyomozast_inditott_osztrak_ugyeszseg_azbeszt_banya_miatt"
-    },
-    {
       "date": "2026-07-24",
       "title": "Ellentmondásos, amit azbesztügyben csinál a kormány",
       "source": "HVG",
@@ -1047,6 +947,63 @@
       "matched_negative_rules": [],
       "matched_positive_rules": [],
       "url": "https://kurier.at/chronik/burgenland/asbest-steinbrueche-krebserregend-greenpeace-doskozil/403177321"
+    },
+    {
+      "date": "2026-07-28",
+      "title": "„Bis zu 50 Prozent Belastung“: Asbest bei Ausflugszielen entdeckt Greenpeace entdeckt Asbest bei sieben Ausflugszielen im Burgenland und fordert rasche Sanierung.",
+      "source": "Kurier Burgenland",
+      "source_type": "austrian",
+      "category": "altalanos_media_megjelenes",
+      "base_score": -1,
+      "source_weight": 1,
+      "confidence": 0.7,
+      "final_score": -0.7,
+      "matched_negative_rules": [],
+      "matched_positive_rules": [],
+      "url": "https://kurier.at/chronik/burgenland/asbest-burgenland-greenpeace-ausflugsziele-schotter-belastung/403178371"
+    },
+    {
+      "date": "2026-07-28",
+      "title": "Greenpeace meldet Asbestfunde bei Ausflugszielen",
+      "source": "ORF Burgenland",
+      "source_type": "austrian",
+      "category": "altalanos_media_megjelenes",
+      "base_score": -1,
+      "source_weight": 1,
+      "confidence": 0.7,
+      "final_score": -0.7,
+      "matched_negative_rules": [],
+      "matched_positive_rules": [],
+      "url": "https://burgenland.orf.at/stories/3364478"
+    },
+    {
+      "date": "2026-07-28",
+      "title": "Azbesztszennyezés a burgenlandi kirándulóhelyeken: Az Írott-kő is érintett lehet a Greenpeace szerint",
+      "source": "VAOL",
+      "source_type": "media",
+      "category": "szennyezes_vagy_gyanu",
+      "base_score": -5,
+      "source_weight": 1,
+      "confidence": 1,
+      "final_score": -5,
+      "matched_negative_rules": [
+        {
+          "category": "szennyezes_vagy_gyanu",
+          "score": -4,
+          "keywords": [
+            "azbesztszennyezes"
+          ]
+        },
+        {
+          "category": "uj_erintett_terulet",
+          "score": -4,
+          "keywords": [
+            "erintett lehet"
+          ]
+        }
+      ],
+      "matched_positive_rules": [],
+      "url": "https://www.vaol.hu/helyi-kozelet/2026/07/azbesztszennyezes-irott-ko-greenpeace"
     }
   ]
 }
