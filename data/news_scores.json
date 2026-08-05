@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-04T07:48:01.805Z",
+  "generated_at": "2026-08-05T07:49:01.420Z",
   "method": "balanced_keyword_rule_based_event_scoring_v3",
   "description": "Automatikusan generált Kőszeg–azbeszt ügyindex a data/news.json alapján. A rendszer külön számolja a negatív kockázati és a pozitív intézkedési kulcsszavakat.",
   "scoring_note": "Ez nem klasszikus hangulatelemzés. A negatív pont kockázatot vagy romló fejleményt, a pozitív pont intézkedést, tájékoztatást, monitoringot vagy megoldás felé mutató eseményt jelent.",
@@ -935,20 +935,6 @@
       "url": "https://hvg.hu/gazdasag/20260724_azbesztszennyezes-karmentesites-szombathely-koszeg-oladi-plato-intezkedesek-levegominoseg"
     },
     {
-      "date": "2026-07-27",
-      "title": "Asbestbelastung: Anzeige wegen Weitergabe von Dokumenten an NGOs",
-      "source": "Kurier Burgenland",
-      "source_type": "austrian",
-      "category": "altalanos_media_megjelenes",
-      "base_score": -1,
-      "source_weight": 1,
-      "confidence": 0.7,
-      "final_score": -0.7,
-      "matched_negative_rules": [],
-      "matched_positive_rules": [],
-      "url": "https://kurier.at/chronik/burgenland/asbest-steinbrueche-krebserregend-greenpeace-doskozil/403177321"
-    },
-    {
       "date": "2026-07-28",
       "title": "„Bis zu 50 Prozent Belastung“: Asbest bei Ausflugszielen entdeckt",
       "source": "Kurier Burgenland",
@@ -1026,6 +1012,34 @@
       ],
       "matched_positive_rules": [],
       "url": "https://www.vaol.hu/helyi-kozelet/2026/07/azbesztszennyezes-v-nemeth-zsolt-velemeny-video"
+    },
+    {
+      "date": "2026-08-04",
+      "title": "Asbest im Burgenland: BH Oberwart übernimmt Steinbrüche-Verfahren",
+      "source": "Der Standard",
+      "source_type": "austrian",
+      "category": "altalanos_media_megjelenes",
+      "base_score": -1,
+      "source_weight": 1,
+      "confidence": 0.7,
+      "final_score": -0.7,
+      "matched_negative_rules": [],
+      "matched_positive_rules": [],
+      "url": "https://www.derstandard.at/story/3000000334217/asbest-im-burgenland-bh-oberwart-252bernimmt-steinbr252che-verfahren?ref=rss"
+    },
+    {
+      "date": "2026-08-04",
+      "title": "Asbest-Steinbrüche: Verfahren nun gesammelt bei BH Oberwart Die Asbest-Causa um vier gesperrte Steinbrüche im Burgenland wird nun zentral bei der BH Oberwart behandelt.",
+      "source": "Kurier Burgenland",
+      "source_type": "austrian",
+      "category": "altalanos_media_megjelenes",
+      "base_score": -1,
+      "source_weight": 1,
+      "confidence": 0.7,
+      "final_score": -0.7,
+      "matched_negative_rules": [],
+      "matched_positive_rules": [],
+      "url": "https://kurier.at/chronik/burgenland/asbest-steinbrueche-burgenland-bh-oberwart-verfahren/403179731"
     }
   ]
 }
