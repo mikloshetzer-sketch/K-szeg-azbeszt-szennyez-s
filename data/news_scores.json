@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-10T06:42:23.895Z",
+  "generated_at": "2026-08-11T06:05:22.211Z",
   "method": "balanced_keyword_rule_based_event_scoring_v3",
   "description": "Automatikusan generált Kőszeg–azbeszt ügyindex a data/news.json alapján. A rendszer külön számolja a negatív kockázati és a pozitív intézkedési kulcsszavakat.",
   "scoring_note": "Ez nem klasszikus hangulatelemzés. A negatív pont kockázatot vagy romló fejleményt, a pozitív pont intézkedést, tájékoztatást, monitoringot vagy megoldás felé mutató eseményt jelent.",
@@ -998,20 +998,6 @@
       "matched_negative_rules": [],
       "matched_positive_rules": [],
       "url": "https://kurier.at/chronik/burgenland/asbest-bad-tatzmannsdorf-greenpeace-burgenland-sanierung-schotter-strassen/403179825"
-    },
-    {
-      "date": "2026-08-05",
-      "title": "100 milliós mérőautóról szóltak a pletykák, a szombathelyi önkormányzat azonban beérte egy kézi azbesztmérővel",
-      "source": "Nyugat.hu",
-      "source_type": "media",
-      "category": "altalanos_media_megjelenes",
-      "base_score": -1,
-      "source_weight": 1,
-      "confidence": 0.7,
-      "final_score": -0.7,
-      "matched_negative_rules": [],
-      "matched_positive_rules": [],
-      "url": "https://www.nyugat.hu/cikk/100_millios_meroautorol_szoltak_a_pletykak_a_egy"
     }
   ]
 }
