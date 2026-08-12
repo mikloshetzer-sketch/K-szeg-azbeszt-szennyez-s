@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-12T01:14:40.294391+00:00",
+  "generated_at": "2026-08-12T07:13:30.866891+00:00",
   "mode": "milestones_from_news",
   "events": [
     {
@@ -17,13 +17,6 @@
       "url": "https://www.greenpeace.org/hungary/sajtokozlemeny/14656/bar-a-kormanyinfon-elhangzottak-szerint-jelenleg-nincs-hatarertek-feletti-azbesztszennyezes-az-orszagban-az-utolso-kozzetett-adatok-koszegen-es-se-kozsegben-is-jelentos-hatarertek-feletti-szennyezest"
     },
     {
-      "date": "2026-08-05",
-      "title": "Osztrák vagy burgenlandi forrás is kapcsolódik az ügyhöz.",
-      "source": "Kurier Burgenland",
-      "type": "austrian_context",
-      "url": "https://kurier.at/chronik/burgenland/asbest-bad-tatzmannsdorf-greenpeace-burgenland-sanierung-schotter-strassen/403179825"
-    },
-    {
       "date": "Folyamatos",
       "title": "Jelentős magyar médiafigyelem: legalább 32 releváns magyar médiatalálat szerepel a rendszerben.",
       "source": "Magyar médiafigyelés",
@@ -32,7 +25,7 @@
     },
     {
       "date": "Folyamatos",
-      "title": "A rendszer jelenleg 1 hivatalos, 1 civil, 1 osztrák/burgenlandi, 32 magyar média és 0 egyéb GDELT-találatot különít el.",
+      "title": "A rendszer jelenleg 1 hivatalos, 1 civil, 0 osztrák/burgenlandi, 32 magyar média és 0 egyéb GDELT-találatot különít el.",
       "source": "Automatikus monitoring",
       "type": "system_summary",
       "url": ""
