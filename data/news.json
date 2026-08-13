@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-13T12:53:46.992318+00:00",
+  "generated_at": "2026-08-13T18:53:07.441201+00:00",
   "refresh_hours": 6,
   "query": "\n(\"Kőszeg\" OR \"Koszeg\" OR \"Bozsok\" OR \"Szombathely\" OR \"Pilgersdorf\" OR \"Burgenland\" OR \"Bernstein\")\n(azbeszt OR aszbeszt OR kőzúzalék OR kőbánya OR serpentinit OR Asbest OR Steinbruch OR Schotter OR Greenpeace)\n",
   "mode": "rss_html_gdelt_ai_filtered_with_article_date_extraction",
@@ -10,16 +10,17 @@
     "444": 5,
     "Telex": 3,
     "24.hu": 8,
-    "VAOL": 6,
-    "ORF Burgenland": 1
+    "VAOL": 7,
+    "ORF Burgenland": 1,
+    "Kurier Burgenland": 2
   },
   "source_type_counts": {
-    "media": 31,
+    "media": 32,
     "civil": 1,
     "official": 1,
-    "austrian": 1
+    "austrian": 3
   },
-  "summary": "Az elmúlt hónapokban egyre több szó esik az azbeszttartalmú kőzúzalék miatt kialakult helyzetről Kőszeg, Bozsok, Szombathely, Pilgersdorf és a környező burgenlandi térségben. Az ügy összetett, és több oldalról érkeztek információk, melyeket különböző források alapján foglalunk össze.\n\n**Hivatalos és önkormányzati tájékoztatás:**\nKőszeg önkormányzata áprilisban lakossági tájékoztatót tett közzé, amelyben arról számolt be, hogy az ausztriai bányákból származó kőzúzalék egyes helyeken azbesztszennyezést okozhatott a környéken (Kőszeg Önkormányzat, 2026. április). A Vas Megyei Kormányhivatal is végzett vizsgálatokat, amelyek azbesztszennyezést mutattak ki több kőszegi helyszínen (HVG, 2026. május 19.; Telex, 2026. május 20.). A kormányzat pedig döntést hozott arról, hogy Szombathely leginkább érintett városrészét – az Oladi platót – mentesítik az azbeszttartalmú kőzúzaléktól (HVG, 2026. július 16.). A szombathelyi polgármester tájékoztatókat tartott, és a hétre ígérték a kormány további döntéseit a helyzet kezelésére (Telex, 2026. július 15.).\n\n**Civil szervezetek véleménye:**\nA Greenpeace Magyarország júliusban közleményt adott ki, amelyben rámutattak, hogy bár a kormányinfón jelenleg nincs határérték feletti azbesztszennyezés nyilvánosan elismert adatként, az utolsó közzétett mérések Kőszegen és Sé községben is jelentős, határértéket meghaladó területeket jeleznek (Greenpeace, 2026. július 22.). A Greenpeace osztrák szervezete szerint Burgenland több kirándulóhelyén, így az Írott-kő környékén is felmerülhet az azbesztszennyezés kérdése (VAOL, 2026. július 28.).\n\n**Magyar média tudósításai:**\nA magyar sajtó széles körben foglalkozik az üggyel, több írás hangsúlyozza az érintett településeken megjelenő szennyezést és az ezzel kapcsolatos aggodalmakat. Számos cikk hívja fel a figyelmet arra, hogy a szennyezett kőzúzalékból a települések több közterületére, például bölcsődék, óvodák, iskolai parkolók és játszóterek környezetébe is jutott anyag (HVG, 2026. május 20.; 24.hu, 2026. május 20.). Több forrás is beszámol arról, hogy a helyi hatóságok ideiglenes intézkedéseket vezettek be, például sebességkorlátozásokat Kőszeg egyes utcáiban (HVG, 2026. április 24.), illetve maszkokat biztosítanak a lakosoknak (24.hu, 2026. április 24.). Az érintettek között megjelentek ellentmondások és kritika is a kormányzati fellépéssel kapcsolatban, bár a kormányzat készen áll további lépések megtételére (HVG, 2026. július 24.).\n\n**Osztrák források és helyzetkép:**\nAz osztrák oldalról egyelőre átfogó hivatalos közlemény vagy döntés nem került nyilvánosságra. Az érintett burgenlandi kőfejtők bezártak a magyar kormányhivatal intézkedései után, azonban az osztrák bányavállalatok és helyi érdekcsoportjaik egy része a Greenpeace vádjait visszautasítja, és szennyezés hiányáról beszél (444, 2026. április 27.). Az osztrák szakmai és gazdasági összefüggésekről a magyar média is beszámolt, kiemelve a lehetséges költségvetési terheket a régió számára az azbesztmentesítés kapcsán (HVG, 2026. június 12.).",
+  "summary": "Az azbeszttartalmú kőzúzalék ügyéről szóló beszámolók szerint a Szombathely, Kőszeg, Bozsok, továbbá az osztrákországi Pilgersdorf és Burgenland térségeit érintő problémakör folyamatosan napirenden van 2026-ban. Az érintett magyar városokban, elsősorban Kőszegen és Szombathelyen, a helyi és megyei kormányhivatalok, valamint a polgármesterek többször is tájékoztatták a lakosságot az azbesztszennyezésről és az ennek megelőzésére tett intézkedésekről, amelyek között forgalmi korlátozások – például 10 km/h-s sebességkorlátozás – is szerepelnek (Kőszeg Önkormányzat, 2026. április; HVG, 2026. április–május).\n\nA hivatalos helyi szervek szerint a szennyezett kőzúzalék egy részét Ausztriából, konkrétan Burgenland területéről importálták. Az osztrák hatóságok 2026 áprilisában bezárták az érintett bányákat, habár az ottani bányaüzemeltetők vitatják, hogy szennyezés történt volna az osztrák területen (444, 2026. április). A Greenpeace Magyarország szakmai szervezetként figyelmeztetett arra, hogy az utolsó nyilvánosan hozzáférhető vizsgálatok alapján Kőszegen és a közeli Sé községben is kimutatható volt határérték feletti azbesztszennyezés (Greenpeace Magyarország, 2026. július). Ugyanez a civil szervezet Ausztriában, Burgenlandban is aggályokat fogalmazott meg a térség kirándulóhelyeinek, például az Írott-kő érintettségéről (VAOL, 2026. július).\n\nA magyar sajtó beszámolói szerint a helyi önkormányzatok és a kormányhivatalok törekednek az érintett településeken a kockázatok csökkentésére. A kormány a legsúlyosabb helyzetű szombathelyi városrész kőzúzalékát eltávolítja, és ideiglenes intézkedések is életbe léptek a levegő minőségének javítására (Telex, 2026. július; HVG, 2026. július). A probléma azonban összetett, gazdasági és pénzügyi szempontból is jelentős teher a régióra nézve. Az ausztriai azbesztmentesítés költségei magasak, ami Burgenland büdzséjét is megterhelné (HVG, 2026. június). A helyi lakosság részéről több civil szervezet és médiaplatform is szorgalmazza a pontosabb, átláthatóbb hatósági tájékoztatást és intézkedéseket.\n\nA magyar médiában többször megjelent az azbeszttartalmú kövek eljutásának és szóródásának témája, kitérve arra is, hogy akár bölcsődék, óvodák, iskolák, gyermekotthonok és játszóterek környékén is találtak ilyen anyagokat (HVG, 24.hu, 2026. május). A helyi hatóságok maszkok biztosításával is igyekeznek védekezni a lakosság védelmében (24.hu, 2026. április). \n\nÖsszességében az ügy mindkét oldalon – magyar és osztrák területen – folyamatos felügyelet alatt áll. A hivatalos szervek igyekeznek elkerülni a pánikkeltést, de a civil szervezetek és a média aktív szerepet vállalnak az információk közvetítésében és a kockázatok érzékeltetésében.\n\n---\n\n**Röviden:**\n\n- Kőszeg és Szombathely környékén azbesztszennyezés gyanúja merült fel, amely Burgenlandból importált kőzúzalékhoz köthető.  \n- Az osztrák hatóságok bezárták az érintett bányákat, de a témában eltérő vélemények is megjelentek.  \n- A magyar önkormányzatok és a kormány intézkedésekkel próbálják mérsékelni a helyzetet, miközben civil szervezetek további fig",
   "latest_articles": [
     {
       "title": "Chronik Welpentaufe in Kaisersteinbruch",
@@ -27,6 +28,22 @@
       "source_type": "austrian",
       "date": "2026-08-13",
       "url": "https://burgenland.orf.at/magazin/stories/3366832",
+      "type": "html"
+    },
+    {
+      "title": "Elf schlaue Welpen starten ihre Ausbildung beim Bundesheer Die Belgischen Schäferhund-Welpen absolvieren eine zweijährige Ausbildung im burgenländischen Militärhundezentrum.",
+      "source": "Kurier Burgenland",
+      "source_type": "austrian",
+      "date": "2026-08-13",
+      "url": "https://kurier.at/chronik/burgenland/bundesheer-militaerhundezentrum-kaisersteinbruch-belgische-schaeferhunde-ausbildung/403183519",
+      "type": "html"
+    },
+    {
+      "title": "Azbeszt-ügy: demonstrációra készülnek Szombathelyen",
+      "source": "VAOL",
+      "source_type": "media",
+      "date": "2026-08-11",
+      "url": "https://www.vaol.hu/helyi-kozelet/2026/08/azbeszt-ugy-demonstracio-szombathely",
       "type": "html"
     },
     {
@@ -99,22 +116,6 @@
       "source_type": "media",
       "date": "2026-07-16",
       "url": "https://www.vaol.hu/helyi-kozelet/2026/07/azbeszt-szombathely-kormany-dontes",
-      "type": "html_targeted"
-    },
-    {
-      "title": "Azbesztinfót tartott a szombathelyi polgármester, erre a hétre várja a kormány döntését",
-      "source": "Telex",
-      "source_type": "media",
-      "date": "2026-07-15",
-      "url": "https://telex.hu/belfold/2026/07/15/azbeszt-szennyezes-hatarertek-alatt-oladi-plato-szombathely-nemeny-andras",
-      "type": "html_targeted"
-    },
-    {
-      "title": "Azbesztszennyezés: segítettek az ideiglenes intézkedések Szombathelyen, de még nem sikerült megoldani a helyzetet",
-      "source": "HVG",
-      "source_type": "media",
-      "date": "2026-07-15",
-      "url": "https://hvg.hu/itthon/20260715_azbesztszennyezes-szombathely-meres-eredmeny-levego-nemeny-andras-ideiglenes-intezkedes",
       "type": "html_targeted"
     }
   ],
@@ -293,6 +294,30 @@
       "source_type": "austrian",
       "date": "2026-08-13",
       "url": "https://burgenland.orf.at/magazin/stories/3366832",
+      "type": "html"
+    },
+    {
+      "title": "Kaisersteinbruch",
+      "source": "Kurier Burgenland",
+      "source_type": "austrian",
+      "date": "",
+      "url": "https://kurier.at/chronik/burgenland",
+      "type": "html"
+    },
+    {
+      "title": "Elf schlaue Welpen starten ihre Ausbildung beim Bundesheer Die Belgischen Schäferhund-Welpen absolvieren eine zweijährige Ausbildung im burgenländischen Militärhundezentrum.",
+      "source": "Kurier Burgenland",
+      "source_type": "austrian",
+      "date": "2026-08-13",
+      "url": "https://kurier.at/chronik/burgenland/bundesheer-militaerhundezentrum-kaisersteinbruch-belgische-schaeferhunde-ausbildung/403183519",
+      "type": "html"
+    },
+    {
+      "title": "Azbeszt-ügy: demonstrációra készülnek Szombathelyen",
+      "source": "VAOL",
+      "source_type": "media",
+      "date": "2026-08-11",
+      "url": "https://www.vaol.hu/helyi-kozelet/2026/08/azbeszt-ugy-demonstracio-szombathely",
       "type": "html"
     },
     {
