@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-15T00:46:15.063871+00:00",
+  "generated_at": "2026-08-15T06:24:09.385732+00:00",
   "mode": "milestones_from_news",
   "events": [
     {
@@ -17,22 +17,22 @@
       "url": "https://www.greenpeace.org/hungary/sajtokozlemeny/14656/bar-a-kormanyinfon-elhangzottak-szerint-jelenleg-nincs-hatarertek-feletti-azbesztszennyezes-az-orszagban-az-utolso-kozzetett-adatok-koszegen-es-se-kozsegben-is-jelentos-hatarertek-feletti-szennyezest"
     },
     {
-      "date": "2026-08-13",
+      "date": "Dátum nélkül",
       "title": "Osztrák vagy burgenlandi forrás is kapcsolódik az ügyhöz.",
-      "source": "ORF Burgenland",
+      "source": "Kurier Burgenland",
       "type": "austrian_context",
-      "url": "https://burgenland.orf.at/magazin/stories/3366832"
+      "url": "https://kurier.at/chronik/burgenland"
     },
     {
       "date": "Folyamatos",
-      "title": "Jelentős magyar médiafigyelem: legalább 32 releváns magyar médiatalálat szerepel a rendszerben.",
+      "title": "Jelentős magyar médiafigyelem: legalább 33 releváns magyar médiatalálat szerepel a rendszerben.",
       "source": "Magyar médiafigyelés",
       "type": "media_wave",
       "url": ""
     },
     {
       "date": "Folyamatos",
-      "title": "A rendszer jelenleg 1 hivatalos, 1 civil, 3 osztrák/burgenlandi, 32 magyar média és 0 egyéb GDELT-találatot különít el.",
+      "title": "A rendszer jelenleg 1 hivatalos, 1 civil, 2 osztrák/burgenlandi, 33 magyar média és 0 egyéb GDELT-találatot különít el.",
       "source": "Automatikus monitoring",
       "type": "system_summary",
       "url": ""
