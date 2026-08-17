@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-16T05:44:17.909Z",
+  "generated_at": "2026-08-17T05:51:36.022Z",
   "method": "balanced_keyword_rule_based_event_scoring_v3",
   "description": "Automatikusan generált Kőszeg–azbeszt ügyindex a data/news.json alapján. A rendszer külön számolja a negatív kockázati és a pozitív intézkedési kulcsszavakat.",
   "scoring_note": "Ez nem klasszikus hangulatelemzés. A negatív pont kockázatot vagy romló fejleményt, a pozitív pont intézkedést, tájékoztatást, monitoringot vagy megoldás felé mutató eseményt jelent.",
@@ -1075,34 +1075,6 @@
       "matched_negative_rules": [],
       "matched_positive_rules": [],
       "url": "https://kurier.at/chronik/burgenland/bundesheer-militaerhundezentrum-kaisersteinbruch-belgische-schaeferhunde-ausbildung/403183519"
-    },
-    {
-      "date": "2026-08-15",
-      "title": "18:52 Videón, ahogy egymás után mennek át a tilos vasúti jelzésen Kőbányán",
-      "source": "24.hu",
-      "source_type": "media",
-      "category": "altalanos_media_megjelenes",
-      "base_score": -1,
-      "source_weight": 1,
-      "confidence": 0.7,
-      "final_score": -0.7,
-      "matched_negative_rules": [],
-      "matched_positive_rules": [],
-      "url": "https://24.hu/belfold/2026/08/15/eletveszely-vasuti-atjaro-szabalytalansag-kobanya"
-    },
-    {
-      "date": "2026-08-15",
-      "title": "Sorra mentek át az autók a piroson a kőbányai vasúti átkelőnél – épp drónoztak a rendőrök",
-      "source": "24.hu",
-      "source_type": "media",
-      "category": "altalanos_media_megjelenes",
-      "base_score": -1,
-      "source_weight": 1,
-      "confidence": 0.7,
-      "final_score": -0.7,
-      "matched_negative_rules": [],
-      "matched_positive_rules": [],
-      "url": "https://24.hu/belfold/2026/08/15/vasuti-atkelo-szabalytalan-autok-rendorseg-video"
     }
   ]
 }
