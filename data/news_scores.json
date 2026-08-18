@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-17T05:51:36.022Z",
+  "generated_at": "2026-08-18T05:46:08.587Z",
   "method": "balanced_keyword_rule_based_event_scoring_v3",
   "description": "Automatikusan generált Kőszeg–azbeszt ügyindex a data/news.json alapján. A rendszer külön számolja a negatív kockázati és a pozitív intézkedési kulcsszavakat.",
   "scoring_note": "Ez nem klasszikus hangulatelemzés. A negatív pont kockázatot vagy romló fejleményt, a pozitív pont intézkedést, tájékoztatást, monitoringot vagy megoldás felé mutató eseményt jelent.",
@@ -1064,7 +1064,7 @@
     },
     {
       "date": "2026-08-13",
-      "title": "Elf schlaue Welpen starten ihre Ausbildung beim Bundesheer Die Belgischen Schäferhund-Welpen absolvieren eine zweijährige Ausbildung im burgenländischen Militärhundezentrum.",
+      "title": "Elf schlaue Welpen starten ihre Ausbildung beim Bundesheer",
       "source": "Kurier Burgenland",
       "source_type": "austrian",
       "category": "altalanos_media_megjelenes",
