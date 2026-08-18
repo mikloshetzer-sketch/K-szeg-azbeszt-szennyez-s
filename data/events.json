@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-18T00:46:03.928060+00:00",
+  "generated_at": "2026-08-18T06:30:29.811888+00:00",
   "mode": "milestones_from_news",
   "events": [
     {
@@ -17,22 +17,22 @@
       "url": "https://www.greenpeace.org/hungary/sajtokozlemeny/14656/bar-a-kormanyinfon-elhangzottak-szerint-jelenleg-nincs-hatarertek-feletti-azbesztszennyezes-az-orszagban-az-utolso-kozzetett-adatok-koszegen-es-se-kozsegben-is-jelentos-hatarertek-feletti-szennyezest"
     },
     {
-      "date": "Dátum nélkül",
+      "date": "2026-08-13",
       "title": "Osztrák vagy burgenlandi forrás is kapcsolódik az ügyhöz.",
       "source": "Kurier Burgenland",
       "type": "austrian_context",
-      "url": "https://kurier.at/chronik/burgenland"
+      "url": "https://kurier.at/chronik/burgenland/bundesheer-militaerhundezentrum-kaisersteinbruch-belgische-schaeferhunde-ausbildung/403183519"
     },
     {
       "date": "Folyamatos",
-      "title": "Jelentős magyar médiafigyelem: legalább 36 releváns magyar médiatalálat szerepel a rendszerben.",
+      "title": "Jelentős magyar médiafigyelem: legalább 30 releváns magyar médiatalálat szerepel a rendszerben.",
       "source": "Magyar médiafigyelés",
       "type": "media_wave",
       "url": ""
     },
     {
       "date": "Folyamatos",
-      "title": "A rendszer jelenleg 1 hivatalos, 1 civil, 2 osztrák/burgenlandi, 36 magyar média és 0 egyéb GDELT-találatot különít el.",
+      "title": "A rendszer jelenleg 1 hivatalos, 1 civil, 1 osztrák/burgenlandi, 30 magyar média és 0 egyéb GDELT-találatot különít el.",
       "source": "Automatikus monitoring",
       "type": "system_summary",
       "url": ""
