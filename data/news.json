@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-21T06:33:05.514239+00:00",
+  "generated_at": "2026-08-21T12:31:07.217795+00:00",
   "refresh_hours": 6,
   "query": "\n(\"Kőszeg\" OR \"Koszeg\" OR \"Bozsok\" OR \"Szombathely\" OR \"Pilgersdorf\" OR \"Burgenland\" OR \"Bernstein\")\n(azbeszt OR aszbeszt OR kőzúzalék OR kőbánya OR serpentinit OR Asbest OR Steinbruch OR Schotter OR Greenpeace)\n",
   "mode": "rss_html_gdelt_ai_filtered_with_article_date_extraction",
@@ -10,34 +10,15 @@
     "444": 5,
     "Telex": 3,
     "24.hu": 8,
-    "VAOL": 5,
-    "Kurier Burgenland": 2,
-    "MeinBezirk Burgenland": 1
+    "VAOL": 5
   },
   "source_type_counts": {
     "media": 30,
     "civil": 1,
-    "official": 1,
-    "austrian": 3
+    "official": 1
   },
-  "summary": "Azbesztszennyezéssel kapcsolatos aggályok merültek fel Kőszeg, Bozsok, Szombathely, illetve az osztrák határ menti Burgenland térségében, ahol több helyen az osztrák kőzúzalék szállításából eredő szennyezést vizsgálják.\n\n**Hivatalos és önkormányzati források:**  \nKőszeg önkormányzata már áprilisban tájékoztatást adott közre az üzemi eredetű kőzúzalék ügyében, hangsúlyozva a folyamatos vizsgálatokat és a lakosság biztonsága érdekében tett lépéseket. A Vas Megyei Kormányhivatal is több alkalommal közölt eredményeket az azbesztszennyezésről, melyeket több helyszínen, például Kőszegen is kimutattak. Emellett a szombathelyi polgármester és a kormány képviselői tájékoztatókat tartottak, és kormányzati döntés született a Szombathelyen leginkább érintett városrész azbesztes kőzúzalék miatti mentesítéséről. Fontos megemlíteni, hogy az import azbeszttartalmú kőzet érkezése hazánkba május végén megállt, miután egyezség született az osztrák bányacéggel.\n\n**Civil és környezetvédelmi szervezetek:**  \nA Greenpeace Magyarország több alkalommal is rámutatott, hogy az utoljára közzétett mérések szerint Kőszegen és környékén jelentős, határérték feletti azbesztszennyezés mutatható ki, és kiterjedhet többek között burgenlandi kirándulóhelyekre, mint az Írott-kő térsége. A civil szervezet ezzel párhuzamosan az esetleges egészségügyi kockázatokra is figyelmeztetett, továbbá bírálta a kormány intézkedéseit, amelyekről ellentmondásosságról írtak.\n\n**Médiabeli összkép:**  \nA magyar sajtóban – többek között a HVG, Telex, 444.hu és 24.hu – részletesen foglalkoztak a helyzettel. Több cikk is ismertette, hogy azbeszttartalmú kőzúzalékot szállítottak és használtak fel különböző településeken, köztük Kőszegen, Szombathelyen és Bozsokon, sőt, a szennyezett anyag bölcsődék, óvodák, iskolai kollégiumok és játszóterek közelébe is eljuthatott, emiatt sebességkorlátozásokat vezettek be egyes utcákban. Ugyanakkor az osztrák sajtóban és a burgenlandi bányák képviselőinél az a narratíva hallható, hogy nincs szennyezés az osztrák oldalon, noha a bányákat bezárták, és néhány szereplő a Greenpeace-t hibáztatja a helyzetért. Egyes magyar sajtóhírek a burgenlandi bányák körüli ellentmondásokat, illetve a Greenpeace elleni ellenlobbi tevékenységét is bemutatták.\n\n**Összességében** a helyzet bonyolult, több forrásból érkező információk alapján zajlanak még a mérések és az eljárások, miközben a kormány, az önkormányzatok és a civil szervezetek eltérő hangsúlyokat helyeznek a probléma kezelésében. A legfontosabb, hogy a lakossági tájékoztatás és a körültekintő vizsgálatok folyamatosan zajlanak, és az érintett települések területén intézkedéseket hoztak a kockázatok csökkentésére.\n\n---\n\n**Röviden:**  \n- Kőszeg és környéke mellett Szombathelyen is kimutatták azbesztes kőzúzalék jelenlétét, és intézkedéseket vezettek be.  \n- Burgenlandban a bányák bezártak, de a szennyezés mértékében eltérnek a hivatalos és civil vélemények.  \n- A kormány és önkormányzatok folyamatosan tájékoztatnak, s a kőzúzalék importját leállították.",
+  "summary": "Az azbeszt- és kőzúzalékügy, amely Kőszeg, Bozsok, Szombathely, az ausztriai Pilgersdorf környéke és Burgenland térségét érinti, az elmúlt hónapokban több fórumon is napirendre került, és különféle forrásokból származó információk alapján körvonalazódott a helyzet.\n\n**Hivatalos és önkormányzati hozzáállás:**  \nKőszeg önkormányzata már áprilisban tájékoztatta a lakosságot az ausztriai bányákból származó kőzúzalék esetleges azbeszttartalmáról, és azóta több helyszínen – összesen 46 utcában – is korlátozták a gépjárművek sebességét 10 km/h-ra a porfelverődés csökkentése érdekében (Kőszeg Önkormányzat; HVG, 2026. április). A Vas Megyei Kormányhivatal vizsgálatai kőszegi helyszíneken is kimutattak azbesztszennyezést, továbbá a kormány legutóbbi döntése alapján Szombathelyen eltávolítják az azbeszttel szennyezett kőzúzalékot a leginkább érintett városrészekből (HVG, 2026. május, július; Telex, 2026. május; HVG, 2026. július).\n\n**Civil és környezetvédelmi szervezetek álláspontja:**  \nA Greenpeace Magyarország élesen bírálta a hivatalos álláspontokat, kiemelve, hogy bár a kormány előzőleg azt közölte, nincs határérték feletti azbesztszennyezés az országban, az utóbbi közzétett adatok Kőszegen és Sé községben is jelentős, határérték feletti szennyezést mutattak. A civil szervezet az osztrák Rohonci bánya mellett a környező kirándulóhelyeket, például az Írott-kőt is érintettnek véli (Greenpeace Magyarország, 2026. július; VAOL, 2026. július).\n\n**Médiatudósítások és sajtóvisszhang:**  \nA magyar média számos cikke részletezi a helyzetet: beszámoltak arról, hogy az azbeszttel szennyezett kőzúzalékból bölcsődék, óvodák, iskolai kollégiumok és játszóterek közelében is található a térségben, emiatt a helyiek egy részének maszkokat osztanak ki (HVG, 24.hu, 2026. május). Egyes médiahírek szerint a burgenlandi bányák megnyitását tervezik, miközben az ottani hatóságok bezárták a bányákat az esetleges szennyezés miatt, és kialakult egy úgynevezett „ellenlobbi”, amely a Greenpeace-t vádolja a krízis kirobbantásával (444, 2026. április). A kormányzati intézkedések között szerepel az azbeszttartalmú kőzúzalék behozatalának leállítása az osztrák bányacéggel kötött megállapodás révén (HVG, 2026. május).\n\n**Osztrák források és helyzetkép:**  \nAz osztrák hatóságok burgenlandi bánya bezárásáról és az esetleges azbesztszennyezésről hivatalos közleményeket tettek közzé, bár az osztrák oldalon megjelenő kritikák és vélemények szerint nincs szennyezés. Ugyanakkor a magyar oldalról érkező vizsgálati eredmények és közösségi aggodalmak a térség környezeti helyzetét továbbra is érzékenyen kezelik.\n\nÖsszességében a Kőszeg környéki térségben és Szombathelyen folyamatosak az intézkedések a szennyezett kőzúzalék eltávolítására, a helyzet kezelésére, miközben a civilek és a hatóságok nézőpontjai nem teljesen egyeznek meg a probléma súlyosságát illetve azonnali egészségügyi kockázatait illetően.\n\n---\n\n**Röviden:**  \n- Kőszegen és Szombathelyen kimutattak azbeszttartalmú kőzúzalékot, emiatt helyi intézkedések indultak.  \n- A Greenpeace szerint a hat",
   "latest_articles": [
-    {
-      "title": "Rotes Kreuz Florian Laschober neuer Ortsstellenleiter in der Marktgemeinde Bernstein",
-      "source": "MeinBezirk Burgenland",
-      "source_type": "austrian",
-      "date": "2026-08-21",
-      "url": "https://www.meinbezirk.at/oberwart/c-lokales/florian-laschober-neuer-ortsstellenleiter-in-der-marktgemeinde-bernstein_a8858966?ref=curate",
-      "type": "html"
-    },
-    {
-      "title": "Elf schlaue Welpen starten ihre Ausbildung beim Bundesheer",
-      "source": "Kurier Burgenland",
-      "source_type": "austrian",
-      "date": "2026-08-13",
-      "url": "https://kurier.at/chronik/burgenland/bundesheer-militaerhundezentrum-kaisersteinbruch-belgische-schaeferhunde-ausbildung/403183519",
-      "type": "html"
-    },
     {
       "title": "Dél-Vas vármegye országgyűlési képviselője fejtette ki a véleményét azbesztügyben.",
       "source": "VAOL",
@@ -116,6 +97,22 @@
       "source_type": "media",
       "date": "2026-07-15",
       "url": "https://telex.hu/belfold/2026/07/15/azbeszt-szennyezes-hatarertek-alatt-oladi-plato-szombathely-nemeny-andras",
+      "type": "html_targeted"
+    },
+    {
+      "title": "Azbesztszennyezés: segítettek az ideiglenes intézkedések Szombathelyen, de még nem sikerült megoldani a helyzetet",
+      "source": "HVG",
+      "source_type": "media",
+      "date": "2026-07-15",
+      "url": "https://hvg.hu/itthon/20260715_azbesztszennyezes-szombathely-meres-eredmeny-levego-nemeny-andras-ideiglenes-intezkedes",
+      "type": "html_targeted"
+    },
+    {
+      "title": "Szombathely polgármestere szerint az egészségügyi határérték alatt van a levegő azbeszttartalma az Oladi Platón A héten dönt a kormány az azbeszthelyzet megoldásáról. Mészáros Juli belföld 2026. július 15. 9:32",
+      "source": "444",
+      "source_type": "media",
+      "date": "2026-07-15",
+      "url": "https://444.hu/2026/07/15/szombathely-polgarmestere-szerint-az-egeszsegugyi-hatarertek-alatt-van-a-levego-azbeszttartalma-az-oladi-platon",
       "type": "html_targeted"
     }
   ],
@@ -289,22 +286,6 @@
       "type": "html_targeted"
     },
     {
-      "title": "Kaisersteinbruch",
-      "source": "Kurier Burgenland",
-      "source_type": "austrian",
-      "date": "",
-      "url": "https://kurier.at/chronik/burgenland",
-      "type": "html"
-    },
-    {
-      "title": "Elf schlaue Welpen starten ihre Ausbildung beim Bundesheer",
-      "source": "Kurier Burgenland",
-      "source_type": "austrian",
-      "date": "2026-08-13",
-      "url": "https://kurier.at/chronik/burgenland/bundesheer-militaerhundezentrum-kaisersteinbruch-belgische-schaeferhunde-ausbildung/403183519",
-      "type": "html"
-    },
-    {
       "title": "A jövő héten tárgyalhat a kormány a szombathelyi azbesztszennyezés felszámolásáról szóló javaslatokról",
       "source": "24.hu",
       "source_type": "media",
@@ -375,14 +356,6 @@
       "date": "2026-07-09",
       "url": "https://hvg.hu/kkv/20260709_gysev-vasut-vonal-toltes-azbeszt-kozet",
       "type": "html_targeted"
-    },
-    {
-      "title": "Rotes Kreuz Florian Laschober neuer Ortsstellenleiter in der Marktgemeinde Bernstein",
-      "source": "MeinBezirk Burgenland",
-      "source_type": "austrian",
-      "date": "2026-08-21",
-      "url": "https://www.meinbezirk.at/oberwart/c-lokales/florian-laschober-neuer-ortsstellenleiter-in-der-marktgemeinde-bernstein_a8858966?ref=curate",
-      "type": "html"
     },
     {
       "title": "Azbesztveszély Vas megyében: akár 40 település közterületei is szennyezettek lehetnek",
