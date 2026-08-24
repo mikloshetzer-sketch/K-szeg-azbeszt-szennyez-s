@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-24T12:33:48.822307+00:00",
+  "generated_at": "2026-08-24T18:29:23.191393+00:00",
   "mode": "milestones_from_news",
   "events": [
     {
@@ -10,22 +10,15 @@
       "url": "https://koszeg.hu/hu/aktualis/hirek"
     },
     {
-      "date": "2026-08-24",
-      "title": "Osztrák vagy burgenlandi forrás is kapcsolódik az ügyhöz.",
-      "source": "Kurier Burgenland",
-      "type": "austrian_context",
-      "url": "https://kurier.at/chronik/burgenland/moerbisch-festspiele-bilanz-besucherzahlen-vorverkauf-2027/403185870"
-    },
-    {
       "date": "Folyamatos",
-      "title": "Jelentős magyar médiafigyelem: legalább 37 releváns magyar médiatalálat szerepel a rendszerben.",
+      "title": "Jelentős magyar médiafigyelem: legalább 31 releváns magyar médiatalálat szerepel a rendszerben.",
       "source": "Magyar médiafigyelés",
       "type": "media_wave",
       "url": ""
     },
     {
       "date": "Folyamatos",
-      "title": "A rendszer jelenleg 1 hivatalos, 0 civil, 1 osztrák/burgenlandi, 37 magyar média és 0 egyéb GDELT-találatot különít el.",
+      "title": "A rendszer jelenleg 1 hivatalos, 0 civil, 0 osztrák/burgenlandi, 31 magyar média és 0 egyéb GDELT-találatot különít el.",
       "source": "Automatikus monitoring",
       "type": "system_summary",
       "url": ""
