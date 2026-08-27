@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-26T05:50:52.319Z",
+  "generated_at": "2026-08-27T09:43:37.409Z",
   "method": "balanced_keyword_rule_based_event_scoring_v3",
   "description": "Automatikusan generált Kőszeg–azbeszt ügyindex a data/news.json alapján. A rendszer külön számolja a negatív kockázati és a pozitív intézkedési kulcsszavakat.",
   "scoring_note": "Ez nem klasszikus hangulatelemzés. A negatív pont kockázatot vagy romló fejleményt, a pozitív pont intézkedést, tájékoztatást, monitoringot vagy megoldás felé mutató eseményt jelent.",
@@ -1047,6 +1047,20 @@
       ],
       "matched_positive_rules": [],
       "url": "https://hirtv.origo.hu/ahirtvhirei/2026/08/300-szoros-azbesztszennyezes-szombathelyen"
+    },
+    {
+      "date": "2026-08-25",
+      "title": "Asbestverdacht beim Feuerwehrhaus in Neusiedl am See",
+      "source": "Kurier Burgenland",
+      "source_type": "austrian",
+      "category": "altalanos_media_megjelenes",
+      "base_score": -1,
+      "source_weight": 1,
+      "confidence": 0.7,
+      "final_score": -0.7,
+      "matched_negative_rules": [],
+      "matched_positive_rules": [],
+      "url": "https://kurier.at/chronik/burgenland/asbestverdacht-beim-feuerwehrhaus-in-neusiedl-am-see/403186256"
     }
   ]
 }
