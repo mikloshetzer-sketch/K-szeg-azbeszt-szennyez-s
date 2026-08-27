@@ -39,7 +39,7 @@ jobs:
               {"name": "HVG", "url": "https://hvg.hu/rss", "type": "media"},
               {"name": "444", "url": "https://444.hu/feed", "type": "media"},
               {"name": "24.hu", "url": "https://24.hu/feed/", "type": "media"},
-              {"name": "Portfolio", "url": "https://www.portfolio.hu/rss", "type": "media"},
+              {"name": "Portfolio", "url": "https://www.portfolio.hu/rss/all.xml", "type": "media"},
               {"name": "Portfolio gazdaság", "url": "https://www.portfolio.hu/rss/gazdasag.xml", "type": "media"},
               {"name": "Euronews HU", "url": "https://hu.euronews.com/rss", "type": "media"},
               {"name": "Der Standard", "url": "https://www.derstandard.at/rss", "type": "austrian"}
@@ -82,7 +82,6 @@ jobs:
                   "domain": "444.hu",
                   "urls": [
                       "https://444.hu/",
-                      "https://444.hu/belfold",
                       "https://444.hu/tag/koszeg",
                       "https://444.hu/tag/azbeszt"
                   ]
@@ -112,7 +111,6 @@ jobs:
                   "domain": "vaol.hu",
                   "urls": [
                       "https://www.vaol.hu/",
-                      "https://www.vaol.hu/helyi-kozelet/",
                       "https://www.vaol.hu/cimke/koszeg",
                       "https://www.vaol.hu/cimke/azbeszt"
                   ]
@@ -126,6 +124,13 @@ jobs:
               "https://www.nyugat.hu/rovat/hirek/?layout=classic&offset=0",
               "https://www.nyugat.hu/rovat/hirek/?layout=classic&offset=20",
               "https://www.nyugat.hu/rovat/hirek/?layout=classic&offset=40"
+          ]
+
+          NYUGAT_SEARCH_QUERIES = [
+              'site:nyugat.hu/cikk azbeszt',
+              'site:nyugat.hu/cikk aszbeszt',
+              'site:nyugat.hu/cikk "kőzúzalék"',
+              'site:nyugat.hu/cikk azbeszthelyzet'
           ]
 
           MANUAL_NEWS = [
@@ -621,66 +626,145 @@ jobs:
               )
               return items
 
-          def fetch_nyugat_gdelt():
-              """
-              Tartalék Nyugat.hu-forrás.
-              Akkor is képes közvetlen Nyugat.hu-cikkeket megtalálni, ha a GitHub Actions
-              környezetéből a nyugat.hu főoldal/rovat HTML-je átmenetileg nem olvasható
-              vagy a lap szerkezete megváltozik.
-              """
-              query = 'domain:nyugat.hu (azbeszt OR aszbeszt OR "kőzúzalék" OR szennyez OR szerpentinit)'
-              encoded = urllib.parse.quote(query)
-              url = (
-                  "https://api.gdeltproject.org/api/v2/doc/doc?"
-                  f"query={encoded}&mode=ArtList&format=json&maxrecords=50&sort=DateDesc"
-              )
-
+          def unwrap_search_result_url(url):
+              if not url:
+                  return ""
               try:
-                  data = get_json(url)
-                  items = []
-                  seen = set()
+                  parsed = urllib.parse.urlparse(url)
+                  domain = parsed.netloc.lower().replace("www.", "")
+                  if domain == "nyugat.hu" or domain.endswith(".nyugat.hu"):
+                      return url
+                  query = urllib.parse.parse_qs(parsed.query)
+                  for key in ("url", "u", "target", "r"):
+                      for value in query.get(key, []):
+                          decoded = urllib.parse.unquote(value)
+                          if "nyugat.hu/" in decoded:
+                              return decoded
+              except Exception:
+                  pass
+              return url
 
-                  for item in data.get("articles", []):
-                      title = clean_text(item.get("title", ""))
-                      link = item.get("url", "")
+          def fetch_rss_items_from_url(url, source_label):
+              items = []
+              try:
+                  xml_text = get_text(url, timeout=25)
+                  root = ET.fromstring(xml_text)
+                  channel_items = root.findall(".//item")
+                  if not channel_items:
+                      channel_items = root.findall(".//{http://www.w3.org/2005/Atom}entry")
 
-                      if not title or not link:
-                          continue
-
-                      if domain_of(link) != "nyugat.hu":
-                          continue
-
-                      if not nyugat_issue_relevant(f"{title} {link}"):
-                          continue
-
-                      key = normalized_url(link)
-                      if key in seen:
-                          continue
-                      seen.add(key)
-
-                      date_raw = item.get("seendate", "")
+                  for item in channel_items[:80]:
+                      title = ""
+                      link = ""
                       date = ""
-                      if len(date_raw) >= 8:
-                          date = f"{date_raw[0:4]}-{date_raw[4:6]}-{date_raw[6:8]}"
+                      description = ""
 
-                      if not date:
-                          date = fetch_article_date(link)
+                      title_node = item.find("title")
+                      if title_node is None:
+                          title_node = item.find("{http://www.w3.org/2005/Atom}title")
+                      if title_node is not None:
+                          title = clean_text(title_node.text)
 
-                      items.append({
-                          "title": title,
-                          "source": "Nyugat.hu",
-                          "source_type": "media",
-                          "date": date,
-                          "url": link,
-                          "type": "gdelt_targeted"
-                      })
+                      link_node = item.find("link")
+                      if link_node is not None:
+                          link = link_node.text or link_node.attrib.get("href", "")
+                      else:
+                          atom_link = item.find("{http://www.w3.org/2005/Atom}link")
+                          if atom_link is not None:
+                              link = atom_link.attrib.get("href", "")
 
-                  print("Nyugat GDELT fallback items:", len(items))
-                  return items
+                      description_node = item.find("description")
+                      if description_node is not None:
+                          description = clean_text(description_node.text)
 
+                      date_node = item.find("pubDate")
+                      if date_node is None:
+                          date_node = item.find("{http://www.w3.org/2005/Atom}updated")
+                      if date_node is None:
+                          date_node = item.find("{http://www.w3.org/2005/Atom}published")
+                      if date_node is not None:
+                          date = parse_date(date_node.text)
+
+                      link = unwrap_search_result_url(link)
+                      if title and link:
+                          items.append({
+                              "title": title,
+                              "description": description,
+                              "date": date,
+                              "url": link,
+                              "source_label": source_label
+                          })
               except Exception as exc:
-                  print("Nyugat GDELT fallback error:", str(exc))
-                  return []
+                  print(f"{source_label} RSS error:", str(exc))
+              return items
+
+          def fetch_nyugat_search_fallback():
+              """
+              Nyugat.hu közvetlen 403 esetére keresőmotoros RSS tartalék.
+              A Bing csak felfedező réteg; a dashboardon a forrás továbbra is Nyugat.hu.
+              """
+              items = []
+              seen = set()
+              raw_results = 0
+
+              for query in NYUGAT_SEARCH_QUERIES:
+                  encoded = urllib.parse.quote_plus(query)
+                  feeds = [
+                      (f"https://www.bing.com/news/search?q={encoded}&format=rss", "Bing News"),
+                      (f"https://www.bing.com/search?q={encoded}&format=rss", "Bing Web")
+                  ]
+
+                  for feed_url, source_label in feeds:
+                      results = fetch_rss_items_from_url(feed_url, source_label)
+                      raw_results += len(results)
+
+                      for result in results:
+                          title = clean_text(result.get("title", ""))
+                          description = clean_text(result.get("description", ""))
+                          link = unwrap_search_result_url(result.get("url", ""))
+
+                          if not title or not link:
+                              continue
+
+                          if domain_of(link) != "nyugat.hu":
+                              match = re.search(r'https?://(?:www\\.)?nyugat\\.hu/[^\\s"&<>]+', link, flags=re.I)
+                              if match:
+                                  link = html.unescape(match.group(0))
+
+                          if domain_of(link) != "nyugat.hu":
+                              continue
+
+                          parsed = urllib.parse.urlparse(link)
+                          if not parsed.path.startswith("/cikk/"):
+                              continue
+
+                          if not nyugat_issue_relevant(f"{title} {description} {link}"):
+                              continue
+
+                          key = normalized_url(link)
+                          if key in seen:
+                              continue
+                          seen.add(key)
+
+                          date = result.get("date", "")
+                          if not date:
+                              date = fetch_article_date(link)
+
+                          items.append({
+                              "title": title,
+                              "source": "Nyugat.hu",
+                              "source_type": "media",
+                              "date": date,
+                              "url": link,
+                              "type": "search_rss_targeted"
+                          })
+
+              print("Nyugat search fallback diagnostics:", {
+                  "queries": len(NYUGAT_SEARCH_QUERIES),
+                  "raw_results": raw_results,
+                  "items": len(items)
+              })
+              return items
 
           def fetch_targeted_hungarian_media():
               items = []
@@ -1219,7 +1303,7 @@ jobs:
               collected.extend(fetch_html_source(source))
 
           collected.extend(fetch_nyugat_targeted())
-          collected.extend(fetch_nyugat_gdelt())
+          collected.extend(fetch_nyugat_search_fallback())
           collected.extend(fetch_targeted_hungarian_media())
           collected.extend(fetch_gdelt())
 
@@ -1251,7 +1335,7 @@ jobs:
               "generated_at": now_iso(),
               "refresh_hours": 6,
               "query": QUERY,
-              "mode": "rss_html_gdelt_ai_filtered_with_article_date_extraction",
+              "mode": "rss_html_search_fallback_gdelt_ai_filtered_with_article_date_extraction",
               "source_counts": source_counts,
               "source_type_counts": source_type_counts,
               "summary": summary,
