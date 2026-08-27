@@ -121,7 +121,11 @@ jobs:
 
           NYUGAT_URLS = [
               "https://www.nyugat.hu/",
-              "https://www.nyugat.hu/rovat/hirek"
+              "https://www.nyugat.hu/?layout=classic",
+              "https://www.nyugat.hu/rovat/hirek/",
+              "https://www.nyugat.hu/rovat/hirek/?layout=classic&offset=0",
+              "https://www.nyugat.hu/rovat/hirek/?layout=classic&offset=20",
+              "https://www.nyugat.hu/rovat/hirek/?layout=classic&offset=40"
           ]
 
           MANUAL_NEWS = [
@@ -526,27 +530,66 @@ jobs:
 
               return items
 
+          def nyugat_issue_relevant(text):
+              text = (text or "").lower()
+              nyugat_terms = [
+                  "azbeszt",
+                  "aszbeszt",
+                  "azbesztveszély",
+                  "azbeszthelyzet",
+                  "azbesztügy",
+                  "azbeszt-ügy",
+                  "azbesztszennyez",
+                  "kőzúzalék",
+                  "kozuzalek",
+                  "kőbánya",
+                  "kobanya",
+                  "szennyez",
+                  "szerpentinit",
+                  "serpentinit",
+                  "burgenlandi",
+                  "bánya",
+                  "bányák"
+              ]
+              return any(term in text for term in nyugat_terms)
+
           def fetch_nyugat_targeted():
               items = []
               seen = set()
+              pages_fetched = 0
+              links_found = 0
+              article_candidates = 0
+              relevant_candidates = 0
 
               for url in NYUGAT_URLS:
                   try:
                       page = get_text(url, timeout=25)
+                      pages_fetched += 1
                       candidates = extract_links_from_html(page, url)
+                      links_found += len(candidates)
 
-                      for title, href in candidates[:800]:
+                      for title, href in candidates[:1200]:
                           parsed = urllib.parse.urlparse(href)
+                          netloc = parsed.netloc.lower().replace("www.", "")
 
-                          if "nyugat.hu" not in parsed.netloc:
+                          if netloc != "nyugat.hu":
                               continue
 
-                          if "/cikk/" not in parsed.path:
+                          # A Nyugat.hu jelenlegi cikkei /cikk/... útvonalon vannak.
+                          # A startswith használata kizárja a rovat-, címke- és egyéb navigációs linkeket.
+                          if not parsed.path.startswith("/cikk/"):
                               continue
 
-                          if not relevant(title, href):
+                          article_candidates += 1
+
+                          # Nyugat.hu esetén elég az ügyhöz kapcsolódó kulcsszó a címben/URL-ben.
+                          # Nem követeljük meg külön a LOCAL_TERMS találatot, mert a regionális lap
+                          # olyan releváns vasi településekről is írhat, amelyek nincsenek a fix listában.
+                          combined = f"{title} {href}"
+                          if not nyugat_issue_relevant(combined):
                               continue
 
+                          relevant_candidates += 1
                           key = normalized_url(href)
                           if key in seen:
                               continue
@@ -566,8 +609,78 @@ jobs:
                   except Exception as exc:
                       print("Nyugat targeted error:", url, str(exc))
 
-              print("Nyugat targeted items:", len(items))
+              print(
+                  "Nyugat targeted diagnostics:",
+                  {
+                      "pages_fetched": pages_fetched,
+                      "links_found": links_found,
+                      "article_candidates": article_candidates,
+                      "relevant_candidates": relevant_candidates,
+                      "items": len(items)
+                  }
+              )
               return items
+
+          def fetch_nyugat_gdelt():
+              """
+              Tartalék Nyugat.hu-forrás.
+              Akkor is képes közvetlen Nyugat.hu-cikkeket megtalálni, ha a GitHub Actions
+              környezetéből a nyugat.hu főoldal/rovat HTML-je átmenetileg nem olvasható
+              vagy a lap szerkezete megváltozik.
+              """
+              query = 'domain:nyugat.hu (azbeszt OR aszbeszt OR "kőzúzalék" OR szennyez OR szerpentinit)'
+              encoded = urllib.parse.quote(query)
+              url = (
+                  "https://api.gdeltproject.org/api/v2/doc/doc?"
+                  f"query={encoded}&mode=ArtList&format=json&maxrecords=50&sort=DateDesc"
+              )
+
+              try:
+                  data = get_json(url)
+                  items = []
+                  seen = set()
+
+                  for item in data.get("articles", []):
+                      title = clean_text(item.get("title", ""))
+                      link = item.get("url", "")
+
+                      if not title or not link:
+                          continue
+
+                      if domain_of(link) != "nyugat.hu":
+                          continue
+
+                      if not nyugat_issue_relevant(f"{title} {link}"):
+                          continue
+
+                      key = normalized_url(link)
+                      if key in seen:
+                          continue
+                      seen.add(key)
+
+                      date_raw = item.get("seendate", "")
+                      date = ""
+                      if len(date_raw) >= 8:
+                          date = f"{date_raw[0:4]}-{date_raw[4:6]}-{date_raw[6:8]}"
+
+                      if not date:
+                          date = fetch_article_date(link)
+
+                      items.append({
+                          "title": title,
+                          "source": "Nyugat.hu",
+                          "source_type": "media",
+                          "date": date,
+                          "url": link,
+                          "type": "gdelt_targeted"
+                      })
+
+                  print("Nyugat GDELT fallback items:", len(items))
+                  return items
+
+              except Exception as exc:
+                  print("Nyugat GDELT fallback error:", str(exc))
+                  return []
 
           def fetch_targeted_hungarian_media():
               items = []
@@ -1106,6 +1219,7 @@ jobs:
               collected.extend(fetch_html_source(source))
 
           collected.extend(fetch_nyugat_targeted())
+          collected.extend(fetch_nyugat_gdelt())
           collected.extend(fetch_targeted_hungarian_media())
           collected.extend(fetch_gdelt())
 
