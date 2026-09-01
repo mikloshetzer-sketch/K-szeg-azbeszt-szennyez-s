@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-31T11:37:12.061Z",
+  "generated_at": "2026-09-01T10:09:25.604Z",
   "method": "balanced_keyword_rule_based_event_scoring_v3",
   "description": "Automatikusan generált Kőszeg–azbeszt ügyindex a data/news.json alapján. A rendszer külön számolja a negatív kockázati és a pozitív intézkedési kulcsszavakat.",
   "scoring_note": "Ez nem klasszikus hangulatelemzés. A negatív pont kockázatot vagy romló fejleményt, a pozitív pont intézkedést, tájékoztatást, monitoringot vagy megoldás felé mutató eseményt jelent.",
@@ -149,6 +149,28 @@
   ],
   "items": [
     {
+      "date": "2026-01-30",
+      "title": "Mérgező azbeszt Bozsokon? A polgármester szerint semmi ilyen nincs a faluban",
+      "source": "Nyugat.hu",
+      "source_type": "media",
+      "category": "uj_erintett_terulet",
+      "base_score": -4,
+      "source_weight": 1,
+      "confidence": 0.85,
+      "final_score": -3.4,
+      "matched_negative_rules": [
+        {
+          "category": "uj_erintett_terulet",
+          "score": -4,
+          "keywords": [
+            "bozsok"
+          ]
+        }
+      ],
+      "matched_positive_rules": [],
+      "url": "https://www.nyugat.hu/cikk/mergezo_azbeszt_bozsokon_a_polgarmester_szerint_a"
+    },
+    {
       "date": "2026-04-16",
       "title": "Valóban súlyos a szombathelyi azbeszthelyzet - írta lapunknak az ELTE kutatócsoportjának professzora",
       "source": "Nyugat.hu",
@@ -161,6 +183,29 @@
       "matched_negative_rules": [],
       "matched_positive_rules": [],
       "url": "https://www.nyugat.hu/cikk/azbeszt_szombathely_szennyezes_szakerto_sip_utca"
+    },
+    {
+      "date": "2026-04-21",
+      "title": "Azbeszt a levegőben Szombathelyen: megtelt a városháza, rendkívüli intézkedések jönnek",
+      "source": "Nyugat.hu",
+      "source_type": "media",
+      "category": "hatosagi_intezkedes",
+      "base_score": 3,
+      "source_weight": 1,
+      "confidence": 1,
+      "final_score": 3,
+      "matched_negative_rules": [],
+      "matched_positive_rules": [
+        {
+          "category": "hatosagi_intezkedes",
+          "score": 3,
+          "keywords": [
+            "intezkedes",
+            "intezkedesek"
+          ]
+        }
+      ],
+      "url": "https://www.nyugat.hu/cikk/azbeszt_a_levegoben_szombathelyen_megtelt_a_jonnek"
     },
     {
       "date": "2026-04-24",
@@ -287,6 +332,28 @@
       "url": "https://444.hu/2026/04/27/ujranyitnanak-a-szombathelyt-azbesztkrizisbe-loko-burgenlandi-kofejtok-szerintuk-nincs-is-szennyezes"
     },
     {
+      "date": "2026-04-30",
+      "title": "Azbeszt-veszély Vas megyében: A kormány vállalja a védekezés és kárelhárítás költségeit",
+      "source": "Nyugat.hu",
+      "source_type": "media",
+      "category": "karelhartas_megoldas",
+      "base_score": 5,
+      "source_weight": 1,
+      "confidence": 0.85,
+      "final_score": 4.25,
+      "matched_negative_rules": [],
+      "matched_positive_rules": [
+        {
+          "category": "karelhartas_megoldas",
+          "score": 5,
+          "keywords": [
+            "karelharitas"
+          ]
+        }
+      ],
+      "url": "https://www.nyugat.hu/cikk/azbeszt_veszely_a_kormany_vallalja_a_vedekezes_es"
+    },
+    {
       "date": "2026-05-02",
       "title": "Akár egész Nyugat-Magyarországot is sújthatja az osztrák bányákból „importált” azbesztszennyezés Az osztrák bányákból a szombathelyi polgármester szerint a tágabb régió több városába is szállíthattak követ. Bódog Bálint belföld 2026. május 2. 21:00",
       "source": "444",
@@ -336,30 +403,6 @@
       ],
       "matched_positive_rules": [],
       "url": "https://444.hu/2026/05/08/aztbesztcsapas-oriszentpeteren-es-velemben-ot-koszegen-tucatnyi-helyen-hasznalhattak-sulyosan-rakkelto-kozuzalekot"
-    },
-    {
-      "date": "2026-05-08",
-      "title": "Szombathely Rózsadombjának indult, most az udvarra se mehetnek ki a súlyos azbesztszennyezés miatt Mindenki összevissza építkezhetett az oladi platón, ahol április elején derült ki: évekkel korábban azbeszttel szennyezett kövekkel borították az utat. Németh Dániel, Tóth-Szenesi Attila belföld 2026. május 8. 11:26",
-      "source": "444",
-      "source_type": "media",
-      "category": "szennyezes_vagy_gyanu",
-      "base_score": -4,
-      "source_weight": 1,
-      "confidence": 1,
-      "final_score": -4,
-      "matched_negative_rules": [
-        {
-          "category": "szennyezes_vagy_gyanu",
-          "score": -4,
-          "keywords": [
-            "azbesztszennyezes",
-            "szennyezett",
-            "azbeszttel szennyezett"
-          ]
-        }
-      ],
-      "matched_positive_rules": [],
-      "url": "https://444.hu/2026/05/08/szombathely-rozsadombjanak-indult-most-az-udvarra-se-mehetnek-ki-a-sulyos-azbesztszennyezes-miatt"
     },
     {
       "date": "2026-05-08",
@@ -428,6 +471,28 @@
       "url": "https://24.hu/belfold/2026/05/11/azbesztszennyezes-szombathely-kezeles-tajekoztatas"
     },
     {
+      "date": "2026-05-12",
+      "title": "Megérkeztek az azbeszt-vizsgálatok hivatalos eredményei: Szombathely több pontján is kimutatható szennyezettség",
+      "source": "Nyugat.hu",
+      "source_type": "media",
+      "category": "szennyezes_vagy_gyanu",
+      "base_score": -4,
+      "source_weight": 1,
+      "confidence": 0.85,
+      "final_score": -3.4,
+      "matched_negative_rules": [
+        {
+          "category": "szennyezes_vagy_gyanu",
+          "score": -4,
+          "keywords": [
+            "szennyezett"
+          ]
+        }
+      ],
+      "matched_positive_rules": [],
+      "url": "https://www.nyugat.hu/cikk/megerkeztek_azbeszt_vizsgalatok_hivatalos_eredmenyei_szombathely"
+    },
+    {
       "date": "2026-05-14",
       "title": "Gajdos László felelősségre vonást ígér az azbesztszennyezés miatt",
       "source": "24.hu",
@@ -484,6 +549,20 @@
       ],
       "matched_positive_rules": [],
       "url": "https://hvg.hu/itthon/20260519_azbesztszennyezes-koszeg-vizsgalat-vas-megyei-kormanyhivatal"
+    },
+    {
+      "date": "2026-05-19",
+      "title": "Azbeszt miatt lezárták két népszerű vasi tó parkolóit, de a horgászoknak azért hagytak egy kiskaput",
+      "source": "Nyugat.hu",
+      "source_type": "media",
+      "category": "altalanos_media_megjelenes",
+      "base_score": -1,
+      "source_weight": 1,
+      "confidence": 0.7,
+      "final_score": -0.7,
+      "matched_negative_rules": [],
+      "matched_positive_rules": [],
+      "url": "https://www.nyugat.hu/cikk/azbeszt_miatt_lezartak_ket_nepszeru_vasi_to_de_a"
     },
     {
       "date": "2026-05-20",
@@ -629,6 +708,28 @@
       "url": "https://www.nyugat.hu/cikk/le_is_lehet_ragasztani_az_azbeszttel_szennyezett_zuzottkovet"
     },
     {
+      "date": "2026-06-11",
+      "title": "Azbeszt-helyzet: miért nem lehet egyelőre felszedni a szennyezett zúzalékot?",
+      "source": "Nyugat.hu",
+      "source_type": "media",
+      "category": "szennyezes_vagy_gyanu",
+      "base_score": -4,
+      "source_weight": 1,
+      "confidence": 0.85,
+      "final_score": -3.4,
+      "matched_negative_rules": [
+        {
+          "category": "szennyezes_vagy_gyanu",
+          "score": -4,
+          "keywords": [
+            "szennyezett"
+          ]
+        }
+      ],
+      "matched_positive_rules": [],
+      "url": "https://www.nyugat.hu/cikk/azbeszt_helyzet_miert_nem_lehet_egyelore_felszedni"
+    },
+    {
       "date": "2026-06-12",
       "title": "Annyiba kerülne az azbesztmentesítés, hogy még Burgenland büdzséje is megsínylené",
       "source": "HVG",
@@ -660,30 +761,8 @@
     },
     {
       "date": "2026-06-18",
-      "title": "Határozatképtelen bizottsági ülés után több mint két órát tanácskoztak az azbesztszennyezésről Szombathelyen",
-      "source": "hirado.hu",
-      "source_type": "media",
-      "category": "szennyezes_vagy_gyanu",
-      "base_score": -4,
-      "source_weight": 1,
-      "confidence": 0.85,
-      "final_score": -3.4,
-      "matched_negative_rules": [
-        {
-          "category": "szennyezes_vagy_gyanu",
-          "score": -4,
-          "keywords": [
-            "azbesztszennyezes"
-          ]
-        }
-      ],
-      "matched_positive_rules": [],
-      "url": "https://hirado.hu/belfold/cikk/2026/06/18/hatarozatkeptelen-bizottsagi-ules-utan-tobb-mint-ket-orat-tanacskoztak-az-azbesztszennyezesrol-szombathelyen"
-    },
-    {
-      "date": "2026-06-19",
-      "title": "Index - Belföld - Azbesztbotrány Nyugat - Magyarországon : a Greenpeace szerint túl lassan reagál a kormány",
-      "source": "index.hu",
+      "title": "Csütörtökön újraindul az azbeszt elleni védő locsolás a szombathelyi Oladi Platón és a déli városrészen",
+      "source": "Nyugat.hu",
       "source_type": "media",
       "category": "altalanos_media_megjelenes",
       "base_score": -1,
@@ -692,7 +771,7 @@
       "final_score": -0.7,
       "matched_negative_rules": [],
       "matched_positive_rules": [],
-      "url": "https://index.hu/belfold/2026/06/19/greenpeace-azbeszt-szombathely-lakossag-kalcium-klorid-ujranyitas-banya-ausztria-vnemeth-zsolt-rapli-robert-hanusi-peter"
+      "url": "https://www.nyugat.hu/cikk/csutortokon_ujtoraindul_az_azbeszt_elleni_locsolas"
     },
     {
       "date": "2026-06-25",
@@ -729,20 +808,6 @@
       ],
       "matched_positive_rules": [],
       "url": "https://hvg.hu/kkv/20260709_gysev-vasut-vonal-toltes-azbeszt-kozet"
-    },
-    {
-      "date": "2026-07-09",
-      "title": "Azbesztgyanús kövek kerülhettek egy magyar vasútvonal töltésébe – most vizsgálják , mekkora a baj",
-      "source": "penzcentrum.hu",
-      "source_type": "media",
-      "category": "altalanos_media_megjelenes",
-      "base_score": -1,
-      "source_weight": 1,
-      "confidence": 0.7,
-      "final_score": -0.7,
-      "matched_negative_rules": [],
-      "matched_positive_rules": [],
-      "url": "https://www.penzcentrum.hu/hellovidek/20260709/azbesztgyanus-kovek-kerulhettek-egy-magyar-vasutvonal-toltesebe-most-vizsgaljak-mekkora-a-baj-1201913"
     },
     {
       "date": "2026-07-15",
@@ -848,6 +913,28 @@
     },
     {
       "date": "2026-07-16",
+      "title": "Azbeszt-ügy: A kormány elrendeli a szennyezett zúzottkövek eltávolítását a szombathelyi Oladi Platóról",
+      "source": "Nyugat.hu",
+      "source_type": "media",
+      "category": "szennyezes_vagy_gyanu",
+      "base_score": -4,
+      "source_weight": 1,
+      "confidence": 0.85,
+      "final_score": -3.4,
+      "matched_negative_rules": [
+        {
+          "category": "szennyezes_vagy_gyanu",
+          "score": -4,
+          "keywords": [
+            "szennyezett"
+          ]
+        }
+      ],
+      "matched_positive_rules": [],
+      "url": "https://www.nyugat.hu/cikk/azbeszt_szombathely_magyar_peter_kormanyinfo"
+    },
+    {
+      "date": "2026-07-16",
       "title": "Döntött a kormány: megszabadítják az azbesztes kőzúzaléktól a leginkább érintett szombathelyi városrészt",
       "source": "HVG",
       "source_type": "media",
@@ -920,28 +1007,6 @@
         }
       ],
       "url": "https://www.vaol.hu/helyi-kozelet/2026/07/azbeszt-szombathely-kormany-dontes"
-    },
-    {
-      "date": "2026-07-16",
-      "title": "Döntött a Tisza - kormány , a szombathelyi Oladi - platón felbontják a útburkolatot az azbesztszennyezés miatt",
-      "source": "nepszava.hu",
-      "source_type": "media",
-      "category": "szennyezes_vagy_gyanu",
-      "base_score": -4,
-      "source_weight": 1,
-      "confidence": 0.85,
-      "final_score": -3.4,
-      "matched_negative_rules": [
-        {
-          "category": "szennyezes_vagy_gyanu",
-          "score": -4,
-          "keywords": [
-            "azbesztszennyezes"
-          ]
-        }
-      ],
-      "matched_positive_rules": [],
-      "url": "https://nepszava.hu/3329158_azbesztszennyezes-szombathely-utburkolat-eltavolitas-tisza-kormany"
     },
     {
       "date": "2026-07-17",
@@ -1048,35 +1113,6 @@
       "url": "https://hvg.hu/gazdasag/20260724_azbesztszennyezes-karmentesites-szombathely-koszeg-oladi-plato-intezkedesek-levegominoseg"
     },
     {
-      "date": "2026-07-26",
-      "title": "A Kormányinfón elhangzottakat vitatja a Greenpeace",
-      "source": "blikk.hu",
-      "source_type": "media",
-      "category": "szennyezes_vagy_gyanu",
-      "base_score": -5,
-      "source_weight": 1,
-      "confidence": 1,
-      "final_score": -5,
-      "matched_negative_rules": [
-        {
-          "category": "szennyezes_vagy_gyanu",
-          "score": -4,
-          "keywords": [
-            "azbesztszennyezes"
-          ]
-        },
-        {
-          "category": "bizonytalansag_vita",
-          "score": -3,
-          "keywords": [
-            "vitatja"
-          ]
-        }
-      ],
-      "matched_positive_rules": [],
-      "url": "https://www.blikk.hu/aktualis/belfold/azbesztszennyezes-szombathely-greepeace-kormanyinfo/z6h5tk9"
-    },
-    {
       "date": "2026-07-28",
       "title": "Azbesztszennyezés a burgenlandi kirándulóhelyeken: Az Írott-kő is érintett lehet a Greenpeace szerint",
       "source": "VAOL",
@@ -1106,20 +1142,6 @@
       "url": "https://www.vaol.hu/helyi-kozelet/2026/07/azbesztszennyezes-irott-ko-greenpeace"
     },
     {
-      "date": "2026-07-29",
-      "title": "Voltak , akik elköltöztek Szombathelyről az azbeszthelyzet miatt",
-      "source": "blikk.hu",
-      "source_type": "media",
-      "category": "altalanos_media_megjelenes",
-      "base_score": -1,
-      "source_weight": 1,
-      "confidence": 0.7,
-      "final_score": -0.7,
-      "matched_negative_rules": [],
-      "matched_positive_rules": [],
-      "url": "https://www.blikk.hu/aktualis/belfold/szombathely-azbeszt-szennyezes-koltozes-aszfaltozas-greenpeace/41ekr31"
-    },
-    {
       "date": "2026-07-31",
       "title": "Dél-Vas vármegye országgyűlési képviselője fejtette ki a véleményét azbesztügyben.",
       "source": "VAOL",
@@ -1140,28 +1162,6 @@
       ],
       "matched_positive_rules": [],
       "url": "https://www.vaol.hu/helyi-kozelet/2026/07/azbesztszennyezes-v-nemeth-zsolt-velemeny-video"
-    },
-    {
-      "date": "2026-08-22",
-      "title": "300 - szoros azbesztszennyezés Szombathelyen – Mikor intézkedik a kormány ?",
-      "source": "hirtv.origo.hu",
-      "source_type": "media",
-      "category": "szennyezes_vagy_gyanu",
-      "base_score": -4,
-      "source_weight": 1,
-      "confidence": 0.85,
-      "final_score": -3.4,
-      "matched_negative_rules": [
-        {
-          "category": "szennyezes_vagy_gyanu",
-          "score": -4,
-          "keywords": [
-            "azbesztszennyezes"
-          ]
-        }
-      ],
-      "matched_positive_rules": [],
-      "url": "https://hirtv.origo.hu/ahirtvhirei/2026/08/300-szoros-azbesztszennyezes-szombathelyen"
     },
     {
       "date": "2026-08-25",
@@ -1223,29 +1223,6 @@
     },
     {
       "date": "2026-08-28",
-      "title": "Index - Belföld - Saját erőből aszfaltozza le az azbeszttel szennyezett utakat a szombathelyi önkormányzat",
-      "source": "index.hu",
-      "source_type": "media",
-      "category": "szennyezes_vagy_gyanu",
-      "base_score": -4,
-      "source_weight": 1,
-      "confidence": 1,
-      "final_score": -4,
-      "matched_negative_rules": [
-        {
-          "category": "szennyezes_vagy_gyanu",
-          "score": -4,
-          "keywords": [
-            "szennyezett",
-            "azbeszttel szennyezett"
-          ]
-        }
-      ],
-      "matched_positive_rules": [],
-      "url": "https://index.hu/belfold/2026/08/28/szombathely-azbeszt-oladi-plato-nemeny-andras-aszfaltozas"
-    },
-    {
-      "date": "2026-08-28",
       "title": "Rendkívüli ülésen dönthet a szombathelyi közgyűlés arról, hogy leburkolják az azbesztes utcákat",
       "source": "Telex",
       "source_type": "media",
@@ -1265,6 +1242,101 @@
         }
       ],
       "url": "https://telex.hu/belfold/2026/08/28/szombathely-oladi-plato-azbeszt-mentesites-nemeny-andras-aszfaltozas"
+    },
+    {
+      "date": "2026-08-31",
+      "title": "Bitumennel fedik le az azbesztes utcákat Szombathelyen",
+      "source": "HVG",
+      "source_type": "media",
+      "category": "karelhartas_megoldas",
+      "base_score": 5,
+      "source_weight": 1,
+      "confidence": 0.85,
+      "final_score": 4.25,
+      "matched_negative_rules": [],
+      "matched_positive_rules": [
+        {
+          "category": "karelhartas_megoldas",
+          "score": 5,
+          "keywords": [
+            "mentesites"
+          ]
+        }
+      ],
+      "url": "https://hvg.hu/itthon/20260831_elkezdik-szombathelyen-az-azbesztmentesitest"
+    },
+    {
+      "date": "2026-08-31",
+      "title": "Lefedik az azbesztes utcákat Szombathelyen",
+      "source": "444",
+      "source_type": "media",
+      "category": "altalanos_media_megjelenes",
+      "base_score": -1,
+      "source_weight": 1,
+      "confidence": 0.7,
+      "final_score": -0.7,
+      "matched_negative_rules": [],
+      "matched_positive_rules": [],
+      "url": "https://444.hu/2026/08/31/lefedik-a-szombathelyi-azbesztes-utcakat"
+    },
+    {
+      "date": "2026-08-31",
+      "title": "Nem várnak a kormányra Szombathelyen, elkezdik lefedni az azbesztet",
+      "source": "Telex",
+      "source_type": "media",
+      "category": "karelhartas_megoldas",
+      "base_score": 5,
+      "source_weight": 1,
+      "confidence": 0.85,
+      "final_score": 4.25,
+      "matched_negative_rules": [],
+      "matched_positive_rules": [
+        {
+          "category": "karelhartas_megoldas",
+          "score": 5,
+          "keywords": [
+            "mentesites"
+          ]
+        }
+      ],
+      "url": "https://telex.hu/belfold/2026/08/31/indul-az-azbesztmentesites-szombathelyen-kozel-egymilliardert"
+    },
+    {
+      "date": "2026-08-31",
+      "title": "Megszavazták a képviselők - Indulhat az Oladi Platón az azbesztmentesítés",
+      "source": "Nyugat.hu",
+      "source_type": "media",
+      "category": "karelhartas_megoldas",
+      "base_score": 5,
+      "source_weight": 1,
+      "confidence": 1,
+      "final_score": 5,
+      "matched_negative_rules": [],
+      "matched_positive_rules": [
+        {
+          "category": "karelhartas_megoldas",
+          "score": 5,
+          "keywords": [
+            "mentesites",
+            "megoldas"
+          ]
+        }
+      ],
+      "url": "https://www.nyugat.hu/cikk/eendkivuli_kozgyules_szombathel_azbeszt_megoldas_bitumen"
+    },
+    {
+      "date": "2026-08-31",
+      "title": "Dr. Nemény András: \"Az azbesztet fedjük le, nem a problémát\"",
+      "source": "VAOL",
+      "source_type": "media",
+      "category": "altalanos_media_megjelenes",
+      "base_score": -1,
+      "source_weight": 1,
+      "confidence": 0.7,
+      "final_score": -0.7,
+      "matched_negative_rules": [],
+      "matched_positive_rules": [],
+      "url": "https://www.vaol.hu/helyi-kozelet/2026/08/azbeszt-nemeny-andras-szombathely"
     }
   ]
 }
