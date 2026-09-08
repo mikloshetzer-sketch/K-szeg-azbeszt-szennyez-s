@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-08T02:20:02.534186+00:00",
+  "generated_at": "2026-09-08T10:22:54.177118+00:00",
   "mode": "milestones_from_news",
   "events": [
     {
@@ -10,22 +10,22 @@
       "url": "https://koszeg.hu/hu/aktualis/hirek"
     },
     {
-      "date": "2026-09-02",
+      "date": "2026-09-08",
       "title": "Osztrák vagy burgenlandi forrás is kapcsolódik az ügyhöz.",
       "source": "Kurier Burgenland",
       "type": "austrian_context",
-      "url": "https://kurier.at/chronik/burgenland/johannes-zink-doskozil-asbest-neue-eisenstaedter/403187820"
+      "url": "https://kurier.at/chronik/burgenland/asbest-burgenland-szombathely-oladi-plateau-staatsanwaltschaft-oberwart/403189214"
     },
     {
       "date": "Folyamatos",
-      "title": "Jelentős magyar médiafigyelem: legalább 68 releváns magyar médiatalálat szerepel a rendszerben.",
+      "title": "Jelentős magyar médiafigyelem: legalább 41 releváns magyar médiatalálat szerepel a rendszerben.",
       "source": "Magyar médiafigyelés",
       "type": "media_wave",
       "url": ""
     },
     {
       "date": "Folyamatos",
-      "title": "A rendszer jelenleg 1 hivatalos, 0 civil, 1 osztrák/burgenlandi, 68 magyar média és 0 egyéb GDELT-találatot különít el.",
+      "title": "A rendszer jelenleg 1 hivatalos, 0 civil, 2 osztrák/burgenlandi, 41 magyar média és 0 egyéb GDELT-találatot különít el.",
       "source": "Automatikus monitoring",
       "type": "system_summary",
       "url": ""
