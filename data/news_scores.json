@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-16T09:58:48.254Z",
+  "generated_at": "2026-09-17T10:01:10.883Z",
   "method": "balanced_keyword_rule_based_event_scoring_v3",
   "description": "Automatikusan generált Kőszeg–azbeszt ügyindex a data/news.json alapján. A rendszer külön számolja a negatív kockázati és a pozitív intézkedési kulcsszavakat.",
   "scoring_note": "Ez nem klasszikus hangulatelemzés. A negatív pont kockázatot vagy romló fejleményt, a pozitív pont intézkedést, tájékoztatást, monitoringot vagy megoldás felé mutató eseményt jelent.",
@@ -145,60 +145,9 @@
       "source": "Kőszeg Önkormányzat",
       "original_date": "2026-04",
       "url": "https://koszeg.hu/hu/aktualis/hirek"
-    },
-    {
-      "title": "Vertrauter Doskozils und Feindbild der Opposition Anwalt Johannes Zink wehrt sich gegen Vorwurf des Interessenskonflikts in der Asbest-Causa.",
-      "source": "Kurier Burgenland",
-      "original_date": "",
-      "url": "https://kurier.at/chronik/burgenland/johannes-zink-doskozil-asbest-neue-eisenstaedter/403187820"
     }
   ],
   "items": [
-    {
-      "date": "2026-01-30",
-      "title": "Mérgező azbeszt Bozsokon? A polgármester szerint semmi ilyen nincs a faluban",
-      "source": "Nyugat.hu",
-      "source_type": "media",
-      "category": "uj_erintett_terulet",
-      "base_score": -4,
-      "source_weight": 1,
-      "confidence": 0.85,
-      "final_score": -3.4,
-      "matched_negative_rules": [
-        {
-          "category": "uj_erintett_terulet",
-          "score": -4,
-          "keywords": [
-            "bozsok"
-          ]
-        }
-      ],
-      "matched_positive_rules": [],
-      "url": "https://www.nyugat.hu/cikk/mergezo_azbeszt_bozsokon_a_polgarmester_szerint_a"
-    },
-    {
-      "date": "2026-04-21",
-      "title": "Azbeszt a levegőben Szombathelyen: megtelt a városháza, rendkívüli intézkedések jönnek",
-      "source": "Nyugat.hu",
-      "source_type": "media",
-      "category": "hatosagi_intezkedes",
-      "base_score": 3,
-      "source_weight": 1,
-      "confidence": 1,
-      "final_score": 3,
-      "matched_negative_rules": [],
-      "matched_positive_rules": [
-        {
-          "category": "hatosagi_intezkedes",
-          "score": 3,
-          "keywords": [
-            "intezkedes",
-            "intezkedesek"
-          ]
-        }
-      ],
-      "url": "https://www.nyugat.hu/cikk/azbeszt_a_levegoben_szombathelyen_megtelt_a_jonnek"
-    },
     {
       "date": "2026-04-24",
       "title": "Kőszegre is kerülhetett az azbeszttartalmú kőzúzalékból, 46 utcában csak 10 km/h-s sebességgel lehet autózni",
@@ -322,28 +271,6 @@
       ],
       "matched_positive_rules": [],
       "url": "https://444.hu/2026/04/27/ujranyitnanak-a-szombathelyt-azbesztkrizisbe-loko-burgenlandi-kofejtok-szerintuk-nincs-is-szennyezes"
-    },
-    {
-      "date": "2026-04-30",
-      "title": "Azbeszt-veszély Vas megyében: A kormány vállalja a védekezés és kárelhárítás költségeit",
-      "source": "Nyugat.hu",
-      "source_type": "media",
-      "category": "karelhartas_megoldas",
-      "base_score": 5,
-      "source_weight": 1,
-      "confidence": 0.85,
-      "final_score": 4.25,
-      "matched_negative_rules": [],
-      "matched_positive_rules": [
-        {
-          "category": "karelhartas_megoldas",
-          "score": 5,
-          "keywords": [
-            "karelharitas"
-          ]
-        }
-      ],
-      "url": "https://www.nyugat.hu/cikk/azbeszt_veszely_a_kormany_vallalja_a_vedekezes_es"
     },
     {
       "date": "2026-05-02",
@@ -478,20 +405,6 @@
       "url": "https://hvg.hu/itthon/20260519_azbesztszennyezes-koszeg-vizsgalat-vas-megyei-kormanyhivatal"
     },
     {
-      "date": "2026-05-19",
-      "title": "Azbeszt miatt lezárták két népszerű vasi tó parkolóit, de a horgászoknak azért hagytak egy kiskaput",
-      "source": "Nyugat.hu",
-      "source_type": "media",
-      "category": "altalanos_media_megjelenes",
-      "base_score": -1,
-      "source_weight": 1,
-      "confidence": 0.7,
-      "final_score": -0.7,
-      "matched_negative_rules": [],
-      "matched_positive_rules": [],
-      "url": "https://www.nyugat.hu/cikk/azbeszt_miatt_lezartak_ket_nepszeru_vasi_to_de_a"
-    },
-    {
       "date": "2026-05-20",
       "title": "Kőszegen újabb helyeken mutattak ki azbesztszennyezést, az osztrák rohonci bánya is érintett lehet",
       "source": "Telex",
@@ -590,28 +503,6 @@
       "url": "https://24.hu/tudomany/2026/05/20/azbesztbotrany-ausztria-kormany-szombathely"
     },
     {
-      "date": "2026-06-11",
-      "title": "Azbeszt-helyzet: miért nem lehet egyelőre felszedni a szennyezett zúzalékot?",
-      "source": "Nyugat.hu",
-      "source_type": "media",
-      "category": "szennyezes_vagy_gyanu",
-      "base_score": -4,
-      "source_weight": 1,
-      "confidence": 0.85,
-      "final_score": -3.4,
-      "matched_negative_rules": [
-        {
-          "category": "szennyezes_vagy_gyanu",
-          "score": -4,
-          "keywords": [
-            "szennyezett"
-          ]
-        }
-      ],
-      "matched_positive_rules": [],
-      "url": "https://www.nyugat.hu/cikk/azbeszt_helyzet_miert_nem_lehet_egyelore_felszedni"
-    },
-    {
       "date": "2026-06-12",
       "title": "Annyiba kerülne az azbesztmentesítés, hogy még Burgenland büdzséje is megsínylené",
       "source": "HVG",
@@ -640,20 +531,6 @@
         }
       ],
       "url": "https://hvg.hu/gazdasag/20260612_azbesztszennyezes-ausztria-azbesztmentesites-koltsege-greenpeace-osterreich"
-    },
-    {
-      "date": "2026-06-18",
-      "title": "Csütörtökön újraindul az azbeszt elleni védő locsolás a szombathelyi Oladi Platón és a déli városrészen",
-      "source": "Nyugat.hu",
-      "source_type": "media",
-      "category": "altalanos_media_megjelenes",
-      "base_score": -1,
-      "source_weight": 1,
-      "confidence": 0.7,
-      "final_score": -0.7,
-      "matched_negative_rules": [],
-      "matched_positive_rules": [],
-      "url": "https://www.nyugat.hu/cikk/csutortokon_ujtoraindul_az_azbeszt_elleni_locsolas"
     },
     {
       "date": "2026-07-09",
@@ -753,42 +630,6 @@
     },
     {
       "date": "2026-07-16",
-      "title": "Azbeszt-helyzet: Hamarosan megérkezik a kormány döntése - mondta Szombathely polgármestere a rendkívüli közgyűlésen",
-      "source": "Nyugat.hu",
-      "source_type": "media",
-      "category": "altalanos_media_megjelenes",
-      "base_score": -1,
-      "source_weight": 1,
-      "confidence": 0.7,
-      "final_score": -0.7,
-      "matched_negative_rules": [],
-      "matched_positive_rules": [],
-      "url": "https://www.nyugat.hu/cikk/azbeszt_helyzet_hamarosan_megerkezik_a_kormany_a"
-    },
-    {
-      "date": "2026-07-16",
-      "title": "Azbeszt-ügy: A kormány elrendeli a szennyezett zúzottkövek eltávolítását a szombathelyi Oladi Platóról",
-      "source": "Nyugat.hu",
-      "source_type": "media",
-      "category": "szennyezes_vagy_gyanu",
-      "base_score": -4,
-      "source_weight": 1,
-      "confidence": 0.85,
-      "final_score": -3.4,
-      "matched_negative_rules": [
-        {
-          "category": "szennyezes_vagy_gyanu",
-          "score": -4,
-          "keywords": [
-            "szennyezett"
-          ]
-        }
-      ],
-      "matched_positive_rules": [],
-      "url": "https://www.nyugat.hu/cikk/azbeszt_szombathely_magyar_peter_kormanyinfo"
-    },
-    {
-      "date": "2026-07-16",
       "title": "Döntött a kormány: megszabadítják az azbesztes kőzúzaléktól a leginkább érintett szombathelyi városrészt",
       "source": "HVG",
       "source_type": "media",
@@ -868,35 +709,6 @@
         }
       ],
       "url": "https://hvg.hu/gazdasag/20260724_azbesztszennyezes-karmentesites-szombathely-koszeg-oladi-plato-intezkedesek-levegominoseg"
-    },
-    {
-      "date": "2026-07-28",
-      "title": "Azbesztszennyezés a burgenlandi kirándulóhelyeken: Az Írott-kő is érintett lehet a Greenpeace szerint",
-      "source": "VAOL",
-      "source_type": "media",
-      "category": "szennyezes_vagy_gyanu",
-      "base_score": -5,
-      "source_weight": 1,
-      "confidence": 1,
-      "final_score": -5,
-      "matched_negative_rules": [
-        {
-          "category": "szennyezes_vagy_gyanu",
-          "score": -4,
-          "keywords": [
-            "azbesztszennyezes"
-          ]
-        },
-        {
-          "category": "uj_erintett_terulet",
-          "score": -4,
-          "keywords": [
-            "erintett lehet"
-          ]
-        }
-      ],
-      "matched_positive_rules": [],
-      "url": "https://www.vaol.hu/helyi-kozelet/2026/07/azbesztszennyezes-irott-ko-greenpeace"
     },
     {
       "date": "2026-07-31",
@@ -1009,6 +821,42 @@
       "url": "https://444.hu/2026/08/31/lefedik-a-szombathelyi-azbesztes-utcakat"
     },
     {
+      "date": "2026-09-02",
+      "title": "Vertrauter Doskozils und Feindbild der Opposition Anwalt Johannes Zink wehrt sich gegen Vorwurf des Interessenskonflikts in der Asbest-Causa.",
+      "source": "Kurier Burgenland",
+      "source_type": "austrian",
+      "category": "altalanos_media_megjelenes",
+      "base_score": -1,
+      "source_weight": 1,
+      "confidence": 0.7,
+      "final_score": -0.7,
+      "matched_negative_rules": [],
+      "matched_positive_rules": [],
+      "url": "https://kurier.at/chronik/burgenland/johannes-zink-doskozil-asbest-neue-eisenstaedter/403187820"
+    },
+    {
+      "date": "2026-09-03",
+      "title": "A Vas Vármegyei Kormányhivatal soron kívül vizsgálja a szombathelyi azbeszt-kárenyhítést a Greenpeace bejelentése miatt",
+      "source": "Greenpeace Magyarország",
+      "source_type": "civil",
+      "category": "lakossagi_tajekoztatas",
+      "base_score": 2,
+      "source_weight": 1.15,
+      "confidence": 0.85,
+      "final_score": 1.95,
+      "matched_negative_rules": [],
+      "matched_positive_rules": [
+        {
+          "category": "lakossagi_tajekoztatas",
+          "score": 2,
+          "keywords": [
+            "kozlemeny"
+          ]
+        }
+      ],
+      "url": "https://www.greenpeace.org/hungary/sajtokozlemeny/14769/a-vas-varmegyei-kormanyhivatal-soron-kivul-vizsgalja-a-szombathelyi-azbeszt-karenyhitest-a-greenpeace-bejelentese-miatt"
+    },
+    {
       "date": "2026-09-06",
       "title": "Azbesztmentesítés: Gajdos nem ezt ígérte - Kifakadtak a vasi politikusok",
       "source": "VAOL",
@@ -1029,56 +877,6 @@
         }
       ],
       "url": "https://www.vaol.hu/helyi-kozelet/2026/09/azbeszt-mentesites-indulatok-gajdos-igeret-szombathely"
-    },
-    {
-      "date": "2026-09-08",
-      "title": "Asbest aus dem Burgenland: In Ungarn ermittelt die Staatsanwaltschaft",
-      "source": "Kurier Burgenland",
-      "source_type": "austrian",
-      "category": "altalanos_media_megjelenes",
-      "base_score": -1,
-      "source_weight": 1,
-      "confidence": 0.7,
-      "final_score": -0.7,
-      "matched_negative_rules": [],
-      "matched_positive_rules": [],
-      "url": "https://kurier.at/chronik/burgenland/asbest-burgenland-szombathely-oladi-plateau-staatsanwaltschaft-oberwart/403189214"
-    },
-    {
-      "date": "2026-09-10",
-      "title": "1,6 milliárd forint lesz a szombathelyi azbeszt-helyzet megoldása, a pénzt az önkormányzat vissza akarja szerezni a kormánytól",
-      "source": "Nyugat.hu",
-      "source_type": "media",
-      "category": "karelhartas_megoldas",
-      "base_score": 5,
-      "source_weight": 1,
-      "confidence": 0.85,
-      "final_score": 4.25,
-      "matched_negative_rules": [],
-      "matched_positive_rules": [
-        {
-          "category": "karelhartas_megoldas",
-          "score": 5,
-          "keywords": [
-            "megoldas"
-          ]
-        }
-      ],
-      "url": "https://www.nyugat.hu/cikk/16_milliard_forint_lesz_a_szombathelyi_azbeszt_a"
-    },
-    {
-      "date": "2026-09-10",
-      "title": "Építik a szegélyeket, elkezdődött az azbesztes kőzet lefedése az Oladi Platón",
-      "source": "Nyugat.hu",
-      "source_type": "media",
-      "category": "altalanos_media_megjelenes",
-      "base_score": -1,
-      "source_weight": 1,
-      "confidence": 0.7,
-      "final_score": -0.7,
-      "matched_negative_rules": [],
-      "matched_positive_rules": [],
-      "url": "https://www.nyugat.hu/cikk/epitik_a_szegelyeket_elkezdodott_az_azbesztes_az"
     },
     {
       "date": "2026-09-10",
@@ -1168,7 +966,7 @@
     },
     {
       "date": "2026-09-14",
-      "title": "SPÖ-Urgestein hört auf und warnt vor neuem Stil in der Politik Wolfgang Sodl zieht sich nach 29 Jahren aus der Politik zurück. Der Bürgermeister von Olbendorf kritisiert Polemik und mangelnden Respekt.",
+      "title": "SPÖ-Urgestein hört auf und warnt vor neuem Stil in der Politik",
       "source": "Kurier Burgenland",
       "source_type": "austrian",
       "category": "altalanos_media_megjelenes",
@@ -1201,6 +999,84 @@
         }
       ],
       "url": "https://www.vaol.hu/helyi-kozelet/2026/09/azbeszt-mentesites-palyazat-differencialas-telepulesek"
+    },
+    {
+      "date": "2026-09-16",
+      "title": "Azbesztszennyezés: soron kívül vizsgálja a szombathelyi kárenyhítő munkálatokat a kormányhivatal",
+      "source": "HVG",
+      "source_type": "media",
+      "category": "szennyezes_vagy_gyanu",
+      "base_score": -4,
+      "source_weight": 1,
+      "confidence": 0.85,
+      "final_score": -3.4,
+      "matched_negative_rules": [
+        {
+          "category": "szennyezes_vagy_gyanu",
+          "score": -4,
+          "keywords": [
+            "azbesztszennyezes"
+          ]
+        }
+      ],
+      "matched_positive_rules": [],
+      "url": "https://hvg.hu/zhvg/20260916_azbeszt-szennyezes-szombathely-oladi-plato-greenpeace-kormanyhivatal-vizsgalat"
+    },
+    {
+      "date": "2026-09-16",
+      "title": "Leállhat a munka? A kormányhivatal soron kívül vizsgálja a szombathelyi azbeszt-kárenyhítést a Greenpeace bejelentése miatt",
+      "source": "VAOL",
+      "source_type": "media",
+      "category": "altalanos_media_megjelenes",
+      "base_score": -1,
+      "source_weight": 1,
+      "confidence": 0.7,
+      "final_score": -0.7,
+      "matched_negative_rules": [],
+      "matched_positive_rules": [],
+      "url": "https://www.vaol.hu/helyi-gazdasag/2026/09/azbeszt-leallhat-munka-szombathely-kormanyhivatal"
+    },
+    {
+      "date": "2026-09-16",
+      "title": "A Greenpeace szerint veszélyes, ahogyan az azbesztes utakat lefedik Szombathelyen",
+      "source": "Telex",
+      "source_type": "media",
+      "category": "altalanos_media_megjelenes",
+      "base_score": -1,
+      "source_weight": 1,
+      "confidence": 0.7,
+      "final_score": -0.7,
+      "matched_negative_rules": [],
+      "matched_positive_rules": [],
+      "url": "https://telex.hu/belfold/2026/09/16/vizsgaljak-hogy-egeszsegre-karos-modon-enyhitik-e-az-azbeszt-kiporzasat-szombathelyen"
+    },
+    {
+      "date": "2026-09-16",
+      "title": "Asbest: Staatsanwaltschaft stellt Verfahren ein",
+      "source": "Kurier Burgenland",
+      "source_type": "austrian",
+      "category": "altalanos_media_megjelenes",
+      "base_score": -1,
+      "source_weight": 1,
+      "confidence": 0.7,
+      "final_score": -0.7,
+      "matched_negative_rules": [],
+      "matched_positive_rules": [],
+      "url": "https://kurier.at/chronik/burgenland/asbest-steinbrueche-im-burgenland-staatsanwaltschaft-eisenstadt/403191114"
+    },
+    {
+      "date": "2026-09-16",
+      "title": "Pusztítás Szombathelyen: engedély nélkül vágatta ki a közterületen lévő fákat",
+      "source": "VAOL",
+      "source_type": "media",
+      "category": "altalanos_media_megjelenes",
+      "base_score": -1,
+      "source_weight": 1,
+      "confidence": 0.7,
+      "final_score": -0.7,
+      "matched_negative_rules": [],
+      "matched_positive_rules": [],
+      "url": "https://www.vaol.hu/helyi-kozelet/2026/09/kozterulet-szombathely-ugyeszseg-fakivagas-engedely"
     }
   ]
 }
