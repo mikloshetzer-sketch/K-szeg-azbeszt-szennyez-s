@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-18T15:33:34.879981+00:00",
+  "generated_at": "2026-09-18T20:14:50.890750+00:00",
   "mode": "milestones_from_news",
   "events": [
     {
@@ -17,11 +17,11 @@
       "url": "https://www.greenpeace.org/hungary/sajtokozlemeny/14769/a-vas-varmegyei-kormanyhivatal-soron-kivul-vizsgalja-a-szombathelyi-azbeszt-karenyhitest-a-greenpeace-bejelentese-miatt"
     },
     {
-      "date": "2026-09-16",
+      "date": "2026-09-18",
       "title": "Osztrák vagy burgenlandi forrás is kapcsolódik az ügyhöz.",
-      "source": "Kurier Burgenland",
+      "source": "ORF Burgenland",
       "type": "austrian_context",
-      "url": "https://kurier.at/chronik/burgenland/asbest-steinbrueche-im-burgenland-staatsanwaltschaft-eisenstadt/403191114"
+      "url": "https://burgenland.orf.at/magazin/stories/3371534"
     },
     {
       "date": "Folyamatos",
@@ -32,7 +32,7 @@
     },
     {
       "date": "Folyamatos",
-      "title": "A rendszer jelenleg 2 hivatalos, 1 civil, 3 osztrák/burgenlandi, 36 magyar média és 0 egyéb GDELT-találatot különít el.",
+      "title": "A rendszer jelenleg 2 hivatalos, 1 civil, 4 osztrák/burgenlandi, 36 magyar média és 0 egyéb GDELT-találatot különít el.",
       "source": "Automatikus monitoring",
       "type": "system_summary",
       "url": ""
