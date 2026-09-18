@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-17T10:01:10.883Z",
+  "generated_at": "2026-09-18T09:48:12.899Z",
   "method": "balanced_keyword_rule_based_event_scoring_v3",
   "description": "Automatikusan generált Kőszeg–azbeszt ügyindex a data/news.json alapján. A rendszer külön számolja a negatív kockázati és a pozitív intézkedési kulcsszavakat.",
   "scoring_note": "Ez nem klasszikus hangulatelemzés. A negatív pont kockázatot vagy romló fejleményt, a pozitív pont intézkedést, tájékoztatást, monitoringot vagy megoldás felé mutató eseményt jelent.",
@@ -821,20 +821,6 @@
       "url": "https://444.hu/2026/08/31/lefedik-a-szombathelyi-azbesztes-utcakat"
     },
     {
-      "date": "2026-09-02",
-      "title": "Vertrauter Doskozils und Feindbild der Opposition Anwalt Johannes Zink wehrt sich gegen Vorwurf des Interessenskonflikts in der Asbest-Causa.",
-      "source": "Kurier Burgenland",
-      "source_type": "austrian",
-      "category": "altalanos_media_megjelenes",
-      "base_score": -1,
-      "source_weight": 1,
-      "confidence": 0.7,
-      "final_score": -0.7,
-      "matched_negative_rules": [],
-      "matched_positive_rules": [],
-      "url": "https://kurier.at/chronik/burgenland/johannes-zink-doskozil-asbest-neue-eisenstaedter/403187820"
-    },
-    {
       "date": "2026-09-03",
       "title": "A Vas Vármegyei Kormányhivatal soron kívül vizsgálja a szombathelyi azbeszt-kárenyhítést a Greenpeace bejelentése miatt",
       "source": "Greenpeace Magyarország",
@@ -877,20 +863,6 @@
         }
       ],
       "url": "https://www.vaol.hu/helyi-kozelet/2026/09/azbeszt-mentesites-indulatok-gajdos-igeret-szombathely"
-    },
-    {
-      "date": "2026-09-10",
-      "title": "Azbeszt - Az önerő előteremtése nehéz helyzetbe hozza Szombathelyt - fotók",
-      "source": "VAOL",
-      "source_type": "media",
-      "category": "altalanos_media_megjelenes",
-      "base_score": -1,
-      "source_weight": 1,
-      "confidence": 0.7,
-      "final_score": -0.7,
-      "matched_negative_rules": [],
-      "matched_positive_rules": [],
-      "url": "https://www.vaol.hu/helyi-kozelet/2026/09/azbeszt-az-onero-eloteremtese-nehez-helyzetbe-hozza-szombathelyt-fotok"
     },
     {
       "date": "2026-09-10",
@@ -1052,7 +1024,7 @@
     },
     {
       "date": "2026-09-16",
-      "title": "Asbest: Staatsanwaltschaft stellt Verfahren ein",
+      "title": "Asbest: Staatsanwaltschaft stellt Verfahren ein Weitergabe von Gutachten und anderen Dokumenten konnte nicht festgestellt werden.",
       "source": "Kurier Burgenland",
       "source_type": "austrian",
       "category": "altalanos_media_megjelenes",
@@ -1077,6 +1049,28 @@
       "matched_negative_rules": [],
       "matched_positive_rules": [],
       "url": "https://www.vaol.hu/helyi-kozelet/2026/09/kozterulet-szombathely-ugyeszseg-fakivagas-engedely"
+    },
+    {
+      "date": "2026-09-17",
+      "title": "13:14 Az aszbesztmentesítés felfüggesztését kéri a Greenpeace",
+      "source": "24.hu",
+      "source_type": "media",
+      "category": "karelhartas_megoldas",
+      "base_score": 5,
+      "source_weight": 1,
+      "confidence": 0.85,
+      "final_score": 4.25,
+      "matched_negative_rules": [],
+      "matched_positive_rules": [
+        {
+          "category": "karelhartas_megoldas",
+          "score": 5,
+          "keywords": [
+            "mentesites"
+          ]
+        }
+      ],
+      "url": "https://24.hu/belfold/2026/09/17/azbeszt-greenpeace-szombathely-vedofelszereles-nelkul-munkasok"
     }
   ]
 }
