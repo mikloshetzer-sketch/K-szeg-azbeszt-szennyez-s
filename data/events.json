@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-09-18T10:20:35.174201+00:00",
+  "generated_at": "2026-09-18T15:33:34.879981+00:00",
   "mode": "milestones_from_news",
   "events": [
     {
-      "date": "2026-04",
+      "date": "Dátum nélkül",
       "title": "Hivatalos / önkormányzati tájékoztató szerepel a monitoringban.",
-      "source": "Kőszeg Önkormányzat",
+      "source": "Vas Vármegyei Kormányhivatal",
       "type": "official_notice",
-      "url": "https://koszeg.hu/hu/aktualis/hirek"
+      "url": "https://kormanyhivatalok.hu/kormanyhivatalok/vas/megye/hirek/hir/kiemelten-ellenorzi-az-azbesztszennyezessel-kapcsolatos"
     },
     {
       "date": "2026-09-03",
@@ -32,7 +32,7 @@
     },
     {
       "date": "Folyamatos",
-      "title": "A rendszer jelenleg 1 hivatalos, 1 civil, 3 osztrák/burgenlandi, 36 magyar média és 0 egyéb GDELT-találatot különít el.",
+      "title": "A rendszer jelenleg 2 hivatalos, 1 civil, 3 osztrák/burgenlandi, 36 magyar média és 0 egyéb GDELT-találatot különít el.",
       "source": "Automatikus monitoring",
       "type": "system_summary",
       "url": ""
