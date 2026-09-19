@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-18T09:48:12.899Z",
+  "generated_at": "2026-09-19T09:33:41.581Z",
   "method": "balanced_keyword_rule_based_event_scoring_v3",
   "description": "Automatikusan generált Kőszeg–azbeszt ügyindex a data/news.json alapján. A rendszer külön számolja a negatív kockázati és a pozitív intézkedési kulcsszavakat.",
   "scoring_note": "Ez nem klasszikus hangulatelemzés. A negatív pont kockázatot vagy romló fejleményt, a pozitív pont intézkedést, tájékoztatást, monitoringot vagy megoldás felé mutató eseményt jelent.",
@@ -145,47 +145,15 @@
       "source": "Kőszeg Önkormányzat",
       "original_date": "2026-04",
       "url": "https://koszeg.hu/hu/aktualis/hirek"
+    },
+    {
+      "title": "Asbest: BH Oberwart prüft Arbeitspläne der gesperrten Steinbrüche",
+      "source": "Kurier Burgenland",
+      "original_date": "",
+      "url": "https://kurier.at/chronik/burgenland/asbest-bh-oberwart-steinbrueche-pruefung/403190070"
     }
   ],
   "items": [
-    {
-      "date": "2026-04-24",
-      "title": "Kőszegre is kerülhetett az azbeszttartalmú kőzúzalékból, 46 utcában csak 10 km/h-s sebességgel lehet autózni",
-      "source": "HVG",
-      "source_type": "media",
-      "category": "szennyezes_vagy_gyanu",
-      "base_score": -5,
-      "source_weight": 1,
-      "confidence": 1,
-      "final_score": -5,
-      "matched_negative_rules": [
-        {
-          "category": "szennyezes_vagy_gyanu",
-          "score": -4,
-          "keywords": [
-            "azbeszttartalmu"
-          ]
-        },
-        {
-          "category": "uj_erintett_terulet",
-          "score": -4,
-          "keywords": [
-            "koszegre is",
-            "bozsok",
-            "kerulhetett"
-          ]
-        },
-        {
-          "category": "korlatozas",
-          "score": -2,
-          "keywords": [
-            "10 km/h"
-          ]
-        }
-      ],
-      "matched_positive_rules": [],
-      "url": "https://hvg.hu/zhvg/20260424_koszeg-azbeszt-tartalom-kozuzalek-bozsok-szombathely"
-    },
     {
       "date": "2026-04-24",
       "title": "Kőszegre is juthatott az azbeszttel szennyezett kőzúzalékból",
@@ -383,28 +351,6 @@
       "url": "https://24.hu/belfold/2026/05/15/gajdos-laszlo-azbeszt-szombathely-video"
     },
     {
-      "date": "2026-05-19",
-      "title": "Kőszegen is kimutatták az azbesztszennyezést",
-      "source": "HVG",
-      "source_type": "media",
-      "category": "szennyezes_vagy_gyanu",
-      "base_score": -4,
-      "source_weight": 1,
-      "confidence": 0.85,
-      "final_score": -3.4,
-      "matched_negative_rules": [
-        {
-          "category": "szennyezes_vagy_gyanu",
-          "score": -4,
-          "keywords": [
-            "azbesztszennyezes"
-          ]
-        }
-      ],
-      "matched_positive_rules": [],
-      "url": "https://hvg.hu/itthon/20260519_azbesztszennyezes-koszeg-vizsgalat-vas-megyei-kormanyhivatal"
-    },
-    {
       "date": "2026-05-20",
       "title": "Kőszegen újabb helyeken mutattak ki azbesztszennyezést, az osztrák rohonci bánya is érintett lehet",
       "source": "Telex",
@@ -432,29 +378,6 @@
       ],
       "matched_positive_rules": [],
       "url": "https://telex.hu/belfold/2026/05/20/azbeszt-szennyezes-koszeg-ausztria-rohonc-banya-vas-megye-kormanyhivatal"
-    },
-    {
-      "date": "2026-05-20",
-      "title": "Azbeszt: bölcsődék, óvodák, iskolai kollégiumok parkolóiba és játszótér közelébe is jutott a szennyezett kövekből",
-      "source": "HVG",
-      "source_type": "media",
-      "category": "szennyezes_vagy_gyanu",
-      "base_score": -4,
-      "source_weight": 1,
-      "confidence": 1,
-      "final_score": -4,
-      "matched_negative_rules": [
-        {
-          "category": "szennyezes_vagy_gyanu",
-          "score": -4,
-          "keywords": [
-            "azbesztszennyezes",
-            "szennyezett"
-          ]
-        }
-      ],
-      "matched_positive_rules": [],
-      "url": "https://hvg.hu/itthon/20260520_azbesztszennyezes-koszeg-szombathely-ovoda-bolcsode-iskola-kollegium-jatszoter"
     },
     {
       "date": "2026-05-20",
@@ -887,20 +810,6 @@
       "url": "https://www.vaol.hu/helyi-kozelet/2026/09/azbeszt-mentesites-elkezdodott-kivitelezes-olad-plato"
     },
     {
-      "date": "2026-09-11",
-      "title": "Asbest: BH Oberwart prüft Arbeitspläne der gesperrten Steinbrüche",
-      "source": "Kurier Burgenland",
-      "source_type": "austrian",
-      "category": "altalanos_media_megjelenes",
-      "base_score": -1,
-      "source_weight": 1,
-      "confidence": 0.7,
-      "final_score": -0.7,
-      "matched_negative_rules": [],
-      "matched_positive_rules": [],
-      "url": "https://kurier.at/chronik/burgenland/asbest-bh-oberwart-steinbrueche-pruefung/403190070"
-    },
-    {
       "date": "2026-09-12",
       "title": "Vizsgálják a munkaterveket: készülnének a nyitásra az azbesztszennyezett burgenlandi bányák",
       "source": "VAOL",
@@ -1024,7 +933,7 @@
     },
     {
       "date": "2026-09-16",
-      "title": "Asbest: Staatsanwaltschaft stellt Verfahren ein Weitergabe von Gutachten und anderen Dokumenten konnte nicht festgestellt werden.",
+      "title": "Asbest: Staatsanwaltschaft stellt Verfahren ein",
       "source": "Kurier Burgenland",
       "source_type": "austrian",
       "category": "altalanos_media_megjelenes",
@@ -1051,26 +960,49 @@
       "url": "https://www.vaol.hu/helyi-kozelet/2026/09/kozterulet-szombathely-ugyeszseg-fakivagas-engedely"
     },
     {
-      "date": "2026-09-17",
-      "title": "13:14 Az aszbesztmentesítés felfüggesztését kéri a Greenpeace",
-      "source": "24.hu",
-      "source_type": "media",
-      "category": "karelhartas_megoldas",
-      "base_score": 5,
-      "source_weight": 1,
-      "confidence": 0.85,
-      "final_score": 4.25,
-      "matched_negative_rules": [],
-      "matched_positive_rules": [
+      "date": "2026-09-18",
+      "title": "Kiemelten ellenőrzi az azbesztszennyezéssel kapcsolatos munkálatokat a kormányhivatal 2026. szeptember 18. 16:37 Rendszeres ellenőrzéseket tart a Vas Vármegyei Kormányhivatal munkavédelmi hatósága a szombathelyi Oladi plató utcáin, ahol az osztrák bányákból származó azbeszttartalmú útburkolaton végeznek munkálatokat az egészségkárosító rostok kiporzásának megakadályozása érdekében. A hatóság ezen a héten is több helyszíni szemlét tartott, és az ellenőrzött vállalkozások többsége ugyan betartotta a szabályokat, a kormányhivatal két munkavállalóval szemben intézkedett a védőeszközökkel kapcsolatos hiányosságok miatt. Részletek",
+      "source": "Vas Vármegyei Kormányhivatal",
+      "source_type": "official",
+      "category": "szennyezes_vagy_gyanu",
+      "base_score": -2,
+      "source_weight": 1.25,
+      "confidence": 1,
+      "final_score": -2.5,
+      "matched_negative_rules": [
         {
-          "category": "karelhartas_megoldas",
-          "score": 5,
+          "category": "szennyezes_vagy_gyanu",
+          "score": -4,
           "keywords": [
-            "mentesites"
+            "azbesztszennyezes",
+            "azbeszttartalmu"
           ]
         }
       ],
-      "url": "https://24.hu/belfold/2026/09/17/azbeszt-greenpeace-szombathely-vedofelszereles-nelkul-munkasok"
+      "matched_positive_rules": [
+        {
+          "category": "monitoring_vizsgalat",
+          "score": 2,
+          "keywords": [
+            "ellenorzes"
+          ]
+        }
+      ],
+      "url": "https://kormanyhivatalok.hu/kormanyhivatalok/vas/megye/hirek/hir/kiemelten-ellenorzi-az-azbesztszennyezessel-kapcsolatos"
+    },
+    {
+      "date": "2026-09-18",
+      "title": "Ein Ort am Wort: Asbest im Burgenland",
+      "source": "ORF Burgenland",
+      "source_type": "austrian",
+      "category": "altalanos_media_megjelenes",
+      "base_score": -1,
+      "source_weight": 1,
+      "confidence": 0.7,
+      "final_score": -0.7,
+      "matched_negative_rules": [],
+      "matched_positive_rules": [],
+      "url": "https://burgenland.orf.at/magazin/stories/3371534"
     }
   ]
 }
