@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-21T10:46:08.072Z",
+  "generated_at": "2026-09-22T09:59:30.202Z",
   "method": "balanced_keyword_rule_based_event_scoring_v3",
   "description": "Automatikusan generált Kőszeg–azbeszt ügyindex a data/news.json alapján. A rendszer külön számolja a negatív kockázati és a pozitív intézkedési kulcsszavakat.",
   "scoring_note": "Ez nem klasszikus hangulatelemzés. A negatív pont kockázatot vagy romló fejleményt, a pozitív pont intézkedést, tájékoztatást, monitoringot vagy megoldás felé mutató eseményt jelent.",
@@ -823,20 +823,6 @@
     },
     {
       "date": "2026-07-15",
-      "title": "Azbesztinfót tartott a szombathelyi polgármester, erre a hétre várja a kormány döntését",
-      "source": "Telex",
-      "source_type": "media",
-      "category": "altalanos_media_megjelenes",
-      "base_score": -1,
-      "source_weight": 1,
-      "confidence": 0.7,
-      "final_score": -0.7,
-      "matched_negative_rules": [],
-      "matched_positive_rules": [],
-      "url": "https://telex.hu/belfold/2026/07/15/azbeszt-szennyezes-hatarertek-alatt-oladi-plato-szombathely-nemeny-andras"
-    },
-    {
-      "date": "2026-07-15",
       "title": "Azbesztszennyezés: segítettek az ideiglenes intézkedések Szombathelyen, de még nem sikerült megoldani a helyzetet",
       "source": "HVG",
       "source_type": "media",
@@ -1012,20 +998,6 @@
       "url": "https://www.nyugat.hu/cikk/nemeny_andras_az_olad_platot_erinto_azbeszthelyzet"
     },
     {
-      "date": "2026-07-23",
-      "title": "Azbeszt-ügy: A Greenpeace nem ért egyet a kormány döntésével",
-      "source": "Nyugat.hu",
-      "source_type": "media",
-      "category": "altalanos_media_megjelenes",
-      "base_score": -1,
-      "source_weight": 1,
-      "confidence": 0.7,
-      "final_score": -0.7,
-      "matched_negative_rules": [],
-      "matched_positive_rules": [],
-      "url": "https://www.nyugat.hu/cikk/azbeszt_ugy_greenpeace_nem_ert_egyet_kormany"
-    },
-    {
       "date": "2026-07-24",
       "title": "Ellentmondásos, amit azbesztügyben csinál a kormány",
       "source": "HVG",
@@ -1062,28 +1034,6 @@
         }
       ],
       "url": "https://hvg.hu/gazdasag/20260724_azbesztszennyezes-karmentesites-szombathely-koszeg-oladi-plato-intezkedesek-levegominoseg"
-    },
-    {
-      "date": "2026-07-31",
-      "title": "Dél-Vas vármegye országgyűlési képviselője fejtette ki a véleményét azbesztügyben.",
-      "source": "VAOL",
-      "source_type": "media",
-      "category": "szennyezes_vagy_gyanu",
-      "base_score": -4,
-      "source_weight": 1,
-      "confidence": 0.85,
-      "final_score": -3.4,
-      "matched_negative_rules": [
-        {
-          "category": "szennyezes_vagy_gyanu",
-          "score": -4,
-          "keywords": [
-            "azbesztszennyezes"
-          ]
-        }
-      ],
-      "matched_positive_rules": [],
-      "url": "https://www.vaol.hu/helyi-kozelet/2026/07/azbesztszennyezes-v-nemeth-zsolt-velemeny-video"
     },
     {
       "date": "2026-08-13",
@@ -1291,7 +1241,7 @@
     },
     {
       "date": "2026-09-07",
-      "title": "Legfeljebb vagy legalább 30 százalék? Mekkora részt kell vállalniuk az önkormányzatoknak az azbesztköltségekből?",
+      "title": "Azbesztügy - Rendkívüli közgyűlésen dönt az állami pályázatról a szombathelyi önkormányzat",
       "source": "Nyugat.hu",
       "source_type": "media",
       "category": "altalanos_media_megjelenes",
@@ -1301,7 +1251,7 @@
       "final_score": -0.7,
       "matched_negative_rules": [],
       "matched_positive_rules": [],
-      "url": "https://www.nyugat.hu/cikk/legfeljebb_vagy_legalabb_30_szazalek_mekkora_reszt"
+      "url": "https://www.nyugat.hu/cikk/azbesztugy_rendkivuli_kozgyulesen_dont_az_allami"
     },
     {
       "date": "2026-09-10",
@@ -1362,20 +1312,6 @@
       "url": "https://www.vaol.hu/helyi-kozelet/2026/09/azbeszt-mentesites-elkezdodott-kivitelezes-olad-plato"
     },
     {
-      "date": "2026-09-11",
-      "title": "Asbest: BH Oberwart prüft Arbeitspläne der gesperrten Steinbrüche",
-      "source": "Kurier Burgenland",
-      "source_type": "austrian",
-      "category": "altalanos_media_megjelenes",
-      "base_score": -1,
-      "source_weight": 1,
-      "confidence": 0.7,
-      "final_score": -0.7,
-      "matched_negative_rules": [],
-      "matched_positive_rules": [],
-      "url": "https://kurier.at/chronik/burgenland/asbest-bh-oberwart-steinbrueche-pruefung/403190070"
-    },
-    {
       "date": "2026-09-12",
       "title": "Vizsgálják a munkaterveket: készülnének a nyitásra az azbesztszennyezett burgenlandi bányák",
       "source": "VAOL",
@@ -1410,20 +1346,6 @@
       "matched_negative_rules": [],
       "matched_positive_rules": [],
       "url": "https://www.vaol.hu/helyi-kozelet/2026/09/azbeszt-ugy-toosz-vas-dontes-onkormanyzatok-palyazat"
-    },
-    {
-      "date": "2026-09-14",
-      "title": "SPÖ-Urgestein hört auf und warnt vor neuem Stil in der Politik",
-      "source": "Kurier Burgenland",
-      "source_type": "austrian",
-      "category": "altalanos_media_megjelenes",
-      "base_score": -1,
-      "source_weight": 1,
-      "confidence": 0.7,
-      "final_score": -0.7,
-      "matched_negative_rules": [],
-      "matched_positive_rules": [],
-      "url": "https://kurier.at/chronik/burgenland/wolfgang-sodl-olbendorf-buergermeister-spoe-peter-gartner-politik-burgenland/403190550"
     },
     {
       "date": "2026-09-15",
@@ -1512,20 +1434,6 @@
       "url": "https://kurier.at/chronik/burgenland/asbest-steinbrueche-im-burgenland-staatsanwaltschaft-eisenstadt/403191114"
     },
     {
-      "date": "2026-09-16",
-      "title": "Pusztítás Szombathelyen: engedély nélkül vágatta ki a közterületen lévő fákat",
-      "source": "VAOL",
-      "source_type": "media",
-      "category": "altalanos_media_megjelenes",
-      "base_score": -1,
-      "source_weight": 1,
-      "confidence": 0.7,
-      "final_score": -0.7,
-      "matched_negative_rules": [],
-      "matched_positive_rules": [],
-      "url": "https://www.vaol.hu/helyi-kozelet/2026/09/kozterulet-szombathely-ugyeszseg-fakivagas-engedely"
-    },
-    {
       "date": "2026-09-18",
       "title": "Kiemelten ellenőrzi az azbesztszennyezéssel kapcsolatos munkálatokat a kormányhivatal 2026. szeptember 18. 16:37 Rendszeres ellenőrzéseket tart a Vas Vármegyei Kormányhivatal munkavédelmi hatósága a szombathelyi Oladi plató utcáin, ahol az osztrák bányákból származó azbeszttartalmú útburkolaton végeznek munkálatokat az egészségkárosító rostok kiporzásának megakadályozása érdekében. A hatóság ezen a héten is több helyszíni szemlét tartott, és az ellenőrzött vállalkozások többsége ugyan betartotta a szabályokat, a kormányhivatal két munkavállalóval szemben intézkedett a védőeszközökkel kapcsolatos hiányosságok miatt. Részletek",
       "source": "Vas Vármegyei Kormányhivatal",
@@ -1599,6 +1507,42 @@
         }
       ],
       "url": "https://hvg.hu/zhvg/20260920_azbesztszennyezes-oladi-plato-szombathely-riport-azbesztmentesites-kornyezetszennyezes"
+    },
+    {
+      "date": "2026-09-21",
+      "title": "Fokozottan ellenőrzi az azbesztes utak lefedését a kormányhivatal Szombathelyen, eddig két dolgozóval szemben intézkedtek",
+      "source": "Telex",
+      "source_type": "media",
+      "category": "szennyezes_vagy_gyanu",
+      "base_score": -4,
+      "source_weight": 1,
+      "confidence": 0.85,
+      "final_score": -3.4,
+      "matched_negative_rules": [
+        {
+          "category": "szennyezes_vagy_gyanu",
+          "score": -4,
+          "keywords": [
+            "azbesztszennyezes"
+          ]
+        }
+      ],
+      "matched_positive_rules": [],
+      "url": "https://telex.hu/belfold/2026/09/21/szombathely-azbesztszennyezes-kormanyhivatal-vizsgalat-kisebb-szabalytalansagok"
+    },
+    {
+      "date": "2026-09-21",
+      "title": "Kisebb szabálytalanságokat tárt fel a kormányhivatal a szombathelyi azbesztes utcáknál végzett munkálatoknál",
+      "source": "444",
+      "source_type": "media",
+      "category": "altalanos_media_megjelenes",
+      "base_score": -1,
+      "source_weight": 1,
+      "confidence": 0.7,
+      "final_score": -0.7,
+      "matched_negative_rules": [],
+      "matched_positive_rules": [],
+      "url": "https://444.hu/2026/09/21/kisebb-szabalytalansagokat-tart-fel-a-kormanyhivatal-a-szombathelyi-azbesztes-utcaknal-vegzett-munkalatoknal"
     }
   ]
 }
