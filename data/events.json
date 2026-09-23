@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-23T02:39:19.999446+00:00",
+  "generated_at": "2026-09-23T10:34:33.158944+00:00",
   "mode": "milestones_from_news",
   "events": [
     {
@@ -17,22 +17,22 @@
       "url": "https://www.greenpeace.org/hungary/sajtokozlemeny/14769/a-vas-varmegyei-kormanyhivatal-soron-kivul-vizsgalja-a-szombathelyi-azbeszt-karenyhitest-a-greenpeace-bejelentese-miatt"
     },
     {
-      "date": "2026-09-18",
+      "date": "2026-09-23",
       "title": "Osztrák vagy burgenlandi forrás is kapcsolódik az ügyhöz.",
-      "source": "ORF Burgenland",
+      "source": "Der Standard",
       "type": "austrian_context",
-      "url": "https://burgenland.orf.at/magazin/stories/3371534"
+      "url": "https://www.derstandard.at/story/3000000340914/asbest-im-burgenland-greenpeace-will-220berpr252fungen-bei-schulen?ref=rss"
     },
     {
       "date": "Folyamatos",
-      "title": "Jelentős magyar médiafigyelem: legalább 65 releváns magyar médiatalálat szerepel a rendszerben.",
+      "title": "Jelentős magyar médiafigyelem: legalább 70 releváns magyar médiatalálat szerepel a rendszerben.",
       "source": "Magyar médiafigyelés",
       "type": "media_wave",
       "url": ""
     },
     {
       "date": "Folyamatos",
-      "title": "A rendszer jelenleg 2 hivatalos, 1 civil, 2 osztrák/burgenlandi, 65 magyar média és 0 egyéb GDELT-találatot különít el.",
+      "title": "A rendszer jelenleg 2 hivatalos, 1 civil, 7 osztrák/burgenlandi, 70 magyar média és 0 egyéb GDELT-találatot különít el.",
       "source": "Automatikus monitoring",
       "type": "system_summary",
       "url": ""
