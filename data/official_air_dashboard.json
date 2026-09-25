@@ -1,0 +1,2799 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-09-25T20:41:38.423Z",
+  "dataset": "Vas Vármegyei Kormányhivatal – hivatalos azbeszt levegőmérések",
+  "authority": "Vas Vármegyei Kormányhivatal",
+  "source_file": "official_air_measurements.json",
+  "source_parser_version": "4.2",
+  "measurement_type": "air",
+  "unit": "rost/m3",
+  "notes": {
+    "detection_limit": "A kimutatási határ alatti értékeket a rendszer nem kezeli tényleges numerikus mérésként. Például a <100 érték display formában <100 marad, és nem kerül bele az átlag-, medián-, minimum- vagy maximumszámításba.",
+    "statistics": "A statisztikai mutatók kizárólag a számszerűen meghatározott mérési eredményekből készülnek.",
+    "provenance": "A dashboard adatfájl kizárólag az official_air_measurements.json elfogadott mérési rekordjaiból épül fel."
+  },
+  "kpis": {
+    "total_measurements": 46,
+    "numeric_measurements": 42,
+    "below_detection_limit_measurements": 4,
+    "mapped_measurements": 46,
+    "site_count": 8,
+    "settlement_count": 3,
+    "first_measurement_date": "2026-04-07",
+    "latest_measurement_date": "2026-08-12",
+    "maximum_measured_fibres_m3": 76254,
+    "minimum_measured_fibres_m3": 250,
+    "mean_measured_fibres_m3": 7493,
+    "median_measured_fibres_m3": 1593
+  },
+  "settlements": [
+    {
+      "settlement": "Kőszeg",
+      "measurement_count": 11,
+      "site_count": 3,
+      "below_detection_limit_count": 0,
+      "first_measurement_date": "2026-04-07",
+      "latest_measurement_date": "2026-08-12",
+      "statistics": {
+        "min_fibres_m3": 473,
+        "max_fibres_m3": 76254,
+        "mean_fibres_m3": 24370,
+        "median_fibres_m3": 8593
+      }
+    },
+    {
+      "settlement": "Sé",
+      "measurement_count": 3,
+      "site_count": 1,
+      "below_detection_limit_count": 0,
+      "first_measurement_date": null,
+      "latest_measurement_date": null,
+      "statistics": {
+        "min_fibres_m3": 1600,
+        "max_fibres_m3": 2400,
+        "mean_fibres_m3": 1967,
+        "median_fibres_m3": 1900
+      }
+    },
+    {
+      "settlement": "Szombathely",
+      "measurement_count": 32,
+      "site_count": 4,
+      "below_detection_limit_count": 4,
+      "first_measurement_date": "2026-07-30",
+      "latest_measurement_date": "2026-07-31",
+      "statistics": {
+        "min_fibres_m3": 250,
+        "max_fibres_m3": 4814,
+        "mean_fibres_m3": 1455,
+        "median_fibres_m3": 1536
+      }
+    }
+  ],
+  "sites": [
+    {
+      "site_id": "kőszeg_47.38840_16.54967",
+      "settlement": "Kőszeg",
+      "location": "Kőszeg, Borostyán Gyermekotthonhoz vezető bekötő út",
+      "coordinates": {
+        "lat": 47.3884,
+        "lon": 16.54967
+      },
+      "measurement_count": 3,
+      "numeric_measurement_count": 3,
+      "below_detection_limit_count": 0,
+      "first_measurement_date": "2026-08-11",
+      "latest_measurement_date": "2026-08-12",
+      "statistics": {
+        "min_fibres_m3": 473,
+        "max_fibres_m3": 2591,
+        "mean_fibres_m3": 1429,
+        "median_fibres_m3": 1224
+      },
+      "latest_measurement": {
+        "sample_id": "2026_792_6_L/1_3",
+        "date": "2026-08-12",
+        "start": "2026-08-12 08:40",
+        "concentration": {
+          "value": 2591,
+          "display": "2591",
+          "unit": "rost/m3",
+          "below_detection_limit": false,
+          "detection_limit": null,
+          "numeric_for_statistics": 2591
+        }
+      },
+      "measurement_ids": [
+        "air_0039",
+        "air_0040",
+        "air_0041"
+      ]
+    },
+    {
+      "site_id": "kőszeg_47.40028_16.53656",
+      "settlement": "Kőszeg",
+      "location": "Kőszeg, Borostyánkő u.",
+      "coordinates": {
+        "lat": 47.40028,
+        "lon": 16.53656
+      },
+      "measurement_count": 3,
+      "numeric_measurement_count": 3,
+      "below_detection_limit_count": 0,
+      "first_measurement_date": "2026-04-07",
+      "latest_measurement_date": null,
+      "statistics": {
+        "min_fibres_m3": 6600,
+        "max_fibres_m3": 16600,
+        "mean_fibres_m3": 10300,
+        "median_fibres_m3": 7700
+      },
+      "latest_measurement": {
+        "sample_id": "2026_792_2_L/1_2",
+        "date": null,
+        "start": null,
+        "concentration": {
+          "value": 6600,
+          "display": "6600",
+          "unit": "rost/m3",
+          "below_detection_limit": false,
+          "detection_limit": null,
+          "numeric_for_statistics": 6600
+        }
+      },
+      "measurement_ids": [
+        "air_0003",
+        "air_0001",
+        "air_0002"
+      ]
+    },
+    {
+      "site_id": "kőszeg_47.38111_16.52928",
+      "settlement": "Kőszeg",
+      "location": "Kőszeg, Hermina utca",
+      "coordinates": {
+        "lat": 47.38111,
+        "lon": 16.52928
+      },
+      "measurement_count": 5,
+      "numeric_measurement_count": 5,
+      "below_detection_limit_count": 0,
+      "first_measurement_date": "2026-08-11",
+      "latest_measurement_date": "2026-08-12",
+      "statistics": {
+        "min_fibres_m3": 8593,
+        "max_fibres_m3": 76254,
+        "mean_fibres_m3": 46577,
+        "median_fibres_m3": 56340
+      },
+      "latest_measurement": {
+        "sample_id": "2026_792_6_L/2_5",
+        "date": "2026-08-12",
+        "start": "2026-08-12 12:08",
+        "concentration": {
+          "value": 76254,
+          "display": "76254",
+          "unit": "rost/m3",
+          "below_detection_limit": false,
+          "detection_limit": null,
+          "numeric_for_statistics": 76254
+        }
+      },
+      "measurement_ids": [
+        "air_0042",
+        "air_0043",
+        "air_0044",
+        "air_0045",
+        "air_0046"
+      ]
+    },
+    {
+      "site_id": "sé_47.24320_16.55925",
+      "settlement": "Sé",
+      "location": "Sé, Sportpálya (105/5 hrsz.) melletti parkoló",
+      "coordinates": {
+        "lat": 47.2432,
+        "lon": 16.55925
+      },
+      "measurement_count": 3,
+      "numeric_measurement_count": 3,
+      "below_detection_limit_count": 0,
+      "first_measurement_date": null,
+      "latest_measurement_date": null,
+      "statistics": {
+        "min_fibres_m3": 1600,
+        "max_fibres_m3": 2400,
+        "mean_fibres_m3": 1967,
+        "median_fibres_m3": 1900
+      },
+      "latest_measurement": {
+        "sample_id": "2026_792_L/5_3",
+        "date": null,
+        "start": null,
+        "concentration": {
+          "value": 1900,
+          "display": "1900",
+          "unit": "rost/m3",
+          "below_detection_limit": false,
+          "detection_limit": null,
+          "numeric_for_statistics": 1900
+        }
+      },
+      "measurement_ids": [
+        "air_0004",
+        "air_0005",
+        "air_0006"
+      ]
+    },
+    {
+      "site_id": "szombathely_47.23247_16.57717",
+      "settlement": "Szombathely",
+      "location": "Szombathely, Márton Áron utca",
+      "coordinates": {
+        "lat": 47.232472,
+        "lon": 16.577167
+      },
+      "measurement_count": 8,
+      "numeric_measurement_count": 7,
+      "below_detection_limit_count": 1,
+      "first_measurement_date": "2026-07-30",
+      "latest_measurement_date": "2026-07-31",
+      "statistics": {
+        "min_fibres_m3": 771,
+        "max_fibres_m3": 4814,
+        "mean_fibres_m3": 2527,
+        "median_fibres_m3": 2044
+      },
+      "latest_measurement": {
+        "sample_id": "2026_792_5_L/4_8",
+        "date": "2026-07-31",
+        "start": "2026-07-31 08:40",
+        "concentration": {
+          "value": 2560,
+          "display": "2560",
+          "unit": "rost/m3",
+          "below_detection_limit": false,
+          "detection_limit": null,
+          "numeric_for_statistics": 2560
+        }
+      },
+      "measurement_ids": [
+        "air_0031",
+        "air_0032",
+        "air_0033",
+        "air_0034",
+        "air_0035",
+        "air_0036",
+        "air_0037",
+        "air_0038"
+      ]
+    },
+    {
+      "site_id": "szombathely_47.23185_16.57861",
+      "settlement": "Szombathely",
+      "location": "Szombathely, Menta utca",
+      "coordinates": {
+        "lat": 47.231854,
+        "lon": 16.578609
+      },
+      "measurement_count": 8,
+      "numeric_measurement_count": 7,
+      "below_detection_limit_count": 1,
+      "first_measurement_date": "2026-07-30",
+      "latest_measurement_date": "2026-07-31",
+      "statistics": {
+        "min_fibres_m3": 259,
+        "max_fibres_m3": 1772,
+        "mean_fibres_m3": 979,
+        "median_fibres_m3": 764
+      },
+      "latest_measurement": {
+        "sample_id": "2026_792_5_L/3_8",
+        "date": "2026-07-31",
+        "start": "2026-07-31 09:00",
+        "concentration": {
+          "value": 266,
+          "display": "266",
+          "unit": "rost/m3",
+          "below_detection_limit": false,
+          "detection_limit": null,
+          "numeric_for_statistics": 266
+        }
+      },
+      "measurement_ids": [
+        "air_0023",
+        "air_0024",
+        "air_0025",
+        "air_0026",
+        "air_0027",
+        "air_0028",
+        "air_0029",
+        "air_0030"
+      ]
+    },
+    {
+      "site_id": "szombathely_47.23100_16.58349",
+      "settlement": "Szombathely",
+      "location": "Szombathely, Sáfrány utca",
+      "coordinates": {
+        "lat": 47.231,
+        "lon": 16.58349
+      },
+      "measurement_count": 8,
+      "numeric_measurement_count": 8,
+      "below_detection_limit_count": 0,
+      "first_measurement_date": "2026-07-30",
+      "latest_measurement_date": "2026-07-31",
+      "statistics": {
+        "min_fibres_m3": 257,
+        "max_fibres_m3": 2595,
+        "mean_fibres_m3": 1453,
+        "median_fibres_m3": 1554
+      },
+      "latest_measurement": {
+        "sample_id": "2026_792_5_L/2_8",
+        "date": "2026-07-31",
+        "start": "2026-07-31 09:25",
+        "concentration": {
+          "value": 1553,
+          "display": "1553",
+          "unit": "rost/m3",
+          "below_detection_limit": false,
+          "detection_limit": null,
+          "numeric_for_statistics": 1553
+        }
+      },
+      "measurement_ids": [
+        "air_0015",
+        "air_0016",
+        "air_0017",
+        "air_0018",
+        "air_0019",
+        "air_0020",
+        "air_0021",
+        "air_0022"
+      ]
+    },
+    {
+      "site_id": "szombathely_47.23494_16.58595",
+      "settlement": "Szombathely",
+      "location": "Szombathely, Síp utca",
+      "coordinates": {
+        "lat": 47.23494,
+        "lon": 16.58595
+      },
+      "measurement_count": 8,
+      "numeric_measurement_count": 6,
+      "below_detection_limit_count": 2,
+      "first_measurement_date": "2026-07-30",
+      "latest_measurement_date": "2026-07-31",
+      "statistics": {
+        "min_fibres_m3": 250,
+        "max_fibres_m3": 1520,
+        "mean_fibres_m3": 765,
+        "median_fibres_m3": 754
+      },
+      "latest_measurement": {
+        "sample_id": "2026_792_5_L/1_8",
+        "date": "2026-07-31",
+        "start": "2026-07-31 09:16",
+        "concentration": {
+          "value": 1060,
+          "display": "1060",
+          "unit": "rost/m3",
+          "below_detection_limit": false,
+          "detection_limit": null,
+          "numeric_for_statistics": 1060
+        }
+      },
+      "measurement_ids": [
+        "air_0007",
+        "air_0008",
+        "air_0009",
+        "air_0010",
+        "air_0011",
+        "air_0012",
+        "air_0013",
+        "air_0014"
+      ]
+    }
+  ],
+  "map_points": [
+    {
+      "site_id": "kőszeg_47.38840_16.54967",
+      "settlement": "Kőszeg",
+      "location": "Kőszeg, Borostyán Gyermekotthonhoz vezető bekötő út",
+      "lat": 47.3884,
+      "lon": 16.54967,
+      "measurement_count": 3,
+      "below_detection_limit_count": 0,
+      "max_fibres_m3": 2591,
+      "mean_fibres_m3": 1429,
+      "median_fibres_m3": 1224,
+      "latest_measurement": {
+        "sample_id": "2026_792_6_L/1_3",
+        "date": "2026-08-12",
+        "start": "2026-08-12 08:40",
+        "concentration": {
+          "value": 2591,
+          "display": "2591",
+          "unit": "rost/m3",
+          "below_detection_limit": false,
+          "detection_limit": null,
+          "numeric_for_statistics": 2591
+        }
+      }
+    },
+    {
+      "site_id": "kőszeg_47.40028_16.53656",
+      "settlement": "Kőszeg",
+      "location": "Kőszeg, Borostyánkő u.",
+      "lat": 47.40028,
+      "lon": 16.53656,
+      "measurement_count": 3,
+      "below_detection_limit_count": 0,
+      "max_fibres_m3": 16600,
+      "mean_fibres_m3": 10300,
+      "median_fibres_m3": 7700,
+      "latest_measurement": {
+        "sample_id": "2026_792_2_L/1_2",
+        "date": null,
+        "start": null,
+        "concentration": {
+          "value": 6600,
+          "display": "6600",
+          "unit": "rost/m3",
+          "below_detection_limit": false,
+          "detection_limit": null,
+          "numeric_for_statistics": 6600
+        }
+      }
+    },
+    {
+      "site_id": "kőszeg_47.38111_16.52928",
+      "settlement": "Kőszeg",
+      "location": "Kőszeg, Hermina utca",
+      "lat": 47.38111,
+      "lon": 16.52928,
+      "measurement_count": 5,
+      "below_detection_limit_count": 0,
+      "max_fibres_m3": 76254,
+      "mean_fibres_m3": 46577,
+      "median_fibres_m3": 56340,
+      "latest_measurement": {
+        "sample_id": "2026_792_6_L/2_5",
+        "date": "2026-08-12",
+        "start": "2026-08-12 12:08",
+        "concentration": {
+          "value": 76254,
+          "display": "76254",
+          "unit": "rost/m3",
+          "below_detection_limit": false,
+          "detection_limit": null,
+          "numeric_for_statistics": 76254
+        }
+      }
+    },
+    {
+      "site_id": "sé_47.24320_16.55925",
+      "settlement": "Sé",
+      "location": "Sé, Sportpálya (105/5 hrsz.) melletti parkoló",
+      "lat": 47.2432,
+      "lon": 16.55925,
+      "measurement_count": 3,
+      "below_detection_limit_count": 0,
+      "max_fibres_m3": 2400,
+      "mean_fibres_m3": 1967,
+      "median_fibres_m3": 1900,
+      "latest_measurement": {
+        "sample_id": "2026_792_L/5_3",
+        "date": null,
+        "start": null,
+        "concentration": {
+          "value": 1900,
+          "display": "1900",
+          "unit": "rost/m3",
+          "below_detection_limit": false,
+          "detection_limit": null,
+          "numeric_for_statistics": 1900
+        }
+      }
+    },
+    {
+      "site_id": "szombathely_47.23247_16.57717",
+      "settlement": "Szombathely",
+      "location": "Szombathely, Márton Áron utca",
+      "lat": 47.232472,
+      "lon": 16.577167,
+      "measurement_count": 8,
+      "below_detection_limit_count": 1,
+      "max_fibres_m3": 4814,
+      "mean_fibres_m3": 2527,
+      "median_fibres_m3": 2044,
+      "latest_measurement": {
+        "sample_id": "2026_792_5_L/4_8",
+        "date": "2026-07-31",
+        "start": "2026-07-31 08:40",
+        "concentration": {
+          "value": 2560,
+          "display": "2560",
+          "unit": "rost/m3",
+          "below_detection_limit": false,
+          "detection_limit": null,
+          "numeric_for_statistics": 2560
+        }
+      }
+    },
+    {
+      "site_id": "szombathely_47.23185_16.57861",
+      "settlement": "Szombathely",
+      "location": "Szombathely, Menta utca",
+      "lat": 47.231854,
+      "lon": 16.578609,
+      "measurement_count": 8,
+      "below_detection_limit_count": 1,
+      "max_fibres_m3": 1772,
+      "mean_fibres_m3": 979,
+      "median_fibres_m3": 764,
+      "latest_measurement": {
+        "sample_id": "2026_792_5_L/3_8",
+        "date": "2026-07-31",
+        "start": "2026-07-31 09:00",
+        "concentration": {
+          "value": 266,
+          "display": "266",
+          "unit": "rost/m3",
+          "below_detection_limit": false,
+          "detection_limit": null,
+          "numeric_for_statistics": 266
+        }
+      }
+    },
+    {
+      "site_id": "szombathely_47.23100_16.58349",
+      "settlement": "Szombathely",
+      "location": "Szombathely, Sáfrány utca",
+      "lat": 47.231,
+      "lon": 16.58349,
+      "measurement_count": 8,
+      "below_detection_limit_count": 0,
+      "max_fibres_m3": 2595,
+      "mean_fibres_m3": 1453,
+      "median_fibres_m3": 1554,
+      "latest_measurement": {
+        "sample_id": "2026_792_5_L/2_8",
+        "date": "2026-07-31",
+        "start": "2026-07-31 09:25",
+        "concentration": {
+          "value": 1553,
+          "display": "1553",
+          "unit": "rost/m3",
+          "below_detection_limit": false,
+          "detection_limit": null,
+          "numeric_for_statistics": 1553
+        }
+      }
+    },
+    {
+      "site_id": "szombathely_47.23494_16.58595",
+      "settlement": "Szombathely",
+      "location": "Szombathely, Síp utca",
+      "lat": 47.23494,
+      "lon": 16.58595,
+      "measurement_count": 8,
+      "below_detection_limit_count": 2,
+      "max_fibres_m3": 1520,
+      "mean_fibres_m3": 765,
+      "median_fibres_m3": 754,
+      "latest_measurement": {
+        "sample_id": "2026_792_5_L/1_8",
+        "date": "2026-07-31",
+        "start": "2026-07-31 09:16",
+        "concentration": {
+          "value": 1060,
+          "display": "1060",
+          "unit": "rost/m3",
+          "below_detection_limit": false,
+          "detection_limit": null,
+          "numeric_for_statistics": 1060
+        }
+      }
+    }
+  ],
+  "timeline": [
+    {
+      "id": "air_0003",
+      "sample_id": "2026_792_2_L/1_3",
+      "date": "2026-04-07",
+      "start": "2026-04-07 09:11",
+      "end": "2026-04-07 17:11",
+      "settlement": "Kőszeg",
+      "location": "Kőszeg, Borostyánkő u.",
+      "site_id": "kőszeg_47.40028_16.53656",
+      "lat": 47.40028,
+      "lon": 16.53656,
+      "concentration_fibres_m3": 16600,
+      "display_value": "16600",
+      "below_detection_limit": false,
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/koszeg.pdf"
+    },
+    {
+      "id": "air_0031",
+      "sample_id": "2026_792_5_L/4_1",
+      "date": "2026-07-30",
+      "start": "2026-07-30 10:55",
+      "end": "2026-07-30 13:55",
+      "settlement": "Szombathely",
+      "location": "Szombathely, Márton Áron utca",
+      "site_id": "szombathely_47.23247_16.57717",
+      "lat": 47.232472,
+      "lon": 16.577167,
+      "concentration_fibres_m3": 4814,
+      "display_value": "4814",
+      "below_detection_limit": false,
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf"
+    },
+    {
+      "id": "air_0023",
+      "sample_id": "2026_792_5_L/3_1",
+      "date": "2026-07-30",
+      "start": "2026-07-30 11:13",
+      "end": "2026-07-30 14:13",
+      "settlement": "Szombathely",
+      "location": "Szombathely, Menta utca",
+      "site_id": "szombathely_47.23185_16.57861",
+      "lat": 47.231854,
+      "lon": 16.578609,
+      "concentration_fibres_m3": 764,
+      "display_value": "764",
+      "below_detection_limit": false,
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf"
+    },
+    {
+      "id": "air_0015",
+      "sample_id": "2026_792_5_L/2_1",
+      "date": "2026-07-30",
+      "start": "2026-07-30 11:26",
+      "end": "2026-07-30 14:26",
+      "settlement": "Szombathely",
+      "location": "Szombathely, Sáfrány utca",
+      "site_id": "szombathely_47.23100_16.58349",
+      "lat": 47.231,
+      "lon": 16.58349,
+      "concentration_fibres_m3": 503,
+      "display_value": "503",
+      "below_detection_limit": false,
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf"
+    },
+    {
+      "id": "air_0007",
+      "sample_id": "2026_792_5_L/1_1",
+      "date": "2026-07-30",
+      "start": "2026-07-30 11:39",
+      "end": "2026-07-30 14:39",
+      "settlement": "Szombathely",
+      "location": "Szombathely, Síp utca",
+      "site_id": "szombathely_47.23494_16.58595",
+      "lat": 47.23494,
+      "lon": 16.58595,
+      "concentration_fibres_m3": 1520,
+      "display_value": "1520",
+      "below_detection_limit": false,
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf"
+    },
+    {
+      "id": "air_0032",
+      "sample_id": "2026_792_5_L/4_2",
+      "date": "2026-07-30",
+      "start": "2026-07-30 14:01",
+      "end": "2026-07-30 17:01",
+      "settlement": "Szombathely",
+      "location": "Szombathely, Márton Áron utca",
+      "site_id": "szombathely_47.23247_16.57717",
+      "lat": 47.232472,
+      "lon": 16.577167,
+      "concentration_fibres_m3": 4084,
+      "display_value": "4084",
+      "below_detection_limit": false,
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf"
+    },
+    {
+      "id": "air_0024",
+      "sample_id": "2026_792_5_L/3_2",
+      "date": "2026-07-30",
+      "start": "2026-07-30 14:18",
+      "end": "2026-07-30 17:18",
+      "settlement": "Szombathely",
+      "location": "Szombathely, Menta utca",
+      "site_id": "szombathely_47.23185_16.57861",
+      "lat": 47.231854,
+      "lon": 16.578609,
+      "concentration_fibres_m3": 758,
+      "display_value": "758",
+      "below_detection_limit": false,
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf"
+    },
+    {
+      "id": "air_0016",
+      "sample_id": "2026_792_5_L/2_2",
+      "date": "2026-07-30",
+      "start": "2026-07-30 14:33",
+      "end": "2026-07-30 17:33",
+      "settlement": "Szombathely",
+      "location": "Szombathely, Sáfrány utca",
+      "site_id": "szombathely_47.23100_16.58349",
+      "lat": 47.231,
+      "lon": 16.58349,
+      "concentration_fibres_m3": 2056,
+      "display_value": "2056",
+      "below_detection_limit": false,
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf"
+    },
+    {
+      "id": "air_0008",
+      "sample_id": "2026_792_5_L/1_2",
+      "date": "2026-07-30",
+      "start": "2026-07-30 14:44",
+      "end": "2026-07-30 17:44",
+      "settlement": "Szombathely",
+      "location": "Szombathely, Síp utca",
+      "site_id": "szombathely_47.23494_16.58595",
+      "lat": 47.23494,
+      "lon": 16.58595,
+      "concentration_fibres_m3": 500,
+      "display_value": "500",
+      "below_detection_limit": false,
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf"
+    },
+    {
+      "id": "air_0033",
+      "sample_id": "2026_792_5_L/4_3",
+      "date": "2026-07-30",
+      "start": "2026-07-30 17:08",
+      "end": "2026-07-30 20:08",
+      "settlement": "Szombathely",
+      "location": "Szombathely, Márton Áron utca",
+      "site_id": "szombathely_47.23247_16.57717",
+      "lat": 47.232472,
+      "lon": 16.577167,
+      "concentration_fibres_m3": 1585,
+      "display_value": "1585",
+      "below_detection_limit": false,
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf"
+    },
+    {
+      "id": "air_0025",
+      "sample_id": "2026_792_5_L/3_3",
+      "date": "2026-07-30",
+      "start": "2026-07-30 17:24",
+      "end": "2026-07-30 20:24",
+      "settlement": "Szombathely",
+      "location": "Szombathely, Menta utca",
+      "site_id": "szombathely_47.23185_16.57861",
+      "lat": 47.231854,
+      "lon": 16.578609,
+      "concentration_fibres_m3": 259,
+      "display_value": "259",
+      "below_detection_limit": false,
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf"
+    },
+    {
+      "id": "air_0017",
+      "sample_id": "2026_792_5_L/2_3",
+      "date": "2026-07-30",
+      "start": "2026-07-30 17:46",
+      "end": "2026-07-30 20:46",
+      "settlement": "Szombathely",
+      "location": "Szombathely, Sáfrány utca",
+      "site_id": "szombathely_47.23100_16.58349",
+      "lat": 47.231,
+      "lon": 16.58349,
+      "concentration_fibres_m3": 257,
+      "display_value": "257",
+      "below_detection_limit": false,
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf"
+    },
+    {
+      "id": "air_0009",
+      "sample_id": "2026_792_5_L/1_3",
+      "date": "2026-07-30",
+      "start": "2026-07-30 17:50",
+      "end": "2026-07-30 20:50",
+      "settlement": "Szombathely",
+      "location": "Szombathely, Síp utca",
+      "site_id": "szombathely_47.23494_16.58595",
+      "lat": 47.23494,
+      "lon": 16.58595,
+      "concentration_fibres_m3": 250,
+      "display_value": "250",
+      "below_detection_limit": false,
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf"
+    },
+    {
+      "id": "air_0034",
+      "sample_id": "2026_792_5_L/4_4",
+      "date": "2026-07-30",
+      "start": "2026-07-30 20:15",
+      "end": "2026-07-30 23:15",
+      "settlement": "Szombathely",
+      "location": "Szombathely, Márton Áron utca",
+      "site_id": "szombathely_47.23247_16.57717",
+      "lat": 47.232472,
+      "lon": 16.577167,
+      "concentration_fibres_m3": 1833,
+      "display_value": "1833",
+      "below_detection_limit": false,
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf"
+    },
+    {
+      "id": "air_0026",
+      "sample_id": "2026_792_5_L/3_4",
+      "date": "2026-07-30",
+      "start": "2026-07-30 20:33",
+      "end": "2026-07-30 23:33",
+      "settlement": "Szombathely",
+      "location": "Szombathely, Menta utca",
+      "site_id": "szombathely_47.23185_16.57861",
+      "lat": 47.231854,
+      "lon": 16.578609,
+      "concentration_fibres_m3": 1280,
+      "display_value": "1280",
+      "below_detection_limit": false,
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf"
+    },
+    {
+      "id": "air_0018",
+      "sample_id": "2026_792_5_L/2_4",
+      "date": "2026-07-30",
+      "start": "2026-07-30 20:52",
+      "end": "2026-07-30 23:52",
+      "settlement": "Szombathely",
+      "location": "Szombathely, Sáfrány utca",
+      "site_id": "szombathely_47.23100_16.58349",
+      "lat": 47.231,
+      "lon": 16.58349,
+      "concentration_fibres_m3": 1551,
+      "display_value": "1551",
+      "below_detection_limit": false,
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf"
+    },
+    {
+      "id": "air_0010",
+      "sample_id": "2026_792_5_L/1_4",
+      "date": "2026-07-30",
+      "start": "2026-07-30 20:54",
+      "end": "2026-07-30 23:54",
+      "settlement": "Szombathely",
+      "location": "Szombathely, Síp utca",
+      "site_id": "szombathely_47.23494_16.58595",
+      "lat": 47.23494,
+      "lon": 16.58595,
+      "concentration_fibres_m3": 1008,
+      "display_value": "1008",
+      "below_detection_limit": false,
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf"
+    },
+    {
+      "id": "air_0035",
+      "sample_id": "2026_792_5_L/4_5",
+      "date": "2026-07-30",
+      "start": "2026-07-30 23:23",
+      "end": "2026-07-31 02:23",
+      "settlement": "Szombathely",
+      "location": "Szombathely, Márton Áron utca",
+      "site_id": "szombathely_47.23247_16.57717",
+      "lat": 47.232472,
+      "lon": 16.577167,
+      "concentration_fibres_m3": 100,
+      "display_value": "<100",
+      "below_detection_limit": true,
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf"
+    },
+    {
+      "id": "air_0027",
+      "sample_id": "2026_792_5_L/3_5",
+      "date": "2026-07-30",
+      "start": "2026-07-30 23:39",
+      "end": "2026-07-31 02:39",
+      "settlement": "Szombathely",
+      "location": "Szombathely, Menta utca",
+      "site_id": "szombathely_47.23185_16.57861",
+      "lat": 47.231854,
+      "lon": 16.578609,
+      "concentration_fibres_m3": 100,
+      "display_value": "<100",
+      "below_detection_limit": true,
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf"
+    },
+    {
+      "id": "air_0011",
+      "sample_id": "2026_792_5_L/1_5",
+      "date": "2026-07-30",
+      "start": "2026-07-30 23:58",
+      "end": "2026-07-31 02:58",
+      "settlement": "Szombathely",
+      "location": "Szombathely, Síp utca",
+      "site_id": "szombathely_47.23494_16.58595",
+      "lat": 47.23494,
+      "lon": 16.58595,
+      "concentration_fibres_m3": 100,
+      "display_value": "<100",
+      "below_detection_limit": true,
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf"
+    },
+    {
+      "id": "air_0019",
+      "sample_id": "2026_792_5_L/2_5",
+      "date": "2026-07-30",
+      "start": "2026-07-30 23:58",
+      "end": "2026-07-31 02:58",
+      "settlement": "Szombathely",
+      "location": "Szombathely, Sáfrány utca",
+      "site_id": "szombathely_47.23100_16.58349",
+      "lat": 47.231,
+      "lon": 16.58349,
+      "concentration_fibres_m3": 1554,
+      "display_value": "1554",
+      "below_detection_limit": false,
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf"
+    },
+    {
+      "id": "air_0036",
+      "sample_id": "2026_792_5_L/4_6",
+      "date": "2026-07-31",
+      "start": "2026-07-31 02:31",
+      "end": "2026-07-31 05:31",
+      "settlement": "Szombathely",
+      "location": "Szombathely, Márton Áron utca",
+      "site_id": "szombathely_47.23247_16.57717",
+      "lat": 47.232472,
+      "lon": 16.577167,
+      "concentration_fibres_m3": 771,
+      "display_value": "771",
+      "below_detection_limit": false,
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf"
+    },
+    {
+      "id": "air_0028",
+      "sample_id": "2026_792_5_L/3_6",
+      "date": "2026-07-31",
+      "start": "2026-07-31 02:46",
+      "end": "2026-07-31 05:46",
+      "settlement": "Szombathely",
+      "location": "Szombathely, Menta utca",
+      "site_id": "szombathely_47.23185_16.57861",
+      "lat": 47.231854,
+      "lon": 16.578609,
+      "concentration_fibres_m3": 1751,
+      "display_value": "1751",
+      "below_detection_limit": false,
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf"
+    },
+    {
+      "id": "air_0012",
+      "sample_id": "2026_792_5_L/1_6",
+      "date": "2026-07-31",
+      "start": "2026-07-31 03:04",
+      "end": "2026-07-31 06:04",
+      "settlement": "Szombathely",
+      "location": "Szombathely, Síp utca",
+      "site_id": "szombathely_47.23494_16.58595",
+      "lat": 47.23494,
+      "lon": 16.58595,
+      "concentration_fibres_m3": 100,
+      "display_value": "<100",
+      "below_detection_limit": true,
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf"
+    },
+    {
+      "id": "air_0020",
+      "sample_id": "2026_792_5_L/2_6",
+      "date": "2026-07-31",
+      "start": "2026-07-31 03:07",
+      "end": "2026-07-31 06:07",
+      "settlement": "Szombathely",
+      "location": "Szombathely, Sáfrány utca",
+      "site_id": "szombathely_47.23100_16.58349",
+      "lat": 47.231,
+      "lon": 16.58349,
+      "concentration_fibres_m3": 2595,
+      "display_value": "2595",
+      "below_detection_limit": false,
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf"
+    },
+    {
+      "id": "air_0037",
+      "sample_id": "2026_792_5_L/4_7",
+      "date": "2026-07-31",
+      "start": "2026-07-31 05:36",
+      "end": "2026-07-31 08:36",
+      "settlement": "Szombathely",
+      "location": "Szombathely, Márton Áron utca",
+      "site_id": "szombathely_47.23247_16.57717",
+      "lat": 47.232472,
+      "lon": 16.577167,
+      "concentration_fibres_m3": 2044,
+      "display_value": "2044",
+      "below_detection_limit": false,
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf"
+    },
+    {
+      "id": "air_0029",
+      "sample_id": "2026_792_5_L/3_7",
+      "date": "2026-07-31",
+      "start": "2026-07-31 05:53",
+      "end": "2026-07-31 08:53",
+      "settlement": "Szombathely",
+      "location": "Szombathely, Menta utca",
+      "site_id": "szombathely_47.23185_16.57861",
+      "lat": 47.231854,
+      "lon": 16.578609,
+      "concentration_fibres_m3": 1772,
+      "display_value": "1772",
+      "below_detection_limit": false,
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf"
+    },
+    {
+      "id": "air_0013",
+      "sample_id": "2026_792_5_L/1_7",
+      "date": "2026-07-31",
+      "start": "2026-07-31 06:08",
+      "end": "2026-07-31 09:08",
+      "settlement": "Szombathely",
+      "location": "Szombathely, Síp utca",
+      "site_id": "szombathely_47.23494_16.58595",
+      "lat": 47.23494,
+      "lon": 16.58595,
+      "concentration_fibres_m3": 250,
+      "display_value": "250",
+      "below_detection_limit": false,
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf"
+    },
+    {
+      "id": "air_0021",
+      "sample_id": "2026_792_5_L/2_7",
+      "date": "2026-07-31",
+      "start": "2026-07-31 06:13",
+      "end": "2026-07-31 09:13",
+      "settlement": "Szombathely",
+      "location": "Szombathely, Sáfrány utca",
+      "site_id": "szombathely_47.23100_16.58349",
+      "lat": 47.231,
+      "lon": 16.58349,
+      "concentration_fibres_m3": 1555,
+      "display_value": "1555",
+      "below_detection_limit": false,
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf"
+    },
+    {
+      "id": "air_0038",
+      "sample_id": "2026_792_5_L/4_8",
+      "date": "2026-07-31",
+      "start": "2026-07-31 08:40",
+      "end": "2026-07-31 11:40",
+      "settlement": "Szombathely",
+      "location": "Szombathely, Márton Áron utca",
+      "site_id": "szombathely_47.23247_16.57717",
+      "lat": 47.232472,
+      "lon": 16.577167,
+      "concentration_fibres_m3": 2560,
+      "display_value": "2560",
+      "below_detection_limit": false,
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf"
+    },
+    {
+      "id": "air_0030",
+      "sample_id": "2026_792_5_L/3_8",
+      "date": "2026-07-31",
+      "start": "2026-07-31 09:00",
+      "end": "2026-07-31 12:00",
+      "settlement": "Szombathely",
+      "location": "Szombathely, Menta utca",
+      "site_id": "szombathely_47.23185_16.57861",
+      "lat": 47.231854,
+      "lon": 16.578609,
+      "concentration_fibres_m3": 266,
+      "display_value": "266",
+      "below_detection_limit": false,
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf"
+    },
+    {
+      "id": "air_0014",
+      "sample_id": "2026_792_5_L/1_8",
+      "date": "2026-07-31",
+      "start": "2026-07-31 09:16",
+      "end": "2026-07-31 12:16",
+      "settlement": "Szombathely",
+      "location": "Szombathely, Síp utca",
+      "site_id": "szombathely_47.23494_16.58595",
+      "lat": 47.23494,
+      "lon": 16.58595,
+      "concentration_fibres_m3": 1060,
+      "display_value": "1060",
+      "below_detection_limit": false,
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf"
+    },
+    {
+      "id": "air_0022",
+      "sample_id": "2026_792_5_L/2_8",
+      "date": "2026-07-31",
+      "start": "2026-07-31 09:25",
+      "end": "2026-07-31 12:25",
+      "settlement": "Szombathely",
+      "location": "Szombathely, Sáfrány utca",
+      "site_id": "szombathely_47.23100_16.58349",
+      "lat": 47.231,
+      "lon": 16.58349,
+      "concentration_fibres_m3": 1553,
+      "display_value": "1553",
+      "below_detection_limit": false,
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf"
+    },
+    {
+      "id": "air_0042",
+      "sample_id": "2026_792_6_L/2_1",
+      "date": "2026-08-11",
+      "start": "2026-08-11 15:54",
+      "end": "2026-08-11 19:54",
+      "settlement": "Kőszeg",
+      "location": "Kőszeg, Hermina utca",
+      "site_id": "kőszeg_47.38111_16.52928",
+      "lat": 47.38111,
+      "lon": 16.52928,
+      "concentration_fibres_m3": 56340,
+      "display_value": "56340",
+      "below_detection_limit": false,
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_6_vj.pdf"
+    },
+    {
+      "id": "air_0039",
+      "sample_id": "2026_792_6_L/1_1",
+      "date": "2026-08-11",
+      "start": "2026-08-11 16:29",
+      "end": "2026-08-12 00:29",
+      "settlement": "Kőszeg",
+      "location": "Kőszeg, Borostyán Gyermekotthonhoz vezető bekötő út",
+      "site_id": "kőszeg_47.38840_16.54967",
+      "lat": 47.3884,
+      "lon": 16.54967,
+      "concentration_fibres_m3": 473,
+      "display_value": "473",
+      "below_detection_limit": false,
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_6_vj.pdf"
+    },
+    {
+      "id": "air_0043",
+      "sample_id": "2026_792_6_L/2_2",
+      "date": "2026-08-11",
+      "start": "2026-08-11 19:56",
+      "end": "2026-08-11 23:56",
+      "settlement": "Kőszeg",
+      "location": "Kőszeg, Hermina utca",
+      "site_id": "kőszeg_47.38111_16.52928",
+      "lat": 47.38111,
+      "lon": 16.52928,
+      "concentration_fibres_m3": 24026,
+      "display_value": "24026",
+      "below_detection_limit": false,
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_6_vj.pdf"
+    },
+    {
+      "id": "air_0044",
+      "sample_id": "2026_792_6_L/2_3",
+      "date": "2026-08-11",
+      "start": "2026-08-11 23:59",
+      "end": "2026-08-12 07:59",
+      "settlement": "Kőszeg",
+      "location": "Kőszeg, Hermina utca",
+      "site_id": "kőszeg_47.38111_16.52928",
+      "lat": 47.38111,
+      "lon": 16.52928,
+      "concentration_fibres_m3": 8593,
+      "display_value": "8593",
+      "below_detection_limit": false,
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_6_vj.pdf"
+    },
+    {
+      "id": "air_0040",
+      "sample_id": "2026_792_6_L/1_2",
+      "date": "2026-08-12",
+      "start": "2026-08-12 00:31",
+      "end": "2026-08-12 08:31",
+      "settlement": "Kőszeg",
+      "location": "Kőszeg, Borostyán Gyermekotthonhoz vezető bekötő út",
+      "site_id": "kőszeg_47.38840_16.54967",
+      "lat": 47.3884,
+      "lon": 16.54967,
+      "concentration_fibres_m3": 1224,
+      "display_value": "1224",
+      "below_detection_limit": false,
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_6_vj.pdf"
+    },
+    {
+      "id": "air_0045",
+      "sample_id": "2026_792_6_L/2_4",
+      "date": "2026-08-12",
+      "start": "2026-08-12 08:05",
+      "end": "2026-08-12 12:05",
+      "settlement": "Kőszeg",
+      "location": "Kőszeg, Hermina utca",
+      "site_id": "kőszeg_47.38111_16.52928",
+      "lat": 47.38111,
+      "lon": 16.52928,
+      "concentration_fibres_m3": 67670,
+      "display_value": "67670",
+      "below_detection_limit": false,
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_6_vj.pdf"
+    },
+    {
+      "id": "air_0041",
+      "sample_id": "2026_792_6_L/1_3",
+      "date": "2026-08-12",
+      "start": "2026-08-12 08:40",
+      "end": "2026-08-12 16:40",
+      "settlement": "Kőszeg",
+      "location": "Kőszeg, Borostyán Gyermekotthonhoz vezető bekötő út",
+      "site_id": "kőszeg_47.38840_16.54967",
+      "lat": 47.3884,
+      "lon": 16.54967,
+      "concentration_fibres_m3": 2591,
+      "display_value": "2591",
+      "below_detection_limit": false,
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_6_vj.pdf"
+    },
+    {
+      "id": "air_0046",
+      "sample_id": "2026_792_6_L/2_5",
+      "date": "2026-08-12",
+      "start": "2026-08-12 12:08",
+      "end": "2026-08-12 16:08",
+      "settlement": "Kőszeg",
+      "location": "Kőszeg, Hermina utca",
+      "site_id": "kőszeg_47.38111_16.52928",
+      "lat": 47.38111,
+      "lon": 16.52928,
+      "concentration_fibres_m3": 76254,
+      "display_value": "76254",
+      "below_detection_limit": false,
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_6_vj.pdf"
+    },
+    {
+      "id": "air_0001",
+      "sample_id": "2026_792_2_L/1_1",
+      "date": null,
+      "start": null,
+      "end": null,
+      "settlement": "Kőszeg",
+      "location": "Kőszeg, Borostyánkő u.",
+      "site_id": "kőszeg_47.40028_16.53656",
+      "lat": 47.40028,
+      "lon": 16.53656,
+      "concentration_fibres_m3": 7700,
+      "display_value": "7700",
+      "below_detection_limit": false,
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/koszeg.pdf"
+    },
+    {
+      "id": "air_0002",
+      "sample_id": "2026_792_2_L/1_2",
+      "date": null,
+      "start": null,
+      "end": null,
+      "settlement": "Kőszeg",
+      "location": "Kőszeg, Borostyánkő u.",
+      "site_id": "kőszeg_47.40028_16.53656",
+      "lat": 47.40028,
+      "lon": 16.53656,
+      "concentration_fibres_m3": 6600,
+      "display_value": "6600",
+      "below_detection_limit": false,
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/koszeg.pdf"
+    },
+    {
+      "id": "air_0004",
+      "sample_id": "2026_792_L/5_1",
+      "date": null,
+      "start": null,
+      "end": null,
+      "settlement": "Sé",
+      "location": "Sé, Sportpálya (105/5 hrsz.) melletti parkoló",
+      "site_id": "sé_47.24320_16.55925",
+      "lat": 47.2432,
+      "lon": 16.55925,
+      "concentration_fibres_m3": 1600,
+      "display_value": "1600",
+      "below_detection_limit": false,
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/se.pdf"
+    },
+    {
+      "id": "air_0005",
+      "sample_id": "2026_792_L/5_2",
+      "date": null,
+      "start": null,
+      "end": null,
+      "settlement": "Sé",
+      "location": "Sé, Sportpálya (105/5 hrsz.) melletti parkoló",
+      "site_id": "sé_47.24320_16.55925",
+      "lat": 47.2432,
+      "lon": 16.55925,
+      "concentration_fibres_m3": 2400,
+      "display_value": "2400",
+      "below_detection_limit": false,
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/se.pdf"
+    },
+    {
+      "id": "air_0006",
+      "sample_id": "2026_792_L/5_3",
+      "date": null,
+      "start": null,
+      "end": null,
+      "settlement": "Sé",
+      "location": "Sé, Sportpálya (105/5 hrsz.) melletti parkoló",
+      "site_id": "sé_47.24320_16.55925",
+      "lat": 47.2432,
+      "lon": 16.55925,
+      "concentration_fibres_m3": 1900,
+      "display_value": "1900",
+      "below_detection_limit": false,
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/se.pdf"
+    }
+  ],
+  "measurements": [
+    {
+      "id": "air_0001",
+      "sample_id": "2026_792_2_L/1_1",
+      "site_id": "kőszeg_47.40028_16.53656",
+      "settlement": "Kőszeg",
+      "location": "Kőszeg, Borostyánkő u.",
+      "coordinates": {
+        "lat": 47.40028,
+        "lon": 16.53656
+      },
+      "date": null,
+      "start": null,
+      "end": null,
+      "timestamp": null,
+      "concentration": {
+        "value": 7700,
+        "display": "7700",
+        "unit": "rost/m3",
+        "below_detection_limit": false,
+        "detection_limit": null,
+        "numeric_for_statistics": 7700
+      },
+      "parser": "explicit_legacy_pair",
+      "confidence": "high",
+      "source": {
+        "authority": "Vas Vármegyei Kormányhivatal",
+        "title": "Kőszeg legfrissebb mérési eredmények",
+        "publication_date": "2026-07-20",
+        "document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/koszeg.pdf"
+      }
+    },
+    {
+      "id": "air_0002",
+      "sample_id": "2026_792_2_L/1_2",
+      "site_id": "kőszeg_47.40028_16.53656",
+      "settlement": "Kőszeg",
+      "location": "Kőszeg, Borostyánkő u.",
+      "coordinates": {
+        "lat": 47.40028,
+        "lon": 16.53656
+      },
+      "date": null,
+      "start": null,
+      "end": null,
+      "timestamp": null,
+      "concentration": {
+        "value": 6600,
+        "display": "6600",
+        "unit": "rost/m3",
+        "below_detection_limit": false,
+        "detection_limit": null,
+        "numeric_for_statistics": 6600
+      },
+      "parser": "explicit_legacy_pair",
+      "confidence": "high",
+      "source": {
+        "authority": "Vas Vármegyei Kormányhivatal",
+        "title": "Kőszeg legfrissebb mérési eredmények",
+        "publication_date": "2026-07-20",
+        "document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/koszeg.pdf"
+      }
+    },
+    {
+      "id": "air_0003",
+      "sample_id": "2026_792_2_L/1_3",
+      "site_id": "kőszeg_47.40028_16.53656",
+      "settlement": "Kőszeg",
+      "location": "Kőszeg, Borostyánkő u.",
+      "coordinates": {
+        "lat": 47.40028,
+        "lon": 16.53656
+      },
+      "date": "2026-04-07",
+      "start": "2026-04-07 09:11",
+      "end": "2026-04-07 17:11",
+      "timestamp": 1775553060000,
+      "concentration": {
+        "value": 16600,
+        "display": "16600",
+        "unit": "rost/m3",
+        "below_detection_limit": false,
+        "detection_limit": null,
+        "numeric_for_statistics": 16600
+      },
+      "parser": "explicit_legacy_pair",
+      "confidence": "high",
+      "source": {
+        "authority": "Vas Vármegyei Kormányhivatal",
+        "title": "Kőszeg legfrissebb mérési eredmények",
+        "publication_date": "2026-07-20",
+        "document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/koszeg.pdf"
+      }
+    },
+    {
+      "id": "air_0004",
+      "sample_id": "2026_792_L/5_1",
+      "site_id": "sé_47.24320_16.55925",
+      "settlement": "Sé",
+      "location": "Sé, Sportpálya (105/5 hrsz.) melletti parkoló",
+      "coordinates": {
+        "lat": 47.2432,
+        "lon": 16.55925
+      },
+      "date": null,
+      "start": null,
+      "end": null,
+      "timestamp": null,
+      "concentration": {
+        "value": 1600,
+        "display": "1600",
+        "unit": "rost/m3",
+        "below_detection_limit": false,
+        "detection_limit": null,
+        "numeric_for_statistics": 1600
+      },
+      "parser": "explicit_legacy_pair",
+      "confidence": "high",
+      "source": {
+        "authority": "Vas Vármegyei Kormányhivatal",
+        "title": "Sé legfrissebb mérési eredmények",
+        "publication_date": "2026-07-20",
+        "document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/se.pdf"
+      }
+    },
+    {
+      "id": "air_0005",
+      "sample_id": "2026_792_L/5_2",
+      "site_id": "sé_47.24320_16.55925",
+      "settlement": "Sé",
+      "location": "Sé, Sportpálya (105/5 hrsz.) melletti parkoló",
+      "coordinates": {
+        "lat": 47.2432,
+        "lon": 16.55925
+      },
+      "date": null,
+      "start": null,
+      "end": null,
+      "timestamp": null,
+      "concentration": {
+        "value": 2400,
+        "display": "2400",
+        "unit": "rost/m3",
+        "below_detection_limit": false,
+        "detection_limit": null,
+        "numeric_for_statistics": 2400
+      },
+      "parser": "explicit_legacy_pair",
+      "confidence": "high",
+      "source": {
+        "authority": "Vas Vármegyei Kormányhivatal",
+        "title": "Sé legfrissebb mérési eredmények",
+        "publication_date": "2026-07-20",
+        "document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/se.pdf"
+      }
+    },
+    {
+      "id": "air_0006",
+      "sample_id": "2026_792_L/5_3",
+      "site_id": "sé_47.24320_16.55925",
+      "settlement": "Sé",
+      "location": "Sé, Sportpálya (105/5 hrsz.) melletti parkoló",
+      "coordinates": {
+        "lat": 47.2432,
+        "lon": 16.55925
+      },
+      "date": null,
+      "start": null,
+      "end": null,
+      "timestamp": null,
+      "concentration": {
+        "value": 1900,
+        "display": "1900",
+        "unit": "rost/m3",
+        "below_detection_limit": false,
+        "detection_limit": null,
+        "numeric_for_statistics": 1900
+      },
+      "parser": "explicit_legacy_pair",
+      "confidence": "high",
+      "source": {
+        "authority": "Vas Vármegyei Kormányhivatal",
+        "title": "Sé legfrissebb mérési eredmények",
+        "publication_date": "2026-07-20",
+        "document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/se.pdf"
+      }
+    },
+    {
+      "id": "air_0007",
+      "sample_id": "2026_792_5_L/1_1",
+      "site_id": "szombathely_47.23494_16.58595",
+      "settlement": "Szombathely",
+      "location": "Szombathely, Síp utca",
+      "coordinates": {
+        "lat": 47.23494,
+        "lon": 16.58595
+      },
+      "date": "2026-07-30",
+      "start": "2026-07-30 11:39",
+      "end": "2026-07-30 14:39",
+      "timestamp": 1785411540000,
+      "concentration": {
+        "value": 1520,
+        "display": "1520",
+        "unit": "rost/m3",
+        "below_detection_limit": false,
+        "detection_limit": null,
+        "numeric_for_statistics": 1520
+      },
+      "parser": "modern_table_row",
+      "confidence": "high",
+      "source": {
+        "authority": "Vas Vármegyei Kormányhivatal",
+        "title": "A Szombathely, Oladi Platón 2026. július 30-31-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+        "publication_date": "2026-08-18",
+        "document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf"
+      }
+    },
+    {
+      "id": "air_0008",
+      "sample_id": "2026_792_5_L/1_2",
+      "site_id": "szombathely_47.23494_16.58595",
+      "settlement": "Szombathely",
+      "location": "Szombathely, Síp utca",
+      "coordinates": {
+        "lat": 47.23494,
+        "lon": 16.58595
+      },
+      "date": "2026-07-30",
+      "start": "2026-07-30 14:44",
+      "end": "2026-07-30 17:44",
+      "timestamp": 1785422640000,
+      "concentration": {
+        "value": 500,
+        "display": "500",
+        "unit": "rost/m3",
+        "below_detection_limit": false,
+        "detection_limit": null,
+        "numeric_for_statistics": 500
+      },
+      "parser": "modern_table_row",
+      "confidence": "high",
+      "source": {
+        "authority": "Vas Vármegyei Kormányhivatal",
+        "title": "A Szombathely, Oladi Platón 2026. július 30-31-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+        "publication_date": "2026-08-18",
+        "document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf"
+      }
+    },
+    {
+      "id": "air_0009",
+      "sample_id": "2026_792_5_L/1_3",
+      "site_id": "szombathely_47.23494_16.58595",
+      "settlement": "Szombathely",
+      "location": "Szombathely, Síp utca",
+      "coordinates": {
+        "lat": 47.23494,
+        "lon": 16.58595
+      },
+      "date": "2026-07-30",
+      "start": "2026-07-30 17:50",
+      "end": "2026-07-30 20:50",
+      "timestamp": 1785433800000,
+      "concentration": {
+        "value": 250,
+        "display": "250",
+        "unit": "rost/m3",
+        "below_detection_limit": false,
+        "detection_limit": null,
+        "numeric_for_statistics": 250
+      },
+      "parser": "modern_table_row",
+      "confidence": "high",
+      "source": {
+        "authority": "Vas Vármegyei Kormányhivatal",
+        "title": "A Szombathely, Oladi Platón 2026. július 30-31-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+        "publication_date": "2026-08-18",
+        "document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf"
+      }
+    },
+    {
+      "id": "air_0010",
+      "sample_id": "2026_792_5_L/1_4",
+      "site_id": "szombathely_47.23494_16.58595",
+      "settlement": "Szombathely",
+      "location": "Szombathely, Síp utca",
+      "coordinates": {
+        "lat": 47.23494,
+        "lon": 16.58595
+      },
+      "date": "2026-07-30",
+      "start": "2026-07-30 20:54",
+      "end": "2026-07-30 23:54",
+      "timestamp": 1785444840000,
+      "concentration": {
+        "value": 1008,
+        "display": "1008",
+        "unit": "rost/m3",
+        "below_detection_limit": false,
+        "detection_limit": null,
+        "numeric_for_statistics": 1008
+      },
+      "parser": "modern_table_row",
+      "confidence": "high",
+      "source": {
+        "authority": "Vas Vármegyei Kormányhivatal",
+        "title": "A Szombathely, Oladi Platón 2026. július 30-31-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+        "publication_date": "2026-08-18",
+        "document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf"
+      }
+    },
+    {
+      "id": "air_0011",
+      "sample_id": "2026_792_5_L/1_5",
+      "site_id": "szombathely_47.23494_16.58595",
+      "settlement": "Szombathely",
+      "location": "Szombathely, Síp utca",
+      "coordinates": {
+        "lat": 47.23494,
+        "lon": 16.58595
+      },
+      "date": "2026-07-30",
+      "start": "2026-07-30 23:58",
+      "end": "2026-07-31 02:58",
+      "timestamp": 1785455880000,
+      "concentration": {
+        "value": 100,
+        "display": "<100",
+        "unit": "rost/m3",
+        "below_detection_limit": true,
+        "detection_limit": 100,
+        "numeric_for_statistics": null
+      },
+      "parser": "modern_table_row",
+      "confidence": "high",
+      "source": {
+        "authority": "Vas Vármegyei Kormányhivatal",
+        "title": "A Szombathely, Oladi Platón 2026. július 30-31-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+        "publication_date": "2026-08-18",
+        "document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf"
+      }
+    },
+    {
+      "id": "air_0012",
+      "sample_id": "2026_792_5_L/1_6",
+      "site_id": "szombathely_47.23494_16.58595",
+      "settlement": "Szombathely",
+      "location": "Szombathely, Síp utca",
+      "coordinates": {
+        "lat": 47.23494,
+        "lon": 16.58595
+      },
+      "date": "2026-07-31",
+      "start": "2026-07-31 03:04",
+      "end": "2026-07-31 06:04",
+      "timestamp": 1785467040000,
+      "concentration": {
+        "value": 100,
+        "display": "<100",
+        "unit": "rost/m3",
+        "below_detection_limit": true,
+        "detection_limit": 100,
+        "numeric_for_statistics": null
+      },
+      "parser": "modern_table_row",
+      "confidence": "high",
+      "source": {
+        "authority": "Vas Vármegyei Kormányhivatal",
+        "title": "A Szombathely, Oladi Platón 2026. július 30-31-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+        "publication_date": "2026-08-18",
+        "document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf"
+      }
+    },
+    {
+      "id": "air_0013",
+      "sample_id": "2026_792_5_L/1_7",
+      "site_id": "szombathely_47.23494_16.58595",
+      "settlement": "Szombathely",
+      "location": "Szombathely, Síp utca",
+      "coordinates": {
+        "lat": 47.23494,
+        "lon": 16.58595
+      },
+      "date": "2026-07-31",
+      "start": "2026-07-31 06:08",
+      "end": "2026-07-31 09:08",
+      "timestamp": 1785478080000,
+      "concentration": {
+        "value": 250,
+        "display": "250",
+        "unit": "rost/m3",
+        "below_detection_limit": false,
+        "detection_limit": null,
+        "numeric_for_statistics": 250
+      },
+      "parser": "modern_table_row",
+      "confidence": "high",
+      "source": {
+        "authority": "Vas Vármegyei Kormányhivatal",
+        "title": "A Szombathely, Oladi Platón 2026. július 30-31-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+        "publication_date": "2026-08-18",
+        "document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf"
+      }
+    },
+    {
+      "id": "air_0014",
+      "sample_id": "2026_792_5_L/1_8",
+      "site_id": "szombathely_47.23494_16.58595",
+      "settlement": "Szombathely",
+      "location": "Szombathely, Síp utca",
+      "coordinates": {
+        "lat": 47.23494,
+        "lon": 16.58595
+      },
+      "date": "2026-07-31",
+      "start": "2026-07-31 09:16",
+      "end": "2026-07-31 12:16",
+      "timestamp": 1785489360000,
+      "concentration": {
+        "value": 1060,
+        "display": "1060",
+        "unit": "rost/m3",
+        "below_detection_limit": false,
+        "detection_limit": null,
+        "numeric_for_statistics": 1060
+      },
+      "parser": "modern_table_row",
+      "confidence": "high",
+      "source": {
+        "authority": "Vas Vármegyei Kormányhivatal",
+        "title": "A Szombathely, Oladi Platón 2026. július 30-31-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+        "publication_date": "2026-08-18",
+        "document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf"
+      }
+    },
+    {
+      "id": "air_0015",
+      "sample_id": "2026_792_5_L/2_1",
+      "site_id": "szombathely_47.23100_16.58349",
+      "settlement": "Szombathely",
+      "location": "Szombathely, Sáfrány utca",
+      "coordinates": {
+        "lat": 47.231,
+        "lon": 16.58349
+      },
+      "date": "2026-07-30",
+      "start": "2026-07-30 11:26",
+      "end": "2026-07-30 14:26",
+      "timestamp": 1785410760000,
+      "concentration": {
+        "value": 503,
+        "display": "503",
+        "unit": "rost/m3",
+        "below_detection_limit": false,
+        "detection_limit": null,
+        "numeric_for_statistics": 503
+      },
+      "parser": "modern_table_row",
+      "confidence": "high",
+      "source": {
+        "authority": "Vas Vármegyei Kormányhivatal",
+        "title": "A Szombathely, Oladi Platón 2026. július 30-31-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+        "publication_date": "2026-08-18",
+        "document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf"
+      }
+    },
+    {
+      "id": "air_0016",
+      "sample_id": "2026_792_5_L/2_2",
+      "site_id": "szombathely_47.23100_16.58349",
+      "settlement": "Szombathely",
+      "location": "Szombathely, Sáfrány utca",
+      "coordinates": {
+        "lat": 47.231,
+        "lon": 16.58349
+      },
+      "date": "2026-07-30",
+      "start": "2026-07-30 14:33",
+      "end": "2026-07-30 17:33",
+      "timestamp": 1785421980000,
+      "concentration": {
+        "value": 2056,
+        "display": "2056",
+        "unit": "rost/m3",
+        "below_detection_limit": false,
+        "detection_limit": null,
+        "numeric_for_statistics": 2056
+      },
+      "parser": "modern_table_row",
+      "confidence": "high",
+      "source": {
+        "authority": "Vas Vármegyei Kormányhivatal",
+        "title": "A Szombathely, Oladi Platón 2026. július 30-31-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+        "publication_date": "2026-08-18",
+        "document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf"
+      }
+    },
+    {
+      "id": "air_0017",
+      "sample_id": "2026_792_5_L/2_3",
+      "site_id": "szombathely_47.23100_16.58349",
+      "settlement": "Szombathely",
+      "location": "Szombathely, Sáfrány utca",
+      "coordinates": {
+        "lat": 47.231,
+        "lon": 16.58349
+      },
+      "date": "2026-07-30",
+      "start": "2026-07-30 17:46",
+      "end": "2026-07-30 20:46",
+      "timestamp": 1785433560000,
+      "concentration": {
+        "value": 257,
+        "display": "257",
+        "unit": "rost/m3",
+        "below_detection_limit": false,
+        "detection_limit": null,
+        "numeric_for_statistics": 257
+      },
+      "parser": "modern_table_row",
+      "confidence": "high",
+      "source": {
+        "authority": "Vas Vármegyei Kormányhivatal",
+        "title": "A Szombathely, Oladi Platón 2026. július 30-31-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+        "publication_date": "2026-08-18",
+        "document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf"
+      }
+    },
+    {
+      "id": "air_0018",
+      "sample_id": "2026_792_5_L/2_4",
+      "site_id": "szombathely_47.23100_16.58349",
+      "settlement": "Szombathely",
+      "location": "Szombathely, Sáfrány utca",
+      "coordinates": {
+        "lat": 47.231,
+        "lon": 16.58349
+      },
+      "date": "2026-07-30",
+      "start": "2026-07-30 20:52",
+      "end": "2026-07-30 23:52",
+      "timestamp": 1785444720000,
+      "concentration": {
+        "value": 1551,
+        "display": "1551",
+        "unit": "rost/m3",
+        "below_detection_limit": false,
+        "detection_limit": null,
+        "numeric_for_statistics": 1551
+      },
+      "parser": "modern_table_row",
+      "confidence": "high",
+      "source": {
+        "authority": "Vas Vármegyei Kormányhivatal",
+        "title": "A Szombathely, Oladi Platón 2026. július 30-31-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+        "publication_date": "2026-08-18",
+        "document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf"
+      }
+    },
+    {
+      "id": "air_0019",
+      "sample_id": "2026_792_5_L/2_5",
+      "site_id": "szombathely_47.23100_16.58349",
+      "settlement": "Szombathely",
+      "location": "Szombathely, Sáfrány utca",
+      "coordinates": {
+        "lat": 47.231,
+        "lon": 16.58349
+      },
+      "date": "2026-07-30",
+      "start": "2026-07-30 23:58",
+      "end": "2026-07-31 02:58",
+      "timestamp": 1785455880000,
+      "concentration": {
+        "value": 1554,
+        "display": "1554",
+        "unit": "rost/m3",
+        "below_detection_limit": false,
+        "detection_limit": null,
+        "numeric_for_statistics": 1554
+      },
+      "parser": "modern_table_row",
+      "confidence": "high",
+      "source": {
+        "authority": "Vas Vármegyei Kormányhivatal",
+        "title": "A Szombathely, Oladi Platón 2026. július 30-31-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+        "publication_date": "2026-08-18",
+        "document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf"
+      }
+    },
+    {
+      "id": "air_0020",
+      "sample_id": "2026_792_5_L/2_6",
+      "site_id": "szombathely_47.23100_16.58349",
+      "settlement": "Szombathely",
+      "location": "Szombathely, Sáfrány utca",
+      "coordinates": {
+        "lat": 47.231,
+        "lon": 16.58349
+      },
+      "date": "2026-07-31",
+      "start": "2026-07-31 03:07",
+      "end": "2026-07-31 06:07",
+      "timestamp": 1785467220000,
+      "concentration": {
+        "value": 2595,
+        "display": "2595",
+        "unit": "rost/m3",
+        "below_detection_limit": false,
+        "detection_limit": null,
+        "numeric_for_statistics": 2595
+      },
+      "parser": "modern_table_row",
+      "confidence": "high",
+      "source": {
+        "authority": "Vas Vármegyei Kormányhivatal",
+        "title": "A Szombathely, Oladi Platón 2026. július 30-31-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+        "publication_date": "2026-08-18",
+        "document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf"
+      }
+    },
+    {
+      "id": "air_0021",
+      "sample_id": "2026_792_5_L/2_7",
+      "site_id": "szombathely_47.23100_16.58349",
+      "settlement": "Szombathely",
+      "location": "Szombathely, Sáfrány utca",
+      "coordinates": {
+        "lat": 47.231,
+        "lon": 16.58349
+      },
+      "date": "2026-07-31",
+      "start": "2026-07-31 06:13",
+      "end": "2026-07-31 09:13",
+      "timestamp": 1785478380000,
+      "concentration": {
+        "value": 1555,
+        "display": "1555",
+        "unit": "rost/m3",
+        "below_detection_limit": false,
+        "detection_limit": null,
+        "numeric_for_statistics": 1555
+      },
+      "parser": "modern_table_row",
+      "confidence": "high",
+      "source": {
+        "authority": "Vas Vármegyei Kormányhivatal",
+        "title": "A Szombathely, Oladi Platón 2026. július 30-31-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+        "publication_date": "2026-08-18",
+        "document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf"
+      }
+    },
+    {
+      "id": "air_0022",
+      "sample_id": "2026_792_5_L/2_8",
+      "site_id": "szombathely_47.23100_16.58349",
+      "settlement": "Szombathely",
+      "location": "Szombathely, Sáfrány utca",
+      "coordinates": {
+        "lat": 47.231,
+        "lon": 16.58349
+      },
+      "date": "2026-07-31",
+      "start": "2026-07-31 09:25",
+      "end": "2026-07-31 12:25",
+      "timestamp": 1785489900000,
+      "concentration": {
+        "value": 1553,
+        "display": "1553",
+        "unit": "rost/m3",
+        "below_detection_limit": false,
+        "detection_limit": null,
+        "numeric_for_statistics": 1553
+      },
+      "parser": "modern_table_row",
+      "confidence": "high",
+      "source": {
+        "authority": "Vas Vármegyei Kormányhivatal",
+        "title": "A Szombathely, Oladi Platón 2026. július 30-31-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+        "publication_date": "2026-08-18",
+        "document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf"
+      }
+    },
+    {
+      "id": "air_0023",
+      "sample_id": "2026_792_5_L/3_1",
+      "site_id": "szombathely_47.23185_16.57861",
+      "settlement": "Szombathely",
+      "location": "Szombathely, Menta utca",
+      "coordinates": {
+        "lat": 47.231854,
+        "lon": 16.578609
+      },
+      "date": "2026-07-30",
+      "start": "2026-07-30 11:13",
+      "end": "2026-07-30 14:13",
+      "timestamp": 1785409980000,
+      "concentration": {
+        "value": 764,
+        "display": "764",
+        "unit": "rost/m3",
+        "below_detection_limit": false,
+        "detection_limit": null,
+        "numeric_for_statistics": 764
+      },
+      "parser": "modern_table_row",
+      "confidence": "high",
+      "source": {
+        "authority": "Vas Vármegyei Kormányhivatal",
+        "title": "A Szombathely, Oladi Platón 2026. július 30-31-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+        "publication_date": "2026-08-18",
+        "document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf"
+      }
+    },
+    {
+      "id": "air_0024",
+      "sample_id": "2026_792_5_L/3_2",
+      "site_id": "szombathely_47.23185_16.57861",
+      "settlement": "Szombathely",
+      "location": "Szombathely, Menta utca",
+      "coordinates": {
+        "lat": 47.231854,
+        "lon": 16.578609
+      },
+      "date": "2026-07-30",
+      "start": "2026-07-30 14:18",
+      "end": "2026-07-30 17:18",
+      "timestamp": 1785421080000,
+      "concentration": {
+        "value": 758,
+        "display": "758",
+        "unit": "rost/m3",
+        "below_detection_limit": false,
+        "detection_limit": null,
+        "numeric_for_statistics": 758
+      },
+      "parser": "modern_table_row",
+      "confidence": "high",
+      "source": {
+        "authority": "Vas Vármegyei Kormányhivatal",
+        "title": "A Szombathely, Oladi Platón 2026. július 30-31-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+        "publication_date": "2026-08-18",
+        "document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf"
+      }
+    },
+    {
+      "id": "air_0025",
+      "sample_id": "2026_792_5_L/3_3",
+      "site_id": "szombathely_47.23185_16.57861",
+      "settlement": "Szombathely",
+      "location": "Szombathely, Menta utca",
+      "coordinates": {
+        "lat": 47.231854,
+        "lon": 16.578609
+      },
+      "date": "2026-07-30",
+      "start": "2026-07-30 17:24",
+      "end": "2026-07-30 20:24",
+      "timestamp": 1785432240000,
+      "concentration": {
+        "value": 259,
+        "display": "259",
+        "unit": "rost/m3",
+        "below_detection_limit": false,
+        "detection_limit": null,
+        "numeric_for_statistics": 259
+      },
+      "parser": "modern_table_row",
+      "confidence": "high",
+      "source": {
+        "authority": "Vas Vármegyei Kormányhivatal",
+        "title": "A Szombathely, Oladi Platón 2026. július 30-31-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+        "publication_date": "2026-08-18",
+        "document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf"
+      }
+    },
+    {
+      "id": "air_0026",
+      "sample_id": "2026_792_5_L/3_4",
+      "site_id": "szombathely_47.23185_16.57861",
+      "settlement": "Szombathely",
+      "location": "Szombathely, Menta utca",
+      "coordinates": {
+        "lat": 47.231854,
+        "lon": 16.578609
+      },
+      "date": "2026-07-30",
+      "start": "2026-07-30 20:33",
+      "end": "2026-07-30 23:33",
+      "timestamp": 1785443580000,
+      "concentration": {
+        "value": 1280,
+        "display": "1280",
+        "unit": "rost/m3",
+        "below_detection_limit": false,
+        "detection_limit": null,
+        "numeric_for_statistics": 1280
+      },
+      "parser": "modern_table_row",
+      "confidence": "high",
+      "source": {
+        "authority": "Vas Vármegyei Kormányhivatal",
+        "title": "A Szombathely, Oladi Platón 2026. július 30-31-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+        "publication_date": "2026-08-18",
+        "document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf"
+      }
+    },
+    {
+      "id": "air_0027",
+      "sample_id": "2026_792_5_L/3_5",
+      "site_id": "szombathely_47.23185_16.57861",
+      "settlement": "Szombathely",
+      "location": "Szombathely, Menta utca",
+      "coordinates": {
+        "lat": 47.231854,
+        "lon": 16.578609
+      },
+      "date": "2026-07-30",
+      "start": "2026-07-30 23:39",
+      "end": "2026-07-31 02:39",
+      "timestamp": 1785454740000,
+      "concentration": {
+        "value": 100,
+        "display": "<100",
+        "unit": "rost/m3",
+        "below_detection_limit": true,
+        "detection_limit": 100,
+        "numeric_for_statistics": null
+      },
+      "parser": "modern_table_row",
+      "confidence": "high",
+      "source": {
+        "authority": "Vas Vármegyei Kormányhivatal",
+        "title": "A Szombathely, Oladi Platón 2026. július 30-31-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+        "publication_date": "2026-08-18",
+        "document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf"
+      }
+    },
+    {
+      "id": "air_0028",
+      "sample_id": "2026_792_5_L/3_6",
+      "site_id": "szombathely_47.23185_16.57861",
+      "settlement": "Szombathely",
+      "location": "Szombathely, Menta utca",
+      "coordinates": {
+        "lat": 47.231854,
+        "lon": 16.578609
+      },
+      "date": "2026-07-31",
+      "start": "2026-07-31 02:46",
+      "end": "2026-07-31 05:46",
+      "timestamp": 1785465960000,
+      "concentration": {
+        "value": 1751,
+        "display": "1751",
+        "unit": "rost/m3",
+        "below_detection_limit": false,
+        "detection_limit": null,
+        "numeric_for_statistics": 1751
+      },
+      "parser": "modern_table_row",
+      "confidence": "high",
+      "source": {
+        "authority": "Vas Vármegyei Kormányhivatal",
+        "title": "A Szombathely, Oladi Platón 2026. július 30-31-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+        "publication_date": "2026-08-18",
+        "document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf"
+      }
+    },
+    {
+      "id": "air_0029",
+      "sample_id": "2026_792_5_L/3_7",
+      "site_id": "szombathely_47.23185_16.57861",
+      "settlement": "Szombathely",
+      "location": "Szombathely, Menta utca",
+      "coordinates": {
+        "lat": 47.231854,
+        "lon": 16.578609
+      },
+      "date": "2026-07-31",
+      "start": "2026-07-31 05:53",
+      "end": "2026-07-31 08:53",
+      "timestamp": 1785477180000,
+      "concentration": {
+        "value": 1772,
+        "display": "1772",
+        "unit": "rost/m3",
+        "below_detection_limit": false,
+        "detection_limit": null,
+        "numeric_for_statistics": 1772
+      },
+      "parser": "modern_table_row",
+      "confidence": "high",
+      "source": {
+        "authority": "Vas Vármegyei Kormányhivatal",
+        "title": "A Szombathely, Oladi Platón 2026. július 30-31-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+        "publication_date": "2026-08-18",
+        "document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf"
+      }
+    },
+    {
+      "id": "air_0030",
+      "sample_id": "2026_792_5_L/3_8",
+      "site_id": "szombathely_47.23185_16.57861",
+      "settlement": "Szombathely",
+      "location": "Szombathely, Menta utca",
+      "coordinates": {
+        "lat": 47.231854,
+        "lon": 16.578609
+      },
+      "date": "2026-07-31",
+      "start": "2026-07-31 09:00",
+      "end": "2026-07-31 12:00",
+      "timestamp": 1785488400000,
+      "concentration": {
+        "value": 266,
+        "display": "266",
+        "unit": "rost/m3",
+        "below_detection_limit": false,
+        "detection_limit": null,
+        "numeric_for_statistics": 266
+      },
+      "parser": "modern_table_row",
+      "confidence": "high",
+      "source": {
+        "authority": "Vas Vármegyei Kormányhivatal",
+        "title": "A Szombathely, Oladi Platón 2026. július 30-31-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+        "publication_date": "2026-08-18",
+        "document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf"
+      }
+    },
+    {
+      "id": "air_0031",
+      "sample_id": "2026_792_5_L/4_1",
+      "site_id": "szombathely_47.23247_16.57717",
+      "settlement": "Szombathely",
+      "location": "Szombathely, Márton Áron utca",
+      "coordinates": {
+        "lat": 47.232472,
+        "lon": 16.577167
+      },
+      "date": "2026-07-30",
+      "start": "2026-07-30 10:55",
+      "end": "2026-07-30 13:55",
+      "timestamp": 1785408900000,
+      "concentration": {
+        "value": 4814,
+        "display": "4814",
+        "unit": "rost/m3",
+        "below_detection_limit": false,
+        "detection_limit": null,
+        "numeric_for_statistics": 4814
+      },
+      "parser": "modern_table_row",
+      "confidence": "high",
+      "source": {
+        "authority": "Vas Vármegyei Kormányhivatal",
+        "title": "A Szombathely, Oladi Platón 2026. július 30-31-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+        "publication_date": "2026-08-18",
+        "document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf"
+      }
+    },
+    {
+      "id": "air_0032",
+      "sample_id": "2026_792_5_L/4_2",
+      "site_id": "szombathely_47.23247_16.57717",
+      "settlement": "Szombathely",
+      "location": "Szombathely, Márton Áron utca",
+      "coordinates": {
+        "lat": 47.232472,
+        "lon": 16.577167
+      },
+      "date": "2026-07-30",
+      "start": "2026-07-30 14:01",
+      "end": "2026-07-30 17:01",
+      "timestamp": 1785420060000,
+      "concentration": {
+        "value": 4084,
+        "display": "4084",
+        "unit": "rost/m3",
+        "below_detection_limit": false,
+        "detection_limit": null,
+        "numeric_for_statistics": 4084
+      },
+      "parser": "modern_table_row",
+      "confidence": "high",
+      "source": {
+        "authority": "Vas Vármegyei Kormányhivatal",
+        "title": "A Szombathely, Oladi Platón 2026. július 30-31-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+        "publication_date": "2026-08-18",
+        "document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf"
+      }
+    },
+    {
+      "id": "air_0033",
+      "sample_id": "2026_792_5_L/4_3",
+      "site_id": "szombathely_47.23247_16.57717",
+      "settlement": "Szombathely",
+      "location": "Szombathely, Márton Áron utca",
+      "coordinates": {
+        "lat": 47.232472,
+        "lon": 16.577167
+      },
+      "date": "2026-07-30",
+      "start": "2026-07-30 17:08",
+      "end": "2026-07-30 20:08",
+      "timestamp": 1785431280000,
+      "concentration": {
+        "value": 1585,
+        "display": "1585",
+        "unit": "rost/m3",
+        "below_detection_limit": false,
+        "detection_limit": null,
+        "numeric_for_statistics": 1585
+      },
+      "parser": "modern_table_row",
+      "confidence": "high",
+      "source": {
+        "authority": "Vas Vármegyei Kormányhivatal",
+        "title": "A Szombathely, Oladi Platón 2026. július 30-31-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+        "publication_date": "2026-08-18",
+        "document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf"
+      }
+    },
+    {
+      "id": "air_0034",
+      "sample_id": "2026_792_5_L/4_4",
+      "site_id": "szombathely_47.23247_16.57717",
+      "settlement": "Szombathely",
+      "location": "Szombathely, Márton Áron utca",
+      "coordinates": {
+        "lat": 47.232472,
+        "lon": 16.577167
+      },
+      "date": "2026-07-30",
+      "start": "2026-07-30 20:15",
+      "end": "2026-07-30 23:15",
+      "timestamp": 1785442500000,
+      "concentration": {
+        "value": 1833,
+        "display": "1833",
+        "unit": "rost/m3",
+        "below_detection_limit": false,
+        "detection_limit": null,
+        "numeric_for_statistics": 1833
+      },
+      "parser": "modern_table_row",
+      "confidence": "high",
+      "source": {
+        "authority": "Vas Vármegyei Kormányhivatal",
+        "title": "A Szombathely, Oladi Platón 2026. július 30-31-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+        "publication_date": "2026-08-18",
+        "document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf"
+      }
+    },
+    {
+      "id": "air_0035",
+      "sample_id": "2026_792_5_L/4_5",
+      "site_id": "szombathely_47.23247_16.57717",
+      "settlement": "Szombathely",
+      "location": "Szombathely, Márton Áron utca",
+      "coordinates": {
+        "lat": 47.232472,
+        "lon": 16.577167
+      },
+      "date": "2026-07-30",
+      "start": "2026-07-30 23:23",
+      "end": "2026-07-31 02:23",
+      "timestamp": 1785453780000,
+      "concentration": {
+        "value": 100,
+        "display": "<100",
+        "unit": "rost/m3",
+        "below_detection_limit": true,
+        "detection_limit": 100,
+        "numeric_for_statistics": null
+      },
+      "parser": "modern_table_row",
+      "confidence": "high",
+      "source": {
+        "authority": "Vas Vármegyei Kormányhivatal",
+        "title": "A Szombathely, Oladi Platón 2026. július 30-31-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+        "publication_date": "2026-08-18",
+        "document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf"
+      }
+    },
+    {
+      "id": "air_0036",
+      "sample_id": "2026_792_5_L/4_6",
+      "site_id": "szombathely_47.23247_16.57717",
+      "settlement": "Szombathely",
+      "location": "Szombathely, Márton Áron utca",
+      "coordinates": {
+        "lat": 47.232472,
+        "lon": 16.577167
+      },
+      "date": "2026-07-31",
+      "start": "2026-07-31 02:31",
+      "end": "2026-07-31 05:31",
+      "timestamp": 1785465060000,
+      "concentration": {
+        "value": 771,
+        "display": "771",
+        "unit": "rost/m3",
+        "below_detection_limit": false,
+        "detection_limit": null,
+        "numeric_for_statistics": 771
+      },
+      "parser": "modern_table_row",
+      "confidence": "high",
+      "source": {
+        "authority": "Vas Vármegyei Kormányhivatal",
+        "title": "A Szombathely, Oladi Platón 2026. július 30-31-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+        "publication_date": "2026-08-18",
+        "document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf"
+      }
+    },
+    {
+      "id": "air_0037",
+      "sample_id": "2026_792_5_L/4_7",
+      "site_id": "szombathely_47.23247_16.57717",
+      "settlement": "Szombathely",
+      "location": "Szombathely, Márton Áron utca",
+      "coordinates": {
+        "lat": 47.232472,
+        "lon": 16.577167
+      },
+      "date": "2026-07-31",
+      "start": "2026-07-31 05:36",
+      "end": "2026-07-31 08:36",
+      "timestamp": 1785476160000,
+      "concentration": {
+        "value": 2044,
+        "display": "2044",
+        "unit": "rost/m3",
+        "below_detection_limit": false,
+        "detection_limit": null,
+        "numeric_for_statistics": 2044
+      },
+      "parser": "modern_table_row",
+      "confidence": "high",
+      "source": {
+        "authority": "Vas Vármegyei Kormányhivatal",
+        "title": "A Szombathely, Oladi Platón 2026. július 30-31-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+        "publication_date": "2026-08-18",
+        "document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf"
+      }
+    },
+    {
+      "id": "air_0038",
+      "sample_id": "2026_792_5_L/4_8",
+      "site_id": "szombathely_47.23247_16.57717",
+      "settlement": "Szombathely",
+      "location": "Szombathely, Márton Áron utca",
+      "coordinates": {
+        "lat": 47.232472,
+        "lon": 16.577167
+      },
+      "date": "2026-07-31",
+      "start": "2026-07-31 08:40",
+      "end": "2026-07-31 11:40",
+      "timestamp": 1785487200000,
+      "concentration": {
+        "value": 2560,
+        "display": "2560",
+        "unit": "rost/m3",
+        "below_detection_limit": false,
+        "detection_limit": null,
+        "numeric_for_statistics": 2560
+      },
+      "parser": "modern_table_row",
+      "confidence": "high",
+      "source": {
+        "authority": "Vas Vármegyei Kormányhivatal",
+        "title": "A Szombathely, Oladi Platón 2026. július 30-31-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+        "publication_date": "2026-08-18",
+        "document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf"
+      }
+    },
+    {
+      "id": "air_0039",
+      "sample_id": "2026_792_6_L/1_1",
+      "site_id": "kőszeg_47.38840_16.54967",
+      "settlement": "Kőszeg",
+      "location": "Kőszeg, Borostyán Gyermekotthonhoz vezető bekötő út",
+      "coordinates": {
+        "lat": 47.3884,
+        "lon": 16.54967
+      },
+      "date": "2026-08-11",
+      "start": "2026-08-11 16:29",
+      "end": "2026-08-12 00:29",
+      "timestamp": 1786465740000,
+      "concentration": {
+        "value": 473,
+        "display": "473",
+        "unit": "rost/m3",
+        "below_detection_limit": false,
+        "detection_limit": null,
+        "numeric_for_statistics": 473
+      },
+      "parser": "modern_table_row",
+      "confidence": "high",
+      "source": {
+        "authority": "Vas Vármegyei Kormányhivatal",
+        "title": "A Kőszeg, Hermina utca, Borostyán Gyermekotthonhoz vezető bekötő útnál végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+        "publication_date": "2026-08-28",
+        "document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_6_vj.pdf"
+      }
+    },
+    {
+      "id": "air_0040",
+      "sample_id": "2026_792_6_L/1_2",
+      "site_id": "kőszeg_47.38840_16.54967",
+      "settlement": "Kőszeg",
+      "location": "Kőszeg, Borostyán Gyermekotthonhoz vezető bekötő út",
+      "coordinates": {
+        "lat": 47.3884,
+        "lon": 16.54967
+      },
+      "date": "2026-08-12",
+      "start": "2026-08-12 00:31",
+      "end": "2026-08-12 08:31",
+      "timestamp": 1786494660000,
+      "concentration": {
+        "value": 1224,
+        "display": "1224",
+        "unit": "rost/m3",
+        "below_detection_limit": false,
+        "detection_limit": null,
+        "numeric_for_statistics": 1224
+      },
+      "parser": "modern_table_row",
+      "confidence": "high",
+      "source": {
+        "authority": "Vas Vármegyei Kormányhivatal",
+        "title": "A Kőszeg, Hermina utca, Borostyán Gyermekotthonhoz vezető bekötő útnál végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+        "publication_date": "2026-08-28",
+        "document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_6_vj.pdf"
+      }
+    },
+    {
+      "id": "air_0041",
+      "sample_id": "2026_792_6_L/1_3",
+      "site_id": "kőszeg_47.38840_16.54967",
+      "settlement": "Kőszeg",
+      "location": "Kőszeg, Borostyán Gyermekotthonhoz vezető bekötő út",
+      "coordinates": {
+        "lat": 47.3884,
+        "lon": 16.54967
+      },
+      "date": "2026-08-12",
+      "start": "2026-08-12 08:40",
+      "end": "2026-08-12 16:40",
+      "timestamp": 1786524000000,
+      "concentration": {
+        "value": 2591,
+        "display": "2591",
+        "unit": "rost/m3",
+        "below_detection_limit": false,
+        "detection_limit": null,
+        "numeric_for_statistics": 2591
+      },
+      "parser": "modern_table_row",
+      "confidence": "high",
+      "source": {
+        "authority": "Vas Vármegyei Kormányhivatal",
+        "title": "A Kőszeg, Hermina utca, Borostyán Gyermekotthonhoz vezető bekötő útnál végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+        "publication_date": "2026-08-28",
+        "document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_6_vj.pdf"
+      }
+    },
+    {
+      "id": "air_0042",
+      "sample_id": "2026_792_6_L/2_1",
+      "site_id": "kőszeg_47.38111_16.52928",
+      "settlement": "Kőszeg",
+      "location": "Kőszeg, Hermina utca",
+      "coordinates": {
+        "lat": 47.38111,
+        "lon": 16.52928
+      },
+      "date": "2026-08-11",
+      "start": "2026-08-11 15:54",
+      "end": "2026-08-11 19:54",
+      "timestamp": 1786463640000,
+      "concentration": {
+        "value": 56340,
+        "display": "56340",
+        "unit": "rost/m3",
+        "below_detection_limit": false,
+        "detection_limit": null,
+        "numeric_for_statistics": 56340
+      },
+      "parser": "modern_table_row",
+      "confidence": "high",
+      "source": {
+        "authority": "Vas Vármegyei Kormányhivatal",
+        "title": "A Kőszeg, Hermina utca, Borostyán Gyermekotthonhoz vezető bekötő útnál végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+        "publication_date": "2026-08-28",
+        "document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_6_vj.pdf"
+      }
+    },
+    {
+      "id": "air_0043",
+      "sample_id": "2026_792_6_L/2_2",
+      "site_id": "kőszeg_47.38111_16.52928",
+      "settlement": "Kőszeg",
+      "location": "Kőszeg, Hermina utca",
+      "coordinates": {
+        "lat": 47.38111,
+        "lon": 16.52928
+      },
+      "date": "2026-08-11",
+      "start": "2026-08-11 19:56",
+      "end": "2026-08-11 23:56",
+      "timestamp": 1786478160000,
+      "concentration": {
+        "value": 24026,
+        "display": "24026",
+        "unit": "rost/m3",
+        "below_detection_limit": false,
+        "detection_limit": null,
+        "numeric_for_statistics": 24026
+      },
+      "parser": "modern_table_row",
+      "confidence": "high",
+      "source": {
+        "authority": "Vas Vármegyei Kormányhivatal",
+        "title": "A Kőszeg, Hermina utca, Borostyán Gyermekotthonhoz vezető bekötő útnál végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+        "publication_date": "2026-08-28",
+        "document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_6_vj.pdf"
+      }
+    },
+    {
+      "id": "air_0044",
+      "sample_id": "2026_792_6_L/2_3",
+      "site_id": "kőszeg_47.38111_16.52928",
+      "settlement": "Kőszeg",
+      "location": "Kőszeg, Hermina utca",
+      "coordinates": {
+        "lat": 47.38111,
+        "lon": 16.52928
+      },
+      "date": "2026-08-11",
+      "start": "2026-08-11 23:59",
+      "end": "2026-08-12 07:59",
+      "timestamp": 1786492740000,
+      "concentration": {
+        "value": 8593,
+        "display": "8593",
+        "unit": "rost/m3",
+        "below_detection_limit": false,
+        "detection_limit": null,
+        "numeric_for_statistics": 8593
+      },
+      "parser": "modern_table_row",
+      "confidence": "high",
+      "source": {
+        "authority": "Vas Vármegyei Kormányhivatal",
+        "title": "A Kőszeg, Hermina utca, Borostyán Gyermekotthonhoz vezető bekötő útnál végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+        "publication_date": "2026-08-28",
+        "document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_6_vj.pdf"
+      }
+    },
+    {
+      "id": "air_0045",
+      "sample_id": "2026_792_6_L/2_4",
+      "site_id": "kőszeg_47.38111_16.52928",
+      "settlement": "Kőszeg",
+      "location": "Kőszeg, Hermina utca",
+      "coordinates": {
+        "lat": 47.38111,
+        "lon": 16.52928
+      },
+      "date": "2026-08-12",
+      "start": "2026-08-12 08:05",
+      "end": "2026-08-12 12:05",
+      "timestamp": 1786521900000,
+      "concentration": {
+        "value": 67670,
+        "display": "67670",
+        "unit": "rost/m3",
+        "below_detection_limit": false,
+        "detection_limit": null,
+        "numeric_for_statistics": 67670
+      },
+      "parser": "modern_table_row",
+      "confidence": "high",
+      "source": {
+        "authority": "Vas Vármegyei Kormányhivatal",
+        "title": "A Kőszeg, Hermina utca, Borostyán Gyermekotthonhoz vezető bekötő útnál végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+        "publication_date": "2026-08-28",
+        "document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_6_vj.pdf"
+      }
+    },
+    {
+      "id": "air_0046",
+      "sample_id": "2026_792_6_L/2_5",
+      "site_id": "kőszeg_47.38111_16.52928",
+      "settlement": "Kőszeg",
+      "location": "Kőszeg, Hermina utca",
+      "coordinates": {
+        "lat": 47.38111,
+        "lon": 16.52928
+      },
+      "date": "2026-08-12",
+      "start": "2026-08-12 12:08",
+      "end": "2026-08-12 16:08",
+      "timestamp": 1786536480000,
+      "concentration": {
+        "value": 76254,
+        "display": "76254",
+        "unit": "rost/m3",
+        "below_detection_limit": false,
+        "detection_limit": null,
+        "numeric_for_statistics": 76254
+      },
+      "parser": "modern_table_row",
+      "confidence": "high",
+      "source": {
+        "authority": "Vas Vármegyei Kormányhivatal",
+        "title": "A Kőszeg, Hermina utca, Borostyán Gyermekotthonhoz vezető bekötő útnál végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+        "publication_date": "2026-08-28",
+        "document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_6_vj.pdf"
+      }
+    }
+  ],
+  "data_quality": {
+    "missing_coordinates": [],
+    "missing_measurement_date": [
+      "2026_792_2_L/1_1",
+      "2026_792_2_L/1_2",
+      "2026_792_L/5_1",
+      "2026_792_L/5_2",
+      "2026_792_L/5_3"
+    ],
+    "missing_location": [],
+    "missing_settlement": [],
+    "below_detection_limit": [
+      {
+        "sample_id": "2026_792_5_L/1_5",
+        "display": "<100"
+      },
+      {
+        "sample_id": "2026_792_5_L/1_6",
+        "display": "<100"
+      },
+      {
+        "sample_id": "2026_792_5_L/3_5",
+        "display": "<100"
+      },
+      {
+        "sample_id": "2026_792_5_L/4_5",
+        "display": "<100"
+      }
+    ]
+  }
+}
