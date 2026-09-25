@@ -2,14 +2,20 @@
  * Vas Vármegyei Kormányhivatal
  * Hivatalos levegő-azbesztmérések feldolgozása
  *
- * V4.0
+ * V4.1 – DIAGNOSZTIKAI VERZIÓ
+ *
+ * Cél:
+ * - kizárólag a hivatalos Kormányhivatal-források feldolgozása
+ * - régi explicit levegőmérések automatikus felismerése
+ * - modern táblázatos PDF-ek szerkezetének feltérképezése
+ * - bizonytalan koncentráció nem kerülhet automatikusan az adatbázisba
+ * - modern PDF-eknél részletes diagnosztikai log készül
  *
  * FONTOS:
  * - önálló parser
  * - nem használja a régi kőzetminta-adatbázist
- * - nem használ kézzel rögzített mérési eredményeket
- * - kizárólag official_measurements.json forrásdokumentumaiból dolgozik
- * - bizonytalan eredményt nem enged automatikusan a dashboard-adatbázisba
+ * - nem használja a repo korábbi PDF-jeit adatforrásként
+ * - nem tartalmaz kézzel rögzített mérési eredményeket
  */
 
 const fs = require("fs");
@@ -39,11 +45,11 @@ const AUTHORITY =
   "Vas Vármegyei Kormányhivatal";
 
 const USER_AGENT =
-  "Koszeg-Asbestos-Air-Monitor/4.0 (+GitHub Actions)";
+  "Koszeg-Asbestos-Air-Monitor/4.1 (+GitHub Actions)";
 
 
 /* =========================================================
-   ALAP
+   ALAP SEGÉDFÜGGVÉNYEK
    ========================================================= */
 
 function nowIso() {
@@ -65,11 +71,17 @@ function normalizeText(text) {
     .replace(/\r\n/g, "\n")
     .replace(/\r/g, "\n")
 
-    // Unicode mértékegységek
-    .replace(/rost\s*\/\s*m\s*[³3]/gi, "rost/m3")
-    .replace(/rost\s*\/\s*cm\s*[³3]/gi, "rost/cm3")
+    // Mértékegységek normalizálása
+    .replace(
+      /rost\s*\/\s*m\s*[³3]/gi,
+      "rost/m3"
+    )
+    .replace(
+      /rost\s*\/\s*cm\s*[³3]/gi,
+      "rost/cm3"
+    )
 
-    // felesleges whitespace
+    // Whitespace normalizálás
     .replace(/[ \t]+/g, " ")
     .replace(/\n[ \t]+/g, "\n")
     .replace(/\n{4,}/g, "\n\n")
@@ -101,21 +113,20 @@ function parseNumber(raw) {
     .trim();
 
   /*
-   * Magyar tizedes:
+   * Magyar tizedesjel.
+   *
+   * Példa:
    * 0,0077
    * 8,21
    */
 
   if (/^\d+,\d+$/.test(value)) {
-    value = value.replace(",", ".");
+    value =
+      value.replace(",", ".");
   }
 
-  /*
-   * Ezres tagolás:
-   * 7 700
-   */
-
-  const number = Number(value);
+  const number =
+    Number(value);
 
   return Number.isFinite(number)
     ? number
@@ -129,7 +140,8 @@ function uniqueBy(items, keyFn) {
 
   return items.filter((item) => {
 
-    const key = keyFn(item);
+    const key =
+      keyFn(item);
 
     if (seen.has(key)) {
       return false;
@@ -154,30 +166,46 @@ async function downloadPdf(url) {
     );
   }
 
-  const response = await fetch(url, {
-    headers: {
-      "User-Agent": USER_AGENT,
-      Accept:
-        "application/pdf,application/octet-stream;q=0.9,*/*;q=0.8"
-    },
-    redirect: "follow"
-  });
+  const response =
+    await fetch(
+      url,
+      {
+        headers: {
+          "User-Agent":
+            USER_AGENT,
+
+          Accept:
+            "application/pdf,application/octet-stream;q=0.9,*/*;q=0.8"
+        },
+
+        redirect:
+          "follow"
+      }
+    );
 
   if (!response.ok) {
+
     throw new Error(
       `PDF letöltési hiba: HTTP ${response.status}`
     );
   }
 
-  const buffer = Buffer.from(
-    await response.arrayBuffer()
-  );
+  const buffer =
+    Buffer.from(
+      await response.arrayBuffer()
+    );
 
   return {
+
     buffer,
-    finalUrl: response.url || url,
+
+    finalUrl:
+      response.url || url,
+
     contentType:
-      response.headers.get("content-type") || null
+      response.headers.get(
+        "content-type"
+      ) || null
   };
 }
 
@@ -203,17 +231,24 @@ function extractSampleIds(text) {
 
   let match;
 
-  while ((match = regex.exec(text)) !== null) {
+  while (
+    (match = regex.exec(text)) !== null
+  ) {
 
     results.push({
-      sample_id: match[0],
-      index: match.index
+
+      sample_id:
+        match[0],
+
+      index:
+        match.index
     });
   }
 
   return uniqueBy(
     results,
-    (item) => item.sample_id
+    (item) =>
+      item.sample_id
   );
 }
 
@@ -231,13 +266,21 @@ function extractCoordinates(text) {
 
   let match;
 
-  while ((match = regex.exec(text)) !== null) {
+  while (
+    (match = regex.exec(text)) !== null
+  ) {
 
     const lat =
-      Number(match[1].replace(",", "."));
+      Number(
+        match[1]
+          .replace(",", ".")
+      );
 
     const lon =
-      Number(match[2].replace(",", "."));
+      Number(
+        match[2]
+          .replace(",", ".")
+      );
 
     if (
       !Number.isFinite(lat) ||
@@ -247,10 +290,16 @@ function extractCoordinates(text) {
     }
 
     results.push({
+
       lat,
+
       lon,
-      index: match.index,
-      raw: match[0]
+
+      index:
+        match.index,
+
+      raw:
+        match[0]
     });
   }
 
@@ -259,7 +308,7 @@ function extractCoordinates(text) {
 
 
 /* =========================================================
-   AZBESZTTÍPUS
+   AZBESZTTÍPUSOK
    ========================================================= */
 
 function extractAsbestosTypes(text) {
@@ -269,23 +318,53 @@ function extractAsbestosTypes(text) {
 
   const definitions = [
 
-    ["krizotil",
-      ["krizotil", "chrysotile"]],
+    [
+      "krizotil",
+      [
+        "krizotil",
+        "chrysotile"
+      ]
+    ],
 
-    ["tremolit",
-      ["tremolit", "tremolite"]],
+    [
+      "tremolit",
+      [
+        "tremolit",
+        "tremolite"
+      ]
+    ],
 
-    ["aktinolit",
-      ["aktinolit", "actinolite"]],
+    [
+      "aktinolit",
+      [
+        "aktinolit",
+        "actinolite"
+      ]
+    ],
 
-    ["amozit",
-      ["amozit", "amosite"]],
+    [
+      "amozit",
+      [
+        "amozit",
+        "amosite"
+      ]
+    ],
 
-    ["krokidolit",
-      ["krokidolit", "crocidolite"]],
+    [
+      "krokidolit",
+      [
+        "krokidolit",
+        "crocidolite"
+      ]
+    ],
 
-    ["antofillit",
-      ["antofillit", "anthophyllite"]]
+    [
+      "antofillit",
+      [
+        "antofillit",
+        "anthophyllite"
+      ]
+    ]
   ];
 
   const found = [];
@@ -301,6 +380,7 @@ function extractAsbestosTypes(text) {
           lower.includes(alias)
       )
     ) {
+
       found.push(name);
     }
   }
@@ -316,11 +396,13 @@ function extractAsbestosTypes(text) {
 
    0,0077 (7700 rost/m3)
 
-   Ez erős kapcsolat, ezért automatikusan
-   elfogadható.
+   Ez közvetlen kapcsolatot jelent,
+   ezért magas megbízhatóságú.
    ========================================================= */
 
-function extractExplicitLegacyMeasurements(text) {
+function extractExplicitLegacyMeasurements(
+  text
+) {
 
   const regex =
     /([<>]?\s*\d+[.,]\d+)\s*\(\s*([\d\s]+)\s*rost\/m3\s*\)/gi;
@@ -329,13 +411,19 @@ function extractExplicitLegacyMeasurements(text) {
 
   let match;
 
-  while ((match = regex.exec(text)) !== null) {
+  while (
+    (match = regex.exec(text)) !== null
+  ) {
 
     const cm3 =
-      parseNumber(match[1]);
+      parseNumber(
+        match[1]
+      );
 
     const m3 =
-      parseNumber(match[2]);
+      parseNumber(
+        match[2]
+      );
 
     if (
       cm3 === null ||
@@ -359,7 +447,9 @@ function extractExplicitLegacyMeasurements(text) {
         match[1].includes("<"),
 
       raw:
-        inline(match[0]),
+        inline(
+          match[0]
+        ),
 
       parser:
         "explicit_legacy_pair",
@@ -374,13 +464,7 @@ function extractExplicitLegacyMeasurements(text) {
 
 
 /* =========================================================
-   MODERN KONCENTRÁCIÓS OSZLOP
-
-   Itt NEM minta-blokkokat keresünk.
-
-   A dokumentum koncentrációs fejlécét
-   azonosítjuk, majd a PDF-ből kinyert
-   szöveg struktúráját vizsgáljuk.
+   MODERN KONCENTRÁCIÓS FEJLÉCEK
    ========================================================= */
 
 function findConcentrationHeaders(text) {
@@ -396,7 +480,10 @@ function findConcentrationHeaders(text) {
 
   const results = [];
 
-  for (const regex of patterns) {
+  for (
+    const regex
+    of patterns
+  ) {
 
     let match;
 
@@ -405,18 +492,22 @@ function findConcentrationHeaders(text) {
     ) {
 
       results.push({
+
         index:
           match.index,
 
         text:
-          inline(match[0])
+          inline(
+            match[0]
+          )
       });
     }
   }
 
   return uniqueBy(
     results,
-    (item) => item.index
+    (item) =>
+      item.index
   );
 }
 
@@ -434,9 +525,12 @@ function findAirMarkers(text) {
 
   let match;
 
-  while ((match = regex.exec(text)) !== null) {
+  while (
+    (match = regex.exec(text)) !== null
+  ) {
 
     results.push({
+
       index:
         match.index,
 
@@ -452,9 +546,10 @@ function findAirMarkers(text) {
 /* =========================================================
    NUMERIKUS TOKENEK
 
-   Ezek MÉG NEM mérési eredmények.
+   FONTOS:
+   Ezek önmagukban NEM mérési eredmények.
 
-   Csak jelöltek.
+   Csak diagnosztikai számjelöltek.
    ========================================================= */
 
 function extractNumericTokens(text) {
@@ -466,12 +561,18 @@ function extractNumericTokens(text) {
 
   let match;
 
-  while ((match = regex.exec(text)) !== null) {
+  while (
+    (match = regex.exec(text)) !== null
+  ) {
 
     const value =
-      parseNumber(match[2]);
+      parseNumber(
+        match[2]
+      );
 
-    if (value === null) {
+    if (
+      value === null
+    ) {
       continue;
     }
 
@@ -483,7 +584,9 @@ function extractNumericTokens(text) {
         `${match[1] || ""}${match[2]}`,
 
       below_detection_limit:
-        Boolean(match[1]),
+        Boolean(
+          match[1]
+        ),
 
       index:
         match.index
@@ -495,16 +598,7 @@ function extractNumericTokens(text) {
 
 
 /* =========================================================
-   MODERN DOKUMENTUM DIAGNOSZTIKA
-
-   Nem próbálunk még találomra értéket
-   hozzárendelni.
-
-   Megnézzük:
-   - minták száma
-   - koncentrációs fejléc
-   - levegővizsgálati marker
-   - számmezők szerkezete
+   MODERN DOKUMENTUM SZERKEZET
    ========================================================= */
 
 function analyseModernStructure(text) {
@@ -522,18 +616,402 @@ function analyseModernStructure(text) {
     extractNumericTokens(text);
 
   return {
+
     samples,
+
     headers,
+
     airMarkers,
+
     numericTokens
   };
 }
 
 
 /* =========================================================
-   MINTA KÖRNYEZETE
+   V4.1 – MODERN PDF DIAGNOSZTIKA
 
-   Diagnosztikai és párosítási célra.
+   Ez a rész NEM változtat az adatokon.
+
+   Feladata:
+   - megmutatni a koncentrációs fejlécet
+   - megmutatni annak környezetét
+   - megmutatni a mintaazonosítókat
+   - megmutatni a minták környezetét
+   - megmutatni a numerikus tokenek sorrendjét
+   ========================================================= */
+
+function printModernTableDiagnostics(
+  text,
+  document,
+  structure
+) {
+
+  console.log("");
+
+  console.log(
+    "  ========================================"
+  );
+
+  console.log(
+    "  V4.1 MODERN TABLE DIAGNOSZTIKA"
+  );
+
+  console.log(
+    "  ========================================"
+  );
+
+  console.log(
+    `  Dokumentum: ${document.source_title}`
+  );
+
+  console.log(
+    `  Minták száma: ${structure.samples.length}`
+  );
+
+  console.log(
+    `  Koncentráció fejlécek: ${structure.headers.length}`
+  );
+
+  console.log(
+    `  Levegővizsgálat markerek: ${structure.airMarkers.length}`
+  );
+
+  console.log(
+    `  Numerikus tokenek: ${structure.numericTokens.length}`
+  );
+
+
+  /* =======================================================
+     MINTAAZONOSÍTÓK
+     ======================================================= */
+
+  console.log("");
+
+  console.log(
+    "  ----- MINTAAZONOSÍTÓK -----"
+  );
+
+  structure.samples.forEach(
+    (sample, index) => {
+
+      console.log(
+        `  ${String(index + 1).padStart(2, "0")} | ` +
+        `${sample.sample_id} | ` +
+        `pozíció=${sample.index}`
+      );
+    }
+  );
+
+
+  /* =======================================================
+     KONCENTRÁCIÓS FEJLÉCEK
+     ======================================================= */
+
+  console.log("");
+
+  console.log(
+    "  ----- KONCENTRÁCIÓS FEJLÉCEK -----"
+  );
+
+  if (
+    !structure.headers.length
+  ) {
+
+    console.log(
+      "  Nincs koncentrációs fejléc."
+    );
+
+  } else {
+
+    structure.headers.forEach(
+      (header, index) => {
+
+        console.log("");
+
+        console.log(
+          `  Fejléc ${index + 1}`
+        );
+
+        console.log(
+          `  pozíció=${header.index}`
+        );
+
+        console.log(
+          `  szöveg=${header.text}`
+        );
+      }
+    );
+  }
+
+
+  /* =======================================================
+     KONCENTRÁCIÓS FEJLÉC KÖRNYEZETE
+     ======================================================= */
+
+  for (
+    let i = 0;
+    i < structure.headers.length;
+    i++
+  ) {
+
+    const header =
+      structure.headers[i];
+
+    const beforeStart =
+      Math.max(
+        0,
+        header.index - 2500
+      );
+
+    const afterEnd =
+      Math.min(
+        text.length,
+        header.index + 7000
+      );
+
+    const before =
+      text.slice(
+        beforeStart,
+        header.index
+      );
+
+    const after =
+      text.slice(
+        header.index,
+        afterEnd
+      );
+
+
+    console.log("");
+
+    console.log(
+      `  ===== FEJLÉC ${i + 1} ELŐTT =====`
+    );
+
+    console.log(before);
+
+    console.log(
+      `  ===== FEJLÉC ${i + 1} =====`
+    );
+
+    console.log(
+      header.text
+    );
+
+    console.log(
+      `  ===== FEJLÉC ${i + 1} UTÁN =====`
+    );
+
+    console.log(after);
+
+    console.log(
+      `  ===== FEJLÉC ${i + 1} VÉGE =====`
+    );
+  }
+
+
+  /* =======================================================
+     LEVEGŐVIZSGÁLATI MARKEREK
+     ======================================================= */
+
+  console.log("");
+
+  console.log(
+    "  ----- LEVEGŐVIZSGÁLATI MARKEREK -----"
+  );
+
+  if (
+    !structure.airMarkers.length
+  ) {
+
+    console.log(
+      "  Nincs levegővizsgálati marker."
+    );
+
+  } else {
+
+    structure.airMarkers.forEach(
+      (marker, index) => {
+
+        const start =
+          Math.max(
+            0,
+            marker.index - 500
+          );
+
+        const end =
+          Math.min(
+            text.length,
+            marker.index + 1500
+          );
+
+
+        console.log("");
+
+        console.log(
+          `  >>> MARKER ${index + 1} | pozíció=${marker.index}`
+        );
+
+        console.log(
+          text.slice(
+            start,
+            end
+          )
+        );
+
+        console.log(
+          `  <<< MARKER ${index + 1} VÉGE`
+        );
+      }
+    );
+  }
+
+
+  /* =======================================================
+     MINTAKÖRNYEZETEK
+
+     Maximum 12 mintát írunk ki.
+
+     Hermina:
+     mind a 8 megjelenik.
+
+     Oladi:
+     az első 12 elég a struktúra vizsgálatához.
+     ======================================================= */
+
+  console.log("");
+
+  console.log(
+    "  ----- MINTAKÖRNYEZETEK -----"
+  );
+
+  const sampleLimit =
+    Math.min(
+      structure.samples.length,
+      12
+    );
+
+  for (
+    let i = 0;
+    i < sampleLimit;
+    i++
+  ) {
+
+    const sample =
+      structure.samples[i];
+
+    const nextSample =
+      structure.samples[i + 1] || null;
+
+    const start =
+      sample.index;
+
+    const end =
+      nextSample
+        ? Math.min(
+            nextSample.index,
+            start + 1800
+          )
+        : Math.min(
+            text.length,
+            start + 1800
+          );
+
+
+    console.log("");
+
+    console.log(
+      `  >>> MINTA ${i + 1}: ${sample.sample_id}`
+    );
+
+    console.log(
+      text.slice(
+        start,
+        end
+      )
+    );
+
+    console.log(
+      `  <<< MINTA ${i + 1} VÉGE`
+    );
+  }
+
+
+  /* =======================================================
+     NUMERIKUS TOKENEK A KONCENTRÁCIÓS FEJLÉC UTÁN
+
+     Maximum 150 tokent írunk ki.
+
+     Ezek továbbra sem minősülnek mérésnek.
+     ======================================================= */
+
+  console.log("");
+
+  console.log(
+    "  ----- NUMERIKUS TOKENEK A FEJLÉC UTÁN -----"
+  );
+
+  if (
+    structure.headers.length
+  ) {
+
+    const firstHeader =
+      structure.headers[0];
+
+    const tokensAfterHeader =
+      structure.numericTokens
+        .filter(
+          (token) =>
+            token.index >
+            firstHeader.index
+        )
+        .slice(
+          0,
+          150
+        );
+
+
+    tokensAfterHeader.forEach(
+      (token, index) => {
+
+        console.log(
+          `  ${String(index + 1).padStart(3, "0")} | ` +
+          `pozíció=${token.index} | ` +
+          `raw=${token.raw} | ` +
+          `value=${token.value}`
+        );
+      }
+    );
+
+  } else {
+
+    console.log(
+      "  Nincs fejléc, ezért nincs fejléc utáni tokenlista."
+    );
+  }
+
+
+  console.log("");
+
+  console.log(
+    "  ========================================"
+  );
+
+  console.log(
+    "  V4.1 DIAGNOSZTIKA VÉGE"
+  );
+
+  console.log(
+    "  ========================================"
+  );
+
+  console.log("");
+}
+
+
+/* =========================================================
+   MINTA KÖRNYEZETE
    ========================================================= */
 
 function getSampleContext(
@@ -563,8 +1041,9 @@ function getSampleContext(
 /* =========================================================
    GPS HOZZÁRENDELÉS
 
-   Csak akkor automatikus, ha a minta
-   környezetében pontosan egy koordinátapár van.
+   Csak akkor fogadjuk el automatikusan,
+   ha pontosan egy egyedi koordinátapár
+   található a minta környezetében.
    ========================================================= */
 
 function assignCoordinateToSample(
@@ -572,7 +1051,9 @@ function assignCoordinateToSample(
 ) {
 
   const coords =
-    extractCoordinates(context);
+    extractCoordinates(
+      context
+    );
 
   const unique =
     uniqueBy(
@@ -581,11 +1062,14 @@ function assignCoordinateToSample(
         `${item.lat}|${item.lon}`
     );
 
-  if (unique.length !== 1) {
+  if (
+    unique.length !== 1
+  ) {
     return null;
   }
 
   return {
+
     lat:
       unique[0].lat,
 
@@ -596,7 +1080,7 @@ function assignCoordinateToSample(
 
 
 /* =========================================================
-   DÁTUM / IDŐ
+   DÁTUM ÉS IDŐ
    ========================================================= */
 
 function extractDateTimes(context) {
@@ -607,8 +1091,10 @@ function extractDateTimes(context) {
 
   let match;
 
+
   const dateRegex =
     /\b(20\d{2})[.\-\/](\d{1,2})[.\-\/](\d{1,2})\.?/g;
+
 
   while (
     (match = dateRegex.exec(context)) !== null
@@ -619,8 +1105,10 @@ function extractDateTimes(context) {
     );
   }
 
+
   const timeRegex =
     /\b([01]?\d|2[0-3]):([0-5]\d)\b/g;
+
 
   while (
     (match = timeRegex.exec(context)) !== null
@@ -631,8 +1119,10 @@ function extractDateTimes(context) {
     );
   }
 
+
   let start = null;
   let end = null;
+
 
   if (
     dates.length >= 2 &&
@@ -657,6 +1147,7 @@ function extractDateTimes(context) {
       `${dates[0]} ${times[1]}`;
   }
 
+
   return {
     start,
     end
@@ -677,9 +1168,13 @@ function extractLocation(
     context;
 
   const samplePos =
-    source.indexOf(sampleId);
+    source.indexOf(
+      sampleId
+    );
 
-  if (samplePos !== -1) {
+  if (
+    samplePos !== -1
+  ) {
 
     source =
       source.slice(
@@ -688,10 +1183,12 @@ function extractLocation(
       );
   }
 
+
   const gpsPos =
     source.search(
       /GPS[- ]?koordináták/i
     );
+
 
   if (
     gpsPos > 0 &&
@@ -714,20 +1211,23 @@ function extractLocation(
           ""
         );
 
+
     if (
       candidate.length >= 3 &&
       candidate.length <= 350
     ) {
+
       return candidate;
     }
   }
+
 
   return null;
 }
 
 
 /* =========================================================
-   RÉGI FORMÁTUM HOZZÁRENDELÉS
+   RÉGI FORMÁTUM FELDOLGOZÁSA
    ========================================================= */
 
 function parseLegacyDocument(
@@ -736,12 +1236,15 @@ function parseLegacyDocument(
 ) {
 
   const samples =
-    extractSampleIds(text);
+    extractSampleIds(
+      text
+    );
 
   const concentrations =
     extractExplicitLegacyMeasurements(
       text
     );
+
 
   if (
     !samples.length ||
@@ -749,18 +1252,25 @@ function parseLegacyDocument(
   ) {
 
     return {
+
       accepted: [],
-      review: []
+
+      review: [],
+
+      diagnostics: null
     };
   }
 
+
   const accepted = [];
+
   const review = [];
 
+
   /*
-   * Pozíció szerint minden koncentrációhoz
-   * a hozzá legközelebb eső korábbi
-   * mintaazonosítót keressük.
+   * Minden explicit koncentrációhoz
+   * a legközelebbi korábbi mintaazonosítót
+   * keressük.
    */
 
   for (
@@ -780,24 +1290,33 @@ function parseLegacyDocument(
             b.index - a.index
         );
 
-    if (!preceding.length) {
+
+    if (
+      !preceding.length
+    ) {
       continue;
     }
+
 
     const sample =
       preceding[0];
 
-    const nextIndex =
+
+    const sampleIndex =
       samples.findIndex(
         (item) =>
           item.sample_id ===
           sample.sample_id
       );
 
+
     const nextSample =
-      nextIndex >= 0
-        ? samples[nextIndex + 1]
+      sampleIndex >= 0
+        ? samples[
+            sampleIndex + 1
+          ]
         : null;
+
 
     const context =
       getSampleContext(
@@ -806,15 +1325,18 @@ function parseLegacyDocument(
         nextSample
       );
 
+
     const gps =
       assignCoordinateToSample(
         context
       );
 
+
     const dateTime =
       extractDateTimes(
         context
       );
+
 
     accepted.push({
 
@@ -883,29 +1405,35 @@ function parseLegacyDocument(
     });
   }
 
+
   return {
+
     accepted:
       uniqueBy(
         accepted,
         (item) =>
-          `${item.source_document}|${item.sample_id}|${item.concentration_fibres_m3}`
+          [
+            item.source_document,
+            item.sample_id,
+            item.concentration_fibres_m3
+          ].join("|")
       ),
 
-    review
+    review,
+
+    diagnostics:
+      null
   };
 }
 
 
 /* =========================================================
-   MODERN DOKUMENTUM
+   MODERN DOKUMENTUM FELDOLGOZÁSA
 
-   V4-ben NEM találunk ki koncentrációt.
-
-   Dokumentumszinten feltérképezzük a
-   táblázatot.
-
-   Ha nincs egyértelmű megfeleltetés,
-   review_queue-ba kerül.
+   V4.1:
+   - diagnosztikai mód
+   - modern koncentrációt még nem publikálunk
+   - minden modern minta review státuszú
    ========================================================= */
 
 function parseModernDocument(
@@ -914,13 +1442,32 @@ function parseModernDocument(
 ) {
 
   const structure =
-    analyseModernStructure(text);
+    analyseModernStructure(
+      text
+    );
+
+
+  /*
+   * V4.1 diagnosztika.
+   *
+   * Ez csak logot ír.
+   * Az adatokat nem változtatja.
+   */
+
+  printModernTableDiagnostics(
+    text,
+    document,
+    structure
+  );
+
 
   const accepted = [];
+
   const review = [];
 
   const samples =
     structure.samples;
+
 
   for (
     let i = 0;
@@ -934,6 +1481,7 @@ function parseModernDocument(
     const nextSample =
       samples[i + 1] || null;
 
+
     const context =
       getSampleContext(
         text,
@@ -941,25 +1489,30 @@ function parseModernDocument(
         nextSample
       );
 
+
     const gps =
       assignCoordinateToSample(
         context
       );
+
 
     const dateTime =
       extractDateTimes(
         context
       );
 
+
     const localMarkers =
       findAirMarkers(
         context
       );
 
+
     const localNumbers =
       extractNumericTokens(
         context
       );
+
 
     review.push({
 
@@ -1001,9 +1554,13 @@ function parseModernDocument(
 
       numeric_candidates:
         localNumbers
-          .slice(0, 30)
+          .slice(
+            0,
+            30
+          )
           .map(
             (item) => ({
+
               raw:
                 item.raw,
 
@@ -1034,8 +1591,11 @@ function parseModernDocument(
     });
   }
 
+
   return {
+
     accepted,
+
     review,
 
     diagnostics: {
@@ -1057,7 +1617,7 @@ function parseModernDocument(
 
 
 /* =========================================================
-   DOKUMENTUM FORMÁTUM
+   DOKUMENTUM FORMÁTUMÁNAK FELISMERÉSE
    ========================================================= */
 
 function detectDocumentFormat(text) {
@@ -1067,9 +1627,13 @@ function detectDocumentFormat(text) {
       text
     );
 
-  if (legacy.length) {
+
+  if (
+    legacy.length
+  ) {
 
     return {
+
       type:
         "legacy_explicit",
 
@@ -1078,14 +1642,19 @@ function detectDocumentFormat(text) {
     };
   }
 
+
   const headers =
     findConcentrationHeaders(
       text
     );
 
-  if (headers.length) {
+
+  if (
+    headers.length
+  ) {
 
     return {
+
       type:
         "modern_table",
 
@@ -1094,7 +1663,9 @@ function detectDocumentFormat(text) {
     };
   }
 
+
   return {
+
     type:
       "unknown",
 
@@ -1117,22 +1688,32 @@ async function processDocument(
       document.source_document
     );
 
+
   const parsed =
     await pdf(
       downloaded.buffer
     );
+
 
   const text =
     normalizeText(
       parsed.text || ""
     );
 
+
   const format =
     detectDocumentFormat(
       text
     );
 
+
   let result;
+
+
+  /*
+   * A kőzetvizsgálati dokumentumokat
+   * ez a parser nem dolgozza fel.
+   */
 
   if (
     document.measurement_category !==
@@ -1140,9 +1721,13 @@ async function processDocument(
   ) {
 
     result = {
+
       accepted: [],
+
       review: [],
-      diagnostics: null
+
+      diagnostics:
+        null
     };
 
   } else if (
@@ -1170,29 +1755,40 @@ async function processDocument(
   } else {
 
     result = {
+
       accepted: [],
 
-      review: [{
-        status:
-          "review",
+      review: [
+        {
 
-        sample_id:
-          null,
+          status:
+            "review",
 
-        reason:
-          "unknown_document_format",
+          sample_id:
+            null,
 
-        source_title:
-          document.source_title,
+          reason:
+            "unknown_document_format",
 
-        source_document:
-          document.source_document
-      }],
+          source_title:
+            document.source_title,
+
+          publication_date:
+            document.publication_date,
+
+          source_document:
+            document.source_document,
+
+          authority:
+            AUTHORITY
+        }
+      ],
 
       diagnostics:
         null
     };
   }
+
 
   return {
 
@@ -1270,7 +1866,11 @@ async function main() {
   );
 
   console.log(
-    "ÖNÁLLÓ LEVEGŐMÉRÉS PARSER – V4.0"
+    "ÖNÁLLÓ LEVEGŐMÉRÉS PARSER – V4.1"
+  );
+
+  console.log(
+    "MODERN PDF DIAGNOSZTIKAI MÓD"
   );
 
   console.log(
@@ -1307,7 +1907,9 @@ async function main() {
       : [];
 
 
-  if (!documents.length) {
+  if (
+    !documents.length
+  ) {
 
     throw new Error(
       "Az official_measurements.json nem tartalmaz measurement rekordokat."
@@ -1329,6 +1931,7 @@ async function main() {
   const review = [];
 
   let success = 0;
+
   let failed = 0;
 
 
@@ -1469,7 +2072,7 @@ async function main() {
 
 
   /* =======================================================
-     DUPLIKÁCIÓ
+     DUPLIKÁCIÓK KISZŰRÉSE
      ======================================================= */
 
   const acceptedUnique =
@@ -1497,16 +2100,19 @@ async function main() {
 
 
   /* =======================================================
-     TECHNIKAI EXTRACTION
+     TECHNIKAI EXTRACTION OUTPUT
      ======================================================= */
 
   const extractionOutput = {
 
     schema_version:
-      "4.0",
+      "4.1",
 
     parser:
       "independent_official_air_parser",
+
+    parser_mode:
+      "modern_table_diagnostics",
 
     generated_at:
       nowIso(),
@@ -1551,7 +2157,11 @@ async function main() {
 
 
   /* =======================================================
-     DASHBOARD ADAT
+     DASHBOARD ADATFÁJL
+
+     FONTOS:
+     modern_table rekord nem kerülhet még
+     automatikusan a measurements tömbbe.
      ======================================================= */
 
   const airOutput = {
@@ -1560,7 +2170,7 @@ async function main() {
       "3.0",
 
     parser_version:
-      "4.0",
+      "4.1",
 
     generated_at:
       nowIso(),
@@ -1575,7 +2185,7 @@ async function main() {
       "rost/m3",
 
     methodology:
-      "Only automatically verified measurements are published. Ambiguous modern PDF table rows remain in review_queue.",
+      "Only automatically verified measurements are published. Modern PDF table measurements remain in review_queue until column mapping is verified.",
 
     measurement_count:
       acceptedUnique.length,
@@ -1606,15 +2216,17 @@ async function main() {
 
 
   /* =======================================================
-     SUMMARY
+     VÉGSŐ ÖSSZEGZÉS
      ======================================================= */
+
+  console.log("");
 
   console.log(
     "=========================================="
   );
 
   console.log(
-    "V4 FELDOLGOZÁS KÉSZ"
+    "V4.1 FELDOLGOZÁS KÉSZ"
   );
 
   console.log(
@@ -1641,16 +2253,32 @@ async function main() {
     `Review: ${reviewUnique.length}`
   );
 
+  console.log("");
+
+  console.log(
+    `Mentve: ${EXTRACTION_FILE}`
+  );
+
   console.log(
     `Mentve: ${AIR_OUTPUT_FILE}`
   );
 
+  console.log(
+    "=========================================="
+  );
 
-  if (success === 0) {
+
+  if (
+    success === 0
+  ) {
     process.exitCode = 2;
   }
 }
 
+
+/* =========================================================
+   INDÍTÁS
+   ========================================================= */
 
 main().catch(
   (error) => {
@@ -1658,10 +2286,20 @@ main().catch(
     console.error("");
 
     console.error(
+      "=========================================="
+    );
+
+    console.error(
       "VÉGZETES HIBA"
     );
 
-    console.error(error);
+    console.error(
+      "=========================================="
+    );
+
+    console.error(
+      error
+    );
 
     process.exit(1);
   }
