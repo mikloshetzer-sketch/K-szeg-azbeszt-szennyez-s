@@ -27,7 +27,7 @@ const AUTHORITY =
   "Vas Vármegyei Kormányhivatal";
 
 const USER_AGENT =
-  "Koszeg-Asbestos-Monitor/1.0 (+GitHub Actions; public environmental monitoring)";
+  "Koszeg-Asbestos-Monitor/1.1 (+GitHub Actions; public environmental monitoring)";
 
 
 /* =========================================================
@@ -83,6 +83,13 @@ function normalizeWhitespace(text) {
     .trim();
 }
 
+function normalizeInline(text) {
+  return String(text || "")
+    .replace(/\u00a0/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
 function sha256(buffer) {
   return crypto
     .createHash("sha256")
@@ -130,7 +137,7 @@ async function downloadPdf(url) {
 
 
 /* =========================================================
-   DÁTUMOK FELISMERÉSE
+   DÁTUMOK
    ========================================================= */
 
 function normalizeDate(
@@ -175,12 +182,6 @@ function extractDates(text) {
   const results = [];
   const seen = new Set();
 
-  /*
-   * 2026. 08. 12.
-   * 2026.08.12
-   * 2026-08-12
-   * 2026/08/12
-   */
   const regex =
     /\b(20\d{2})\s*[.\-\/]\s*(\d{1,2})\s*[.\-\/]\s*(\d{1,2})\.?/g;
 
@@ -217,14 +218,6 @@ function extractDates(text) {
 /* =========================================================
    HELYSZÍNEK
    ========================================================= */
-
-/*
- * Ez nem mérési adat.
- *
- * Csak ismert helynevek felismerésére szolgáló
- * szótár. A tényleges mérési kapcsolatot később
- * a szövegkörnyezet alapján állapítjuk meg.
- */
 
 const KNOWN_LOCATIONS = [
   "Kőszeg",
@@ -324,10 +317,10 @@ function extractAsbestosTypes(text) {
 
 
 /* =========================================================
-   MÉRÉSI ÉRTÉKEK
+   SZÁMÉRTÉK NORMALIZÁLÁS
    ========================================================= */
 
-function parseHungarianInteger(raw) {
+function parseNumericValue(raw) {
   if (!raw) {
     return null;
   }
@@ -337,16 +330,12 @@ function parseHungarianInteger(raw) {
       .replace(/\u00a0/g, " ")
       .trim();
 
-  /*
-   * 40 246
-   * 76 254
-   */
   value =
     value.replace(/\s+/g, "");
 
   /*
-   * 40.246 / 40,246 esetén
-   * valószínű ezres tagolás.
+   * 40.246 vagy 40,246
+   * lehet ezres tagolás.
    */
   if (
     /^\d{1,3}(?:[.,]\d{3})+$/.test(
@@ -368,6 +357,11 @@ function parseHungarianInteger(raw) {
     : null;
 }
 
+
+/* =========================================================
+   MÉRÉSI ÉRTÉKEK – SZIGORÚ FELISMERÉS
+   ========================================================= */
+
 function extractMeasurementValues(text) {
   const source =
     String(text || "");
@@ -375,8 +369,8 @@ function extractMeasurementValues(text) {
   const results = [];
 
   /*
-   * Első körben az azbeszt szempontjából
-   * legfontosabb rost/m³ értékeket keressük.
+   * A PDF-konverzió miatt több whitespace-t
+   * engedünk a szám és a mértékegység között.
    */
 
   const patterns = [
@@ -384,14 +378,14 @@ function extractMeasurementValues(text) {
       unit: "rost/m³",
 
       regex:
-        /(\d{1,3}(?:[\s\u00a0.,]\d{3})+|\d+)\s*(?:rost|szál)\s*\/\s*m(?:³|3)/gi
+        /(\d{1,3}(?:[\s\u00a0.,]\d{3})+|\d+)[\s\n\r]*(?:rost(?:ok)?|szál(?:ak)?)[\s\n\r]*\/?[\s\n\r]*m(?:³|3)/gi
     },
 
     {
       unit: "fibres/m³",
 
       regex:
-        /(\d{1,3}(?:[\s\u00a0.,]\d{3})+|\d+)\s*(?:fibres|fibers)\s*\/\s*m(?:³|3)/gi
+        /(\d{1,3}(?:[\s\u00a0.,]\d{3})+|\d+)[\s\n\r]*(?:fibres|fibers)[\s\n\r]*\/?[\s\n\r]*m(?:³|3)/gi
     }
   ];
 
@@ -407,13 +401,15 @@ function extractMeasurementValues(text) {
     ) {
       results.push({
         raw:
-          match[0],
+          normalizeInline(
+            match[0]
+          ),
 
         raw_value:
           match[1],
 
         value:
-          parseHungarianInteger(
+          parseNumericValue(
             match[1]
           ),
 
@@ -421,7 +417,10 @@ function extractMeasurementValues(text) {
           pattern.unit,
 
         index:
-          match.index
+          match.index,
+
+        detection_method:
+          "strict_unit_match"
       });
     }
   }
@@ -456,12 +455,16 @@ function extractPercentages(text) {
 
     results.push({
       raw: match[0],
+
       value:
         Number.isFinite(value)
           ? value
           : null,
+
       unit: "%",
-      index: match.index
+
+      index:
+        match.index
     });
   }
 
@@ -470,7 +473,7 @@ function extractPercentages(text) {
 
 
 /* =========================================================
-   GPS / KOORDINÁTA JELÖLTEK
+   GPS / KOORDINÁTÁK
    ========================================================= */
 
 function extractCoordinateCandidates(
@@ -480,15 +483,6 @@ function extractCoordinateCandidates(
     String(text || "");
 
   const results = [];
-
-  /*
-   * Egyszerű WGS84 jelöltek:
-   * 47.389123, 16.541234
-   * 47,389123 16,541234
-   *
-   * Csak Vas vármegye környezetére életszerű
-   * koordinátákat engedünk át.
-   */
 
   const regex =
     /\b(4[6-8][.,]\d{3,8})\s*[,;/ ]+\s*(1[5-7][.,]\d{3,8})\b/g;
@@ -514,10 +508,15 @@ function extractCoordinateCandidates(
       Number.isFinite(lon)
     ) {
       results.push({
-        raw: match[0],
+        raw:
+          match[0],
+
         lat,
+
         lon,
-        index: match.index
+
+        index:
+          match.index
       });
     }
   }
@@ -550,7 +549,7 @@ function getContext(
       index + radius
     );
 
-  return normalizeWhitespace(
+  return normalizeInline(
     source.slice(start, end)
   );
 }
@@ -567,6 +566,204 @@ function attachContexts(
         getContext(
           text,
           item.index
+        )
+    })
+  );
+}
+
+
+/* =========================================================
+   ÚJ: DIAGNOSZTIKAI KULCSSZAVAK
+   ========================================================= */
+
+const DIAGNOSTIC_TERMS = [
+  "rost",
+  "rost/m",
+  "azbesztrost",
+  "azbeszt rost",
+  "szálló azbeszt",
+  "koncentráció",
+  "koncentracio",
+  "24 ór",
+  "24 óra",
+  "24h",
+  "24 h",
+  "fibres",
+  "fibers",
+  "fibre",
+  "fiber",
+  "asbestos",
+  "asbest",
+  "m³",
+  "m3",
+  "SEM",
+  "elektronmikroszkóp",
+  "elektronmikroszkop"
+];
+
+
+/* =========================================================
+   ÚJ: DIAGNOSZTIKAI SZÖVEGRÉSZEK
+   ========================================================= */
+
+function extractDiagnosticContexts(
+  text
+) {
+  const source =
+    String(text || "");
+
+  const lower =
+    source.toLowerCase();
+
+  const results = [];
+  const seen = new Set();
+
+  for (
+    const term of DIAGNOSTIC_TERMS
+  ) {
+    const needle =
+      term.toLowerCase();
+
+    let start = 0;
+
+    while (true) {
+      const index =
+        lower.indexOf(
+          needle,
+          start
+        );
+
+      if (index === -1) {
+        break;
+      }
+
+      const context =
+        getContext(
+          source,
+          index,
+          500
+        );
+
+      /*
+       * Ugyanazt a táblázatrészletet ne
+       * mentsük el tízszer különböző
+       * kulcsszavak miatt.
+       */
+      const signature =
+        context
+          .toLowerCase()
+          .replace(/\s+/g, " ")
+          .slice(0, 250);
+
+      if (
+        !seen.has(signature)
+      ) {
+        seen.add(signature);
+
+        results.push({
+          term,
+          index,
+          context
+        });
+      }
+
+      /*
+       * Dokumentumonként maximum 30
+       * diagnosztikai részlet.
+       */
+      if (
+        results.length >= 30
+      ) {
+        return results;
+      }
+
+      start =
+        index + needle.length;
+    }
+  }
+
+  return results;
+}
+
+
+/* =========================================================
+   ÚJ: SZÁMJELÖLTEK A MÉRÉSI KONTEXTUSBAN
+   ========================================================= */
+
+function extractNumericCandidatesFromContext(
+  context
+) {
+  const source =
+    String(context || "");
+
+  const results = [];
+
+  /*
+   * 40246
+   * 40 246
+   * 40.246
+   * 40,246
+   * 10300
+   *
+   * Itt MÉG NEM állítjuk, hogy ezek
+   * mérési értékek.
+   */
+
+  const regex =
+    /\b\d{1,3}(?:[ \u00a0.,]\d{3})+\b|\b\d{4,8}\b/g;
+
+  let match;
+
+  while (
+    (match = regex.exec(source)) !==
+    null
+  ) {
+    const raw =
+      match[0];
+
+    const value =
+      parseNumericValue(raw);
+
+    /*
+     * Évszámok kiszűrése.
+     */
+    if (
+      value >= 2000 &&
+      value <= 2100 &&
+      raw.length === 4
+    ) {
+      continue;
+    }
+
+    results.push({
+      raw,
+      value
+    });
+  }
+
+  return results;
+}
+
+
+/* =========================================================
+   ÚJ: DIAGNOSZTIKAI BLOKK FELÉPÍTÉSE
+   ========================================================= */
+
+function buildMeasurementDiagnostics(
+  text
+) {
+  const contexts =
+    extractDiagnosticContexts(
+      text
+    );
+
+  return contexts.map(
+    (item) => ({
+      ...item,
+
+      numeric_candidates:
+        extractNumericCandidatesFromContext(
+          item.context
         )
     })
   );
@@ -609,8 +806,7 @@ async function extractPdfText(buffer) {
 
 async function processDocument(
   measurement,
-  document,
-  previousExtraction
+  document
 ) {
   const startedAt =
     nowIso();
@@ -630,35 +826,6 @@ async function processDocument(
       sha256(
         downloaded.buffer
       );
-
-    /*
-     * Ha a PDF hash-e nem változott és
-     * korábban már sikeresen feldolgoztuk,
-     * felhasználhatjuk a korábbi eredményt.
-     */
-
-    if (
-      previousExtraction &&
-      previousExtraction
-        .document_sha256 === hash &&
-      previousExtraction
-        .extraction_status ===
-        "success"
-    ) {
-      console.log(
-        "  ↳ változatlan dokumentum, korábbi kinyerés megtartva"
-      );
-
-      return {
-        ...previousExtraction,
-
-        last_checked:
-          nowIso(),
-
-        reused:
-          true
-      };
-    }
 
     const pdfResult =
       await extractPdfText(
@@ -707,6 +874,17 @@ async function processDocument(
     const asbestosTypes =
       extractAsbestosTypes(text);
 
+    /*
+     * ÚJ diagnosztikai blokk.
+     *
+     * Akkor is elkészül, ha a szigorú
+     * measurement parser 0 értéket talál.
+     */
+    const measurementDiagnostics =
+      buildMeasurementDiagnostics(
+        text
+      );
+
     return {
       id:
         measurement.id,
@@ -752,14 +930,6 @@ async function processDocument(
       text_length:
         text.length,
 
-      /*
-       * A teljes PDF-szöveget szándékosan
-       * nem mentjük a repóba.
-       *
-       * Csak a releváns találatokhoz
-       * tartozó rövid kontextust őrizzük.
-       */
-
       detected_dates:
         dates,
 
@@ -778,6 +948,14 @@ async function processDocument(
       detected_asbestos_types:
         asbestosTypes,
 
+      /*
+       * ÚJ:
+       * a mérési kifejezések körüli
+       * tényleges PDF-szöveg.
+       */
+      measurement_diagnostics:
+        measurementDiagnostics,
+
       statistics: {
         dates:
           dates.length,
@@ -795,7 +973,10 @@ async function processDocument(
           coordinates.length,
 
         asbestos_types:
-          asbestosTypes.length
+          asbestosTypes.length,
+
+        diagnostic_contexts:
+          measurementDiagnostics.length
       },
 
       extraction_status:
@@ -810,6 +991,10 @@ async function processDocument(
       last_checked:
         nowIso(),
 
+      /*
+       * Diagnosztikai verzióban mindig
+       * újrafeldolgozzuk a dokumentumot.
+       */
       reused:
         false
     };
@@ -861,6 +1046,18 @@ async function processDocument(
 
       detected_asbestos_types: [],
 
+      measurement_diagnostics: [],
+
+      statistics: {
+        dates: 0,
+        locations: 0,
+        measurement_values: 0,
+        percentages: 0,
+        coordinates: 0,
+        asbestos_types: 0,
+        diagnostic_contexts: 0
+      },
+
       extraction_status:
         "error",
 
@@ -881,6 +1078,82 @@ async function processDocument(
 
 
 /* =========================================================
+   DIAGNOSZTIKA KIÍRÁSA A LOGBA
+   ========================================================= */
+
+function printDiagnostics(
+  extraction
+) {
+  const diagnostics =
+    extraction
+      .measurement_diagnostics ||
+    [];
+
+  console.log(
+    `  ↳ diagnosztikai részletek: ${diagnostics.length}`
+  );
+
+  if (
+    diagnostics.length === 0
+  ) {
+    return;
+  }
+
+  /*
+   * A GitHub logot nem akarjuk
+   * több ezer sorosra növelni.
+   *
+   * Dokumentumonként maximum 5 részlet.
+   */
+
+  console.log("");
+  console.log(
+    "  --- MÉRÉSI DIAGNOSZTIKA ---"
+  );
+
+  for (
+    const item of
+      diagnostics.slice(0, 5)
+  ) {
+    console.log("");
+
+    console.log(
+      `  Kulcsszó: ${item.term}`
+    );
+
+    console.log(
+      `  Kontextus: ${item.context}`
+    );
+
+    if (
+      item.numeric_candidates
+        ?.length
+    ) {
+      console.log(
+        "  Számjelöltek:",
+        item.numeric_candidates
+          .slice(0, 20)
+          .map(
+            (candidate) =>
+              `${candidate.raw} -> ${candidate.value}`
+          )
+          .join(" | ")
+      );
+    } else {
+      console.log(
+        "  Számjelöltek: nincs"
+      );
+    }
+  }
+
+  console.log("");
+  console.log(
+    "  --- DIAGNOSZTIKA VÉGE ---"
+  );
+}
+
+
+/* =========================================================
    MAIN
    ========================================================= */
 
@@ -894,13 +1167,13 @@ async function main() {
   );
 
   console.log(
+    "DIAGNOSZTIKAI VERZIÓ 1.1"
+  );
+
+  console.log(
     "=========================================="
   );
 
-
-  /* -------------------------------------------------------
-     Forrásfájlok
-     ------------------------------------------------------- */
 
   const documents =
     loadJson(
@@ -918,14 +1191,6 @@ async function main() {
       }
     );
 
-  const previous =
-    loadJson(
-      OUTPUT_FILE,
-      {
-        extractions: []
-      }
-    );
-
 
   if (
     !Array.isArray(
@@ -937,32 +1202,6 @@ async function main() {
     );
   }
 
-
-  /* -------------------------------------------------------
-     Korábbi feldolgozás index
-     ------------------------------------------------------- */
-
-  const previousByUrl =
-    new Map();
-
-  for (
-    const item of
-      previous.extractions || []
-  ) {
-    if (
-      item.source_document
-    ) {
-      previousByUrl.set(
-        item.source_document,
-        item
-      );
-    }
-  }
-
-
-  /* -------------------------------------------------------
-     Dokumentum metaadat index
-     ------------------------------------------------------- */
 
   const documentsByUrl =
     new Map();
@@ -980,21 +1219,18 @@ async function main() {
   }
 
 
-  /* -------------------------------------------------------
-     Feldolgozás
-     ------------------------------------------------------- */
-
   const extractions = [];
 
   let successCount = 0;
   let errorCount = 0;
-  let reusedCount = 0;
 
   let totalMeasurementValues = 0;
   let totalCoordinates = 0;
+  let totalDiagnostics = 0;
 
   const measurements =
     measurementIndex.measurements;
+
 
   console.log(
     `Feldolgozandó mérési dokumentumok: ${measurements.length}`
@@ -1020,21 +1256,16 @@ async function main() {
         measurement.source_document
       );
 
-    const previousExtraction =
-      previousByUrl.get(
-        measurement.source_document
-      );
-
     const extraction =
       await processDocument(
         measurement,
-        document,
-        previousExtraction
+        document
       );
 
     extractions.push(
       extraction
     );
+
 
     if (
       extraction.extraction_status ===
@@ -1045,11 +1276,6 @@ async function main() {
       errorCount++;
     }
 
-    if (
-      extraction.reused
-    ) {
-      reusedCount++;
-    }
 
     totalMeasurementValues +=
       extraction.statistics
@@ -1058,6 +1284,11 @@ async function main() {
     totalCoordinates +=
       extraction.statistics
         ?.coordinates || 0;
+
+    totalDiagnostics +=
+      extraction.statistics
+        ?.diagnostic_contexts || 0;
+
 
     console.log(
       `  ↳ mérési értékek: ${
@@ -1082,19 +1313,36 @@ async function main() {
         ).join(", ") || "nincs"
       }`
     );
+
+
+    /*
+     * A levegőméréseknél különösen
+     * fontos a diagnosztika.
+     */
+    if (
+      measurement
+        .measurement_category ===
+      "air"
+    ) {
+      printDiagnostics(
+        extraction
+      );
+    }
+
+
+    console.log("");
   }
 
 
-  /* -------------------------------------------------------
-     Kimenet
-     ------------------------------------------------------- */
-
   const output = {
     schema_version:
-      "1.0",
+      "1.1",
 
     generated_at:
       nowIso(),
+
+    mode:
+      "measurement_diagnostics",
 
     source_class:
       "primary_official",
@@ -1119,27 +1367,27 @@ async function main() {
         errorCount,
 
       reused_extractions:
-        reusedCount,
+        0,
 
       detected_measurement_values:
         totalMeasurementValues,
 
       detected_coordinates:
-        totalCoordinates
+        totalCoordinates,
+
+      diagnostic_contexts:
+        totalDiagnostics
     },
 
     extractions
   };
+
 
   saveJson(
     OUTPUT_FILE,
     output
   );
 
-
-  /* -------------------------------------------------------
-     Konzol összegzés
-     ------------------------------------------------------- */
 
   console.log("");
   console.log(
@@ -1167,15 +1415,15 @@ async function main() {
   );
 
   console.log(
-    `Cache-ből megtartva: ${reusedCount}`
-  );
-
-  console.log(
     `Talált mérési értékek: ${totalMeasurementValues}`
   );
 
   console.log(
     `Talált koordináták: ${totalCoordinates}`
+  );
+
+  console.log(
+    `Diagnosztikai szövegrészletek: ${totalDiagnostics}`
   );
 
   console.log(
