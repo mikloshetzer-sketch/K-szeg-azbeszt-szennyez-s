@@ -1,0 +1,278 @@
+name: Update Official Asbestos Measurements
+
+on:
+  # Kézi indítás GitHub Actionsből
+  workflow_dispatch:
+
+  # Automatikus futás naponta kétszer
+  # UTC szerint: 05:30 és 17:30
+  # Magyar nyári idő szerint: 07:30 és 19:30
+  schedule:
+    - cron: "30 5,17 * * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: official-asbestos-measurements
+  cancel-in-progress: false
+
+jobs:
+  update-official-measurements:
+    name: Vas Kormányhivatal adatok frissítése
+    runs-on: ubuntu-latest
+
+    timeout-minutes: 15
+
+    steps:
+      # ---------------------------------------------------
+      # 1. Repository letöltése
+      # ---------------------------------------------------
+      - name: Repository checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # ---------------------------------------------------
+      # 2. Node.js
+      # ---------------------------------------------------
+      - name: Node.js beállítása
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      # ---------------------------------------------------
+      # 3. Környezet ellenőrzése
+      # ---------------------------------------------------
+      - name: Környezet ellenőrzése
+        run: |
+          echo "Node verzió:"
+          node --version
+
+          echo ""
+          echo "NPM verzió:"
+          npm --version
+
+          echo ""
+          echo "Repository:"
+          pwd
+
+          echo ""
+          echo "Script ellenőrzése:"
+          test -f scripts/fetch-official-measurements.js
+
+      # ---------------------------------------------------
+      # 4. Hivatalos kormányhivatali dokumentumok
+      # ---------------------------------------------------
+      - name: Hivatalos azbesztadatok feldolgozása
+        run: |
+          node scripts/fetch-official-measurements.js
+
+      # ---------------------------------------------------
+      # 5. Generált fájlok ellenőrzése
+      # ---------------------------------------------------
+      - name: Generált adatok ellenőrzése
+        run: |
+          echo "======================================"
+          echo "GENERÁLT HIVATALOS ADATOK"
+          echo "======================================"
+
+          test -f data/official_documents.json
+          test -f data/official_measurements.json
+
+          echo ""
+          echo "official_documents.json:"
+          ls -lh data/official_documents.json
+
+          echo ""
+          echo "official_measurements.json:"
+          ls -lh data/official_measurements.json
+
+          echo ""
+          echo "JSON szintaktikai ellenőrzés:"
+
+          node -e "
+            JSON.parse(
+              require('fs').readFileSync(
+                'data/official_documents.json',
+                'utf8'
+              )
+            );
+            console.log('official_documents.json: OK');
+          "
+
+          node -e "
+            JSON.parse(
+              require('fs').readFileSync(
+                'data/official_measurements.json',
+                'utf8'
+              )
+            );
+            console.log('official_measurements.json: OK');
+          "
+
+      # ---------------------------------------------------
+      # 6. Rövid statisztika a workflow logba
+      # ---------------------------------------------------
+      - name: Hivatalos adatstatisztika
+        run: |
+          node <<'NODE'
+
+          const fs = require("fs");
+
+          const documents = JSON.parse(
+            fs.readFileSync(
+              "data/official_documents.json",
+              "utf8"
+            )
+          );
+
+          const measurements = JSON.parse(
+            fs.readFileSync(
+              "data/official_measurements.json",
+              "utf8"
+            )
+          );
+
+          console.log("");
+          console.log("======================================");
+          console.log("HIVATALOS AZBESZT MONITOR");
+          console.log("======================================");
+
+          console.log(
+            "Dokumentumok összesen:",
+            documents.statistics?.total_documents ?? 0
+          );
+
+          console.log(
+            "Új dokumentumok:",
+            documents.statistics?.new_documents ?? 0
+          );
+
+          console.log(
+            "Megváltozott dokumentumok:",
+            documents.statistics?.changed_documents ?? 0
+          );
+
+          console.log(
+            "Letöltési hibák:",
+            documents.statistics?.download_errors ?? 0
+          );
+
+          console.log(
+            "Levegőmérési dokumentumok:",
+            documents.statistics?.air_measurement_documents ?? 0
+          );
+
+          console.log(
+            "Kőzetvizsgálati dokumentumok:",
+            documents.statistics?.rock_measurement_documents ?? 0
+          );
+
+          console.log(
+            "Mérési dokumentumok összesen:",
+            measurements.total_measurement_documents ?? 0
+          );
+
+          console.log("======================================");
+
+          NODE
+
+      # ---------------------------------------------------
+      # 7. Csak akkor commitolunk, ha változás történt
+      # ---------------------------------------------------
+      - name: Git változások ellenőrzése
+        id: changes
+        shell: bash
+        run: |
+          git add \
+            data/official_documents.json \
+            data/official_measurements.json
+
+          if git diff --cached --quiet; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "Nincs új vagy módosult hivatalos adat."
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+            echo "Új vagy módosult hivatalos adat található."
+          fi
+
+      # ---------------------------------------------------
+      # 8. Automatikus commit és push
+      # ---------------------------------------------------
+      - name: Frissített hivatalos adatok mentése
+        if: steps.changes.outputs.changed == 'true'
+        shell: bash
+        run: |
+          git config \
+            user.name \
+            "github-actions[bot]"
+
+          git config \
+            user.email \
+            "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git commit \
+            -m "Frissített hivatalos azbeszt mérési adatok"
+
+          git push
+
+      # ---------------------------------------------------
+      # 9. Workflow összegzés
+      # ---------------------------------------------------
+      - name: Workflow összegzés
+        if: always()
+        shell: bash
+        run: |
+          echo "## Vas Kormányhivatal – azbeszt monitor" >> "$GITHUB_STEP_SUMMARY"
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+
+          if [ -f data/official_documents.json ]; then
+
+            node <<'NODE' >> "$GITHUB_STEP_SUMMARY"
+
+          const fs = require("fs");
+
+          const d = JSON.parse(
+            fs.readFileSync(
+              "data/official_documents.json",
+              "utf8"
+            )
+          );
+
+          const m = JSON.parse(
+            fs.readFileSync(
+              "data/official_measurements.json",
+              "utf8"
+            )
+          );
+
+          console.log(
+            `- Hivatalos dokumentumok: **${d.statistics?.total_documents ?? 0}**`
+          );
+
+          console.log(
+            `- Új dokumentumok: **${d.statistics?.new_documents ?? 0}**`
+          );
+
+          console.log(
+            `- Megváltozott dokumentumok: **${d.statistics?.changed_documents ?? 0}**`
+          );
+
+          console.log(
+            `- Levegőmérési dokumentumok: **${d.statistics?.air_measurement_documents ?? 0}**`
+          );
+
+          console.log(
+            `- Kőzetvizsgálatok: **${d.statistics?.rock_measurement_documents ?? 0}**`
+          );
+
+          console.log(
+            `- Mérési dokumentumok összesen: **${m.total_measurement_documents ?? 0}**`
+          );
+
+          NODE
+
+          else
+            echo "- Az adatfájlok nem készültek el." >> "$GITHUB_STEP_SUMMARY"
+          fi
