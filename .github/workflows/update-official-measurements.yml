@@ -3,8 +3,8 @@ name: Update Official Asbestos Measurements
 on:
   workflow_dispatch:
 
-  # Naponta kétszer.
-  # UTC: 05:30 és 17:30
+  # Automatikus futás naponta kétszer
+  # UTC szerint: 05:30 és 17:30
   schedule:
     - cron: "30 5,17 * * *"
 
@@ -34,25 +34,30 @@ jobs:
 
 
       # ===================================================
-      # 2. NODE
+      # 2. NODE.JS
       # ===================================================
 
       - name: Node.js beállítása
         uses: actions/setup-node@v4
         with:
           node-version: "20"
-          cache: "npm"
 
 
       # ===================================================
-      # 3. DEPENDENCIES
+      # 3. FÜGGŐSÉGEK
       # ===================================================
 
       - name: Node függőségek telepítése
         run: |
+          echo "======================================"
+          echo "NODE FÜGGŐSÉGEK"
+          echo "======================================"
+
           if [ -f package-lock.json ]; then
+            echo "package-lock.json megtalálva -> npm ci"
             npm ci
           else
+            echo "Nincs package-lock.json -> npm install"
             npm install
           fi
 
@@ -67,15 +72,20 @@ jobs:
           echo "KÖRNYEZET"
           echo "======================================"
 
-          echo "Node:"
+          echo ""
+          echo "Node verzió:"
           node --version
 
           echo ""
-          echo "NPM:"
+          echo "NPM verzió:"
           npm --version
 
           echo ""
-          echo "Scriptek:"
+          echo "Repository:"
+          pwd
+
+          echo ""
+          echo "Scriptek ellenőrzése:"
 
           test -f scripts/fetch-official-measurements.js
           echo "fetch-official-measurements.js: OK"
@@ -84,7 +94,7 @@ jobs:
           echo "extract-official-pdfs.js: OK"
 
           echo ""
-          echo "pdf-parse:"
+          echo "pdf-parse ellenőrzése:"
 
           node -e "
             require('pdf-parse');
@@ -93,42 +103,80 @@ jobs:
 
 
       # ===================================================
-      # 5. KORMÁNYHIVATALI DOKUMENTUMOK
+      # 5. KORMÁNYHIVATALI DOKUMENTUMOK FRISSÍTÉSE
       # ===================================================
 
       - name: Hivatalos dokumentumok frissítése
         run: |
+          echo "======================================"
+          echo "KORMÁNYHIVATALI DOKUMENTUMOK"
+          echo "======================================"
+
           node scripts/fetch-official-measurements.js
 
 
       # ===================================================
-      # 6. ELSŐ KÉT JSON ELLENŐRZÉSE
+      # 6. DOKUMENTUMINDEX ELLENŐRZÉSE
       # ===================================================
 
       - name: Dokumentumindex ellenőrzése
         run: |
+          echo "======================================"
+          echo "DOKUMENTUMINDEX ELLENŐRZÉSE"
+          echo "======================================"
+
           test -f data/official_documents.json
           test -f data/official_measurements.json
 
-          node -e "
-            const fs = require('fs');
+          node <<'NODE'
 
-            JSON.parse(
-              fs.readFileSync(
-                'data/official_documents.json',
-                'utf8'
-              )
-            );
+          const fs = require("fs");
 
-            JSON.parse(
-              fs.readFileSync(
-                'data/official_measurements.json',
-                'utf8'
-              )
-            );
+          const documents = JSON.parse(
+            fs.readFileSync(
+              "data/official_documents.json",
+              "utf8"
+            )
+          );
 
-            console.log('Dokumentumindex JSON: OK');
-          "
+          const measurements = JSON.parse(
+            fs.readFileSync(
+              "data/official_measurements.json",
+              "utf8"
+            )
+          );
+
+          console.log(
+            "official_documents.json: OK"
+          );
+
+          console.log(
+            "official_measurements.json: OK"
+          );
+
+          console.log("");
+
+          console.log(
+            "Hivatalos dokumentumok:",
+            documents.statistics?.total_documents ?? 0
+          );
+
+          console.log(
+            "Levegőmérési dokumentumok:",
+            documents.statistics?.air_measurement_documents ?? 0
+          );
+
+          console.log(
+            "Kőzetvizsgálati dokumentumok:",
+            documents.statistics?.rock_measurement_documents ?? 0
+          );
+
+          console.log(
+            "Mérési dokumentumok összesen:",
+            measurements.total_measurement_documents ?? 0
+          );
+
+          NODE
 
 
       # ===================================================
@@ -137,11 +185,15 @@ jobs:
 
       - name: Hivatalos PDF-ek feldolgozása
         run: |
+          echo "======================================"
+          echo "HIVATALOS PDF ADATKINYERÉS"
+          echo "======================================"
+
           node scripts/extract-official-pdfs.js
 
 
       # ===================================================
-      # 8. PDF EXTRACTION ELLENŐRZÉSE
+      # 8. PDF EXTRACTION JSON ELLENŐRZÉSE
       # ===================================================
 
       - name: PDF-adatkinyerés ellenőrzése
@@ -155,10 +207,12 @@ jobs:
           const file =
             "data/official_measurement_extractions.json";
 
-          const data =
-            JSON.parse(
-              fs.readFileSync(file, "utf8")
-            );
+          const data = JSON.parse(
+            fs.readFileSync(
+              file,
+              "utf8"
+            )
+          );
 
           console.log("");
           console.log("======================================");
@@ -181,7 +235,7 @@ jobs:
           );
 
           console.log(
-            "Cache-ből:",
+            "Cache-ből megtartva:",
             data.statistics?.reused_extractions ?? 0
           );
 
@@ -210,13 +264,12 @@ jobs:
 
           const fs = require("fs");
 
-          const data =
-            JSON.parse(
-              fs.readFileSync(
-                "data/official_measurement_extractions.json",
-                "utf8"
-              )
-            );
+          const data = JSON.parse(
+            fs.readFileSync(
+              "data/official_measurement_extractions.json",
+              "utf8"
+            )
+          );
 
           console.log("");
           console.log("======================================");
@@ -249,7 +302,14 @@ jobs:
 
             console.log(
               "Státusz:",
-              item.extraction_status
+              item.extraction_status || "-"
+            );
+
+            console.log(
+              "Cache:",
+              item.reused === true
+                ? "igen"
+                : "nem"
             );
 
             console.log(
@@ -275,10 +335,32 @@ jobs:
               console.log("");
               console.log("Talált értékek:");
 
-              for (const value of values.slice(0, 20)) {
+              for (
+                const value of values.slice(0, 30)
+              ) {
 
                 console.log(
                   `  ${value.raw} -> ${value.value} ${value.unit}`
+                );
+
+              }
+
+            }
+
+            const coordinates =
+              item.detected_coordinates || [];
+
+            if (coordinates.length > 0) {
+
+              console.log("");
+              console.log("Talált koordináták:");
+
+              for (
+                const coordinate of coordinates.slice(0, 10)
+              ) {
+
+                console.log(
+                  `  ${coordinate.lat}, ${coordinate.lon}`
                 );
 
               }
@@ -294,7 +376,7 @@ jobs:
 
 
       # ===================================================
-      # 10. ALAPVETŐ VALIDÁCIÓ
+      # 10. ADATMINŐSÉG ELLENŐRZÉSE
       # ===================================================
 
       - name: Adatminőség ellenőrzése
@@ -303,13 +385,12 @@ jobs:
 
           const fs = require("fs");
 
-          const data =
-            JSON.parse(
-              fs.readFileSync(
-                "data/official_measurement_extractions.json",
-                "utf8"
-              )
-            );
+          const data = JSON.parse(
+            fs.readFileSync(
+              "data/official_measurement_extractions.json",
+              "utf8"
+            )
+          );
 
           const total =
             data.statistics?.total_documents ?? 0;
@@ -338,6 +419,7 @@ jobs:
             );
           }
 
+          console.log("");
           console.log(
             `Validáció OK: ${success}/${total} dokumentum feldolgozva.`
           );
@@ -346,7 +428,22 @@ jobs:
 
 
       # ===================================================
-      # 11. GIT VÁLTOZÁSOK
+      # 11. GENERÁLT FÁJLOK
+      # ===================================================
+
+      - name: Generált fájlok ellenőrzése
+        run: |
+          echo "======================================"
+          echo "GENERÁLT ADATFÁJLOK"
+          echo "======================================"
+
+          ls -lh data/official_documents.json
+          ls -lh data/official_measurements.json
+          ls -lh data/official_measurement_extractions.json
+
+
+      # ===================================================
+      # 12. GIT VÁLTOZÁSOK
       # ===================================================
 
       - name: Git változások ellenőrzése
@@ -358,30 +455,42 @@ jobs:
             data/official_measurements.json \
             data/official_measurement_extractions.json
 
+          # Ha az npm install létrehozott package-lock.json-t,
+          # azt is elmentjük.
+          if [ -f package-lock.json ]; then
+            git add package-lock.json
+          fi
+
           if git diff --cached --quiet; then
 
             echo "changed=false" >> "$GITHUB_OUTPUT"
 
+            echo ""
             echo "Nincs új vagy módosult hivatalos adat."
 
           else
 
             echo "changed=true" >> "$GITHUB_OUTPUT"
 
+            echo ""
             echo "Új vagy módosult hivatalos adat található."
+
+            echo ""
+            echo "Változások:"
+
+            git diff --cached --stat
 
           fi
 
 
       # ===================================================
-      # 12. COMMIT + PUSH
+      # 13. COMMIT + PUSH
       # ===================================================
 
       - name: Frissített adatok mentése
         if: steps.changes.outputs.changed == 'true'
         shell: bash
         run: |
-
           git config \
             user.name \
             "github-actions[bot]"
@@ -397,14 +506,13 @@ jobs:
 
 
       # ===================================================
-      # 13. WORKFLOW SUMMARY
+      # 14. WORKFLOW SUMMARY
       # ===================================================
 
       - name: Workflow összegzés
         if: always()
         shell: bash
         run: |
-
           echo "## Vas Kormányhivatal – azbeszt monitor" >> "$GITHUB_STEP_SUMMARY"
 
           echo "" >> "$GITHUB_STEP_SUMMARY"
@@ -415,13 +523,12 @@ jobs:
 
           const fs = require("fs");
 
-          const data =
-            JSON.parse(
-              fs.readFileSync(
-                "data/official_measurement_extractions.json",
-                "utf8"
-              )
-            );
+          const data = JSON.parse(
+            fs.readFileSync(
+              "data/official_measurement_extractions.json",
+              "utf8"
+            )
+          );
 
           console.log(
             `- Feldolgozott mérési dokumentumok: **${data.statistics?.total_documents ?? 0}**`
@@ -433,6 +540,10 @@ jobs:
 
           console.log(
             `- Hibás PDF-kinyerések: **${data.statistics?.failed_extractions ?? 0}**`
+          );
+
+          console.log(
+            `- Cache-ből megtartott kinyerések: **${data.statistics?.reused_extractions ?? 0}**`
           );
 
           console.log(
