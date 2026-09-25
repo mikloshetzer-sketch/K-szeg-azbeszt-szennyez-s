@@ -1,13 +1,13 @@
 {
   "schema_version": "3.0",
-  "parser_version": "4.1",
-  "generated_at": "2026-09-25T20:14:09.340Z",
+  "parser_version": "4.2",
+  "generated_at": "2026-09-25T20:30:28.899Z",
   "authority": "Vas Vármegyei Kormányhivatal",
   "measurement_type": "air",
   "unit": "rost/m3",
-  "methodology": "Only automatically verified measurements are published. Modern PDF table measurements remain in review_queue until column mapping is verified.",
-  "measurement_count": 6,
-  "review_count": 42,
+  "methodology": "Only measurements structurally linked to an official sample row are published. Modern table rows are accepted only when sample ID, coordinates, dates/times and a concentration immediately preceding the air-volume marker can be identified.",
+  "measurement_count": 46,
+  "review_count": 2,
   "measurements": [
     {
       "status": "accepted",
@@ -134,6 +134,886 @@
       "publication_date": "2026-07-20",
       "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/se.pdf",
       "authority": "Vas Vármegyei Kormányhivatal"
+    },
+    {
+      "status": "accepted",
+      "sample_id": "2026_792_5_L/1_1",
+      "settlement": null,
+      "location": "Szombathely, Síp utca",
+      "lat": 47.23494,
+      "lon": 16.58595,
+      "start": "2026-07-30 11:39",
+      "end": "2026-07-30 14:39",
+      "measurement_type": "air",
+      "concentration_fibres_m3": 1520,
+      "concentration_fibres_cm3": 0.00152,
+      "below_detection_limit": false,
+      "unit": "rost/m3",
+      "raw_concentration": "1 520",
+      "parser": "modern_table_row",
+      "confidence": "high",
+      "source_title": "A Szombathely, Oladi Platón 2026. július 30-31-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+      "publication_date": "2026-08-18",
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf",
+      "authority": "Vas Vármegyei Kormányhivatal"
+    },
+    {
+      "status": "accepted",
+      "sample_id": "2026_792_5_L/1_2",
+      "settlement": null,
+      "location": "Szombathely, Síp utca",
+      "lat": 47.23494,
+      "lon": 16.58595,
+      "start": "2026-07-30 14:44",
+      "end": "2026-07-30 17:44",
+      "measurement_type": "air",
+      "concentration_fibres_m3": 500,
+      "concentration_fibres_cm3": 0.0005,
+      "below_detection_limit": false,
+      "unit": "rost/m3",
+      "raw_concentration": "500",
+      "parser": "modern_table_row",
+      "confidence": "high",
+      "source_title": "A Szombathely, Oladi Platón 2026. július 30-31-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+      "publication_date": "2026-08-18",
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf",
+      "authority": "Vas Vármegyei Kormányhivatal"
+    },
+    {
+      "status": "accepted",
+      "sample_id": "2026_792_5_L/1_3",
+      "settlement": null,
+      "location": "Szombathely, Síp utca",
+      "lat": 47.23494,
+      "lon": 16.58595,
+      "start": "2026-07-30 17:50",
+      "end": "2026-07-30 20:50",
+      "measurement_type": "air",
+      "concentration_fibres_m3": 250,
+      "concentration_fibres_cm3": 0.00025,
+      "below_detection_limit": false,
+      "unit": "rost/m3",
+      "raw_concentration": "250",
+      "parser": "modern_table_row",
+      "confidence": "high",
+      "source_title": "A Szombathely, Oladi Platón 2026. július 30-31-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+      "publication_date": "2026-08-18",
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf",
+      "authority": "Vas Vármegyei Kormányhivatal"
+    },
+    {
+      "status": "accepted",
+      "sample_id": "2026_792_5_L/1_4",
+      "settlement": null,
+      "location": "Szombathely, Síp utca",
+      "lat": 47.23494,
+      "lon": 16.58595,
+      "start": "2026-07-30 20:54",
+      "end": "2026-07-30 23:54",
+      "measurement_type": "air",
+      "concentration_fibres_m3": 1008,
+      "concentration_fibres_cm3": 0.001008,
+      "below_detection_limit": false,
+      "unit": "rost/m3",
+      "raw_concentration": "1 008",
+      "parser": "modern_table_row",
+      "confidence": "high",
+      "source_title": "A Szombathely, Oladi Platón 2026. július 30-31-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+      "publication_date": "2026-08-18",
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf",
+      "authority": "Vas Vármegyei Kormányhivatal"
+    },
+    {
+      "status": "accepted",
+      "sample_id": "2026_792_5_L/1_5",
+      "settlement": null,
+      "location": "Szombathely, Síp utca",
+      "lat": 47.23494,
+      "lon": 16.58595,
+      "start": "2026-07-30 23:58",
+      "end": "2026-07-31 02:58",
+      "measurement_type": "air",
+      "concentration_fibres_m3": 100,
+      "concentration_fibres_cm3": 0.0001,
+      "below_detection_limit": true,
+      "unit": "rost/m3",
+      "raw_concentration": "< 100*",
+      "parser": "modern_table_row",
+      "confidence": "high",
+      "source_title": "A Szombathely, Oladi Platón 2026. július 30-31-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+      "publication_date": "2026-08-18",
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf",
+      "authority": "Vas Vármegyei Kormányhivatal"
+    },
+    {
+      "status": "accepted",
+      "sample_id": "2026_792_5_L/1_6",
+      "settlement": null,
+      "location": "Szombathely, Síp utca",
+      "lat": 47.23494,
+      "lon": 16.58595,
+      "start": "2026-07-31 03:04",
+      "end": "2026-07-31 06:04",
+      "measurement_type": "air",
+      "concentration_fibres_m3": 100,
+      "concentration_fibres_cm3": 0.0001,
+      "below_detection_limit": true,
+      "unit": "rost/m3",
+      "raw_concentration": "< 100*",
+      "parser": "modern_table_row",
+      "confidence": "high",
+      "source_title": "A Szombathely, Oladi Platón 2026. július 30-31-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+      "publication_date": "2026-08-18",
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf",
+      "authority": "Vas Vármegyei Kormányhivatal"
+    },
+    {
+      "status": "accepted",
+      "sample_id": "2026_792_5_L/1_7",
+      "settlement": null,
+      "location": "Szombathely, Síp utca",
+      "lat": 47.23494,
+      "lon": 16.58595,
+      "start": "2026-07-31 06:08",
+      "end": "2026-07-31 09:08",
+      "measurement_type": "air",
+      "concentration_fibres_m3": 250,
+      "concentration_fibres_cm3": 0.00025,
+      "below_detection_limit": false,
+      "unit": "rost/m3",
+      "raw_concentration": "250",
+      "parser": "modern_table_row",
+      "confidence": "high",
+      "source_title": "A Szombathely, Oladi Platón 2026. július 30-31-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+      "publication_date": "2026-08-18",
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf",
+      "authority": "Vas Vármegyei Kormányhivatal"
+    },
+    {
+      "status": "accepted",
+      "sample_id": "2026_792_5_L/1_8",
+      "settlement": null,
+      "location": "Szombathely, Síp utca",
+      "lat": 47.23494,
+      "lon": 16.58595,
+      "start": "2026-07-31 09:16",
+      "end": "2026-07-31 12:16",
+      "measurement_type": "air",
+      "concentration_fibres_m3": 1060,
+      "concentration_fibres_cm3": 0.00106,
+      "below_detection_limit": false,
+      "unit": "rost/m3",
+      "raw_concentration": "1 060",
+      "parser": "modern_table_row",
+      "confidence": "high",
+      "source_title": "A Szombathely, Oladi Platón 2026. július 30-31-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+      "publication_date": "2026-08-18",
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf",
+      "authority": "Vas Vármegyei Kormányhivatal"
+    },
+    {
+      "status": "accepted",
+      "sample_id": "2026_792_5_L/2_1",
+      "settlement": null,
+      "location": "Szombathely, Sáfrány utca",
+      "lat": 47.231,
+      "lon": 16.58349,
+      "start": "2026-07-30 11:26",
+      "end": "2026-07-30 14:26",
+      "measurement_type": "air",
+      "concentration_fibres_m3": 503,
+      "concentration_fibres_cm3": 0.000503,
+      "below_detection_limit": false,
+      "unit": "rost/m3",
+      "raw_concentration": "503",
+      "parser": "modern_table_row",
+      "confidence": "high",
+      "source_title": "A Szombathely, Oladi Platón 2026. július 30-31-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+      "publication_date": "2026-08-18",
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf",
+      "authority": "Vas Vármegyei Kormányhivatal"
+    },
+    {
+      "status": "accepted",
+      "sample_id": "2026_792_5_L/2_2",
+      "settlement": null,
+      "location": "Szombathely, Sáfrány utca",
+      "lat": 47.231,
+      "lon": 16.58349,
+      "start": "2026-07-30 14:33",
+      "end": "2026-07-30 17:33",
+      "measurement_type": "air",
+      "concentration_fibres_m3": 2056,
+      "concentration_fibres_cm3": 0.002056,
+      "below_detection_limit": false,
+      "unit": "rost/m3",
+      "raw_concentration": "2 056",
+      "parser": "modern_table_row",
+      "confidence": "high",
+      "source_title": "A Szombathely, Oladi Platón 2026. július 30-31-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+      "publication_date": "2026-08-18",
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf",
+      "authority": "Vas Vármegyei Kormányhivatal"
+    },
+    {
+      "status": "accepted",
+      "sample_id": "2026_792_5_L/2_3",
+      "settlement": null,
+      "location": "Szombathely, Sáfrány utca",
+      "lat": 47.231,
+      "lon": 16.58349,
+      "start": "2026-07-30 17:46",
+      "end": "2026-07-30 20:46",
+      "measurement_type": "air",
+      "concentration_fibres_m3": 257,
+      "concentration_fibres_cm3": 0.000257,
+      "below_detection_limit": false,
+      "unit": "rost/m3",
+      "raw_concentration": "257",
+      "parser": "modern_table_row",
+      "confidence": "high",
+      "source_title": "A Szombathely, Oladi Platón 2026. július 30-31-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+      "publication_date": "2026-08-18",
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf",
+      "authority": "Vas Vármegyei Kormányhivatal"
+    },
+    {
+      "status": "accepted",
+      "sample_id": "2026_792_5_L/2_4",
+      "settlement": null,
+      "location": "Szombathely, Sáfrány utca",
+      "lat": 47.231,
+      "lon": 16.58349,
+      "start": "2026-07-30 20:52",
+      "end": "2026-07-30 23:52",
+      "measurement_type": "air",
+      "concentration_fibres_m3": 1551,
+      "concentration_fibres_cm3": 0.001551,
+      "below_detection_limit": false,
+      "unit": "rost/m3",
+      "raw_concentration": "1 551",
+      "parser": "modern_table_row",
+      "confidence": "high",
+      "source_title": "A Szombathely, Oladi Platón 2026. július 30-31-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+      "publication_date": "2026-08-18",
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf",
+      "authority": "Vas Vármegyei Kormányhivatal"
+    },
+    {
+      "status": "accepted",
+      "sample_id": "2026_792_5_L/2_5",
+      "settlement": null,
+      "location": "Szombathely, Sáfrány utca",
+      "lat": 47.231,
+      "lon": 16.58349,
+      "start": "2026-07-30 23:58",
+      "end": "2026-07-31 02:58",
+      "measurement_type": "air",
+      "concentration_fibres_m3": 1554,
+      "concentration_fibres_cm3": 0.001554,
+      "below_detection_limit": false,
+      "unit": "rost/m3",
+      "raw_concentration": "1 554",
+      "parser": "modern_table_row",
+      "confidence": "high",
+      "source_title": "A Szombathely, Oladi Platón 2026. július 30-31-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+      "publication_date": "2026-08-18",
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf",
+      "authority": "Vas Vármegyei Kormányhivatal"
+    },
+    {
+      "status": "accepted",
+      "sample_id": "2026_792_5_L/2_6",
+      "settlement": null,
+      "location": "Szombathely, Sáfrány utca",
+      "lat": 47.231,
+      "lon": 16.58349,
+      "start": "2026-07-31 03:07",
+      "end": "2026-07-31 06:07",
+      "measurement_type": "air",
+      "concentration_fibres_m3": 2595,
+      "concentration_fibres_cm3": 0.002595,
+      "below_detection_limit": false,
+      "unit": "rost/m3",
+      "raw_concentration": "2 595",
+      "parser": "modern_table_row",
+      "confidence": "high",
+      "source_title": "A Szombathely, Oladi Platón 2026. július 30-31-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+      "publication_date": "2026-08-18",
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf",
+      "authority": "Vas Vármegyei Kormányhivatal"
+    },
+    {
+      "status": "accepted",
+      "sample_id": "2026_792_5_L/2_7",
+      "settlement": null,
+      "location": "Szombathely, Sáfrány utca",
+      "lat": 47.231,
+      "lon": 16.58349,
+      "start": "2026-07-31 06:13",
+      "end": "2026-07-31 09:13",
+      "measurement_type": "air",
+      "concentration_fibres_m3": 1555,
+      "concentration_fibres_cm3": 0.001555,
+      "below_detection_limit": false,
+      "unit": "rost/m3",
+      "raw_concentration": "1 555",
+      "parser": "modern_table_row",
+      "confidence": "high",
+      "source_title": "A Szombathely, Oladi Platón 2026. július 30-31-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+      "publication_date": "2026-08-18",
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf",
+      "authority": "Vas Vármegyei Kormányhivatal"
+    },
+    {
+      "status": "accepted",
+      "sample_id": "2026_792_5_L/2_8",
+      "settlement": null,
+      "location": "Szombathely, Sáfrány utca",
+      "lat": 47.231,
+      "lon": 16.58349,
+      "start": "2026-07-31 09:25",
+      "end": "2026-07-31 12:25",
+      "measurement_type": "air",
+      "concentration_fibres_m3": 1553,
+      "concentration_fibres_cm3": 0.001553,
+      "below_detection_limit": false,
+      "unit": "rost/m3",
+      "raw_concentration": "1 553",
+      "parser": "modern_table_row",
+      "confidence": "high",
+      "source_title": "A Szombathely, Oladi Platón 2026. július 30-31-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+      "publication_date": "2026-08-18",
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf",
+      "authority": "Vas Vármegyei Kormányhivatal"
+    },
+    {
+      "status": "accepted",
+      "sample_id": "2026_792_5_L/3_1",
+      "settlement": null,
+      "location": "Szombathely, Menta utca",
+      "lat": 47.231854,
+      "lon": 16.578609,
+      "start": "2026-07-30 11:13",
+      "end": "2026-07-30 14:13",
+      "measurement_type": "air",
+      "concentration_fibres_m3": 764,
+      "concentration_fibres_cm3": 0.000764,
+      "below_detection_limit": false,
+      "unit": "rost/m3",
+      "raw_concentration": "764",
+      "parser": "modern_table_row",
+      "confidence": "high",
+      "source_title": "A Szombathely, Oladi Platón 2026. július 30-31-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+      "publication_date": "2026-08-18",
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf",
+      "authority": "Vas Vármegyei Kormányhivatal"
+    },
+    {
+      "status": "accepted",
+      "sample_id": "2026_792_5_L/3_2",
+      "settlement": null,
+      "location": "Szombathely, Menta utca",
+      "lat": 47.231854,
+      "lon": 16.578609,
+      "start": "2026-07-30 14:18",
+      "end": "2026-07-30 17:18",
+      "measurement_type": "air",
+      "concentration_fibres_m3": 758,
+      "concentration_fibres_cm3": 0.000758,
+      "below_detection_limit": false,
+      "unit": "rost/m3",
+      "raw_concentration": "758",
+      "parser": "modern_table_row",
+      "confidence": "high",
+      "source_title": "A Szombathely, Oladi Platón 2026. július 30-31-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+      "publication_date": "2026-08-18",
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf",
+      "authority": "Vas Vármegyei Kormányhivatal"
+    },
+    {
+      "status": "accepted",
+      "sample_id": "2026_792_5_L/3_3",
+      "settlement": null,
+      "location": "Szombathely, Menta utca",
+      "lat": 47.231854,
+      "lon": 16.578609,
+      "start": "2026-07-30 17:24",
+      "end": "2026-07-30 20:24",
+      "measurement_type": "air",
+      "concentration_fibres_m3": 259,
+      "concentration_fibres_cm3": 0.000259,
+      "below_detection_limit": false,
+      "unit": "rost/m3",
+      "raw_concentration": "259",
+      "parser": "modern_table_row",
+      "confidence": "high",
+      "source_title": "A Szombathely, Oladi Platón 2026. július 30-31-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+      "publication_date": "2026-08-18",
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf",
+      "authority": "Vas Vármegyei Kormányhivatal"
+    },
+    {
+      "status": "accepted",
+      "sample_id": "2026_792_5_L/3_4",
+      "settlement": null,
+      "location": "Szombathely, Menta utca",
+      "lat": 47.231854,
+      "lon": 16.578609,
+      "start": "2026-07-30 20:33",
+      "end": "2026-07-30 23:33",
+      "measurement_type": "air",
+      "concentration_fibres_m3": 1280,
+      "concentration_fibres_cm3": 0.00128,
+      "below_detection_limit": false,
+      "unit": "rost/m3",
+      "raw_concentration": "1 280",
+      "parser": "modern_table_row",
+      "confidence": "high",
+      "source_title": "A Szombathely, Oladi Platón 2026. július 30-31-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+      "publication_date": "2026-08-18",
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf",
+      "authority": "Vas Vármegyei Kormányhivatal"
+    },
+    {
+      "status": "accepted",
+      "sample_id": "2026_792_5_L/3_5",
+      "settlement": null,
+      "location": "Szombathely, Menta utca",
+      "lat": 47.231854,
+      "lon": 16.578609,
+      "start": "2026-07-30 23:39",
+      "end": "2026-07-31 02:39",
+      "measurement_type": "air",
+      "concentration_fibres_m3": 100,
+      "concentration_fibres_cm3": 0.0001,
+      "below_detection_limit": true,
+      "unit": "rost/m3",
+      "raw_concentration": "< 100*",
+      "parser": "modern_table_row",
+      "confidence": "high",
+      "source_title": "A Szombathely, Oladi Platón 2026. július 30-31-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+      "publication_date": "2026-08-18",
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf",
+      "authority": "Vas Vármegyei Kormányhivatal"
+    },
+    {
+      "status": "accepted",
+      "sample_id": "2026_792_5_L/3_6",
+      "settlement": null,
+      "location": "Szombathely, Menta utca",
+      "lat": 47.231854,
+      "lon": 16.578609,
+      "start": "2026-07-31 02:46",
+      "end": "2026-07-31 05:46",
+      "measurement_type": "air",
+      "concentration_fibres_m3": 1751,
+      "concentration_fibres_cm3": 0.001751,
+      "below_detection_limit": false,
+      "unit": "rost/m3",
+      "raw_concentration": "1 751",
+      "parser": "modern_table_row",
+      "confidence": "high",
+      "source_title": "A Szombathely, Oladi Platón 2026. július 30-31-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+      "publication_date": "2026-08-18",
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf",
+      "authority": "Vas Vármegyei Kormányhivatal"
+    },
+    {
+      "status": "accepted",
+      "sample_id": "2026_792_5_L/3_7",
+      "settlement": null,
+      "location": "Szombathely, Menta utca",
+      "lat": 47.231854,
+      "lon": 16.578609,
+      "start": "2026-07-31 05:53",
+      "end": "2026-07-31 08:53",
+      "measurement_type": "air",
+      "concentration_fibres_m3": 1772,
+      "concentration_fibres_cm3": 0.001772,
+      "below_detection_limit": false,
+      "unit": "rost/m3",
+      "raw_concentration": "1 772",
+      "parser": "modern_table_row",
+      "confidence": "high",
+      "source_title": "A Szombathely, Oladi Platón 2026. július 30-31-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+      "publication_date": "2026-08-18",
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf",
+      "authority": "Vas Vármegyei Kormányhivatal"
+    },
+    {
+      "status": "accepted",
+      "sample_id": "2026_792_5_L/3_8",
+      "settlement": null,
+      "location": "Szombathely, Menta utca",
+      "lat": 47.231854,
+      "lon": 16.578609,
+      "start": "2026-07-31 09:00",
+      "end": "2026-07-31 12:00",
+      "measurement_type": "air",
+      "concentration_fibres_m3": 266,
+      "concentration_fibres_cm3": 0.000266,
+      "below_detection_limit": false,
+      "unit": "rost/m3",
+      "raw_concentration": "266",
+      "parser": "modern_table_row",
+      "confidence": "high",
+      "source_title": "A Szombathely, Oladi Platón 2026. július 30-31-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+      "publication_date": "2026-08-18",
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf",
+      "authority": "Vas Vármegyei Kormányhivatal"
+    },
+    {
+      "status": "accepted",
+      "sample_id": "2026_792_5_L/4_1",
+      "settlement": null,
+      "location": "Szombathely, Márton Áron utca",
+      "lat": 47.232472,
+      "lon": 16.577167,
+      "start": "2026-07-30 10:55",
+      "end": "2026-07-30 13:55",
+      "measurement_type": "air",
+      "concentration_fibres_m3": 4814,
+      "concentration_fibres_cm3": 0.004814,
+      "below_detection_limit": false,
+      "unit": "rost/m3",
+      "raw_concentration": "4 814",
+      "parser": "modern_table_row",
+      "confidence": "high",
+      "source_title": "A Szombathely, Oladi Platón 2026. július 30-31-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+      "publication_date": "2026-08-18",
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf",
+      "authority": "Vas Vármegyei Kormányhivatal"
+    },
+    {
+      "status": "accepted",
+      "sample_id": "2026_792_5_L/4_2",
+      "settlement": null,
+      "location": "Szombathely, Márton Áron utca",
+      "lat": 47.232472,
+      "lon": 16.577167,
+      "start": "2026-07-30 14:01",
+      "end": "2026-07-30 17:01",
+      "measurement_type": "air",
+      "concentration_fibres_m3": 4084,
+      "concentration_fibres_cm3": 0.004084,
+      "below_detection_limit": false,
+      "unit": "rost/m3",
+      "raw_concentration": "4 084",
+      "parser": "modern_table_row",
+      "confidence": "high",
+      "source_title": "A Szombathely, Oladi Platón 2026. július 30-31-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+      "publication_date": "2026-08-18",
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf",
+      "authority": "Vas Vármegyei Kormányhivatal"
+    },
+    {
+      "status": "accepted",
+      "sample_id": "2026_792_5_L/4_3",
+      "settlement": null,
+      "location": "Szombathely, Márton Áron utca",
+      "lat": 47.232472,
+      "lon": 16.577167,
+      "start": "2026-07-30 17:08",
+      "end": "2026-07-30 20:08",
+      "measurement_type": "air",
+      "concentration_fibres_m3": 1585,
+      "concentration_fibres_cm3": 0.001585,
+      "below_detection_limit": false,
+      "unit": "rost/m3",
+      "raw_concentration": "1 585",
+      "parser": "modern_table_row",
+      "confidence": "high",
+      "source_title": "A Szombathely, Oladi Platón 2026. július 30-31-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+      "publication_date": "2026-08-18",
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf",
+      "authority": "Vas Vármegyei Kormányhivatal"
+    },
+    {
+      "status": "accepted",
+      "sample_id": "2026_792_5_L/4_4",
+      "settlement": null,
+      "location": "Szombathely, Márton Áron utca",
+      "lat": 47.232472,
+      "lon": 16.577167,
+      "start": "2026-07-30 20:15",
+      "end": "2026-07-30 23:15",
+      "measurement_type": "air",
+      "concentration_fibres_m3": 1833,
+      "concentration_fibres_cm3": 0.001833,
+      "below_detection_limit": false,
+      "unit": "rost/m3",
+      "raw_concentration": "1 833",
+      "parser": "modern_table_row",
+      "confidence": "high",
+      "source_title": "A Szombathely, Oladi Platón 2026. július 30-31-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+      "publication_date": "2026-08-18",
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf",
+      "authority": "Vas Vármegyei Kormányhivatal"
+    },
+    {
+      "status": "accepted",
+      "sample_id": "2026_792_5_L/4_5",
+      "settlement": null,
+      "location": "Szombathely, Márton Áron utca",
+      "lat": 47.232472,
+      "lon": 16.577167,
+      "start": "2026-07-30 23:23",
+      "end": "2026-07-31 02:23",
+      "measurement_type": "air",
+      "concentration_fibres_m3": 100,
+      "concentration_fibres_cm3": 0.0001,
+      "below_detection_limit": true,
+      "unit": "rost/m3",
+      "raw_concentration": "< 100*",
+      "parser": "modern_table_row",
+      "confidence": "high",
+      "source_title": "A Szombathely, Oladi Platón 2026. július 30-31-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+      "publication_date": "2026-08-18",
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf",
+      "authority": "Vas Vármegyei Kormányhivatal"
+    },
+    {
+      "status": "accepted",
+      "sample_id": "2026_792_5_L/4_6",
+      "settlement": null,
+      "location": "Szombathely, Márton Áron utca",
+      "lat": 47.232472,
+      "lon": 16.577167,
+      "start": "2026-07-31 02:31",
+      "end": "2026-07-31 05:31",
+      "measurement_type": "air",
+      "concentration_fibres_m3": 771,
+      "concentration_fibres_cm3": 0.000771,
+      "below_detection_limit": false,
+      "unit": "rost/m3",
+      "raw_concentration": "771",
+      "parser": "modern_table_row",
+      "confidence": "high",
+      "source_title": "A Szombathely, Oladi Platón 2026. július 30-31-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+      "publication_date": "2026-08-18",
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf",
+      "authority": "Vas Vármegyei Kormányhivatal"
+    },
+    {
+      "status": "accepted",
+      "sample_id": "2026_792_5_L/4_7",
+      "settlement": null,
+      "location": "Szombathely, Márton Áron utca",
+      "lat": 47.232472,
+      "lon": 16.577167,
+      "start": "2026-07-31 05:36",
+      "end": "2026-07-31 08:36",
+      "measurement_type": "air",
+      "concentration_fibres_m3": 2044,
+      "concentration_fibres_cm3": 0.002044,
+      "below_detection_limit": false,
+      "unit": "rost/m3",
+      "raw_concentration": "2 044",
+      "parser": "modern_table_row",
+      "confidence": "high",
+      "source_title": "A Szombathely, Oladi Platón 2026. július 30-31-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+      "publication_date": "2026-08-18",
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf",
+      "authority": "Vas Vármegyei Kormányhivatal"
+    },
+    {
+      "status": "accepted",
+      "sample_id": "2026_792_5_L/4_8",
+      "settlement": null,
+      "location": "Szombathely, Márton Áron utca",
+      "lat": 47.232472,
+      "lon": 16.577167,
+      "start": "2026-07-31 08:40",
+      "end": "2026-07-31 11:40",
+      "measurement_type": "air",
+      "concentration_fibres_m3": 2560,
+      "concentration_fibres_cm3": 0.00256,
+      "below_detection_limit": false,
+      "unit": "rost/m3",
+      "raw_concentration": "2 560",
+      "parser": "modern_table_row",
+      "confidence": "high",
+      "source_title": "A Szombathely, Oladi Platón 2026. július 30-31-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+      "publication_date": "2026-08-18",
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf",
+      "authority": "Vas Vármegyei Kormányhivatal"
+    },
+    {
+      "status": "accepted",
+      "sample_id": "2026_792_6_L/1_1",
+      "settlement": null,
+      "location": "Kőszeg, Borostyán Gyermekotthonhoz vezető bekötő út",
+      "lat": 47.3884,
+      "lon": 16.54967,
+      "start": "2026-08-11 16:29",
+      "end": "2026-08-12 00:29",
+      "measurement_type": "air",
+      "concentration_fibres_m3": 473,
+      "concentration_fibres_cm3": 0.000473,
+      "below_detection_limit": false,
+      "unit": "rost/m3",
+      "raw_concentration": "473",
+      "parser": "modern_table_row",
+      "confidence": "high",
+      "source_title": "A Kőszeg, Hermina utca, Borostyán Gyermekotthonhoz vezető bekötő útnál végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+      "publication_date": "2026-08-28",
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_6_vj.pdf",
+      "authority": "Vas Vármegyei Kormányhivatal"
+    },
+    {
+      "status": "accepted",
+      "sample_id": "2026_792_6_L/1_2",
+      "settlement": null,
+      "location": "Kőszeg, Borostyán Gyermekotthonhoz vezető bekötő út",
+      "lat": 47.3884,
+      "lon": 16.54967,
+      "start": "2026-08-12 00:31",
+      "end": "2026-08-12 08:31",
+      "measurement_type": "air",
+      "concentration_fibres_m3": 1224,
+      "concentration_fibres_cm3": 0.001224,
+      "below_detection_limit": false,
+      "unit": "rost/m3",
+      "raw_concentration": "1224",
+      "parser": "modern_table_row",
+      "confidence": "high",
+      "source_title": "A Kőszeg, Hermina utca, Borostyán Gyermekotthonhoz vezető bekötő útnál végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+      "publication_date": "2026-08-28",
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_6_vj.pdf",
+      "authority": "Vas Vármegyei Kormányhivatal"
+    },
+    {
+      "status": "accepted",
+      "sample_id": "2026_792_6_L/1_3",
+      "settlement": null,
+      "location": "Kőszeg, Borostyán Gyermekotthonhoz vezető bekötő út",
+      "lat": 47.3884,
+      "lon": 16.54967,
+      "start": "2026-08-12 08:40",
+      "end": "2026-08-12 16:40",
+      "measurement_type": "air",
+      "concentration_fibres_m3": 2591,
+      "concentration_fibres_cm3": 0.002591,
+      "below_detection_limit": false,
+      "unit": "rost/m3",
+      "raw_concentration": "2591",
+      "parser": "modern_table_row",
+      "confidence": "high",
+      "source_title": "A Kőszeg, Hermina utca, Borostyán Gyermekotthonhoz vezető bekötő útnál végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+      "publication_date": "2026-08-28",
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_6_vj.pdf",
+      "authority": "Vas Vármegyei Kormányhivatal"
+    },
+    {
+      "status": "accepted",
+      "sample_id": "2026_792_6_L/2_1",
+      "settlement": null,
+      "location": "Kőszeg, Hermina utca",
+      "lat": 47.38111,
+      "lon": 16.52928,
+      "start": "2026-08-11 15:54",
+      "end": "2026-08-11 19:54",
+      "measurement_type": "air",
+      "concentration_fibres_m3": 56340,
+      "concentration_fibres_cm3": 0.05634,
+      "below_detection_limit": false,
+      "unit": "rost/m3",
+      "raw_concentration": "56340",
+      "parser": "modern_table_row",
+      "confidence": "high",
+      "source_title": "A Kőszeg, Hermina utca, Borostyán Gyermekotthonhoz vezető bekötő útnál végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+      "publication_date": "2026-08-28",
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_6_vj.pdf",
+      "authority": "Vas Vármegyei Kormányhivatal"
+    },
+    {
+      "status": "accepted",
+      "sample_id": "2026_792_6_L/2_2",
+      "settlement": null,
+      "location": "Kőszeg, Hermina utca",
+      "lat": 47.38111,
+      "lon": 16.52928,
+      "start": "2026-08-11 19:56",
+      "end": "2026-08-11 23:56",
+      "measurement_type": "air",
+      "concentration_fibres_m3": 24026,
+      "concentration_fibres_cm3": 0.024026,
+      "below_detection_limit": false,
+      "unit": "rost/m3",
+      "raw_concentration": "24026",
+      "parser": "modern_table_row",
+      "confidence": "high",
+      "source_title": "A Kőszeg, Hermina utca, Borostyán Gyermekotthonhoz vezető bekötő útnál végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+      "publication_date": "2026-08-28",
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_6_vj.pdf",
+      "authority": "Vas Vármegyei Kormányhivatal"
+    },
+    {
+      "status": "accepted",
+      "sample_id": "2026_792_6_L/2_3",
+      "settlement": null,
+      "location": "Kőszeg, Hermina utca",
+      "lat": 47.38111,
+      "lon": 16.52928,
+      "start": "2026-08-11 23:59",
+      "end": "2026-08-12 07:59",
+      "measurement_type": "air",
+      "concentration_fibres_m3": 8593,
+      "concentration_fibres_cm3": 0.008593,
+      "below_detection_limit": false,
+      "unit": "rost/m3",
+      "raw_concentration": "8593",
+      "parser": "modern_table_row",
+      "confidence": "high",
+      "source_title": "A Kőszeg, Hermina utca, Borostyán Gyermekotthonhoz vezető bekötő útnál végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+      "publication_date": "2026-08-28",
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_6_vj.pdf",
+      "authority": "Vas Vármegyei Kormányhivatal"
+    },
+    {
+      "status": "accepted",
+      "sample_id": "2026_792_6_L/2_4",
+      "settlement": null,
+      "location": "Kőszeg, Hermina utca",
+      "lat": 47.38111,
+      "lon": 16.52928,
+      "start": "2026-08-12 08:05",
+      "end": "2026-08-12 12:05",
+      "measurement_type": "air",
+      "concentration_fibres_m3": 67670,
+      "concentration_fibres_cm3": 0.06767,
+      "below_detection_limit": false,
+      "unit": "rost/m3",
+      "raw_concentration": "67670",
+      "parser": "modern_table_row",
+      "confidence": "high",
+      "source_title": "A Kőszeg, Hermina utca, Borostyán Gyermekotthonhoz vezető bekötő útnál végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+      "publication_date": "2026-08-28",
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_6_vj.pdf",
+      "authority": "Vas Vármegyei Kormányhivatal"
+    },
+    {
+      "status": "accepted",
+      "sample_id": "2026_792_6_L/2_5",
+      "settlement": null,
+      "location": "Kőszeg, Hermina utca",
+      "lat": 47.38111,
+      "lon": 16.52928,
+      "start": "2026-08-12 12:08",
+      "end": "2026-08-12 16:08",
+      "measurement_type": "air",
+      "concentration_fibres_m3": 76254,
+      "concentration_fibres_cm3": 0.076254,
+      "below_detection_limit": false,
+      "unit": "rost/m3",
+      "raw_concentration": "76254",
+      "parser": "modern_table_row",
+      "confidence": "high",
+      "source_title": "A Kőszeg, Hermina utca, Borostyán Gyermekotthonhoz vezető bekötő útnál végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+      "publication_date": "2026-08-28",
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_6_vj.pdf",
+      "authority": "Vas Vármegyei Kormányhivatal"
     }
   ],
   "review_queue": [
@@ -153,2122 +1033,6 @@
       "source_title": "Szombathely Oladi plató legfrissebb mérési eredmények",
       "publication_date": "2026-07-20",
       "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/szombathely-oladi-plato-varosresz.pdf",
-      "authority": "Vas Vármegyei Kormányhivatal"
-    },
-    {
-      "status": "review",
-      "sample_id": "2026_792_5_L/1_1",
-      "settlement": null,
-      "location": "Szombathely, Síp utca",
-      "lat": 47.23494,
-      "lon": 16.58595,
-      "start": "2026-07-30 11:39",
-      "end": "2026-07-30 14:39",
-      "measurement_type": "air",
-      "reason": "modern_table_requires_column_mapping",
-      "local_air_markers": 1,
-      "numeric_candidates": [
-        {
-          "raw": "16.58595",
-          "value": 16.58595
-        },
-        {
-          "raw": "8,18",
-          "value": 8.18
-        },
-        {
-          "raw": "1",
-          "value": 1
-        },
-        {
-          "raw": "520",
-          "value": 520
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "17,963",
-          "value": 17.963
-        }
-      ],
-      "context": "2026_792_5_L/1_1 Szombathely, Síp utca GPS-koordináták (WGS84): 47.23494, 16.58595 11:39 2026.07.30. 14:39 2026.07.30. 8,18 Környezeti levegő vizsgálat 1 520 Átszívott levegő mennyisége (m 3 ): 1,472; Kezdő(m 3 ): 16,491; Záró(m 3 ): 17,963",
-      "source_title": "A Szombathely, Oladi Platón 2026. július 30-31-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
-      "publication_date": "2026-08-18",
-      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf",
-      "authority": "Vas Vármegyei Kormányhivatal"
-    },
-    {
-      "status": "review",
-      "sample_id": "2026_792_5_L/1_2",
-      "settlement": null,
-      "location": "Szombathely, Síp utca",
-      "lat": 47.23494,
-      "lon": 16.58595,
-      "start": "2026-07-30 14:44",
-      "end": "2026-07-30 17:44",
-      "measurement_type": "air",
-      "reason": "modern_table_requires_column_mapping",
-      "local_air_markers": 0,
-      "numeric_candidates": [
-        {
-          "raw": "16.58595",
-          "value": 16.58595
-        },
-        {
-          "raw": "8,29",
-          "value": 8.29
-        },
-        {
-          "raw": "500",
-          "value": 500
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "19,456",
-          "value": 19.456
-        }
-      ],
-      "context": "2026_792_5_L/1_2 Szombathely, Síp utca GPS-koordináták (WGS84): 47.23494, 16.58595 14:44 2026.07.30. 17:44 2026.07.30. 8,29 500 Átszívott levegő mennyisége (m 3 ): 1,493; Kezdő(m 3 ): 17,963; Záró(m 3 ): 19,456",
-      "source_title": "A Szombathely, Oladi Platón 2026. július 30-31-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
-      "publication_date": "2026-08-18",
-      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf",
-      "authority": "Vas Vármegyei Kormányhivatal"
-    },
-    {
-      "status": "review",
-      "sample_id": "2026_792_5_L/1_3",
-      "settlement": null,
-      "location": "Szombathely, Síp utca",
-      "lat": 47.23494,
-      "lon": 16.58595,
-      "start": "2026-07-30 17:50",
-      "end": "2026-07-30 20:50",
-      "measurement_type": "air",
-      "reason": "modern_table_requires_column_mapping",
-      "local_air_markers": 0,
-      "numeric_candidates": [
-        {
-          "raw": "16.58595",
-          "value": 16.58595
-        },
-        {
-          "raw": "8,30",
-          "value": 8.3
-        },
-        {
-          "raw": "250",
-          "value": 250
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "20,950",
-          "value": 20.95
-        }
-      ],
-      "context": "2026_792_5_L/1_3 Szombathely, Síp utca GPS-koordináták (WGS84): 47.23494, 16.58595 17:50 2026.07.30. 20:50 2026.07.30. 8,30 250 Átszívott levegő mennyisége (m 3 ): 1,494; Kezdő(m 3 ): 19,456; Záró(m 3 ): 20,950",
-      "source_title": "A Szombathely, Oladi Platón 2026. július 30-31-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
-      "publication_date": "2026-08-18",
-      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf",
-      "authority": "Vas Vármegyei Kormányhivatal"
-    },
-    {
-      "status": "review",
-      "sample_id": "2026_792_5_L/1_4",
-      "settlement": null,
-      "location": "Szombathely, Síp utca",
-      "lat": 47.23494,
-      "lon": 16.58595,
-      "start": "2026-07-30 20:54",
-      "end": "2026-07-30 23:54",
-      "measurement_type": "air",
-      "reason": "modern_table_requires_column_mapping",
-      "local_air_markers": 0,
-      "numeric_candidates": [
-        {
-          "raw": "16.58595",
-          "value": 16.58595
-        },
-        {
-          "raw": "8,22",
-          "value": 8.22
-        },
-        {
-          "raw": "1",
-          "value": 1
-        },
-        {
-          "raw": "008",
-          "value": 8
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "22,430",
-          "value": 22.43
-        }
-      ],
-      "context": "2026_792_5_L/1_4 Szombathely, Síp utca GPS-koordináták (WGS84): 47.23494, 16.58595 20:54 2026.07.30. 23:54 2026.07.30. 8,22 1 008 Átszívott levegő mennyisége (m 3 ): 1,480; Kezdő(m 3 ): 20,950; Záró(m 3 ): 22,430",
-      "source_title": "A Szombathely, Oladi Platón 2026. július 30-31-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
-      "publication_date": "2026-08-18",
-      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf",
-      "authority": "Vas Vármegyei Kormányhivatal"
-    },
-    {
-      "status": "review",
-      "sample_id": "2026_792_5_L/1_5",
-      "settlement": null,
-      "location": "Szombathely, Síp utca",
-      "lat": 47.23494,
-      "lon": 16.58595,
-      "start": "2026-07-30 23:58",
-      "end": "2026-07-31 02:58",
-      "measurement_type": "air",
-      "reason": "modern_table_requires_column_mapping",
-      "local_air_markers": 0,
-      "numeric_candidates": [
-        {
-          "raw": "16.58595",
-          "value": 16.58595
-        },
-        {
-          "raw": "8,41",
-          "value": 8.41
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "23,943",
-          "value": 23.943
-        }
-      ],
-      "context": "2026_792_5_L/1_5 Szombathely, Síp utca GPS-koordináták (WGS84): 47.23494, 16.58595 23:58 2026.07.30. 02:58 2026.07.31. 8,41 < 100* Átszívott levegő mennyisége (m 3 ): 1,513; Kezdő(m 3 ): 22,430; Záró(m 3 ): 23,943",
-      "source_title": "A Szombathely, Oladi Platón 2026. július 30-31-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
-      "publication_date": "2026-08-18",
-      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf",
-      "authority": "Vas Vármegyei Kormányhivatal"
-    },
-    {
-      "status": "review",
-      "sample_id": "2026_792_5_L/1_6",
-      "settlement": null,
-      "location": "Szombathely, Síp utca",
-      "lat": 47.23494,
-      "lon": 16.58595,
-      "start": "2026-07-31 03:04",
-      "end": "2026-07-31 06:04",
-      "measurement_type": "air",
-      "reason": "modern_table_requires_column_mapping",
-      "local_air_markers": 0,
-      "numeric_candidates": [
-        {
-          "raw": "16.58595",
-          "value": 16.58595
-        },
-        {
-          "raw": "8,12",
-          "value": 8.12
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "25,405",
-          "value": 25.405
-        }
-      ],
-      "context": "2026_792_5_L/1_6 Szombathely, Síp utca GPS-koordináták (WGS84): 47.23494, 16.58595 03:04 2026.07.31. 06:04 2026.07.31. 8,12 < 100* Átszívott levegő mennyisége (m 3 ): 1,462; Kezdő(m 3 ): 23,943; Záró(m 3 ): 25,405",
-      "source_title": "A Szombathely, Oladi Platón 2026. július 30-31-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
-      "publication_date": "2026-08-18",
-      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf",
-      "authority": "Vas Vármegyei Kormányhivatal"
-    },
-    {
-      "status": "review",
-      "sample_id": "2026_792_5_L/1_7",
-      "settlement": null,
-      "location": "Szombathely, Síp utca",
-      "lat": 47.23494,
-      "lon": 16.58595,
-      "start": "2026-07-31 06:08",
-      "end": "2026-07-31 09:08",
-      "measurement_type": "air",
-      "reason": "modern_table_requires_column_mapping",
-      "local_air_markers": 0,
-      "numeric_candidates": [
-        {
-          "raw": "16.58595",
-          "value": 16.58595
-        },
-        {
-          "raw": "8,27",
-          "value": 8.27
-        },
-        {
-          "raw": "250",
-          "value": 250
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "26,894",
-          "value": 26.894
-        }
-      ],
-      "context": "2026_792_5_L/1_7 Szombathely, Síp utca GPS-koordináták (WGS84): 47.23494, 16.58595 06:08 2026.07.31. 09:08 2026.07.31. 8,27 250 Átszívott levegő mennyisége (m 3 ): 1,489; Kezdő(m 3 ): 25,405; Záró(m 3 ): 26,894",
-      "source_title": "A Szombathely, Oladi Platón 2026. július 30-31-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
-      "publication_date": "2026-08-18",
-      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf",
-      "authority": "Vas Vármegyei Kormányhivatal"
-    },
-    {
-      "status": "review",
-      "sample_id": "2026_792_5_L/1_8",
-      "settlement": null,
-      "location": "Szombathely, Síp utca",
-      "lat": 47.23494,
-      "lon": 16.58595,
-      "start": "2026-07-31 09:16",
-      "end": "2026-07-31 12:16",
-      "measurement_type": "air",
-      "reason": "modern_table_requires_column_mapping",
-      "local_air_markers": 0,
-      "numeric_candidates": [
-        {
-          "raw": "16.58595",
-          "value": 16.58595
-        },
-        {
-          "raw": "7,82",
-          "value": 7.82
-        },
-        {
-          "raw": "1",
-          "value": 1
-        },
-        {
-          "raw": "060",
-          "value": 60
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "28,301",
-          "value": 28.301
-        },
-        {
-          "raw": "8",
-          "value": 8
-        }
-      ],
-      "context": "2026_792_5_L/1_8 Szombathely, Síp utca GPS-koordináták (WGS84): 47.23494, 16.58595 09:16 2026.07.31. 12:16 2026.07.31. 7,82 1 060 Átszívott levegő mennyisége (m 3 ): 1,407; Kezdő(m 3 ): 26,894; Záró(m 3 ): 28,301 *: a módszer alsó méréshatára A mérési eredmények csak az adott mintavételi körülmények között vett 2026_792_5_L/1_1 - 2026_792_5_L/1_8 számú 8 db mintára vonatkoznak. vas_varmegyei_kormanyhivatal_al_2026_792_5_vj 3/5. oldal szrjkv v2 8. kiadás 2026.04.07. Minta száma Mintavételi hely Mv. kezd. Mv. vége Térfogatáram (l/perc) Mérés típusa Koncentr. (rost/m3 )",
-      "source_title": "A Szombathely, Oladi Platón 2026. július 30-31-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
-      "publication_date": "2026-08-18",
-      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf",
-      "authority": "Vas Vármegyei Kormányhivatal"
-    },
-    {
-      "status": "review",
-      "sample_id": "2026_792_5_L/2_1",
-      "settlement": null,
-      "location": "Szombathely, Sáfrány utca",
-      "lat": 47.231,
-      "lon": 16.58349,
-      "start": "2026-07-30 11:26",
-      "end": "2026-07-30 14:26",
-      "measurement_type": "air",
-      "reason": "modern_table_requires_column_mapping",
-      "local_air_markers": 1,
-      "numeric_candidates": [
-        {
-          "raw": "16.58349",
-          "value": 16.58349
-        },
-        {
-          "raw": "8,23",
-          "value": 8.23
-        },
-        {
-          "raw": "503",
-          "value": 503
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "71,285",
-          "value": 71.285
-        }
-      ],
-      "context": "2026_792_5_L/2_1 Szombathely, Sáfrány utca GPS-koordináták (WGS84): 47.23100, 16.58349 11:26 2026.07.30. 14:26 2026.07.30. 8,23 Környezeti levegő vizsgálat 503 Átszívott levegő mennyisége (m 3 ): 1,482; Kezdő(m 3 ): 69,803; Záró(m 3 ): 71,285",
-      "source_title": "A Szombathely, Oladi Platón 2026. július 30-31-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
-      "publication_date": "2026-08-18",
-      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf",
-      "authority": "Vas Vármegyei Kormányhivatal"
-    },
-    {
-      "status": "review",
-      "sample_id": "2026_792_5_L/2_2",
-      "settlement": null,
-      "location": "Szombathely, Sáfrány utca",
-      "lat": 47.231,
-      "lon": 16.58349,
-      "start": "2026-07-30 14:33",
-      "end": "2026-07-30 17:33",
-      "measurement_type": "air",
-      "reason": "modern_table_requires_column_mapping",
-      "local_air_markers": 0,
-      "numeric_candidates": [
-        {
-          "raw": "16.58349",
-          "value": 16.58349
-        },
-        {
-          "raw": "8,06",
-          "value": 8.06
-        },
-        {
-          "raw": "2",
-          "value": 2
-        },
-        {
-          "raw": "056",
-          "value": 56
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "72,736",
-          "value": 72.736
-        }
-      ],
-      "context": "2026_792_5_L/2_2 Szombathely, Sáfrány utca GPS-koordináták (WGS84): 47.23100, 16.58349 14:33 2026.07.30. 17:33 2026.07.30. 8,06 2 056 Átszívott levegő mennyisége (m 3 ): 1,451; Kezdő(m 3 ): 71,285; Záró(m 3 ): 72,736",
-      "source_title": "A Szombathely, Oladi Platón 2026. július 30-31-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
-      "publication_date": "2026-08-18",
-      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf",
-      "authority": "Vas Vármegyei Kormányhivatal"
-    },
-    {
-      "status": "review",
-      "sample_id": "2026_792_5_L/2_3",
-      "settlement": null,
-      "location": "Szombathely, Sáfrány utca",
-      "lat": 47.231,
-      "lon": 16.58349,
-      "start": "2026-07-30 17:46",
-      "end": "2026-07-30 20:46",
-      "measurement_type": "air",
-      "reason": "modern_table_requires_column_mapping",
-      "local_air_markers": 0,
-      "numeric_candidates": [
-        {
-          "raw": "16.58349",
-          "value": 16.58349
-        },
-        {
-          "raw": "8,06",
-          "value": 8.06
-        },
-        {
-          "raw": "257",
-          "value": 257
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "74,187",
-          "value": 74.187
-        }
-      ],
-      "context": "2026_792_5_L/2_3 Szombathely, Sáfrány utca GPS-koordináták (WGS84): 47.23100, 16.58349 17:46 2026.07.30. 20:46 2026.07.30. 8,06 257 Átszívott levegő mennyisége (m 3 ): 1,451; Kezdő(m 3 ): 72,736; Záró(m 3 ): 74,187",
-      "source_title": "A Szombathely, Oladi Platón 2026. július 30-31-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
-      "publication_date": "2026-08-18",
-      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf",
-      "authority": "Vas Vármegyei Kormányhivatal"
-    },
-    {
-      "status": "review",
-      "sample_id": "2026_792_5_L/2_4",
-      "settlement": null,
-      "location": "Szombathely, Sáfrány utca",
-      "lat": 47.231,
-      "lon": 16.58349,
-      "start": "2026-07-30 20:52",
-      "end": "2026-07-30 23:52",
-      "measurement_type": "air",
-      "reason": "modern_table_requires_column_mapping",
-      "local_air_markers": 0,
-      "numeric_candidates": [
-        {
-          "raw": "16.58349",
-          "value": 16.58349
-        },
-        {
-          "raw": "8,02",
-          "value": 8.02
-        },
-        {
-          "raw": "1",
-          "value": 1
-        },
-        {
-          "raw": "551",
-          "value": 551
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "75,630",
-          "value": 75.63
-        }
-      ],
-      "context": "2026_792_5_L/2_4 Szombathely, Sáfrány utca GPS-koordináták (WGS84): 47.23100, 16.58349 20:52 2026.07.30. 23:52 2026.07.30. 8,02 1 551 Átszívott levegő mennyisége (m 3 ): 1,443; Kezdő(m 3 ): 74,187; Záró(m 3 ): 75,630",
-      "source_title": "A Szombathely, Oladi Platón 2026. július 30-31-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
-      "publication_date": "2026-08-18",
-      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf",
-      "authority": "Vas Vármegyei Kormányhivatal"
-    },
-    {
-      "status": "review",
-      "sample_id": "2026_792_5_L/2_5",
-      "settlement": null,
-      "location": "Szombathely, Sáfrány utca",
-      "lat": 47.231,
-      "lon": 16.58349,
-      "start": "2026-07-30 23:58",
-      "end": "2026-07-31 02:58",
-      "measurement_type": "air",
-      "reason": "modern_table_requires_column_mapping",
-      "local_air_markers": 0,
-      "numeric_candidates": [
-        {
-          "raw": "16.58349",
-          "value": 16.58349
-        },
-        {
-          "raw": "8,00",
-          "value": 8
-        },
-        {
-          "raw": "1",
-          "value": 1
-        },
-        {
-          "raw": "554",
-          "value": 554
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "77,070",
-          "value": 77.07
-        }
-      ],
-      "context": "2026_792_5_L/2_5 Szombathely, Sáfrány utca GPS-koordináták (WGS84): 47.23100, 16.58349 23:58 2026.07.30. 02:58 2026.07.31. 8,00 1 554 Átszívott levegő mennyisége (m 3 ): 1,440; Kezdő(m 3 ): 75,630; Záró(m 3 ): 77,070",
-      "source_title": "A Szombathely, Oladi Platón 2026. július 30-31-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
-      "publication_date": "2026-08-18",
-      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf",
-      "authority": "Vas Vármegyei Kormányhivatal"
-    },
-    {
-      "status": "review",
-      "sample_id": "2026_792_5_L/2_6",
-      "settlement": null,
-      "location": "Szombathely, Sáfrány utca",
-      "lat": 47.231,
-      "lon": 16.58349,
-      "start": "2026-07-31 03:07",
-      "end": "2026-07-31 06:07",
-      "measurement_type": "air",
-      "reason": "modern_table_requires_column_mapping",
-      "local_air_markers": 0,
-      "numeric_candidates": [
-        {
-          "raw": "16.58349",
-          "value": 16.58349
-        },
-        {
-          "raw": "7,98",
-          "value": 7.98
-        },
-        {
-          "raw": "2",
-          "value": 2
-        },
-        {
-          "raw": "595",
-          "value": 595
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "78,507",
-          "value": 78.507
-        }
-      ],
-      "context": "2026_792_5_L/2_6 Szombathely, Sáfrány utca GPS-koordináták (WGS84): 47.23100, 16.58349 03:07 2026.07.31. 06:07 2026.07.31. 7,98 2 595 Átszívott levegő mennyisége (m 3 ): 1,437; Kezdő(m 3 ): 77,070; Záró(m 3 ): 78,507",
-      "source_title": "A Szombathely, Oladi Platón 2026. július 30-31-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
-      "publication_date": "2026-08-18",
-      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf",
-      "authority": "Vas Vármegyei Kormányhivatal"
-    },
-    {
-      "status": "review",
-      "sample_id": "2026_792_5_L/2_7",
-      "settlement": null,
-      "location": "Szombathely, Sáfrány utca",
-      "lat": 47.231,
-      "lon": 16.58349,
-      "start": "2026-07-31 06:13",
-      "end": "2026-07-31 09:13",
-      "measurement_type": "air",
-      "reason": "modern_table_requires_column_mapping",
-      "local_air_markers": 0,
-      "numeric_candidates": [
-        {
-          "raw": "16.58349",
-          "value": 16.58349
-        },
-        {
-          "raw": "7,99",
-          "value": 7.99
-        },
-        {
-          "raw": "1",
-          "value": 1
-        },
-        {
-          "raw": "555",
-          "value": 555
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "79,946",
-          "value": 79.946
-        }
-      ],
-      "context": "2026_792_5_L/2_7 Szombathely, Sáfrány utca GPS-koordináták (WGS84): 47.23100, 16.58349 06:13 2026.07.31. 09:13 2026.07.31. 7,99 1 555 Átszívott levegő mennyisége (m 3 ): 1,439; Kezdő(m 3 ): 78,507; Záró(m 3 ): 79,946",
-      "source_title": "A Szombathely, Oladi Platón 2026. július 30-31-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
-      "publication_date": "2026-08-18",
-      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf",
-      "authority": "Vas Vármegyei Kormányhivatal"
-    },
-    {
-      "status": "review",
-      "sample_id": "2026_792_5_L/2_8",
-      "settlement": null,
-      "location": "Szombathely, Sáfrány utca",
-      "lat": 47.231,
-      "lon": 16.58349,
-      "start": "2026-07-31 09:25",
-      "end": "2026-07-31 12:25",
-      "measurement_type": "air",
-      "reason": "modern_table_requires_column_mapping",
-      "local_air_markers": 0,
-      "numeric_candidates": [
-        {
-          "raw": "16.58349",
-          "value": 16.58349
-        },
-        {
-          "raw": "8,01",
-          "value": 8.01
-        },
-        {
-          "raw": "1",
-          "value": 1
-        },
-        {
-          "raw": "553",
-          "value": 553
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "81,387",
-          "value": 81.387
-        },
-        {
-          "raw": "8",
-          "value": 8
-        }
-      ],
-      "context": "2026_792_5_L/2_8 Szombathely, Sáfrány utca GPS-koordináták (WGS84): 47.23100, 16.58349 09:25 2026.07.31. 12:25 2026.07.31. 8,01 1 553 Átszívott levegő mennyisége (m 3 ): 1,441; Kezdő(m 3 ): 79,946; Záró(m 3 ): 81,387 A mérési eredmények csak az adott mintavételi körülmények között vett 2026_792_5_L/2_1 - 2026_792_5_L/2_8 számú 8 db mintára vonatkoznak. Minta száma Mintavételi hely Mv. kezd. Mv. vége Térfogatáram (l/perc) Mérés típusa Koncentr. (rost/m3 )",
-      "source_title": "A Szombathely, Oladi Platón 2026. július 30-31-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
-      "publication_date": "2026-08-18",
-      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf",
-      "authority": "Vas Vármegyei Kormányhivatal"
-    },
-    {
-      "status": "review",
-      "sample_id": "2026_792_5_L/3_1",
-      "settlement": null,
-      "location": "Szombathely, Menta utca",
-      "lat": 47.231854,
-      "lon": 16.578609,
-      "start": "2026-07-30 11:13",
-      "end": "2026-07-30 14:13",
-      "measurement_type": "air",
-      "reason": "modern_table_requires_column_mapping",
-      "local_air_markers": 1,
-      "numeric_candidates": [
-        {
-          "raw": "16.578609",
-          "value": 16.578609
-        },
-        {
-          "raw": "8,14",
-          "value": 8.14
-        },
-        {
-          "raw": "764",
-          "value": 764
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "61,301",
-          "value": 61.301
-        }
-      ],
-      "context": "2026_792_5_L/3_1 Szombathely, Menta utca GPS-koordináták (WGS84): 47.231854, 16.578609 11:13 2026.07.30. 14:13 2026.07.30. 8,14 Környezeti levegő vizsgálat 764 Átszívott levegő mennyisége (m 3 ): 1,465; Kezdő(m 3 ): 59,836; Záró(m 3 ): 61,301",
-      "source_title": "A Szombathely, Oladi Platón 2026. július 30-31-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
-      "publication_date": "2026-08-18",
-      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf",
-      "authority": "Vas Vármegyei Kormányhivatal"
-    },
-    {
-      "status": "review",
-      "sample_id": "2026_792_5_L/3_2",
-      "settlement": null,
-      "location": "Szombathely, Menta utca",
-      "lat": 47.231854,
-      "lon": 16.578609,
-      "start": "2026-07-30 14:18",
-      "end": "2026-07-30 17:18",
-      "measurement_type": "air",
-      "reason": "modern_table_requires_column_mapping",
-      "local_air_markers": 0,
-      "numeric_candidates": [
-        {
-          "raw": "16.578609",
-          "value": 16.578609
-        },
-        {
-          "raw": "8,20",
-          "value": 8.2
-        },
-        {
-          "raw": "758",
-          "value": 758
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "62,777",
-          "value": 62.777
-        }
-      ],
-      "context": "2026_792_5_L/3_2 Szombathely, Menta utca GPS-koordináták (WGS84): 47.231854, 16.578609 14:18 2026.07.30. 17:18 2026.07.30. 8,20 758 Átszívott levegő mennyisége (m 3 ): 1,476; Kezdő(m 3 ): 61,301; Záró(m 3 ): 62,777",
-      "source_title": "A Szombathely, Oladi Platón 2026. július 30-31-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
-      "publication_date": "2026-08-18",
-      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf",
-      "authority": "Vas Vármegyei Kormányhivatal"
-    },
-    {
-      "status": "review",
-      "sample_id": "2026_792_5_L/3_3",
-      "settlement": null,
-      "location": "Szombathely, Menta utca",
-      "lat": 47.231854,
-      "lon": 16.578609,
-      "start": "2026-07-30 17:24",
-      "end": "2026-07-30 20:24",
-      "measurement_type": "air",
-      "reason": "modern_table_requires_column_mapping",
-      "local_air_markers": 0,
-      "numeric_candidates": [
-        {
-          "raw": "16.578609",
-          "value": 16.578609
-        },
-        {
-          "raw": "8,01",
-          "value": 8.01
-        },
-        {
-          "raw": "259",
-          "value": 259
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "64,219",
-          "value": 64.219
-        }
-      ],
-      "context": "2026_792_5_L/3_3 Szombathely, Menta utca GPS-koordináták (WGS84): 47.231854, 16.578609 17:24 2026.07.30. 20:24 2026.07.30. 8,01 259 Átszívott levegő mennyisége (m 3 ): 1,442; Kezdő(m 3 ): 62,777; Záró(m 3 ): 64,219",
-      "source_title": "A Szombathely, Oladi Platón 2026. július 30-31-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
-      "publication_date": "2026-08-18",
-      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf",
-      "authority": "Vas Vármegyei Kormányhivatal"
-    },
-    {
-      "status": "review",
-      "sample_id": "2026_792_5_L/3_4",
-      "settlement": null,
-      "location": "Szombathely, Menta utca",
-      "lat": 47.231854,
-      "lon": 16.578609,
-      "start": "2026-07-30 20:33",
-      "end": "2026-07-30 23:33",
-      "measurement_type": "air",
-      "reason": "modern_table_requires_column_mapping",
-      "local_air_markers": 0,
-      "numeric_candidates": [
-        {
-          "raw": "16.578609",
-          "value": 16.578609
-        },
-        {
-          "raw": "8,09",
-          "value": 8.09
-        },
-        {
-          "raw": "1",
-          "value": 1
-        },
-        {
-          "raw": "280",
-          "value": 280
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "65,676",
-          "value": 65.676
-        }
-      ],
-      "context": "2026_792_5_L/3_4 Szombathely, Menta utca GPS-koordináták (WGS84): 47.231854, 16.578609 20:33 2026.07.30. 23:33 2026.07.30. 8,09 1 280 Átszívott levegő mennyisége (m 3 ): 1,457; Kezdő(m 3 ): 64,219; Záró(m 3 ): 65,676 vas_varmegyei_kormanyhivatal_al_2026_792_5_vj 4/5. oldal szrjkv v2 8. kiadás 2026.04.07.",
-      "source_title": "A Szombathely, Oladi Platón 2026. július 30-31-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
-      "publication_date": "2026-08-18",
-      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf",
-      "authority": "Vas Vármegyei Kormányhivatal"
-    },
-    {
-      "status": "review",
-      "sample_id": "2026_792_5_L/3_5",
-      "settlement": null,
-      "location": "Szombathely, Menta utca",
-      "lat": 47.231854,
-      "lon": 16.578609,
-      "start": "2026-07-30 23:39",
-      "end": "2026-07-31 02:39",
-      "measurement_type": "air",
-      "reason": "modern_table_requires_column_mapping",
-      "local_air_markers": 0,
-      "numeric_candidates": [
-        {
-          "raw": "16.578609",
-          "value": 16.578609
-        },
-        {
-          "raw": "7,98",
-          "value": 7.98
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "67,113",
-          "value": 67.113
-        }
-      ],
-      "context": "2026_792_5_L/3_5 Szombathely, Menta utca GPS-koordináták (WGS84): 47.231854, 16.578609 23:39 2026.07.30. 02:39 2026.07.31. 7,98 < 100* Átszívott levegő mennyisége (m 3 ): 1,437; Kezdő(m 3 ): 65,676; Záró(m 3 ): 67,113",
-      "source_title": "A Szombathely, Oladi Platón 2026. július 30-31-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
-      "publication_date": "2026-08-18",
-      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf",
-      "authority": "Vas Vármegyei Kormányhivatal"
-    },
-    {
-      "status": "review",
-      "sample_id": "2026_792_5_L/3_6",
-      "settlement": null,
-      "location": "Szombathely, Menta utca",
-      "lat": 47.231854,
-      "lon": 16.578609,
-      "start": "2026-07-31 02:46",
-      "end": "2026-07-31 05:46",
-      "measurement_type": "air",
-      "reason": "modern_table_requires_column_mapping",
-      "local_air_markers": 0,
-      "numeric_candidates": [
-        {
-          "raw": "16.578609",
-          "value": 16.578609
-        },
-        {
-          "raw": "8,28",
-          "value": 8.28
-        },
-        {
-          "raw": "1",
-          "value": 1
-        },
-        {
-          "raw": "751",
-          "value": 751
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "68,604",
-          "value": 68.604
-        }
-      ],
-      "context": "2026_792_5_L/3_6 Szombathely, Menta utca GPS-koordináták (WGS84): 47.231854, 16.578609 02:46 2026.07.31. 05:46 2026.07.31. 8,28 1 751 Átszívott levegő mennyisége (m 3 ): 1,491; Kezdő(m 3 ): 67,113; Záró(m 3 ): 68,604",
-      "source_title": "A Szombathely, Oladi Platón 2026. július 30-31-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
-      "publication_date": "2026-08-18",
-      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf",
-      "authority": "Vas Vármegyei Kormányhivatal"
-    },
-    {
-      "status": "review",
-      "sample_id": "2026_792_5_L/3_7",
-      "settlement": null,
-      "location": "Szombathely, Menta utca",
-      "lat": 47.231854,
-      "lon": 16.578609,
-      "start": "2026-07-31 05:53",
-      "end": "2026-07-31 08:53",
-      "measurement_type": "air",
-      "reason": "modern_table_requires_column_mapping",
-      "local_air_markers": 0,
-      "numeric_candidates": [
-        {
-          "raw": "16.578609",
-          "value": 16.578609
-        },
-        {
-          "raw": "8,18",
-          "value": 8.18
-        },
-        {
-          "raw": "1",
-          "value": 1
-        },
-        {
-          "raw": "772",
-          "value": 772
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "70,077",
-          "value": 70.077
-        }
-      ],
-      "context": "2026_792_5_L/3_7 Szombathely, Menta utca GPS-koordináták (WGS84): 47.231854, 16.578609 05:53 2026.07.31. 08:53 2026.07.31. 8,18 1 772 Átszívott levegő mennyisége (m 3 ): 1,473; Kezdő(m 3 ): 68,604; Záró(m 3 ): 70,077",
-      "source_title": "A Szombathely, Oladi Platón 2026. július 30-31-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
-      "publication_date": "2026-08-18",
-      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf",
-      "authority": "Vas Vármegyei Kormányhivatal"
-    },
-    {
-      "status": "review",
-      "sample_id": "2026_792_5_L/3_8",
-      "settlement": null,
-      "location": "Szombathely, Menta utca",
-      "lat": 47.231854,
-      "lon": 16.578609,
-      "start": "2026-07-31 09:00",
-      "end": "2026-07-31 12:00",
-      "measurement_type": "air",
-      "reason": "modern_table_requires_column_mapping",
-      "local_air_markers": 0,
-      "numeric_candidates": [
-        {
-          "raw": "16.578609",
-          "value": 16.578609
-        },
-        {
-          "raw": "7,78",
-          "value": 7.78
-        },
-        {
-          "raw": "266",
-          "value": 266
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "71,478",
-          "value": 71.478
-        },
-        {
-          "raw": "8",
-          "value": 8
-        }
-      ],
-      "context": "2026_792_5_L/3_8 Szombathely, Menta utca GPS-koordináták (WGS84): 47.231854, 16.578609 09:00 2026.07.31. 12:00 2026.07.31. 7,78 266 Átszívott levegő mennyisége (m 3 ): 1,401; Kezdő(m 3 ): 70,077; Záró(m 3 ): 71,478 *: a módszer alsó méréshatára A mérési eredmények csak az adott mintavételi körülmények között vett 2026_792_5_L/3_1 - 2026_792_5_L/3_8 számú 8 db mintára vonatkoznak. Minta száma Mintavételi hely Mv. kezd. Mv. vége Térfogatáram (l/perc) Mérés típusa Koncentr. (rost/m3 )",
-      "source_title": "A Szombathely, Oladi Platón 2026. július 30-31-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
-      "publication_date": "2026-08-18",
-      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf",
-      "authority": "Vas Vármegyei Kormányhivatal"
-    },
-    {
-      "status": "review",
-      "sample_id": "2026_792_5_L/4_1",
-      "settlement": null,
-      "location": "Szombathely, Márton Áron utca",
-      "lat": 47.232472,
-      "lon": 16.577167,
-      "start": "2026-07-30 10:55",
-      "end": "2026-07-30 13:55",
-      "measurement_type": "air",
-      "reason": "modern_table_requires_column_mapping",
-      "local_air_markers": 1,
-      "numeric_candidates": [
-        {
-          "raw": "16.577167",
-          "value": 16.577167
-        },
-        {
-          "raw": "8,18",
-          "value": 8.18
-        },
-        {
-          "raw": "4",
-          "value": 4
-        },
-        {
-          "raw": "814",
-          "value": 814
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "9,192",
-          "value": 9.192
-        }
-      ],
-      "context": "2026_792_5_L/4_1 Szombathely, Márton Áron utca GPS-koordináták (WGS84): 47.232472, 16.577167 10:55 2026.07.30. 13:55 2026.07.30. 8,18 Környezeti levegő vizsgálat 4 814 Átszívott levegő mennyisége (m 3 ): 1,472; Kezdő(m 3 ): 7,720; Záró(m 3 ): 9,192",
-      "source_title": "A Szombathely, Oladi Platón 2026. július 30-31-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
-      "publication_date": "2026-08-18",
-      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf",
-      "authority": "Vas Vármegyei Kormányhivatal"
-    },
-    {
-      "status": "review",
-      "sample_id": "2026_792_5_L/4_2",
-      "settlement": null,
-      "location": "Szombathely, Márton Áron utca",
-      "lat": 47.232472,
-      "lon": 16.577167,
-      "start": "2026-07-30 14:01",
-      "end": "2026-07-30 17:01",
-      "measurement_type": "air",
-      "reason": "modern_table_requires_column_mapping",
-      "local_air_markers": 0,
-      "numeric_candidates": [
-        {
-          "raw": "16.577167",
-          "value": 16.577167
-        },
-        {
-          "raw": "8,12",
-          "value": 8.12
-        },
-        {
-          "raw": "4",
-          "value": 4
-        },
-        {
-          "raw": "084",
-          "value": 84
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "10,653",
-          "value": 10.653
-        }
-      ],
-      "context": "2026_792_5_L/4_2 Szombathely, Márton Áron utca GPS-koordináták (WGS84): 47.232472, 16.577167 14:01 2026.07.30. 17:01 2026.07.30. 8,12 4 084 Átszívott levegő mennyisége (m 3 ): 1,461; Kezdő(m 3 ): 9,192; Záró(m 3 ): 10,653",
-      "source_title": "A Szombathely, Oladi Platón 2026. július 30-31-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
-      "publication_date": "2026-08-18",
-      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf",
-      "authority": "Vas Vármegyei Kormányhivatal"
-    },
-    {
-      "status": "review",
-      "sample_id": "2026_792_5_L/4_3",
-      "settlement": null,
-      "location": "Szombathely, Márton Áron utca",
-      "lat": 47.232472,
-      "lon": 16.577167,
-      "start": "2026-07-30 17:08",
-      "end": "2026-07-30 20:08",
-      "measurement_type": "air",
-      "reason": "modern_table_requires_column_mapping",
-      "local_air_markers": 0,
-      "numeric_candidates": [
-        {
-          "raw": "16.577167",
-          "value": 16.577167
-        },
-        {
-          "raw": "7,84",
-          "value": 7.84
-        },
-        {
-          "raw": "1",
-          "value": 1
-        },
-        {
-          "raw": "585",
-          "value": 585
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "12,065",
-          "value": 12.065
-        }
-      ],
-      "context": "2026_792_5_L/4_3 Szombathely, Márton Áron utca GPS-koordináták (WGS84): 47.232472, 16.577167 17:08 2026.07.30. 20:08 2026.07.30. 7,84 1 585 Átszívott levegő mennyisége (m 3 ): 1,412; Kezdő(m 3 ): 10,653; Záró(m 3 ): 12,065",
-      "source_title": "A Szombathely, Oladi Platón 2026. július 30-31-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
-      "publication_date": "2026-08-18",
-      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf",
-      "authority": "Vas Vármegyei Kormányhivatal"
-    },
-    {
-      "status": "review",
-      "sample_id": "2026_792_5_L/4_4",
-      "settlement": null,
-      "location": "Szombathely, Márton Áron utca",
-      "lat": 47.232472,
-      "lon": 16.577167,
-      "start": "2026-07-30 20:15",
-      "end": "2026-07-30 23:15",
-      "measurement_type": "air",
-      "reason": "modern_table_requires_column_mapping",
-      "local_air_markers": 0,
-      "numeric_candidates": [
-        {
-          "raw": "16.577167",
-          "value": 16.577167
-        },
-        {
-          "raw": "7,91",
-          "value": 7.91
-        },
-        {
-          "raw": "1",
-          "value": 1
-        },
-        {
-          "raw": "833",
-          "value": 833
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "13,489",
-          "value": 13.489
-        }
-      ],
-      "context": "2026_792_5_L/4_4 Szombathely, Márton Áron utca GPS-koordináták (WGS84): 47.232472, 16.577167 20:15 2026.07.30. 23:15 2026.07.30. 7,91 1 833 Átszívott levegő mennyisége (m 3 ): 1,424; Kezdő(m 3 ): 12,065; Záró(m 3 ): 13,489",
-      "source_title": "A Szombathely, Oladi Platón 2026. július 30-31-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
-      "publication_date": "2026-08-18",
-      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf",
-      "authority": "Vas Vármegyei Kormányhivatal"
-    },
-    {
-      "status": "review",
-      "sample_id": "2026_792_5_L/4_5",
-      "settlement": null,
-      "location": "Szombathely, Márton Áron utca",
-      "lat": 47.232472,
-      "lon": 16.577167,
-      "start": "2026-07-30 23:23",
-      "end": "2026-07-31 02:23",
-      "measurement_type": "air",
-      "reason": "modern_table_requires_column_mapping",
-      "local_air_markers": 0,
-      "numeric_candidates": [
-        {
-          "raw": "16.577167",
-          "value": 16.577167
-        },
-        {
-          "raw": "8,02",
-          "value": 8.02
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "14,932",
-          "value": 14.932
-        }
-      ],
-      "context": "2026_792_5_L/4_5 Szombathely, Márton Áron utca GPS-koordináták (WGS84): 47.232472, 16.577167 23:23 2026.07.30. 02:23 2026.07.31. 8,02 < 100* Átszívott levegő mennyisége (m 3 ): 1,443; Kezdő(m 3 ): 13,489; Záró(m 3 ): 14,932",
-      "source_title": "A Szombathely, Oladi Platón 2026. július 30-31-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
-      "publication_date": "2026-08-18",
-      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf",
-      "authority": "Vas Vármegyei Kormányhivatal"
-    },
-    {
-      "status": "review",
-      "sample_id": "2026_792_5_L/4_6",
-      "settlement": null,
-      "location": "Szombathely, Márton Áron utca",
-      "lat": 47.232472,
-      "lon": 16.577167,
-      "start": "2026-07-31 02:31",
-      "end": "2026-07-31 05:31",
-      "measurement_type": "air",
-      "reason": "modern_table_requires_column_mapping",
-      "local_air_markers": 0,
-      "numeric_candidates": [
-        {
-          "raw": "16.577167",
-          "value": 16.577167
-        },
-        {
-          "raw": "8,06",
-          "value": 8.06
-        },
-        {
-          "raw": "771",
-          "value": 771
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "16,383",
-          "value": 16.383
-        }
-      ],
-      "context": "2026_792_5_L/4_6 Szombathely, Márton Áron utca GPS-koordináták (WGS84): 47.232472, 16.577167 02:31 2026.07.31. 05:31 2026.07.31. 8,06 771 Átszívott levegő mennyisége (m 3 ): 1,451; Kezdő(m 3 ): 14,932; Záró(m 3 ): 16,383",
-      "source_title": "A Szombathely, Oladi Platón 2026. július 30-31-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
-      "publication_date": "2026-08-18",
-      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf",
-      "authority": "Vas Vármegyei Kormányhivatal"
-    },
-    {
-      "status": "review",
-      "sample_id": "2026_792_5_L/4_7",
-      "settlement": null,
-      "location": "Szombathely, Márton Áron utca",
-      "lat": 47.232472,
-      "lon": 16.577167,
-      "start": "2026-07-31 05:36",
-      "end": "2026-07-31 08:36",
-      "measurement_type": "air",
-      "reason": "modern_table_requires_column_mapping",
-      "local_air_markers": 0,
-      "numeric_candidates": [
-        {
-          "raw": "16.577167",
-          "value": 16.577167
-        },
-        {
-          "raw": "8,11",
-          "value": 8.11
-        },
-        {
-          "raw": "2",
-          "value": 2
-        },
-        {
-          "raw": "044",
-          "value": 44
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "17,843",
-          "value": 17.843
-        }
-      ],
-      "context": "2026_792_5_L/4_7 Szombathely, Márton Áron utca GPS-koordináták (WGS84): 47.232472, 16.577167 05:36 2026.07.31. 08:36 2026.07.31. 8,11 2 044 Átszívott levegő mennyisége (m 3 ): 1,460; Kezdő(m 3 ): 16,383; Záró(m 3 ): 17,843",
-      "source_title": "A Szombathely, Oladi Platón 2026. július 30-31-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
-      "publication_date": "2026-08-18",
-      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf",
-      "authority": "Vas Vármegyei Kormányhivatal"
-    },
-    {
-      "status": "review",
-      "sample_id": "2026_792_5_L/4_8",
-      "settlement": null,
-      "location": "Szombathely, Márton Áron utca",
-      "lat": 47.232472,
-      "lon": 16.577167,
-      "start": "2026-07-31 08:40",
-      "end": "2026-07-31 11:40",
-      "measurement_type": "air",
-      "reason": "modern_table_requires_column_mapping",
-      "local_air_markers": 0,
-      "numeric_candidates": [
-        {
-          "raw": "16.577167",
-          "value": 16.577167
-        },
-        {
-          "raw": "8,09",
-          "value": 8.09
-        },
-        {
-          "raw": "2",
-          "value": 2
-        },
-        {
-          "raw": "560",
-          "value": 560
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "19,300",
-          "value": 19.3
-        },
-        {
-          "raw": "8",
-          "value": 8
-        },
-        {
-          "raw": "9400",
-          "value": 9400
-        },
-        {
-          "raw": "4",
-          "value": 4
-        },
-        {
-          "raw": "1",
-          "value": 1
-        },
-        {
-          "raw": "000",
-          "value": 0
-        },
-        {
-          "raw": "24",
-          "value": 24
-        },
-        {
-          "raw": "8",
-          "value": 8
-        },
-        {
-          "raw": "24",
-          "value": 24
-        },
-        {
-          "raw": "574",
-          "value": 574
-        },
-        {
-          "raw": "8",
-          "value": 8
-        },
-        {
-          "raw": "24",
-          "value": 24
-        },
-        {
-          "raw": "1",
-          "value": 1
-        },
-        {
-          "raw": "453",
-          "value": 453
-        },
-        {
-          "raw": "8",
-          "value": 8
-        },
-        {
-          "raw": "24",
-          "value": 24
-        },
-        {
-          "raw": "856",
-          "value": 856
-        },
-        {
-          "raw": "8",
-          "value": 8
-        },
-        {
-          "raw": "24",
-          "value": 24
-        },
-        {
-          "raw": "2",
-          "value": 2
-        },
-        {
-          "raw": "211",
-          "value": 211
-        }
-      ],
-      "context": "2026_792_5_L/4_8 Szombathely, Márton Áron utca GPS-koordináták (WGS84): 47.232472, 16.577167 08:40 2026.07.31. 11:40 2026.07.31. 8,09 2 560 Átszívott levegő mennyisége (m 3 ): 1,457; Kezdő(m 3 ): 17,843; Záró(m 3 ): 19,300 *: a módszer alsó méréshatára A mérési eredmények csak az adott mintavételi körülmények között vett 2026_792_5_L/4_1 - 2026_792_5_L/4_8 számú 8 db mintára vonatkoznak. vas_varmegyei_kormanyhivatal_al_2026_792_5_vj 5/5. oldal szrjkv v2 8. kiadás 2026.04.07. Vizsgálatot végezte: Dr. Biró Máté Vizsgálat időpontja: 2026. 08. 04–13. Vizsgálati szabvány: ISO 14966:2019 Vizsgálati eszközök: SEM /Pásztázó elektronmikroszkóp/ (Thermo Fischer Scientific Phenom XL G3) Üzemviteli és mintavételi paraméterek, megjegyzések: A szervetlen szálló rost (azbesztrost) koncentráció vizsgálatra a 9400 Szombathely, Oladi Plató városrész vizsgálatra kijelölt, összesen 4 mintavételi területén került sor. A vizsgálat célja az volt, hogy a kijelölt területeken, illetve azok közvetlen környezetében megállapításra kerüljön a környezeti levegő aktuális szervetlen szálló rost (azbesztrost) koncentrációja. A mintavételi helyek a helyszínen kerültek kijelölésre, a vonatkozó jogszabályi előírások - különösen a 40/2025. (XII. 19.) NGM rendelet - valamint az ISO 14966:2019 szabvány figyelembevételével, oly módon, hogy a mintavételi pontok megfelelően reprezentálják a kijelölt területek légterének aktuális szervetlen szálló rost (azbesztrost) koncentrációját. A levegőminták laboratóriumi vizsgálati értékelésére az ISO 14966:2019 szabvány alapján került sor. A hatályban lévő a levegőterheltségi szint határértékeiről és a helyhez kötött légszennyező pontforrások kibocsátási határértékeiről szóló 4/2011. (I. 14.) VM rendeletben a környezeti levegő azbesztrost",
-      "source_title": "A Szombathely, Oladi Platón 2026. július 30-31-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
-      "publication_date": "2026-08-18",
-      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_5_vj.pdf",
-      "authority": "Vas Vármegyei Kormányhivatal"
-    },
-    {
-      "status": "review",
-      "sample_id": "2026_792_6_L/1_1",
-      "settlement": null,
-      "location": "Kőszeg, Borostyán Gyermekotthonhoz vezető bekötő út",
-      "lat": 47.3884,
-      "lon": 16.54967,
-      "start": "2026-08-11 16:29",
-      "end": "2026-08-12 00:29",
-      "measurement_type": "air",
-      "reason": "modern_table_requires_column_mapping",
-      "local_air_markers": 1,
-      "numeric_candidates": [
-        {
-          "raw": "16.54967",
-          "value": 16.54967
-        },
-        {
-          "raw": "8,21",
-          "value": 8.21
-        },
-        {
-          "raw": "473",
-          "value": 473
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "42,243",
-          "value": 42.243
-        }
-      ],
-      "context": "2026_792_6_L/1_1 Kőszeg, Borostyán Gyermekotthonhoz vezető bekötő út GPS-koordináták (WGS84): 47.38840, 16.54967 16:29 2026.08.11. 00:29 2026.08.12. 8,21 Környezeti levegő vizsgálat 473 Átszívott levegő mennyisége (m 3 ): 3,940; Kezdő(m 3 ): 38,303; Záró(m 3 ): 42,243",
-      "source_title": "A Kőszeg, Hermina utca, Borostyán Gyermekotthonhoz vezető bekötő útnál végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
-      "publication_date": "2026-08-28",
-      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_6_vj.pdf",
-      "authority": "Vas Vármegyei Kormányhivatal"
-    },
-    {
-      "status": "review",
-      "sample_id": "2026_792_6_L/1_2",
-      "settlement": null,
-      "location": "Kőszeg, Borostyán Gyermekotthonhoz vezető bekötő út",
-      "lat": 47.3884,
-      "lon": 16.54967,
-      "start": "2026-08-12 00:31",
-      "end": "2026-08-12 08:31",
-      "measurement_type": "air",
-      "reason": "modern_table_requires_column_mapping",
-      "local_air_markers": 0,
-      "numeric_candidates": [
-        {
-          "raw": "16.54967",
-          "value": 16.54967
-        },
-        {
-          "raw": "8,25",
-          "value": 8.25
-        },
-        {
-          "raw": "1224",
-          "value": 1224
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "46,203",
-          "value": 46.203
-        }
-      ],
-      "context": "2026_792_6_L/1_2 Kőszeg, Borostyán Gyermekotthonhoz vezető bekötő út GPS-koordináták (WGS84): 47.38840, 16.54967 00:31 2026.08.12. 8:31 2026.08.12. 8,25 1224 Átszívott levegő mennyisége (m 3 ): 3,960; Kezdő(m 3 ): 42,243; Záró(m 3 ): 46,203",
-      "source_title": "A Kőszeg, Hermina utca, Borostyán Gyermekotthonhoz vezető bekötő útnál végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
-      "publication_date": "2026-08-28",
-      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_6_vj.pdf",
-      "authority": "Vas Vármegyei Kormányhivatal"
-    },
-    {
-      "status": "review",
-      "sample_id": "2026_792_6_L/1_3",
-      "settlement": null,
-      "location": "Kőszeg, Borostyán Gyermekotthonhoz vezető bekötő út",
-      "lat": 47.3884,
-      "lon": 16.54967,
-      "start": "2026-08-12 08:40",
-      "end": "2026-08-12 16:40",
-      "measurement_type": "air",
-      "reason": "modern_table_requires_column_mapping",
-      "local_air_markers": 0,
-      "numeric_candidates": [
-        {
-          "raw": "16.54967",
-          "value": 16.54967
-        },
-        {
-          "raw": "8,10",
-          "value": 8.1
-        },
-        {
-          "raw": "2591",
-          "value": 2591
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "50,089",
-          "value": 50.089
-        },
-        {
-          "raw": "3",
-          "value": 3
-        }
-      ],
-      "context": "2026_792_6_L/1_3 Kőszeg, Borostyán Gyermekotthonhoz vezető bekötő út GPS-koordináták (WGS84): 47.38840, 16.54967 8:40 2026.08.12. 16:40 2026.08.12. 8,10 2591 Átszívott levegő mennyisége (m 3 ): 3,886; Kezdő(m 3 ): 46,203; Záró(m 3 ): 50,089 A mérési eredmények csak az adott mintavételi körülmények között vett 2026_792_6_L/1_1 - 2026_792_6_L/1_3 számú 3 db mintára vonatkoznak. Minta száma Mintavételi hely Mv. kezd. Mv. vége Térfogatáram (l/perc) Mérés típusa Koncentr. (rost/m3 )",
-      "source_title": "A Kőszeg, Hermina utca, Borostyán Gyermekotthonhoz vezető bekötő útnál végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
-      "publication_date": "2026-08-28",
-      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_6_vj.pdf",
-      "authority": "Vas Vármegyei Kormányhivatal"
-    },
-    {
-      "status": "review",
-      "sample_id": "2026_792_6_L/2_1",
-      "settlement": null,
-      "location": "Kőszeg, Hermina utca",
-      "lat": 47.38111,
-      "lon": 16.52928,
-      "start": "2026-08-11 15:54",
-      "end": "2026-08-11 19:54",
-      "measurement_type": "air",
-      "reason": "modern_table_requires_column_mapping",
-      "local_air_markers": 1,
-      "numeric_candidates": [
-        {
-          "raw": "16.52928",
-          "value": 16.52928
-        },
-        {
-          "raw": "7,83",
-          "value": 7.83
-        },
-        {
-          "raw": "56340",
-          "value": 56340
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "21,135",
-          "value": 21.135
-        }
-      ],
-      "context": "2026_792_6_L/2_1 Kőszeg, Hermina utca GPS-koordináták (WGS84): 47.38111, 16.52928 15:54 2026.08.11. 19:54 2026.08.11. 7,83 Környezeti levegő vizsgálat 56340 Átszívott levegő mennyisége (m 3 ): 1,880; Kezdő(m 3 ): 19,255; Záró(m 3 ): 21,135",
-      "source_title": "A Kőszeg, Hermina utca, Borostyán Gyermekotthonhoz vezető bekötő útnál végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
-      "publication_date": "2026-08-28",
-      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_6_vj.pdf",
-      "authority": "Vas Vármegyei Kormányhivatal"
-    },
-    {
-      "status": "review",
-      "sample_id": "2026_792_6_L/2_2",
-      "settlement": null,
-      "location": "Kőszeg, Hermina utca",
-      "lat": 47.38111,
-      "lon": 16.52928,
-      "start": "2026-08-11 19:56",
-      "end": "2026-08-11 23:56",
-      "measurement_type": "air",
-      "reason": "modern_table_requires_column_mapping",
-      "local_air_markers": 0,
-      "numeric_candidates": [
-        {
-          "raw": "16.52928",
-          "value": 16.52928
-        },
-        {
-          "raw": "7,92",
-          "value": 7.92
-        },
-        {
-          "raw": "24026",
-          "value": 24026
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "23,035",
-          "value": 23.035
-        }
-      ],
-      "context": "2026_792_6_L/2_2 Kőszeg, Hermina utca GPS-koordináták (WGS84): 47.38111, 16.52928 19:56 2026.08.11. 23:56 2026.08.11. 7,92 24026 Átszívott levegő mennyisége (m 3 ): 1,900; Kezdő(m 3 ): 21,135; Záró(m 3 ): 23,035",
-      "source_title": "A Kőszeg, Hermina utca, Borostyán Gyermekotthonhoz vezető bekötő útnál végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
-      "publication_date": "2026-08-28",
-      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_6_vj.pdf",
-      "authority": "Vas Vármegyei Kormányhivatal"
-    },
-    {
-      "status": "review",
-      "sample_id": "2026_792_6_L/2_3",
-      "settlement": null,
-      "location": "Kőszeg, Hermina utca",
-      "lat": 47.38111,
-      "lon": 16.52928,
-      "start": "2026-08-11 23:59",
-      "end": "2026-08-12 07:59",
-      "measurement_type": "air",
-      "reason": "modern_table_requires_column_mapping",
-      "local_air_markers": 0,
-      "numeric_candidates": [
-        {
-          "raw": "16.52928",
-          "value": 16.52928
-        },
-        {
-          "raw": "7,81",
-          "value": 7.81
-        },
-        {
-          "raw": "8593",
-          "value": 8593
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "26,785",
-          "value": 26.785
-        }
-      ],
-      "context": "2026_792_6_L/2_3 Kőszeg, Hermina utca GPS-koordináták (WGS84): 47.38111, 16.52928 23:59 2026.08.11. 7:59 2026.08.12. 7,81 8593 Átszívott levegő mennyisége (m 3 ): 3,750; Kezdő(m 3 ): 23,035; Záró(m 3 ): 26,785 vas_varmegyei_kormanyhivatal_al_2026_792_6_vj 3/3. oldal szrjkv v2 8. kiadás 2026.04.07.",
-      "source_title": "A Kőszeg, Hermina utca, Borostyán Gyermekotthonhoz vezető bekötő útnál végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
-      "publication_date": "2026-08-28",
-      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_6_vj.pdf",
-      "authority": "Vas Vármegyei Kormányhivatal"
-    },
-    {
-      "status": "review",
-      "sample_id": "2026_792_6_L/2_4",
-      "settlement": null,
-      "location": "Kőszeg, Hermina utca",
-      "lat": 47.38111,
-      "lon": 16.52928,
-      "start": "2026-08-12 08:05",
-      "end": "2026-08-12 12:05",
-      "measurement_type": "air",
-      "reason": "modern_table_requires_column_mapping",
-      "local_air_markers": 0,
-      "numeric_candidates": [
-        {
-          "raw": "16.52928",
-          "value": 16.52928
-        },
-        {
-          "raw": "8,08",
-          "value": 8.08
-        },
-        {
-          "raw": "67670",
-          "value": 67670
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "28,725",
-          "value": 28.725
-        }
-      ],
-      "context": "2026_792_6_L/2_4 Kőszeg, Hermina utca GPS-koordináták (WGS84): 47.38111, 16.52928 8:05 2026.08.12. 12:05 2026.08.12. 8,08 67670 Átszívott levegő mennyisége (m 3 ): 1,940; Kezdő(m 3 ): 26,785; Záró(m 3 ): 28,725",
-      "source_title": "A Kőszeg, Hermina utca, Borostyán Gyermekotthonhoz vezető bekötő útnál végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
-      "publication_date": "2026-08-28",
-      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_6_vj.pdf",
-      "authority": "Vas Vármegyei Kormányhivatal"
-    },
-    {
-      "status": "review",
-      "sample_id": "2026_792_6_L/2_5",
-      "settlement": null,
-      "location": "Kőszeg, Hermina utca",
-      "lat": 47.38111,
-      "lon": 16.52928,
-      "start": "2026-08-12 12:08",
-      "end": "2026-08-12 16:08",
-      "measurement_type": "air",
-      "reason": "modern_table_requires_column_mapping",
-      "local_air_markers": 0,
-      "numeric_candidates": [
-        {
-          "raw": "16.52928",
-          "value": 16.52928
-        },
-        {
-          "raw": "7,66",
-          "value": 7.66
-        },
-        {
-          "raw": "76254",
-          "value": 76254
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "30,564",
-          "value": 30.564
-        },
-        {
-          "raw": "5",
-          "value": 5
-        },
-        {
-          "raw": "2",
-          "value": 2
-        },
-        {
-          "raw": "1",
-          "value": 1
-        },
-        {
-          "raw": "000",
-          "value": 0
-        },
-        {
-          "raw": "24",
-          "value": 24
-        },
-        {
-          "raw": "3",
-          "value": 3
-        },
-        {
-          "raw": "24",
-          "value": 24
-        },
-        {
-          "raw": "1430",
-          "value": 1430
-        },
-        {
-          "raw": "5",
-          "value": 5
-        },
-        {
-          "raw": "24",
-          "value": 24
-        },
-        {
-          "raw": "40246",
-          "value": 40246
-        }
-      ],
-      "context": "2026_792_6_L/2_5 Kőszeg, Hermina utca GPS-koordináták (WGS84): 47.38111, 16.52928 12:08 2026.08.12. 16:08 2026.08.12. 7,66 76254 Átszívott levegő mennyisége (m 3 ): 1,839; Kezdő(m 3 ): 28,725; Záró(m 3 ): 30,564 A mérési eredmények csak az adott mintavételi körülmények között vett 2026_792_6_L/2_1 - 2026_792_6_L/2_5 számú 5 db mintára vonatkoznak. Vizsgálatot végezte: Dr. Biró Máté Vizsgálat időpontja: 2026. 08. 27., 2026. 08. 30. és 2026. 08. 31. Vizsgálati szabvány: ISO 14966:2019 Vizsgálati eszközök: SEM /Pásztázó elektronmikroszkóp/ (Thermo Fisher Scientific Phenom XL G3) Üzemviteli és mintavételi paraméterek, megjegyzések: A szervetlen szállórost (azbesztrost) koncentráció vizsgálatra Kőszeg területén, összesen 2 kijelölt mintavételi területen került sor. A vizsgálat célja az volt, hogy a kijelölt területeken, illetve azok közvetlen környezetében megállapításra kerüljön a környezeti levegő aktuális szervetlen szállórost (azbesztrost) koncentrációja. A mintavételi helyek a helyszínen kerültek kijelölésre, a vonatkozó jogszabályi előírások - különösen a 40/2025. (XII. 19.) NGM rendelet - valamint az ISO 14966:2019 szabvány figyelembevételével, oly módon, hogy a mintavételi pontok megfelelően reprezentálják a kijelölt területek légterének aktuális szervetlen szállórost (azbesztrost) koncentrációját. A levegőminták laboratóriumi vizsgálati értékelésére az ISO 14966:2019 szabvány alapján került sor. A levegőterheltségi szint határértékeiről és a helyhez kötött légszennyező pontforrások kibocsátási határértékeiről szóló, hatályos 4/2011. (I. 14.) VM rendeletben a környezeti levegő azbesztrost koncentráció határértéke 1 000 rost/m3 24 órás időtartamra vonatkoztatva. Az adott 2026_792_6_L/1 jelű mintavételi helyen vett levegőminták (2026_792_",
-      "source_title": "A Kőszeg, Hermina utca, Borostyán Gyermekotthonhoz vezető bekötő útnál végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
-      "publication_date": "2026-08-28",
-      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_6_vj.pdf",
       "authority": "Vas Vármegyei Kormányhivatal"
     }
   ]
