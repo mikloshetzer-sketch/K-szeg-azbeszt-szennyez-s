@@ -1,1448 +1,873 @@
+/**
+ * extract-official-pdfs.js
+ *
+ * Vas Vármegyei Kormányhivatal – azbeszt monitor
+ *
+ * Feladat:
+ *  - official_measurements.json beolvasása
+ *  - hivatalos PDF-ek szövegének kinyerése
+ *  - levegőmérési eredmények strukturált felismerése
+ *  - régi rost/cm3 és új rost/m3 formátum támogatása
+ *  - GPS-koordináták felismerése
+ *  - azbeszttípusok felismerése
+ *  - nyers kinyerés mentése
+ *  - strukturált levegőmérések külön mentése
+ */
+
 const fs = require("fs");
 const path = require("path");
-const crypto = require("crypto");
 const pdf = require("pdf-parse");
 
-const ROOT_DIR = path.join(__dirname, "..");
+const ROOT = path.resolve(__dirname, "..");
+const DATA_DIR = path.join(ROOT, "data");
 
-const DOCUMENTS_FILE = path.join(
-  ROOT_DIR,
-  "data",
-  "official_documents.json"
-);
-
-const MEASUREMENTS_FILE = path.join(
-  ROOT_DIR,
-  "data",
-  "official_measurements.json"
-);
-
-const OUTPUT_FILE = path.join(
-  ROOT_DIR,
-  "data",
+const INPUT_FILE = path.join(DATA_DIR, "official_measurements.json");
+const EXTRACTION_FILE = path.join(
+  DATA_DIR,
   "official_measurement_extractions.json"
 );
+const AIR_OUTPUT_FILE = path.join(
+  DATA_DIR,
+  "official_air_measurements.json"
+);
 
-const AUTHORITY =
-  "Vas Vármegyei Kormányhivatal";
+// ------------------------------------------------------------
+// SEGÉDFÜGGVÉNYEK
+// ------------------------------------------------------------
 
-const USER_AGENT =
-  "Koszeg-Asbestos-Monitor/1.1 (+GitHub Actions; public environmental monitoring)";
-
-
-/* =========================================================
-   ÁLTALÁNOS SEGÉDFÜGGVÉNYEK
-   ========================================================= */
-
-function nowIso() {
-  return new Date().toISOString();
-}
-
-function loadJson(file, fallback) {
-  try {
-    if (!fs.existsSync(file)) {
-      return fallback;
-    }
-
-    return JSON.parse(
-      fs.readFileSync(file, "utf8")
-    );
-  } catch (error) {
-    console.warn(
-      `Nem sikerült beolvasni: ${file}`
-    );
-
-    console.warn(error.message);
-
-    return fallback;
-  }
-}
-
-function saveJson(file, data) {
-  fs.mkdirSync(
-    path.dirname(file),
-    {
-      recursive: true
-    }
-  );
-
-  fs.writeFileSync(
-    file,
-    JSON.stringify(data, null, 2),
-    "utf8"
-  );
-}
-
-function normalizeWhitespace(text) {
+function normalizeText(text) {
   return String(text || "")
     .replace(/\u00a0/g, " ")
     .replace(/\r/g, "\n")
     .replace(/[ \t]+/g, " ")
-    .replace(/\n[ \t]+/g, "\n")
-    .replace(/\n{3,}/g, "\n\n")
+    .replace(/\n+/g, "\n")
+    .replace(/rost\s*\/\s*m\s*3/gi, "rost/m3")
+    .replace(/rost\s*\/\s*cm\s*3/gi, "rost/cm3")
     .trim();
 }
 
-function normalizeInline(text) {
-  return String(text || "")
-    .replace(/\u00a0/g, " ")
-    .replace(/\s+/g, " ")
+function numberHU(value) {
+  if (value === null || value === undefined) return null;
+
+  const cleaned = String(value)
+    .replace(/\*/g, "")
+    .replace(/\s+/g, "")
+    .replace(",", ".")
     .trim();
+
+  const n = Number(cleaned);
+  return Number.isFinite(n) ? n : null;
 }
 
-function sha256(buffer) {
-  return crypto
-    .createHash("sha256")
-    .update(buffer)
-    .digest("hex");
+function normalizeCoordinate(value) {
+  if (!value) return null;
+
+  const n = Number(String(value).replace(",", "."));
+
+  return Number.isFinite(n) ? n : null;
 }
 
-
-/* =========================================================
-   PDF LETÖLTÉS
-   ========================================================= */
-
-async function downloadPdf(url) {
-  const response = await fetch(url, {
-    headers: {
-      "User-Agent": USER_AGENT,
-      Accept:
-        "application/pdf,application/octet-stream;q=0.9,*/*;q=0.8"
-    },
-    redirect: "follow"
-  });
-
-  if (!response.ok) {
-    throw new Error(
-      `HTTP ${response.status}`
-    );
-  }
-
-  const arrayBuffer =
-    await response.arrayBuffer();
-
-  return {
-    buffer:
-      Buffer.from(arrayBuffer),
-
-    finalUrl:
-      response.url || url,
-
-    contentType:
-      response.headers.get(
-        "content-type"
-      ) || null
-  };
-}
-
-
-/* =========================================================
-   DÁTUMOK
-   ========================================================= */
-
-function normalizeDate(
-  year,
-  month,
-  day
-) {
-  const y = Number(year);
-  const m = Number(month);
-  const d = Number(day);
-
-  if (
-    !Number.isInteger(y) ||
-    !Number.isInteger(m) ||
-    !Number.isInteger(d)
-  ) {
-    return null;
-  }
-
-  if (
-    y < 2000 ||
-    y > 2100 ||
-    m < 1 ||
-    m > 12 ||
-    d < 1 ||
-    d > 31
-  ) {
-    return null;
-  }
-
-  return (
-    `${String(y).padStart(4, "0")}-` +
-    `${String(m).padStart(2, "0")}-` +
-    `${String(d).padStart(2, "0")}`
-  );
-}
-
-function extractDates(text) {
-  const source =
-    String(text || "");
-
-  const results = [];
+function uniqueBy(items, keyFn) {
   const seen = new Set();
 
-  const regex =
-    /\b(20\d{2})\s*[.\-\/]\s*(\d{1,2})\s*[.\-\/]\s*(\d{1,2})\.?/g;
+  return items.filter((item) => {
+    const key = keyFn(item);
 
-  let match;
+    if (seen.has(key)) return false;
 
-  while (
-    (match = regex.exec(source)) !== null
-  ) {
-    const normalized =
-      normalizeDate(
-        match[1],
-        match[2],
-        match[3]
-      );
-
-    if (
-      normalized &&
-      !seen.has(normalized)
-    ) {
-      seen.add(normalized);
-
-      results.push({
-        raw: match[0],
-        date: normalized,
-        index: match.index
-      });
-    }
-  }
-
-  return results;
+    seen.add(key);
+    return true;
+  });
 }
 
+function detectAsbestosTypes(text) {
+  const lower = text.toLowerCase();
 
-/* =========================================================
-   HELYSZÍNEK
-   ========================================================= */
-
-const KNOWN_LOCATIONS = [
-  "Kőszeg",
-  "Szombathely",
-  "Sé",
-
-  "Hermina utca",
-  "Hermina út",
-
-  "Borostyán Gyermekotthon",
-  "Borostyánkő Gyermekotthon",
-
-  "Oladi plató",
-  "Oladi Plató",
-
-  "Pocichter utca",
-  "Vámház utca",
-  "Rőtivölgyi utca"
-];
-
-function extractLocations(text) {
-  const source =
-    String(text || "");
-
-  const lower =
-    source.toLowerCase();
-
-  const results = [];
-
-  for (
-    const location of KNOWN_LOCATIONS
-  ) {
-    const needle =
-      location.toLowerCase();
-
-    let start = 0;
-
-    while (true) {
-      const index =
-        lower.indexOf(
-          needle,
-          start
-        );
-
-      if (index === -1) {
-        break;
-      }
-
-      results.push({
-        location,
-        index
-      });
-
-      start =
-        index + needle.length;
-    }
-  }
-
-  return results;
-}
-
-
-/* =========================================================
-   AZBESZTTÍPUSOK
-   ========================================================= */
-
-const ASBESTOS_TYPES = [
-  "krizotil",
-  "tremolit",
-  "krokidolit",
-  "amosit",
-  "antofillit",
-  "aktinolit"
-];
-
-function extractAsbestosTypes(text) {
-  const source =
-    String(text || "");
-
-  const lower =
-    source.toLowerCase();
+  const definitions = [
+    ["krizotil", ["krizotil", "chrysotile"]],
+    ["tremolit", ["tremolit", "tremolite"]],
+    ["aktinolit", ["aktinolit", "actinolite"]],
+    ["amozit", ["amozit", "amosite"]],
+    ["krokidolit", ["krokidolit", "crocidolite"]],
+    ["antofillit", ["antofillit", "anthophyllite"]],
+  ];
 
   const found = [];
 
-  for (
-    const type of ASBESTOS_TYPES
-  ) {
-    if (
-      lower.includes(type)
-    ) {
-      found.push(type);
+  for (const [canonical, aliases] of definitions) {
+    if (aliases.some((alias) => lower.includes(alias))) {
+      found.push(canonical);
     }
   }
 
-  return [...new Set(found)];
+  return found;
 }
 
+// ------------------------------------------------------------
+// GPS
+// ------------------------------------------------------------
 
-/* =========================================================
-   SZÁMÉRTÉK NORMALIZÁLÁS
-   ========================================================= */
+function extractCoordinates(text) {
+  const results = [];
 
-function parseNumericValue(raw) {
-  if (!raw) {
-    return null;
+  const regex =
+    /(?:GPS[- ]?koordináták[^:]*:\s*)?(\d{2}[.,]\d{3,6})\s*[,;]\s*(\d{2}[.,]\d{3,6})/gi;
+
+  let match;
+
+  while ((match = regex.exec(text)) !== null) {
+    const lat = normalizeCoordinate(match[1]);
+    const lon = normalizeCoordinate(match[2]);
+
+    if (
+      lat !== null &&
+      lon !== null &&
+      lat >= 45 &&
+      lat <= 49 &&
+      lon >= 15 &&
+      lon <= 23
+    ) {
+      results.push({
+        lat,
+        lon,
+      });
+    }
   }
 
-  let value =
-    String(raw)
-      .replace(/\u00a0/g, " ")
+  return results;
+}
+
+// ------------------------------------------------------------
+// MINTAAZONOSÍTÓ
+// ------------------------------------------------------------
+
+function findSamplePositions(text) {
+  /*
+   * Példák:
+   *
+   * 2026_792_L/1_1
+   * 2026_792_2_L/1_1
+   * 2026_792_5_L/3_8
+   * 2026_792_6_L/1_1
+   */
+
+  const regex =
+    /\b20\d{2}_[A-Za-z0-9]+(?:_[A-Za-z0-9]+)*_L\/\d+_\d+\b/g;
+
+  const positions = [];
+
+  let match;
+
+  while ((match = regex.exec(text)) !== null) {
+    positions.push({
+      sampleId: match[0],
+      index: match.index,
+    });
+  }
+
+  return positions;
+}
+
+function splitIntoSampleBlocks(text) {
+  const positions = findSamplePositions(text);
+
+  if (!positions.length) return [];
+
+  const blocks = [];
+
+  for (let i = 0; i < positions.length; i++) {
+    const current = positions[i];
+
+    const next =
+      i + 1 < positions.length
+        ? positions[i + 1].index
+        : text.length;
+
+    blocks.push({
+      sampleId: current.sampleId,
+      text: text.slice(current.index, next).trim(),
+    });
+  }
+
+  return blocks;
+}
+
+// ------------------------------------------------------------
+// HELYSZÍN + GPS
+// ------------------------------------------------------------
+
+function extractLocationFromBlock(block, sampleId) {
+  let work = block;
+
+  if (work.startsWith(sampleId)) {
+    work = work.slice(sampleId.length).trim();
+  }
+
+  const gpsIndex = work.search(/GPS[- ]?koordináták/i);
+
+  if (gpsIndex !== -1) {
+    let location = work.slice(0, gpsIndex).trim();
+
+    location = location
+      .replace(/\s+/g, " ")
+      .replace(/[,;:\-]+$/, "")
       .trim();
 
-  value =
-    value.replace(/\s+/g, "");
-
-  /*
-   * 40.246 vagy 40,246
-   * lehet ezres tagolás.
-   */
-  if (
-    /^\d{1,3}(?:[.,]\d{3})+$/.test(
-      value
-    )
-  ) {
-    value =
-      value.replace(/[.,]/g, "");
-  } else {
-    value =
-      value.replace(",", ".");
+    return location || null;
   }
 
-  const number =
-    Number(value);
-
-  return Number.isFinite(number)
-    ? number
-    : null;
+  return null;
 }
 
-
-/* =========================================================
-   MÉRÉSI ÉRTÉKEK – SZIGORÚ FELISMERÉS
-   ========================================================= */
-
-function extractMeasurementValues(text) {
-  const source =
-    String(text || "");
-
-  const results = [];
-
-  /*
-   * A PDF-konverzió miatt több whitespace-t
-   * engedünk a szám és a mértékegység között.
-   */
-
-  const patterns = [
-    {
-      unit: "rost/m³",
-
-      regex:
-        /(\d{1,3}(?:[\s\u00a0.,]\d{3})+|\d+)[\s\n\r]*(?:rost(?:ok)?|szál(?:ak)?)[\s\n\r]*\/?[\s\n\r]*m(?:³|3)/gi
-    },
-
-    {
-      unit: "fibres/m³",
-
-      regex:
-        /(\d{1,3}(?:[\s\u00a0.,]\d{3})+|\d+)[\s\n\r]*(?:fibres|fibers)[\s\n\r]*\/?[\s\n\r]*m(?:³|3)/gi
-    }
-  ];
-
-  for (
-    const pattern of patterns
-  ) {
-    let match;
-
-    while (
-      (match =
-        pattern.regex.exec(source)) !==
-      null
-    ) {
-      results.push({
-        raw:
-          normalizeInline(
-            match[0]
-          ),
-
-        raw_value:
-          match[1],
-
-        value:
-          parseNumericValue(
-            match[1]
-          ),
-
-        unit:
-          pattern.unit,
-
-        index:
-          match.index,
-
-        detection_method:
-          "strict_unit_match"
-      });
-    }
-  }
-
-  return results;
-}
-
-
-/* =========================================================
-   SZÁZALÉKOK
-   ========================================================= */
-
-function extractPercentages(text) {
-  const source =
-    String(text || "");
-
-  const results = [];
-
+function extractGpsFromBlock(block) {
   const regex =
-    /(\d+(?:[.,]\d+)?)\s*%/g;
+    /GPS[- ]?koordináták\s*\(?(?:WGS84)?\)?\s*:\s*(\d{2}[.,]\d{3,6})\s*,\s*(\d{2}[.,]\d{3,6})/i;
 
-  let match;
+  const match = block.match(regex);
 
-  while (
-    (match = regex.exec(source)) !==
-    null
-  ) {
-    const value =
-      Number(
-        match[1].replace(",", ".")
-      );
+  if (!match) return null;
 
-    results.push({
-      raw: match[0],
+  const lat = normalizeCoordinate(match[1]);
+  const lon = normalizeCoordinate(match[2]);
 
-      value:
-        Number.isFinite(value)
-          ? value
-          : null,
+  if (lat === null || lon === null) return null;
 
-      unit: "%",
+  return { lat, lon };
+}
 
-      index:
-        match.index
-    });
+// ------------------------------------------------------------
+// MÉRTÉKEGYSÉG
+// ------------------------------------------------------------
+
+function detectConcentrationUnit(text) {
+  if (/Koncentr\.\s*\(rost\/m3\)/i.test(text)) {
+    return "fibres_m3";
   }
 
-  return results;
-}
-
-
-/* =========================================================
-   GPS / KOORDINÁTÁK
-   ========================================================= */
-
-function extractCoordinateCandidates(
-  text
-) {
-  const source =
-    String(text || "");
-
-  const results = [];
-
-  const regex =
-    /\b(4[6-8][.,]\d{3,8})\s*[,;/ ]+\s*(1[5-7][.,]\d{3,8})\b/g;
-
-  let match;
-
-  while (
-    (match = regex.exec(source)) !==
-    null
-  ) {
-    const lat =
-      Number(
-        match[1].replace(",", ".")
-      );
-
-    const lon =
-      Number(
-        match[2].replace(",", ".")
-      );
-
-    if (
-      Number.isFinite(lat) &&
-      Number.isFinite(lon)
-    ) {
-      results.push({
-        raw:
-          match[0],
-
-        lat,
-
-        lon,
-
-        index:
-          match.index
-      });
-    }
+  if (/Koncentr\.\s*\(rost\/cm3\)/i.test(text)) {
+    return "fibres_cm3";
   }
 
-  return results;
-}
-
-
-/* =========================================================
-   KONTEXTUS
-   ========================================================= */
-
-function getContext(
-  text,
-  index,
-  radius = 350
-) {
-  const source =
-    String(text || "");
-
-  const start =
-    Math.max(
-      0,
-      index - radius
-    );
-
-  const end =
-    Math.min(
-      source.length,
-      index + radius
-    );
-
-  return normalizeInline(
-    source.slice(start, end)
-  );
-}
-
-function attachContexts(
-  text,
-  values
-) {
-  return values.map(
-    (item) => ({
-      ...item,
-
-      context:
-        getContext(
-          text,
-          item.index
-        )
-    })
-  );
-}
-
-
-/* =========================================================
-   ÚJ: DIAGNOSZTIKAI KULCSSZAVAK
-   ========================================================= */
-
-const DIAGNOSTIC_TERMS = [
-  "rost",
-  "rost/m",
-  "azbesztrost",
-  "azbeszt rost",
-  "szálló azbeszt",
-  "koncentráció",
-  "koncentracio",
-  "24 ór",
-  "24 óra",
-  "24h",
-  "24 h",
-  "fibres",
-  "fibers",
-  "fibre",
-  "fiber",
-  "asbestos",
-  "asbest",
-  "m³",
-  "m3",
-  "SEM",
-  "elektronmikroszkóp",
-  "elektronmikroszkop"
-];
-
-
-/* =========================================================
-   ÚJ: DIAGNOSZTIKAI SZÖVEGRÉSZEK
-   ========================================================= */
-
-function extractDiagnosticContexts(
-  text
-) {
-  const source =
-    String(text || "");
-
-  const lower =
-    source.toLowerCase();
-
-  const results = [];
-  const seen = new Set();
-
-  for (
-    const term of DIAGNOSTIC_TERMS
-  ) {
-    const needle =
-      term.toLowerCase();
-
-    let start = 0;
-
-    while (true) {
-      const index =
-        lower.indexOf(
-          needle,
-          start
-        );
-
-      if (index === -1) {
-        break;
-      }
-
-      const context =
-        getContext(
-          source,
-          index,
-          500
-        );
-
-      /*
-       * Ugyanazt a táblázatrészletet ne
-       * mentsük el tízszer különböző
-       * kulcsszavak miatt.
-       */
-      const signature =
-        context
-          .toLowerCase()
-          .replace(/\s+/g, " ")
-          .slice(0, 250);
-
-      if (
-        !seen.has(signature)
-      ) {
-        seen.add(signature);
-
-        results.push({
-          term,
-          index,
-          context
-        });
-      }
-
-      /*
-       * Dokumentumonként maximum 30
-       * diagnosztikai részlet.
-       */
-      if (
-        results.length >= 30
-      ) {
-        return results;
-      }
-
-      start =
-        index + needle.length;
-    }
+  if (/rost\/m3/i.test(text)) {
+    return "fibres_m3";
   }
 
-  return results;
+  if (/rost\/cm3/i.test(text)) {
+    return "fibres_cm3";
+  }
+
+  return null;
 }
 
+// ------------------------------------------------------------
+// RÉGI FORMÁTUM
+// ------------------------------------------------------------
 
-/* =========================================================
-   ÚJ: SZÁMJELÖLTEK A MÉRÉSI KONTEXTUSBAN
-   ========================================================= */
-
-function extractNumericCandidatesFromContext(
-  context
-) {
-  const source =
-    String(context || "");
-
-  const results = [];
-
+function extractLegacyConcentration(block) {
   /*
-   * 40246
-   * 40 246
-   * 40.246
-   * 40,246
-   * 10300
+   * Példa:
    *
-   * Itt MÉG NEM állítjuk, hogy ezek
-   * mérési értékek.
+   * 0,0077 (7700 rost/m3)
+   *
+   * vagy
+   *
+   * < 0,0001
    */
 
-  const regex =
-    /\b\d{1,3}(?:[ \u00a0.,]\d{3})+\b|\b\d{4,8}\b/g;
+  let match = block.match(
+    /([<>]?\s*\d+[.,]\d+)\s*\(\s*([\d\s]+)\s*rost\/m3\s*\)/i
+  );
 
-  let match;
+  if (match) {
+    const cm3Text = match[1];
+    const m3Text = match[2];
 
-  while (
-    (match = regex.exec(source)) !==
-    null
-  ) {
-    const raw =
-      match[0];
+    const belowDetection = cm3Text.includes("<");
 
-    const value =
-      parseNumericValue(raw);
-
-    /*
-     * Évszámok kiszűrése.
-     */
-    if (
-      value >= 2000 &&
-      value <= 2100 &&
-      raw.length === 4
-    ) {
-      continue;
-    }
-
-    results.push({
-      raw,
-      value
-    });
+    return {
+      concentration_fibres_m3: numberHU(m3Text),
+      concentration_fibres_cm3: numberHU(
+        cm3Text.replace(/[<>]/g, "")
+      ),
+      below_detection_limit: belowDetection,
+      source_format: "legacy_cm3_with_m3",
+    };
   }
 
-  return results;
+  return null;
 }
 
+// ------------------------------------------------------------
+// ÚJ FORMÁTUM – ROST/M3
+// ------------------------------------------------------------
 
-/* =========================================================
-   ÚJ: DIAGNOSZTIKAI BLOKK FELÉPÍTÉSE
-   ========================================================= */
+function extractModernM3Concentration(block) {
+  /*
+   * A blokk felépítése:
+   *
+   * GPS ...
+   * kezdő idő
+   * dátum
+   * vég idő
+   * dátum
+   * térfogatáram
+   * Környezeti levegő vizsgálat
+   * 473
+   *
+   * A "Környezeti levegő vizsgálat" utáni első
+   * megfelelő szám a koncentráció.
+   */
 
-function buildMeasurementDiagnostics(
-  text
-) {
-  const contexts =
-    extractDiagnosticContexts(
-      text
-    );
+  const marker = block.search(/Környezeti levegő vizsgálat/i);
 
-  return contexts.map(
-    (item) => ({
-      ...item,
+  if (marker === -1) return null;
 
-      numeric_candidates:
-        extractNumericCandidatesFromContext(
-          item.context
-        )
-    })
+  const tail = block.slice(marker);
+
+  const afterMarker = tail.replace(
+    /^.*?Környezeti levegő vizsgálat/i,
+    ""
   );
-}
 
+  // < érték
+  let match = afterMarker.match(
+    /^\s*<\s*([\d\s]+(?:[.,]\d+)?)/i
+  );
 
-/* =========================================================
-   PDF SZÖVEGKINYERÉS
-   ========================================================= */
+  if (match) {
+    return {
+      concentration_fibres_m3: numberHU(match[1]),
+      concentration_fibres_cm3: null,
+      below_detection_limit: true,
+      source_format: "modern_m3",
+    };
+  }
 
-async function extractPdfText(buffer) {
-  const result =
-    await pdf(buffer);
+  // normál érték
+  match = afterMarker.match(
+    /^\s*([\d\s]+(?:[.,]\d+)?)/i
+  );
+
+  if (!match) return null;
+
+  const value = numberHU(match[1]);
+
+  if (value === null) return null;
 
   return {
-    text:
-      normalizeWhitespace(
-        result.text || ""
-      ),
-
-    pages:
-      Number.isFinite(
-        result.numpages
-      )
-        ? result.numpages
-        : null,
-
-    info:
-      result.info || null,
-
-    metadata:
-      result.metadata || null
+    concentration_fibres_m3: value,
+    concentration_fibres_cm3: null,
+    below_detection_limit: false,
+    source_format: "modern_m3",
   };
 }
 
-
-/* =========================================================
-   EGY DOKUMENTUM FELDOLGOZÁSA
-   ========================================================= */
-
-async function processDocument(
-  measurement,
-  document
-) {
-  const startedAt =
-    nowIso();
-
-  const url =
-    measurement.source_document;
-
-  console.log(
-    `PDF feldolgozás: ${measurement.source_title}`
-  );
-
-  try {
-    const downloaded =
-      await downloadPdf(url);
-
-    const hash =
-      sha256(
-        downloaded.buffer
-      );
-
-    const pdfResult =
-      await extractPdfText(
-        downloaded.buffer
-      );
-
-    const text =
-      pdfResult.text;
-
-    const dates =
-      attachContexts(
-        text,
-        extractDates(text)
-      );
-
-    const locations =
-      attachContexts(
-        text,
-        extractLocations(text)
-      );
-
-    const measurements =
-      attachContexts(
-        text,
-        extractMeasurementValues(
-          text
-        )
-      );
-
-    const percentages =
-      attachContexts(
-        text,
-        extractPercentages(
-          text
-        )
-      );
-
-    const coordinates =
-      attachContexts(
-        text,
-        extractCoordinateCandidates(
-          text
-        )
-      );
-
-    const asbestosTypes =
-      extractAsbestosTypes(text);
-
-    /*
-     * ÚJ diagnosztikai blokk.
-     *
-     * Akkor is elkészül, ha a szigorú
-     * measurement parser 0 értéket talál.
-     */
-    const measurementDiagnostics =
-      buildMeasurementDiagnostics(
-        text
-      );
-
-    return {
-      id:
-        measurement.id,
-
-      source_class:
-        "primary_official",
-
-      authority:
-        AUTHORITY,
-
-      measurement_category:
-        measurement
-          .measurement_category,
-
-      source_title:
-        measurement.source_title,
-
-      source_document:
-        url,
-
-      final_url:
-        downloaded.finalUrl,
-
-      publication_date:
-        measurement
-          .publication_date,
-
-      document_sha256:
-        hash,
-
-      source_document_sha256:
-        document?.sha256 || null,
-
-      content_type:
-        downloaded.contentType,
-
-      pdf_pages:
-        pdfResult.pages,
-
-      pdf_text_extracted:
-        text.length > 0,
-
-      text_length:
-        text.length,
-
-      detected_dates:
-        dates,
-
-      detected_locations:
-        locations,
-
-      detected_measurement_values:
-        measurements,
-
-      detected_percentages:
-        percentages,
-
-      detected_coordinates:
-        coordinates,
-
-      detected_asbestos_types:
-        asbestosTypes,
-
-      /*
-       * ÚJ:
-       * a mérési kifejezések körüli
-       * tényleges PDF-szöveg.
-       */
-      measurement_diagnostics:
-        measurementDiagnostics,
-
-      statistics: {
-        dates:
-          dates.length,
-
-        locations:
-          locations.length,
-
-        measurement_values:
-          measurements.length,
-
-        percentages:
-          percentages.length,
-
-        coordinates:
-          coordinates.length,
-
-        asbestos_types:
-          asbestosTypes.length,
-
-        diagnostic_contexts:
-          measurementDiagnostics.length
-      },
-
-      extraction_status:
-        "success",
-
-      extraction_started_at:
-        startedAt,
-
-      extracted_at:
-        nowIso(),
-
-      last_checked:
-        nowIso(),
-
-      /*
-       * Diagnosztikai verzióban mindig
-       * újrafeldolgozzuk a dokumentumot.
-       */
-      reused:
-        false
-    };
-
-  } catch (error) {
-    console.warn(
-      `  ↳ HIBA: ${error.message}`
-    );
-
-    return {
-      id:
-        measurement.id,
-
-      source_class:
-        "primary_official",
-
-      authority:
-        AUTHORITY,
-
-      measurement_category:
-        measurement
-          .measurement_category,
-
-      source_title:
-        measurement.source_title,
-
-      source_document:
-        url,
-
-      publication_date:
-        measurement
-          .publication_date,
-
-      document_sha256:
-        document?.sha256 || null,
-
-      pdf_text_extracted:
-        false,
-
-      detected_dates: [],
-
-      detected_locations: [],
-
-      detected_measurement_values: [],
-
-      detected_percentages: [],
-
-      detected_coordinates: [],
-
-      detected_asbestos_types: [],
-
-      measurement_diagnostics: [],
-
-      statistics: {
-        dates: 0,
-        locations: 0,
-        measurement_values: 0,
-        percentages: 0,
-        coordinates: 0,
-        asbestos_types: 0,
-        diagnostic_contexts: 0
-      },
-
-      extraction_status:
-        "error",
-
-      error:
-        error.message,
-
-      extraction_started_at:
-        startedAt,
-
-      last_checked:
-        nowIso(),
-
-      reused:
-        false
-    };
+// ------------------------------------------------------------
+// IDŐPONTOK
+// ------------------------------------------------------------
+
+function extractDatesAndTimes(block) {
+  const dates = [
+    ...block.matchAll(
+      /\b(20\d{2})[.\-](\d{2})[.\-](\d{2})\.?/g
+    ),
+  ].map((m) => `${m[1]}-${m[2]}-${m[3]}`);
+
+  const times = [
+    ...block.matchAll(/\b([01]?\d|2[0-3]):([0-5]\d)\b/g),
+  ].map((m) => `${m[1].padStart(2, "0")}:${m[2]}`);
+
+  let start = null;
+  let end = null;
+
+  if (dates.length >= 2 && times.length >= 2) {
+    start = `${dates[0]} ${times[0]}`;
+    end = `${dates[1]} ${times[1]}`;
+  } else if (dates.length === 1 && times.length >= 2) {
+    start = `${dates[0]} ${times[0]}`;
+    end = `${dates[0]} ${times[1]}`;
   }
+
+  return {
+    start,
+    end,
+    dates,
+    times,
+  };
 }
 
+// ------------------------------------------------------------
+// TÉRFOGATÁRAM
+// ------------------------------------------------------------
 
-/* =========================================================
-   DIAGNOSZTIKA KIÍRÁSA A LOGBA
-   ========================================================= */
+function extractFlowRate(block) {
+  /*
+   * A GPS + időadatok után általában:
+   *
+   * 8,21 Környezeti levegő vizsgálat
+   */
 
-function printDiagnostics(
-  extraction
-) {
-  const diagnostics =
-    extraction
-      .measurement_diagnostics ||
-    [];
+  const marker = block.search(/Környezeti levegő vizsgálat/i);
 
-  console.log(
-    `  ↳ diagnosztikai részletek: ${diagnostics.length}`
+  if (marker === -1) return null;
+
+  const before = block.slice(0, marker);
+
+  const matches = [
+    ...before.matchAll(/\b(\d{1,2}[.,]\d{1,2})\b/g),
+  ];
+
+  if (!matches.length) return null;
+
+  for (let i = matches.length - 1; i >= 0; i--) {
+    const value = numberHU(matches[i][1]);
+
+    if (value >= 5 && value <= 15) {
+      return value;
+    }
+  }
+
+  return null;
+}
+
+// ------------------------------------------------------------
+// EGY LEVEGŐMÉRÉSI MINTA
+// ------------------------------------------------------------
+
+function parseAirSample(block, documentMeta, documentUnit) {
+  const sampleIdMatch = block.match(
+    /\b20\d{2}_[A-Za-z0-9]+(?:_[A-Za-z0-9]+)*_L\/\d+_\d+\b/
   );
 
-  if (
-    diagnostics.length === 0
-  ) {
-    return;
+  if (!sampleIdMatch) return null;
+
+  const sampleId = sampleIdMatch[0];
+
+  const gps = extractGpsFromBlock(block);
+
+  const location = extractLocationFromBlock(
+    block,
+    sampleId
+  );
+
+  let concentration = extractLegacyConcentration(block);
+
+  if (!concentration && documentUnit === "fibres_m3") {
+    concentration = extractModernM3Concentration(block);
   }
 
   /*
-   * A GitHub logot nem akarjuk
-   * több ezer sorosra növelni.
-   *
-   * Dokumentumonként maximum 5 részlet.
+   * Régi cm3 táblázatokban előfordulhat, hogy nincs
+   * zárójelben megadva a rost/m3 érték.
    */
 
-  console.log("");
-  console.log(
-    "  --- MÉRÉSI DIAGNOSZTIKA ---"
-  );
-
-  for (
-    const item of
-      diagnostics.slice(0, 5)
-  ) {
-    console.log("");
-
-    console.log(
-      `  Kulcsszó: ${item.term}`
+  if (!concentration && documentUnit === "fibres_cm3") {
+    const marker = block.search(
+      /Környezeti levegő vizsgálat/i
     );
 
-    console.log(
-      `  Kontextus: ${item.context}`
-    );
+    if (marker !== -1) {
+      const tail = block.slice(marker);
 
-    if (
-      item.numeric_candidates
-        ?.length
-    ) {
-      console.log(
-        "  Számjelöltek:",
-        item.numeric_candidates
-          .slice(0, 20)
-          .map(
-            (candidate) =>
-              `${candidate.raw} -> ${candidate.value}`
-          )
-          .join(" | ")
+      const match = tail.match(
+        /Környezeti levegő vizsgálat\s*([<>]?\s*\d+[.,]\d+)/i
       );
-    } else {
-      console.log(
-        "  Számjelöltek: nincs"
-      );
+
+      if (match) {
+        const raw = match[1];
+        const cm3 = numberHU(raw.replace(/[<>]/g, ""));
+
+        concentration = {
+          concentration_fibres_cm3: cm3,
+          concentration_fibres_m3:
+            cm3 !== null ? Math.round(cm3 * 1000000) : null,
+          below_detection_limit: raw.includes("<"),
+          source_format: "legacy_cm3",
+        };
+      }
     }
   }
 
-  console.log("");
-  console.log(
-    "  --- DIAGNOSZTIKA VÉGE ---"
+  if (!concentration) return null;
+
+  const dateTime = extractDatesAndTimes(block);
+
+  return {
+    sample_id: sampleId,
+
+    location,
+
+    lat: gps?.lat ?? null,
+    lon: gps?.lon ?? null,
+
+    start: dateTime.start,
+    end: dateTime.end,
+
+    flow_rate_l_min: extractFlowRate(block),
+
+    concentration_fibres_m3:
+      concentration.concentration_fibres_m3,
+
+    concentration_fibres_cm3:
+      concentration.concentration_fibres_cm3,
+
+    below_detection_limit:
+      concentration.below_detection_limit,
+
+    source_format:
+      concentration.source_format,
+
+    document_title:
+      documentMeta.title || null,
+
+    document_date:
+      documentMeta.date || null,
+
+    source_url:
+      documentMeta.url || null,
+
+    source:
+      "Vas Vármegyei Kormányhivatal",
+  };
+}
+
+// ------------------------------------------------------------
+// DOKUMENTUM FELDOLGOZÁSA
+// ------------------------------------------------------------
+
+function extractStructuredAirMeasurements(
+  text,
+  documentMeta
+) {
+  const normalized = normalizeText(text);
+
+  const unit = detectConcentrationUnit(normalized);
+
+  const blocks = splitIntoSampleBlocks(normalized);
+
+  const measurements = [];
+
+  for (const block of blocks) {
+    const parsed = parseAirSample(
+      block.text,
+      documentMeta,
+      unit
+    );
+
+    if (parsed) {
+      measurements.push(parsed);
+    }
+  }
+
+  return uniqueBy(
+    measurements,
+    (item) =>
+      `${item.document_title}|${item.sample_id}`
   );
 }
 
+// ------------------------------------------------------------
+// PDF LETÖLTÉS / BEOLVASÁS
+// ------------------------------------------------------------
 
-/* =========================================================
-   MAIN
-   ========================================================= */
+async function loadPdfBuffer(document) {
+  /*
+   * A korábbi rendszer eltérő mezőneveket használhat.
+   * Ezért több lehetőséget támogatunk.
+   */
+
+  const localPath =
+    document.local_path ||
+    document.localPath ||
+    document.pdf_path ||
+    document.file;
+
+  if (localPath) {
+    const fullPath = path.isAbsolute(localPath)
+      ? localPath
+      : path.join(ROOT, localPath);
+
+    if (fs.existsSync(fullPath)) {
+      return fs.readFileSync(fullPath);
+    }
+  }
+
+  const url =
+    document.url ||
+    document.pdf_url ||
+    document.download_url;
+
+  if (!url) {
+    throw new Error(
+      "Nincs PDF URL vagy helyi PDF elérési út."
+    );
+  }
+
+  const response = await fetch(url);
+
+  if (!response.ok) {
+    throw new Error(
+      `PDF letöltési hiba: HTTP ${response.status}`
+    );
+  }
+
+  const arrayBuffer = await response.arrayBuffer();
+
+  return Buffer.from(arrayBuffer);
+}
+
+// ------------------------------------------------------------
+// MAIN
+// ------------------------------------------------------------
 
 async function main() {
-  console.log(
-    "=========================================="
-  );
+  console.log("==========================================");
+  console.log("HIVATALOS AZBESZT PDF ADATKINYERÉS");
+  console.log("STRUKTURÁLT LEVEGŐMÉRÉSEK – V2.0");
+  console.log("==========================================");
 
-  console.log(
-    "HIVATALOS AZBESZT PDF ADATKINYERÉS"
-  );
-
-  console.log(
-    "DIAGNOSZTIKAI VERZIÓ 1.1"
-  );
-
-  console.log(
-    "=========================================="
-  );
-
-
-  const documents =
-    loadJson(
-      DOCUMENTS_FILE,
-      {
-        documents: []
-      }
-    );
-
-  const measurementIndex =
-    loadJson(
-      MEASUREMENTS_FILE,
-      {
-        measurements: []
-      }
-    );
-
-
-  if (
-    !Array.isArray(
-      measurementIndex.measurements
-    )
-  ) {
+  if (!fs.existsSync(INPUT_FILE)) {
     throw new Error(
-      "Az official_measurements.json measurements mezője hiányzik."
+      `Hiányzó input fájl: ${INPUT_FILE}`
     );
   }
 
-
-  const documentsByUrl =
-    new Map();
-
-  for (
-    const document of
-      documents.documents || []
-  ) {
-    if (document.url) {
-      documentsByUrl.set(
-        document.url,
-        document
-      );
-    }
-  }
-
-
-  const extractions = [];
-
-  let successCount = 0;
-  let errorCount = 0;
-
-  let totalMeasurementValues = 0;
-  let totalCoordinates = 0;
-  let totalDiagnostics = 0;
-
-  const measurements =
-    measurementIndex.measurements;
-
-
-  console.log(
-    `Feldolgozandó mérési dokumentumok: ${measurements.length}`
+  const input = JSON.parse(
+    fs.readFileSync(INPUT_FILE, "utf8")
   );
 
+  const documents = Array.isArray(input)
+    ? input
+    : input.documents ||
+      input.measurements ||
+      input.items ||
+      [];
+
+  console.log(
+    `Feldolgozandó mérési dokumentumok: ${documents.length}`
+  );
   console.log("");
 
+  const extractionResults = [];
+  const allAirMeasurements = [];
 
-  for (
-    let i = 0;
-    i < measurements.length;
-    i++
-  ) {
-    const measurement =
-      measurements[i];
+  let success = 0;
+  let failed = 0;
 
-    console.log(
-      `[${i + 1}/${measurements.length}] ${measurement.source_title}`
-    );
+  for (let i = 0; i < documents.length; i++) {
+    const document = documents[i];
 
-    const document =
-      documentsByUrl.get(
-        measurement.source_document
+    const title =
+      document.title ||
+      document.name ||
+      `Dokumentum ${i + 1}`;
+
+    console.log(`[${i + 1}/${documents.length}] ${title}`);
+
+    try {
+      const buffer = await loadPdfBuffer(document);
+
+      const pdfResult = await pdf(buffer);
+
+      const rawText = pdfResult.text || "";
+      const normalizedText = normalizeText(rawText);
+
+      const coordinates =
+        extractCoordinates(normalizedText);
+
+      const asbestosTypes =
+        detectAsbestosTypes(normalizedText);
+
+      const structuredAir =
+        extractStructuredAirMeasurements(
+          normalizedText,
+          document
+        );
+
+      allAirMeasurements.push(...structuredAir);
+
+      extractionResults.push({
+        title,
+        date: document.date || null,
+        category:
+          document.category ||
+          document.type ||
+          null,
+
+        url:
+          document.url ||
+          document.pdf_url ||
+          null,
+
+        status: "success",
+
+        pages: pdfResult.numpages || null,
+
+        text_length: normalizedText.length,
+
+        coordinates,
+
+        asbestos_types: asbestosTypes,
+
+        air_measurements:
+          structuredAir,
+
+        air_measurement_count:
+          structuredAir.length,
+      });
+
+      success++;
+
+      console.log(
+        `  ↳ strukturált levegőmérések: ${structuredAir.length}`
       );
 
-    const extraction =
-      await processDocument(
-        measurement,
-        document
+      console.log(
+        `  ↳ koordináták: ${coordinates.length}`
       );
 
-    extractions.push(
-      extraction
-    );
+      console.log(
+        `  ↳ azbeszttípusok: ${
+          asbestosTypes.length
+            ? asbestosTypes.join(", ")
+            : "nincs"
+        }`
+      );
 
+      if (structuredAir.length) {
+        for (const measurement of structuredAir) {
+          console.log(
+            `     ${measurement.sample_id}: ` +
+              `${measurement.concentration_fibres_m3} rost/m3`
+          );
+        }
+      }
+    } catch (error) {
+      failed++;
 
-    if (
-      extraction.extraction_status ===
-      "success"
-    ) {
-      successCount++;
-    } else {
-      errorCount++;
+      console.error(
+        `  ✗ HIBA: ${error.message}`
+      );
+
+      extractionResults.push({
+        title,
+        date: document.date || null,
+        category:
+          document.category ||
+          document.type ||
+          null,
+        status: "error",
+        error: error.message,
+      });
     }
-
-
-    totalMeasurementValues +=
-      extraction.statistics
-        ?.measurement_values || 0;
-
-    totalCoordinates +=
-      extraction.statistics
-        ?.coordinates || 0;
-
-    totalDiagnostics +=
-      extraction.statistics
-        ?.diagnostic_contexts || 0;
-
-
-    console.log(
-      `  ↳ mérési értékek: ${
-        extraction.statistics
-          ?.measurement_values || 0
-      }`
-    );
-
-    console.log(
-      `  ↳ koordináták: ${
-        extraction.statistics
-          ?.coordinates || 0
-      }`
-    );
-
-    console.log(
-      `  ↳ azbeszttípusok: ${
-        (
-          extraction
-            .detected_asbestos_types ||
-          []
-        ).join(", ") || "nincs"
-      }`
-    );
-
-
-    /*
-     * A levegőméréseknél különösen
-     * fontos a diagnosztika.
-     */
-    if (
-      measurement
-        .measurement_category ===
-      "air"
-    ) {
-      printDiagnostics(
-        extraction
-      );
-    }
-
 
     console.log("");
   }
 
+  // ----------------------------------------------------------
+  // DUPLIKÁCIÓK KISZŰRÉSE
+  // ----------------------------------------------------------
 
-  const output = {
-    schema_version:
-      "1.1",
+  const uniqueAirMeasurements = uniqueBy(
+    allAirMeasurements,
+    (item) =>
+      [
+        item.sample_id,
+        item.lat,
+        item.lon,
+        item.start,
+        item.concentration_fibres_m3,
+      ].join("|")
+  );
 
-    generated_at:
-      nowIso(),
+  // ----------------------------------------------------------
+  // NYERS / DOKUMENTUMSZINTŰ EREDMÉNY
+  // ----------------------------------------------------------
 
-    mode:
-      "measurement_diagnostics",
+  const extractionOutput = {
+    generated_at: new Date().toISOString(),
 
-    source_class:
-      "primary_official",
+    source:
+      "Vas Vármegyei Kormányhivatal",
 
-    authority:
-      AUTHORITY,
+    document_count: documents.length,
 
-    source_documents_file:
-      "data/official_documents.json",
+    success_count: success,
 
-    measurement_index_file:
-      "data/official_measurements.json",
+    error_count: failed,
 
-    statistics: {
-      total_documents:
-        measurements.length,
+    structured_air_measurement_count:
+      uniqueAirMeasurements.length,
 
-      successful_extractions:
-        successCount,
-
-      failed_extractions:
-        errorCount,
-
-      reused_extractions:
-        0,
-
-      detected_measurement_values:
-        totalMeasurementValues,
-
-      detected_coordinates:
-        totalCoordinates,
-
-      diagnostic_contexts:
-        totalDiagnostics
-    },
-
-    extractions
+    documents: extractionResults,
   };
 
-
-  saveJson(
-    OUTPUT_FILE,
-    output
+  fs.writeFileSync(
+    EXTRACTION_FILE,
+    JSON.stringify(extractionOutput, null, 2),
+    "utf8"
   );
 
+  // ----------------------------------------------------------
+  // DASHBOARDHOZ HASZNÁLHATÓ TISZTA ADATFÁJL
+  // ----------------------------------------------------------
+
+  const airOutput = {
+    generated_at: new Date().toISOString(),
+
+    source:
+      "Vas Vármegyei Kormányhivatal",
+
+    description:
+      "Hivatalos környezeti levegő azbesztrost-koncentráció mérések.",
+
+    unit: "rost/m3",
+
+    measurement_count:
+      uniqueAirMeasurements.length,
+
+    measurements:
+      uniqueAirMeasurements,
+  };
+
+  fs.writeFileSync(
+    AIR_OUTPUT_FILE,
+    JSON.stringify(airOutput, null, 2),
+    "utf8"
+  );
+
+  console.log("==========================================");
+  console.log("PDF ADATKINYERÉS KÉSZ");
+  console.log("==========================================");
+
+  console.log(`Dokumentumok: ${documents.length}`);
+  console.log(`Sikeres: ${success}`);
+  console.log(`Hibás: ${failed}`);
+
+  console.log(
+    `Strukturált levegőmérések: ${uniqueAirMeasurements.length}`
+  );
 
   console.log("");
-  console.log(
-    "=========================================="
-  );
+  console.log(`Mentve: ${EXTRACTION_FILE}`);
+  console.log(`Mentve: ${AIR_OUTPUT_FILE}`);
 
-  console.log(
-    "PDF ADATKINYERÉS KÉSZ"
-  );
+  console.log("==========================================");
 
-  console.log(
-    "=========================================="
-  );
-
-  console.log(
-    `Dokumentumok: ${measurements.length}`
-  );
-
-  console.log(
-    `Sikeres: ${successCount}`
-  );
-
-  console.log(
-    `Hibás: ${errorCount}`
-  );
-
-  console.log(
-    `Talált mérési értékek: ${totalMeasurementValues}`
-  );
-
-  console.log(
-    `Talált koordináták: ${totalCoordinates}`
-  );
-
-  console.log(
-    `Diagnosztikai szövegrészletek: ${totalDiagnostics}`
-  );
-
-  console.log(
-    `Mentve: ${OUTPUT_FILE}`
-  );
-
-  console.log(
-    "=========================================="
-  );
-}
-
-
-main().catch(
-  (error) => {
-    console.error(
-      "Végzetes PDF-feldolgozási hiba:",
-      error
+  if (!uniqueAirMeasurements.length) {
+    console.warn("");
+    console.warn(
+      "FIGYELEM: egyetlen strukturált levegőmérés sem került felismerésre."
     );
 
-    process.exitCode = 1;
+    process.exitCode = 2;
   }
-);
+}
+
+main().catch((error) => {
+  console.error("");
+  console.error("VÉGZETES HIBA:");
+  console.error(error);
+
+  process.exit(1);
+});
