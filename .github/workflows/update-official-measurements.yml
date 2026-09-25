@@ -74,6 +74,9 @@ jobs:
           test -f scripts/extract-official-pdfs.js
           echo "extract-official-pdfs.js: OK"
 
+          test -f scripts/build-official-air-dashboard.js
+          echo "build-official-air-dashboard.js: OK"
+
           node -e "
             require('pdf-parse');
             console.log('pdf-parse: OK');
@@ -94,20 +97,33 @@ jobs:
 
 
       # ===================================================
-      # 6. PDF PARSER V3
+      # 6. PDF PARSER V4.2
       # ===================================================
 
       - name: Hivatalos PDF-ek feldolgozása
         run: |
           echo "======================================"
-          echo "HIVATALOS PDF ADATKINYERÉS – V3"
+          echo "HIVATALOS PDF ADATKINYERÉS – V4.2"
           echo "======================================"
 
           node scripts/extract-official-pdfs.js
 
 
       # ===================================================
-      # 7. FÁJLOK ELLENŐRZÉSE
+      # 7. DASHBOARD ADATFELDOLGOZÁS
+      # ===================================================
+
+      - name: Dashboard adatfájl elkészítése
+        run: |
+          echo "======================================"
+          echo "DASHBOARD DATA PROCESSOR – V1.0"
+          echo "======================================"
+
+          node scripts/build-official-air-dashboard.js
+
+
+      # ===================================================
+      # 8. FÁJLOK ELLENŐRZÉSE
       # ===================================================
 
       - name: Generált fájlok ellenőrzése
@@ -116,6 +132,7 @@ jobs:
           test -f data/official_measurements.json
           test -f data/official_measurement_extractions.json
           test -f data/official_air_measurements.json
+          test -f data/official_air_dashboard.json
 
           echo ""
           echo "Generált fájlok:"
@@ -125,11 +142,12 @@ jobs:
             data/official_documents.json \
             data/official_measurements.json \
             data/official_measurement_extractions.json \
-            data/official_air_measurements.json
+            data/official_air_measurements.json \
+            data/official_air_dashboard.json
 
 
       # ===================================================
-      # 8. STRUKTURÁLT ADAT VALIDÁCIÓ
+      # 9. STRUKTURÁLT LEVEGŐMÉRÉSEK VALIDÁLÁSA
       # ===================================================
 
       - name: Strukturált levegőmérések validálása
@@ -157,6 +175,11 @@ jobs:
           console.log(
             "Schema:",
             data.schema_version
+          );
+
+          console.log(
+            "Parser:",
+            data.parser_version
           );
 
           console.log(
@@ -189,10 +212,20 @@ jobs:
             );
           }
 
+          if (
+            data.measurements.length !==
+            data.measurement_count
+          ) {
+            throw new Error(
+              "A measurement_count nem egyezik a measurements tömb hosszával."
+            );
+          }
+
           for (
             const item of
             data.measurements
           ) {
+
             if (!item.sample_id) {
               throw new Error(
                 "Hiányzó sample_id."
@@ -220,14 +253,174 @@ jobs:
 
           console.log("");
           console.log(
-            "Validáció: OK"
+            "Strukturált mérési validáció: OK"
           );
 
           NODE
 
 
       # ===================================================
-      # 9. ADATOK KIÍRÁSA
+      # 10. DASHBOARD ADAT VALIDÁLÁSA
+      # ===================================================
+
+      - name: Dashboard adat validálása
+        run: |
+          node <<'NODE'
+
+          const fs = require("fs");
+
+          const source =
+            JSON.parse(
+              fs.readFileSync(
+                "data/official_air_measurements.json",
+                "utf8"
+              )
+            );
+
+          const dashboard =
+            JSON.parse(
+              fs.readFileSync(
+                "data/official_air_dashboard.json",
+                "utf8"
+              )
+            );
+
+          console.log("");
+          console.log("======================================");
+          console.log("DASHBOARD ADAT VALIDÁCIÓ");
+          console.log("======================================");
+
+          if (
+            !Array.isArray(
+              dashboard.measurements
+            )
+          ) {
+            throw new Error(
+              "A dashboard measurements mező nem tömb."
+            );
+          }
+
+          if (
+            !Array.isArray(
+              dashboard.sites
+            )
+          ) {
+            throw new Error(
+              "A dashboard sites mező nem tömb."
+            );
+          }
+
+          if (
+            !Array.isArray(
+              dashboard.timeline
+            )
+          ) {
+            throw new Error(
+              "A dashboard timeline mező nem tömb."
+            );
+          }
+
+          if (
+            !Array.isArray(
+              dashboard.map_points
+            )
+          ) {
+            throw new Error(
+              "A dashboard map_points mező nem tömb."
+            );
+          }
+
+          if (
+            dashboard.measurements.length !==
+            source.measurements.length
+          ) {
+            throw new Error(
+              "A dashboard mérésszáma eltér a forrás mérésszámától."
+            );
+          }
+
+          if (
+            dashboard.kpis.total_measurements !==
+            source.measurements.length
+          ) {
+            throw new Error(
+              "A dashboard KPI total_measurements hibás."
+            );
+          }
+
+          /*
+           * Ellenőrizzük, hogy a detection-limit rekord
+           * nem került tényleges statisztikai értékként
+           * feldolgozásra.
+           */
+
+          for (
+            const item of
+            dashboard.measurements
+          ) {
+
+            if (
+              item.concentration
+                ?.below_detection_limit === true
+            ) {
+
+              if (
+                item.concentration
+                  .numeric_for_statistics !== null
+              ) {
+                throw new Error(
+                  `Detection-limit rekord statisztikai értéket kapott: ${item.sample_id}`
+                );
+              }
+
+              if (
+                !String(
+                  item.concentration.display
+                ).startsWith("<")
+              ) {
+                throw new Error(
+                  `Detection-limit megjelenítés hibás: ${item.sample_id}`
+                );
+              }
+            }
+          }
+
+          console.log(
+            "Mérések:",
+            dashboard.measurements.length
+          );
+
+          console.log(
+            "Mérőhelyek:",
+            dashboard.sites.length
+          );
+
+          console.log(
+            "Települések:",
+            dashboard.settlements.length
+          );
+
+          console.log(
+            "Térképi pontok:",
+            dashboard.map_points.length
+          );
+
+          console.log(
+            "Kimutatási határ alatti mérések:",
+            dashboard.kpis
+              .below_detection_limit_measurements
+          );
+
+          console.log("");
+          console.log(
+            "Dashboard validáció: OK"
+          );
+
+          NODE
+
+
+      # ===================================================
+      # 11. ELFOGADOTT MÉRÉSEK KIÍRÁSA
       # ===================================================
 
       - name: Elfogadott mérési eredmények
@@ -253,9 +446,15 @@ jobs:
             const item of
             data.measurements
           ) {
+
+            const value =
+              item.below_detection_limit
+                ? `<${item.concentration_fibres_m3}`
+                : item.concentration_fibres_m3;
+
             console.log(
               `${item.sample_id} | ` +
-              `${item.concentration_fibres_m3} rost/m3 | ` +
+              `${value} rost/m3 | ` +
               `${item.location || "-"} | ` +
               `${item.lat ?? "-"}, ${item.lon ?? "-"} | ` +
               `${item.parser}`
@@ -271,13 +470,15 @@ jobs:
             const item of
             data.review_queue
           ) {
+
             console.log(
-              `${item.sample_id} | ${item.reason}`
+              `${item.sample_id || "-"} | ${item.reason}`
             );
 
             if (
               item.candidates?.length
             ) {
+
               console.log(
                 "  Jelöltek:",
                 item.candidates
@@ -294,7 +495,91 @@ jobs:
 
 
       # ===================================================
-      # 10. GIT
+      # 12. DASHBOARD ÖSSZEGZÉS
+      # ===================================================
+
+      - name: Dashboard adatok kiírása
+        run: |
+          node <<'NODE'
+
+          const fs = require("fs");
+
+          const data =
+            JSON.parse(
+              fs.readFileSync(
+                "data/official_air_dashboard.json",
+                "utf8"
+              )
+            );
+
+          console.log("");
+          console.log("======================================");
+          console.log("DASHBOARD ÖSSZEGZÉS");
+          console.log("======================================");
+
+          console.log(
+            "Összes mérés:",
+            data.kpis.total_measurements
+          );
+
+          console.log(
+            "Számszerű mérések:",
+            data.kpis.numeric_measurements
+          );
+
+          console.log(
+            "Kimutatási határ alatt:",
+            data.kpis
+              .below_detection_limit_measurements
+          );
+
+          console.log(
+            "Mérőhelyek:",
+            data.kpis.site_count
+          );
+
+          console.log(
+            "Települések:",
+            data.kpis.settlement_count
+          );
+
+          console.log(
+            "Első mérés:",
+            data.kpis.first_measurement_date
+          );
+
+          console.log(
+            "Legutóbbi mérés:",
+            data.kpis.latest_measurement_date
+          );
+
+          console.log(
+            "Maximum:",
+            data.kpis.maximum_measured_fibres_m3,
+            "rost/m3"
+          );
+
+          console.log("");
+          console.log("TELEPÜLÉSEK");
+
+          for (
+            const settlement of
+            data.settlements
+          ) {
+
+            console.log(
+              `${settlement.settlement} | ` +
+              `${settlement.measurement_count} mérés | ` +
+              `${settlement.site_count} hely | ` +
+              `max ${settlement.statistics.max_fibres_m3 ?? "-"} rost/m3`
+            );
+          }
+
+          NODE
+
+
+      # ===================================================
+      # 13. GIT
       # ===================================================
 
       - name: Git változások ellenőrzése
@@ -305,7 +590,8 @@ jobs:
             data/official_documents.json \
             data/official_measurements.json \
             data/official_measurement_extractions.json \
-            data/official_air_measurements.json
+            data/official_air_measurements.json \
+            data/official_air_dashboard.json
 
           if [ -f package-lock.json ]; then
             git add package-lock.json
@@ -329,7 +615,7 @@ jobs:
 
 
       # ===================================================
-      # 11. COMMIT
+      # 14. COMMIT
       # ===================================================
 
       - name: Adatok mentése
@@ -344,13 +630,13 @@ jobs:
             "41898282+github-actions[bot]@users.noreply.github.com"
 
           git commit \
-            -m "Frissített hivatalos azbeszt mérési adatok"
+            -m "Frissített hivatalos azbeszt mérési és dashboard adatok"
 
           git push
 
 
       # ===================================================
-      # 12. SUMMARY
+      # 15. SUMMARY
       # ===================================================
 
       - name: Workflow összegzés
@@ -383,6 +669,48 @@ jobs:
 
           console.log(
             `- Mértékegység: **${data.unit || "rost/m3"}**`
+          );
+
+          NODE
+
+          fi
+
+          if [ -f data/official_air_dashboard.json ]; then
+
+            node <<'NODE' >> "$GITHUB_STEP_SUMMARY"
+
+          const fs = require("fs");
+
+          const data =
+            JSON.parse(
+              fs.readFileSync(
+                "data/official_air_dashboard.json",
+                "utf8"
+              )
+            );
+
+          console.log("");
+          console.log("### Dashboard adat");
+          console.log("");
+
+          console.log(
+            `- Dashboard mérések: **${data.kpis?.total_measurements ?? 0}**`
+          );
+
+          console.log(
+            `- Mérőhelyek: **${data.kpis?.site_count ?? 0}**`
+          );
+
+          console.log(
+            `- Települések: **${data.kpis?.settlement_count ?? 0}**`
+          );
+
+          console.log(
+            `- Térképezhető mérőhelyek: **${data.map_points?.length ?? 0}**`
+          );
+
+          console.log(
+            `- Kimutatási határ alatti mérések: **${data.kpis?.below_detection_limit_measurements ?? 0}**`
           );
 
           NODE
