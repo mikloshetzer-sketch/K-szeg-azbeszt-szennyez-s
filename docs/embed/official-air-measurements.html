@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hivatalos levegőmérések | Vas Vármegyei Kormányhivatal</title>
+<meta name="description" content="Interaktív hivatalos azbeszt levegőmérési adatok Kőszeg, Szombathely és Sé térségéből.">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+:root{--blue:#1466a8;--blue-dark:#0b477a;--green:#16835b;--purple:#6f4bb8;--text:#10233f;--strong:#071a33;--muted:#5d6d82;--border:#d5e0e9;--soft:#f7fafc;--surface:#fff;--light:#eff6ff}
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;color:var(--text);background:#fff}
+.embed{max-width:1180px;margin:auto;padding:12px}
+.head{padding:20px 22px;border:1px solid var(--border);border-radius:16px;background:linear-gradient(135deg,#f8fbfe,#eef6fc)}
+.eyebrow{font-size:11px;font-weight:900;letter-spacing:.12em;color:var(--blue);text-transform:uppercase}
+h1{margin:7px 0 6px;font-family:Georgia,"Times New Roman",serif;font-size:clamp(25px,4vw,36px);color:var(--strong)}
+.intro{margin:0;color:var(--muted);line-height:1.55;font-size:14px}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:12px 0}
+.kpi{border:1px solid var(--border);border-radius:14px;padding:14px;background:#fff}
+.kpi-label{font-size:10px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.kpi-value{font-family:Georgia,serif;font-weight:900;font-size:30px;margin-top:8px;color:var(--blue-dark)}
+.toolbar{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;padding:11px;border:1px solid var(--border);border-radius:14px;background:var(--soft)}
+.filters,.views{display:flex;gap:7px;flex-wrap:wrap}
+button{border:1px solid #b9cbd9;border-radius:999px;background:#fff;color:var(--text);padding:8px 12px;font-weight:800;cursor:pointer}
+button.active{background:linear-gradient(145deg,var(--blue),var(--blue-dark));border-color:var(--blue);color:#fff}
+.meta{font-size:12px;color:var(--muted);font-weight:750}
+.panel{margin-top:12px;padding:18px;border:1px solid var(--border);border-radius:16px;background:#fff}
+.panel-title{font-family:Georgia,serif;font-size:24px;font-weight:900;color:var(--strong);margin:0 0 12px;padding-left:12px;border-left:4px solid var(--blue)}
+.chartbox{height:420px}
+.hidden{display:none!important}
+.latest{margin-top:12px;padding:13px 15px;border:1px solid #c7dfef;border-left:5px solid var(--blue);border-radius:12px;background:var(--light);font-size:13px;line-height:1.55}
+.bdl{display:inline-block;padding:2px 7px;border:1px solid #bbf7d0;border-radius:999px;background:#dcfce7;color:#166534;font-weight:800}
+.num{font-weight:900;color:var(--strong)}
+.details{margin-top:12px}
+.details-toggle{width:100%;border-radius:12px;padding:11px;background:#fff}
+.table-wrap{overflow-x:auto;margin-top:10px;border:1px solid var(--border);border-radius:12px}
+table{width:100%;border-collapse:collapse;background:#fff}
+th,td{padding:10px;border-bottom:1px solid #e7edf2;text-align:left;vertical-align:top;font-size:12px}
+th{background:#0b477a;color:#fff;font-size:10px;text-transform:uppercase;letter-spacing:.05em}
+tbody tr:nth-child(even){background:#f8fafc}
+.source{color:var(--blue-dark);font-weight:800;text-decoration:none}
+.foot{margin:12px 3px 0;color:var(--muted);font-size:11px;line-height:1.5}
+.error{display:none;margin-top:12px;padding:14px;border-radius:12px;background:#fff1f2;color:#991b1b;border:1px solid #fecdd3;font-weight:800}
+@media(max-width:700px){.kpis{grid-template-columns:repeat(2,1fr)}.chartbox{height:350px}.panel{padding:13px}.toolbar{align-items:flex-start}.meta{width:100%}}
+@media(max-width:420px){.embed{padding:7px}.kpi-value{font-size:26px}.chartbox{height:320px}}
+</style>
+</head>
+<body>
+<div class="embed">
+  <header class="head">
+    <div class="eyebrow">Kormányhivatali mérési adatok</div>
+    <h1>Hivatalos levegőmérések – Vas vármegye</h1>
+    <p class="intro">A Vas Vármegyei Kormányhivatal dokumentumaiból feldolgozott levegőmérési adatok. Válassz települést, majd nézd meg az idősoros értékeket vagy a mérőhelyek összehasonlítását.</p>
+  </header>
+
+  <div id="error" class="error">A hivatalos levegőmérési adatfájl jelenleg nem tölthető be.</div>
+
+  <div class="kpis">
+    <div class="kpi"><div class="kpi-label">Hivatalos mérések</div><div class="kpi-value" id="total">–</div></div>
+    <div class="kpi"><div class="kpi-label">Mérőhelyek</div><div class="kpi-value" id="sites">–</div></div>
+    <div class="kpi"><div class="kpi-label">Települések</div><div class="kpi-value" id="settlements">–</div></div>
+    <div class="kpi"><div class="kpi-label">Kimutatási határ alatt</div><div class="kpi-value" id="bdl">–</div></div>
+  </div>
+
+  <div class="toolbar">
+    <div class="filters" id="filters"><button class="active" data-settlement="all">Összes</button></div>
+    <div class="views">
+      <button class="active" data-view="timeline">Idősor</button>
+      <button data-view="sites">Mérőhelyek</button>
+    </div>
+    <div class="meta" id="meta">Adatok betöltése…</div>
+  </div>
+
+  <section class="panel" id="timelinePanel">
+    <h2 class="panel-title">Hivatalos mérések időben</h2>
+    <div class="chartbox"><canvas id="timeline"></canvas></div>
+  </section>
+
+  <section class="panel hidden" id="sitesPanel">
+    <h2 class="panel-title">Mérőhelyek összehasonlítása</h2>
+    <div class="chartbox"><canvas id="siteChart"></canvas></div>
+  </section>
+
+  <div class="latest" id="latest">Legutóbbi hivatalos mérés betöltése…</div>
+
+  <div class="details">
+    <button class="details-toggle" id="detailsToggle">Mérési adatok megjelenítése ▾</button>
+    <div class="table-wrap hidden" id="tableWrap">
+      <table>
+        <thead><tr><th>Dátum</th><th>Település</th><th>Mérőhely</th><th>Eredmény</th><th>Jelleg</th><th>Forrás</th></tr></thead>
+        <tbody id="tableBody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="foot">A kimutatási határ alatti eredményeket a rendszer megjeleníti, de nem kezeli tényleges számszerű koncentrációként. A grafikon tájékoztató adatvizualizáció; nem helyettesít hatósági vagy egészségügyi kockázatértékelést.</div>
+</div>
+
+<script>
+const DATA_URL = "../data/official_air_dashboard.json";
+let rawData=null, timelineChart=null, siteChart=null, activeSettlement="all";
+
+const firstDefined=(...v)=>v.find(x=>x!==undefined&&x!==null&&x!=="");
+const fmt=v=>v===null||v===undefined||v===""?"–":Number(v).toLocaleString("hu-HU",{maximumFractionDigits:0});
+function settlement(i){return firstDefined(i.settlement,i.city,i.telepules,"Ismeretlen")}
+function site(i){return firstDefined(i.site_name,i.site,i.location,i.location_name,i.measurement_site,i.street_or_location,i.sample_id,"Ismeretlen mérőhely")}
+function dateValue(i){return firstDefined(i.measurement_date,i.date,i.sample_date,i.sampling_date,i.measured_at,"")}
+function displayValue(i){return firstDefined(i?.concentration?.display,i.display_value,i.result_display,i.raw_value,i.below_detection_limit?`<${firstDefined(i.concentration_fibres_m3,i.value,i.detection_limit,"")}`:firstDefined(i.concentration_fibres_m3,i.value,""))}
+function numericValue(i){
+  const n=i?.concentration?.numeric_for_statistics;
+  if(n===null)return null;
+  if(Number.isFinite(Number(n)))return Number(n);
+  if(i.below_detection_limit===true||i?.concentration?.below_detection_limit===true)return null;
+  const r=firstDefined(i.concentration_fibres_m3,i.numeric_value,i.value);
+  if(r===undefined||r===null||r==="")return null;
+  const x=Number(r); return Number.isFinite(x)?x:null;
+}
+function isBdl(i){return i?.concentration?.below_detection_limit===true||i.below_detection_limit===true||String(displayValue(i)||"").trim().startsWith("<")}
+function sourceUrl(i){return firstDefined(i.source_url,i.pdf_url,i.document_url,i.source_pdf,i.source?.url,i.document?.url,"")}
+function sourceLabel(i){return firstDefined(i.source_title,i.document_title,i.source?.title,i.document?.title,"Hivatalos forrás")}
+function norm(data){return (Array.isArray(data?.measurements)?data.measurements:[]).map((i,index)=>({...i,_index:index,_settlement:settlement(i),_site:site(i),_date:dateValue(i),_numeric:numericValue(i),_display:displayValue(i),_bdl:isBdl(i),_sourceUrl:sourceUrl(i),_sourceLabel:sourceLabel(i)}))}
+function dateLabel(v){if(!v)return"–";const d=new Date(v);return Number.isNaN(d.getTime())?String(v):d.toLocaleDateString("hu-HU")}
+function dateSort(v){const d=new Date(v);return Number.isNaN(d.getTime())?0:d.getTime()}
+
+function destroyCharts(){if(timelineChart){timelineChart.destroy();timelineChart=null}if(siteChart){siteChart.destroy();siteChart=null}}
+
+function renderKpis(all){
+  const k=rawData?.kpis||{};
+  const sitesSet=new Set(all.map(i=>`${i._settlement}||${i._site}`));
+  const setSet=new Set(all.map(i=>i._settlement));
+  document.getElementById("total").textContent=fmt(firstDefined(k.total_measurements,all.length));
+  document.getElementById("sites").textContent=fmt(firstDefined(k.site_count,rawData?.sites?.length,sitesSet.size));
+  document.getElementById("settlements").textContent=fmt(firstDefined(k.settlement_count,rawData?.settlements?.length,setSet.size));
+  document.getElementById("bdl").textContent=fmt(firstDefined(k.below_detection_limit_measurements,all.filter(i=>i._bdl).length));
+}
+
+function buildFilters(all){
+  const names=[...new Set(all.map(i=>i._settlement).filter(Boolean))].sort((a,b)=>a.localeCompare(b,"hu"));
+  const box=document.getElementById("filters");
+  box.innerHTML='<button class="active" data-settlement="all">Összes</button>'+names.map(n=>`<button data-settlement="${n.replace(/"/g,"&quot;")}">${n}</button>`).join("");
+  box.querySelectorAll("button").forEach(b=>b.onclick=()=>{box.querySelectorAll("button").forEach(x=>x.classList.remove("active"));b.classList.add("active");activeSettlement=b.dataset.settlement;renderView()});
+}
+
+function renderView(){
+  const all=norm(rawData);
+  const filtered=activeSettlement==="all"?all:all.filter(i=>i._settlement===activeSettlement);
+  const sorted=[...filtered].sort((a,b)=>dateSort(a._date)-dateSort(b._date));
+  const numeric=sorted.filter(i=>Number.isFinite(i._numeric));
+  document.getElementById("meta").textContent=`${activeSettlement==="all"?"Összes település":activeSettlement} · ${filtered.length} mérés`;
+  destroyCharts();
+
+  timelineChart=new Chart(document.getElementById("timeline"),{
+    type:"line",
+    data:{labels:numeric.map(i=>dateLabel(i._date)),datasets:[{label:"Mért koncentráció (rost/m³)",data:numeric.map(i=>i._numeric),borderColor:"#1466a8",backgroundColor:"rgba(20,102,168,.12)",pointBackgroundColor:"#0b477a",pointRadius:4,pointHoverRadius:6,tension:.18,fill:false}]},
+    options:{responsive:true,maintainAspectRatio:false,interaction:{mode:"nearest",intersect:false},plugins:{legend:{position:"bottom"},tooltip:{callbacks:{title:c=>{const i=numeric[c[0].dataIndex];return `${dateLabel(i._date)} · ${i._settlement}`},label:c=>`${fmt(c.raw)} rost/m³`,afterLabel:c=>numeric[c.dataIndex]._site}}},scales:{y:{beginAtZero:true,title:{display:true,text:"rost/m³"}},x:{ticks:{maxRotation:0,minRotation:0,autoSkip:true,maxTicksLimit:10}}}}
+  });
+
+  const map={}; numeric.forEach(i=>{const key=`${i._settlement} – ${i._site}`;(map[key]??=[]).push(i._numeric)});
+  const rows=Object.entries(map).map(([name,v])=>({name,max:Math.max(...v)})).sort((a,b)=>b.max-a.max);
+  siteChart=new Chart(document.getElementById("siteChart"),{
+    type:"bar",data:{labels:rows.map(r=>r.name),datasets:[{label:"Legmagasabb számszerű érték",data:rows.map(r=>r.max),backgroundColor:"#1466a8"}]},
+    options:{responsive:true,maintainAspectRatio:false,indexAxis:"y",plugins:{legend:{position:"bottom"},tooltip:{callbacks:{label:c=>`${fmt(c.raw)} rost/m³`}}},scales:{x:{beginAtZero:true,title:{display:true,text:"rost/m³"}}}}
+  });
+
+  const latest=[...filtered].sort((a,b)=>dateSort(b._date)-dateSort(a._date))[0];
+  document.getElementById("latest").innerHTML=latest?`<strong>Legutóbbi hivatalos mérés:</strong> ${dateLabel(latest._date)} · ${latest._settlement} · ${latest._site} · ${latest._bdl?`<span class="bdl">${latest._display||"kimutatási határ alatt"}</span>`:`<span class="num">${fmt(latest._numeric)} rost/m³</span>`}`:"A kiválasztott településhez nincs megjeleníthető mérés.";
+
+  document.getElementById("tableBody").innerHTML=[...filtered].sort((a,b)=>dateSort(b._date)-dateSort(a._date)).map(i=>`<tr><td>${dateLabel(i._date)}</td><td>${i._settlement}</td><td>${i._site}</td><td>${i._bdl?`<span class="bdl">${i._display||"kimutatási határ alatt"}</span>`:`<span class="num">${Number.isFinite(i._numeric)?fmt(i._numeric)+" rost/m³":(i._display||"–")}</span>`}</td><td>${i._bdl?"Kimutatási határ alatt":"Számszerű mérés"}</td><td>${i._sourceUrl?`<a class="source" href="${i._sourceUrl}" target="_blank" rel="noopener">${i._sourceLabel}</a>`:i._sourceLabel}</td></tr>`).join("");
+}
+
+document.querySelectorAll("[data-view]").forEach(b=>b.onclick=()=>{
+  document.querySelectorAll("[data-view]").forEach(x=>x.classList.remove("active"));b.classList.add("active");
+  document.getElementById("timelinePanel").classList.toggle("hidden",b.dataset.view!=="timeline");
+  document.getElementById("sitesPanel").classList.toggle("hidden",b.dataset.view!=="sites");
+  setTimeout(()=>{timelineChart?.resize();siteChart?.resize()},50);
+});
+document.getElementById("detailsToggle").onclick=()=>{
+  const w=document.getElementById("tableWrap"), opening=w.classList.contains("hidden");
+  w.classList.toggle("hidden");document.getElementById("detailsToggle").textContent=opening?"Mérési adatok elrejtése ▴":"Mérési adatok megjelenítése ▾";
+};
+
+(async()=>{
+  try{
+    const r=await fetch(DATA_URL+"?t="+Date.now());
+    if(!r.ok)throw new Error("adatfájl");
+    rawData=await r.json();
+    const all=norm(rawData);
+    if(!all.length)throw new Error("nincs mérés");
+    renderKpis(all);buildFilters(all);renderView();
+  }catch(e){console.error(e);document.getElementById("error").style.display="block";document.getElementById("meta").textContent="Adatbetöltési hiba"}
+})();
+</script>
+</body>
+</html>
