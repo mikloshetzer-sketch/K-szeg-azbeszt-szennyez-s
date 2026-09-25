@@ -3,8 +3,6 @@ name: Update Official Asbestos Measurements
 on:
   workflow_dispatch:
 
-  # Automatikus futás naponta kétszer
-  # UTC szerint: 05:30 és 17:30
   schedule:
     - cron: "30 5,17 * * *"
 
@@ -16,10 +14,14 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+
   update-official-measurements:
+
     name: Vas Kormányhivatal adatok frissítése
+
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+
+    timeout-minutes: 25
 
     steps:
 
@@ -34,7 +36,7 @@ jobs:
 
 
       # ===================================================
-      # 2. NODE.JS
+      # 2. NODE
       # ===================================================
 
       - name: Node.js beállítása
@@ -49,52 +51,28 @@ jobs:
 
       - name: Node függőségek telepítése
         run: |
-          echo "======================================"
-          echo "NODE FÜGGŐSÉGEK"
-          echo "======================================"
-
           if [ -f package-lock.json ]; then
-            echo "package-lock.json megtalálva -> npm ci"
             npm ci
           else
-            echo "Nincs package-lock.json -> npm install"
             npm install
           fi
 
 
       # ===================================================
-      # 4. KÖRNYEZET ELLENŐRZÉSE
+      # 4. SCRIPT ELLENŐRZÉS
       # ===================================================
 
-      - name: Környezet ellenőrzése
+      - name: Scriptek ellenőrzése
         run: |
           echo "======================================"
-          echo "KÖRNYEZET"
+          echo "SCRIPT ELLENŐRZÉS"
           echo "======================================"
-
-          echo ""
-          echo "Node verzió:"
-          node --version
-
-          echo ""
-          echo "NPM verzió:"
-          npm --version
-
-          echo ""
-          echo "Repository:"
-          pwd
-
-          echo ""
-          echo "Scriptek ellenőrzése:"
 
           test -f scripts/fetch-official-measurements.js
           echo "fetch-official-measurements.js: OK"
 
           test -f scripts/extract-official-pdfs.js
           echo "extract-official-pdfs.js: OK"
-
-          echo ""
-          echo "pdf-parse ellenőrzése:"
 
           node -e "
             require('pdf-parse');
@@ -103,347 +81,220 @@ jobs:
 
 
       # ===================================================
-      # 5. KORMÁNYHIVATALI DOKUMENTUMOK FRISSÍTÉSE
+      # 5. KORMÁNYHIVATALI INDEX
       # ===================================================
 
-      - name: Hivatalos dokumentumok frissítése
+      - name: Hivatalos dokumentumindex frissítése
         run: |
           echo "======================================"
-          echo "KORMÁNYHIVATALI DOKUMENTUMOK"
+          echo "VAS KORMÁNYHIVATAL"
           echo "======================================"
 
           node scripts/fetch-official-measurements.js
 
 
       # ===================================================
-      # 6. DOKUMENTUMINDEX ELLENŐRZÉSE
-      # ===================================================
-
-      - name: Dokumentumindex ellenőrzése
-        run: |
-          echo "======================================"
-          echo "DOKUMENTUMINDEX ELLENŐRZÉSE"
-          echo "======================================"
-
-          test -f data/official_documents.json
-          test -f data/official_measurements.json
-
-          node <<'NODE'
-
-          const fs = require("fs");
-
-          const documents = JSON.parse(
-            fs.readFileSync(
-              "data/official_documents.json",
-              "utf8"
-            )
-          );
-
-          const measurements = JSON.parse(
-            fs.readFileSync(
-              "data/official_measurements.json",
-              "utf8"
-            )
-          );
-
-          console.log(
-            "official_documents.json: OK"
-          );
-
-          console.log(
-            "official_measurements.json: OK"
-          );
-
-          console.log("");
-
-          console.log(
-            "Hivatalos dokumentumok:",
-            documents.statistics?.total_documents ?? 0
-          );
-
-          console.log(
-            "Levegőmérési dokumentumok:",
-            documents.statistics?.air_measurement_documents ?? 0
-          );
-
-          console.log(
-            "Kőzetvizsgálati dokumentumok:",
-            documents.statistics?.rock_measurement_documents ?? 0
-          );
-
-          console.log(
-            "Mérési dokumentumok összesen:",
-            measurements.total_measurement_documents ?? 0
-          );
-
-          NODE
-
-
-      # ===================================================
-      # 7. PDF ADATKINYERÉS
+      # 6. PDF PARSER V3
       # ===================================================
 
       - name: Hivatalos PDF-ek feldolgozása
         run: |
           echo "======================================"
-          echo "HIVATALOS PDF ADATKINYERÉS"
+          echo "HIVATALOS PDF ADATKINYERÉS – V3"
           echo "======================================"
 
           node scripts/extract-official-pdfs.js
 
 
       # ===================================================
-      # 8. PDF EXTRACTION JSON ELLENŐRZÉSE
+      # 7. FÁJLOK ELLENŐRZÉSE
       # ===================================================
 
-      - name: PDF-adatkinyerés ellenőrzése
+      - name: Generált fájlok ellenőrzése
         run: |
+          test -f data/official_documents.json
+          test -f data/official_measurements.json
           test -f data/official_measurement_extractions.json
+          test -f data/official_air_measurements.json
 
+          echo ""
+          echo "Generált fájlok:"
+          echo ""
+
+          ls -lh \
+            data/official_documents.json \
+            data/official_measurements.json \
+            data/official_measurement_extractions.json \
+            data/official_air_measurements.json
+
+
+      # ===================================================
+      # 8. STRUKTURÁLT ADAT VALIDÁCIÓ
+      # ===================================================
+
+      - name: Strukturált levegőmérések validálása
+        run: |
           node <<'NODE'
 
           const fs = require("fs");
 
           const file =
-            "data/official_measurement_extractions.json";
+            "data/official_air_measurements.json";
 
-          const data = JSON.parse(
-            fs.readFileSync(
-              file,
-              "utf8"
-            )
-          );
+          const data =
+            JSON.parse(
+              fs.readFileSync(
+                file,
+                "utf8"
+              )
+            );
 
           console.log("");
           console.log("======================================");
-          console.log("PDF ADATKINYERÉSI EREDMÉNY");
+          console.log("STRUKTURÁLT LEVEGŐMÉRÉSEK");
           console.log("======================================");
 
           console.log(
-            "Dokumentumok:",
-            data.statistics?.total_documents ?? 0
+            "Schema:",
+            data.schema_version
           );
 
           console.log(
-            "Sikeres feldolgozás:",
-            data.statistics?.successful_extractions ?? 0
+            "Elfogadott mérések:",
+            data.measurement_count
           );
 
           console.log(
-            "Hibás feldolgozás:",
-            data.statistics?.failed_extractions ?? 0
+            "Ellenőrzendő sorok:",
+            data.review_count
           );
 
+          if (
+            !Array.isArray(
+              data.measurements
+            )
+          ) {
+            throw new Error(
+              "A measurements mező nem tömb."
+            );
+          }
+
+          if (
+            !Array.isArray(
+              data.review_queue
+            )
+          ) {
+            throw new Error(
+              "A review_queue mező nem tömb."
+            );
+          }
+
+          for (
+            const item of
+            data.measurements
+          ) {
+            if (!item.sample_id) {
+              throw new Error(
+                "Hiányzó sample_id."
+              );
+            }
+
+            if (
+              !Number.isFinite(
+                item.concentration_fibres_m3
+              )
+            ) {
+              throw new Error(
+                `Hibás koncentráció: ${item.sample_id}`
+              );
+            }
+
+            if (
+              item.confidence !== "high"
+            ) {
+              throw new Error(
+                `Nem high-confidence rekord került az elfogadott adatbázisba: ${item.sample_id}`
+              );
+            }
+          }
+
+          console.log("");
           console.log(
-            "Cache-ből megtartva:",
-            data.statistics?.reused_extractions ?? 0
+            "Validáció: OK"
           );
-
-          console.log(
-            "Talált mérési értékek:",
-            data.statistics?.detected_measurement_values ?? 0
-          );
-
-          console.log(
-            "Talált koordináták:",
-            data.statistics?.detected_coordinates ?? 0
-          );
-
-          console.log("======================================");
 
           NODE
 
 
       # ===================================================
-      # 9. DOKUMENTUMONKÉNTI DIAGNOSZTIKA
+      # 9. ADATOK KIÍRÁSA
       # ===================================================
 
-      - name: Dokumentumonkénti találatok
+      - name: Elfogadott mérési eredmények
         run: |
           node <<'NODE'
 
           const fs = require("fs");
 
-          const data = JSON.parse(
-            fs.readFileSync(
-              "data/official_measurement_extractions.json",
-              "utf8"
-            )
-          );
+          const data =
+            JSON.parse(
+              fs.readFileSync(
+                "data/official_air_measurements.json",
+                "utf8"
+              )
+            );
 
           console.log("");
           console.log("======================================");
-          console.log("DOKUMENTUMONKÉNTI EREDMÉNY");
+          console.log("ELFOGADOTT MÉRÉSEK");
           console.log("======================================");
 
-          for (const item of data.extractions || []) {
-
-            console.log("");
-            console.log("--------------------------------------");
-
+          for (
+            const item of
+            data.measurements
+          ) {
             console.log(
-              item.source_title || "Névtelen dokumentum"
+              `${item.sample_id} | ` +
+              `${item.concentration_fibres_m3} rost/m3 | ` +
+              `${item.location || "-"} | ` +
+              `${item.lat ?? "-"}, ${item.lon ?? "-"} | ` +
+              `${item.parser}`
             );
-
-            console.log(
-              "Kategória:",
-              item.measurement_category || "-"
-            );
-
-            console.log(
-              "PDF oldalak:",
-              item.pdf_pages ?? "-"
-            );
-
-            console.log(
-              "Szöveg hossza:",
-              item.text_length ?? 0
-            );
-
-            console.log(
-              "Státusz:",
-              item.extraction_status || "-"
-            );
-
-            console.log(
-              "Cache:",
-              item.reused === true
-                ? "igen"
-                : "nem"
-            );
-
-            console.log(
-              "Mérési értékek:",
-              item.statistics?.measurement_values ?? 0
-            );
-
-            console.log(
-              "Koordináták:",
-              item.statistics?.coordinates ?? 0
-            );
-
-            console.log(
-              "Azbeszttípusok:",
-              (item.detected_asbestos_types || []).join(", ") || "-"
-            );
-
-            const values =
-              item.detected_measurement_values || [];
-
-            if (values.length > 0) {
-
-              console.log("");
-              console.log("Talált értékek:");
-
-              for (
-                const value of values.slice(0, 30)
-              ) {
-
-                console.log(
-                  `  ${value.raw} -> ${value.value} ${value.unit}`
-                );
-
-              }
-
-            }
-
-            const coordinates =
-              item.detected_coordinates || [];
-
-            if (coordinates.length > 0) {
-
-              console.log("");
-              console.log("Talált koordináták:");
-
-              for (
-                const coordinate of coordinates.slice(0, 10)
-              ) {
-
-                console.log(
-                  `  ${coordinate.lat}, ${coordinate.lon}`
-                );
-
-              }
-
-            }
-
           }
 
           console.log("");
           console.log("======================================");
+          console.log("REVIEW QUEUE");
+          console.log("======================================");
+
+          for (
+            const item of
+            data.review_queue
+          ) {
+            console.log(
+              `${item.sample_id} | ${item.reason}`
+            );
+
+            if (
+              item.candidates?.length
+            ) {
+              console.log(
+                "  Jelöltek:",
+                item.candidates
+                  .map(
+                    candidate =>
+                      candidate.raw
+                  )
+                  .join(", ")
+              );
+            }
+          }
 
           NODE
 
 
       # ===================================================
-      # 10. ADATMINŐSÉG ELLENŐRZÉSE
-      # ===================================================
-
-      - name: Adatminőség ellenőrzése
-        run: |
-          node <<'NODE'
-
-          const fs = require("fs");
-
-          const data = JSON.parse(
-            fs.readFileSync(
-              "data/official_measurement_extractions.json",
-              "utf8"
-            )
-          );
-
-          const total =
-            data.statistics?.total_documents ?? 0;
-
-          const success =
-            data.statistics?.successful_extractions ?? 0;
-
-          const failed =
-            data.statistics?.failed_extractions ?? 0;
-
-          if (total === 0) {
-            throw new Error(
-              "Nincs feldolgozható mérési dokumentum."
-            );
-          }
-
-          if (success === 0) {
-            throw new Error(
-              "Egyetlen PDF feldolgozása sem sikerült."
-            );
-          }
-
-          if (failed > 0) {
-            console.warn(
-              `FIGYELMEZTETÉS: ${failed} dokumentum feldolgozása sikertelen.`
-            );
-          }
-
-          console.log("");
-          console.log(
-            `Validáció OK: ${success}/${total} dokumentum feldolgozva.`
-          );
-
-          NODE
-
-
-      # ===================================================
-      # 11. GENERÁLT FÁJLOK
-      # ===================================================
-
-      - name: Generált fájlok ellenőrzése
-        run: |
-          echo "======================================"
-          echo "GENERÁLT ADATFÁJLOK"
-          echo "======================================"
-
-          ls -lh data/official_documents.json
-          ls -lh data/official_measurements.json
-          ls -lh data/official_measurement_extractions.json
-
-
-      # ===================================================
-      # 12. GIT VÁLTOZÁSOK
+      # 10. GIT
       # ===================================================
 
       - name: Git változások ellenőrzése
@@ -453,10 +304,9 @@ jobs:
           git add \
             data/official_documents.json \
             data/official_measurements.json \
-            data/official_measurement_extractions.json
+            data/official_measurement_extractions.json \
+            data/official_air_measurements.json
 
-          # Ha az npm install létrehozott package-lock.json-t,
-          # azt is elmentjük.
           if [ -f package-lock.json ]; then
             git add package-lock.json
           fi
@@ -465,18 +315,13 @@ jobs:
 
             echo "changed=false" >> "$GITHUB_OUTPUT"
 
-            echo ""
             echo "Nincs új vagy módosult hivatalos adat."
 
           else
 
             echo "changed=true" >> "$GITHUB_OUTPUT"
 
-            echo ""
             echo "Új vagy módosult hivatalos adat található."
-
-            echo ""
-            echo "Változások:"
 
             git diff --cached --stat
 
@@ -484,12 +329,11 @@ jobs:
 
 
       # ===================================================
-      # 13. COMMIT + PUSH
+      # 11. COMMIT
       # ===================================================
 
-      - name: Frissített adatok mentése
+      - name: Adatok mentése
         if: steps.changes.outputs.changed == 'true'
-        shell: bash
         run: |
           git config \
             user.name \
@@ -500,64 +344,47 @@ jobs:
             "41898282+github-actions[bot]@users.noreply.github.com"
 
           git commit \
-            -m "Frissített hivatalos azbeszt mérési adatok és PDF kinyerés"
+            -m "Frissített hivatalos azbeszt mérési adatok"
 
           git push
 
 
       # ===================================================
-      # 14. WORKFLOW SUMMARY
+      # 12. SUMMARY
       # ===================================================
 
       - name: Workflow összegzés
         if: always()
-        shell: bash
         run: |
           echo "## Vas Kormányhivatal – azbeszt monitor" >> "$GITHUB_STEP_SUMMARY"
 
-          echo "" >> "$GITHUB_STEP_SUMMARY"
-
-          if [ -f data/official_measurement_extractions.json ]; then
+          if [ -f data/official_air_measurements.json ]; then
 
             node <<'NODE' >> "$GITHUB_STEP_SUMMARY"
 
           const fs = require("fs");
 
-          const data = JSON.parse(
-            fs.readFileSync(
-              "data/official_measurement_extractions.json",
-              "utf8"
-            )
+          const data =
+            JSON.parse(
+              fs.readFileSync(
+                "data/official_air_measurements.json",
+                "utf8"
+              )
+            );
+
+          console.log("");
+          console.log(
+            `- Elfogadott levegőmérések: **${data.measurement_count ?? 0}**`
           );
 
           console.log(
-            `- Feldolgozott mérési dokumentumok: **${data.statistics?.total_documents ?? 0}**`
+            `- Manuális ellenőrzést igénylő sorok: **${data.review_count ?? 0}**`
           );
 
           console.log(
-            `- Sikeres PDF-kinyerések: **${data.statistics?.successful_extractions ?? 0}**`
-          );
-
-          console.log(
-            `- Hibás PDF-kinyerések: **${data.statistics?.failed_extractions ?? 0}**`
-          );
-
-          console.log(
-            `- Cache-ből megtartott kinyerések: **${data.statistics?.reused_extractions ?? 0}**`
-          );
-
-          console.log(
-            `- Talált mérési értékek: **${data.statistics?.detected_measurement_values ?? 0}**`
-          );
-
-          console.log(
-            `- Talált koordináták: **${data.statistics?.detected_coordinates ?? 0}**`
+            `- Mértékegység: **${data.unit || "rost/m3"}**`
           );
 
           NODE
-
-          else
-
-            echo "- A PDF-adatkinyerési fájl nem készült el." >> "$GITHUB_STEP_SUMMARY"
 
           fi
