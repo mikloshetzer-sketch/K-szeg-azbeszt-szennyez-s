@@ -1,11 +1,11 @@
 {
   "schema_version": "3.0",
-  "parser_version": "4.0",
-  "generated_at": "2026-09-25T19:53:07.517Z",
+  "parser_version": "4.1",
+  "generated_at": "2026-09-25T20:14:09.340Z",
   "authority": "Vas Vármegyei Kormányhivatal",
   "measurement_type": "air",
   "unit": "rost/m3",
-  "methodology": "Only automatically verified measurements are published. Ambiguous modern PDF table rows remain in review_queue.",
+  "methodology": "Only automatically verified measurements are published. Modern PDF table measurements remain in review_queue until column mapping is verified.",
   "measurement_count": 6,
   "review_count": 42,
   "measurements": [
@@ -142,14 +142,18 @@
       "sample_id": null,
       "reason": "unknown_document_format",
       "source_title": "Oladi plató levegővizsgálat eredményei (német nyelvű)",
-      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/260086_20260505_hkkuv261097_luftmessungen-ungarn_bericht_u.pdf"
+      "publication_date": "2026-05-12",
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/260086_20260505_hkkuv261097_luftmessungen-ungarn_bericht_u.pdf",
+      "authority": "Vas Vármegyei Kormányhivatal"
     },
     {
       "status": "review",
       "sample_id": null,
       "reason": "unknown_document_format",
       "source_title": "Szombathely Oladi plató legfrissebb mérési eredmények",
-      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/szombathely-oladi-plato-varosresz.pdf"
+      "publication_date": "2026-07-20",
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/szombathely-oladi-plato-varosresz.pdf",
+      "authority": "Vas Vármegyei Kormányhivatal"
     },
     {
       "status": "review",

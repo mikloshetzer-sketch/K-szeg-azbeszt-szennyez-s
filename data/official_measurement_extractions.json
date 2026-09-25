@@ -1,7 +1,8 @@
 {
-  "schema_version": "4.0",
+  "schema_version": "4.1",
   "parser": "independent_official_air_parser",
-  "generated_at": "2026-09-25T19:53:07.516Z",
+  "parser_mode": "modern_table_diagnostics",
+  "generated_at": "2026-09-25T20:14:09.339Z",
   "authority": "Vas Vármegyei Kormányhivatal",
   "statistics": {
     "total_documents": 10,
@@ -34,12 +35,14 @@
           "sample_id": null,
           "reason": "unknown_document_format",
           "source_title": "Oladi plató levegővizsgálat eredményei (német nyelvű)",
-          "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/260086_20260505_hkkuv261097_luftmessungen-ungarn_bericht_u.pdf"
+          "publication_date": "2026-05-12",
+          "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/260086_20260505_hkkuv261097_luftmessungen-ungarn_bericht_u.pdf",
+          "authority": "Vas Vármegyei Kormányhivatal"
         }
       ],
       "diagnostics": null,
       "extraction_status": "success",
-      "extracted_at": "2026-09-25T19:53:02.429Z"
+      "extracted_at": "2026-09-25T20:14:03.311Z"
     },
     {
       "id": "42e34b86f65dbbb6",
@@ -65,7 +68,7 @@
       "review_air_measurements": [],
       "diagnostics": null,
       "extraction_status": "success",
-      "extracted_at": "2026-09-25T19:53:03.013Z"
+      "extracted_at": "2026-09-25T20:14:03.701Z"
     },
     {
       "id": "05fdc9827340266c",
@@ -91,7 +94,7 @@
       "review_air_measurements": [],
       "diagnostics": null,
       "extraction_status": "success",
-      "extracted_at": "2026-09-25T19:53:04.293Z"
+      "extracted_at": "2026-09-25T20:14:05.415Z"
     },
     {
       "id": "d9702e422a5a3625",
@@ -116,7 +119,7 @@
       "review_air_measurements": [],
       "diagnostics": null,
       "extraction_status": "success",
-      "extracted_at": "2026-09-25T19:53:04.973Z"
+      "extracted_at": "2026-09-25T20:14:06.118Z"
     },
     {
       "id": "7c244fa29d5b20de",
@@ -141,7 +144,7 @@
       "review_air_measurements": [],
       "diagnostics": null,
       "extraction_status": "success",
-      "extracted_at": "2026-09-25T19:53:05.416Z"
+      "extracted_at": "2026-09-25T20:14:06.715Z"
     },
     {
       "id": "89da35147ee8c85e",
@@ -166,12 +169,14 @@
           "sample_id": null,
           "reason": "unknown_document_format",
           "source_title": "Szombathely Oladi plató legfrissebb mérési eredmények",
-          "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/szombathely-oladi-plato-varosresz.pdf"
+          "publication_date": "2026-07-20",
+          "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/szombathely-oladi-plato-varosresz.pdf",
+          "authority": "Vas Vármegyei Kormányhivatal"
         }
       ],
       "diagnostics": null,
       "extraction_status": "success",
-      "extracted_at": "2026-09-25T19:53:05.826Z"
+      "extracted_at": "2026-09-25T20:14:07.239Z"
     },
     {
       "id": "2c677b8299154d25",
@@ -257,7 +262,7 @@
       "review_air_measurements": [],
       "diagnostics": null,
       "extraction_status": "success",
-      "extracted_at": "2026-09-25T19:53:06.371Z"
+      "extracted_at": "2026-09-25T20:14:07.893Z"
     },
     {
       "id": "f9b6e2bcc17cde03",
@@ -343,7 +348,7 @@
       "review_air_measurements": [],
       "diagnostics": null,
       "extraction_status": "success",
-      "extracted_at": "2026-09-25T19:53:06.721Z"
+      "extracted_at": "2026-09-25T20:14:08.306Z"
     },
     {
       "id": "4cf548f456645dce",
@@ -2060,7 +2065,7 @@
         "numeric_token_count": 266
       },
       "extraction_status": "success",
-      "extracted_at": "2026-09-25T19:53:07.137Z"
+      "extracted_at": "2026-09-25T20:14:08.845Z"
     },
     {
       "id": "52d7c8a8720d0463",
@@ -2525,7 +2530,7 @@
         "numeric_token_count": 72
       },
       "extraction_status": "success",
-      "extracted_at": "2026-09-25T19:53:07.516Z"
+      "extracted_at": "2026-09-25T20:14:09.339Z"
     }
   ]
 }
