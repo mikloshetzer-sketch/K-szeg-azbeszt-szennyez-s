@@ -2,7 +2,7 @@
  * Vas Vármegyei Kormányhivatal
  * Hivatalos levegő-azbesztmérések feldolgozása
  *
- * V4.1 – DIAGNOSZTIKAI VERZIÓ
+ * V4.2 – MODERN TÁBLÁZATOS LEVEGŐMÉRÉSEK
  *
  * Cél:
  * - kizárólag a hivatalos Kormányhivatal-források feldolgozása
@@ -45,7 +45,7 @@ const AUTHORITY =
   "Vas Vármegyei Kormányhivatal";
 
 const USER_AGENT =
-  "Koszeg-Asbestos-Air-Monitor/4.1 (+GitHub Actions)";
+  "Koszeg-Asbestos-Air-Monitor/4.2 (+GitHub Actions)";
 
 
 /* =========================================================
@@ -1436,6 +1436,152 @@ function parseLegacyDocument(
    - minden modern minta review státuszú
    ========================================================= */
 
+function extractModernConcentration(context) {
+
+  /*
+   * A modern jegyzőkönyvek egy mintasora a diagnosztika alapján:
+   *
+   *   ... dátum
+   *   8,18 Környezeti levegő vizsgálat
+   *   1 520
+   *   Átszívott levegő mennyisége ...
+   *
+   * vagy a további sorokban:
+   *
+   *   ... dátum
+   *   8,29 500
+   *   Átszívott levegő mennyisége ...
+   *
+   * A koncentráció tehát az "Átszívott levegő mennyisége"
+   * marker előtti utolsó numerikus érték. Előtte közvetlenül
+   * a térfogatáram áll (tipikusan 7–9 l/perc).
+   *
+   * A "< 100*" alakot detection-limit értékként kezeljük.
+   */
+
+  const markerMatch =
+    /Átszívott\s+levegő\s+mennyisége/i.exec(context);
+
+  if (!markerMatch) {
+    return null;
+  }
+
+  let prefix =
+    context.slice(0, markerMatch.index);
+
+  prefix = prefix
+    .replace(
+      /Környezeti\s+levegő\s+vizsgálat/gi,
+      " "
+    )
+    .trim();
+
+  const tail =
+    prefix.slice(
+      Math.max(0, prefix.length - 350)
+    );
+
+  const tokenRegex =
+    /(<\s*)?(\d{1,3}(?:\s\d{3})+|\d+(?:[.,]\d+)?)(\s*\*)?/g;
+
+  const tokens = [];
+
+  let match;
+
+  while (
+    (match = tokenRegex.exec(tail)) !== null
+  ) {
+
+    const raw =
+      `${match[1] || ""}${match[2]}${match[3] || ""}`;
+
+    const numeric =
+      parseNumber(
+        match[2].replace(/\s+/g, "")
+      );
+
+    if (numeric === null) {
+      continue;
+    }
+
+    tokens.push({
+      raw: inline(raw),
+      value: numeric,
+      below_detection_limit:
+        Boolean(match[1]),
+      index: match.index
+    });
+  }
+
+  if (!tokens.length) {
+    return null;
+  }
+
+  /*
+   * A dátumok és időpontok sok numerikus tokent hoznak létre,
+   * ezért a markerhez legközelebbi értékből indulunk visszafelé.
+   *
+   * A koncentráció:
+   * - egész szám, vagy "< egész szám"
+   * - a modern táblákban közvetlenül a volume marker előtt van
+   * - a térfogatáram jellemzően tizedes szám, ezért azt kihagyjuk.
+   */
+
+  for (
+    let i = tokens.length - 1;
+    i >= 0;
+    i--
+  ) {
+
+    const token =
+      tokens[i];
+
+    const raw =
+      token.raw.replace(/\*/g, "").trim();
+
+    const isIntegerLike =
+      token.below_detection_limit ||
+      /^\d{1,3}(?:\s\d{3})+$/.test(raw) ||
+      /^\d+$/.test(raw);
+
+    if (!isIntegerLike) {
+      continue;
+    }
+
+    /*
+     * Biztonsági korlát:
+     * 0 nem lehet elfogadott koncentráció.
+     * A hivatalos táblákban a kimutatási határ "< 100".
+     */
+
+    if (
+      token.value <= 0
+    ) {
+      continue;
+    }
+
+    return {
+      concentration_fibres_m3:
+        token.value,
+
+      below_detection_limit:
+        token.below_detection_limit,
+
+      raw:
+        token.raw,
+
+      parser:
+        "modern_table_row",
+
+      confidence:
+        "high"
+    };
+  }
+
+  return null;
+}
+
+
 function parseModernDocument(
   text,
   document
@@ -1445,21 +1591,6 @@ function parseModernDocument(
     analyseModernStructure(
       text
     );
-
-
-  /*
-   * V4.1 diagnosztika.
-   *
-   * Ez csak logot ír.
-   * Az adatokat nem változtatja.
-   */
-
-  printModernTableDiagnostics(
-    text,
-    document,
-    structure
-  );
-
 
   const accepted = [];
 
@@ -1502,22 +1633,114 @@ function parseModernDocument(
       );
 
 
-    const localMarkers =
-      findAirMarkers(
+    const concentration =
+      extractModernConcentration(
         context
       );
 
 
-    const localNumbers =
-      extractNumericTokens(
-        context
+    const location =
+      extractLocation(
+        context,
+        sample.sample_id
       );
 
 
-    review.push({
+    /*
+     * Automatikus elfogadás csak akkor történik,
+     * ha a mintasor szerkezete egyértelmű:
+     *
+     * - mintaazonosító
+     * - pontosan egy koordinátapár
+     * - kezdő és záró időpont
+     * - az Átszívott levegő marker előtti koncentráció
+     *
+     * Ha ezek közül bármi hiányzik, review_queue.
+     */
+
+    const missing = [];
+
+    if (!gps) {
+      missing.push("coordinate");
+    }
+
+    if (
+      !dateTime.start ||
+      !dateTime.end
+    ) {
+      missing.push("datetime");
+    }
+
+    if (!concentration) {
+      missing.push("concentration");
+    }
+
+
+    if (missing.length) {
+
+      review.push({
+
+        status:
+          "review",
+
+        sample_id:
+          sample.sample_id,
+
+        settlement:
+          null,
+
+        location,
+
+        lat:
+          gps?.lat ?? null,
+
+        lon:
+          gps?.lon ?? null,
+
+        start:
+          dateTime.start,
+
+        end:
+          dateTime.end,
+
+        measurement_type:
+          "air",
+
+        reason:
+          "modern_table_incomplete_row",
+
+        missing_fields:
+          missing,
+
+        context:
+          inline(
+            context.slice(
+              0,
+              1800
+            )
+          ),
+
+        source_title:
+          document.source_title,
+
+        publication_date:
+          document.publication_date,
+
+        source_document:
+          document.source_document,
+
+        authority:
+          AUTHORITY
+      });
+
+      continue;
+    }
+
+
+    accepted.push({
 
       status:
-        "review",
+        "accepted",
 
       sample_id:
         sample.sample_id,
@@ -1525,17 +1748,13 @@ function parseModernDocument(
       settlement:
         null,
 
-      location:
-        extractLocation(
-          context,
-          sample.sample_id
-        ),
+      location,
 
       lat:
-        gps?.lat ?? null,
+        gps.lat,
 
       lon:
-        gps?.lon ?? null,
+        gps.lon,
 
       start:
         dateTime.start,
@@ -1546,36 +1765,30 @@ function parseModernDocument(
       measurement_type:
         "air",
 
-      reason:
-        "modern_table_requires_column_mapping",
+      concentration_fibres_m3:
+        concentration
+          .concentration_fibres_m3,
 
-      local_air_markers:
-        localMarkers.length,
+      concentration_fibres_cm3:
+        concentration
+          .concentration_fibres_m3 /
+        1000000,
 
-      numeric_candidates:
-        localNumbers
-          .slice(
-            0,
-            30
-          )
-          .map(
-            (item) => ({
+      below_detection_limit:
+        concentration
+          .below_detection_limit,
 
-              raw:
-                item.raw,
+      unit:
+        "rost/m3",
 
-              value:
-                item.value
-            })
-          ),
+      raw_concentration:
+        concentration.raw,
 
-      context:
-        inline(
-          context.slice(
-            0,
-            1800
-          )
-        ),
+      parser:
+        concentration.parser,
+
+      confidence:
+        concentration.confidence,
 
       source_title:
         document.source_title,
@@ -1594,9 +1807,27 @@ function parseModernDocument(
 
   return {
 
-    accepted,
+    accepted:
+      uniqueBy(
+        accepted,
+        (item) =>
+          [
+            item.source_document,
+            item.sample_id,
+            item.concentration_fibres_m3
+          ].join("|")
+      ),
 
-    review,
+    review:
+      uniqueBy(
+        review,
+        (item) =>
+          [
+            item.source_document,
+            item.sample_id,
+            item.reason
+          ].join("|")
+      ),
 
     diagnostics: {
 
@@ -1610,11 +1841,16 @@ function parseModernDocument(
         structure.airMarkers.length,
 
       numeric_token_count:
-        structure.numericTokens.length
+        structure.numericTokens.length,
+
+      accepted_rows:
+        accepted.length,
+
+      review_rows:
+        review.length
     }
   };
 }
-
 
 /* =========================================================
    DOKUMENTUM FORMÁTUMÁNAK FELISMERÉSE
@@ -1648,9 +1884,27 @@ function detectDocumentFormat(text) {
       text
     );
 
+  const samples =
+    extractSampleIds(
+      text
+    );
+
+  const hasModernTableHeader =
+    /Minta\s+száma[\s\S]{0,500}Koncentr[\s\S]{0,100}\(\s*rost\/m3\s*\)/i
+      .test(text);
+
+  const hasAirVolumeMarker =
+    /Átszívott\s+levegő\s+mennyisége/i
+      .test(text);
+
 
   if (
-    headers.length
+    headers.length ||
+    (
+      samples.length &&
+      hasModernTableHeader &&
+      hasAirVolumeMarker
+    )
   ) {
 
     return {
@@ -1866,11 +2120,11 @@ async function main() {
   );
 
   console.log(
-    "ÖNÁLLÓ LEVEGŐMÉRÉS PARSER – V4.1"
+    "ÖNÁLLÓ LEVEGŐMÉRÉS PARSER – V4.2"
   );
 
   console.log(
-    "MODERN PDF DIAGNOSZTIKAI MÓD"
+    "MODERN PDF STRUKTURÁLT KINYERÉS"
   );
 
   console.log(
@@ -2106,13 +2360,13 @@ async function main() {
   const extractionOutput = {
 
     schema_version:
-      "4.1",
+      "4.2",
 
     parser:
       "independent_official_air_parser",
 
     parser_mode:
-      "modern_table_diagnostics",
+      "modern_table_extraction",
 
     generated_at:
       nowIso(),
@@ -2160,8 +2414,9 @@ async function main() {
      DASHBOARD ADATFÁJL
 
      FONTOS:
-     modern_table rekord nem kerülhet még
-     automatikusan a measurements tömbbe.
+     modern_table rekord csak akkor kerülhet
+     automatikusan a measurements tömbbe,
+     ha a mintasor szerkezeti ellenőrzése sikeres.
      ======================================================= */
 
   const airOutput = {
@@ -2170,7 +2425,7 @@ async function main() {
       "3.0",
 
     parser_version:
-      "4.1",
+      "4.2",
 
     generated_at:
       nowIso(),
@@ -2185,7 +2440,7 @@ async function main() {
       "rost/m3",
 
     methodology:
-      "Only automatically verified measurements are published. Modern PDF table measurements remain in review_queue until column mapping is verified.",
+      "Only measurements structurally linked to an official sample row are published. Modern table rows are accepted only when sample ID, coordinates, dates/times and a concentration immediately preceding the air-volume marker can be identified.",
 
     measurement_count:
       acceptedUnique.length,
@@ -2226,7 +2481,7 @@ async function main() {
   );
 
   console.log(
-    "V4.1 FELDOLGOZÁS KÉSZ"
+    "V4.2 FELDOLGOZÁS KÉSZ"
   );
 
   console.log(
