@@ -84,7 +84,7 @@ jobs:
 
 
       # ===================================================
-      # 5. KORMÁNYHIVATALI INDEX
+      # 5. KORMÁNYHIVATALI DOKUMENTUMINDEX
       # ===================================================
 
       - name: Hivatalos dokumentumindex frissítése
@@ -97,13 +97,13 @@ jobs:
 
 
       # ===================================================
-      # 6. PDF PARSER V4.2
+      # 6. PDF PARSER
       # ===================================================
 
       - name: Hivatalos PDF-ek feldolgozása
         run: |
           echo "======================================"
-          echo "HIVATALOS PDF ADATKINYERÉS – V4.2"
+          echo "HIVATALOS PDF ADATKINYERÉS"
           echo "======================================"
 
           node scripts/extract-official-pdfs.js
@@ -116,26 +116,60 @@ jobs:
       - name: Dashboard adatfájl elkészítése
         run: |
           echo "======================================"
-          echo "DASHBOARD DATA PROCESSOR – V1.0"
+          echo "DASHBOARD DATA PROCESSOR"
           echo "======================================"
 
           node scripts/build-official-air-dashboard.js
 
 
       # ===================================================
-      # 8. FÁJLOK ELLENŐRZÉSE
+      # 8. GITHUB PAGES ADAT PUBLIKÁLÁSA
+      #
+      # A master feldolgozott adat:
+      # data/official_air_dashboard.json
+      #
+      # A GitHub Pages által használt adat:
+      # docs/data/official_air_dashboard.json
+      # ===================================================
+
+      - name: Dashboard adat publikálása a GitHub Pages számára
+        run: |
+          echo "======================================"
+          echo "GITHUB PAGES ADAT PUBLIKÁLÁSA"
+          echo "======================================"
+
+          mkdir -p docs/data
+
+          cp \
+            data/official_air_dashboard.json \
+            docs/data/official_air_dashboard.json
+
+          echo ""
+          echo "Forrás:"
+          ls -lh data/official_air_dashboard.json
+
+          echo ""
+          echo "Publikált Pages fájl:"
+          ls -lh docs/data/official_air_dashboard.json
+
+
+      # ===================================================
+      # 9. GENERÁLT FÁJLOK ELLENŐRZÉSE
       # ===================================================
 
       - name: Generált fájlok ellenőrzése
         run: |
+          echo "======================================"
+          echo "GENERÁLT FÁJLOK"
+          echo "======================================"
+
           test -f data/official_documents.json
           test -f data/official_measurements.json
           test -f data/official_measurement_extractions.json
           test -f data/official_air_measurements.json
           test -f data/official_air_dashboard.json
+          test -f docs/data/official_air_dashboard.json
 
-          echo ""
-          echo "Generált fájlok:"
           echo ""
 
           ls -lh \
@@ -143,11 +177,12 @@ jobs:
             data/official_measurements.json \
             data/official_measurement_extractions.json \
             data/official_air_measurements.json \
-            data/official_air_dashboard.json
+            data/official_air_dashboard.json \
+            docs/data/official_air_dashboard.json
 
 
       # ===================================================
-      # 9. STRUKTURÁLT LEVEGŐMÉRÉSEK VALIDÁLÁSA
+      # 10. STRUKTURÁLT LEVEGŐMÉRÉSEK VALIDÁLÁSA
       # ===================================================
 
       - name: Strukturált levegőmérések validálása
@@ -260,7 +295,7 @@ jobs:
 
 
       # ===================================================
-      # 10. DASHBOARD ADAT VALIDÁLÁSA
+      # 11. DASHBOARD ADAT VALIDÁLÁSA
       # ===================================================
 
       - name: Dashboard adat validálása
@@ -349,9 +384,9 @@ jobs:
           }
 
           /*
-           * Ellenőrizzük, hogy a detection-limit rekord
-           * nem került tényleges statisztikai értékként
-           * feldolgozásra.
+           * A kimutatási határ alatti rekordok
+           * nem kerülhetnek tényleges numerikus
+           * mérésként a statisztikába.
            */
 
           for (
@@ -420,7 +455,28 @@ jobs:
 
 
       # ===================================================
-      # 11. ELFOGADOTT MÉRÉSEK KIÍRÁSA
+      # 12. PAGES MÁSOLAT VALIDÁLÁSA
+      #
+      # Nem elég, hogy létezik.
+      # Byte-ra azonosnak kell lennie a master fájllal.
+      # ===================================================
+
+      - name: GitHub Pages adatpéldány validálása
+        run: |
+          echo "======================================"
+          echo "PAGES ADATPÉLDÁNY VALIDÁLÁSA"
+          echo "======================================"
+
+          cmp \
+            data/official_air_dashboard.json \
+            docs/data/official_air_dashboard.json
+
+          echo ""
+          echo "Master és Pages JSON: AZONOS"
+
+
+      # ===================================================
+      # 13. ELFOGADOTT MÉRÉSEK KIÍRÁSA
       # ===================================================
 
       - name: Elfogadott mérési eredmények
@@ -495,7 +551,7 @@ jobs:
 
 
       # ===================================================
-      # 12. DASHBOARD ÖSSZEGZÉS
+      # 14. DASHBOARD ÖSSZEGZÉS
       # ===================================================
 
       - name: Dashboard adatok kiírása
@@ -579,7 +635,7 @@ jobs:
 
 
       # ===================================================
-      # 13. GIT
+      # 15. GIT VÁLTOZÁSOK
       # ===================================================
 
       - name: Git változások ellenőrzése
@@ -591,7 +647,8 @@ jobs:
             data/official_measurements.json \
             data/official_measurement_extractions.json \
             data/official_air_measurements.json \
-            data/official_air_dashboard.json
+            data/official_air_dashboard.json \
+            docs/data/official_air_dashboard.json
 
           if [ -f package-lock.json ]; then
             git add package-lock.json
@@ -601,13 +658,18 @@ jobs:
 
             echo "changed=false" >> "$GITHUB_OUTPUT"
 
+            echo ""
             echo "Nincs új vagy módosult hivatalos adat."
 
           else
 
             echo "changed=true" >> "$GITHUB_OUTPUT"
 
+            echo ""
             echo "Új vagy módosult hivatalos adat található."
+
+            echo ""
+            echo "Változások:"
 
             git diff --cached --stat
 
@@ -615,7 +677,7 @@ jobs:
 
 
       # ===================================================
-      # 14. COMMIT
+      # 16. COMMIT + PUSH
       # ===================================================
 
       - name: Adatok mentése
@@ -630,13 +692,13 @@ jobs:
             "41898282+github-actions[bot]@users.noreply.github.com"
 
           git commit \
-            -m "Frissített hivatalos azbeszt mérési és dashboard adatok"
+            -m "Frissített hivatalos azbeszt mérési és Pages dashboard adatok"
 
           git push
 
 
       # ===================================================
-      # 15. SUMMARY
+      # 17. WORKFLOW SUMMARY
       # ===================================================
 
       - name: Workflow összegzés
@@ -711,6 +773,11 @@ jobs:
 
           console.log(
             `- Kimutatási határ alatti mérések: **${data.kpis?.below_detection_limit_measurements ?? 0}**`
+          );
+
+          console.log("");
+          console.log(
+            "- GitHub Pages adatfájl: **docs/data/official_air_dashboard.json**"
           );
 
           NODE
