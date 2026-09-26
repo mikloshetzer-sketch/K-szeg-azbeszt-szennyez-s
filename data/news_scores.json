@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-25T10:13:13.921Z",
+  "generated_at": "2026-09-26T09:54:08.633Z",
   "method": "balanced_keyword_rule_based_event_scoring_v3",
   "description": "Automatikusan generált Kőszeg–azbeszt ügyindex a data/news.json alapján. A rendszer külön számolja a negatív kockázati és a pozitív intézkedési kulcsszavakat.",
   "scoring_note": "Ez nem klasszikus hangulatelemzés. A negatív pont kockázatot vagy romló fejleményt, a pozitív pont intézkedést, tájékoztatást, monitoringot vagy megoldás felé mutató eseményt jelent.",
@@ -183,6 +183,28 @@
       "matched_negative_rules": [],
       "matched_positive_rules": [],
       "url": "https://www.nyugat.hu/cikk/azbeszt_szombathely_szennyezes_szakerto_sip_utca"
+    },
+    {
+      "date": "2026-04-20",
+      "title": "Kövesse élő közvetítésünket az azbeszt-ügyben szervezett szombathelyi lakossági fórumról",
+      "source": "Nyugat.hu",
+      "source_type": "media",
+      "category": "lakossagi_tajekoztatas",
+      "base_score": 2,
+      "source_weight": 1,
+      "confidence": 0.85,
+      "final_score": 1.7,
+      "matched_negative_rules": [],
+      "matched_positive_rules": [
+        {
+          "category": "lakossagi_tajekoztatas",
+          "score": 2,
+          "keywords": [
+            "lakossagi forum"
+          ]
+        }
+      ],
+      "url": "https://www.nyugat.hu/cikk/kovesse_elo_kozvetitesunket_az_azbeszt_ugyben"
     },
     {
       "date": "2026-04-21",
@@ -1577,7 +1599,7 @@
     },
     {
       "date": "2026-09-23",
-      "title": "Asbest: Entscheidung über Steinbrüche im Oktober",
+      "title": "Asbest in Ungarn: Werte liegen 7.500 Prozent über Richtwert",
       "source": "Kurier Burgenland",
       "source_type": "austrian",
       "category": "altalanos_media_megjelenes",
@@ -1587,7 +1609,7 @@
       "final_score": -0.7,
       "matched_negative_rules": [],
       "matched_positive_rules": [],
-      "url": "https://kurier.at/chronik/burgenland/asbest-steinbruch-bezirkshauptmannschaft/403192768"
+      "url": "https://kurier.at/chronik/burgenland/asbest-koeszeg-burgenland-asbestfasern-szombathely-andras-kulja/403192775"
     },
     {
       "date": "2026-09-23",
@@ -1605,7 +1627,7 @@
     },
     {
       "date": "2026-09-23",
-      "title": "Asbest in Ungarn: Werte liegen 7.500 Prozent über Richtwert",
+      "title": "Asbest: Entscheidung über Steinbrüche im Oktober",
       "source": "Kurier Burgenland",
       "source_type": "austrian",
       "category": "altalanos_media_megjelenes",
@@ -1615,21 +1637,7 @@
       "final_score": -0.7,
       "matched_negative_rules": [],
       "matched_positive_rules": [],
-      "url": "https://kurier.at/chronik/burgenland/asbest-koeszeg-burgenland-asbestfasern-szombathely-andras-kulja/403192775"
-    },
-    {
-      "date": "2026-09-23",
-      "title": "Asbest in Ostösterreich Greenpeace bestätigt Asbestfunde vor 22 Schulen und Kindergärten",
-      "source": "MeinBezirk Burgenland",
-      "source_type": "austrian",
-      "category": "altalanos_media_megjelenes",
-      "base_score": -1,
-      "source_weight": 1,
-      "confidence": 0.7,
-      "final_score": -0.7,
-      "matched_negative_rules": [],
-      "matched_positive_rules": [],
-      "url": "https://www.meinbezirk.at/burgenland/c-lokales/greenpeace-bestaetigt-asbestfunde-vor-22-schulen-und-kindergaerten_a8913174"
+      "url": "https://kurier.at/chronik/burgenland/asbest-steinbruch-bezirkshauptmannschaft/403192768"
     },
     {
       "date": "2026-09-24",
@@ -1655,29 +1663,7 @@
     },
     {
       "date": "2026-09-24",
-      "title": "Kő kövön nem marad: a szombathelyi polgármester szerint a lakosok elhordják az azbesztmentesítéshez lerakott követ",
-      "source": "HVG",
-      "source_type": "media",
-      "category": "karelhartas_megoldas",
-      "base_score": 5,
-      "source_weight": 1,
-      "confidence": 0.85,
-      "final_score": 4.25,
-      "matched_negative_rules": [],
-      "matched_positive_rules": [
-        {
-          "category": "karelhartas_megoldas",
-          "score": 5,
-          "keywords": [
-            "mentesites"
-          ]
-        }
-      ],
-      "url": "https://hvg.hu/gazdasag/20260924_szombathely-azbesztmentesites-ko"
-    },
-    {
-      "date": "2026-09-24",
-      "title": "Lopják a kavicsot az azbeszttel szennyezett szombathelyi utcákon",
+      "title": "Lopják a kavicsot az azbeszttel szennyezett szombathelyi utcákon Korábban úgy volt, nem lehet lefedni az Oladi Plató utcáit, most mégis ezt teszik. Tóth-Szenesi Attila belföld 2026. szeptember 24. 13:02",
       "source": "444",
       "source_type": "media",
       "category": "szennyezes_vagy_gyanu",
@@ -1697,28 +1683,6 @@
       ],
       "matched_positive_rules": [],
       "url": "https://444.hu/2026/09/24/lopjak-a-kavicsot-az-azbeszttel-szennyezett-szombathelyi-utcakon"
-    },
-    {
-      "date": "2026-09-24",
-      "title": "Lopják az emberek a kavicsot, amit az azbesztmentesítés miatt vittek Szombathely városrészére",
-      "source": "Portfolio",
-      "source_type": "media",
-      "category": "karelhartas_megoldas",
-      "base_score": 5,
-      "source_weight": 1,
-      "confidence": 0.85,
-      "final_score": 4.25,
-      "matched_negative_rules": [],
-      "matched_positive_rules": [
-        {
-          "category": "karelhartas_megoldas",
-          "score": 5,
-          "keywords": [
-            "mentesites"
-          ]
-        }
-      ],
-      "url": "https://www.portfolio.hu/gazdasag/20260924/lopjak-az-emberek-a-kavicsot-amit-az-azbesztmentesites-miatt-vittek-szombathely-varosreszere-865094"
     },
     {
       "date": "2026-09-24",
@@ -1749,10 +1713,61 @@
       "url": "https://www.vaol.hu/helyi-kozelet/2026/09/kozgyules-szombathely-azbeszt-nemeny-andras"
     },
     {
-      "date": "2026-09-24",
-      "title": "Talent School Schulcluster Lockenhaus/Bernstein offiziell mit Zertifikat ausgezeichnet",
-      "source": "MeinBezirk Burgenland",
-      "source_type": "austrian",
+      "date": "2026-09-25",
+      "title": "Durva fejlemények azbesztügyben: 4000 százalékos határérték-túllépés Kőszegen, Szombathelyen már a munkálatok leállítását követeli a Greenpeace",
+      "source": "HVG",
+      "source_type": "media",
+      "category": "egeszsegugyi_kockazat",
+      "base_score": -5,
+      "source_weight": 1,
+      "confidence": 1,
+      "final_score": -5,
+      "matched_negative_rules": [
+        {
+          "category": "egeszsegugyi_kockazat",
+          "score": -5,
+          "keywords": [
+            "hatarertek-tullepes"
+          ]
+        },
+        {
+          "category": "szennyezes_vagy_gyanu",
+          "score": -4,
+          "keywords": [
+            "azbesztszennyezes"
+          ]
+        }
+      ],
+      "matched_positive_rules": [],
+      "url": "https://hvg.hu/gazdasag/20260925_azbesztszennyezes-hatarertek-tullepes-koszeg-szombathely-oladi-plato-kornyezetszennyezes-kormanyhivatat-greenpeae"
+    },
+    {
+      "date": "2026-09-25",
+      "title": "A határértéket többszörösen meghaladó azbeszttartalmat mértek a levegőben Kőszegen",
+      "source": "Telex",
+      "source_type": "media",
+      "category": "monitoring_vizsgalat",
+      "base_score": 2,
+      "source_weight": 1,
+      "confidence": 0.85,
+      "final_score": 1.7,
+      "matched_negative_rules": [],
+      "matched_positive_rules": [
+        {
+          "category": "monitoring_vizsgalat",
+          "score": 2,
+          "keywords": [
+            "meres"
+          ]
+        }
+      ],
+      "url": "https://telex.hu/belfold/2026/09/25/azbeszt-szennyezes-koszeg-szombathely-meres-oladi-plato"
+    },
+    {
+      "date": "2026-09-25",
+      "title": "A határérték negyvenszeresét is elérte az azbesztrostok koncentrációja a levegőben Kőszegen",
+      "source": "444",
+      "source_type": "media",
       "category": "altalanos_media_megjelenes",
       "base_score": -1,
       "source_weight": 1,
@@ -1760,7 +1775,21 @@
       "final_score": -0.7,
       "matched_negative_rules": [],
       "matched_positive_rules": [],
-      "url": "https://www.meinbezirk.at/oberwart/c-lokales/schulcluster-lockenhausbernstein-offiziell-mit-zertifikat-ausgezeichnet_a8914290"
+      "url": "https://444.hu/2026/09/25/a-hatarertek-negyvenszereset-is-elerte-az-azbesztrostok-koncentracioja-a-levegoben-koszegen"
+    },
+    {
+      "date": "2026-09-25",
+      "title": "Tovább gyűrűzik az azbeszt-botrány: 7500 százalékkal a határérték felett mértek azbesztet Kőszegen",
+      "source": "Portfolio",
+      "source_type": "media",
+      "category": "altalanos_media_megjelenes",
+      "base_score": -1,
+      "source_weight": 1,
+      "confidence": 0.7,
+      "final_score": -0.7,
+      "matched_negative_rules": [],
+      "matched_positive_rules": [],
+      "url": "https://www.portfolio.hu/gazdasag/20260925/tovabb-gyuruzik-az-azbeszt-botrany-7500-szazalekkal-a-hatarertek-felett-mertek-azbesztet-koszegen-865190"
     }
   ]
 }
