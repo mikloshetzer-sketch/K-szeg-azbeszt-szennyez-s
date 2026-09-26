@@ -2,7 +2,7 @@
   "schema_version": "4.2",
   "parser": "independent_official_air_parser",
   "parser_mode": "modern_table_extraction",
-  "generated_at": "2026-09-25T20:53:42.865Z",
+  "generated_at": "2026-09-26T10:00:21.843Z",
   "authority": "Vas Vármegyei Kormányhivatal",
   "statistics": {
     "total_documents": 10,
@@ -42,7 +42,7 @@
       ],
       "diagnostics": null,
       "extraction_status": "success",
-      "extracted_at": "2026-09-25T20:53:38.125Z"
+      "extracted_at": "2026-09-26T10:00:15.877Z"
     },
     {
       "id": "42e34b86f65dbbb6",
@@ -68,7 +68,7 @@
       "review_air_measurements": [],
       "diagnostics": null,
       "extraction_status": "success",
-      "extracted_at": "2026-09-25T20:53:38.613Z"
+      "extracted_at": "2026-09-26T10:00:16.687Z"
     },
     {
       "id": "05fdc9827340266c",
@@ -94,7 +94,7 @@
       "review_air_measurements": [],
       "diagnostics": null,
       "extraction_status": "success",
-      "extracted_at": "2026-09-25T20:53:39.777Z"
+      "extracted_at": "2026-09-26T10:00:17.976Z"
     },
     {
       "id": "d9702e422a5a3625",
@@ -119,7 +119,7 @@
       "review_air_measurements": [],
       "diagnostics": null,
       "extraction_status": "success",
-      "extracted_at": "2026-09-25T20:53:40.345Z"
+      "extracted_at": "2026-09-26T10:00:18.682Z"
     },
     {
       "id": "7c244fa29d5b20de",
@@ -144,7 +144,7 @@
       "review_air_measurements": [],
       "diagnostics": null,
       "extraction_status": "success",
-      "extracted_at": "2026-09-25T20:53:40.779Z"
+      "extracted_at": "2026-09-26T10:00:19.232Z"
     },
     {
       "id": "89da35147ee8c85e",
@@ -176,7 +176,7 @@
       ],
       "diagnostics": null,
       "extraction_status": "success",
-      "extracted_at": "2026-09-25T20:53:41.180Z"
+      "extracted_at": "2026-09-26T10:00:19.739Z"
     },
     {
       "id": "2c677b8299154d25",
@@ -262,7 +262,7 @@
       "review_air_measurements": [],
       "diagnostics": null,
       "extraction_status": "success",
-      "extracted_at": "2026-09-25T20:53:41.747Z"
+      "extracted_at": "2026-09-26T10:00:20.424Z"
     },
     {
       "id": "f9b6e2bcc17cde03",
@@ -348,7 +348,7 @@
       "review_air_measurements": [],
       "diagnostics": null,
       "extraction_status": "success",
-      "extracted_at": "2026-09-25T20:53:42.073Z"
+      "extracted_at": "2026-09-26T10:00:20.832Z"
     },
     {
       "id": "4cf548f456645dce",
@@ -1087,7 +1087,7 @@
         "review_rows": 0
       },
       "extraction_status": "success",
-      "extracted_at": "2026-09-25T20:53:42.479Z"
+      "extracted_at": "2026-09-26T10:00:21.347Z"
     },
     {
       "id": "52d7c8a8720d0463",
@@ -1298,7 +1298,7 @@
         "review_rows": 0
       },
       "extraction_status": "success",
-      "extracted_at": "2026-09-25T20:53:42.864Z"
+      "extracted_at": "2026-09-26T10:00:21.843Z"
     }
   ]
 }
