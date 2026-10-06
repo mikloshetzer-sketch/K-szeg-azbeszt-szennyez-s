@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-06T04:05:30.515314+00:00",
+  "generated_at": "2026-10-06T12:31:36.638830+00:00",
   "mode": "milestones_from_news",
   "events": [
     {
@@ -8,13 +8,6 @@
       "source": "Vas Vármegyei Kormányhivatal",
       "type": "official_notice",
       "url": "https://kormanyhivatalok.hu/kormanyhivatalok/vas/megye/hirek/hir/kiemelten-ellenorzi-az-azbesztszennyezessel-kapcsolatos"
-    },
-    {
-      "date": "2026-10-02",
-      "title": "Greenpeace vagy más civil forrás is megjelent az ügyben.",
-      "source": "Greenpeace Magyarország",
-      "type": "civil_action",
-      "url": "https://www.greenpeace.org/hungary/sajtokozlemeny/14769/a-vas-varmegyei-kormanyhivatal-soron-kivul-vizsgalja-a-szombathelyi-azbeszt-karenyhitest-a-greenpeace-bejelentese-miatt"
     },
     {
       "date": "2026-10-03",
@@ -32,7 +25,7 @@
     },
     {
       "date": "Folyamatos",
-      "title": "A rendszer jelenleg 2 hivatalos, 1 civil, 2 osztrák/burgenlandi, 48 magyar média és 0 egyéb GDELT-találatot különít el.",
+      "title": "A rendszer jelenleg 2 hivatalos, 0 civil, 2 osztrák/burgenlandi, 48 magyar média és 0 egyéb GDELT-találatot különít el.",
       "source": "Automatikus monitoring",
       "type": "system_summary",
       "url": ""
