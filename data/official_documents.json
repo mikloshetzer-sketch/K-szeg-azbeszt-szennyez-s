@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-10-07T11:54:03.082Z",
+  "generated_at": "2026-10-07T22:07:58.087Z",
   "source_class": "primary_official",
   "authority": "Vas Vármegyei Kormányhivatal",
   "source_page": "https://kormanyhivatalok.hu/kormanyhivatalok/vas/megye/hirek/hir/azbesztszennyezes-legfontosabb-lakossagi-informaciok",
@@ -27,11 +27,11 @@
       "final_url": "https://kormanyhivatalok.hu/kormanyhivatalok/vas",
       "content_type": "text/html; charset=UTF-8",
       "size_bytes": 550599,
-      "sha256": "cd26c8e8c789ec1b31b23f710efee2dd600ab123939c4bc58fd263f2086235b2",
+      "sha256": "9f5233471b1806273c22032c270ab296b6ff9fc5a3000a5bc82446f0eab438cd",
       "first_seen": "2026-10-01T11:43:07.156Z",
-      "last_checked": "2026-10-07T11:53:35.957Z",
+      "last_checked": "2026-10-07T22:07:38.777Z",
       "changed_since_previous": true,
-      "previous_sha256": "4475d04e6eb59d8c754c69de282a3b64fedffb063659a0def361c72ca6827708",
+      "previous_sha256": "cd26c8e8c789ec1b31b23f710efee2dd600ab123939c4bc58fd263f2086235b2",
       "download_status": "ok"
     },
     {
@@ -48,11 +48,11 @@
       "final_url": "https://kormanyhivatalok.hu/elerhetosegek",
       "content_type": "text/html; charset=UTF-8",
       "size_bytes": 117476,
-      "sha256": "ce583f7a4366dbd7d3b3b3fdb5120872ef188c2bccb45684627ea44c5731b1ab",
+      "sha256": "7268eba31f4c3e4989c7199da1fdd88f47fcd69856b66f01da9ce1a58e8d2f96",
       "first_seen": "2026-09-25T18:46:04.788Z",
-      "last_checked": "2026-10-07T11:53:40.536Z",
+      "last_checked": "2026-10-07T22:07:40.775Z",
       "changed_since_previous": true,
-      "previous_sha256": "05d8058892de8de362f413fe5c8bd8bdbbafc289ff51e9654f46561856670e91",
+      "previous_sha256": "ce583f7a4366dbd7d3b3b3fdb5120872ef188c2bccb45684627ea44c5731b1ab",
       "download_status": "ok"
     },
     {
@@ -69,11 +69,11 @@
       "final_url": "https://kormanyhivatalok.hu/kormanyhivatalok/vas/megye/szervezet",
       "content_type": "text/html; charset=UTF-8",
       "size_bytes": 163644,
-      "sha256": "18ccb433ad594c36de3ecf2f46537b206a0a1823d774e9664dbbe10fceeee509",
+      "sha256": "0cee7bed596a9b941d916f359cf37e927fb05c85c3f9bb8f2a9a1bee232802fd",
       "first_seen": "2026-09-25T18:46:06.332Z",
-      "last_checked": "2026-10-07T11:53:41.302Z",
+      "last_checked": "2026-10-07T22:07:41.503Z",
       "changed_since_previous": true,
-      "previous_sha256": "4bab6773c04941f361a306e9e4e9554829c512a945a3a8fe71419f99af42b7fd",
+      "previous_sha256": "18ccb433ad594c36de3ecf2f46537b206a0a1823d774e9664dbbe10fceeee509",
       "download_status": "ok"
     },
     {
@@ -90,7 +90,7 @@
       "size_bytes": 418569,
       "sha256": "060210d3f4e81daf819169e40e24329376612d654708163ffa50e9688a33c8c6",
       "first_seen": "2026-09-25T18:46:07.137Z",
-      "last_checked": "2026-10-07T11:53:43.074Z",
+      "last_checked": "2026-10-07T22:07:41.890Z",
       "changed_since_previous": false,
       "previous_sha256": null,
       "download_status": "ok"
@@ -107,11 +107,11 @@
       "final_url": "https://kormanyhivatalok.hu/kormanyhivatalok/vas/megye/hirek/hir/azbesztszennyezes-szombathelyen-az-oladi-platon-hatosagi-es",
       "content_type": "text/html; charset=UTF-8",
       "size_bytes": 149006,
-      "sha256": "5fc40c34ff47797b192b232bdf56565627b1283d87d51f4afb37d048bb69dabf",
+      "sha256": "cf56d00bac9b41a7bb08298f43b95ba8611e8a3c59760b64c8ebdf68c3bd3246",
       "first_seen": "2026-09-25T18:46:08.031Z",
-      "last_checked": "2026-10-07T11:53:44.166Z",
+      "last_checked": "2026-10-07T22:07:42.572Z",
       "changed_since_previous": true,
-      "previous_sha256": "ce2f639006bde0d9573db002871f8563ca612ca41345841174a001ce3d4c6b48",
+      "previous_sha256": "5fc40c34ff47797b192b232bdf56565627b1283d87d51f4afb37d048bb69dabf",
       "download_status": "ok"
     },
     {
@@ -128,7 +128,7 @@
       "size_bytes": 1113731,
       "sha256": "19c6d92a59d9323ff6339ad30fe42d562a2efe0591de8bed9286c030f30b72b0",
       "first_seen": "2026-09-25T18:46:12.402Z",
-      "last_checked": "2026-10-07T11:53:46.008Z",
+      "last_checked": "2026-10-07T22:07:44.625Z",
       "changed_since_previous": false,
       "previous_sha256": null,
       "download_status": "ok"
@@ -147,7 +147,7 @@
       "size_bytes": 444637,
       "sha256": "2b846b123251f80b1b304d042a1490eb565013ae9aeaed10952c4dd7bbe89d81",
       "first_seen": "2026-09-25T18:46:13.616Z",
-      "last_checked": "2026-10-07T11:53:47.444Z",
+      "last_checked": "2026-10-07T22:07:45.962Z",
       "changed_since_previous": false,
       "previous_sha256": null,
       "download_status": "ok"
@@ -168,7 +168,7 @@
       "size_bytes": 621322,
       "sha256": "d3c8f3b9fda712a48bec81c63a87024633b2a9045c17aae0e54faffa6cb92a09",
       "first_seen": "2026-09-25T18:46:14.377Z",
-      "last_checked": "2026-10-07T11:53:48.514Z",
+      "last_checked": "2026-10-07T22:07:46.948Z",
       "changed_since_previous": false,
       "previous_sha256": null,
       "download_status": "ok"
@@ -187,7 +187,7 @@
       "size_bytes": 279883,
       "sha256": "7f0ba431cf208703dccdb7d032bec257ae2fee81b897f798cff2c2a5fbf00f32",
       "first_seen": "2026-09-25T18:46:14.708Z",
-      "last_checked": "2026-10-07T11:53:49.089Z",
+      "last_checked": "2026-10-07T22:07:47.472Z",
       "changed_since_previous": false,
       "previous_sha256": null,
       "download_status": "ok"
@@ -206,11 +206,11 @@
       "final_url": "https://kormanyhivatalok.hu/kormanyhivatalok/vas/megye/hirek/hir/azbeszthelyzet-szombathelyen-lakossagi-forumot-tartottak",
       "content_type": "text/html; charset=UTF-8",
       "size_bytes": 151876,
-      "sha256": "902fe26b3f0d7eb373d4a88de7bdee9aa90b0aab5b3452220777f27df53e918a",
+      "sha256": "4da80311fb42d5d0c2a66d6fbe7eb86a324ea4396d7b658f39f6d13e69cf805c",
       "first_seen": "2026-09-25T18:46:15.542Z",
-      "last_checked": "2026-10-07T11:53:49.738Z",
+      "last_checked": "2026-10-07T22:07:48.090Z",
       "changed_since_previous": true,
-      "previous_sha256": "4c02b2ec55946d43ff81df379c0ac609e7cf8bb8d51213a812f1b7bd57b083a2",
+      "previous_sha256": "902fe26b3f0d7eb373d4a88de7bdee9aa90b0aab5b3452220777f27df53e918a",
       "download_status": "ok"
     },
     {
@@ -229,7 +229,7 @@
       "size_bytes": 807336,
       "sha256": "dbddbf12069f8fad6f44f58c67d37b82cc3ef8019720b6ee15fb388a758f8a14",
       "first_seen": "2026-09-25T18:46:19.457Z",
-      "last_checked": "2026-10-07T11:53:51.614Z",
+      "last_checked": "2026-10-07T22:07:48.325Z",
       "changed_since_previous": false,
       "previous_sha256": null,
       "download_status": "ok"
@@ -250,7 +250,7 @@
       "size_bytes": 1215232,
       "sha256": "48fb265c85e3acc6b49906c90939ebe86063d1be6aa93309f10fe2285806d36f",
       "first_seen": "2026-09-25T18:46:22.333Z",
-      "last_checked": "2026-10-07T11:53:52.853Z",
+      "last_checked": "2026-10-07T22:07:48.846Z",
       "changed_since_previous": false,
       "previous_sha256": null,
       "download_status": "ok"
@@ -269,11 +269,11 @@
       "final_url": "https://kormanyhivatalok.hu/kormanyhivatalok/vas/megye/hirek/hir/azbeszt-ugy-egeszsegugyi-lakossagi-forumot-tartott",
       "content_type": "text/html; charset=UTF-8",
       "size_bytes": 148073,
-      "sha256": "d8b34743fffa84e468fc49b7b513f237a4da06967e2ce239e42c15be0ae25510",
+      "sha256": "ad9ba58af183831e19c9a9e46555210aaefb1db50267ea45b49fdbd67b4f549b",
       "first_seen": "2026-09-25T18:46:26.155Z",
-      "last_checked": "2026-10-07T11:53:53.930Z",
+      "last_checked": "2026-10-07T22:07:49.359Z",
       "changed_since_previous": true,
-      "previous_sha256": "1c6406ba7ea528ee7a9511c6d746bbf7082c39f7e593212314229d4c79ed2643",
+      "previous_sha256": "d8b34743fffa84e468fc49b7b513f237a4da06967e2ce239e42c15be0ae25510",
       "download_status": "ok"
     },
     {
@@ -292,7 +292,7 @@
       "size_bytes": 22852044,
       "sha256": "5e6e9144f6e41a3720f59ed557eb358bf15e2ce3555758ac90258135bae696ee",
       "first_seen": "2026-09-25T18:46:30.554Z",
-      "last_checked": "2026-10-07T11:53:55.855Z",
+      "last_checked": "2026-10-07T22:07:51.049Z",
       "changed_since_previous": false,
       "previous_sha256": null,
       "download_status": "ok"
@@ -313,7 +313,7 @@
       "size_bytes": 371407,
       "sha256": "64a233d8d4a2e7ba51abdb0f11d497416e1d84c8ed1f7eeb29de682b2413289b",
       "first_seen": "2026-09-25T18:46:39.047Z",
-      "last_checked": "2026-10-07T11:53:58.827Z",
+      "last_checked": "2026-10-07T22:07:53.746Z",
       "changed_since_previous": false,
       "previous_sha256": null,
       "download_status": "ok"
@@ -334,7 +334,7 @@
       "size_bytes": 362261,
       "sha256": "5c6ae88a651e10e3372eb4bd040ec965d275981ee79226b5f77924a6315060ec",
       "first_seen": "2026-09-25T18:46:40.305Z",
-      "last_checked": "2026-10-07T11:53:59.721Z",
+      "last_checked": "2026-10-07T22:07:54.576Z",
       "changed_since_previous": false,
       "previous_sha256": null,
       "download_status": "ok"
@@ -353,7 +353,7 @@
       "size_bytes": 2218878,
       "sha256": "5cb12c4ea77975e978feffddf416ec2f349616fb497f4e89e7e53b38123e96d8",
       "first_seen": "2026-09-25T18:46:40.780Z",
-      "last_checked": "2026-10-07T11:53:59.913Z",
+      "last_checked": "2026-10-07T22:07:54.761Z",
       "changed_since_previous": false,
       "previous_sha256": null,
       "download_status": "ok"
@@ -375,7 +375,7 @@
       "size_bytes": 356623,
       "sha256": "2cde3a26a67a296455f508d743d0df0db63111d847fd7650ab2dfedb57b3debf",
       "first_seen": "2026-09-25T18:46:43.724Z",
-      "last_checked": "2026-10-07T11:54:00.804Z",
+      "last_checked": "2026-10-07T22:07:55.429Z",
       "changed_since_previous": false,
       "previous_sha256": null,
       "download_status": "ok"
@@ -396,7 +396,7 @@
       "size_bytes": 351632,
       "sha256": "42cb360d3d6302e6a842975863876bdffff256d3cbd11fa3cf2ac15e1b410d60",
       "first_seen": "2026-09-25T18:46:44.524Z",
-      "last_checked": "2026-10-07T11:54:01.184Z",
+      "last_checked": "2026-10-07T22:07:55.768Z",
       "changed_since_previous": false,
       "previous_sha256": null,
       "download_status": "ok"
@@ -418,7 +418,7 @@
       "size_bytes": 450427,
       "sha256": "17f3c1b66f473ea216d902625b7dd46344f45ffa2fde2cfa1c4709755c90d4ee",
       "first_seen": "2026-09-25T18:46:45.156Z",
-      "last_checked": "2026-10-07T11:54:01.383Z",
+      "last_checked": "2026-10-07T22:07:55.979Z",
       "changed_since_previous": false,
       "previous_sha256": null,
       "download_status": "ok"
@@ -439,7 +439,7 @@
       "size_bytes": 377038,
       "sha256": "5bb4d3ceadd479acad89cc6b9f4e2d66b90804094a68574070e09593601b6f80",
       "first_seen": "2026-09-25T18:46:45.673Z",
-      "last_checked": "2026-10-07T11:54:01.587Z",
+      "last_checked": "2026-10-07T22:07:56.327Z",
       "changed_since_previous": false,
       "previous_sha256": null,
       "download_status": "ok"
@@ -460,7 +460,7 @@
       "size_bytes": 383835,
       "sha256": "d50d7992308a7ffceae6817537293beafbbeee7fc88fa0f7cebbfc64ecada750",
       "first_seen": "2026-09-25T18:46:46.171Z",
-      "last_checked": "2026-10-07T11:54:01.943Z",
+      "last_checked": "2026-10-07T22:07:56.722Z",
       "changed_since_previous": false,
       "previous_sha256": null,
       "download_status": "ok"
@@ -482,7 +482,7 @@
       "size_bytes": 456843,
       "sha256": "08cc4b4c8d9f57ee4ab8c8b03ccfa5acfd5277780c4a898dea0a030a1aae1fbb",
       "first_seen": "2026-09-25T18:46:46.539Z",
-      "last_checked": "2026-10-07T11:54:02.151Z",
+      "last_checked": "2026-10-07T22:07:57.067Z",
       "changed_since_previous": false,
       "previous_sha256": null,
       "download_status": "ok"
@@ -501,7 +501,7 @@
       "size_bytes": 523337,
       "sha256": "4b70887e5e42b9baf310de890f0b034dfddd703944231c0f43e079edaa5bc753",
       "first_seen": "2026-09-25T18:46:47.066Z",
-      "last_checked": "2026-10-07T11:54:02.510Z",
+      "last_checked": "2026-10-07T22:07:57.402Z",
       "changed_since_previous": false,
       "previous_sha256": null,
       "download_status": "ok"
@@ -522,7 +522,7 @@
       "size_bytes": 409012,
       "sha256": "012056edf3ff0cbf09688808688c039564e706e000eed150e4b813f3d3f44710",
       "first_seen": "2026-09-25T18:46:47.424Z",
-      "last_checked": "2026-10-07T11:54:02.880Z",
+      "last_checked": "2026-10-07T22:07:57.754Z",
       "changed_since_previous": false,
       "previous_sha256": null,
       "download_status": "ok"
