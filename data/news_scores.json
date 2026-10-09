@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-08T12:03:29.917Z",
+  "generated_at": "2026-10-09T11:55:24.129Z",
   "method": "balanced_keyword_rule_based_event_scoring_v3",
   "description": "Automatikusan generált Kőszeg–azbeszt ügyindex a data/news.json alapján. A rendszer külön számolja a negatív kockázati és a pozitív intézkedési kulcsszavakat.",
   "scoring_note": "Ez nem klasszikus hangulatelemzés. A negatív pont kockázatot vagy romló fejleményt, a pozitív pont intézkedést, tájékoztatást, monitoringot vagy megoldás felé mutató eseményt jelent.",
@@ -171,35 +171,6 @@
       "url": "https://www.nyugat.hu/cikk/mergezo_azbeszt_bozsokon_a_polgarmester_szerint_a"
     },
     {
-      "date": "2026-02-02",
-      "title": "Bozsoki azbesztveszély - A szakember szerint minimális esély van arra, hogy mérgező azbeszt kerüljön a levegőbe",
-      "source": "Nyugat.hu",
-      "source_type": "media",
-      "category": "egeszsegugyi_kockazat",
-      "base_score": -5,
-      "source_weight": 1,
-      "confidence": 1,
-      "final_score": -5,
-      "matched_negative_rules": [
-        {
-          "category": "egeszsegugyi_kockazat",
-          "score": -5,
-          "keywords": [
-            "azbesztveszely"
-          ]
-        },
-        {
-          "category": "uj_erintett_terulet",
-          "score": -4,
-          "keywords": [
-            "bozsok"
-          ]
-        }
-      ],
-      "matched_positive_rules": [],
-      "url": "https://www.nyugat.hu/cikk/bozsok_azbeszt_veszely_geologus_bazalt_szerpentinit"
-    },
-    {
       "date": "2026-04-16",
       "title": "Valóban súlyos a szombathelyi azbeszthelyzet - írta lapunknak az ELTE kutatócsoportjának professzora",
       "source": "Nyugat.hu",
@@ -212,28 +183,6 @@
       "matched_negative_rules": [],
       "matched_positive_rules": [],
       "url": "https://www.nyugat.hu/cikk/azbeszt_szombathely_szennyezes_szakerto_sip_utca"
-    },
-    {
-      "date": "2026-04-20",
-      "title": "Kövesse élő közvetítésünket az azbeszt-ügyben szervezett szombathelyi lakossági fórumról",
-      "source": "Nyugat.hu",
-      "source_type": "media",
-      "category": "lakossagi_tajekoztatas",
-      "base_score": 2,
-      "source_weight": 1,
-      "confidence": 0.85,
-      "final_score": 1.7,
-      "matched_negative_rules": [],
-      "matched_positive_rules": [
-        {
-          "category": "lakossagi_tajekoztatas",
-          "score": 2,
-          "keywords": [
-            "lakossagi forum"
-          ]
-        }
-      ],
-      "url": "https://www.nyugat.hu/cikk/kovesse_elo_kozvetitesunket_az_azbeszt_ugyben"
     },
     {
       "date": "2026-04-21",
@@ -257,42 +206,6 @@
         }
       ],
       "url": "https://www.nyugat.hu/cikk/azbeszt_a_levegoben_szombathelyen_megtelt_a_jonnek"
-    },
-    {
-      "date": "2026-04-21",
-      "title": "Gencsapátiba is kerülhetett azbesztes kőzúzalék az osztrák bányákból",
-      "source": "Nyugat.hu",
-      "source_type": "media",
-      "category": "uj_erintett_terulet",
-      "base_score": -4,
-      "source_weight": 1,
-      "confidence": 0.85,
-      "final_score": -3.4,
-      "matched_negative_rules": [
-        {
-          "category": "uj_erintett_terulet",
-          "score": -4,
-          "keywords": [
-            "kerulhetett"
-          ]
-        }
-      ],
-      "matched_positive_rules": [],
-      "url": "https://www.nyugat.hu/cikk/gencsapatiba_is_kerulhetett_azbesztes_kozuzalek_az"
-    },
-    {
-      "date": "2026-04-24",
-      "title": "Azbesztes utak, évtizedes perek és egy félkész városrész: így lett az Oladi Plató Szombathely legfurcsább negyede",
-      "source": "Nyugat.hu",
-      "source_type": "media",
-      "category": "altalanos_media_megjelenes",
-      "base_score": -1,
-      "source_weight": 1,
-      "confidence": 0.7,
-      "final_score": -0.7,
-      "matched_negative_rules": [],
-      "matched_positive_rules": [],
-      "url": "https://www.nyugat.hu/cikk/azbesztes_utak_evtizedes_perek_es_egy_felkesz_igy"
     },
     {
       "date": "2026-04-24",
@@ -510,28 +423,6 @@
     },
     {
       "date": "2026-05-20",
-      "title": "Elképesztő állapotú utcákat kell mentesíteni az azbeszttől a szombathelyi Oladi Platón",
-      "source": "Nyugat.hu",
-      "source_type": "media",
-      "category": "karelhartas_megoldas",
-      "base_score": 5,
-      "source_weight": 1,
-      "confidence": 0.85,
-      "final_score": 4.25,
-      "matched_negative_rules": [],
-      "matched_positive_rules": [
-        {
-          "category": "karelhartas_megoldas",
-          "score": 5,
-          "keywords": [
-            "mentesites"
-          ]
-        }
-      ],
-      "url": "https://www.nyugat.hu/cikk/azbeszt_oladi_plato_utcak_allapot_mentesites_video_szombathely"
-    },
-    {
-      "date": "2026-05-20",
       "title": "Bölcsőde, óvoda, gyermekotthon és játszótér közelébe is jutott az azbeszttel szennyezett kövekből",
       "source": "24.hu",
       "source_type": "media",
@@ -575,20 +466,6 @@
       ],
       "matched_positive_rules": [],
       "url": "https://24.hu/tudomany/2026/05/20/azbesztbotrany-ausztria-kormany-szombathely"
-    },
-    {
-      "date": "2026-06-04",
-      "title": "Azbesztbotrány: újabb félmillió tonna kőzúzalék Magyarországra szállítása derült ki, egy ötödik osztrák bánya is érintett",
-      "source": "Nyugat.hu",
-      "source_type": "media",
-      "category": "altalanos_media_megjelenes",
-      "base_score": -1,
-      "source_weight": 1,
-      "confidence": 0.7,
-      "final_score": -0.7,
-      "matched_negative_rules": [],
-      "matched_positive_rules": [],
-      "url": "https://www.nyugat.hu/cikk/tovabb_dagad_azbesztbotrany_ujabb_felmillio_tonna"
     },
     {
       "date": "2026-06-11",
@@ -743,6 +620,20 @@
       "url": "https://www.nyugat.hu/cikk/nemeny_andras_az_olad_platot_erinto_azbeszthelyzet"
     },
     {
+      "date": "2026-07-23",
+      "title": "Azbeszt-ügy: A Greenpeace nem ért egyet a kormány döntésével",
+      "source": "Nyugat.hu",
+      "source_type": "media",
+      "category": "altalanos_media_megjelenes",
+      "base_score": -1,
+      "source_weight": 1,
+      "confidence": 0.7,
+      "final_score": -0.7,
+      "matched_negative_rules": [],
+      "matched_positive_rules": [],
+      "url": "https://www.nyugat.hu/cikk/azbeszt_ugy_greenpeace_nem_ert_egyet_kormany"
+    },
+    {
       "date": "2026-08-26",
       "title": "Lakossági fórumot tartanak az azbeszthelyzetről a szombathelyi városházán",
       "source": "Nyugat.hu",
@@ -810,7 +701,7 @@
     },
     {
       "date": "2026-09-02",
-      "title": "Vertrauter Doskozils und Feindbild der Opposition Anwalt Johannes Zink wehrt sich gegen Vorwurf des Interessenskonflikts in der Asbest-Causa.",
+      "title": "Vertrauter Doskozils und Feindbild der Opposition",
       "source": "Kurier Burgenland",
       "source_type": "austrian",
       "category": "altalanos_media_megjelenes",
@@ -857,6 +748,20 @@
         }
       ],
       "url": "https://www.nyugat.hu/cikk/kiserlet_a_abert_tonal_egy_mernokcsapat_uj_javasol"
+    },
+    {
+      "date": "2026-09-07",
+      "title": "Azbesztügy - Rendkívüli közgyűlésen dönt az állami pályázatról a szombathelyi önkormányzat",
+      "source": "Nyugat.hu",
+      "source_type": "media",
+      "category": "altalanos_media_megjelenes",
+      "base_score": -1,
+      "source_weight": 1,
+      "confidence": 0.7,
+      "final_score": -0.7,
+      "matched_negative_rules": [],
+      "matched_positive_rules": [],
+      "url": "https://www.nyugat.hu/cikk/azbesztugy_rendkivuli_kozgyulesen_dont_az_allami"
     },
     {
       "date": "2026-09-07",
@@ -1059,20 +964,6 @@
     },
     {
       "date": "2026-09-24",
-      "title": "\"Akkora lyuk van a szombathelyi költségvetésen, amit nagyon nehéz vagy lehetetlen kezelni\"",
-      "source": "Nyugat.hu",
-      "source_type": "media",
-      "category": "altalanos_media_megjelenes",
-      "base_score": -1,
-      "source_weight": 1,
-      "confidence": 0.7,
-      "final_score": -0.7,
-      "matched_negative_rules": [],
-      "matched_positive_rules": [],
-      "url": "https://www.nyugat.hu/cikk/akkora_lyuk_van_a_szombathelyi_koltsegvetesen_amit"
-    },
-    {
-      "date": "2026-09-24",
       "title": "Közgyűlés Szombathelyen: egyes lakók az Olad Platón a leterített kavicsot is elviszik",
       "source": "VAOL",
       "source_type": "media",
@@ -1114,34 +1005,6 @@
       "url": "https://www.portfolio.hu/gazdasag/20260925/tovabb-gyuruzik-az-azbeszt-botrany-7500-szazalekkal-a-hatarertek-felett-mertek-azbesztet-koszegen-865190"
     },
     {
-      "date": "2026-09-28",
-      "title": "A szombathelyi Oladi Platón végzett azbesztburkolási munkák leállítását követeli a Greenpeace",
-      "source": "Nyugat.hu",
-      "source_type": "media",
-      "category": "altalanos_media_megjelenes",
-      "base_score": -1,
-      "source_weight": 1,
-      "confidence": 0.7,
-      "final_score": -0.7,
-      "matched_negative_rules": [],
-      "matched_positive_rules": [],
-      "url": "https://www.nyugat.hu/cikk/a_szombathelyi_azbesztburkolasi_munkak_leallitasat"
-    },
-    {
-      "date": "2026-10-03",
-      "title": "Asbestfunde: Gemeinden werden im Dunkeln gelassen",
-      "source": "Kurier Burgenland",
-      "source_type": "austrian",
-      "category": "altalanos_media_megjelenes",
-      "base_score": -1,
-      "source_weight": 1,
-      "confidence": 0.7,
-      "final_score": -0.7,
-      "matched_negative_rules": [],
-      "matched_positive_rules": [],
-      "url": "https://kurier.at/chronik/burgenland/asbestvorwuerfe-schulen-kindergarten-burgenland-taskforce/403195396"
-    },
-    {
       "date": "2026-10-06",
       "title": "Asbest auf Burg Schlaining: Maßnahmen vor Halloween",
       "source": "Kurier Burgenland",
@@ -1154,20 +1017,6 @@
       "matched_negative_rules": [],
       "matched_positive_rules": [],
       "url": "https://kurier.at/chronik/burgenland/asbest-burg-schlaining-greenpeace-landesholding-burgenland-halloween/403196315"
-    },
-    {
-      "date": "2026-10-06",
-      "title": "„Vorsichtsmaßnahme“ gegen Asbest",
-      "source": "ORF Burgenland",
-      "source_type": "austrian",
-      "category": "altalanos_media_megjelenes",
-      "base_score": -1,
-      "source_weight": 1,
-      "confidence": 0.7,
-      "final_score": -0.7,
-      "matched_negative_rules": [],
-      "matched_positive_rules": [],
-      "url": "https://burgenland.orf.at/stories/3374172"
     },
     {
       "date": "2026-10-06",
@@ -1207,31 +1056,33 @@
     },
     {
       "date": "2026-10-07",
-      "title": "Heteken belül végezhetnek az azbesztes szombathelyi utak lefedésével",
+      "title": "Heteken belül végezhetnek az azbesztes szombathelyi utak lefedésével A héten már a bitument teszik le az Oladi Platón. A szennyezett kőzet elszállításának pontos módját viszont még senki sem ismeri. Herczeg Márk katasztrófa 2026. október 7. 16:05",
       "source": "444",
       "source_type": "media",
-      "category": "altalanos_media_megjelenes",
-      "base_score": -1,
+      "category": "karelhartas_megoldas",
+      "base_score": 1,
       "source_weight": 1,
-      "confidence": 0.7,
-      "final_score": -0.7,
-      "matched_negative_rules": [],
-      "matched_positive_rules": [],
+      "confidence": 1,
+      "final_score": 1,
+      "matched_negative_rules": [
+        {
+          "category": "szennyezes_vagy_gyanu",
+          "score": -4,
+          "keywords": [
+            "szennyezett"
+          ]
+        }
+      ],
+      "matched_positive_rules": [
+        {
+          "category": "karelhartas_megoldas",
+          "score": 5,
+          "keywords": [
+            "elszallitas"
+          ]
+        }
+      ],
       "url": "https://444.hu/2026/10/07/heteken-belul-vegezhetnek-az-azbesztes-szombathelyi-utak-lefedesevel"
-    },
-    {
-      "date": "2026-10-07",
-      "title": "Friedensburg Schlaining Landesholding bestätigt \"vorsorgliche\" Asbestmaßnahmen",
-      "source": "MeinBezirk Burgenland",
-      "source_type": "austrian",
-      "category": "altalanos_media_megjelenes",
-      "base_score": -1,
-      "source_weight": 1,
-      "confidence": 0.7,
-      "final_score": -0.7,
-      "matched_negative_rules": [],
-      "matched_positive_rules": [],
-      "url": "https://www.meinbezirk.at/burgenland/c-politik/landesholding-bestaetigt-vorsorgliche-asbestmassnahmen_a8940186?ref=curate"
     }
   ]
 }
