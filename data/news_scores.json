@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-10T11:12:02.106Z",
+  "generated_at": "2026-10-11T11:25:27.236Z",
   "method": "balanced_keyword_rule_based_event_scoring_v3",
   "description": "Automatikusan generált Kőszeg–azbeszt ügyindex a data/news.json alapján. A rendszer külön számolja a negatív kockázati és a pozitív intézkedési kulcsszavakat.",
   "scoring_note": "Ez nem klasszikus hangulatelemzés. A negatív pont kockázatot vagy romló fejleményt, a pozitív pont intézkedést, tájékoztatást, monitoringot vagy megoldás felé mutató eseményt jelent.",
@@ -171,35 +171,6 @@
       "url": "https://www.nyugat.hu/cikk/mergezo_azbeszt_bozsokon_a_polgarmester_szerint_a"
     },
     {
-      "date": "2026-02-02",
-      "title": "Bozsoki azbesztveszély - A szakember szerint minimális esély van arra, hogy mérgező azbeszt kerüljön a levegőbe",
-      "source": "Nyugat.hu",
-      "source_type": "media",
-      "category": "egeszsegugyi_kockazat",
-      "base_score": -5,
-      "source_weight": 1,
-      "confidence": 1,
-      "final_score": -5,
-      "matched_negative_rules": [
-        {
-          "category": "egeszsegugyi_kockazat",
-          "score": -5,
-          "keywords": [
-            "azbesztveszely"
-          ]
-        },
-        {
-          "category": "uj_erintett_terulet",
-          "score": -4,
-          "keywords": [
-            "bozsok"
-          ]
-        }
-      ],
-      "matched_positive_rules": [],
-      "url": "https://www.nyugat.hu/cikk/bozsok_azbeszt_veszely_geologus_bazalt_szerpentinit"
-    },
-    {
       "date": "2026-04-16",
       "title": "Valóban súlyos a szombathelyi azbeszthelyzet - írta lapunknak az ELTE kutatócsoportjának professzora",
       "source": "Nyugat.hu",
@@ -212,28 +183,6 @@
       "matched_negative_rules": [],
       "matched_positive_rules": [],
       "url": "https://www.nyugat.hu/cikk/azbeszt_szombathely_szennyezes_szakerto_sip_utca"
-    },
-    {
-      "date": "2026-04-20",
-      "title": "Kövesse élő közvetítésünket az azbeszt-ügyben szervezett szombathelyi lakossági fórumról",
-      "source": "Nyugat.hu",
-      "source_type": "media",
-      "category": "lakossagi_tajekoztatas",
-      "base_score": 2,
-      "source_weight": 1,
-      "confidence": 0.85,
-      "final_score": 1.7,
-      "matched_negative_rules": [],
-      "matched_positive_rules": [
-        {
-          "category": "lakossagi_tajekoztatas",
-          "score": 2,
-          "keywords": [
-            "lakossagi forum"
-          ]
-        }
-      ],
-      "url": "https://www.nyugat.hu/cikk/kovesse_elo_kozvetitesunket_az_azbeszt_ugyben"
     },
     {
       "date": "2026-04-21",
@@ -1178,42 +1127,6 @@
       "url": "https://www.nyugat.hu/cikk/epitik_a_szegelyeket_elkezdodott_az_azbesztes_az"
     },
     {
-      "date": "2026-09-12",
-      "title": "Vizsgálják a munkaterveket: készülnének a nyitásra az azbesztszennyezett burgenlandi bányák",
-      "source": "VAOL",
-      "source_type": "media",
-      "category": "szennyezes_vagy_gyanu",
-      "base_score": -4,
-      "source_weight": 1,
-      "confidence": 0.85,
-      "final_score": -3.4,
-      "matched_negative_rules": [
-        {
-          "category": "szennyezes_vagy_gyanu",
-          "score": -4,
-          "keywords": [
-            "szennyezett"
-          ]
-        }
-      ],
-      "matched_positive_rules": [],
-      "url": "https://www.vaol.hu/helyi-kozelet/2026/09/azbeszt-ugy-burgenland-kobanyak"
-    },
-    {
-      "date": "2026-09-12",
-      "title": "Azbeszt-ügy: kiáll a TÖOSZ a nehéz helyzetbe került önkormányzatok mellett",
-      "source": "VAOL",
-      "source_type": "media",
-      "category": "altalanos_media_megjelenes",
-      "base_score": -1,
-      "source_weight": 1,
-      "confidence": 0.7,
-      "final_score": -0.7,
-      "matched_negative_rules": [],
-      "matched_positive_rules": [],
-      "url": "https://www.vaol.hu/helyi-kozelet/2026/09/azbeszt-ugy-toosz-vas-dontes-onkormanyzatok-palyazat"
-    },
-    {
       "date": "2026-09-15",
       "title": "Azbesztmentesítés: a vasi települések érintettségét és anyagi lehetőségeit figyelembe vevő pályázat kell",
       "source": "VAOL",
@@ -1586,6 +1499,43 @@
         }
       ],
       "url": "https://444.hu/2026/10/07/heteken-belul-vegezhetnek-az-azbesztes-szombathelyi-utak-lefedesevel"
+    },
+    {
+      "date": "2026-10-10",
+      "title": "Ezeket a parkolókat jövő héten lezárják Szombathelyen, tilos autóval megállni",
+      "source": "VAOL",
+      "source_type": "media",
+      "category": "korlatozas",
+      "base_score": -2,
+      "source_weight": 1,
+      "confidence": 1,
+      "final_score": -2,
+      "matched_negative_rules": [
+        {
+          "category": "korlatozas",
+          "score": -2,
+          "keywords": [
+            "lezarjak",
+            "lezaras"
+          ]
+        }
+      ],
+      "matched_positive_rules": [],
+      "url": "https://www.vaol.hu/helyi-kozelet/2026/10/azbeszt-szombathely-parkolo-lezaras"
+    },
+    {
+      "date": "2026-10-10",
+      "title": "Kamilla királyné bevallotta: kamaszként titokban olvasta a Lady Chatterley szeretőjét",
+      "source": "HVG",
+      "source_type": "media",
+      "category": "altalanos_media_megjelenes",
+      "base_score": -1,
+      "source_weight": 1,
+      "confidence": 0.7,
+      "final_score": -0.7,
+      "matched_negative_rules": [],
+      "matched_positive_rules": [],
+      "url": "https://hvg.hu/elet/20261010_kamilla-kiralyne-olvasas-lady-chatterley-szeretoje"
     }
   ]
 }
