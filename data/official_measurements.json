@@ -1,10 +1,10 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-10-19T11:01:02.360Z",
+  "generated_at": "2026-10-19T21:38:38.064Z",
   "source_class": "primary_official",
   "authority": "Vas Vármegyei Kormányhivatal",
   "source_page": "https://kormanyhivatalok.hu/kormanyhivatalok/vas/megye/hirek/hir/azbesztszennyezes-legfontosabb-lakossagi-informaciok",
-  "total_measurement_documents": 10,
+  "total_measurement_documents": 13,
   "measurements": [
     {
       "id": "9c165b341b3a7cc3",
@@ -27,7 +27,7 @@
       "values": [],
       "asbestos_types": [],
       "first_seen": "2026-09-25T18:46:30.554Z",
-      "last_checked": "2026-10-19T11:00:55.583Z"
+      "last_checked": "2026-10-19T21:38:28.627Z"
     },
     {
       "id": "42e34b86f65dbbb6",
@@ -50,7 +50,7 @@
       "values": [],
       "asbestos_types": [],
       "first_seen": "2026-09-25T18:46:39.047Z",
-      "last_checked": "2026-10-19T11:00:58.543Z"
+      "last_checked": "2026-10-19T21:38:30.235Z"
     },
     {
       "id": "05fdc9827340266c",
@@ -73,7 +73,7 @@
       "values": [],
       "asbestos_types": [],
       "first_seen": "2026-09-25T18:46:40.305Z",
-      "last_checked": "2026-10-19T11:00:59.375Z"
+      "last_checked": "2026-10-19T21:38:30.892Z"
     },
     {
       "id": "d9702e422a5a3625",
@@ -97,7 +97,7 @@
       "values": [],
       "asbestos_types": [],
       "first_seen": "2026-09-25T18:46:43.724Z",
-      "last_checked": "2026-10-19T11:01:00.427Z"
+      "last_checked": "2026-10-19T21:38:35.608Z"
     },
     {
       "id": "7c244fa29d5b20de",
@@ -120,7 +120,7 @@
       "values": [],
       "asbestos_types": [],
       "first_seen": "2026-09-25T18:46:44.524Z",
-      "last_checked": "2026-10-19T11:01:00.618Z"
+      "last_checked": "2026-10-19T21:38:36.158Z"
     },
     {
       "id": "89da35147ee8c85e",
@@ -144,7 +144,7 @@
       "values": [],
       "asbestos_types": [],
       "first_seen": "2026-09-25T18:46:45.156Z",
-      "last_checked": "2026-10-19T11:01:00.801Z"
+      "last_checked": "2026-10-19T21:38:36.302Z"
     },
     {
       "id": "2c677b8299154d25",
@@ -167,7 +167,7 @@
       "values": [],
       "asbestos_types": [],
       "first_seen": "2026-09-25T18:46:45.673Z",
-      "last_checked": "2026-10-19T11:01:01.110Z"
+      "last_checked": "2026-10-19T21:38:36.584Z"
     },
     {
       "id": "f9b6e2bcc17cde03",
@@ -190,7 +190,7 @@
       "values": [],
       "asbestos_types": [],
       "first_seen": "2026-09-25T18:46:46.171Z",
-      "last_checked": "2026-10-19T11:01:01.313Z"
+      "last_checked": "2026-10-19T21:38:36.849Z"
     },
     {
       "id": "4cf548f456645dce",
@@ -214,7 +214,7 @@
       "values": [],
       "asbestos_types": [],
       "first_seen": "2026-09-25T18:46:46.539Z",
-      "last_checked": "2026-10-19T11:01:01.590Z"
+      "last_checked": "2026-10-19T21:38:37.025Z"
     },
     {
       "id": "52d7c8a8720d0463",
@@ -237,7 +237,70 @@
       "values": [],
       "asbestos_types": [],
       "first_seen": "2026-09-25T18:46:47.424Z",
-      "last_checked": "2026-10-19T11:01:02.153Z"
+      "last_checked": "2026-10-19T21:38:37.377Z"
+    },
+    {
+      "id": "89cb322f5468ad80",
+      "measurement_category": "air",
+      "places": [],
+      "publication_date": "2026-10-19",
+      "source_class": "primary_official",
+      "authority": "Vas Vármegyei Kormányhivatal",
+      "source_page": "https://kormanyhivatalok.hu/kormanyhivatalok/vas/megye/hirek/hir/azbesztszennyezes-legfontosabb-lakossagi-informaciok",
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_7_vj.pdf",
+      "source_title": "Szentgotthárd, Wesselényi u. és a Rózsa F. u. 2026. szeptember 23-24-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+      "document_sha256": "7a371006b4e2d718965309e02cb194cf17d768d9a7ccdfa6b2ab9d5584bba2ff",
+      "document_status": "ok",
+      "extraction_status": "pending",
+      "measurement_date": null,
+      "location": null,
+      "coordinates": null,
+      "values": [],
+      "asbestos_types": [],
+      "first_seen": "2026-10-19T21:38:37.562Z",
+      "last_checked": "2026-10-19T21:38:37.562Z"
+    },
+    {
+      "id": "9b083af63132ff44",
+      "measurement_category": "air",
+      "places": [],
+      "publication_date": "2026-10-19",
+      "source_class": "primary_official",
+      "authority": "Vas Vármegyei Kormányhivatal",
+      "source_page": "https://kormanyhivatalok.hu/kormanyhivatalok/vas/megye/hirek/hir/azbesztszennyezes-legfontosabb-lakossagi-informaciok",
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_8_vj.pdf",
+      "source_title": "Táplánszentkereszt, Fő utca 2026. szeptember 30. és október 01.-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+      "document_sha256": "1a537ab46e1df388c7500596531b5d0562da052c7eb753836a59d53692dd1803",
+      "document_status": "ok",
+      "extraction_status": "pending",
+      "measurement_date": null,
+      "location": null,
+      "coordinates": null,
+      "values": [],
+      "asbestos_types": [],
+      "first_seen": "2026-10-19T21:38:37.748Z",
+      "last_checked": "2026-10-19T21:38:37.748Z"
+    },
+    {
+      "id": "4c3379c3b192c993",
+      "measurement_category": "air",
+      "places": [],
+      "publication_date": "2026-10-19",
+      "source_class": "primary_official",
+      "authority": "Vas Vármegyei Kormányhivatal",
+      "source_page": "https://kormanyhivatalok.hu/kormanyhivatalok/vas/megye/hirek/hir/azbesztszennyezes-legfontosabb-lakossagi-informaciok",
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_9_vj.pdf",
+      "source_title": "Torony, Felsőőri utca 2026. szeptember 29-30-án végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+      "document_sha256": "98a35b75b43e62c2f2adddad86686074116aefa2dd71e4acfae320d722442a8c",
+      "document_status": "ok",
+      "extraction_status": "pending",
+      "measurement_date": null,
+      "location": null,
+      "coordinates": null,
+      "values": [],
+      "asbestos_types": [],
+      "first_seen": "2026-10-19T21:38:37.902Z",
+      "last_checked": "2026-10-19T21:38:37.902Z"
     }
   ]
 }

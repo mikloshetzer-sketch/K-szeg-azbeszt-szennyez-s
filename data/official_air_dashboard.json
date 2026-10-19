@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-10-19T11:01:14.287Z",
+  "generated_at": "2026-10-19T21:38:48.771Z",
   "dataset": "Vas Vármegyei Kormányhivatal – hivatalos azbeszt levegőmérések",
   "authority": "Vas Vármegyei Kormányhivatal",
   "source_file": "official_air_measurements.json",
@@ -13,20 +13,34 @@
     "provenance": "A dashboard adatfájl kizárólag az official_air_measurements.json elfogadott mérési rekordjaiból épül fel."
   },
   "kpis": {
-    "total_measurements": 46,
-    "numeric_measurements": 42,
-    "below_detection_limit_measurements": 4,
-    "mapped_measurements": 46,
-    "site_count": 8,
-    "settlement_count": 3,
+    "total_measurements": 66,
+    "numeric_measurements": 61,
+    "below_detection_limit_measurements": 5,
+    "mapped_measurements": 66,
+    "site_count": 12,
+    "settlement_count": 4,
     "first_measurement_date": "2026-04-07",
-    "latest_measurement_date": "2026-08-12",
+    "latest_measurement_date": "2026-10-01",
     "maximum_measured_fibres_m3": 76254,
-    "minimum_measured_fibres_m3": 250,
-    "mean_measured_fibres_m3": 7493,
-    "median_measured_fibres_m3": 1593
+    "minimum_measured_fibres_m3": 193,
+    "mean_measured_fibres_m3": 5857,
+    "median_measured_fibres_m3": 1555
   },
   "settlements": [
+    {
+      "settlement": "Ismeretlen",
+      "measurement_count": 20,
+      "site_count": 4,
+      "below_detection_limit_count": 1,
+      "first_measurement_date": "2026-09-23",
+      "latest_measurement_date": "2026-10-01",
+      "statistics": {
+        "min_fibres_m3": 193,
+        "max_fibres_m3": 11711,
+        "mean_fibres_m3": 2240,
+        "median_fibres_m3": 1346
+      }
+    },
     {
       "settlement": "Kőszeg",
       "measurement_count": 11,
@@ -71,6 +85,166 @@
     }
   ],
   "sites": [
+    {
+      "site_id": "unknown_46.94842_16.27946",
+      "settlement": null,
+      "location": "Szentgotthárd, Rózsa F. u. (954 hrsz)",
+      "coordinates": {
+        "lat": 46.94842,
+        "lon": 16.27946
+      },
+      "measurement_count": 5,
+      "numeric_measurement_count": 5,
+      "below_detection_limit_count": 0,
+      "first_measurement_date": "2026-09-23",
+      "latest_measurement_date": "2026-09-24",
+      "statistics": {
+        "min_fibres_m3": 365,
+        "max_fibres_m3": 4256,
+        "mean_fibres_m3": 2139,
+        "median_fibres_m3": 1802
+      },
+      "latest_measurement": {
+        "sample_id": "2026_792_7_L/2_5",
+        "date": "2026-09-24",
+        "start": "2026-09-24 00:02",
+        "concentration": {
+          "value": 1802,
+          "display": "1802",
+          "unit": "rost/m3",
+          "below_detection_limit": false,
+          "detection_limit": null,
+          "numeric_for_statistics": 1802
+        }
+      },
+      "measurement_ids": [
+        "air_0052",
+        "air_0053",
+        "air_0054",
+        "air_0055",
+        "air_0056"
+      ]
+    },
+    {
+      "site_id": "unknown_46.95025_16.26618",
+      "settlement": null,
+      "location": "Szentgotthárd, Wesselényi u. (0166/1 hrsz.)",
+      "coordinates": {
+        "lat": 46.95025,
+        "lon": 16.26618
+      },
+      "measurement_count": 5,
+      "numeric_measurement_count": 4,
+      "below_detection_limit_count": 1,
+      "first_measurement_date": "2026-09-23",
+      "latest_measurement_date": "2026-09-23",
+      "statistics": {
+        "min_fibres_m3": 1094,
+        "max_fibres_m3": 11711,
+        "mean_fibres_m3": 5424,
+        "median_fibres_m3": 4446
+      },
+      "latest_measurement": {
+        "sample_id": "2026_792_7_L/1_5",
+        "date": "2026-09-23",
+        "start": "2026-09-23 23:45",
+        "concentration": {
+          "value": 100,
+          "display": "<100",
+          "unit": "rost/m3",
+          "below_detection_limit": true,
+          "detection_limit": 100,
+          "numeric_for_statistics": null
+        }
+      },
+      "measurement_ids": [
+        "air_0047",
+        "air_0048",
+        "air_0049",
+        "air_0050",
+        "air_0051"
+      ]
+    },
+    {
+      "site_id": "unknown_47.19722_16.70228",
+      "settlement": null,
+      "location": "Táplánszentkereszt, Fő utca (69/1 hrsz)",
+      "coordinates": {
+        "lat": 47.19722,
+        "lon": 16.70228
+      },
+      "measurement_count": 5,
+      "numeric_measurement_count": 5,
+      "below_detection_limit_count": 0,
+      "first_measurement_date": "2026-09-30",
+      "latest_measurement_date": "2026-10-01",
+      "statistics": {
+        "min_fibres_m3": 563,
+        "max_fibres_m3": 2593,
+        "mean_fibres_m3": 1456,
+        "median_fibres_m3": 1275
+      },
+      "latest_measurement": {
+        "sample_id": "2026_792_8_L/1_5",
+        "date": "2026-10-01",
+        "start": "2026-10-01 13:21",
+        "concentration": {
+          "value": 2064,
+          "display": "2064",
+          "unit": "rost/m3",
+          "below_detection_limit": false,
+          "detection_limit": null,
+          "numeric_for_statistics": 2064
+        }
+      },
+      "measurement_ids": [
+        "air_0057",
+        "air_0058",
+        "air_0059",
+        "air_0060",
+        "air_0061"
+      ]
+    },
+    {
+      "site_id": "unknown_47.23952_16.53214",
+      "settlement": null,
+      "location": "Torony, Felsőőri utca",
+      "coordinates": {
+        "lat": 47.23952,
+        "lon": 16.53214
+      },
+      "measurement_count": 5,
+      "numeric_measurement_count": 5,
+      "below_detection_limit_count": 0,
+      "first_measurement_date": "2026-09-29",
+      "latest_measurement_date": "2026-09-30",
+      "statistics": {
+        "min_fibres_m3": 193,
+        "max_fibres_m3": 1346,
+        "mean_fibres_m3": 578,
+        "median_fibres_m3": 378
+      },
+      "latest_measurement": {
+        "sample_id": "2026_792_9_L/1_5",
+        "date": "2026-09-30",
+        "start": "2026-09-30 17:26",
+        "concentration": {
+          "value": 378,
+          "display": "378",
+          "unit": "rost/m3",
+          "below_detection_limit": false,
+          "detection_limit": null,
+          "numeric_for_statistics": 378
+        }
+      },
+      "measurement_ids": [
+        "air_0062",
+        "air_0063",
+        "air_0064",
+        "air_0065",
+        "air_0066"
+      ]
+    },
     {
       "site_id": "kőszeg_47.38840_16.54967",
       "settlement": "Kőszeg",
@@ -399,6 +573,106 @@
     }
   ],
   "map_points": [
+    {
+      "site_id": "unknown_46.94842_16.27946",
+      "settlement": null,
+      "location": "Szentgotthárd, Rózsa F. u. (954 hrsz)",
+      "lat": 46.94842,
+      "lon": 16.27946,
+      "measurement_count": 5,
+      "below_detection_limit_count": 0,
+      "max_fibres_m3": 4256,
+      "mean_fibres_m3": 2139,
+      "median_fibres_m3": 1802,
+      "latest_measurement": {
+        "sample_id": "2026_792_7_L/2_5",
+        "date": "2026-09-24",
+        "start": "2026-09-24 00:02",
+        "concentration": {
+          "value": 1802,
+          "display": "1802",
+          "unit": "rost/m3",
+          "below_detection_limit": false,
+          "detection_limit": null,
+          "numeric_for_statistics": 1802
+        }
+      }
+    },
+    {
+      "site_id": "unknown_46.95025_16.26618",
+      "settlement": null,
+      "location": "Szentgotthárd, Wesselényi u. (0166/1 hrsz.)",
+      "lat": 46.95025,
+      "lon": 16.26618,
+      "measurement_count": 5,
+      "below_detection_limit_count": 1,
+      "max_fibres_m3": 11711,
+      "mean_fibres_m3": 5424,
+      "median_fibres_m3": 4446,
+      "latest_measurement": {
+        "sample_id": "2026_792_7_L/1_5",
+        "date": "2026-09-23",
+        "start": "2026-09-23 23:45",
+        "concentration": {
+          "value": 100,
+          "display": "<100",
+          "unit": "rost/m3",
+          "below_detection_limit": true,
+          "detection_limit": 100,
+          "numeric_for_statistics": null
+        }
+      }
+    },
+    {
+      "site_id": "unknown_47.19722_16.70228",
+      "settlement": null,
+      "location": "Táplánszentkereszt, Fő utca (69/1 hrsz)",
+      "lat": 47.19722,
+      "lon": 16.70228,
+      "measurement_count": 5,
+      "below_detection_limit_count": 0,
+      "max_fibres_m3": 2593,
+      "mean_fibres_m3": 1456,
+      "median_fibres_m3": 1275,
+      "latest_measurement": {
+        "sample_id": "2026_792_8_L/1_5",
+        "date": "2026-10-01",
+        "start": "2026-10-01 13:21",
+        "concentration": {
+          "value": 2064,
+          "display": "2064",
+          "unit": "rost/m3",
+          "below_detection_limit": false,
+          "detection_limit": null,
+          "numeric_for_statistics": 2064
+        }
+      }
+    },
+    {
+      "site_id": "unknown_47.23952_16.53214",
+      "settlement": null,
+      "location": "Torony, Felsőőri utca",
+      "lat": 47.23952,
+      "lon": 16.53214,
+      "measurement_count": 5,
+      "below_detection_limit_count": 0,
+      "max_fibres_m3": 1346,
+      "mean_fibres_m3": 578,
+      "median_fibres_m3": 378,
+      "latest_measurement": {
+        "sample_id": "2026_792_9_L/1_5",
+        "date": "2026-09-30",
+        "start": "2026-09-30 17:26",
+        "concentration": {
+          "value": 378,
+          "display": "378",
+          "unit": "rost/m3",
+          "below_detection_limit": false,
+          "detection_limit": null,
+          "numeric_for_statistics": 378
+        }
+      }
+    },
     {
       "site_id": "kőszeg_47.38840_16.54967",
       "settlement": "Kőszeg",
@@ -1256,6 +1530,326 @@
       "display_value": "76254",
       "below_detection_limit": false,
       "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_6_vj.pdf"
+    },
+    {
+      "id": "air_0047",
+      "sample_id": "2026_792_7_L/1_1",
+      "date": "2026-09-23",
+      "start": "2026-09-23 07:24",
+      "end": "2026-09-23 11:24",
+      "settlement": null,
+      "location": "Szentgotthárd, Wesselényi u. (0166/1 hrsz.)",
+      "site_id": "unknown_46.95025_16.26618",
+      "lat": 46.95025,
+      "lon": 16.26618,
+      "concentration_fibres_m3": 1489,
+      "display_value": "1489",
+      "below_detection_limit": false,
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_7_vj.pdf"
+    },
+    {
+      "id": "air_0052",
+      "sample_id": "2026_792_7_L/2_1",
+      "date": "2026-09-23",
+      "start": "2026-09-23 07:49",
+      "end": "2026-09-23 11:49",
+      "settlement": null,
+      "location": "Szentgotthárd, Rózsa F. u. (954 hrsz)",
+      "site_id": "unknown_46.94842_16.27946",
+      "lat": 46.94842,
+      "lon": 16.27946,
+      "concentration_fibres_m3": 365,
+      "display_value": "365",
+      "below_detection_limit": false,
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_7_vj.pdf"
+    },
+    {
+      "id": "air_0048",
+      "sample_id": "2026_792_7_L/1_2",
+      "date": "2026-09-23",
+      "start": "2026-09-23 11:27",
+      "end": "2026-09-23 15:27",
+      "settlement": null,
+      "location": "Szentgotthárd, Wesselényi u. (0166/1 hrsz.)",
+      "site_id": "unknown_46.95025_16.26618",
+      "lat": 46.95025,
+      "lon": 16.26618,
+      "concentration_fibres_m3": 1094,
+      "display_value": "1094",
+      "below_detection_limit": false,
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_7_vj.pdf"
+    },
+    {
+      "id": "air_0053",
+      "sample_id": "2026_792_7_L/2_2",
+      "date": "2026-09-23",
+      "start": "2026-09-23 11:53",
+      "end": "2026-09-23 15:53",
+      "settlement": null,
+      "location": "Szentgotthárd, Rózsa F. u. (954 hrsz)",
+      "site_id": "unknown_46.94842_16.27946",
+      "lat": 46.94842,
+      "lon": 16.27946,
+      "concentration_fibres_m3": 2489,
+      "display_value": "2489",
+      "below_detection_limit": false,
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_7_vj.pdf"
+    },
+    {
+      "id": "air_0049",
+      "sample_id": "2026_792_7_L/1_3",
+      "date": "2026-09-23",
+      "start": "2026-09-23 15:40",
+      "end": "2026-09-23 19:40",
+      "settlement": null,
+      "location": "Szentgotthárd, Wesselényi u. (0166/1 hrsz.)",
+      "site_id": "unknown_46.95025_16.26618",
+      "lat": 46.95025,
+      "lon": 16.26618,
+      "concentration_fibres_m3": 7402,
+      "display_value": "7402",
+      "below_detection_limit": false,
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_7_vj.pdf"
+    },
+    {
+      "id": "air_0054",
+      "sample_id": "2026_792_7_L/2_3",
+      "date": "2026-09-23",
+      "start": "2026-09-23 15:56",
+      "end": "2026-09-23 19:56",
+      "settlement": null,
+      "location": "Szentgotthárd, Rózsa F. u. (954 hrsz)",
+      "site_id": "unknown_46.94842_16.27946",
+      "lat": 46.94842,
+      "lon": 16.27946,
+      "concentration_fibres_m3": 4256,
+      "display_value": "4256",
+      "below_detection_limit": false,
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_7_vj.pdf"
+    },
+    {
+      "id": "air_0050",
+      "sample_id": "2026_792_7_L/1_4",
+      "date": "2026-09-23",
+      "start": "2026-09-23 19:42",
+      "end": "2026-09-23 23:42",
+      "settlement": null,
+      "location": "Szentgotthárd, Wesselényi u. (0166/1 hrsz.)",
+      "site_id": "unknown_46.95025_16.26618",
+      "lat": 46.95025,
+      "lon": 16.26618,
+      "concentration_fibres_m3": 11711,
+      "display_value": "11711",
+      "below_detection_limit": false,
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_7_vj.pdf"
+    },
+    {
+      "id": "air_0055",
+      "sample_id": "2026_792_7_L/2_4",
+      "date": "2026-09-23",
+      "start": "2026-09-23 19:58",
+      "end": "2026-09-23 23:58",
+      "settlement": null,
+      "location": "Szentgotthárd, Rózsa F. u. (954 hrsz)",
+      "site_id": "unknown_46.94842_16.27946",
+      "lat": 46.94842,
+      "lon": 16.27946,
+      "concentration_fibres_m3": 1781,
+      "display_value": "1781",
+      "below_detection_limit": false,
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_7_vj.pdf"
+    },
+    {
+      "id": "air_0051",
+      "sample_id": "2026_792_7_L/1_5",
+      "date": "2026-09-23",
+      "start": "2026-09-23 23:45",
+      "end": "2026-09-24 07:45",
+      "settlement": null,
+      "location": "Szentgotthárd, Wesselényi u. (0166/1 hrsz.)",
+      "site_id": "unknown_46.95025_16.26618",
+      "lat": 46.95025,
+      "lon": 16.26618,
+      "concentration_fibres_m3": 100,
+      "display_value": "<100",
+      "below_detection_limit": true,
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_7_vj.pdf"
+    },
+    {
+      "id": "air_0056",
+      "sample_id": "2026_792_7_L/2_5",
+      "date": "2026-09-24",
+      "start": "2026-09-24 00:02",
+      "end": "2026-09-24 08:02",
+      "settlement": null,
+      "location": "Szentgotthárd, Rózsa F. u. (954 hrsz)",
+      "site_id": "unknown_46.94842_16.27946",
+      "lat": 46.94842,
+      "lon": 16.27946,
+      "concentration_fibres_m3": 1802,
+      "display_value": "1802",
+      "below_detection_limit": false,
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_7_vj.pdf"
+    },
+    {
+      "id": "air_0062",
+      "sample_id": "2026_792_9_L/1_1",
+      "date": "2026-09-29",
+      "start": "2026-09-29 20:25",
+      "end": "2026-09-30 00:25",
+      "settlement": null,
+      "location": "Torony, Felsőőri utca",
+      "site_id": "unknown_47.23952_16.53214",
+      "lat": 47.23952,
+      "lon": 16.53214,
+      "concentration_fibres_m3": 198,
+      "display_value": "198",
+      "below_detection_limit": false,
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_9_vj.pdf"
+    },
+    {
+      "id": "air_0063",
+      "sample_id": "2026_792_9_L/1_2",
+      "date": "2026-09-30",
+      "start": "2026-09-30 01:03",
+      "end": "2026-09-30 09:03",
+      "settlement": null,
+      "location": "Torony, Felsőőri utca",
+      "site_id": "unknown_47.23952_16.53214",
+      "lat": 47.23952,
+      "lon": 16.53214,
+      "concentration_fibres_m3": 774,
+      "display_value": "774",
+      "below_detection_limit": false,
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_9_vj.pdf"
+    },
+    {
+      "id": "air_0064",
+      "sample_id": "2026_792_9_L/1_3",
+      "date": "2026-09-30",
+      "start": "2026-09-30 09:05",
+      "end": "2026-09-30 13:05",
+      "settlement": null,
+      "location": "Torony, Felsőőri utca",
+      "site_id": "unknown_47.23952_16.53214",
+      "lat": 47.23952,
+      "lon": 16.53214,
+      "concentration_fibres_m3": 193,
+      "display_value": "193",
+      "below_detection_limit": false,
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_9_vj.pdf"
+    },
+    {
+      "id": "air_0065",
+      "sample_id": "2026_792_9_L/1_4",
+      "date": "2026-09-30",
+      "start": "2026-09-30 13:07",
+      "end": "2026-09-30 17:07",
+      "settlement": null,
+      "location": "Torony, Felsőőri utca",
+      "site_id": "unknown_47.23952_16.53214",
+      "lat": 47.23952,
+      "lon": 16.53214,
+      "concentration_fibres_m3": 1346,
+      "display_value": "1346",
+      "below_detection_limit": false,
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_9_vj.pdf"
+    },
+    {
+      "id": "air_0057",
+      "sample_id": "2026_792_8_L/1_1",
+      "date": "2026-09-30",
+      "start": "2026-09-30 16:50",
+      "end": "2026-09-30 20:50",
+      "settlement": null,
+      "location": "Táplánszentkereszt, Fő utca (69/1 hrsz)",
+      "site_id": "unknown_47.19722_16.70228",
+      "lat": 47.19722,
+      "lon": 16.70228,
+      "concentration_fibres_m3": 2593,
+      "display_value": "2593",
+      "below_detection_limit": false,
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_8_vj.pdf"
+    },
+    {
+      "id": "air_0066",
+      "sample_id": "2026_792_9_L/1_5",
+      "date": "2026-09-30",
+      "start": "2026-09-30 17:26",
+      "end": "2026-09-30 21:26",
+      "settlement": null,
+      "location": "Torony, Felsőőri utca",
+      "site_id": "unknown_47.23952_16.53214",
+      "lat": 47.23952,
+      "lon": 16.53214,
+      "concentration_fibres_m3": 378,
+      "display_value": "378",
+      "below_detection_limit": false,
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_9_vj.pdf"
+    },
+    {
+      "id": "air_0058",
+      "sample_id": "2026_792_8_L/1_2",
+      "date": "2026-09-30",
+      "start": "2026-09-30 20:55",
+      "end": "2026-10-01 00:55",
+      "settlement": null,
+      "location": "Táplánszentkereszt, Fő utca (69/1 hrsz)",
+      "site_id": "unknown_47.19722_16.70228",
+      "lat": 47.19722,
+      "lon": 16.70228,
+      "concentration_fibres_m3": 786,
+      "display_value": "786",
+      "below_detection_limit": false,
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_8_vj.pdf"
+    },
+    {
+      "id": "air_0059",
+      "sample_id": "2026_792_8_L/1_3",
+      "date": "2026-10-01",
+      "start": "2026-10-01 01:09",
+      "end": "2026-10-01 09:09",
+      "settlement": null,
+      "location": "Táplánszentkereszt, Fő utca (69/1 hrsz)",
+      "site_id": "unknown_47.19722_16.70228",
+      "lat": 47.19722,
+      "lon": 16.70228,
+      "concentration_fibres_m3": 1275,
+      "display_value": "1275",
+      "below_detection_limit": false,
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_8_vj.pdf"
+    },
+    {
+      "id": "air_0060",
+      "sample_id": "2026_792_8_L/1_4",
+      "date": "2026-10-01",
+      "start": "2026-10-01 09:13",
+      "end": "2026-10-01 13:13",
+      "settlement": null,
+      "location": "Táplánszentkereszt, Fő utca (69/1 hrsz)",
+      "site_id": "unknown_47.19722_16.70228",
+      "lat": 47.19722,
+      "lon": 16.70228,
+      "concentration_fibres_m3": 563,
+      "display_value": "563",
+      "below_detection_limit": false,
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_8_vj.pdf"
+    },
+    {
+      "id": "air_0061",
+      "sample_id": "2026_792_8_L/1_5",
+      "date": "2026-10-01",
+      "start": "2026-10-01 13:21",
+      "end": "2026-10-01 17:21",
+      "settlement": null,
+      "location": "Táplánszentkereszt, Fő utca (69/1 hrsz)",
+      "site_id": "unknown_47.19722_16.70228",
+      "lat": 47.19722,
+      "lon": 16.70228,
+      "concentration_fibres_m3": 2064,
+      "display_value": "2064",
+      "below_detection_limit": false,
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_8_vj.pdf"
     },
     {
       "id": "air_0001",
@@ -2764,6 +3358,626 @@
         "publication_date": "2026-08-28",
         "document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_6_vj.pdf"
       }
+    },
+    {
+      "id": "air_0047",
+      "sample_id": "2026_792_7_L/1_1",
+      "site_id": "unknown_46.95025_16.26618",
+      "settlement": null,
+      "location": "Szentgotthárd, Wesselényi u. (0166/1 hrsz.)",
+      "coordinates": {
+        "lat": 46.95025,
+        "lon": 16.26618
+      },
+      "date": "2026-09-23",
+      "start": "2026-09-23 07:24",
+      "end": "2026-09-23 11:24",
+      "timestamp": 1790148240000,
+      "concentration": {
+        "value": 1489,
+        "display": "1489",
+        "unit": "rost/m3",
+        "below_detection_limit": false,
+        "detection_limit": null,
+        "numeric_for_statistics": 1489
+      },
+      "parser": "modern_table_row",
+      "confidence": "high",
+      "source": {
+        "authority": "Vas Vármegyei Kormányhivatal",
+        "title": "Szentgotthárd, Wesselényi u. és a Rózsa F. u. 2026. szeptember 23-24-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+        "publication_date": "2026-10-19",
+        "document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_7_vj.pdf"
+      }
+    },
+    {
+      "id": "air_0048",
+      "sample_id": "2026_792_7_L/1_2",
+      "site_id": "unknown_46.95025_16.26618",
+      "settlement": null,
+      "location": "Szentgotthárd, Wesselényi u. (0166/1 hrsz.)",
+      "coordinates": {
+        "lat": 46.95025,
+        "lon": 16.26618
+      },
+      "date": "2026-09-23",
+      "start": "2026-09-23 11:27",
+      "end": "2026-09-23 15:27",
+      "timestamp": 1790162820000,
+      "concentration": {
+        "value": 1094,
+        "display": "1094",
+        "unit": "rost/m3",
+        "below_detection_limit": false,
+        "detection_limit": null,
+        "numeric_for_statistics": 1094
+      },
+      "parser": "modern_table_row",
+      "confidence": "high",
+      "source": {
+        "authority": "Vas Vármegyei Kormányhivatal",
+        "title": "Szentgotthárd, Wesselényi u. és a Rózsa F. u. 2026. szeptember 23-24-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+        "publication_date": "2026-10-19",
+        "document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_7_vj.pdf"
+      }
+    },
+    {
+      "id": "air_0049",
+      "sample_id": "2026_792_7_L/1_3",
+      "site_id": "unknown_46.95025_16.26618",
+      "settlement": null,
+      "location": "Szentgotthárd, Wesselényi u. (0166/1 hrsz.)",
+      "coordinates": {
+        "lat": 46.95025,
+        "lon": 16.26618
+      },
+      "date": "2026-09-23",
+      "start": "2026-09-23 15:40",
+      "end": "2026-09-23 19:40",
+      "timestamp": 1790178000000,
+      "concentration": {
+        "value": 7402,
+        "display": "7402",
+        "unit": "rost/m3",
+        "below_detection_limit": false,
+        "detection_limit": null,
+        "numeric_for_statistics": 7402
+      },
+      "parser": "modern_table_row",
+      "confidence": "high",
+      "source": {
+        "authority": "Vas Vármegyei Kormányhivatal",
+        "title": "Szentgotthárd, Wesselényi u. és a Rózsa F. u. 2026. szeptember 23-24-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+        "publication_date": "2026-10-19",
+        "document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_7_vj.pdf"
+      }
+    },
+    {
+      "id": "air_0050",
+      "sample_id": "2026_792_7_L/1_4",
+      "site_id": "unknown_46.95025_16.26618",
+      "settlement": null,
+      "location": "Szentgotthárd, Wesselényi u. (0166/1 hrsz.)",
+      "coordinates": {
+        "lat": 46.95025,
+        "lon": 16.26618
+      },
+      "date": "2026-09-23",
+      "start": "2026-09-23 19:42",
+      "end": "2026-09-23 23:42",
+      "timestamp": 1790192520000,
+      "concentration": {
+        "value": 11711,
+        "display": "11711",
+        "unit": "rost/m3",
+        "below_detection_limit": false,
+        "detection_limit": null,
+        "numeric_for_statistics": 11711
+      },
+      "parser": "modern_table_row",
+      "confidence": "high",
+      "source": {
+        "authority": "Vas Vármegyei Kormányhivatal",
+        "title": "Szentgotthárd, Wesselényi u. és a Rózsa F. u. 2026. szeptember 23-24-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+        "publication_date": "2026-10-19",
+        "document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_7_vj.pdf"
+      }
+    },
+    {
+      "id": "air_0051",
+      "sample_id": "2026_792_7_L/1_5",
+      "site_id": "unknown_46.95025_16.26618",
+      "settlement": null,
+      "location": "Szentgotthárd, Wesselényi u. (0166/1 hrsz.)",
+      "coordinates": {
+        "lat": 46.95025,
+        "lon": 16.26618
+      },
+      "date": "2026-09-23",
+      "start": "2026-09-23 23:45",
+      "end": "2026-09-24 07:45",
+      "timestamp": 1790207100000,
+      "concentration": {
+        "value": 100,
+        "display": "<100",
+        "unit": "rost/m3",
+        "below_detection_limit": true,
+        "detection_limit": 100,
+        "numeric_for_statistics": null
+      },
+      "parser": "modern_table_row",
+      "confidence": "high",
+      "source": {
+        "authority": "Vas Vármegyei Kormányhivatal",
+        "title": "Szentgotthárd, Wesselényi u. és a Rózsa F. u. 2026. szeptember 23-24-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+        "publication_date": "2026-10-19",
+        "document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_7_vj.pdf"
+      }
+    },
+    {
+      "id": "air_0052",
+      "sample_id": "2026_792_7_L/2_1",
+      "site_id": "unknown_46.94842_16.27946",
+      "settlement": null,
+      "location": "Szentgotthárd, Rózsa F. u. (954 hrsz)",
+      "coordinates": {
+        "lat": 46.94842,
+        "lon": 16.27946
+      },
+      "date": "2026-09-23",
+      "start": "2026-09-23 07:49",
+      "end": "2026-09-23 11:49",
+      "timestamp": 1790149740000,
+      "concentration": {
+        "value": 365,
+        "display": "365",
+        "unit": "rost/m3",
+        "below_detection_limit": false,
+        "detection_limit": null,
+        "numeric_for_statistics": 365
+      },
+      "parser": "modern_table_row",
+      "confidence": "high",
+      "source": {
+        "authority": "Vas Vármegyei Kormányhivatal",
+        "title": "Szentgotthárd, Wesselényi u. és a Rózsa F. u. 2026. szeptember 23-24-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+        "publication_date": "2026-10-19",
+        "document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_7_vj.pdf"
+      }
+    },
+    {
+      "id": "air_0053",
+      "sample_id": "2026_792_7_L/2_2",
+      "site_id": "unknown_46.94842_16.27946",
+      "settlement": null,
+      "location": "Szentgotthárd, Rózsa F. u. (954 hrsz)",
+      "coordinates": {
+        "lat": 46.94842,
+        "lon": 16.27946
+      },
+      "date": "2026-09-23",
+      "start": "2026-09-23 11:53",
+      "end": "2026-09-23 15:53",
+      "timestamp": 1790164380000,
+      "concentration": {
+        "value": 2489,
+        "display": "2489",
+        "unit": "rost/m3",
+        "below_detection_limit": false,
+        "detection_limit": null,
+        "numeric_for_statistics": 2489
+      },
+      "parser": "modern_table_row",
+      "confidence": "high",
+      "source": {
+        "authority": "Vas Vármegyei Kormányhivatal",
+        "title": "Szentgotthárd, Wesselényi u. és a Rózsa F. u. 2026. szeptember 23-24-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+        "publication_date": "2026-10-19",
+        "document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_7_vj.pdf"
+      }
+    },
+    {
+      "id": "air_0054",
+      "sample_id": "2026_792_7_L/2_3",
+      "site_id": "unknown_46.94842_16.27946",
+      "settlement": null,
+      "location": "Szentgotthárd, Rózsa F. u. (954 hrsz)",
+      "coordinates": {
+        "lat": 46.94842,
+        "lon": 16.27946
+      },
+      "date": "2026-09-23",
+      "start": "2026-09-23 15:56",
+      "end": "2026-09-23 19:56",
+      "timestamp": 1790178960000,
+      "concentration": {
+        "value": 4256,
+        "display": "4256",
+        "unit": "rost/m3",
+        "below_detection_limit": false,
+        "detection_limit": null,
+        "numeric_for_statistics": 4256
+      },
+      "parser": "modern_table_row",
+      "confidence": "high",
+      "source": {
+        "authority": "Vas Vármegyei Kormányhivatal",
+        "title": "Szentgotthárd, Wesselényi u. és a Rózsa F. u. 2026. szeptember 23-24-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+        "publication_date": "2026-10-19",
+        "document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_7_vj.pdf"
+      }
+    },
+    {
+      "id": "air_0055",
+      "sample_id": "2026_792_7_L/2_4",
+      "site_id": "unknown_46.94842_16.27946",
+      "settlement": null,
+      "location": "Szentgotthárd, Rózsa F. u. (954 hrsz)",
+      "coordinates": {
+        "lat": 46.94842,
+        "lon": 16.27946
+      },
+      "date": "2026-09-23",
+      "start": "2026-09-23 19:58",
+      "end": "2026-09-23 23:58",
+      "timestamp": 1790193480000,
+      "concentration": {
+        "value": 1781,
+        "display": "1781",
+        "unit": "rost/m3",
+        "below_detection_limit": false,
+        "detection_limit": null,
+        "numeric_for_statistics": 1781
+      },
+      "parser": "modern_table_row",
+      "confidence": "high",
+      "source": {
+        "authority": "Vas Vármegyei Kormányhivatal",
+        "title": "Szentgotthárd, Wesselényi u. és a Rózsa F. u. 2026. szeptember 23-24-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+        "publication_date": "2026-10-19",
+        "document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_7_vj.pdf"
+      }
+    },
+    {
+      "id": "air_0056",
+      "sample_id": "2026_792_7_L/2_5",
+      "site_id": "unknown_46.94842_16.27946",
+      "settlement": null,
+      "location": "Szentgotthárd, Rózsa F. u. (954 hrsz)",
+      "coordinates": {
+        "lat": 46.94842,
+        "lon": 16.27946
+      },
+      "date": "2026-09-24",
+      "start": "2026-09-24 00:02",
+      "end": "2026-09-24 08:02",
+      "timestamp": 1790208120000,
+      "concentration": {
+        "value": 1802,
+        "display": "1802",
+        "unit": "rost/m3",
+        "below_detection_limit": false,
+        "detection_limit": null,
+        "numeric_for_statistics": 1802
+      },
+      "parser": "modern_table_row",
+      "confidence": "high",
+      "source": {
+        "authority": "Vas Vármegyei Kormányhivatal",
+        "title": "Szentgotthárd, Wesselényi u. és a Rózsa F. u. 2026. szeptember 23-24-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+        "publication_date": "2026-10-19",
+        "document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_7_vj.pdf"
+      }
+    },
+    {
+      "id": "air_0057",
+      "sample_id": "2026_792_8_L/1_1",
+      "site_id": "unknown_47.19722_16.70228",
+      "settlement": null,
+      "location": "Táplánszentkereszt, Fő utca (69/1 hrsz)",
+      "coordinates": {
+        "lat": 47.19722,
+        "lon": 16.70228
+      },
+      "date": "2026-09-30",
+      "start": "2026-09-30 16:50",
+      "end": "2026-09-30 20:50",
+      "timestamp": 1790787000000,
+      "concentration": {
+        "value": 2593,
+        "display": "2593",
+        "unit": "rost/m3",
+        "below_detection_limit": false,
+        "detection_limit": null,
+        "numeric_for_statistics": 2593
+      },
+      "parser": "modern_table_row",
+      "confidence": "high",
+      "source": {
+        "authority": "Vas Vármegyei Kormányhivatal",
+        "title": "Táplánszentkereszt, Fő utca 2026. szeptember 30. és október 01.-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+        "publication_date": "2026-10-19",
+        "document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_8_vj.pdf"
+      }
+    },
+    {
+      "id": "air_0058",
+      "sample_id": "2026_792_8_L/1_2",
+      "site_id": "unknown_47.19722_16.70228",
+      "settlement": null,
+      "location": "Táplánszentkereszt, Fő utca (69/1 hrsz)",
+      "coordinates": {
+        "lat": 47.19722,
+        "lon": 16.70228
+      },
+      "date": "2026-09-30",
+      "start": "2026-09-30 20:55",
+      "end": "2026-10-01 00:55",
+      "timestamp": 1790801700000,
+      "concentration": {
+        "value": 786,
+        "display": "786",
+        "unit": "rost/m3",
+        "below_detection_limit": false,
+        "detection_limit": null,
+        "numeric_for_statistics": 786
+      },
+      "parser": "modern_table_row",
+      "confidence": "high",
+      "source": {
+        "authority": "Vas Vármegyei Kormányhivatal",
+        "title": "Táplánszentkereszt, Fő utca 2026. szeptember 30. és október 01.-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+        "publication_date": "2026-10-19",
+        "document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_8_vj.pdf"
+      }
+    },
+    {
+      "id": "air_0059",
+      "sample_id": "2026_792_8_L/1_3",
+      "site_id": "unknown_47.19722_16.70228",
+      "settlement": null,
+      "location": "Táplánszentkereszt, Fő utca (69/1 hrsz)",
+      "coordinates": {
+        "lat": 47.19722,
+        "lon": 16.70228
+      },
+      "date": "2026-10-01",
+      "start": "2026-10-01 01:09",
+      "end": "2026-10-01 09:09",
+      "timestamp": 1790816940000,
+      "concentration": {
+        "value": 1275,
+        "display": "1275",
+        "unit": "rost/m3",
+        "below_detection_limit": false,
+        "detection_limit": null,
+        "numeric_for_statistics": 1275
+      },
+      "parser": "modern_table_row",
+      "confidence": "high",
+      "source": {
+        "authority": "Vas Vármegyei Kormányhivatal",
+        "title": "Táplánszentkereszt, Fő utca 2026. szeptember 30. és október 01.-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+        "publication_date": "2026-10-19",
+        "document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_8_vj.pdf"
+      }
+    },
+    {
+      "id": "air_0060",
+      "sample_id": "2026_792_8_L/1_4",
+      "site_id": "unknown_47.19722_16.70228",
+      "settlement": null,
+      "location": "Táplánszentkereszt, Fő utca (69/1 hrsz)",
+      "coordinates": {
+        "lat": 47.19722,
+        "lon": 16.70228
+      },
+      "date": "2026-10-01",
+      "start": "2026-10-01 09:13",
+      "end": "2026-10-01 13:13",
+      "timestamp": 1790845980000,
+      "concentration": {
+        "value": 563,
+        "display": "563",
+        "unit": "rost/m3",
+        "below_detection_limit": false,
+        "detection_limit": null,
+        "numeric_for_statistics": 563
+      },
+      "parser": "modern_table_row",
+      "confidence": "high",
+      "source": {
+        "authority": "Vas Vármegyei Kormányhivatal",
+        "title": "Táplánszentkereszt, Fő utca 2026. szeptember 30. és október 01.-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+        "publication_date": "2026-10-19",
+        "document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_8_vj.pdf"
+      }
+    },
+    {
+      "id": "air_0061",
+      "sample_id": "2026_792_8_L/1_5",
+      "site_id": "unknown_47.19722_16.70228",
+      "settlement": null,
+      "location": "Táplánszentkereszt, Fő utca (69/1 hrsz)",
+      "coordinates": {
+        "lat": 47.19722,
+        "lon": 16.70228
+      },
+      "date": "2026-10-01",
+      "start": "2026-10-01 13:21",
+      "end": "2026-10-01 17:21",
+      "timestamp": 1790860860000,
+      "concentration": {
+        "value": 2064,
+        "display": "2064",
+        "unit": "rost/m3",
+        "below_detection_limit": false,
+        "detection_limit": null,
+        "numeric_for_statistics": 2064
+      },
+      "parser": "modern_table_row",
+      "confidence": "high",
+      "source": {
+        "authority": "Vas Vármegyei Kormányhivatal",
+        "title": "Táplánszentkereszt, Fő utca 2026. szeptember 30. és október 01.-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+        "publication_date": "2026-10-19",
+        "document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_8_vj.pdf"
+      }
+    },
+    {
+      "id": "air_0062",
+      "sample_id": "2026_792_9_L/1_1",
+      "site_id": "unknown_47.23952_16.53214",
+      "settlement": null,
+      "location": "Torony, Felsőőri utca",
+      "coordinates": {
+        "lat": 47.23952,
+        "lon": 16.53214
+      },
+      "date": "2026-09-29",
+      "start": "2026-09-29 20:25",
+      "end": "2026-09-30 00:25",
+      "timestamp": 1790713500000,
+      "concentration": {
+        "value": 198,
+        "display": "198",
+        "unit": "rost/m3",
+        "below_detection_limit": false,
+        "detection_limit": null,
+        "numeric_for_statistics": 198
+      },
+      "parser": "modern_table_row",
+      "confidence": "high",
+      "source": {
+        "authority": "Vas Vármegyei Kormányhivatal",
+        "title": "Torony, Felsőőri utca 2026. szeptember 29-30-án végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+        "publication_date": "2026-10-19",
+        "document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_9_vj.pdf"
+      }
+    },
+    {
+      "id": "air_0063",
+      "sample_id": "2026_792_9_L/1_2",
+      "site_id": "unknown_47.23952_16.53214",
+      "settlement": null,
+      "location": "Torony, Felsőőri utca",
+      "coordinates": {
+        "lat": 47.23952,
+        "lon": 16.53214
+      },
+      "date": "2026-09-30",
+      "start": "2026-09-30 01:03",
+      "end": "2026-09-30 09:03",
+      "timestamp": 1790730180000,
+      "concentration": {
+        "value": 774,
+        "display": "774",
+        "unit": "rost/m3",
+        "below_detection_limit": false,
+        "detection_limit": null,
+        "numeric_for_statistics": 774
+      },
+      "parser": "modern_table_row",
+      "confidence": "high",
+      "source": {
+        "authority": "Vas Vármegyei Kormányhivatal",
+        "title": "Torony, Felsőőri utca 2026. szeptember 29-30-án végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+        "publication_date": "2026-10-19",
+        "document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_9_vj.pdf"
+      }
+    },
+    {
+      "id": "air_0064",
+      "sample_id": "2026_792_9_L/1_3",
+      "site_id": "unknown_47.23952_16.53214",
+      "settlement": null,
+      "location": "Torony, Felsőőri utca",
+      "coordinates": {
+        "lat": 47.23952,
+        "lon": 16.53214
+      },
+      "date": "2026-09-30",
+      "start": "2026-09-30 09:05",
+      "end": "2026-09-30 13:05",
+      "timestamp": 1790759100000,
+      "concentration": {
+        "value": 193,
+        "display": "193",
+        "unit": "rost/m3",
+        "below_detection_limit": false,
+        "detection_limit": null,
+        "numeric_for_statistics": 193
+      },
+      "parser": "modern_table_row",
+      "confidence": "high",
+      "source": {
+        "authority": "Vas Vármegyei Kormányhivatal",
+        "title": "Torony, Felsőőri utca 2026. szeptember 29-30-án végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+        "publication_date": "2026-10-19",
+        "document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_9_vj.pdf"
+      }
+    },
+    {
+      "id": "air_0065",
+      "sample_id": "2026_792_9_L/1_4",
+      "site_id": "unknown_47.23952_16.53214",
+      "settlement": null,
+      "location": "Torony, Felsőőri utca",
+      "coordinates": {
+        "lat": 47.23952,
+        "lon": 16.53214
+      },
+      "date": "2026-09-30",
+      "start": "2026-09-30 13:07",
+      "end": "2026-09-30 17:07",
+      "timestamp": 1790773620000,
+      "concentration": {
+        "value": 1346,
+        "display": "1346",
+        "unit": "rost/m3",
+        "below_detection_limit": false,
+        "detection_limit": null,
+        "numeric_for_statistics": 1346
+      },
+      "parser": "modern_table_row",
+      "confidence": "high",
+      "source": {
+        "authority": "Vas Vármegyei Kormányhivatal",
+        "title": "Torony, Felsőőri utca 2026. szeptember 29-30-án végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+        "publication_date": "2026-10-19",
+        "document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_9_vj.pdf"
+      }
+    },
+    {
+      "id": "air_0066",
+      "sample_id": "2026_792_9_L/1_5",
+      "site_id": "unknown_47.23952_16.53214",
+      "settlement": null,
+      "location": "Torony, Felsőőri utca",
+      "coordinates": {
+        "lat": 47.23952,
+        "lon": 16.53214
+      },
+      "date": "2026-09-30",
+      "start": "2026-09-30 17:26",
+      "end": "2026-09-30 21:26",
+      "timestamp": 1790789160000,
+      "concentration": {
+        "value": 378,
+        "display": "378",
+        "unit": "rost/m3",
+        "below_detection_limit": false,
+        "detection_limit": null,
+        "numeric_for_statistics": 378
+      },
+      "parser": "modern_table_row",
+      "confidence": "high",
+      "source": {
+        "authority": "Vas Vármegyei Kormányhivatal",
+        "title": "Torony, Felsőőri utca 2026. szeptember 29-30-án végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+        "publication_date": "2026-10-19",
+        "document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_9_vj.pdf"
+      }
     }
   ],
   "data_quality": {
@@ -2776,7 +3990,28 @@
       "2026_792_L/5_3"
     ],
     "missing_location": [],
-    "missing_settlement": [],
+    "missing_settlement": [
+      "2026_792_7_L/1_1",
+      "2026_792_7_L/1_2",
+      "2026_792_7_L/1_3",
+      "2026_792_7_L/1_4",
+      "2026_792_7_L/1_5",
+      "2026_792_7_L/2_1",
+      "2026_792_7_L/2_2",
+      "2026_792_7_L/2_3",
+      "2026_792_7_L/2_4",
+      "2026_792_7_L/2_5",
+      "2026_792_8_L/1_1",
+      "2026_792_8_L/1_2",
+      "2026_792_8_L/1_3",
+      "2026_792_8_L/1_4",
+      "2026_792_8_L/1_5",
+      "2026_792_9_L/1_1",
+      "2026_792_9_L/1_2",
+      "2026_792_9_L/1_3",
+      "2026_792_9_L/1_4",
+      "2026_792_9_L/1_5"
+    ],
     "below_detection_limit": [
       {
         "sample_id": "2026_792_5_L/1_5",
@@ -2792,6 +4027,10 @@
       },
       {
         "sample_id": "2026_792_5_L/4_5",
+        "display": "<100"
+      },
+      {
+        "sample_id": "2026_792_7_L/1_5",
         "display": "<100"
       }
     ]
