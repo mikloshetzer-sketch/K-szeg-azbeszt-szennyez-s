@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-10-20T20:45:49.940Z",
+  "generated_at": "2026-10-21T10:24:26.801Z",
   "dataset": "Vas Vármegyei Kormányhivatal – hivatalos azbeszt levegőmérések",
   "authority": "Vas Vármegyei Kormányhivatal",
   "source_file": "official_air_measurements.json",
@@ -13,32 +13,32 @@
     "provenance": "A dashboard adatfájl kizárólag az official_air_measurements.json elfogadott mérési rekordjaiból épül fel."
   },
   "kpis": {
-    "total_measurements": 66,
-    "numeric_measurements": 61,
+    "total_measurements": 71,
+    "numeric_measurements": 66,
     "below_detection_limit_measurements": 5,
-    "mapped_measurements": 66,
-    "site_count": 12,
+    "mapped_measurements": 71,
+    "site_count": 13,
     "settlement_count": 4,
     "first_measurement_date": "2026-04-07",
     "latest_measurement_date": "2026-10-01",
     "maximum_measured_fibres_m3": 76254,
-    "minimum_measured_fibres_m3": 193,
-    "mean_measured_fibres_m3": 5857,
-    "median_measured_fibres_m3": 1555
+    "minimum_measured_fibres_m3": 191,
+    "mean_measured_fibres_m3": 5713,
+    "median_measured_fibres_m3": 1593
   },
   "settlements": [
     {
       "settlement": "Ismeretlen",
-      "measurement_count": 20,
-      "site_count": 4,
+      "measurement_count": 25,
+      "site_count": 5,
       "below_detection_limit_count": 1,
       "first_measurement_date": "2026-09-23",
       "latest_measurement_date": "2026-10-01",
       "statistics": {
-        "min_fibres_m3": 193,
+        "min_fibres_m3": 191,
         "max_fibres_m3": 11711,
-        "mean_fibres_m3": 2240,
-        "median_fibres_m3": 1346
+        "mean_fibres_m3": 2596,
+        "median_fibres_m3": 1635
       }
     },
     {
@@ -85,6 +85,46 @@
     }
   ],
   "sites": [
+    {
+      "site_id": "unknown_47.32005_16.48745",
+      "settlement": null,
+      "location": "Bozsok, Rákóczi u. 85. (212 hrsz.)",
+      "coordinates": {
+        "lat": 47.32005,
+        "lon": 16.48745
+      },
+      "measurement_count": 5,
+      "numeric_measurement_count": 5,
+      "below_detection_limit_count": 0,
+      "first_measurement_date": "2026-09-29",
+      "latest_measurement_date": "2026-09-30",
+      "statistics": {
+        "min_fibres_m3": 191,
+        "max_fibres_m3": 6507,
+        "mean_fibres_m3": 3950,
+        "median_fibres_m3": 3819
+      },
+      "latest_measurement": {
+        "sample_id": "2026_792_11_L/1_5",
+        "date": "2026-09-30",
+        "start": "2026-09-30 18:09",
+        "concentration": {
+          "value": 6434,
+          "display": "6434",
+          "unit": "rost/m3",
+          "below_detection_limit": false,
+          "detection_limit": null,
+          "numeric_for_statistics": 6434
+        }
+      },
+      "measurement_ids": [
+        "air_0067",
+        "air_0068",
+        "air_0069",
+        "air_0070",
+        "air_0071"
+      ]
+    },
     {
       "site_id": "unknown_46.94842_16.27946",
       "settlement": null,
@@ -573,6 +613,31 @@
     }
   ],
   "map_points": [
+    {
+      "site_id": "unknown_47.32005_16.48745",
+      "settlement": null,
+      "location": "Bozsok, Rákóczi u. 85. (212 hrsz.)",
+      "lat": 47.32005,
+      "lon": 16.48745,
+      "measurement_count": 5,
+      "below_detection_limit_count": 0,
+      "max_fibres_m3": 6507,
+      "mean_fibres_m3": 3950,
+      "median_fibres_m3": 3819,
+      "latest_measurement": {
+        "sample_id": "2026_792_11_L/1_5",
+        "date": "2026-09-30",
+        "start": "2026-09-30 18:09",
+        "concentration": {
+          "value": 6434,
+          "display": "6434",
+          "unit": "rost/m3",
+          "below_detection_limit": false,
+          "detection_limit": null,
+          "numeric_for_statistics": 6434
+        }
+      }
+    },
     {
       "site_id": "unknown_46.94842_16.27946",
       "settlement": null,
@@ -1708,6 +1773,22 @@
       "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_9_vj.pdf"
     },
     {
+      "id": "air_0067",
+      "sample_id": "2026_792_11_L/1_1",
+      "date": "2026-09-29",
+      "start": "2026-09-29 21:44",
+      "end": "2026-09-30 01:44",
+      "settlement": null,
+      "location": "Bozsok, Rákóczi u. 85. (212 hrsz.)",
+      "site_id": "unknown_47.32005_16.48745",
+      "lat": 47.32005,
+      "lon": 16.48745,
+      "concentration_fibres_m3": 191,
+      "display_value": "191",
+      "below_detection_limit": false,
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_11_vj.pdf"
+    },
+    {
       "id": "air_0063",
       "sample_id": "2026_792_9_L/1_2",
       "date": "2026-09-30",
@@ -1722,6 +1803,22 @@
       "display_value": "774",
       "below_detection_limit": false,
       "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_9_vj.pdf"
+    },
+    {
+      "id": "air_0068",
+      "sample_id": "2026_792_11_L/1_2",
+      "date": "2026-09-30",
+      "start": "2026-09-30 01:48",
+      "end": "2026-09-30 09:48",
+      "settlement": null,
+      "location": "Bozsok, Rákóczi u. 85. (212 hrsz.)",
+      "site_id": "unknown_47.32005_16.48745",
+      "lat": 47.32005,
+      "lon": 16.48745,
+      "concentration_fibres_m3": 3819,
+      "display_value": "3819",
+      "below_detection_limit": false,
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_11_vj.pdf"
     },
     {
       "id": "air_0064",
@@ -1740,6 +1837,22 @@
       "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_9_vj.pdf"
     },
     {
+      "id": "air_0069",
+      "sample_id": "2026_792_11_L/1_3",
+      "date": "2026-09-30",
+      "start": "2026-09-30 09:57",
+      "end": "2026-09-30 13:57",
+      "settlement": null,
+      "location": "Bozsok, Rákóczi u. 85. (212 hrsz.)",
+      "site_id": "unknown_47.32005_16.48745",
+      "lat": 47.32005,
+      "lon": 16.48745,
+      "concentration_fibres_m3": 6507,
+      "display_value": "6507",
+      "below_detection_limit": false,
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_11_vj.pdf"
+    },
+    {
       "id": "air_0065",
       "sample_id": "2026_792_9_L/1_4",
       "date": "2026-09-30",
@@ -1754,6 +1867,22 @@
       "display_value": "1346",
       "below_detection_limit": false,
       "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_9_vj.pdf"
+    },
+    {
+      "id": "air_0070",
+      "sample_id": "2026_792_11_L/1_4",
+      "date": "2026-09-30",
+      "start": "2026-09-30 14:06",
+      "end": "2026-09-30 18:06",
+      "settlement": null,
+      "location": "Bozsok, Rákóczi u. 85. (212 hrsz.)",
+      "site_id": "unknown_47.32005_16.48745",
+      "lat": 47.32005,
+      "lon": 16.48745,
+      "concentration_fibres_m3": 2801,
+      "display_value": "2801",
+      "below_detection_limit": false,
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_11_vj.pdf"
     },
     {
       "id": "air_0057",
@@ -1786,6 +1915,22 @@
       "display_value": "378",
       "below_detection_limit": false,
       "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_9_vj.pdf"
+    },
+    {
+      "id": "air_0071",
+      "sample_id": "2026_792_11_L/1_5",
+      "date": "2026-09-30",
+      "start": "2026-09-30 18:09",
+      "end": "2026-09-30 22:09",
+      "settlement": null,
+      "location": "Bozsok, Rákóczi u. 85. (212 hrsz.)",
+      "site_id": "unknown_47.32005_16.48745",
+      "lat": 47.32005,
+      "lon": 16.48745,
+      "concentration_fibres_m3": 6434,
+      "display_value": "6434",
+      "below_detection_limit": false,
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_11_vj.pdf"
     },
     {
       "id": "air_0058",
@@ -3978,6 +4123,161 @@
         "publication_date": "2026-10-19",
         "document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_9_vj.pdf"
       }
+    },
+    {
+      "id": "air_0067",
+      "sample_id": "2026_792_11_L/1_1",
+      "site_id": "unknown_47.32005_16.48745",
+      "settlement": null,
+      "location": "Bozsok, Rákóczi u. 85. (212 hrsz.)",
+      "coordinates": {
+        "lat": 47.32005,
+        "lon": 16.48745
+      },
+      "date": "2026-09-29",
+      "start": "2026-09-29 21:44",
+      "end": "2026-09-30 01:44",
+      "timestamp": 1790718240000,
+      "concentration": {
+        "value": 191,
+        "display": "191",
+        "unit": "rost/m3",
+        "below_detection_limit": false,
+        "detection_limit": null,
+        "numeric_for_statistics": 191
+      },
+      "parser": "modern_table_row",
+      "confidence": "high",
+      "source": {
+        "authority": "Vas Vármegyei Kormányhivatal",
+        "title": "Bozsok, Rákóczi u. 2026. szeptember 29-30-án végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+        "publication_date": "2026-10-21",
+        "document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_11_vj.pdf"
+      }
+    },
+    {
+      "id": "air_0068",
+      "sample_id": "2026_792_11_L/1_2",
+      "site_id": "unknown_47.32005_16.48745",
+      "settlement": null,
+      "location": "Bozsok, Rákóczi u. 85. (212 hrsz.)",
+      "coordinates": {
+        "lat": 47.32005,
+        "lon": 16.48745
+      },
+      "date": "2026-09-30",
+      "start": "2026-09-30 01:48",
+      "end": "2026-09-30 09:48",
+      "timestamp": 1790732880000,
+      "concentration": {
+        "value": 3819,
+        "display": "3819",
+        "unit": "rost/m3",
+        "below_detection_limit": false,
+        "detection_limit": null,
+        "numeric_for_statistics": 3819
+      },
+      "parser": "modern_table_row",
+      "confidence": "high",
+      "source": {
+        "authority": "Vas Vármegyei Kormányhivatal",
+        "title": "Bozsok, Rákóczi u. 2026. szeptember 29-30-án végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+        "publication_date": "2026-10-21",
+        "document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_11_vj.pdf"
+      }
+    },
+    {
+      "id": "air_0069",
+      "sample_id": "2026_792_11_L/1_3",
+      "site_id": "unknown_47.32005_16.48745",
+      "settlement": null,
+      "location": "Bozsok, Rákóczi u. 85. (212 hrsz.)",
+      "coordinates": {
+        "lat": 47.32005,
+        "lon": 16.48745
+      },
+      "date": "2026-09-30",
+      "start": "2026-09-30 09:57",
+      "end": "2026-09-30 13:57",
+      "timestamp": 1790762220000,
+      "concentration": {
+        "value": 6507,
+        "display": "6507",
+        "unit": "rost/m3",
+        "below_detection_limit": false,
+        "detection_limit": null,
+        "numeric_for_statistics": 6507
+      },
+      "parser": "modern_table_row",
+      "confidence": "high",
+      "source": {
+        "authority": "Vas Vármegyei Kormányhivatal",
+        "title": "Bozsok, Rákóczi u. 2026. szeptember 29-30-án végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+        "publication_date": "2026-10-21",
+        "document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_11_vj.pdf"
+      }
+    },
+    {
+      "id": "air_0070",
+      "sample_id": "2026_792_11_L/1_4",
+      "site_id": "unknown_47.32005_16.48745",
+      "settlement": null,
+      "location": "Bozsok, Rákóczi u. 85. (212 hrsz.)",
+      "coordinates": {
+        "lat": 47.32005,
+        "lon": 16.48745
+      },
+      "date": "2026-09-30",
+      "start": "2026-09-30 14:06",
+      "end": "2026-09-30 18:06",
+      "timestamp": 1790777160000,
+      "concentration": {
+        "value": 2801,
+        "display": "2801",
+        "unit": "rost/m3",
+        "below_detection_limit": false,
+        "detection_limit": null,
+        "numeric_for_statistics": 2801
+      },
+      "parser": "modern_table_row",
+      "confidence": "high",
+      "source": {
+        "authority": "Vas Vármegyei Kormányhivatal",
+        "title": "Bozsok, Rákóczi u. 2026. szeptember 29-30-án végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+        "publication_date": "2026-10-21",
+        "document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_11_vj.pdf"
+      }
+    },
+    {
+      "id": "air_0071",
+      "sample_id": "2026_792_11_L/1_5",
+      "site_id": "unknown_47.32005_16.48745",
+      "settlement": null,
+      "location": "Bozsok, Rákóczi u. 85. (212 hrsz.)",
+      "coordinates": {
+        "lat": 47.32005,
+        "lon": 16.48745
+      },
+      "date": "2026-09-30",
+      "start": "2026-09-30 18:09",
+      "end": "2026-09-30 22:09",
+      "timestamp": 1790791740000,
+      "concentration": {
+        "value": 6434,
+        "display": "6434",
+        "unit": "rost/m3",
+        "below_detection_limit": false,
+        "detection_limit": null,
+        "numeric_for_statistics": 6434
+      },
+      "parser": "modern_table_row",
+      "confidence": "high",
+      "source": {
+        "authority": "Vas Vármegyei Kormányhivatal",
+        "title": "Bozsok, Rákóczi u. 2026. szeptember 29-30-án végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+        "publication_date": "2026-10-21",
+        "document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_11_vj.pdf"
+      }
     }
   ],
   "data_quality": {
@@ -4010,7 +4310,12 @@
       "2026_792_9_L/1_2",
       "2026_792_9_L/1_3",
       "2026_792_9_L/1_4",
-      "2026_792_9_L/1_5"
+      "2026_792_9_L/1_5",
+      "2026_792_11_L/1_1",
+      "2026_792_11_L/1_2",
+      "2026_792_11_L/1_3",
+      "2026_792_11_L/1_4",
+      "2026_792_11_L/1_5"
     ],
     "below_detection_limit": [
       {

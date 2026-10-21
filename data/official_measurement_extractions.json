@@ -2,13 +2,13 @@
   "schema_version": "4.2",
   "parser": "independent_official_air_parser",
   "parser_mode": "modern_table_extraction",
-  "generated_at": "2026-10-20T20:45:49.860Z",
+  "generated_at": "2026-10-21T10:24:26.721Z",
   "authority": "Vas Vármegyei Kormányhivatal",
   "statistics": {
-    "total_documents": 13,
-    "successful_documents": 13,
+    "total_documents": 14,
+    "successful_documents": 14,
     "failed_documents": 0,
-    "accepted_air_measurements": 66,
+    "accepted_air_measurements": 71,
     "review_items": 2
   },
   "extractions": [
@@ -42,7 +42,7 @@
       ],
       "diagnostics": null,
       "extraction_status": "success",
-      "extracted_at": "2026-10-20T20:45:42.105Z"
+      "extracted_at": "2026-10-21T10:24:17.791Z"
     },
     {
       "id": "42e34b86f65dbbb6",
@@ -68,7 +68,7 @@
       "review_air_measurements": [],
       "diagnostics": null,
       "extraction_status": "success",
-      "extracted_at": "2026-10-20T20:45:42.536Z"
+      "extracted_at": "2026-10-21T10:24:18.393Z"
     },
     {
       "id": "05fdc9827340266c",
@@ -94,7 +94,7 @@
       "review_air_measurements": [],
       "diagnostics": null,
       "extraction_status": "success",
-      "extracted_at": "2026-10-20T20:45:44.306Z"
+      "extracted_at": "2026-10-21T10:24:20.358Z"
     },
     {
       "id": "d9702e422a5a3625",
@@ -119,7 +119,7 @@
       "review_air_measurements": [],
       "diagnostics": null,
       "extraction_status": "success",
-      "extracted_at": "2026-10-20T20:45:45.131Z"
+      "extracted_at": "2026-10-21T10:24:21.344Z"
     },
     {
       "id": "7c244fa29d5b20de",
@@ -144,7 +144,7 @@
       "review_air_measurements": [],
       "diagnostics": null,
       "extraction_status": "success",
-      "extracted_at": "2026-10-20T20:45:45.749Z"
+      "extracted_at": "2026-10-21T10:24:22.149Z"
     },
     {
       "id": "89da35147ee8c85e",
@@ -176,7 +176,7 @@
       ],
       "diagnostics": null,
       "extraction_status": "success",
-      "extracted_at": "2026-10-20T20:45:46.330Z"
+      "extracted_at": "2026-10-21T10:24:22.739Z"
     },
     {
       "id": "2c677b8299154d25",
@@ -262,7 +262,7 @@
       "review_air_measurements": [],
       "diagnostics": null,
       "extraction_status": "success",
-      "extracted_at": "2026-10-20T20:45:47.074Z"
+      "extracted_at": "2026-10-21T10:24:23.490Z"
     },
     {
       "id": "f9b6e2bcc17cde03",
@@ -348,7 +348,7 @@
       "review_air_measurements": [],
       "diagnostics": null,
       "extraction_status": "success",
-      "extracted_at": "2026-10-20T20:45:47.525Z"
+      "extracted_at": "2026-10-21T10:24:23.960Z"
     },
     {
       "id": "4cf548f456645dce",
@@ -1087,7 +1087,7 @@
         "review_rows": 0
       },
       "extraction_status": "success",
-      "extracted_at": "2026-10-20T20:45:48.113Z"
+      "extracted_at": "2026-10-21T10:24:24.562Z"
     },
     {
       "id": "52d7c8a8720d0463",
@@ -1298,7 +1298,7 @@
         "review_rows": 0
       },
       "extraction_status": "success",
-      "extracted_at": "2026-10-20T20:45:48.687Z"
+      "extracted_at": "2026-10-21T10:24:25.128Z"
     },
     {
       "id": "89cb322f5468ad80",
@@ -1557,7 +1557,7 @@
         "review_rows": 0
       },
       "extraction_status": "success",
-      "extracted_at": "2026-10-20T20:45:49.088Z"
+      "extracted_at": "2026-10-21T10:24:25.540Z"
     },
     {
       "id": "9b083af63132ff44",
@@ -1706,7 +1706,7 @@
         "review_rows": 0
       },
       "extraction_status": "success",
-      "extracted_at": "2026-10-20T20:45:49.476Z"
+      "extracted_at": "2026-10-21T10:24:25.931Z"
     },
     {
       "id": "4c3379c3b192c993",
@@ -1855,7 +1855,156 @@
         "review_rows": 0
       },
       "extraction_status": "success",
-      "extracted_at": "2026-10-20T20:45:49.860Z"
+      "extracted_at": "2026-10-21T10:24:26.331Z"
+    },
+    {
+      "id": "1d4d39d15c2e9232",
+      "source_title": "Bozsok, Rákóczi u. 2026. szeptember 29-30-án végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+      "publication_date": "2026-10-21",
+      "measurement_category": "air",
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_11_vj.pdf",
+      "final_url": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_11_vj.pdf",
+      "document_sha256": "668d1fa6f0fbb6e68a04e7bb4fa4cb9288af6e247bc61b304e6f428e56eea082",
+      "pdf_pages": 3,
+      "text_length": 4587,
+      "format": {
+        "type": "modern_table",
+        "confidence": "high"
+      },
+      "asbestos_types": [],
+      "coordinate_count": 5,
+      "accepted_air_measurements": [
+        {
+          "status": "accepted",
+          "sample_id": "2026_792_11_L/1_1",
+          "settlement": null,
+          "location": "Bozsok, Rákóczi u. 85. (212 hrsz.)",
+          "lat": 47.32005,
+          "lon": 16.48745,
+          "start": "2026-09-29 21:44",
+          "end": "2026-09-30 01:44",
+          "measurement_type": "air",
+          "concentration_fibres_m3": 191,
+          "concentration_fibres_cm3": 0.000191,
+          "below_detection_limit": false,
+          "unit": "rost/m3",
+          "raw_concentration": "191",
+          "parser": "modern_table_row",
+          "confidence": "high",
+          "source_title": "Bozsok, Rákóczi u. 2026. szeptember 29-30-án végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+          "publication_date": "2026-10-21",
+          "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_11_vj.pdf",
+          "authority": "Vas Vármegyei Kormányhivatal"
+        },
+        {
+          "status": "accepted",
+          "sample_id": "2026_792_11_L/1_2",
+          "settlement": null,
+          "location": "Bozsok, Rákóczi u. 85. (212 hrsz.)",
+          "lat": 47.32005,
+          "lon": 16.48745,
+          "start": "2026-09-30 01:48",
+          "end": "2026-09-30 09:48",
+          "measurement_type": "air",
+          "concentration_fibres_m3": 3819,
+          "concentration_fibres_cm3": 0.003819,
+          "below_detection_limit": false,
+          "unit": "rost/m3",
+          "raw_concentration": "3 819",
+          "parser": "modern_table_row",
+          "confidence": "high",
+          "source_title": "Bozsok, Rákóczi u. 2026. szeptember 29-30-án végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+          "publication_date": "2026-10-21",
+          "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_11_vj.pdf",
+          "authority": "Vas Vármegyei Kormányhivatal"
+        },
+        {
+          "status": "accepted",
+          "sample_id": "2026_792_11_L/1_3",
+          "settlement": null,
+          "location": "Bozsok, Rákóczi u. 85. (212 hrsz.)",
+          "lat": 47.32005,
+          "lon": 16.48745,
+          "start": "2026-09-30 09:57",
+          "end": "2026-09-30 13:57",
+          "measurement_type": "air",
+          "concentration_fibres_m3": 6507,
+          "concentration_fibres_cm3": 0.006507,
+          "below_detection_limit": false,
+          "unit": "rost/m3",
+          "raw_concentration": "6 507",
+          "parser": "modern_table_row",
+          "confidence": "high",
+          "source_title": "Bozsok, Rákóczi u. 2026. szeptember 29-30-án végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+          "publication_date": "2026-10-21",
+          "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_11_vj.pdf",
+          "authority": "Vas Vármegyei Kormányhivatal"
+        },
+        {
+          "status": "accepted",
+          "sample_id": "2026_792_11_L/1_4",
+          "settlement": null,
+          "location": "Bozsok, Rákóczi u. 85. (212 hrsz.)",
+          "lat": 47.32005,
+          "lon": 16.48745,
+          "start": "2026-09-30 14:06",
+          "end": "2026-09-30 18:06",
+          "measurement_type": "air",
+          "concentration_fibres_m3": 2801,
+          "concentration_fibres_cm3": 0.002801,
+          "below_detection_limit": false,
+          "unit": "rost/m3",
+          "raw_concentration": "2 801",
+          "parser": "modern_table_row",
+          "confidence": "high",
+          "source_title": "Bozsok, Rákóczi u. 2026. szeptember 29-30-án végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+          "publication_date": "2026-10-21",
+          "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_11_vj.pdf",
+          "authority": "Vas Vármegyei Kormányhivatal"
+        },
+        {
+          "status": "accepted",
+          "sample_id": "2026_792_11_L/1_5",
+          "settlement": null,
+          "location": "Bozsok, Rákóczi u. 85. (212 hrsz.)",
+          "lat": 47.32005,
+          "lon": 16.48745,
+          "start": "2026-09-30 18:09",
+          "end": "2026-09-30 22:09",
+          "measurement_type": "air",
+          "concentration_fibres_m3": 6434,
+          "concentration_fibres_cm3": 0.006434,
+          "below_detection_limit": false,
+          "unit": "rost/m3",
+          "raw_concentration": "6 434",
+          "parser": "modern_table_row",
+          "confidence": "high",
+          "source_title": "Bozsok, Rákóczi u. 2026. szeptember 29-30-án végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+          "publication_date": "2026-10-21",
+          "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_11_vj.pdf",
+          "authority": "Vas Vármegyei Kormányhivatal"
+        }
+      ],
+      "review_air_measurements": [],
+      "diagnostics": {
+        "sample_count": 5,
+        "concentration_headers": [
+          {
+            "index": 4294,
+            "text": "koncentráció határértéke 1 000 rost/m3"
+          },
+          {
+            "index": 4556,
+            "text": "koncentrációja: 3 929 rost/m3"
+          }
+        ],
+        "air_marker_count": 1,
+        "numeric_token_count": 51,
+        "accepted_rows": 5,
+        "review_rows": 0
+      },
+      "extraction_status": "success",
+      "extracted_at": "2026-10-21T10:24:26.720Z"
     }
   ]
 }
