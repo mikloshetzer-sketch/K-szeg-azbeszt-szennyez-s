@@ -1,6 +1,31 @@
 {
-  "generated_at": "2026-11-02T03:41:37.968410+00:00",
-  "count": 0,
-  "summary": "Jelenleg nincs külön osztrák vagy burgenlandi hírtalálat a rendszerben.",
-  "articles": []
+  "generated_at": "2026-11-02T14:22:28.436286+00:00",
+  "count": 3,
+  "summary": "**Összefoglaló az osztrák és burgenlandi hírforrások alapján: Azbeszt/építőanyag problémák Burgenland és a határon túli térség körül**\n\nAz osztrák regionális médiumok, elsősorban a burgenlandi ORF, a Kurier és a MeinBezirk tudósításaiból kirajzolódik egy aggasztó helyzet Oberwart városában, amely Burgenland déli részén, a magyar határ közelében helyezkedik el. A hír egy helyi gyermekbölcsődénél talált azbesztanyag jelenlétéről számol be. Greenpeace azbesztet tartalmazó anyagokra hívta fel a figyelmet, és az érintett terület mielőbbi lezárását, valamint alapos felülvizsgálatát és tisztítását követelte.\n\nAz említett mintákban becslések szerint 20-50 százalék közötti azbesztarány fordult elő, ami a jelentések alapján jelentős egészségügyi kockázatot vet fel. A helyi szervezetek és civilek a hatóságoktól sürgős beavatkozást és átfogó szanálási munkát várnak el. Bár a laborvizsgálati eredmények pontos részleteihez, hivatalos hatósági intézkedésekhez nem áll rendelkezésre közvetlen információ az említett anyagokból, közös motívum, hogy az azbesztes anyagok jelenléte már tényként szerepel a beszámolókban.\n\nTérségi jelentőségét adja a helyzetnek, hogy Oberwart a Kőszeg, Bozsok, Szombathely és a burgenlandi határvidékhez közel található, így az eset kihatással lehet a térség több településére is. Pilgersdorf és Bernstein környezetének lehetséges kapcsolata az anyagforrásokkal vagy az érintett területekkel nem került említésre a jelenlegi riportokban, azonban a határon átnyúló természet miatt a magyarországi forrásokat és híreket is érdemes figyelemmel kísérni.\n\nAz osztrák sajtó és civil szervezetek jelentései fontos szerepet töltenek be a térség környezeti és egészségügyi kockázatainak feltárásában. A határon átnyúló hírfigyelés segít abban, hogy mindkét ország hatóságai időben tájékozódjanak az esetleges veszélyekről, annak érdekében, hogy hatékony intézkedések születhessenek, illetve a lakosság megfelelően tájékoztatva legyen. Ez különösen fontos a Kőszegi-hegység és a Burgenland közös határvidékén, ahol a környezeti szennyezések gyakran nem ismernek államhatárokat.\n\n**Figyelendő pontok:**\n\n1. Egyelőre csak a Greenpeace és civil szervezetek által közölt mintákra és azok azbesztarányára van utalás, a hivatalos hatósági vizsgálati eredményeket, illetve jogi intézkedéseket nem találtunk.\n\n2. Az Oberwartban talált azbeszt jelenléte aggodalomra ad okot, különösen, hogy gyermekintézmények közelében fedezték fel az anyagot, ezért sürgős szakmai és hatósági beavatkozás szükséges.\n\n3. A határon átnyúló környezeti problémák megértéséhez és kezeléséhez elengedhetetlen a magyar és osztrák oldali hírek, kutatások és intézkedések összehangolt figyelése és elemzése.",
+  "articles": [
+    {
+      "title": "Asbestfunde vor Kinderkrippe Greenpeace kritisiert Stadt Oberwart",
+      "source": "ORF Burgenland",
+      "source_type": "austrian",
+      "date": "2026-11-02",
+      "url": "https://burgenland.orf.at/stories/3377745",
+      "type": "html"
+    },
+    {
+      "title": "Greenpeace schlägt Alarm: Asbest vor Kinderkrippe in Oberwart gefunden 20 bis 50 Prozent Asbestanteil wurde in einer Materialprobe festgestellt. Greenpeace fordert, dass das Areal zu sperren.",
+      "source": "Kurier Burgenland",
+      "source_type": "austrian",
+      "date": "2026-11-02",
+      "url": "https://kurier.at/chronik/burgenland/asbest-burgenland-oberwart-kinderkrippe-oberwart-greenpeace/403202421",
+      "type": "html"
+    },
+    {
+      "title": "Sanierung gefordert \"Massive Asbest-Belastung\" vor Kinderkrippe in Oberwart nachgewiesen",
+      "source": "MeinBezirk Burgenland",
+      "source_type": "austrian",
+      "date": "2026-11-02",
+      "url": "https://www.meinbezirk.at/burgenland/c-lokales/massive-asbest-belastung-vor-kinderkrippe-in-oberwart-nachgewiesen_a8987421?ref=curate",
+      "type": "html"
+    }
+  ]
 }
