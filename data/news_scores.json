@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-03T12:48:57.981Z",
+  "generated_at": "2026-11-04T13:00:50.006Z",
   "method": "balanced_keyword_rule_based_event_scoring_v3",
   "description": "Automatikusan generált Kőszeg–azbeszt ügyindex a data/news.json alapján. A rendszer külön számolja a negatív kockázati és a pozitív intézkedési kulcsszavakat.",
   "scoring_note": "Ez nem klasszikus hangulatelemzés. A negatív pont kockázatot vagy romló fejleményt, a pozitív pont intézkedést, tájékoztatást, monitoringot vagy megoldás felé mutató eseményt jelent.",
@@ -697,8 +697,8 @@
       "url": "https://hvg.hu/gazdasag/20260612_azbesztszennyezes-ausztria-azbesztmentesites-koltsege-greenpeace-osterreich"
     },
     {
-      "date": "2026-06-21",
-      "title": "Nagykölked, felelősség és azbeszt: mit mondott V. Németh Zsolt Szombathelyen?",
+      "date": "2026-06-18",
+      "title": "Csütörtökön újraindul az azbeszt elleni védő locsolás a szombathelyi Oladi Platón és a déli városrészen",
       "source": "Nyugat.hu",
       "source_type": "media",
       "category": "altalanos_media_megjelenes",
@@ -708,7 +708,7 @@
       "final_score": -0.7,
       "matched_negative_rules": [],
       "matched_positive_rules": [],
-      "url": "https://www.nyugat.hu/cikk/nagykolked_felelosseg_es_azbeszt_mit_mondott_v"
+      "url": "https://www.nyugat.hu/cikk/csutortokon_ujtoraindul_az_azbeszt_elleni_locsolas"
     },
     {
       "date": "2026-06-25",
@@ -731,20 +731,6 @@
         }
       ],
       "url": "https://www.nyugat.hu/cikk/gyorsfelmerest_inditott_az_azbeszt_ugy_gazdasagi_a"
-    },
-    {
-      "date": "2026-06-25",
-      "title": "Azbesztválság Nyugat-Magyarországon: az MTA szerint tudományos és politikai válaszokra is szükség van",
-      "source": "Nyugat.hu",
-      "source_type": "media",
-      "category": "altalanos_media_megjelenes",
-      "base_score": -1,
-      "source_weight": 1,
-      "confidence": 0.7,
-      "final_score": -0.7,
-      "matched_negative_rules": [],
-      "matched_positive_rules": [],
-      "url": "https://www.nyugat.hu/cikk/azbesztvalsag_nyugat_magyarorszagon_az_mta_szerint"
     },
     {
       "date": "2026-07-09",
@@ -1490,6 +1476,28 @@
     },
     {
       "date": "2026-10-26",
+      "title": "Egy évig tart, amíg hétezer négyzetméternyi útpadkáról elszállítják az azbeszttartalmú követ Szombathelyen",
+      "source": "Nyugat.hu",
+      "source_type": "media",
+      "category": "szennyezes_vagy_gyanu",
+      "base_score": -4,
+      "source_weight": 1,
+      "confidence": 0.85,
+      "final_score": -3.4,
+      "matched_negative_rules": [
+        {
+          "category": "szennyezes_vagy_gyanu",
+          "score": -4,
+          "keywords": [
+            "azbeszttartalmu"
+          ]
+        }
+      ],
+      "matched_positive_rules": [],
+      "url": "https://www.nyugat.hu/cikk/egy_evig_tart_amg_hetezer_negyzetmeternyi_az_kovet"
+    },
+    {
+      "date": "2026-10-26",
       "title": "Egy évig tart majd, mire elszállítják az azbeszttartalmú követ az útpadkákról Szombathelyen",
       "source": "HVG",
       "source_type": "media",
@@ -1534,7 +1542,7 @@
     },
     {
       "date": "2026-10-29",
-      "title": "Rápli Róbert: Szombathely problémáit nem lehet mindig másokra hárítani!",
+      "title": "Nemény András: Szombathely elveszítheti a kétmilliárdos állami azbeszttámogatást a szabályok módosítása miatt",
       "source": "Nyugat.hu",
       "source_type": "media",
       "category": "altalanos_media_megjelenes",
@@ -1544,7 +1552,7 @@
       "final_score": -0.7,
       "matched_negative_rules": [],
       "matched_positive_rules": [],
-      "url": "https://www.nyugat.hu/cikk/rapli_robert_kepviselo_szombathely_koltsegvetes_azbeszt"
+      "url": "https://www.nyugat.hu/cikk/azbesztugy_polgarmester_szombathely_tamogatas_kozgyules"
     },
     {
       "date": "2026-10-29",
@@ -1636,21 +1644,7 @@
     },
     {
       "date": "2026-11-02",
-      "title": "Asbestfunde vor Kinderkrippe Greenpeace kritisiert Stadt Oberwart",
-      "source": "ORF Burgenland",
-      "source_type": "austrian",
-      "category": "altalanos_media_megjelenes",
-      "base_score": -1,
-      "source_weight": 1,
-      "confidence": 0.7,
-      "final_score": -0.7,
-      "matched_negative_rules": [],
-      "matched_positive_rules": [],
-      "url": "https://burgenland.orf.at/stories/3377745"
-    },
-    {
-      "date": "2026-11-02",
-      "title": "Greenpeace schlägt Alarm: Asbest vor Kinderkrippe in Oberwart gefunden 20 bis 50 Prozent Asbestanteil wurde in einer Materialprobe festgestellt. Greenpeace fordert, dass das Areal zu sperren.",
+      "title": "Greenpeace schlägt Alarm: Asbest vor Kinderkrippe in Oberwart gefunden",
       "source": "Kurier Burgenland",
       "source_type": "austrian",
       "category": "altalanos_media_megjelenes",
@@ -1663,18 +1657,18 @@
       "url": "https://kurier.at/chronik/burgenland/asbest-burgenland-oberwart-kinderkrippe-oberwart-greenpeace/403202421"
     },
     {
-      "date": "2026-11-02",
-      "title": "Sanierung gefordert \"Massive Asbest-Belastung\" vor Kinderkrippe in Oberwart nachgewiesen",
-      "source": "MeinBezirk Burgenland",
-      "source_type": "austrian",
+      "date": "2026-11-03",
+      "title": "Fűtési szezon: A levegő minősége közös felelősségünk! 2026. november 03. 10:58 A fűtési szezon kezdetével a levegőtisztasági problémák jelentősen felerősödnek. Magyarországon a lakossági fűtés az egyik legnagyobb forrása a légszennyezésnek. A fűtési szezonban tapasztalható légszennyezés nem kizárólag azokat érinti, akik hagyományos, szilárd tüzelésű berendezéseket használnak, hiszen a levegőbe kerülő szennyezőanyagok akár a teljes település lakosságának egészségét és környezetét is veszélyeztethetik. A témában környezetvédelmi és tűzvédelmi szakembereinket kérdeztük. Részletek",
+      "source": "Vas Vármegyei Kormányhivatal",
+      "source_type": "official",
       "category": "altalanos_media_megjelenes",
       "base_score": -1,
-      "source_weight": 1,
+      "source_weight": 1.25,
       "confidence": 0.7,
-      "final_score": -0.7,
+      "final_score": -0.87,
       "matched_negative_rules": [],
       "matched_positive_rules": [],
-      "url": "https://www.meinbezirk.at/burgenland/c-lokales/massive-asbest-belastung-vor-kinderkrippe-in-oberwart-nachgewiesen_a8987421"
+      "url": "https://kormanyhivatalok.hu/kormanyhivatalok/vas/megye/hirek/hir/futesi-szezon-levego-minosege-kozos-felelossegunk"
     }
   ]
 }
