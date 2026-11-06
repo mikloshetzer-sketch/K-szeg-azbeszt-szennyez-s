@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-11-05T22:44:26.102Z",
+  "generated_at": "2026-11-06T13:06:18.389Z",
   "dataset": "Vas Vármegyei Kormányhivatal – hivatalos azbeszt levegőmérések",
   "authority": "Vas Vármegyei Kormányhivatal",
   "source_file": "official_air_measurements.json",
@@ -13,32 +13,32 @@
     "provenance": "A dashboard adatfájl kizárólag az official_air_measurements.json elfogadott mérési rekordjaiból épül fel."
   },
   "kpis": {
-    "total_measurements": 71,
-    "numeric_measurements": 66,
-    "below_detection_limit_measurements": 5,
-    "mapped_measurements": 71,
-    "site_count": 13,
+    "total_measurements": 76,
+    "numeric_measurements": 68,
+    "below_detection_limit_measurements": 8,
+    "mapped_measurements": 76,
+    "site_count": 14,
     "settlement_count": 4,
     "first_measurement_date": "2026-04-07",
-    "latest_measurement_date": "2026-10-01",
+    "latest_measurement_date": "2026-10-27",
     "maximum_measured_fibres_m3": 76254,
     "minimum_measured_fibres_m3": 191,
-    "mean_measured_fibres_m3": 5713,
-    "median_measured_fibres_m3": 1593
+    "mean_measured_fibres_m3": 5571,
+    "median_measured_fibres_m3": 1570
   },
   "settlements": [
     {
       "settlement": "Ismeretlen",
-      "measurement_count": 25,
-      "site_count": 5,
-      "below_detection_limit_count": 1,
+      "measurement_count": 30,
+      "site_count": 6,
+      "below_detection_limit_count": 4,
       "first_measurement_date": "2026-09-23",
-      "latest_measurement_date": "2026-10-01",
+      "latest_measurement_date": "2026-10-27",
       "statistics": {
         "min_fibres_m3": 191,
         "max_fibres_m3": 11711,
-        "mean_fibres_m3": 2596,
-        "median_fibres_m3": 1635
+        "mean_fibres_m3": 2465,
+        "median_fibres_m3": 1418
       }
     },
     {
@@ -123,6 +123,46 @@
         "air_0069",
         "air_0070",
         "air_0071"
+      ]
+    },
+    {
+      "site_id": "unknown_47.23388_16.51357",
+      "settlement": null,
+      "location": "Dozmat, Fiumei utca (81/5 hrsz.)",
+      "coordinates": {
+        "lat": 47.23388,
+        "lon": 16.51357
+      },
+      "measurement_count": 5,
+      "numeric_measurement_count": 2,
+      "below_detection_limit_count": 3,
+      "first_measurement_date": "2026-10-26",
+      "latest_measurement_date": "2026-10-27",
+      "statistics": {
+        "min_fibres_m3": 491,
+        "max_fibres_m3": 1299,
+        "mean_fibres_m3": 895,
+        "median_fibres_m3": 895
+      },
+      "latest_measurement": {
+        "sample_id": "2026_792_12_L/1_5",
+        "date": "2026-10-27",
+        "start": "2026-10-27 13:50",
+        "concentration": {
+          "value": 1299,
+          "display": "1299",
+          "unit": "rost/m3",
+          "below_detection_limit": false,
+          "detection_limit": null,
+          "numeric_for_statistics": 1299
+        }
+      },
+      "measurement_ids": [
+        "air_0072",
+        "air_0073",
+        "air_0074",
+        "air_0075",
+        "air_0076"
       ]
     },
     {
@@ -635,6 +675,31 @@
           "below_detection_limit": false,
           "detection_limit": null,
           "numeric_for_statistics": 6434
+        }
+      }
+    },
+    {
+      "site_id": "unknown_47.23388_16.51357",
+      "settlement": null,
+      "location": "Dozmat, Fiumei utca (81/5 hrsz.)",
+      "lat": 47.23388,
+      "lon": 16.51357,
+      "measurement_count": 5,
+      "below_detection_limit_count": 3,
+      "max_fibres_m3": 1299,
+      "mean_fibres_m3": 895,
+      "median_fibres_m3": 895,
+      "latest_measurement": {
+        "sample_id": "2026_792_12_L/1_5",
+        "date": "2026-10-27",
+        "start": "2026-10-27 13:50",
+        "concentration": {
+          "value": 1299,
+          "display": "1299",
+          "unit": "rost/m3",
+          "below_detection_limit": false,
+          "detection_limit": null,
+          "numeric_for_statistics": 1299
         }
       }
     },
@@ -1995,6 +2060,86 @@
       "display_value": "2064",
       "below_detection_limit": false,
       "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_8_vj.pdf"
+    },
+    {
+      "id": "air_0072",
+      "sample_id": "2026_792_12_L/1_1",
+      "date": "2026-10-26",
+      "start": "2026-10-26 16:57",
+      "end": "2026-10-26 20:57",
+      "settlement": null,
+      "location": "Dozmat, Fiumei utca (81/5 hrsz.)",
+      "site_id": "unknown_47.23388_16.51357",
+      "lat": 47.23388,
+      "lon": 16.51357,
+      "concentration_fibres_m3": 100,
+      "display_value": "<100",
+      "below_detection_limit": true,
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_12_vj.pdf"
+    },
+    {
+      "id": "air_0073",
+      "sample_id": "2026_792_12_L/1_2",
+      "date": "2026-10-26",
+      "start": "2026-10-26 21:38",
+      "end": "2026-10-27 01:38",
+      "settlement": null,
+      "location": "Dozmat, Fiumei utca (81/5 hrsz.)",
+      "site_id": "unknown_47.23388_16.51357",
+      "lat": 47.23388,
+      "lon": 16.51357,
+      "concentration_fibres_m3": 100,
+      "display_value": "<100",
+      "below_detection_limit": true,
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_12_vj.pdf"
+    },
+    {
+      "id": "air_0074",
+      "sample_id": "2026_792_12_L/1_3",
+      "date": "2026-10-27",
+      "start": "2026-10-27 01:39",
+      "end": "2026-10-27 09:39",
+      "settlement": null,
+      "location": "Dozmat, Fiumei utca (81/5 hrsz.)",
+      "site_id": "unknown_47.23388_16.51357",
+      "lat": 47.23388,
+      "lon": 16.51357,
+      "concentration_fibres_m3": 491,
+      "display_value": "491",
+      "below_detection_limit": false,
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_12_vj.pdf"
+    },
+    {
+      "id": "air_0075",
+      "sample_id": "2026_792_12_L/1_4",
+      "date": "2026-10-27",
+      "start": "2026-10-27 09:41",
+      "end": "2026-10-27 13:41",
+      "settlement": null,
+      "location": "Dozmat, Fiumei utca (81/5 hrsz.)",
+      "site_id": "unknown_47.23388_16.51357",
+      "lat": 47.23388,
+      "lon": 16.51357,
+      "concentration_fibres_m3": 100,
+      "display_value": "<100",
+      "below_detection_limit": true,
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_12_vj.pdf"
+    },
+    {
+      "id": "air_0076",
+      "sample_id": "2026_792_12_L/1_5",
+      "date": "2026-10-27",
+      "start": "2026-10-27 13:50",
+      "end": "2026-10-27 17:50",
+      "settlement": null,
+      "location": "Dozmat, Fiumei utca (81/5 hrsz.)",
+      "site_id": "unknown_47.23388_16.51357",
+      "lat": 47.23388,
+      "lon": 16.51357,
+      "concentration_fibres_m3": 1299,
+      "display_value": "1299",
+      "below_detection_limit": false,
+      "source_document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_12_vj.pdf"
     },
     {
       "id": "air_0001",
@@ -4278,6 +4423,161 @@
         "publication_date": "2026-10-21",
         "document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_11_vj.pdf"
       }
+    },
+    {
+      "id": "air_0072",
+      "sample_id": "2026_792_12_L/1_1",
+      "site_id": "unknown_47.23388_16.51357",
+      "settlement": null,
+      "location": "Dozmat, Fiumei utca (81/5 hrsz.)",
+      "coordinates": {
+        "lat": 47.23388,
+        "lon": 16.51357
+      },
+      "date": "2026-10-26",
+      "start": "2026-10-26 16:57",
+      "end": "2026-10-26 20:57",
+      "timestamp": 1793033820000,
+      "concentration": {
+        "value": 100,
+        "display": "<100",
+        "unit": "rost/m3",
+        "below_detection_limit": true,
+        "detection_limit": 100,
+        "numeric_for_statistics": null
+      },
+      "parser": "modern_table_row",
+      "confidence": "high",
+      "source": {
+        "authority": "Vas Vármegyei Kormányhivatal",
+        "title": "Dozmat, Fiumei u. 2026. október 26-27-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+        "publication_date": "2026-11-06",
+        "document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_12_vj.pdf"
+      }
+    },
+    {
+      "id": "air_0073",
+      "sample_id": "2026_792_12_L/1_2",
+      "site_id": "unknown_47.23388_16.51357",
+      "settlement": null,
+      "location": "Dozmat, Fiumei utca (81/5 hrsz.)",
+      "coordinates": {
+        "lat": 47.23388,
+        "lon": 16.51357
+      },
+      "date": "2026-10-26",
+      "start": "2026-10-26 21:38",
+      "end": "2026-10-27 01:38",
+      "timestamp": 1793050680000,
+      "concentration": {
+        "value": 100,
+        "display": "<100",
+        "unit": "rost/m3",
+        "below_detection_limit": true,
+        "detection_limit": 100,
+        "numeric_for_statistics": null
+      },
+      "parser": "modern_table_row",
+      "confidence": "high",
+      "source": {
+        "authority": "Vas Vármegyei Kormányhivatal",
+        "title": "Dozmat, Fiumei u. 2026. október 26-27-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+        "publication_date": "2026-11-06",
+        "document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_12_vj.pdf"
+      }
+    },
+    {
+      "id": "air_0074",
+      "sample_id": "2026_792_12_L/1_3",
+      "site_id": "unknown_47.23388_16.51357",
+      "settlement": null,
+      "location": "Dozmat, Fiumei utca (81/5 hrsz.)",
+      "coordinates": {
+        "lat": 47.23388,
+        "lon": 16.51357
+      },
+      "date": "2026-10-27",
+      "start": "2026-10-27 01:39",
+      "end": "2026-10-27 09:39",
+      "timestamp": 1793065140000,
+      "concentration": {
+        "value": 491,
+        "display": "491",
+        "unit": "rost/m3",
+        "below_detection_limit": false,
+        "detection_limit": null,
+        "numeric_for_statistics": 491
+      },
+      "parser": "modern_table_row",
+      "confidence": "high",
+      "source": {
+        "authority": "Vas Vármegyei Kormányhivatal",
+        "title": "Dozmat, Fiumei u. 2026. október 26-27-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+        "publication_date": "2026-11-06",
+        "document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_12_vj.pdf"
+      }
+    },
+    {
+      "id": "air_0075",
+      "sample_id": "2026_792_12_L/1_4",
+      "site_id": "unknown_47.23388_16.51357",
+      "settlement": null,
+      "location": "Dozmat, Fiumei utca (81/5 hrsz.)",
+      "coordinates": {
+        "lat": 47.23388,
+        "lon": 16.51357
+      },
+      "date": "2026-10-27",
+      "start": "2026-10-27 09:41",
+      "end": "2026-10-27 13:41",
+      "timestamp": 1793094060000,
+      "concentration": {
+        "value": 100,
+        "display": "<100",
+        "unit": "rost/m3",
+        "below_detection_limit": true,
+        "detection_limit": 100,
+        "numeric_for_statistics": null
+      },
+      "parser": "modern_table_row",
+      "confidence": "high",
+      "source": {
+        "authority": "Vas Vármegyei Kormányhivatal",
+        "title": "Dozmat, Fiumei u. 2026. október 26-27-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+        "publication_date": "2026-11-06",
+        "document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_12_vj.pdf"
+      }
+    },
+    {
+      "id": "air_0076",
+      "sample_id": "2026_792_12_L/1_5",
+      "site_id": "unknown_47.23388_16.51357",
+      "settlement": null,
+      "location": "Dozmat, Fiumei utca (81/5 hrsz.)",
+      "coordinates": {
+        "lat": 47.23388,
+        "lon": 16.51357
+      },
+      "date": "2026-10-27",
+      "start": "2026-10-27 13:50",
+      "end": "2026-10-27 17:50",
+      "timestamp": 1793109000000,
+      "concentration": {
+        "value": 1299,
+        "display": "1299",
+        "unit": "rost/m3",
+        "below_detection_limit": false,
+        "detection_limit": null,
+        "numeric_for_statistics": 1299
+      },
+      "parser": "modern_table_row",
+      "confidence": "high",
+      "source": {
+        "authority": "Vas Vármegyei Kormányhivatal",
+        "title": "Dozmat, Fiumei u. 2026. október 26-27-én végzett környezeti levegő szálló azbesztrost tartalmának meghatározásáról készített jegyzőkönyv",
+        "publication_date": "2026-11-06",
+        "document": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/vas/azbeszt/vas_varmegyei_kormanyhivatal_al_2026_792_12_vj.pdf"
+      }
     }
   ],
   "data_quality": {
@@ -4315,7 +4615,12 @@
       "2026_792_11_L/1_2",
       "2026_792_11_L/1_3",
       "2026_792_11_L/1_4",
-      "2026_792_11_L/1_5"
+      "2026_792_11_L/1_5",
+      "2026_792_12_L/1_1",
+      "2026_792_12_L/1_2",
+      "2026_792_12_L/1_3",
+      "2026_792_12_L/1_4",
+      "2026_792_12_L/1_5"
     ],
     "below_detection_limit": [
       {
@@ -4336,6 +4641,18 @@
       },
       {
         "sample_id": "2026_792_7_L/1_5",
+        "display": "<100"
+      },
+      {
+        "sample_id": "2026_792_12_L/1_1",
+        "display": "<100"
+      },
+      {
+        "sample_id": "2026_792_12_L/1_2",
+        "display": "<100"
+      },
+      {
+        "sample_id": "2026_792_12_L/1_4",
         "display": "<100"
       }
     ]
