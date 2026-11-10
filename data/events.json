@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-10T14:02:26.436888+00:00",
+  "generated_at": "2026-11-10T22:42:43.030006+00:00",
   "mode": "milestones_from_news",
   "events": [
     {
@@ -10,22 +10,22 @@
       "url": "https://koszeg.hu/hu/aktualis/hirek"
     },
     {
-      "date": "2026-11-09",
+      "date": "2026-11-10",
       "title": "Osztrák vagy burgenlandi forrás is kapcsolódik az ügyhöz.",
-      "source": "Kurier Burgenland",
+      "source": "Der Standard",
       "type": "austrian_context",
-      "url": "https://kurier.at/chronik/burgenland/asbest-burgenland-ungarn-konfront-sanierung-schadenersatz/403203291"
+      "url": "https://www.derstandard.at/story/3000000348595/asbest-im-burgenland-steinbruch-betreiber-erwaegen-behoerdenklage?ref=rss"
     },
     {
       "date": "Folyamatos",
-      "title": "Jelentős magyar médiafigyelem: legalább 74 releváns magyar médiatalálat szerepel a rendszerben.",
+      "title": "Jelentős magyar médiafigyelem: legalább 73 releváns magyar médiatalálat szerepel a rendszerben.",
       "source": "Magyar médiafigyelés",
       "type": "media_wave",
       "url": ""
     },
     {
       "date": "Folyamatos",
-      "title": "A rendszer jelenleg 2 hivatalos, 0 civil, 1 osztrák/burgenlandi, 74 magyar média és 0 egyéb GDELT-találatot különít el.",
+      "title": "A rendszer jelenleg 2 hivatalos, 0 civil, 4 osztrák/burgenlandi, 73 magyar média és 0 egyéb GDELT-találatot különít el.",
       "source": "Automatikus monitoring",
       "type": "system_summary",
       "url": ""
