@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-15T04:02:51.176252+00:00",
+  "generated_at": "2026-11-15T13:15:37.838523+00:00",
   "mode": "milestones_from_news",
   "events": [
     {
@@ -10,22 +10,22 @@
       "url": "https://koszeg.hu/hu/aktualis/hirek"
     },
     {
-      "date": "2026-11-10",
+      "date": "2026-11-12",
       "title": "Osztrák vagy burgenlandi forrás is kapcsolódik az ügyhöz.",
       "source": "Kurier Burgenland",
       "type": "austrian_context",
-      "url": "https://kurier.at/chronik/burgenland/asbest-steinbrueche-burgenland-schliessung-klage-messungen/403204501"
+      "url": "https://kurier.at/chronik/burgenland/steinbrueche-behoerdlich-geschlossen-asbest-taskforce-bezirkshauptmannschaft/403204975"
     },
     {
       "date": "Folyamatos",
-      "title": "Jelentős magyar médiafigyelem: legalább 70 releváns magyar médiatalálat szerepel a rendszerben.",
+      "title": "Jelentős magyar médiafigyelem: legalább 59 releváns magyar médiatalálat szerepel a rendszerben.",
       "source": "Magyar médiafigyelés",
       "type": "media_wave",
       "url": ""
     },
     {
       "date": "Folyamatos",
-      "title": "A rendszer jelenleg 2 hivatalos, 0 civil, 2 osztrák/burgenlandi, 70 magyar média és 0 egyéb GDELT-találatot különít el.",
+      "title": "A rendszer jelenleg 2 hivatalos, 0 civil, 1 osztrák/burgenlandi, 59 magyar média és 0 egyéb GDELT-találatot különít el.",
       "source": "Automatikus monitoring",
       "type": "system_summary",
       "url": ""
