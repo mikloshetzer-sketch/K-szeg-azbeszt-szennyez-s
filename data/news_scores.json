@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-17T14:28:19.120Z",
+  "generated_at": "2026-11-18T14:02:56.266Z",
   "method": "balanced_keyword_rule_based_event_scoring_v3",
   "description": "Automatikusan generált Kőszeg–azbeszt ügyindex a data/news.json alapján. A rendszer külön számolja a negatív kockázati és a pozitív intézkedési kulcsszavakat.",
   "scoring_note": "Ez nem klasszikus hangulatelemzés. A negatív pont kockázatot vagy romló fejleményt, a pozitív pont intézkedést, tájékoztatást, monitoringot vagy megoldás felé mutató eseményt jelent.",
@@ -175,34 +175,6 @@
       ],
       "matched_positive_rules": [],
       "url": "https://www.nyugat.hu/cikk/mergezo_azbeszt_bozsokon_a_polgarmester_szerint_a"
-    },
-    {
-      "date": "2026-04-03",
-      "title": "Közel 100 éves azbesztcement csövek is vannak Szombathely ivóvízhálózatában – mennyire kell aggódnia a városlakóknak?",
-      "source": "Nyugat.hu",
-      "source_type": "media",
-      "category": "altalanos_media_megjelenes",
-      "base_score": -1,
-      "source_weight": 1,
-      "confidence": 0.7,
-      "final_score": -0.7,
-      "matched_negative_rules": [],
-      "matched_positive_rules": [],
-      "url": "https://www.nyugat.hu/cikk/kozel_100_eves_azbesztcement_csovek_is_vannak_kell"
-    },
-    {
-      "date": "2026-04-16",
-      "title": "Nem csak az oladi plató lehet érintett a szombathelyi azbeszt-ügyben",
-      "source": "Nyugat.hu",
-      "source_type": "media",
-      "category": "altalanos_media_megjelenes",
-      "base_score": -1,
-      "source_weight": 1,
-      "confidence": 0.7,
-      "final_score": -0.7,
-      "matched_negative_rules": [],
-      "matched_positive_rules": [],
-      "url": "https://www.nyugat.hu/cikk/nem_csak_az_oladi_plato_lehet_erintett_a_azbeszt"
     },
     {
       "date": "2026-04-16",
@@ -428,37 +400,6 @@
       "url": "https://444.hu/2026/05/02/akar-egesz-nyugat-magyarorszagot-is-sujthatja-az-osztrak-banyakbol-importalt-azbesztszennyezes"
     },
     {
-      "date": "2026-05-06",
-      "title": "Velemben óvintézkedéseket vezettek be, de a lakók nem tudják, van-e veszélyes azbeszt a faluban",
-      "source": "Nyugat.hu",
-      "source_type": "media",
-      "category": "hatosagi_intezkedes",
-      "base_score": 5,
-      "source_weight": 1,
-      "confidence": 1,
-      "final_score": 5,
-      "matched_negative_rules": [],
-      "matched_positive_rules": [
-        {
-          "category": "hatosagi_intezkedes",
-          "score": 3,
-          "keywords": [
-            "intezkedes",
-            "intezkedesek"
-          ]
-        },
-        {
-          "category": "ovintezkedes",
-          "score": 2,
-          "keywords": [
-            "ovintezkedes",
-            "ovintezkedeseket"
-          ]
-        }
-      ],
-      "url": "https://www.nyugat.hu/cikk/velemben_ovintezkedeseket_vezettek_be_de_a_lakok_e"
-    },
-    {
       "date": "2026-05-08",
       "title": "Azbesztveszély Vas megyében: akár 40 település közterületei is szennyezettek lehetnek",
       "source": "24.hu",
@@ -487,20 +428,6 @@
       ],
       "matched_positive_rules": [],
       "url": "https://24.hu/belfold/2026/05/08/azbesztszennyezes-kozuzalek-vas-megye-oriszentpeter-velem-2"
-    },
-    {
-      "date": "2026-05-11",
-      "title": "Megkezdődött a Síp utca Gyömbér és Sáfrány utcák közötti szakaszának bitumenes zárása Szombathelyen",
-      "source": "Nyugat.hu",
-      "source_type": "media",
-      "category": "altalanos_media_megjelenes",
-      "base_score": -1,
-      "source_weight": 1,
-      "confidence": 0.7,
-      "final_score": -0.7,
-      "matched_negative_rules": [],
-      "matched_positive_rules": [],
-      "url": "https://www.nyugat.hu/cikk/megkezdodott_a_sip_utca_gyomber_es_safrany_utcak"
     },
     {
       "date": "2026-05-12",
@@ -664,6 +591,28 @@
       ],
       "matched_positive_rules": [],
       "url": "https://24.hu/tudomany/2026/05/20/azbesztbotrany-ausztria-kormany-szombathely"
+    },
+    {
+      "date": "2026-05-25",
+      "title": "Központi porszívóval az azbeszt ellen? – Igen, egy lehetséges megoldás a tisztább otthoni levegőért",
+      "source": "Nyugat.hu",
+      "source_type": "media",
+      "category": "karelhartas_megoldas",
+      "base_score": 5,
+      "source_weight": 1,
+      "confidence": 0.85,
+      "final_score": 4.25,
+      "matched_negative_rules": [],
+      "matched_positive_rules": [
+        {
+          "category": "karelhartas_megoldas",
+          "score": 5,
+          "keywords": [
+            "megoldas"
+          ]
+        }
+      ],
+      "url": "https://www.nyugat.hu/cikk/kozponti_porszivoval_az_azbeszt_ellen_igen_egy_a"
     },
     {
       "date": "2026-06-04",
@@ -936,6 +885,20 @@
       "url": "https://www.nyugat.hu/cikk/nemeny_andras_az_olad_platot_erinto_azbeszthelyzet"
     },
     {
+      "date": "2026-07-23",
+      "title": "Azbeszt-ügy: A Greenpeace nem ért egyet a kormány döntésével",
+      "source": "Nyugat.hu",
+      "source_type": "media",
+      "category": "altalanos_media_megjelenes",
+      "base_score": -1,
+      "source_weight": 1,
+      "confidence": 0.7,
+      "final_score": -0.7,
+      "matched_negative_rules": [],
+      "matched_positive_rules": [],
+      "url": "https://www.nyugat.hu/cikk/azbeszt_ugy_greenpeace_nem_ert_egyet_kormany"
+    },
+    {
       "date": "2026-07-24",
       "title": "Ellentmondásos, amit azbesztügyben csinál a kormány",
       "source": "HVG",
@@ -972,6 +935,28 @@
         }
       ],
       "url": "https://hvg.hu/gazdasag/20260724_azbesztszennyezes-karmentesites-szombathely-koszeg-oladi-plato-intezkedesek-levegominoseg"
+    },
+    {
+      "date": "2026-08-26",
+      "title": "Lakossági fórumot tartanak az azbeszthelyzetről a szombathelyi városházán",
+      "source": "Nyugat.hu",
+      "source_type": "media",
+      "category": "lakossagi_tajekoztatas",
+      "base_score": 2,
+      "source_weight": 1,
+      "confidence": 0.85,
+      "final_score": 1.7,
+      "matched_negative_rules": [],
+      "matched_positive_rules": [
+        {
+          "category": "lakossagi_tajekoztatas",
+          "score": 2,
+          "keywords": [
+            "lakossagi forum"
+          ]
+        }
+      ],
+      "url": "https://www.nyugat.hu/cikk/lakossagi_forumot_tartanak_az_azbeszthelyzetrol_a"
     },
     {
       "date": "2026-08-27",
@@ -1676,22 +1661,8 @@
       "url": "https://www.nyugat.hu/cikk/a_sandor_palotaig_jutott_az_oladi_plato_latogat_a"
     },
     {
-      "date": "2026-11-12",
-      "title": "Der Bescheid für die Steinbrüche, der kummt net",
-      "source": "Kurier Burgenland",
-      "source_type": "austrian",
-      "category": "altalanos_media_megjelenes",
-      "base_score": -1,
-      "source_weight": 1,
-      "confidence": 0.7,
-      "final_score": -0.7,
-      "matched_negative_rules": [],
-      "matched_positive_rules": [],
-      "url": "https://kurier.at/chronik/burgenland/steinbrueche-behoerdlich-geschlossen-asbest-taskforce-bezirkshauptmannschaft/403204975"
-    },
-    {
       "date": "2026-11-16",
-      "title": "Wie nahe steht die Bürgerinitiative „Zukunft Asbestfrei“ Greenpeace? Im Südburgenland hat sich eine Initiative „Zukunft Asbestfrei“ gegründet. Sie sei „parteiunabhängig“, sagt deren Sprecherin. Sie selbst war aber jüngst mit Greenpeace bei einer Veranstaltung in Essen.",
+      "title": "Wie nahe steht die Bürgerinitiative „Zukunft Asbestfrei“ Greenpeace?",
       "source": "Kurier Burgenland",
       "source_type": "austrian",
       "category": "altalanos_media_megjelenes",
@@ -1704,10 +1675,10 @@
       "url": "https://kurier.at/chronik/burgenland/asbest-steinbrueche-greenpeace-zukunft-asbestfrei/403205933"
     },
     {
-      "date": "2026-11-16",
-      "title": "Asbest: Neue Bürgerinitiative fordert Offenlegung der Gutachten",
-      "source": "ORF Burgenland",
-      "source_type": "austrian",
+      "date": "2026-11-17",
+      "title": "Az azbeszthelyzetről tájékozódik a köztársasági elnök Szombathelyen",
+      "source": "VAOL",
+      "source_type": "media",
       "category": "altalanos_media_megjelenes",
       "base_score": -1,
       "source_weight": 1,
@@ -1715,7 +1686,29 @@
       "final_score": -0.7,
       "matched_negative_rules": [],
       "matched_positive_rules": [],
-      "url": "https://burgenland.orf.at/stories/3379745"
+      "url": "https://www.vaol.hu/helyi-kozelet/2026/11/az-azbeszthelyzetrol-tajekozodik-a-koztarsasagi-elnok-szombathelyen"
+    },
+    {
+      "date": "2026-11-17",
+      "title": "Azbeszt-mentesítés Szombathelyen: Ezeket a kérdéseket küldték el a köztársasági elnöknek",
+      "source": "VAOL",
+      "source_type": "media",
+      "category": "karelhartas_megoldas",
+      "base_score": 5,
+      "source_weight": 1,
+      "confidence": 0.85,
+      "final_score": 4.25,
+      "matched_negative_rules": [],
+      "matched_positive_rules": [
+        {
+          "category": "karelhartas_megoldas",
+          "score": 5,
+          "keywords": [
+            "mentesites"
+          ]
+        }
+      ],
+      "url": "https://www.vaol.hu/helyi-kozelet/2026/11/azbeszt-mentesites-szombathely"
     }
   ]
 }
