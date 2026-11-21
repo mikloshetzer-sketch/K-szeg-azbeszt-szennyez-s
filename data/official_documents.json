@@ -1,13 +1,13 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-11-21T13:37:25.995Z",
+  "generated_at": "2026-11-21T22:15:03.949Z",
   "source_class": "primary_official",
   "authority": "Vas Vármegyei Kormányhivatal",
   "source_page": "https://kormanyhivatalok.hu/kormanyhivatalok/vas/megye/hirek/hir/azbesztszennyezes-legfontosabb-lakossagi-informaciok",
   "statistics": {
     "total_documents": 32,
     "new_documents": 0,
-    "changed_documents": 5,
+    "changed_documents": 0,
     "download_errors": 0,
     "air_measurement_documents": 11,
     "rock_measurement_documents": 4
@@ -29,9 +29,9 @@
       "size_bytes": 541177,
       "sha256": "b3b0a124151bedf22e888c6e8cfa0e1a6939f92f3a9bf1ec7b54ee554ea6e731",
       "first_seen": "2026-10-01T11:43:07.156Z",
-      "last_checked": "2026-11-21T13:37:07.644Z",
-      "changed_since_previous": true,
-      "previous_sha256": "a943915540c456db1dd46b7c8fd806849c7bc478d7177095e119169241bb74c3",
+      "last_checked": "2026-11-21T22:14:53.128Z",
+      "changed_since_previous": false,
+      "previous_sha256": null,
       "download_status": "ok"
     },
     {
@@ -50,7 +50,7 @@
       "size_bytes": 117428,
       "sha256": "7e36f8655581c58bf0839cf982b234ae006c3d80e4dd94d1fd3c099fbc33f04e",
       "first_seen": "2026-09-25T18:46:04.788Z",
-      "last_checked": "2026-11-21T13:37:09.066Z",
+      "last_checked": "2026-11-21T22:14:54.824Z",
       "changed_since_previous": false,
       "previous_sha256": null,
       "download_status": "ok"
@@ -71,9 +71,9 @@
       "size_bytes": 164222,
       "sha256": "950b7f4ed1d880837369c31ed7477addab0e7546fc34f20875ebc6f4ba65f335",
       "first_seen": "2026-09-25T18:46:06.332Z",
-      "last_checked": "2026-11-21T13:37:09.676Z",
-      "changed_since_previous": true,
-      "previous_sha256": "75fa2115e2a8be21f29fb4cadefedd32e67809a4f6cd7ef0375a5ca3c2c71f7e",
+      "last_checked": "2026-11-21T22:14:55.375Z",
+      "changed_since_previous": false,
+      "previous_sha256": null,
       "download_status": "ok"
     },
     {
@@ -90,9 +90,9 @@
       "size_bytes": 149312,
       "sha256": "02ddd1d357c99ff66df7e2bfb2f2e6d8f438cb8f30db1913188c283066cf47a0",
       "first_seen": "2026-09-25T18:46:08.031Z",
-      "last_checked": "2026-11-21T13:37:09.984Z",
-      "changed_since_previous": true,
-      "previous_sha256": "7b53601ffb8ca197136efe7b8a42c646962cc50add681da5f0338058df41cd56",
+      "last_checked": "2026-11-21T22:14:55.683Z",
+      "changed_since_previous": false,
+      "previous_sha256": null,
       "download_status": "ok"
     },
     {
@@ -109,7 +109,7 @@
       "size_bytes": 1113731,
       "sha256": "19c6d92a59d9323ff6339ad30fe42d562a2efe0591de8bed9286c030f30b72b0",
       "first_seen": "2026-09-25T18:46:12.402Z",
-      "last_checked": "2026-11-21T13:37:12.549Z",
+      "last_checked": "2026-11-21T22:14:55.982Z",
       "changed_since_previous": false,
       "previous_sha256": null,
       "download_status": "ok"
@@ -128,7 +128,7 @@
       "size_bytes": 444637,
       "sha256": "2b846b123251f80b1b304d042a1490eb565013ae9aeaed10952c4dd7bbe89d81",
       "first_seen": "2026-09-25T18:46:13.616Z",
-      "last_checked": "2026-11-21T13:37:13.311Z",
+      "last_checked": "2026-11-21T22:14:56.409Z",
       "changed_since_previous": false,
       "previous_sha256": null,
       "download_status": "ok"
@@ -149,7 +149,7 @@
       "size_bytes": 621322,
       "sha256": "d3c8f3b9fda712a48bec81c63a87024633b2a9045c17aae0e54faffa6cb92a09",
       "first_seen": "2026-09-25T18:46:14.377Z",
-      "last_checked": "2026-11-21T13:37:13.764Z",
+      "last_checked": "2026-11-21T22:14:56.735Z",
       "changed_since_previous": false,
       "previous_sha256": null,
       "download_status": "ok"
@@ -168,7 +168,7 @@
       "size_bytes": 279883,
       "sha256": "7f0ba431cf208703dccdb7d032bec257ae2fee81b897f798cff2c2a5fbf00f32",
       "first_seen": "2026-09-25T18:46:14.708Z",
-      "last_checked": "2026-11-21T13:37:13.995Z",
+      "last_checked": "2026-11-21T22:14:56.970Z",
       "changed_since_previous": false,
       "previous_sha256": null,
       "download_status": "ok"
@@ -189,9 +189,9 @@
       "size_bytes": 152182,
       "sha256": "c8d7aecfb2773659acdf26f54fb93065e3b35ac0b905a6dbe488046b01f2b541",
       "first_seen": "2026-09-25T18:46:15.542Z",
-      "last_checked": "2026-11-21T13:37:14.523Z",
-      "changed_since_previous": true,
-      "previous_sha256": "12aa34656920cb905e8d476c3d2a99debb53e85604aa7a46f63d48853f86704a",
+      "last_checked": "2026-11-21T22:14:57.612Z",
+      "changed_since_previous": false,
+      "previous_sha256": null,
       "download_status": "ok"
     },
     {
@@ -210,7 +210,7 @@
       "size_bytes": 807336,
       "sha256": "dbddbf12069f8fad6f44f58c67d37b82cc3ef8019720b6ee15fb388a758f8a14",
       "first_seen": "2026-09-25T18:46:19.457Z",
-      "last_checked": "2026-11-21T13:37:16.512Z",
+      "last_checked": "2026-11-21T22:14:57.874Z",
       "changed_since_previous": false,
       "previous_sha256": null,
       "download_status": "ok"
@@ -231,7 +231,7 @@
       "size_bytes": 1215232,
       "sha256": "48fb265c85e3acc6b49906c90939ebe86063d1be6aa93309f10fe2285806d36f",
       "first_seen": "2026-09-25T18:46:22.333Z",
-      "last_checked": "2026-11-21T13:37:17.152Z",
+      "last_checked": "2026-11-21T22:14:58.199Z",
       "changed_since_previous": false,
       "previous_sha256": null,
       "download_status": "ok"
@@ -252,9 +252,9 @@
       "size_bytes": 148379,
       "sha256": "9bc02372143a9d7584d30eaebad5a696a679f5454796b406f96c7c29e517a86a",
       "first_seen": "2026-09-25T18:46:26.155Z",
-      "last_checked": "2026-11-21T13:37:17.702Z",
-      "changed_since_previous": true,
-      "previous_sha256": "afddc2a9e64517e7b40aef461c3ae8319e7be0bc002e18fd0c5fe398d37661bd",
+      "last_checked": "2026-11-21T22:14:58.627Z",
+      "changed_since_previous": false,
+      "previous_sha256": null,
       "download_status": "ok"
     },
     {
@@ -273,7 +273,7 @@
       "size_bytes": 22852044,
       "sha256": "5e6e9144f6e41a3720f59ed557eb358bf15e2ce3555758ac90258135bae696ee",
       "first_seen": "2026-09-25T18:46:30.554Z",
-      "last_checked": "2026-11-21T13:37:20.040Z",
+      "last_checked": "2026-11-21T22:14:58.856Z",
       "changed_since_previous": false,
       "previous_sha256": null,
       "download_status": "ok"
@@ -294,7 +294,7 @@
       "size_bytes": 371407,
       "sha256": "64a233d8d4a2e7ba51abdb0f11d497416e1d84c8ed1f7eeb29de682b2413289b",
       "first_seen": "2026-09-25T18:46:39.047Z",
-      "last_checked": "2026-11-21T13:37:21.784Z",
+      "last_checked": "2026-11-21T22:15:00.446Z",
       "changed_since_previous": false,
       "previous_sha256": null,
       "download_status": "ok"
@@ -315,7 +315,7 @@
       "size_bytes": 362261,
       "sha256": "5c6ae88a651e10e3372eb4bd040ec965d275981ee79226b5f77924a6315060ec",
       "first_seen": "2026-09-25T18:46:40.305Z",
-      "last_checked": "2026-11-21T13:37:22.320Z",
+      "last_checked": "2026-11-21T22:15:00.991Z",
       "changed_since_previous": false,
       "previous_sha256": null,
       "download_status": "ok"
@@ -334,7 +334,7 @@
       "size_bytes": 2218878,
       "sha256": "5cb12c4ea77975e978feffddf416ec2f349616fb497f4e89e7e53b38123e96d8",
       "first_seen": "2026-09-25T18:46:40.780Z",
-      "last_checked": "2026-11-21T13:37:22.504Z",
+      "last_checked": "2026-11-21T22:15:01.139Z",
       "changed_since_previous": false,
       "previous_sha256": null,
       "download_status": "ok"
@@ -356,7 +356,7 @@
       "size_bytes": 356623,
       "sha256": "2cde3a26a67a296455f508d743d0df0db63111d847fd7650ab2dfedb57b3debf",
       "first_seen": "2026-09-25T18:46:43.724Z",
-      "last_checked": "2026-11-21T13:37:22.981Z",
+      "last_checked": "2026-11-21T22:15:01.475Z",
       "changed_since_previous": false,
       "previous_sha256": null,
       "download_status": "ok"
@@ -377,7 +377,7 @@
       "size_bytes": 351632,
       "sha256": "42cb360d3d6302e6a842975863876bdffff256d3cbd11fa3cf2ac15e1b410d60",
       "first_seen": "2026-09-25T18:46:44.524Z",
-      "last_checked": "2026-11-21T13:37:23.155Z",
+      "last_checked": "2026-11-21T22:15:01.601Z",
       "changed_since_previous": false,
       "previous_sha256": null,
       "download_status": "ok"
@@ -399,7 +399,7 @@
       "size_bytes": 450427,
       "sha256": "17f3c1b66f473ea216d902625b7dd46344f45ffa2fde2cfa1c4709755c90d4ee",
       "first_seen": "2026-09-25T18:46:45.156Z",
-      "last_checked": "2026-11-21T13:37:23.292Z",
+      "last_checked": "2026-11-21T22:15:01.774Z",
       "changed_since_previous": false,
       "previous_sha256": null,
       "download_status": "ok"
@@ -420,7 +420,7 @@
       "size_bytes": 377038,
       "sha256": "5bb4d3ceadd479acad89cc6b9f4e2d66b90804094a68574070e09593601b6f80",
       "first_seen": "2026-09-25T18:46:45.673Z",
-      "last_checked": "2026-11-21T13:37:23.509Z",
+      "last_checked": "2026-11-21T22:15:01.913Z",
       "changed_since_previous": false,
       "previous_sha256": null,
       "download_status": "ok"
@@ -441,7 +441,7 @@
       "size_bytes": 383835,
       "sha256": "d50d7992308a7ffceae6817537293beafbbeee7fc88fa0f7cebbfc64ecada750",
       "first_seen": "2026-09-25T18:46:46.171Z",
-      "last_checked": "2026-11-21T13:37:23.647Z",
+      "last_checked": "2026-11-21T22:15:02.037Z",
       "changed_since_previous": false,
       "previous_sha256": null,
       "download_status": "ok"
@@ -464,7 +464,7 @@
       "size_bytes": 418569,
       "sha256": "060210d3f4e81daf819169e40e24329376612d654708163ffa50e9688a33c8c6",
       "first_seen": "2026-11-04T13:08:58.945Z",
-      "last_checked": "2026-11-21T13:37:23.859Z",
+      "last_checked": "2026-11-21T22:15:02.211Z",
       "changed_since_previous": false,
       "previous_sha256": null,
       "download_status": "ok"
@@ -486,7 +486,7 @@
       "size_bytes": 456843,
       "sha256": "08cc4b4c8d9f57ee4ab8c8b03ccfa5acfd5277780c4a898dea0a030a1aae1fbb",
       "first_seen": "2026-09-25T18:46:46.539Z",
-      "last_checked": "2026-11-21T13:37:24.081Z",
+      "last_checked": "2026-11-21T22:15:02.335Z",
       "changed_since_previous": false,
       "previous_sha256": null,
       "download_status": "ok"
@@ -505,7 +505,7 @@
       "size_bytes": 523337,
       "sha256": "4b70887e5e42b9baf310de890f0b034dfddd703944231c0f43e079edaa5bc753",
       "first_seen": "2026-09-25T18:46:47.066Z",
-      "last_checked": "2026-11-21T13:37:24.311Z",
+      "last_checked": "2026-11-21T22:15:02.478Z",
       "changed_since_previous": false,
       "previous_sha256": null,
       "download_status": "ok"
@@ -524,7 +524,7 @@
       "size_bytes": 418569,
       "sha256": "060210d3f4e81daf819169e40e24329376612d654708163ffa50e9688a33c8c6",
       "first_seen": "2026-09-25T18:46:07.137Z",
-      "last_checked": "2026-11-21T13:37:24.569Z",
+      "last_checked": "2026-11-21T22:15:02.854Z",
       "changed_since_previous": false,
       "previous_sha256": null,
       "download_status": "ok"
@@ -545,7 +545,7 @@
       "size_bytes": 409012,
       "sha256": "012056edf3ff0cbf09688808688c039564e706e000eed150e4b813f3d3f44710",
       "first_seen": "2026-09-25T18:46:47.424Z",
-      "last_checked": "2026-11-21T13:37:24.788Z",
+      "last_checked": "2026-11-21T22:15:02.979Z",
       "changed_since_previous": false,
       "previous_sha256": null,
       "download_status": "ok"
@@ -564,7 +564,7 @@
       "size_bytes": 412040,
       "sha256": "7a371006b4e2d718965309e02cb194cf17d768d9a7ccdfa6b2ab9d5584bba2ff",
       "first_seen": "2026-10-19T21:38:37.562Z",
-      "last_checked": "2026-11-21T13:37:25.014Z",
+      "last_checked": "2026-11-21T22:15:03.166Z",
       "changed_since_previous": false,
       "previous_sha256": null,
       "download_status": "ok"
@@ -583,7 +583,7 @@
       "size_bytes": 400061,
       "sha256": "1a537ab46e1df388c7500596531b5d0562da052c7eb753836a59d53692dd1803",
       "first_seen": "2026-10-19T21:38:37.748Z",
-      "last_checked": "2026-11-21T13:37:25.188Z",
+      "last_checked": "2026-11-21T22:15:03.288Z",
       "changed_since_previous": false,
       "previous_sha256": null,
       "download_status": "ok"
@@ -602,7 +602,7 @@
       "size_bytes": 399394,
       "sha256": "98a35b75b43e62c2f2adddad86686074116aefa2dd71e4acfae320d722442a8c",
       "first_seen": "2026-10-19T21:38:37.902Z",
-      "last_checked": "2026-11-21T13:37:25.356Z",
+      "last_checked": "2026-11-21T22:15:03.432Z",
       "changed_since_previous": false,
       "previous_sha256": null,
       "download_status": "ok"
@@ -621,7 +621,7 @@
       "size_bytes": 398012,
       "sha256": "668d1fa6f0fbb6e68a04e7bb4fa4cb9288af6e247bc61b304e6f428e56eea082",
       "first_seen": "2026-10-21T10:24:12.628Z",
-      "last_checked": "2026-11-21T13:37:25.480Z",
+      "last_checked": "2026-11-21T22:15:03.566Z",
       "changed_since_previous": false,
       "previous_sha256": null,
       "download_status": "ok"
@@ -640,7 +640,7 @@
       "size_bytes": 401682,
       "sha256": "614bba7078515911f63692a26c46b6d351b34d31995a551abdab08df603e4baa",
       "first_seen": "2026-11-06T13:06:07.358Z",
-      "last_checked": "2026-11-21T13:37:25.690Z",
+      "last_checked": "2026-11-21T22:15:03.703Z",
       "changed_since_previous": false,
       "previous_sha256": null,
       "download_status": "ok"
@@ -659,7 +659,7 @@
       "size_bytes": 211947,
       "sha256": "dfbfb64b9db02ad3a8901aa00e2107fa64ab0a6d5797456cec1409d39d6839c3",
       "first_seen": "2026-11-06T13:06:07.507Z",
-      "last_checked": "2026-11-21T13:37:25.882Z",
+      "last_checked": "2026-11-21T22:15:03.831Z",
       "changed_since_previous": false,
       "previous_sha256": null,
       "download_status": "ok"
