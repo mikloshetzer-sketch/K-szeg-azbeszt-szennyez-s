@@ -1,11 +1,12 @@
 {
-  "generated_at": "2026-11-23T16:58:43.785977+00:00",
+  "generated_at": "2026-11-24T03:41:04.072632+00:00",
   "refresh_hours": 6,
   "query": "\n(\"Kőszeg\" OR \"Koszeg\" OR \"Bozsok\" OR \"Szombathely\" OR \"Pilgersdorf\" OR \"Burgenland\" OR \"Bernstein\")\n(azbeszt OR aszbeszt OR kőzúzalék OR kőbánya OR serpentinit OR Asbest OR Steinbruch OR Schotter OR Greenpeace)\n",
   "mode": "rss_html_search_fallback_gdelt_ai_filtered_with_article_date_extraction",
   "source_counts": {
     "HVG": 18,
     "Kőszeg Önkormányzat": 1,
+    "Telex": 9,
     "444": 9,
     "Kurier Burgenland": 3,
     "Nyugat.hu": 30,
@@ -16,12 +17,12 @@
     "ORF Burgenland": 1
   },
   "source_type_counts": {
-    "media": 71,
+    "media": 80,
     "official": 1,
     "austrian": 4,
     "civil": 1
   },
-  "summary": "Azbeszt tartalmú kőzúzalék ügyében az elmúlt időszakban több térségi település – köztük Kőszeg, Bozsok, Szombathely, valamint az ausztriai Burgenland tartomány területei, például Pilgersdorf – került a figyelem középpontjába. A témában többféle forrás, így magyar hivatalos szervek, önkormányzatok, civil szervezetek, valamint magyar és osztrák médiumok számoltak be fejleményekről, eltérő hangsúlyokkal.\n\n**Hivatalos és önkormányzati álláspontok**  \nKőszeg önkormányzata tájékoztatókat tett közzé az ausztriai bányákból származó kőzúzalékkal kapcsolatban, és aktívan pályázik az azbesztmentesítési alapból támogatásra (Kőszeg Önkormányzat, Nyugat.hu). Szombathely önkormányzata pedig közel 1,6 milliárd forintot tervez elkülöníteni az azbeszt-helyzet megoldására, aminek finanszírozásában 10 százalék önrészt is vállal (Nyugat.hu). A Vas Megyei Kormányhivatal soron kívül vizsgálja a szombathelyi kárenyhítési munkálatokat, és kisebb szabálytalanságokat tárt fel az érintett szakaszokon (HVG, 444).\n\n**Magyarországi média beszámolói**  \nA médiumok rendre hangsúlyozzák, hogy a kőzúzalék szennyezettsége súlyos, helyenként több ezer százalékos határérték-túllépést mutatnak a mérések. Ugyanakkor – a 444 és HVG cikkei szerint – az egészségügyi következtetések és laboreredmények kapcsán fenntartások érvényesek, mivel ezek még nem tekinthetők lefutott ügynek vagy egységes hatósági állásfoglalásnak. Az érintett utcákban Kőszegen például sebességkorlátozást is elrendeltek az esetleges veszélyek mérséklésére (HVG). A Greenpeace Magyarország civilek képviseletében javaslatokat fogalmazott meg a helyzet kezelésére, különösen Szombathelyen, ahol a munkálatok leállítását is kérték (Greenpeace Magyarország, HVG).\n\n**Ausztriai (burgenlandi) vonatkozások**  \nBurgenlandban – ahol eredetileg az azbeszttartalmú kőzúzalékot bányászták – a bányákat a hatóságok bezárták, ám az ügy kapcsán helyi érdekcsoportok különböző narratívákat alakítanak ki, amelyek egy része tagadja a szennyezést (444, Kurier Burgenland). A burgenlandi Oberwart városa egy megoldási javaslatként a kőzúzalék eltávolítása helyett speciális kötőanyagot alkalmazna, amit a Greenpeace nem tart fenntartható megoldásnak (Kurier Burgenland).\n\nÖsszességében a térségben folyamatban van a szennyezett kőzúzalék eltávolítását és biztonságos kezelését célzó intézkedések előkészítése és részleges végrehajtása, mindkét ország illetékes szervei bevonásával. A lakosság egészségvédelmét illetően a hivatalos vizsgálatok és javaslatok továbbra is folyamatban vannak, miközben civil szervezetek szorgalmazzák a gyorsabb és átfogóbb beavatkozást.\n\n---\n\n**Röviden:**  \n- Kőszeg és Szombathely térségében több ezer százalékos azbeszt-túllépést mértek, az érintett helyeken intézkedések zajlanak.  \n- Vas megyei kormányhivatal vizsgálja a munkálatokat, az önkormányzatok pedig az azbesztmentesítés támogatására pályáznak.  \n- Burgenlandban a bányák bezártak, de a megoldás módja körül Osztrákországban is vita folyik, civil szervezetek aktív részvételével.",
+  "summary": "Azbesztszennyezés a Kőszeg, Bozsok, Szombathely és a burgenlandi határmenti térségben: aktuális helyzet és reakciók\n\nAz elmúlt hónapokban sorra ismertté váltak azbesztszennyezésre utaló problémák a magyar-osztrák határtérségben, különösen Kőszeg, Bozsok, Szombathely településeken és az osztrák Burgenland régió bizonyos területein. Az ügyben különböző források – hivatalos, önkormányzati, civil, média- és osztrák sajtó – jelentenek eseményeket, álláspontokat és intézkedéseket, amelyek összefoglalva az alábbiak.\n\nHivatalos és önkormányzati információk\n\nKőszeg város önkormányzata közleményben tájékoztatta a lakosságot az osztrák bányákból származó kőzúzalék használatából eredő esetleges azbesztkitettségről és a kapcsolódó vizsgálatokról (Kőszeg Önkormányzat, 2026 április). Kőszegben több utcában – mintegy 46 helyszínen – a közlekedési sebességet 10 km/óra maximálisra csökkentették az azbesztkockázatok mérséklése érdekében (HVG, 2026 április).\n\nA Vas Megyei Kormányhivatal soron kívüli, fokozott vizsgálatokat indított a szombathelyi kárenyhítő munkálatokkal kapcsolatban, hogy ellenőrizze az azbeszt kiporzásának egészségügyi kockázatait és a szabályok betartását (HVG, 2026 szeptember; Telex, 2026 szeptember). Szombathelyen a helyi önkormányzat 1,6 milliárd forintos költséggel tervezi orvosolni az azbesztproblémákat, emellett pályáznak azbesztmentesítési támogatásokra is, például Kőszeg félmilliárd forintot igényel ilyen célokra (Nyugat.hu, 2026 szeptember–október). Az önkormányzatok az önerő vállalásával is hozzájárulnak a megoldás finanszírozásához.\n\nA kormányhivatal folyamatosan ellenőrzi az azbesztes utak fedésének minőségét Szombathelyen; eddig kisebb szabályossági hiányosságokat talált, de nem rendelt el munkálatok leállítást (Telex, 2026 szeptember).\n\nMédia beszámolók\n\nA magyar és hazai sajtó több ízben beszámolt az azbeszt mértékének határértéket sokszorosan meghaladó kimutatásáról a térség levegőjében, különösen Kőszegen. A mérések egyes pontokon akár a negyvenszeres túllépést is jeleztek (HVG, 2026 szeptember; 444.hu, 2026 szeptember; Telex, 2026 szeptember). Hírek szerint a szennyezett kőzúzalék óvodák, bölcsődék, iskolai kollégiumok környezetében is megjelent (HVG, 2026 május). A Greenpeace a szombathelyi helyszínen nyilvánosan kifejtette aggodalmait és a munkálatok leállítását kérte a nem kellően biztonságos módszerek miatt (HVG, 2026 szeptember; Greenpeace Magyarország, 2026 október).\n\nA helyi média beszámol arról is, hogy Kőszegen az osztrák Rohonc környéki bányákhoz kötik a szennyezés forrását, és az érintett területeken további vizsgálatok folynak (Telex, 2026 április–május).\n\nCivil és környezetvédelmi szervezetek\n\nA Greenpeace Magyarország kifejezte, hogy az érintett településeken nemcsak a szennyezést kell kezelni, hanem a lakosság folyamatos tájékoztatására és támogatására is szükség van. Személyesen is részt vettek Szombathelyen konzultációkon és javaslatokat adtak az ügy kezelésére (Greenpeace Magyarország, 2026 október).\n\nAz osztrák Greenpeace és a helyi hatóságok között ugyanakkor viták zajlanak az érintett burgenlandi bánya üzemeltetése és a szennyezett kő",
   "latest_articles": [
     {
       "title": "Asbest bei Kinderkrippe: Warum Oberwart den Schotter nicht entfernt Die Stadt setzt auf ein spezielles Bindemittel statt auf die Entfernung des belasteten Materials. Greenpeace hält das für keine nachhaltige Sanierung.",
@@ -32,7 +33,7 @@
       "type": "html"
     },
     {
-      "title": "Oberwart Bindemittel soll Asbest-Problem lösen",
+      "title": "Bindemittel soll Asbest-Problem lösen",
       "source": "ORF Burgenland",
       "source_type": "austrian",
       "date": "2026-11-23",
@@ -146,6 +147,14 @@
       "type": "manual"
     },
     {
+      "title": "A határértéket többszörösen meghaladó azbeszttartalmat mértek a levegőben Kőszegen",
+      "source": "Telex",
+      "source_type": "media",
+      "date": "2026-09-25",
+      "url": "https://telex.hu/belfold/2026/09/25/azbeszt-szennyezes-koszeg-szombathely-meres-oladi-plato",
+      "type": "html_targeted"
+    },
+    {
       "title": "Azbesztszennyezés: soron kívül vizsgálja a szombathelyi kárenyhítő munkálatokat a kormányhivatal",
       "source": "HVG",
       "source_type": "media",
@@ -178,6 +187,14 @@
       "type": "html"
     },
     {
+      "title": "1,6 milliárd forint lesz a szombathelyi azbeszt-helyzet megoldása, a pénzt az önkormányzat vissza akarja szerezni a kormánytól",
+      "source": "Nyugat.hu",
+      "source_type": "media",
+      "date": "2026-09-10",
+      "url": "https://www.nyugat.hu/cikk/16_milliard_forint_lesz_a_szombathelyi_azbeszt_a",
+      "type": "search_rss_targeted"
+    },
+    {
       "title": "Több mint félmilliárd forint támogatásra pályázik Kőszeg az azbesztmentesítési alapból",
       "source": "Nyugat.hu",
       "source_type": "media",
@@ -194,20 +211,44 @@
       "type": "search_rss_targeted"
     },
     {
-      "title": "1,6 milliárd forint lesz a szombathelyi azbeszt-helyzet megoldása, a pénzt az önkormányzat vissza akarja szerezni a kormánytól",
-      "source": "Nyugat.hu",
-      "source_type": "media",
-      "date": "2026-09-10",
-      "url": "https://www.nyugat.hu/cikk/16_milliard_forint_lesz_a_szombathelyi_azbeszt_a",
-      "type": "search_rss_targeted"
-    },
-    {
       "title": "A Greenpeace Szombathelyen adta át azbesztügyi javaslatait: ne hagyják magukra az érintett településeket és a lakosságot!",
       "source": "Greenpeace Magyarország",
       "source_type": "civil",
       "date": "2026-10-02",
       "url": "https://www.greenpeace.org/hungary/sajtokozlemeny/14905/a-greenpeace-szombathelyen-adta-at-azbesztugyi-javaslatait-ne-hagyjak-magukra-az-erintett-telepuleseket-es-a-lakossagot",
       "type": "html"
+    },
+    {
+      "title": "Kőszegen újabb helyeken mutattak ki azbesztszennyezést, az osztrák rohonci bánya is érintett lehet",
+      "source": "Telex",
+      "source_type": "media",
+      "date": "2026-05-20",
+      "url": "https://telex.hu/belfold/2026/05/20/azbeszt-szennyezes-koszeg-ausztria-rohonc-banya-vas-megye-kormanyhivatal",
+      "type": "html_targeted"
+    },
+    {
+      "title": "Kőszegre is juthatott az azbeszttel szennyezett kőzúzalékból",
+      "source": "Telex",
+      "source_type": "media",
+      "date": "2026-04-24",
+      "url": "https://telex.hu/belfold/2026/04/24/azbeszt-koszeg-banya-intezkedesek",
+      "type": "html_targeted"
+    },
+    {
+      "title": "Fokozottan ellenőrzi az azbesztes utak lefedését a kormányhivatal Szombathelyen, eddig két...",
+      "source": "Telex",
+      "source_type": "media",
+      "date": "2026-09-21",
+      "url": "https://telex.hu/belfold/2026/09/21/szombathely-azbesztszennyezes-kormanyhivatal-vizsgalat-kisebb-szabalytalansagok",
+      "type": "html_targeted"
+    },
+    {
+      "title": "A Greenpeace szerint veszélyes, ahogyan az azbesztes utakat lefedik Szombathelyen",
+      "source": "Telex",
+      "source_type": "media",
+      "date": "2026-09-16",
+      "url": "https://telex.hu/belfold/2026/09/16/vizsgaljak-hogy-egeszsegre-karos-modon-enyhitik-e-az-azbeszt-kiporzasat-szombathelyen",
+      "type": "html_targeted"
     },
     {
       "title": "Azbeszt: bölcsődék, óvodák, iskolai kollégiumok parkolóiba és játszótér közelébe is jutott a szennyezett kövekből",
@@ -306,14 +347,6 @@
       "type": "search_rss_targeted"
     },
     {
-      "title": "Közel 100 éves azbesztcement csövek is vannak Szombathely ivóvízhálózatában – mennyire kell aggódnia a városlakóknak?",
-      "source": "Nyugat.hu",
-      "source_type": "media",
-      "date": "2026-04-03",
-      "url": "https://www.nyugat.hu/cikk/kozel_100_eves_azbesztcement_csovek_is_vannak_kell",
-      "type": "search_rss_targeted"
-    },
-    {
       "title": "Kövesse élő közvetítésünket az azbeszt-ügyben szervezett szombathelyi lakossági fórumról",
       "source": "Nyugat.hu",
       "source_type": "media",
@@ -327,6 +360,14 @@
       "source_type": "media",
       "date": "2026-06-21",
       "url": "https://www.nyugat.hu/cikk/nagykolked_felelosseg_es_azbeszt_mit_mondott_v",
+      "type": "search_rss_targeted"
+    },
+    {
+      "title": "Hétfőn a parlament elé kerül a szombathelyi azbeszt-ügy",
+      "source": "Nyugat.hu",
+      "source_type": "media",
+      "date": "2026-05-14",
+      "url": "https://www.nyugat.hu/cikk/hetfon_parlament_ele_kerul_szombathelyi_azbeszt_ugy",
       "type": "search_rss_targeted"
     },
     {
@@ -407,6 +448,38 @@
       "source_type": "media",
       "date": "2026-10-14",
       "url": "https://www.vaol.hu/helyi-kozelet/2026/10/azbesztszennyezes-tobb-mint-545-millio-forint-tamogatasra-palyazik-koszeg",
+      "type": "html_targeted"
+    },
+    {
+      "title": "Hússzor annyiba kerülhet elszállítani az azbesztes követ a szombathelyi utakról, mint lefedni",
+      "source": "Telex",
+      "source_type": "media",
+      "date": "2026-10-26",
+      "url": "https://telex.hu/belfold/2026/10/26/azbeszt-szombathely-oladi-plato-artalmatlanitas-onkormanyzat",
+      "type": "html_targeted"
+    },
+    {
+      "title": "Három héten belül végezhetnek az azbesztes utak lefedésével Szombathelyen",
+      "source": "Telex",
+      "source_type": "media",
+      "date": "2026-10-07",
+      "url": "https://telex.hu/belfold/2026/10/07/szombathely-azbeszt-ut-bitumen-aszfalt-lefedes-nemeny-andras-polgarmester",
+      "type": "html_targeted"
+    },
+    {
+      "title": "Szombathely szerint rövid távon az azbesztes út lefedése a legjobb megoldás",
+      "source": "Telex",
+      "source_type": "media",
+      "date": "2026-09-28",
+      "url": "https://telex.hu/belfold/2026/09/28/azbeszt-szombathely-ko-utca-oladi-plato-lefedes-megoldas-onkormanyzat",
+      "type": "html_targeted"
+    },
+    {
+      "title": "A szombathelyi polgármester szerint a lakosok elhordják az azbesztmentesítéshez lerakott követ",
+      "source": "Telex",
+      "source_type": "media",
+      "date": "2026-09-24",
+      "url": "https://telex.hu/belfold/2026/09/24/a-szombathelyi-polgarmester-szerint-a-lakosok-elhordjak-az-azbesztmentesiteshez-lerakott-kovet",
       "type": "html_targeted"
     },
     {
@@ -546,7 +619,7 @@
       "type": "html_targeted"
     },
     {
-      "title": "Oberwart Bindemittel soll Asbest-Problem lösen",
+      "title": "Bindemittel soll Asbest-Problem lösen",
       "source": "ORF Burgenland",
       "source_type": "austrian",
       "date": "2026-11-23",
@@ -578,19 +651,19 @@
       "type": "search_rss_targeted"
     },
     {
-      "title": "Központi porszívóval az azbeszt ellen? – Igen, egy lehetséges megoldás a tisztább otthoni levegőért",
-      "source": "Nyugat.hu",
-      "source_type": "media",
-      "date": "2026-05-25",
-      "url": "https://www.nyugat.hu/cikk/kozponti_porszivoval_az_azbeszt_ellen_igen_egy_a",
-      "type": "search_rss_targeted"
-    },
-    {
       "title": "Azbeszt-veszély Vas megyében: A kormány vállalja a védekezés és kárelhárítás költségeit",
       "source": "Nyugat.hu",
       "source_type": "media",
       "date": "2026-04-30",
       "url": "https://www.nyugat.hu/cikk/azbeszt_veszely_a_kormany_vallalja_a_vedekezes_es",
+      "type": "search_rss_targeted"
+    },
+    {
+      "title": "Központi porszívóval az azbeszt ellen? – Igen, egy lehetséges megoldás a tisztább otthoni levegőért",
+      "source": "Nyugat.hu",
+      "source_type": "media",
+      "date": "2026-05-25",
+      "url": "https://www.nyugat.hu/cikk/kozponti_porszivoval_az_azbeszt_ellen_igen_egy_a",
       "type": "search_rss_targeted"
     },
     {
